@@ -26,7 +26,7 @@ export const DemoModalProvider = ({ children }: { children: ReactNode }) => {
 
 /* ───────── Form ───────── */
 
-const GOOGLE_SHEET_URL = ''; // User will set this
+const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbynDEbMQqfStBwK-sJa5UoLuZtBDNvSPZ4HLvcpuZxTSe6lUy7nuIbxWbQ3QOPovG6N/exec';
 
 const courseOptions = [
   'JEE Main + Advanced (2 Year)',
