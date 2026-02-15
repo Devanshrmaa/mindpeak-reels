@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useDemoModal } from '@/components/DemoBookingModal';
 import trophyAchievement from '@/assets/icons/trophy-achievement.png';
 import growthChart from '@/assets/icons/growth-chart.png';
 import targetPrecision from '@/assets/icons/target-precision.png';
@@ -13,6 +14,7 @@ const stats = [
 ];
 
 export const ResultSection = () => {
+  const { openDemoModal } = useDemoModal();
   return (
     <section className="relative py-20 md:py-24 bg-gradient-to-br from-background via-secondary to-background flex items-center justify-center overflow-hidden">
       {/* Floating celebration elements - subtle golden particles */}
@@ -104,12 +106,12 @@ export const ResultSection = () => {
           transition={{ delay: 1.8 }}
           className="mt-14"
         >
-          <a
-            href="#contact"
+          <button
+            onClick={openDemoModal}
             className="inline-block px-10 md:px-12 py-4 md:py-5 bg-gradient-to-r from-gold to-gold-dark text-background font-bold text-base md:text-lg rounded-full hover:scale-105 transition-transform shadow-gold-glow"
           >
             Start Your Transformation
-          </a>
+          </button>
         </motion.div>
 
         <motion.p

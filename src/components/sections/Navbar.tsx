@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useDemoModal } from '@/components/DemoBookingModal';
 import logo from '@/assets/logo.jpeg';
 
 const navLinks = [
@@ -15,6 +16,7 @@ const navLinks = [
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { openDemoModal } = useDemoModal();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -61,12 +63,12 @@ export const Navbar = () => {
               </a>
             )
           )}
-          <a
-            href="#contact"
+          <button
+            onClick={openDemoModal}
             className="px-6 py-2 border border-primary text-primary text-sm uppercase tracking-wider hover:bg-primary hover:text-primary-foreground transition-all duration-300"
           >
             Book Your Free Demo
-          </a>
+          </button>
         </div>
 
         {/* Mobile Toggle */}
@@ -110,13 +112,12 @@ export const Navbar = () => {
                   </a>
                 )
               )}
-              <a
-                href="#contact"
-                onClick={() => setMobileOpen(false)}
-                className="mt-2 px-6 py-3 border border-primary text-primary text-center uppercase tracking-wider hover:bg-primary hover:text-primary-foreground transition-all"
+              <button
+                onClick={() => { setMobileOpen(false); openDemoModal(); }}
+                className="mt-2 px-6 py-3 border border-primary text-primary text-center uppercase tracking-wider hover:bg-primary hover:text-primary-foreground transition-all w-full"
               >
                 Book Your Free Demo
-              </a>
+              </button>
             </div>
           </motion.div>
         )}
