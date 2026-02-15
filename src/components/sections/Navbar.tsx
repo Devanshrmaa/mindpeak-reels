@@ -43,13 +43,13 @@ export const Navbar = () => {
         </a>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) =>
             link.isRoute ? (
               <Link
                 key={link.label}
                 to={link.href}
-                className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium tracking-wider uppercase"
+                className="text-muted-foreground hover:text-primary transition-colors text-xs font-medium tracking-wider uppercase whitespace-nowrap"
               >
                 {link.label}
               </Link>
@@ -57,7 +57,7 @@ export const Navbar = () => {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium tracking-wider uppercase"
+                className="text-muted-foreground hover:text-primary transition-colors text-xs font-medium tracking-wider uppercase whitespace-nowrap"
               >
                 {link.label}
               </a>
@@ -65,16 +65,16 @@ export const Navbar = () => {
           )}
           <button
             onClick={openDemoModal}
-            className="px-6 py-2 border border-primary text-primary text-sm uppercase tracking-wider hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+            className="px-5 py-2 border border-primary text-primary text-xs uppercase tracking-wider hover:bg-primary hover:text-primary-foreground transition-all duration-300 whitespace-nowrap flex-shrink-0"
           >
-            Book Your Free Demo
+            Book Free Demo
           </button>
         </div>
 
         {/* Mobile Toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-foreground p-2"
+          className="lg:hidden text-foreground p-2"
           aria-label="Toggle menu"
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -88,7 +88,7 @@ export const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden"
+            className="lg:hidden bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden"
           >
             <div className="px-6 py-6 flex flex-col gap-4">
               {navLinks.map((link) =>
