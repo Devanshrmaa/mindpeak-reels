@@ -17,7 +17,7 @@ export const ProblemSection = () => {
     <section
       ref={sectionRef}
       className="relative bg-gradient-to-b from-destructive/20 to-background"
-      style={{ height: '250vh' }}
+      style={{ height: '150vh' }}
     >
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
         <motion.div
