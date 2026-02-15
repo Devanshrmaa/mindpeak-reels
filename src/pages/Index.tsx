@@ -13,20 +13,29 @@ import { ContactSection } from '@/components/sections/ContactSection';
 
 const Index = () => {
   return (
-    <main className="bg-background">
+    <>
+      {/* Skip Navigation for Accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded"
+      >
+        Skip to main content
+      </a>
       <Navbar />
-      <HeroSection />
-      <ProblemSection />
-      <DiscoverySection />
-      <TransformationTimeline />
-      <BeforeAfterSection />
-      <ResultSection />
-      <SuccessGrid />
-      <CourseFlashcards />
-      <MethodologySection />
-      <FAQSection />
-      <ContactSection />
-    </main>
+      <main id="main-content" className="bg-background">
+        <HeroSection />
+        <ProblemSection />
+        <DiscoverySection />
+        <TransformationTimeline />
+        <BeforeAfterSection />
+        <ResultSection />
+        <SuccessGrid />
+        <CourseFlashcards />
+        <MethodologySection />
+        <FAQSection />
+        <ContactSection />
+      </main>
+    </>
   );
 };
 

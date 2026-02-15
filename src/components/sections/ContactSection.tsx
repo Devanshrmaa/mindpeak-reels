@@ -29,7 +29,7 @@ export const ContactSection = () => {
   return (
     <>
     <NCERTDownloadModal isOpen={downloadModalOpen} onClose={() => setDownloadModalOpen(false)} book={selectedBook} />
-    <section id="contact" className="bg-background py-16 px-6 border-t border-border">
+    <section id="contact" className="bg-background py-16 px-6 border-t border-border" aria-label="Contact and downloads">
       <div className="max-w-5xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -96,7 +96,7 @@ export const ContactSection = () => {
       </div>
 
       {/* Footer */}
-      <div className="max-w-5xl mx-auto mt-12 pt-8 border-t border-border">
+      <footer className="max-w-5xl mx-auto mt-12 pt-8 border-t border-border" role="contentinfo">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-6">
           {/* Social Links */}
           <div className="flex items-center gap-4">
@@ -140,7 +140,7 @@ export const ContactSection = () => {
         <p className="text-muted-foreground text-xs tracking-wider text-center">
           © 2026 MindPeak Institute. All rights reserved. JEE & NEET Coaching.
         </p>
-      </div>
+      </footer>
     </section>
     </>
   );

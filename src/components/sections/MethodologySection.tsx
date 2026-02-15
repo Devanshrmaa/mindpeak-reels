@@ -38,7 +38,7 @@ export const MethodologySection = () => {
   };
 
   return (
-    <section id="methodology" className="relative flex items-center justify-center overflow-hidden">
+    <section id="methodology" className="relative flex items-center justify-center overflow-hidden" aria-label="Our teaching methodology">
       {/* Background */}
       <div className="absolute inset-0">
         <img src={methodologyBg} alt="" role="presentation" className="w-full h-full object-cover opacity-20" loading="lazy" />
