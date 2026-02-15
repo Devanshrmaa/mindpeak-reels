@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, Twitter } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import logo from '@/assets/logo.jpeg';
 
@@ -79,23 +80,19 @@ export const ContactSection = () => {
 
           {/* Policy Links */}
           <div className="flex items-center gap-4 text-xs tracking-wider">
-            <a
-              href="/terms-and-conditions.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/terms-and-conditions"
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               Terms & Conditions
-            </a>
+            </Link>
             <span className="text-border">|</span>
-            <a
-              href="/terms-and-conditions.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/refund-policy"
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               Refund Policy
-            </a>
+            </Link>
           </div>
         </div>
 
