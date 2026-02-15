@@ -41,7 +41,7 @@ export const MethodologySection = () => {
     <section id="methodology" className="relative flex items-center justify-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
-        <img src={methodologyBg} alt="" className="w-full h-full object-cover opacity-20" />
+        <img src={methodologyBg} alt="" role="presentation" className="w-full h-full object-cover opacity-20" loading="lazy" />
         <div className="absolute inset-0 bg-background/80" />
       </div>
 

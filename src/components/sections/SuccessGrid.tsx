@@ -26,6 +26,15 @@ const stories: StoryItem[] = [
   { id: '6', title: 'MENTOR SESSIONS', subtitle: 'Guided Problem Solving', image: mentoringSession, aspect: 'landscape' },
 ];
 
+const altTextMap: Record<string, string> = {
+  '1': 'Aarav Sharma, MindPeak student who achieved AIR 42 in JEE Advanced',
+  '2': 'Personalized 1-on-1 mentoring session at MindPeak Institute',
+  '3': 'Priya Patel, MindPeak student who achieved AIR 156 in NEET',
+  '4': 'Daily study routine of a MindPeak Institute JEE aspirant',
+  '5': 'Rohan Gupta, MindPeak student who achieved AIR 89 in JEE Mains',
+  '6': 'Guided problem solving mentor session at MindPeak Institute',
+};
+
 const aspectMap = {
   portrait: 'aspect-[4/5]',
   landscape: 'aspect-video',
@@ -70,10 +79,12 @@ export const SuccessGrid = () => {
               <div className="w-full h-full overflow-hidden">
                 <img
                   src={story.image}
-                  alt={story.title}
+                  alt={altTextMap[story.id] || story.title}
                   className="w-[103%] h-[103%] object-cover transition-transform duration-700 group-hover:scale-110"
                   style={{ objectPosition: 'top left' }}
                   loading="lazy"
+                  width={600}
+                  height={story.aspect === 'portrait' ? 750 : story.aspect === 'square' ? 600 : 338}
                 />
               </div>
 
@@ -122,7 +133,7 @@ export const SuccessGrid = () => {
             >
               <img
                 src={selected.image}
-                alt={selected.title}
+                alt={altTextMap[selected.id] || selected.title}
                 className="w-full max-h-[70vh] object-contain rounded-lg"
               />
               <div className="text-center mt-6">
