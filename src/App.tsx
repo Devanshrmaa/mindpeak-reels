@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { DemoModalProvider } from "@/components/DemoBookingModal";
 import { SocialProofPopup } from "@/components/SocialProofPopup";
 import { LanguagePopup } from "@/components/LanguagePopup";
@@ -35,6 +35,8 @@ const App = () => (
             <Route path="/refund-policy" element={<RefundPolicy />} />
             {/* Location Pages — SEO city pages for JEE/NEET */}
             <Route path="/:slug" element={<LocationPage />} />
+            {/* Redirect old/invalid nested routes like /hi/booking to homepage */}
+            <Route path="/:slug/:subpath" element={<Navigate to="/" replace />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
