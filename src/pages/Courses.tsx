@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Users, Clock, BookOpen, Monitor, GraduationCap, Target, Zap, FlaskConical, Brain } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useDemoModal } from '@/components/DemoBookingModal';
 import logo from '@/assets/logo.jpeg';
 import jeeLogo from '@/assets/jee-logo.jpeg';
 import neetLogo from '@/assets/neet-logo.jpeg';
@@ -241,7 +242,7 @@ const testSeriesData: TestSeries[] = [
 
 /* ───────── components ───────── */
 
-const CourseCard = ({ course, index }: { course: Course; index: number }) => {
+const CourseCard = ({ course, index, onBookDemo }: { course: Course; index: number; onBookDemo: () => void }) => {
   const [open, setOpen] = useState(false);
   const Icon = course.icon;
 
@@ -314,12 +315,12 @@ const CourseCard = ({ course, index }: { course: Course; index: number }) => {
                   </li>
                 ))}
               </ul>
-              <a
-                href="/#contact"
-                className="inline-block mt-6 px-8 py-3 bg-gradient-to-r from-gold to-gold-dark text-background font-bold text-sm rounded-full hover:scale-105 transition-transform shadow-gold-glow"
+              <button
+                onClick={onBookDemo}
+                className="mt-6 px-8 py-3 bg-gradient-to-r from-gold to-gold-dark text-background font-bold text-sm rounded-full hover:scale-105 transition-transform shadow-gold-glow"
               >
                 Book Your Free Demo
-              </a>
+              </button>
             </div>
           </motion.div>
         )}
@@ -331,6 +332,7 @@ const CourseCard = ({ course, index }: { course: Course; index: number }) => {
 /* ───────── page ───────── */
 
 const Courses = () => {
+  const { openDemoModal } = useDemoModal();
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
@@ -345,7 +347,7 @@ const Courses = () => {
           <div className="hidden md:flex items-center gap-8">
             <Link to="/" className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium tracking-wider uppercase">Home</Link>
             <Link to="/courses" className="text-primary text-sm font-medium tracking-wider uppercase">Courses</Link>
-            <a href="/#contact" className="px-6 py-2 border border-primary text-primary text-sm uppercase tracking-wider hover:bg-primary hover:text-primary-foreground transition-all duration-300">Book Your Free Demo</a>
+            <button onClick={openDemoModal} className="px-6 py-2 border border-primary text-primary text-sm uppercase tracking-wider hover:bg-primary hover:text-primary-foreground transition-all duration-300">Book Your Free Demo</button>
           </div>
         </div>
       </nav>
@@ -425,7 +427,7 @@ const Courses = () => {
 
           <div className="grid grid-cols-1 gap-5">
             {courses.map((course, i) => (
-              <CourseCard key={course.name} course={course} index={i} />
+              <CourseCard key={course.name} course={course} index={i} onBookDemo={openDemoModal} />
             ))}
           </div>
 
@@ -486,12 +488,12 @@ const Courses = () => {
           </div>
 
           <div className="mt-10 text-center">
-            <a
-              href="/#contact"
-              className="inline-block px-12 py-4 bg-gradient-to-r from-gold to-gold-dark text-background font-bold text-base rounded-full hover:scale-105 transition-transform shadow-gold-glow"
+            <button
+              onClick={openDemoModal}
+              className="px-12 py-4 bg-gradient-to-r from-gold to-gold-dark text-background font-bold text-base rounded-full hover:scale-105 transition-transform shadow-gold-glow"
             >
               Book Your Free Demo
-            </a>
+            </button>
           </div>
         </div>
       </section>

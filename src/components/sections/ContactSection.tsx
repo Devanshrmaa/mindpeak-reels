@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin } from 'lucide-react';
+import { useDemoModal } from '@/components/DemoBookingModal';
 import logo from '@/assets/logo.jpeg';
 
 export const ContactSection = () => {
+  const { openDemoModal } = useDemoModal();
   return (
     <section id="contact" className="bg-background py-16 px-6 border-t border-border">
       <div className="max-w-5xl mx-auto text-center">
@@ -41,14 +43,14 @@ export const ContactSection = () => {
           ))}
         </div>
 
-        <motion.a
-          href="tel:+919876543210"
+        <motion.button
+          onClick={openDemoModal}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="inline-block px-14 py-4 bg-primary text-primary-foreground font-display font-bold text-sm uppercase tracking-[0.15em] shadow-gold-glow animate-pulse-glow transition-all"
+          className="inline-block px-14 py-4 bg-primary text-primary-foreground font-display font-bold text-sm uppercase tracking-[0.15em] shadow-gold-glow transition-all"
         >
-          Book Free Counseling
-        </motion.a>
+          Book Your Free Demo
+        </motion.button>
       </div>
 
       {/* Footer */}
