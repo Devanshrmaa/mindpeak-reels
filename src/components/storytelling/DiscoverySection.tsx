@@ -1,6 +1,9 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import logo from '@/assets/logo.jpeg';
+import mentoringIcon from '@/assets/icons/mentoring-icon.png';
+import analyticsDashboard from '@/assets/icons/analytics-dashboard.png';
+import targetPrecision from '@/assets/icons/target-precision.png';
 
 export const DiscoverySection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -14,9 +17,9 @@ export const DiscoverySection = () => {
   const logoOpacity = useTransform(scrollYProgress, [0.2, 0.5], [0, 1]);
 
   const pillars = [
-    { icon: '👤', title: 'Dedicated Mentor', description: 'Your personal guide through JEE/NEET' },
-    { icon: '📊', title: 'Adaptive Curriculum', description: 'Adjusts to your learning pace' },
-    { icon: '🎯', title: 'Individual Attention', description: 'No question goes unanswered' },
+    { image: mentoringIcon, title: 'Dedicated Mentor', description: 'Your personal guide through JEE/NEET' },
+    { image: analyticsDashboard, title: 'Adaptive Curriculum', description: 'Adjusts to your learning pace' },
+    { image: targetPrecision, title: 'Individual Attention', description: 'No question goes unanswered' },
   ];
 
   return (
@@ -32,7 +35,7 @@ export const DiscoverySection = () => {
         />
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <motion.div style={{ scale: logoScale, opacity: logoOpacity }} className="mb-16">
+          <motion.div style={{ scale: logoScale, opacity: logoOpacity }} className="mb-12">
             <img
               src={logo}
               alt="MindPeak Institute"
@@ -44,7 +47,7 @@ export const DiscoverySection = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
-            className="font-display text-foreground mb-12"
+            className="font-display text-foreground mb-8"
             style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', fontWeight: 700 }}
           >
             THEN YOU DISCOVER
@@ -57,7 +60,7 @@ export const DiscoverySection = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="text-blue-soft text-lg md:text-xl mb-20"
+            className="text-blue-soft text-lg md:text-xl mb-12"
           >
             Where every student gets a dedicated mentor, adaptive curriculum, and individualized attention
           </motion.p>
@@ -72,7 +75,9 @@ export const DiscoverySection = () => {
                 transition={{ delay: i * 0.2 }}
                 className="p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border"
               >
-                <div className="text-4xl md:text-5xl mb-4">{pillar.icon}</div>
+                <div className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-4 rounded-xl overflow-hidden">
+                  <img src={pillar.image} alt={pillar.title} className="w-full h-full object-cover" />
+                </div>
                 <h3 className="text-foreground font-semibold text-lg md:text-xl mb-2">{pillar.title}</h3>
                 <p className="text-muted-foreground text-sm">{pillar.description}</p>
               </motion.div>
