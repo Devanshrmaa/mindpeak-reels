@@ -1,262 +1,19 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Users, Clock, BookOpen, Monitor, GraduationCap, Target, Zap, FlaskConical, Brain, Download } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ChevronDown, Users, Clock, BookOpen, Monitor, GraduationCap, Target, Zap, FlaskConical, Brain, Download, ArrowRight } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import { NCERTDownloadModal } from '@/components/NCERTDownloadModal';
+import { courses, testSeriesData, type Course } from '@/data/coursesData';
 import logo from '@/assets/logo.jpeg';
 import jeeLogo from '@/assets/jee-logo.jpeg';
 import neetLogo from '@/assets/neet-logo.jpeg';
 import foundationLogo from '@/assets/foundation-logo.png';
 
-/* ───────── course data ───────── */
-
-interface Course {
-  name: string;
-  targetExam: string;
-  duration: string;
-  mode: string;
-  fee: string;
-  icon: typeof Users;
-  color?: string;
-  description: string;
-  highlights: string[];
-  logo?: string;
-  brochure?: { title: string; file: string };
-}
-
-const courses: Course[] = [
-  {
-    name: 'JEE Main Target 2028',
-    targetExam: 'JEE Main + Advanced',
-    duration: '2 Years',
-    mode: '1-on-1',
-    fee: '₹2,30,000 + GST',
-    icon: Target,
-    logo: jeeLogo,
-    description:
-      'A comprehensive 2-year program designed for students starting early in their JEE preparation journey. This course covers the complete JEE Main and Advanced syllabus with a deep-concept approach. Each student receives a personalized study roadmap, daily 1-on-1 classes (6 days a week) with short focused sessions, weekly mock tests, and regular performance analytics. The curriculum is structured to build a rock-solid foundation in Physics, Chemistry, and Mathematics while progressively advancing to competition-level problem solving.',
-    highlights: [
-      '1-on-1 daily class, 6 days/week (short focused sessions)',
-      'Complete PCM syllabus coverage for JEE Main + Advanced',
-      'Weekly mock tests with detailed performance analytics',
-      'Personalized study roadmap & doubt resolution',
-      'Regular parent-mentor progress meetings',
-    ],
-    brochure: { title: 'JEE Main Target 2028 Brochure', file: '/brochures/class-11-jee.pdf' },
-  },
-  {
-    name: 'NEET Target 2028',
-    targetExam: 'NEET UG',
-    duration: '2 Years',
-    mode: '1-on-1',
-    fee: '₹2,30,000 + GST',
-    icon: FlaskConical,
-    logo: neetLogo,
-    description:
-      'A thorough 2-year NEET UG preparation program with dedicated 1-on-1 mentoring. Covers the entire NEET syllabus across Physics, Chemistry, and Biology with special emphasis on NCERT mastery and application-based questions. Daily short focused 1-on-1 sessions (6 days/week) ensure consistent progress. The program includes systematic revision cycles, topic-wise test series, and NCERT line-by-line analysis to help students build the conceptual depth required for top NEET ranks.',
-    highlights: [
-      '1-on-1 daily class, 6 days/week (short focused sessions)',
-      'NCERT line-by-line analysis & concept mapping',
-      'Complete PCB syllabus with application-based focus',
-      'Regular full-length mock tests mimicking NEET pattern',
-      'Biology diagram practice & assertion-reason training',
-    ],
-    brochure: { title: 'NEET Target 2028 Brochure', file: '/brochures/neet-2year.pdf' },
-  },
-  {
-    name: 'JEE Target 2027',
-    targetExam: 'JEE Main + Advanced',
-    duration: '1 Year',
-    mode: '1-on-1',
-    fee: '₹1,30,000 + GST',
-    icon: Zap,
-    logo: jeeLogo,
-    description:
-      'An intensive 1-year JEE preparation program for students in their final year before the exam. This accelerated course focuses on completing the syllabus efficiently while dedicating significant time to revision, problem-solving, and exam strategy. Daily 1-on-1 short classes (6 days/week) ensure focused, high-quality learning. Includes previous year paper analysis, advanced problem-solving workshops, and time management training tailored to JEE patterns.',
-    highlights: [
-      '1-on-1 daily class, 6 days/week (short focused sessions)',
-      'Accelerated syllabus completion with revision cycles',
-      'Previous year paper analysis & pattern recognition',
-      'Advanced problem-solving & shortcut techniques',
-      'Exam strategy & time management coaching',
-    ],
-    brochure: { title: 'JEE Target 2027 Brochure', file: '/brochures/jee-main-adv.pdf' },
-  },
-  {
-    name: 'NEET Target 2027',
-    targetExam: 'NEET UG',
-    duration: '1 Year',
-    mode: '1-on-1',
-    fee: '₹1,30,000 + GST',
-    icon: FlaskConical,
-    logo: neetLogo,
-    description:
-      'A focused 1-year NEET UG program designed for students looking to maximize their score in the upcoming exam. The course emphasizes high-yield topics, NCERT-based conceptual clarity, and extensive practice with NEET-level questions. With daily short 1-on-1 sessions (6 days/week), students receive individualized attention to strengthen weak areas and sharpen exam readiness through topic-wise and full-length tests.',
-    highlights: [
-      '1-on-1 daily class, 6 days/week (short focused sessions)',
-      'High-yield topic prioritization for maximum score impact',
-      'NCERT mastery with extra reference material',
-      'Extensive MCQ practice & error analysis',
-      'Full-length mock tests with NEET-identical interface',
-    ],
-    brochure: { title: 'NEET Target 2027 Brochure', file: '/brochures/neet-2year.pdf' },
-  },
-  {
-    name: 'Subject Crash Course',
-    targetExam: 'PCM / PCB',
-    duration: '1–2 Months',
-    mode: 'Batch of 2–5 students',
-    fee: '₹18,000 per subject',
-    icon: Zap,
-    color: 'from-orange-500/20 to-orange-500/5',
-    description:
-      'A rapid subject-specific crash course designed to cover or revise an entire subject in 1–2 months. Ideal for students who need focused help in a particular subject like Physics, Chemistry, Mathematics, or Biology. Conducted in small batches of 2–5 students for semi-personalized attention. Daily classes are longer in duration to ensure intensive coverage. Includes condensed notes, formula sheets, and subject-specific mock tests.',
-    highlights: [
-      '1 daily class, 6 days/week (longer intensive sessions)',
-      'Small batch of 2–5 students for focused learning',
-      'Condensed notes & formula/concept sheets provided',
-      'Subject-specific mock tests & rapid revision cycles',
-      'Ideal for quick revision before exams',
-    ],
-    brochure: { title: 'Subject Crash Course Brochure', file: '/brochures/class-12-jee.pdf' },
-  },
-  {
-    name: '1-on-1 Crash Program',
-    targetExam: 'JEE / NEET',
-    duration: '1–2 Months',
-    mode: '1-on-1',
-    fee: '₹30,000 + GST per subject',
-    icon: Zap,
-    color: 'from-red-500/20 to-red-500/5',
-    description:
-      'The most intensive short-term program at MindPeak — a fully personalized 1-on-1 crash course lasting 1–2 months. Each daily class is longer in duration to maximize coverage in the limited timeframe. Perfect for last-minute exam preparation, this program focuses on high-yield topics, rapid problem-solving drills, exam temperament building, and strategic revision. Your dedicated mentor crafts a day-by-day plan targeting your specific weak areas for maximum score improvement.',
-    highlights: [
-      '1-on-1 daily class, 6 days/week (longer intensive sessions)',
-      'Custom day-by-day plan targeting weak areas',
-      'High-yield topic focus for maximum score impact',
-      'Rapid problem-solving drills & timed practice',
-      'Exam temperament & last-minute strategy coaching',
-    ],
-    brochure: { title: '1-on-1 Crash Program Brochure', file: '/brochures/class-12-jee.pdf' },
-  },
-  {
-    name: '6th Foundation',
-    targetExam: 'IIT/NEET',
-    duration: '1 Year',
-    mode: '1-on-1',
-    fee: '₹1,00,000 + GST',
-    icon: GraduationCap,
-    logo: foundationLogo,
-    description:
-      'Start the journey early! The 6th Foundation course builds a strong conceptual base in Science and Mathematics aligned with future IIT-JEE and NEET preparation. Through daily short 1-on-1 sessions (6 days/week), students develop analytical thinking, scientific curiosity, and problem-solving habits from a young age. The curriculum goes beyond school textbooks to introduce Olympiad-level thinking and application-based learning.',
-    highlights: [
-      '1-on-1 daily class, 6 days/week (short focused sessions)',
-      'Strong Science & Math foundation for future competitive exams',
-      'Olympiad-level thinking & logical reasoning',
-      'Fun, engaging teaching methods for young learners',
-      'Regular assessments & progress reports for parents',
-    ],
-    brochure: { title: '6th Foundation Brochure', file: '/brochures/foundation-class-8.pdf' },
-  },
-  {
-    name: '7th Foundation',
-    targetExam: 'IIT/NEET',
-    duration: '1 Year',
-    mode: '1-on-1',
-    fee: '₹1,00,000 + GST',
-    icon: GraduationCap,
-    logo: foundationLogo,
-    description:
-      'Building on the 6th Foundation, this course deepens conceptual understanding in Physics, Chemistry, Biology, and Mathematics. Daily short 1-on-1 sessions (6 days/week) introduce more advanced problem types while keeping the learning engaging and age-appropriate. Students develop the discipline and study habits that will serve them through their competitive exam journey.',
-    highlights: [
-      '1-on-1 daily class, 6 days/week (short focused sessions)',
-      'Deepened PCM/PCB concepts beyond school level',
-      'Introduction to competitive exam question patterns',
-      'Habit-building for consistent study routines',
-      'Monthly progress assessments with mentor feedback',
-    ],
-    brochure: { title: '7th Foundation Brochure', file: '/brochures/foundation-class-8.pdf' },
-  },
-  {
-    name: '8th Foundation',
-    targetExam: 'IIT/NEET',
-    duration: '1 Year',
-    mode: '1-on-1',
-    fee: '₹1,00,000 + GST',
-    icon: GraduationCap,
-    logo: foundationLogo,
-    description:
-      'The 8th Foundation program bridges the gap between school-level science and the rigorous demands of competitive exams. Students begin tackling problems that require multi-concept application, a critical skill for JEE and NEET. Daily short 1-on-1 sessions (6 days/week) ensure personalized pacing with a dedicated mentor guiding every step of the way.',
-    highlights: [
-      '1-on-1 daily class, 6 days/week (short focused sessions)',
-      'Multi-concept application problems introduced',
-      'Bridge between school science & competitive-level rigor',
-      'NTSE & Olympiad preparation integrated',
-      'Personalized pacing based on student capability',
-    ],
-    brochure: { title: '8th Foundation Brochure', file: '/brochures/foundation-class-8.pdf' },
-  },
-  {
-    name: '9th Foundation',
-    targetExam: 'IIT/NEET',
-    duration: '1 Year',
-    mode: '1-on-1',
-    fee: '₹1,10,000 + GST',
-    icon: GraduationCap,
-    logo: foundationLogo,
-    description:
-      'Class 9 is where competitive exam preparation truly begins. This foundation course aligns CBSE/State board curriculum with JEE and NEET-level concepts. Daily short 1-on-1 sessions (6 days/week) cover both board syllabus and competitive topics in an integrated manner, saving time and building deep understanding. Students start solving previous year foundation-level questions and develop exam-taking skills.',
-    highlights: [
-      '1-on-1 daily class, 6 days/week (short focused sessions)',
-      'Integrated board + competitive syllabus coverage',
-      'Previous year foundation-level question practice',
-      'Exam-taking skills & time management basics',
-      'Strong preparation for 10th boards & beyond',
-    ],
-    brochure: { title: '9th Foundation Brochure', file: '/brochures/foundation-class-9.pdf' },
-  },
-  {
-    name: '10th Foundation',
-    targetExam: 'IIT/NEET',
-    duration: '1 Year',
-    mode: '1-on-1',
-    fee: '₹1,10,000 + GST',
-    icon: GraduationCap,
-    logo: foundationLogo,
-    description:
-      'The 10th Foundation course is the final stepping stone before students enter the intense 11th-12th competitive preparation phase. It ensures board exam excellence while building the conceptual arsenal needed for JEE/NEET. Daily short 1-on-1 sessions (6 days/week) cover the complete 10th syllabus with competitive-level depth, preparing students to hit the ground running in 11th class.',
-    highlights: [
-      '1-on-1 daily class, 6 days/week (short focused sessions)',
-      'Board exam mastery + competitive concept depth',
-      'Smooth transition preparation for 11th-level content',
-      'Pre-JEE/NEET topic introduction for head start',
-      'Complete 10th syllabus with advanced applications',
-    ],
-    brochure: { title: '10th Foundation Brochure', file: '/brochures/foundation-class-10.pdf' },
-  },
-];
-
-interface TestSeries {
-  name: string;
-  exam: string;
-  duration: string;
-  fee: string;
-}
-
-const testSeriesData: TestSeries[] = [
-  { name: 'NEET Test Series', exam: 'NEET UG', duration: '4 Months', fee: '₹3,000' },
-  { name: 'JEE Test Series', exam: 'JEE Main', duration: '4 Months', fee: '₹3,000' },
-  { name: 'NEET Test Series', exam: 'NEET UG', duration: '1 Year', fee: '₹6,000' },
-  { name: 'JEE Test Series', exam: 'JEE Main', duration: '1 Year', fee: '₹6,000' },
-  { name: 'NEET Integrated Test Series', exam: 'NEET UG', duration: '2 Years', fee: '₹11,000' },
-  { name: 'JEE Integrated Test Series', exam: 'JEE Main + Advanced', duration: '2 Years', fee: '₹11,000' },
-];
-
 /* ───────── components ───────── */
 
 const CourseCard = ({ course, index, onBookDemo, onDownloadBrochure }: { course: Course; index: number; onBookDemo: () => void; onDownloadBrochure: (brochure: { title: string; file: string }) => void }) => {
-  const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
   const Icon = course.icon;
 
   return (
@@ -265,12 +22,10 @@ const CourseCard = ({ course, index, onBookDemo, onDownloadBrochure }: { course:
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ delay: index * 0.05, duration: 0.5 }}
-      className={`rounded-2xl border border-border bg-gradient-to-br ${course.color || 'from-card/40 to-card/20'} backdrop-blur-sm overflow-hidden`}
+      className={`rounded-2xl border border-border bg-gradient-to-br ${course.color || 'from-card/40 to-card/20'} backdrop-blur-sm overflow-hidden group cursor-pointer hover:border-primary/40 transition-colors`}
+      onClick={() => navigate(`/course/${course.slug}`)}
     >
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full text-left p-6 sm:p-8 flex flex-col gap-4 cursor-pointer select-none"
-      >
+      <div className="w-full text-left p-6 sm:p-8 flex flex-col gap-4">
         {/* Header row */}
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-center gap-4">
@@ -288,9 +43,7 @@ const CourseCard = ({ course, index, onBookDemo, onDownloadBrochure }: { course:
               <p className="text-muted-foreground text-sm mt-1">{course.targetExam} • {course.duration}</p>
             </div>
           </div>
-          <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.3 }}>
-            <ChevronDown className="w-5 h-5 text-primary mt-1" />
-          </motion.div>
+          <ArrowRight className="w-5 h-5 text-primary mt-1 group-hover:translate-x-1 transition-transform" />
         </div>
 
         {/* Meta pills */}
@@ -305,50 +58,29 @@ const CourseCard = ({ course, index, onBookDemo, onDownloadBrochure }: { course:
             {course.fee}
           </span>
         </div>
-      </button>
 
-      {/* Expandable detail */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.35 }}
-            className="overflow-hidden"
+        {/* Short description */}
+        <p className="text-muted-foreground text-sm line-clamp-2">{course.description}</p>
+
+        {/* Action buttons */}
+        <div className="flex flex-wrap gap-3 mt-2" onClick={e => e.stopPropagation()}>
+          <button
+            onClick={onBookDemo}
+            className="px-6 py-2.5 bg-gradient-to-r from-gold to-gold-dark text-background font-bold text-xs rounded-full hover:scale-105 transition-transform shadow-gold-glow"
           >
-            <div className="px-6 sm:px-8 pb-8 pt-2 border-t border-border">
-              <p className="text-muted-foreground leading-relaxed text-sm sm:text-base mb-5">{course.description}</p>
-              <h4 className="text-foreground font-semibold text-sm uppercase tracking-wider mb-3">What's Included</h4>
-              <ul className="space-y-2">
-                {course.highlights.map((h, i) => (
-                  <li key={i} className="flex items-start gap-2 text-muted-foreground text-sm">
-                    <BookOpen className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    {h}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <button
-                  onClick={onBookDemo}
-                  className="px-8 py-3 bg-gradient-to-r from-gold to-gold-dark text-background font-bold text-sm rounded-full hover:scale-105 transition-transform shadow-gold-glow"
-                >
-                  Book Your Free Demo
-                </button>
-                {course.brochure && (
-                  <button
-                    onClick={() => onDownloadBrochure(course.brochure!)}
-                    className="px-8 py-3 border border-primary text-primary font-bold text-sm rounded-full hover:bg-primary/10 transition-all flex items-center gap-2"
-                  >
-                    <Download className="w-4 h-4" />
-                    Download Brochure
-                  </button>
-                )}
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            Book Free Demo
+          </button>
+          {course.brochure && (
+            <button
+              onClick={() => onDownloadBrochure(course.brochure!)}
+              className="px-6 py-2.5 border border-primary text-primary font-bold text-xs rounded-full hover:bg-primary/10 transition-all flex items-center gap-2"
+            >
+              <Download className="w-3.5 h-3.5" />
+              Brochure
+            </button>
+          )}
+        </div>
+      </div>
     </motion.div>
   );
 };
