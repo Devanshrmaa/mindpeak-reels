@@ -6,10 +6,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { DemoModalProvider } from "@/components/DemoBookingModal";
 import { SocialProofPopup } from "@/components/SocialProofPopup";
 import { LanguagePopup } from "@/components/LanguagePopup";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import Index from "./pages/Index";
 import Courses from "./pages/Courses";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import RefundPolicy from "./pages/RefundPolicy";
+import LocationPage from "./pages/LocationPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -19,6 +21,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <GoogleAnalytics />
       <BrowserRouter>
         <DemoModalProvider>
           <SocialProofPopup />
@@ -28,6 +31,8 @@ const App = () => (
             <Route path="/courses" element={<Courses />} />
             <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
             <Route path="/refund-policy" element={<RefundPolicy />} />
+            {/* Location Pages — SEO city pages for JEE/NEET */}
+            <Route path="/:slug" element={<LocationPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
