@@ -19,11 +19,11 @@ interface StoryItem {
 
 const stories: StoryItem[] = [
   { id: '1', title: 'AARAV SHARMA', subtitle: 'AIR 42 — JEE Advanced', image: student1, aspect: 'portrait' },
-  { id: '2', title: 'PERSONALIZED MENTORING', subtitle: '1-on-1 Session Highlights', image: mentoring, aspect: 'landscape' },
+  { id: '2', title: 'PERSONALIZED MENTORING', subtitle: '1-on-1 Session Highlights', image: mentoring, aspect: 'portrait' },
   { id: '3', title: 'PRIYA PATEL', subtitle: 'AIR 156 — NEET', image: student2, aspect: 'square' },
   { id: '4', title: 'STUDY ROUTINE', subtitle: 'Day in the Life', image: student3, aspect: 'square' },
   { id: '5', title: 'ROHAN GUPTA', subtitle: 'AIR 89 — JEE Mains', image: student4, aspect: 'portrait' },
-  { id: '6', title: 'MENTOR SESSIONS', subtitle: 'Guided Problem Solving', image: mentoringSession, aspect: 'landscape' },
+  { id: '6', title: 'MENTOR SESSIONS', subtitle: 'Guided Problem Solving', image: mentoringSession, aspect: 'portrait' },
 ];
 
 const altTextMap: Record<string, string> = {
@@ -81,7 +81,7 @@ export const SuccessGrid = () => {
                   src={story.image}
                   alt={altTextMap[story.id] || story.title}
                   className="w-[103%] h-[103%] object-cover transition-transform duration-700 group-hover:scale-110"
-                  style={{ objectPosition: 'top left' }}
+                  style={{ objectPosition: 'center top' }}
                   loading="lazy"
                   width={600}
                   height={story.aspect === 'portrait' ? 750 : story.aspect === 'square' ? 600 : 338}
