@@ -37,7 +37,8 @@ export const courses: Course[] = [
     description:
       'A comprehensive 2-year program designed for students starting early in their JEE preparation journey. This course covers the complete JEE Main and Advanced syllabus with a deep-concept approach. Each student receives a personalized study roadmap, daily 1-on-1 classes (6 days a week) with short focused sessions, weekly mock tests, and regular performance analytics. The curriculum is structured to build a rock-solid foundation in Physics, Chemistry, and Mathematics while progressively advancing to competition-level problem solving.',
     highlights: [
-      '1-on-1 daily class, 6 days/week (short focused sessions)',
+      'Live online 1-on-1 daily class, 6 days/week (short focused sessions)',
+      'All sessions recorded — rewatch anytime for revision',
       'Complete PCM syllabus coverage for JEE Main + Advanced',
       'Weekly mock tests with detailed performance analytics',
       'Personalized study roadmap & doubt resolution',
@@ -76,7 +77,8 @@ export const courses: Course[] = [
     description:
       'A thorough 2-year NEET UG preparation program with dedicated 1-on-1 mentoring. Covers the entire NEET syllabus across Physics, Chemistry, and Biology with special emphasis on NCERT mastery and application-based questions. Daily short focused 1-on-1 sessions (6 days/week) ensure consistent progress.',
     highlights: [
-      '1-on-1 daily class, 6 days/week (short focused sessions)',
+      'Live online 1-on-1 daily class, 6 days/week (short focused sessions)',
+      'All sessions recorded — rewatch anytime for revision',
       'NCERT line-by-line analysis & concept mapping',
       'Complete PCB syllabus with application-based focus',
       'Regular full-length mock tests mimicking NEET pattern',
@@ -115,7 +117,8 @@ export const courses: Course[] = [
     description:
       'An intensive 1-year JEE preparation program for students in their final year before the exam. This accelerated course focuses on completing the syllabus efficiently while dedicating significant time to revision, problem-solving, and exam strategy.',
     highlights: [
-      '1-on-1 daily class, 6 days/week (short focused sessions)',
+      'Live online 1-on-1 daily class, 6 days/week (short focused sessions)',
+      'All sessions recorded — rewatch anytime for revision',
       'Accelerated syllabus completion with revision cycles',
       'Previous year paper analysis & pattern recognition',
       'Advanced problem-solving & shortcut techniques',
@@ -154,7 +157,8 @@ export const courses: Course[] = [
     description:
       'A focused 1-year NEET UG program designed for students looking to maximize their score in the upcoming exam. The course emphasizes high-yield topics, NCERT-based conceptual clarity, and extensive practice.',
     highlights: [
-      '1-on-1 daily class, 6 days/week (short focused sessions)',
+      'Live online 1-on-1 daily class, 6 days/week (short focused sessions)',
+      'All sessions recorded — rewatch anytime for revision',
       'High-yield topic prioritization for maximum score impact',
       'NCERT mastery with extra reference material',
       'Extensive MCQ practice & error analysis',
@@ -193,7 +197,8 @@ export const courses: Course[] = [
     description:
       'A rapid subject-specific crash course designed to cover or revise an entire subject in 1–2 months. Ideal for students who need focused help in a particular subject.',
     highlights: [
-      '1 daily class, 6 days/week (longer intensive sessions)',
+      'Live online daily class, 6 days/week (longer intensive sessions)',
+      'All sessions recorded — rewatch anytime for revision',
       'Small batch of 2–5 students for focused learning',
       'Condensed notes & formula/concept sheets provided',
       'Subject-specific mock tests & rapid revision cycles',
@@ -228,7 +233,8 @@ export const courses: Course[] = [
     description:
       'The most intensive short-term program at MindPeak — a fully personalized 1-on-1 crash course lasting 1–2 months. Perfect for last-minute exam preparation.',
     highlights: [
-      '1-on-1 daily class, 6 days/week (longer intensive sessions)',
+      'Live online 1-on-1 daily class, 6 days/week (longer intensive sessions)',
+      'All sessions recorded — rewatch anytime for revision',
       'Custom day-by-day plan targeting weak areas',
       'High-yield topic focus for maximum score impact',
       'Rapid problem-solving drills & timed practice',
@@ -263,7 +269,8 @@ export const courses: Course[] = [
     description:
       'Start the journey early! The 6th Foundation course builds a strong conceptual base in Science and Mathematics aligned with future IIT-JEE and NEET preparation.',
     highlights: [
-      '1-on-1 daily class, 6 days/week (short focused sessions)',
+      'Live online 1-on-1 daily class, 6 days/week (short focused sessions)',
+      'All sessions recorded — rewatch anytime for revision',
       'Strong Science & Math foundation for future competitive exams',
       'Olympiad-level thinking & logical reasoning',
       'Fun, engaging teaching methods for young learners',
@@ -298,7 +305,8 @@ export const courses: Course[] = [
     description:
       'Building on the 6th Foundation, this course deepens conceptual understanding in Physics, Chemistry, Biology, and Mathematics with age-appropriate challenges.',
     highlights: [
-      '1-on-1 daily class, 6 days/week (short focused sessions)',
+      'Live online 1-on-1 daily class, 6 days/week (short focused sessions)',
+      'All sessions recorded — rewatch anytime for revision',
       'Deepened PCM/PCB concepts beyond school level',
       'Introduction to competitive exam question patterns',
       'Habit-building for consistent study routines',
@@ -329,7 +337,8 @@ export const courses: Course[] = [
     description:
       'The 8th Foundation program bridges the gap between school-level science and the rigorous demands of competitive exams with multi-concept application problems.',
     highlights: [
-      '1-on-1 daily class, 6 days/week (short focused sessions)',
+      'Live online 1-on-1 daily class, 6 days/week (short focused sessions)',
+      'All sessions recorded — rewatch anytime for revision',
       'Multi-concept application problems introduced',
       'Bridge between school science & competitive-level rigor',
       'NTSE & Olympiad preparation integrated',
@@ -360,7 +369,8 @@ export const courses: Course[] = [
     description:
       'Class 9 is where competitive exam preparation truly begins. This foundation course aligns CBSE/State board curriculum with JEE and NEET-level concepts.',
     highlights: [
-      '1-on-1 daily class, 6 days/week (short focused sessions)',
+      'Live online 1-on-1 daily class, 6 days/week (short focused sessions)',
+      'All sessions recorded — rewatch anytime for revision',
       'Integrated board + competitive syllabus coverage',
       'Previous year foundation-level question practice',
       'Exam-taking skills & time management basics',
@@ -391,7 +401,8 @@ export const courses: Course[] = [
     description:
       'The 10th Foundation course is the final stepping stone before students enter the intense 11th-12th competitive preparation phase. Board excellence + competitive readiness.',
     highlights: [
-      '1-on-1 daily class, 6 days/week (short focused sessions)',
+      'Live online 1-on-1 daily class, 6 days/week (short focused sessions)',
+      'All sessions recorded — rewatch anytime for revision',
       'Board exam mastery + competitive concept depth',
       'Smooth transition preparation for 11th-level content',
       'Pre-JEE/NEET topic introduction for head start',
