@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Target, FlaskConical, GraduationCap, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import jeeLogo from '@/assets/jee-logo.jpeg';
+import neetLogo from '@/assets/neet-logo.jpeg';
+import foundationLogo from '@/assets/foundation-logo.png';
 
 const cards = [
   {
-    icon: Target,
+    logo: jeeLogo,
     title: 'JEE Programs',
     tagline: 'Crack IIT with 1-on-1 Mentoring',
     points: ['JEE Main + Advanced', '1-on-1 daily classes', 'Personalized roadmaps', 'Weekly mock tests'],
@@ -13,7 +16,7 @@ const cards = [
     glow: 'shadow-[0_0_40px_-10px_hsl(var(--primary)/0.4)]',
   },
   {
-    icon: FlaskConical,
+    logo: neetLogo,
     title: 'NEET Programs',
     tagline: 'Your Path to MBBS Starts Here',
     points: ['NEET UG focused', 'NCERT-first approach', 'Biology specialization', 'CBT mock tests'],
@@ -21,7 +24,7 @@ const cards = [
     glow: 'shadow-[0_0_40px_-10px_rgba(52,211,153,0.4)]',
   },
   {
-    icon: GraduationCap,
+    logo: foundationLogo,
     title: 'Foundation',
     tagline: 'Class 6th–10th • Start Early',
     points: ['IIT/NEET foundation', 'Board + competitive prep', 'Olympiad training', 'Habit building'],
@@ -56,7 +59,6 @@ export const CourseFlashcards = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {cards.map((card, i) => {
-            const Icon = card.icon;
             const isHovered = hoveredIndex === i;
 
             return (
@@ -77,13 +79,13 @@ export const CourseFlashcards = () => {
                   isHovered ? 'opacity-100' : 'opacity-40'
                 }`} />
 
-                {/* Floating icon */}
+                {/* Logo */}
                 <motion.div
-                  animate={isHovered ? { y: -4, rotate: 5 } : { y: 0, rotate: 0 }}
+                  animate={isHovered ? { y: -4, scale: 1.05 } : { y: 0, scale: 1 }}
                   transition={{ type: 'spring', stiffness: 300 }}
-                  className={`w-14 h-14 rounded-xl bg-gradient-to-br ${card.accent} flex items-center justify-center mb-6`}
+                  className="w-16 h-16 rounded-xl overflow-hidden mb-6 ring-2 ring-border bg-white/10"
                 >
-                  <Icon className="w-7 h-7 text-background" />
+                  <img src={card.logo} alt={card.title} className="w-full h-full object-contain" />
                 </motion.div>
 
                 <h3 className="font-display font-bold text-foreground text-2xl mb-1">{card.title}</h3>

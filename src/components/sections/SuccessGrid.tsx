@@ -80,10 +80,10 @@ export const SuccessGrid = () => {
 
               {/* Info */}
               <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-background via-background/70 to-transparent">
-                <h3 className="text-foreground font-display text-xl font-bold tracking-wide mb-1">
+                <h3 className="text-foreground font-display text-xl font-bold tracking-wide mb-1 drop-shadow-lg">
                   {story.title}
                 </h3>
-                <p className="text-primary text-sm tracking-wider uppercase">
+                <p className="text-primary text-sm tracking-wider uppercase drop-shadow-md">
                   {story.subtitle}
                 </p>
               </div>

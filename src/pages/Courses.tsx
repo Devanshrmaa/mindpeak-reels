@@ -3,6 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Users, Clock, BookOpen, Monitor, GraduationCap, Target, Zap, FlaskConical, Brain } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logo from '@/assets/logo.jpeg';
+import jeeLogo from '@/assets/jee-logo.jpeg';
+import neetLogo from '@/assets/neet-logo.jpeg';
+import foundationLogo from '@/assets/foundation-logo.png';
 
 /* ───────── course data ───────── */
 
@@ -13,9 +16,10 @@ interface Course {
   mode: string;
   fee: string;
   icon: typeof Users;
-  color: string;
+  color?: string;
   description: string;
   highlights: string[];
+  logo?: string;
 }
 
 const courses: Course[] = [
@@ -26,7 +30,7 @@ const courses: Course[] = [
     mode: '1-on-1',
     fee: '₹2,30,000 + GST',
     icon: Target,
-    color: 'from-primary/20 to-primary/5',
+    logo: jeeLogo,
     description:
       'A comprehensive 2-year program designed for students starting early in their JEE preparation journey. This course covers the complete JEE Main and Advanced syllabus with a deep-concept approach. Each student receives a personalized study roadmap, daily 1-on-1 classes (6 days a week) with short focused sessions, weekly mock tests, and regular performance analytics. The curriculum is structured to build a rock-solid foundation in Physics, Chemistry, and Mathematics while progressively advancing to competition-level problem solving.',
     highlights: [
@@ -44,7 +48,7 @@ const courses: Course[] = [
     mode: '1-on-1',
     fee: '₹2,30,000 + GST',
     icon: FlaskConical,
-    color: 'from-green-500/20 to-green-500/5',
+    logo: neetLogo,
     description:
       'A thorough 2-year NEET UG preparation program with dedicated 1-on-1 mentoring. Covers the entire NEET syllabus across Physics, Chemistry, and Biology with special emphasis on NCERT mastery and application-based questions. Daily short focused 1-on-1 sessions (6 days/week) ensure consistent progress. The program includes systematic revision cycles, topic-wise test series, and NCERT line-by-line analysis to help students build the conceptual depth required for top NEET ranks.',
     highlights: [
@@ -62,7 +66,7 @@ const courses: Course[] = [
     mode: '1-on-1',
     fee: '₹1,30,000 + GST',
     icon: Zap,
-    color: 'from-amber-500/20 to-amber-500/5',
+    logo: jeeLogo,
     description:
       'An intensive 1-year JEE preparation program for students in their final year before the exam. This accelerated course focuses on completing the syllabus efficiently while dedicating significant time to revision, problem-solving, and exam strategy. Daily 1-on-1 short classes (6 days/week) ensure focused, high-quality learning. Includes previous year paper analysis, advanced problem-solving workshops, and time management training tailored to JEE patterns.',
     highlights: [
@@ -80,7 +84,7 @@ const courses: Course[] = [
     mode: '1-on-1',
     fee: '₹1,30,000 + GST',
     icon: FlaskConical,
-    color: 'from-teal-500/20 to-teal-500/5',
+    logo: neetLogo,
     description:
       'A focused 1-year NEET UG program designed for students looking to maximize their score in the upcoming exam. The course emphasizes high-yield topics, NCERT-based conceptual clarity, and extensive practice with NEET-level questions. With daily short 1-on-1 sessions (6 days/week), students receive individualized attention to strengthen weak areas and sharpen exam readiness through topic-wise and full-length tests.',
     highlights: [
@@ -134,7 +138,7 @@ const courses: Course[] = [
     mode: '1-on-1',
     fee: '₹1,00,000 + GST',
     icon: GraduationCap,
-    color: 'from-indigo-500/20 to-indigo-500/5',
+    logo: foundationLogo,
     description:
       'Start the journey early! The 6th Foundation course builds a strong conceptual base in Science and Mathematics aligned with future IIT-JEE and NEET preparation. Through daily short 1-on-1 sessions (6 days/week), students develop analytical thinking, scientific curiosity, and problem-solving habits from a young age. The curriculum goes beyond school textbooks to introduce Olympiad-level thinking and application-based learning.',
     highlights: [
@@ -152,7 +156,7 @@ const courses: Course[] = [
     mode: '1-on-1',
     fee: '₹1,00,000 + GST',
     icon: GraduationCap,
-    color: 'from-indigo-500/20 to-indigo-500/5',
+    logo: foundationLogo,
     description:
       'Building on the 6th Foundation, this course deepens conceptual understanding in Physics, Chemistry, Biology, and Mathematics. Daily short 1-on-1 sessions (6 days/week) introduce more advanced problem types while keeping the learning engaging and age-appropriate. Students develop the discipline and study habits that will serve them through their competitive exam journey.',
     highlights: [
@@ -170,7 +174,7 @@ const courses: Course[] = [
     mode: '1-on-1',
     fee: '₹1,00,000 + GST',
     icon: GraduationCap,
-    color: 'from-indigo-500/20 to-indigo-500/5',
+    logo: foundationLogo,
     description:
       'The 8th Foundation program bridges the gap between school-level science and the rigorous demands of competitive exams. Students begin tackling problems that require multi-concept application, a critical skill for JEE and NEET. Daily short 1-on-1 sessions (6 days/week) ensure personalized pacing with a dedicated mentor guiding every step of the way.',
     highlights: [
@@ -188,7 +192,7 @@ const courses: Course[] = [
     mode: '1-on-1',
     fee: '₹1,10,000 + GST',
     icon: GraduationCap,
-    color: 'from-violet-500/20 to-violet-500/5',
+    logo: foundationLogo,
     description:
       'Class 9 is where competitive exam preparation truly begins. This foundation course aligns CBSE/State board curriculum with JEE and NEET-level concepts. Daily short 1-on-1 sessions (6 days/week) cover both board syllabus and competitive topics in an integrated manner, saving time and building deep understanding. Students start solving previous year foundation-level questions and develop exam-taking skills.',
     highlights: [
@@ -206,7 +210,7 @@ const courses: Course[] = [
     mode: '1-on-1',
     fee: '₹1,10,000 + GST',
     icon: GraduationCap,
-    color: 'from-violet-500/20 to-violet-500/5',
+    logo: foundationLogo,
     description:
       'The 10th Foundation course is the final stepping stone before students enter the intense 11th-12th competitive preparation phase. It ensures board exam excellence while building the conceptual arsenal needed for JEE/NEET. Daily short 1-on-1 sessions (6 days/week) cover the complete 10th syllabus with competitive-level depth, preparing students to hit the ground running in 11th class.',
     highlights: [
@@ -247,7 +251,7 @@ const CourseCard = ({ course, index }: { course: Course; index: number }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ delay: index * 0.05, duration: 0.5 }}
-      className={`rounded-2xl border border-border bg-gradient-to-br ${course.color} backdrop-blur-sm overflow-hidden`}
+      className={`rounded-2xl border border-border bg-gradient-to-br ${course.color || 'from-card/40 to-card/20'} backdrop-blur-sm overflow-hidden`}
     >
       <button
         onClick={() => setOpen(!open)}
@@ -256,9 +260,15 @@ const CourseCard = ({ course, index }: { course: Course; index: number }) => {
         {/* Header row */}
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-              <Icon className="w-6 h-6 text-primary" />
-            </div>
+            {course.logo ? (
+              <div className="w-12 h-12 rounded-xl overflow-hidden ring-1 ring-border bg-white/10 shrink-0">
+                <img src={course.logo} alt={course.name} className="w-full h-full object-contain" />
+              </div>
+            ) : (
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                <Icon className="w-6 h-6 text-primary" />
+              </div>
+            )}
             <div>
               <h3 className="font-display font-bold text-foreground text-lg sm:text-xl">{course.name}</h3>
               <p className="text-muted-foreground text-sm mt-1">{course.targetExam} • {course.duration}</p>
@@ -368,17 +378,17 @@ const Courses = () => {
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             {
-              icon: Target,
+              logo: jeeLogo,
               title: 'JEE Programs',
               desc: 'Comprehensive JEE Main + Advanced preparation with 1-on-1 mentoring, covering Physics, Chemistry & Mathematics. From 1-year intensive to 2-year mastery programs — designed to crack top IIT ranks.',
             },
             {
-              icon: FlaskConical,
+              logo: neetLogo,
               title: 'NEET Programs',
               desc: 'Complete NEET UG preparation with NCERT-first approach, dedicated Biology focus, and 1-on-1 daily sessions. Our students consistently achieve top ranks through conceptual clarity and rigorous practice.',
             },
             {
-              icon: GraduationCap,
+              logo: foundationLogo,
               title: 'Foundation (6th–10th)',
               desc: 'Start early, stay ahead. Our foundation courses build competitive-exam-ready thinking from class 6 onwards. Integrated board + competitive syllabus ensures students are prepared years before the actual exam.',
             },
@@ -391,7 +401,9 @@ const Courses = () => {
               transition={{ delay: i * 0.1 }}
               className="p-6 rounded-2xl border border-primary/20 bg-card/40 backdrop-blur-sm text-center"
             >
-              <item.icon className="w-10 h-10 text-primary mx-auto mb-4" />
+              <div className="w-16 h-16 rounded-xl overflow-hidden mx-auto mb-4 ring-2 ring-border bg-white/10">
+                <img src={item.logo} alt={item.title} className="w-full h-full object-contain" />
+              </div>
               <h3 className="font-display font-bold text-foreground text-xl mb-3">{item.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
             </motion.div>
