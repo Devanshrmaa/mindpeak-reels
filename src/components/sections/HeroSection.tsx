@@ -17,7 +17,7 @@ export const HeroSection = () => {
   ];
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <header id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden" role="banner">
       {/* Background Image */}
       <motion.div style={{ scale }} className="absolute inset-0">
         <video
@@ -94,6 +94,6 @@ export const HeroSection = () => {
           <ChevronDown className="w-8 h-8 text-muted-foreground" />
         </motion.div>
       </motion.div>
-    </section>
+    </header>
   );
 };

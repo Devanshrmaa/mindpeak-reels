@@ -85,7 +85,7 @@ export const CourseFlashcards = () => {
                   transition={{ type: 'spring', stiffness: 300 }}
                   className="w-16 h-16 rounded-xl overflow-hidden mb-6 ring-2 ring-border bg-white/10"
                 >
-                  <img src={card.logo} alt={card.title} className="w-full h-full object-contain" />
+                  <img src={card.logo} alt={`${card.title} logo`} className="w-full h-full object-contain" width={64} height={64} loading="lazy" />
                 </motion.div>
 
                 <h3 className="font-display font-bold text-foreground text-2xl mb-1">{card.title}</h3>
