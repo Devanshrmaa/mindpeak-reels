@@ -1,5 +1,5 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useScroll, useMotionValueEvent, motion } from 'framer-motion';
+import { useRef, useState } from 'react';
 
 const beforeStats = [
   { label: 'Mock Score', value: '120/300' },
@@ -17,21 +17,18 @@ const afterStats = [
 
 export const BeforeAfterSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start start", "end end"]  // animation runs while sticky is pinned
+    offset: ["start start", "end end"]
   });
 
-  // 0 → 100 as user scrolls through section
-  const pct = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  // 0 = fully BEFORE, 100 = fully AFTER
+  const [pct, setPct] = useState(0);
+  useMotionValueEvent(scrollYProgress, 'change', (v) => {
+    setPct(Math.round(v * 100));
+  });
 
-  // BEFORE clips from the right as pct grows: fully visible at 0, gone at 100
-  const beforeClip = useTransform(pct, (v) => `inset(0 ${v}% 0 0)`);
-  // Slider line moves left→right
-  const sliderLeftPx = useTransform(pct, (v) => `${v}%`);
-  // Progress bar
-  const progressX = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const showAfter = pct > 50;
 
   return (
     <section
@@ -39,134 +36,100 @@ export const BeforeAfterSection = () => {
       className="relative bg-background"
       style={{ height: '200vh' }}
     >
-      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
-        <div className="w-full max-w-6xl mx-auto px-6 py-10">
-          {/* Header */}
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-display text-foreground text-center mb-10 relative"
-            style={{ fontSize: 'clamp(2rem, 6vw, 5rem)', fontWeight: 900 }}
+      <div
+        className="sticky flex items-center justify-center overflow-hidden"
+        style={{ top: '10vh', height: '80vh' }}
+      >
+        <div className="w-full max-w-5xl mx-auto px-4 md:px-6">
+          <h2
+            className="font-display text-foreground text-center mb-6"
+            style={{ fontSize: 'clamp(1.6rem, 5vw, 3.5rem)', fontWeight: 900 }}
           >
-            <span className="absolute inset-0 text-primary opacity-30 blur-lg pointer-events-none" aria-hidden>
-              THE TRANSFORMATION
-            </span>
-            <span className="relative">THE TRANSFORMATION</span>
-          </motion.h2>
+            THE TRANSFORMATION
+          </h2>
 
-          <div className="relative h-[420px] md:h-[520px] rounded-2xl overflow-hidden border border-border shadow-card">
-            {/* Ambient glow */}
-            <div className="absolute -inset-px bg-gradient-to-r from-destructive/30 via-primary/20 to-accent/30 rounded-2xl blur-sm opacity-40 pointer-events-none" />
-
-            {/* AFTER layer (background — fully visible underneath) */}
-            <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-accent/10 to-accent/5">
-              <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                {Array.from({ length: 12 }).map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute text-lg"
-                    style={{ left: `${(i / 12) * 100}%`, top: `${10 + (i * 7) % 70}%` }}
-                    animate={{ y: [0, -30, 0], opacity: [0.2, 0.6, 0.2] }}
-                    transition={{ duration: 3 + (i % 3), repeat: Infinity, delay: i * 0.3 }}
-                  >
-                    {['⭐', '🎯', '🏆', '✨'][i % 4]}
-                  </motion.div>
-                ))}
-              </div>
-
-              <div className="relative h-full flex flex-col items-center justify-center p-6 md:p-8 text-center z-10">
-                <motion.div
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 2.5, repeat: Infinity }}
-                  className="text-5xl md:text-7xl mb-4 drop-shadow-lg"
-                >🚀</motion.div>
-                <h3 className="text-foreground font-display text-xl md:text-3xl mb-5">AFTER MINDPEAK</h3>
-                <div className="space-y-2.5 w-full max-w-sm">
-                  {afterStats.map((s, i) => (
-                    <div key={i} className="glass-card p-3 rounded-xl border-accent/30 flex justify-between items-center">
-                      <span className="text-accent text-xs uppercase tracking-wider font-semibold">{s.label}</span>
-                      <span className="text-accent font-bold text-lg md:text-xl">{s.value}</span>
-                    </div>
-                  ))}
-                </div>
-                <motion.div
-                  animate={{ boxShadow: ['0 0 15px hsl(217 91% 60% / 0.3)', '0 0 30px hsl(217 91% 60% / 0.5)', '0 0 15px hsl(217 91% 60% / 0.3)'] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="mt-5 px-5 py-2 bg-accent/15 border border-accent/30 rounded-full text-accent text-sm font-bold uppercase tracking-wider"
-                >10× Improvement 📈</motion.div>
-              </div>
+          {/* Progress bar showing scroll position */}
+          <div className="w-full max-w-md mx-auto mb-6">
+            <div className="flex justify-between text-[10px] md:text-xs uppercase tracking-wider mb-2">
+              <span className={`transition-colors ${!showAfter ? 'text-destructive font-bold' : 'text-muted-foreground'}`}>Before</span>
+              <span className={`transition-colors ${showAfter ? 'text-accent font-bold' : 'text-muted-foreground'}`}>After</span>
             </div>
-
-            {/* BEFORE layer (foreground — clips away from right as you scroll) */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-br from-destructive/25 via-destructive/15 to-destructive/5"
-              style={{ clipPath: beforeClip }}
-            >
-              <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                {Array.from({ length: 10 }).map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute w-1.5 h-1.5 bg-destructive/40 rounded-full"
-                    style={{ left: `${10 + (i * 9) % 80}%`, top: `${10 + (i * 11) % 80}%` }}
-                    animate={{ y: [0, -20, 0], opacity: [0.2, 0.5, 0.2] }}
-                    transition={{ duration: 2.5 + (i % 3), repeat: Infinity, delay: i * 0.2 }}
-                  />
-                ))}
-              </div>
-
-              <div className="relative h-full flex flex-col items-center justify-center p-6 md:p-8 text-center z-10">
-                <motion.div
-                  animate={{ scale: [1, 1.08, 1], rotate: [-3, 3, -3] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="text-5xl md:text-7xl mb-4 drop-shadow-lg"
-                >😰</motion.div>
-                <h3 className="text-foreground font-display text-xl md:text-3xl mb-5">BEFORE MINDPEAK</h3>
-                <div className="space-y-2.5 w-full max-w-sm">
-                  {beforeStats.map((s, i) => (
-                    <div key={i} className="glass-card p-3 rounded-xl border-destructive/30 flex justify-between items-center">
-                      <span className="text-destructive text-xs uppercase tracking-wider font-semibold">{s.label}</span>
-                      <span className="text-destructive font-bold text-lg md:text-xl">{s.value}</span>
-                    </div>
-                  ))}
-                </div>
-                <motion.div
-                  animate={{ boxShadow: ['0 0 15px hsl(0 84% 60% / 0.3)', '0 0 30px hsl(0 84% 60% / 0.5)', '0 0 15px hsl(0 84% 60% / 0.3)'] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="mt-5 px-5 py-2 bg-destructive/15 border border-destructive/30 rounded-full text-destructive text-sm font-bold uppercase tracking-wider"
-                >Struggling 📉</motion.div>
-              </div>
-            </motion.div>
-
-            {/* Slider line — moves left to right with scroll */}
-            <motion.div
-              className="absolute top-0 bottom-0 w-0.5 bg-foreground z-20"
-              style={{ left: sliderLeftPx }}
-            >
-              <div className="absolute inset-0 bg-foreground/50 blur-sm" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 md:w-14 md:h-14 bg-foreground rounded-full shadow-lg flex items-center justify-center">
-                <div className="flex gap-0.5">
-                  <div className="w-0.5 h-5 md:h-7 bg-background rounded-full" />
-                  <div className="w-0.5 h-5 md:h-7 bg-background rounded-full" />
-                </div>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Progress bar */}
-          <div className="text-center mt-6">
-            <motion.p
-              animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="text-muted-foreground text-sm uppercase tracking-wider mb-3"
-            >↓ Scroll to reveal transformation ↓</motion.p>
-            <div className="w-40 h-1 bg-muted rounded-full mx-auto overflow-hidden">
-              <motion.div
-                style={{ scaleX: progressX }}
-                className="h-full bg-gradient-to-r from-destructive via-primary to-accent origin-left"
+            <div className="h-1.5 bg-muted rounded-full overflow-hidden">
+              <div
+                className="h-full rounded-full transition-all duration-150 ease-out"
+                style={{
+                  width: `${pct}%`,
+                  background: pct < 50
+                    ? 'hsl(var(--destructive))'
+                    : 'hsl(var(--accent))',
+                }}
               />
             </div>
           </div>
+
+          {/* Card that transitions between BEFORE and AFTER */}
+          <div
+            className="relative rounded-2xl overflow-hidden border border-border shadow-card transition-colors duration-500"
+            style={{
+              height: 'clamp(340px, 55vh, 480px)',
+              background: showAfter
+                ? 'linear-gradient(135deg, hsl(var(--accent) / 0.15), hsl(var(--background)))'
+                : 'linear-gradient(135deg, hsl(var(--destructive) / 0.15), hsl(var(--background)))',
+              borderColor: showAfter ? 'hsl(var(--accent) / 0.3)' : 'hsl(var(--destructive) / 0.3)',
+            }}
+          >
+            {/* BEFORE content */}
+            <div
+              className="absolute inset-0 flex flex-col items-center justify-center p-5 md:p-8 text-center transition-all duration-500"
+              style={{
+                opacity: showAfter ? 0 : 1,
+                transform: showAfter ? 'scale(0.95) translateY(20px)' : 'scale(1) translateY(0)',
+                pointerEvents: showAfter ? 'none' : 'auto',
+              }}
+            >
+              <div className="text-4xl md:text-6xl mb-3">😰</div>
+              <h3 className="text-foreground font-display text-lg md:text-2xl mb-4">BEFORE MINDPEAK</h3>
+              <div className="space-y-2 w-full max-w-xs">
+                {beforeStats.map((s, i) => (
+                  <div key={i} className="p-2.5 rounded-lg bg-destructive/10 border border-destructive/20 flex justify-between items-center">
+                    <span className="text-destructive text-[10px] md:text-xs uppercase tracking-wider">{s.label}</span>
+                    <span className="text-destructive font-bold text-sm md:text-lg">{s.value}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 px-4 py-1.5 bg-destructive/10 border border-destructive/20 rounded-full text-destructive text-xs font-bold uppercase">
+                Struggling 📉
+              </div>
+            </div>
+
+            {/* AFTER content */}
+            <div
+              className="absolute inset-0 flex flex-col items-center justify-center p-5 md:p-8 text-center transition-all duration-500"
+              style={{
+                opacity: showAfter ? 1 : 0,
+                transform: showAfter ? 'scale(1) translateY(0)' : 'scale(0.95) translateY(20px)',
+                pointerEvents: showAfter ? 'auto' : 'none',
+              }}
+            >
+              <div className="text-4xl md:text-6xl mb-3">🚀</div>
+              <h3 className="text-foreground font-display text-lg md:text-2xl mb-4">AFTER MINDPEAK</h3>
+              <div className="space-y-2 w-full max-w-xs">
+                {afterStats.map((s, i) => (
+                  <div key={i} className="p-2.5 rounded-lg bg-accent/10 border border-accent/20 flex justify-between items-center">
+                    <span className="text-accent text-[10px] md:text-xs uppercase tracking-wider">{s.label}</span>
+                    <span className="text-accent font-bold text-sm md:text-lg">{s.value}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 px-4 py-1.5 bg-accent/10 border border-accent/20 rounded-full text-accent text-xs font-bold uppercase">
+                10× Improvement 📈
+              </div>
+            </div>
+          </div>
+
+          <p className="text-muted-foreground text-center mt-4 text-xs uppercase tracking-wider">
+            ↓ Keep scrolling ↓
+          </p>
         </div>
       </div>
     </section>
