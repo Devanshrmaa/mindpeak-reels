@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, X } from 'lucide-react';
+import { X } from 'lucide-react';
 
-import student1 from '@/assets/student-1.jpg';
+import student1 from '@/assets/aarav-sharma.jpg';
 import student2 from '@/assets/student-2.jpg';
 import mentoring from '@/assets/mentoring.jpg';
 import student3 from '@/assets/student-3.jpg';
@@ -74,12 +74,6 @@ export const SuccessGrid = () => {
                 loading="lazy"
               />
 
-              {/* Play overlay */}
-              <div className="absolute inset-0 bg-background/40 flex items-center justify-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-                <div className="w-16 h-16 rounded-full bg-foreground/20 backdrop-blur-sm flex items-center justify-center">
-                  <Play className="w-7 h-7 text-foreground fill-foreground ml-1" />
-                </div>
-              </div>
 
               {/* Hover state */}
               <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -131,7 +125,7 @@ export const SuccessGrid = () => {
               <div className="text-center mt-6">
                 <h3 className="text-foreground font-display text-3xl font-bold mb-2">{selected.title}</h3>
                 <p className="text-primary text-lg tracking-wider uppercase">{selected.subtitle}</p>
-                <p className="text-muted-foreground mt-3 text-sm">Video coming soon — poster preview shown</p>
+                
               </div>
             </motion.div>
           </motion.div>
