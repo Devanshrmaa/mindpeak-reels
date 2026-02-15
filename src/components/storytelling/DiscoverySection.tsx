@@ -35,12 +35,20 @@ export const DiscoverySection = () => {
         />
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <motion.div style={{ scale: logoScale, opacity: logoOpacity }} className="mb-12">
-            <img
-              src={logo}
-              alt="MindPeak Institute"
-              className="mx-auto w-48 md:w-72 rounded-xl shadow-gold-glow"
-            />
+          <motion.div style={{ scale: logoScale, opacity: logoOpacity }} className="mb-12 flex justify-center">
+            <div className="relative group">
+              {/* Outer animated ring */}
+              <div className="absolute -inset-3 rounded-full border-2 border-primary/30 animate-[spin_12s_linear_infinite]" />
+              <div className="absolute -inset-5 rounded-full border border-primary/15 animate-[spin_20s_linear_infinite_reverse]" />
+              {/* Glow effect */}
+              <div className="absolute -inset-2 rounded-full bg-primary/10 blur-xl group-hover:bg-primary/20 transition-all duration-500" />
+              {/* Logo */}
+              <img
+                src={logo}
+                alt="MindPeak Institute"
+                className="relative w-40 h-40 md:w-56 md:h-56 rounded-full object-cover border-4 border-primary/40 shadow-[0_0_40px_hsl(var(--primary)/0.3)] group-hover:shadow-[0_0_60px_hsl(var(--primary)/0.5)] transition-shadow duration-500"
+              />
+            </div>
           </motion.div>
 
           <motion.h2
