@@ -101,40 +101,43 @@ export const TransformationTimeline = () => {
               </div>
             </div>
 
-            {/* Chart - right column */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="p-4 rounded-2xl bg-card border border-border shadow-card"
-            >
-              <h3 className="text-foreground font-display text-base md:text-lg mb-3 text-center">Mock Test Progress</h3>
-              <ResponsiveContainer width="100%" height={220}>
-                <AreaChart data={chartData.slice(0, visibleChartPoints)}>
-                  <defs>
-                    <linearGradient id="scoreGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="hsl(43, 72%, 52%)" stopOpacity={0.3} />
-                      <stop offset="95%" stopColor="hsl(43, 72%, 52%)" stopOpacity={0} />
-                    </linearGradient>
-                  </defs>
-                  <XAxis dataKey="month" stroke="hsl(215, 20%, 65%)" fontSize={11} />
-                  <YAxis domain={[0, 300]} stroke="hsl(215, 20%, 65%)" fontSize={11} />
-                  <ReferenceLine y={280} stroke="hsl(0, 84%, 60%)" strokeDasharray="5 5" label={{ value: 'Target', fill: 'hsl(0, 84%, 60%)', fontSize: 10 }} />
-                  <Area type="monotone" dataKey="score" stroke="hsl(43, 72%, 52%)" strokeWidth={3} fill="url(#scoreGrad)" animationDuration={800} />
-                </AreaChart>
-              </ResponsiveContainer>
-              <div className="flex justify-center gap-6 mt-2">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-primary" />
-                  <span className="text-muted-foreground text-xs">Actual Score</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-0.5 bg-destructive" />
-                  <span className="text-muted-foreground text-xs">Target (280)</span>
-                </div>
-              </div>
-            </motion.div>
+            {/* Right column - empty on desktop, chart goes below on mobile */}
+            <div className="hidden lg:block" />
           </div>
+
+          {/* Chart - below timeline, full width */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-4 p-4 rounded-2xl bg-card border border-border shadow-card max-w-2xl mx-auto"
+          >
+            <h3 className="text-foreground font-display text-base md:text-lg mb-3 text-center">Mock Test Progress</h3>
+            <ResponsiveContainer width="100%" height={180}>
+              <AreaChart data={chartData.slice(0, visibleChartPoints)}>
+                <defs>
+                  <linearGradient id="scoreGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="hsl(43, 72%, 52%)" stopOpacity={0.3} />
+                    <stop offset="95%" stopColor="hsl(43, 72%, 52%)" stopOpacity={0} />
+                  </linearGradient>
+                </defs>
+                <XAxis dataKey="month" stroke="hsl(215, 20%, 65%)" fontSize={11} />
+                <YAxis domain={[0, 300]} stroke="hsl(215, 20%, 65%)" fontSize={11} />
+                <ReferenceLine y={280} stroke="hsl(0, 84%, 60%)" strokeDasharray="5 5" label={{ value: 'Target', fill: 'hsl(0, 84%, 60%)', fontSize: 10 }} />
+                <Area type="monotone" dataKey="score" stroke="hsl(43, 72%, 52%)" strokeWidth={3} fill="url(#scoreGrad)" animationDuration={800} />
+              </AreaChart>
+            </ResponsiveContainer>
+            <div className="flex justify-center gap-6 mt-2">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-primary" />
+                <span className="text-muted-foreground text-xs">Actual Score</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-0.5 bg-destructive" />
+                <span className="text-muted-foreground text-xs">Target (280)</span>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
