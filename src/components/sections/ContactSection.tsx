@@ -1,12 +1,34 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, Twitter } from 'lucide-react';
+import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, Twitter, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useDemoModal } from '@/components/DemoBookingModal';
+import { NCERTDownloadModal } from '@/components/NCERTDownloadModal';
 import logo from '@/assets/logo.jpeg';
+
+const ncertBooks = [
+  { title: 'Class 11 Physics Part 1', file: '/ncert/NCERT_CLASS_11_PHYSICS_1.pdf' },
+  { title: 'Class 11 Physics Part 2', file: '/ncert/NCERT_CLASS_11_PHYSICS_2.pdf' },
+  { title: 'Class 11 Chemistry Part 1', file: '/ncert/NCERT_CLASS_11_CHEMISTRY_1.pdf' },
+  { title: 'Class 12 Physics Part 2', file: '/ncert/NCERT_CLASS_12_PHYSICS_2.pdf' },
+  { title: 'Class 12 Chemistry Part 2', file: '/ncert/NCERT_CLASS_12_CHEMISTRY_2.pdf' },
+  { title: 'Class 12 Maths Part 1', file: '/ncert/NCERT_CLASS_12_MATHEMATICS_1.pdf' },
+  { title: 'Class 12 Maths Part 2', file: '/ncert/NCERT_CLASS_12_MATHEMATICS_2.pdf' },
+];
 
 export const ContactSection = () => {
   const { openDemoModal } = useDemoModal();
+  const [selectedBook, setSelectedBook] = useState<{ title: string; file: string } | null>(null);
+  const [downloadModalOpen, setDownloadModalOpen] = useState(false);
+
+  const handleBookClick = (book: { title: string; file: string }) => {
+    setSelectedBook(book);
+    setDownloadModalOpen(true);
+  };
+
   return (
+    <>
+    <NCERTDownloadModal isOpen={downloadModalOpen} onClose={() => setDownloadModalOpen(false)} book={selectedBook} />
     <section id="contact" className="bg-background py-16 px-6 border-t border-border">
       <div className="max-w-5xl mx-auto text-center">
         <motion.div
@@ -54,8 +76,27 @@ export const ContactSection = () => {
         </motion.button>
       </div>
 
+      {/* NCERT Books */}
+      <div className="max-w-5xl mx-auto mt-16 pt-8 border-t border-border">
+        <h3 className="font-display font-bold text-foreground text-xl mb-6 text-center">
+          Free <span className="text-gradient-gold">NCERT Books</span>
+        </h3>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+          {ncertBooks.map((book) => (
+            <button
+              key={book.file}
+              onClick={() => handleBookClick(book)}
+              className="flex items-center gap-2 px-4 py-3 bg-card border border-border rounded-lg text-left hover:border-primary/40 transition-colors group"
+            >
+              <Download className="w-4 h-4 text-primary flex-shrink-0 group-hover:scale-110 transition-transform" />
+              <span className="text-foreground text-xs leading-tight">{book.title}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
       {/* Footer */}
-      <div className="max-w-5xl mx-auto mt-20 pt-8 border-t border-border">
+      <div className="max-w-5xl mx-auto mt-12 pt-8 border-t border-border">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-6">
           {/* Social Links */}
           <div className="flex items-center gap-4">
@@ -101,5 +142,6 @@ export const ContactSection = () => {
         </p>
       </div>
     </section>
+    </>
   );
 };
