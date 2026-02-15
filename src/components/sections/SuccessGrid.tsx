@@ -14,16 +14,16 @@ interface StoryItem {
   title: string;
   subtitle: string;
   image: string;
-  aspect: 'portrait' | 'landscape' | 'square';
+  objectPos?: string;
 }
 
 const stories: StoryItem[] = [
-  { id: '1', title: 'AARAV SHARMA', subtitle: 'AIR 42 — JEE Advanced', image: student1, aspect: 'portrait' },
-  { id: '2', title: 'PERSONALIZED MENTORING', subtitle: '1-on-1 Session Highlights', image: mentoring, aspect: 'portrait' },
-  { id: '3', title: 'PRIYA PATEL', subtitle: 'AIR 156 — NEET', image: student2, aspect: 'square' },
-  { id: '4', title: 'STUDY ROUTINE', subtitle: 'Day in the Life', image: student3, aspect: 'square' },
-  { id: '5', title: 'ROHAN GUPTA', subtitle: 'AIR 89 — JEE Mains', image: student4, aspect: 'portrait' },
-  { id: '6', title: 'MENTOR SESSIONS', subtitle: 'Guided Problem Solving', image: mentoringSession, aspect: 'portrait' },
+  { id: '1', title: 'AARAV SHARMA', subtitle: 'AIR 42 — JEE Advanced', image: student1, objectPos: 'center 20%' },
+  { id: '2', title: 'PERSONALIZED MENTORING', subtitle: '1-on-1 Session Highlights', image: mentoring, objectPos: 'center 30%' },
+  { id: '3', title: 'PRIYA PATEL', subtitle: 'AIR 156 — NEET', image: student2, objectPos: 'center 20%' },
+  { id: '4', title: 'STUDY ROUTINE', subtitle: 'Day in the Life', image: student3, objectPos: 'center 25%' },
+  { id: '5', title: 'ROHAN GUPTA', subtitle: 'AIR 89 — JEE Mains', image: student4, objectPos: 'center 15%' },
+  { id: '6', title: 'MENTOR SESSIONS', subtitle: 'Guided Problem Solving', image: mentoringSession, objectPos: 'center 30%' },
 ];
 
 const altTextMap: Record<string, string> = {
@@ -33,12 +33,6 @@ const altTextMap: Record<string, string> = {
   '4': 'Daily study routine of a MindPeak Institute JEE aspirant',
   '5': 'Rohan Gupta, MindPeak student who achieved AIR 89 in JEE Mains',
   '6': 'Guided problem solving mentor session at MindPeak Institute',
-};
-
-const aspectMap = {
-  portrait: 'aspect-[4/5]',
-  landscape: 'aspect-video',
-  square: 'aspect-square',
 };
 
 export const SuccessGrid = () => {
@@ -73,18 +67,18 @@ export const SuccessGrid = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
-              className={`relative group cursor-pointer overflow-hidden ${aspectMap[story.aspect]}`}
+              className="relative group cursor-pointer overflow-hidden aspect-[4/5] rounded-lg"
               onClick={() => setSelected(story)}
             >
               <div className="w-full h-full overflow-hidden">
                 <img
                   src={story.image}
                   alt={altTextMap[story.id] || story.title}
-                  className="w-[103%] h-[103%] object-cover transition-transform duration-700 group-hover:scale-110"
-                  style={{ objectPosition: 'center top' }}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  style={{ objectPosition: story.objectPos || 'center center' }}
                   loading="lazy"
                   width={600}
-                  height={story.aspect === 'portrait' ? 750 : story.aspect === 'square' ? 600 : 338}
+                  height={750}
                 />
               </div>
 
