@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { AreaChart, Area, XAxis, YAxis, ResponsiveContainer, ReferenceLine } from 'recharts';
 
@@ -37,62 +37,62 @@ export const TransformationTimeline = () => {
     <section
       ref={sectionRef}
       className="relative bg-background"
-      style={{ minHeight: '140vh' }}
+      style={{ minHeight: '160vh' }}
     >
-      <div className="sticky top-0 h-screen flex items-center pt-16">
-        <div className="max-w-6xl mx-auto px-6 w-full">
+      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 w-full py-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-8"
+            className="text-center mb-4"
           >
-            <h2 className="font-display text-foreground text-4xl md:text-6xl lg:text-7xl mb-4">
+            <h2 className="font-display text-foreground text-3xl md:text-5xl lg:text-6xl mb-2">
               THE JOURNEY
             </h2>
-            <p className="text-muted-foreground text-lg">
+            <p className="text-muted-foreground text-sm md:text-base">
               Watch how Aarav transformed from struggle to success
             </p>
           </motion.div>
 
-          <div className="space-y-6">
-            {/* Timeline + Chart interleaved */}
-            <div className="relative">
-              <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-border">
+          <div className="grid lg:grid-cols-2 gap-4 items-start">
+            {/* Timeline - left column */}
+            <div className="relative max-h-[calc(100vh-180px)] overflow-y-auto pr-2 scrollbar-thin">
+              <div className="absolute left-3 top-0 bottom-0 w-0.5 bg-border">
                 <motion.div
                   className="absolute top-0 left-0 w-full bg-gradient-to-b from-destructive via-primary to-accent"
                   style={{ height: `${progress * 100}%` }}
                 />
               </div>
 
-              <div className="space-y-4 ml-12">
-                {milestones.slice(0, 3).map((m, i) => {
+              <div className="space-y-3 ml-10">
+                {milestones.map((m, i) => {
                   const isActive = i <= activeIndex;
                   return (
                     <motion.div
                       key={i}
-                      animate={{ opacity: isActive ? 1 : 0.25, x: isActive ? 0 : -15 }}
+                      animate={{ opacity: isActive ? 1 : 0.25, x: isActive ? 0 : -10 }}
                       transition={{ duration: 0.4 }}
                       className="relative"
                     >
                       <motion.div
-                        className="absolute -left-[2.75rem] top-1 w-5 h-5 rounded-full border-2 border-background"
+                        className="absolute -left-[2.25rem] top-1 w-4 h-4 rounded-full border-2 border-background"
                         animate={{ scale: isActive ? 1.2 : 1 }}
                         style={{ backgroundColor: isActive ? 'hsl(var(--primary))' : 'hsl(var(--muted))' }}
                       />
-                      <div className={`p-3 rounded-xl border transition-colors ${isActive ? 'border-primary/40 bg-card shadow-card' : 'border-border bg-card/30'}`}>
-                        <div className="flex items-start justify-between mb-1">
-                          <div>
-                            <div className="text-xs text-muted-foreground font-semibold">{m.month}</div>
-                            <h3 className="text-foreground font-display text-base">{m.title}</h3>
+                      <div className={`p-2.5 rounded-lg border transition-colors ${isActive ? 'border-primary/40 bg-card shadow-card' : 'border-border bg-card/30'}`}>
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="min-w-0">
+                            <div className="text-[10px] text-muted-foreground font-semibold">{m.month}</div>
+                            <h3 className="text-foreground font-display text-sm">{m.title}</h3>
                           </div>
-                          <span className="text-xl">{m.icon}</span>
+                          <span className="text-lg shrink-0">{m.icon}</span>
                         </div>
-                        <p className="text-muted-foreground text-xs mb-2">{m.description}</p>
-                        <div className="inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-secondary text-foreground text-xs">
-                          <span className="text-muted-foreground text-[10px]">Score:</span>
+                        <p className="text-muted-foreground text-[11px] mt-1">{m.description}</p>
+                        <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary text-foreground text-[11px] mt-1.5">
+                          <span className="text-muted-foreground text-[9px]">Score:</span>
                           <span className="font-bold">{m.score}</span>
-                          <span className="text-muted-foreground text-[10px]">/300</span>
+                          <span className="text-muted-foreground text-[9px]">/300</span>
                         </div>
                       </div>
                     </motion.div>
@@ -101,15 +101,15 @@ export const TransformationTimeline = () => {
               </div>
             </div>
 
-            {/* Chart - in between milestones */}
+            {/* Chart - right column */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="p-4 rounded-2xl bg-card border border-border shadow-card"
             >
-              <h3 className="text-foreground font-display text-lg mb-4 text-center">Mock Test Progress</h3>
-              <ResponsiveContainer width="100%" height={200}>
+              <h3 className="text-foreground font-display text-base md:text-lg mb-3 text-center">Mock Test Progress</h3>
+              <ResponsiveContainer width="100%" height={220}>
                 <AreaChart data={chartData.slice(0, visibleChartPoints)}>
                   <defs>
                     <linearGradient id="scoreGrad" x1="0" y1="0" x2="0" y2="1">
@@ -134,52 +134,6 @@ export const TransformationTimeline = () => {
                 </div>
               </div>
             </motion.div>
-
-            {/* Remaining milestones */}
-            <div className="relative">
-              <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-border">
-                <motion.div
-                  className="absolute top-0 left-0 w-full bg-gradient-to-b from-primary to-accent"
-                  style={{ height: `${Math.max(0, (progress - 0.5) * 2) * 100}%` }}
-                />
-              </div>
-
-              <div className="space-y-4 ml-12">
-                {milestones.slice(3).map((m, i) => {
-                  const realIndex = i + 3;
-                  const isActive = realIndex <= activeIndex;
-                  return (
-                    <motion.div
-                      key={realIndex}
-                      animate={{ opacity: isActive ? 1 : 0.25, x: isActive ? 0 : -15 }}
-                      transition={{ duration: 0.4 }}
-                      className="relative"
-                    >
-                      <motion.div
-                        className="absolute -left-[2.75rem] top-1 w-5 h-5 rounded-full border-2 border-background"
-                        animate={{ scale: isActive ? 1.2 : 1 }}
-                        style={{ backgroundColor: isActive ? 'hsl(var(--primary))' : 'hsl(var(--muted))' }}
-                      />
-                      <div className={`p-3 rounded-xl border transition-colors ${isActive ? 'border-primary/40 bg-card shadow-card' : 'border-border bg-card/30'}`}>
-                        <div className="flex items-start justify-between mb-1">
-                          <div>
-                            <div className="text-xs text-muted-foreground font-semibold">{m.month}</div>
-                            <h3 className="text-foreground font-display text-base">{m.title}</h3>
-                          </div>
-                          <span className="text-xl">{m.icon}</span>
-                        </div>
-                        <p className="text-muted-foreground text-xs mb-2">{m.description}</p>
-                        <div className="inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-secondary text-foreground text-xs">
-                          <span className="text-muted-foreground text-[10px]">Score:</span>
-                          <span className="font-bold">{m.score}</span>
-                          <span className="text-muted-foreground text-[10px]">/300</span>
-                        </div>
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </div>
           </div>
         </div>
       </div>
