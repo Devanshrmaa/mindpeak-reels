@@ -61,56 +61,35 @@ export const TransformationTimeline = () => {
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-4 items-start">
-            {/* Timeline - left column */}
-            <div className="relative">
-              <div className="absolute left-3 top-0 bottom-0 w-0.5 bg-border">
+          {/* Milestones grid - full width */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 w-full">
+            {milestones.map((m, i) => {
+              const isActive = i <= activeIndex;
+              return (
                 <motion.div
-                  className="absolute top-0 left-0 w-full bg-gradient-to-b from-destructive via-primary to-accent"
-                  style={{ height: `${progress * 100}%` }}
-                />
-              </div>
-
-              <div className="space-y-3 ml-10">
-                {milestones.map((m, i) => {
-                  const isActive = i <= activeIndex;
-                  return (
-                    <motion.div
-                      key={i}
-                      animate={{ opacity: isActive ? 1 : 0.25, x: isActive ? 0 : -10 }}
-                      transition={{ duration: 0.4 }}
-                      className="relative"
-                    >
-                      <motion.div
-                        className="absolute -left-[2.25rem] top-1 w-4 h-4 rounded-full border-2 border-background"
-                        animate={{ scale: isActive ? 1.2 : 1 }}
-                        style={{ backgroundColor: isActive ? 'hsl(var(--primary))' : 'hsl(var(--muted))' }}
-                      />
-                      <div className={`p-2.5 rounded-lg border transition-colors ${isActive ? 'border-primary/40 bg-card shadow-card' : 'border-border bg-card/30'}`}>
-                        <div className="flex items-center justify-between gap-2">
-                          <div className="min-w-0">
-                            <div className="text-[10px] text-muted-foreground font-semibold">{m.month}</div>
-                            <h3 className="text-foreground font-display text-sm">{m.title}</h3>
-                          </div>
-                          <div className="w-8 h-8 shrink-0 rounded-md overflow-hidden">
-                            <img src={m.image} alt={m.title} className="w-full h-full object-cover" />
-                          </div>
-                        </div>
-                        <p className="text-muted-foreground text-[11px] mt-1">{m.description}</p>
-                        <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary text-foreground text-[11px] mt-1.5">
-                          <span className="text-muted-foreground text-[9px]">Score:</span>
-                          <span className="font-bold">{m.score}</span>
-                          <span className="text-muted-foreground text-[9px]">/300</span>
-                        </div>
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Right column - empty on desktop */}
-            <div className="hidden lg:block" />
+                  key={i}
+                  animate={{ opacity: isActive ? 1 : 0.3 }}
+                  transition={{ duration: 0.4 }}
+                  className={`p-3 md:p-4 rounded-xl border transition-colors ${isActive ? 'border-primary/40 bg-card shadow-card' : 'border-border bg-card/30'}`}
+                >
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-8 h-8 md:w-10 md:h-10 shrink-0 rounded-lg overflow-hidden">
+                      <img src={m.image} alt={m.title} className="w-full h-full object-cover" />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-[10px] text-muted-foreground font-semibold">{m.month}</div>
+                      <h3 className="text-foreground font-display text-xs md:text-sm leading-tight">{m.title}</h3>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground text-[10px] md:text-[11px] mb-2 line-clamp-2">{m.description}</p>
+                  <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary text-foreground text-[10px] md:text-[11px]">
+                    <span className="text-muted-foreground text-[9px]">Score:</span>
+                    <span className="font-bold">{m.score}</span>
+                    <span className="text-muted-foreground text-[9px]">/300</span>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* Chart - below timeline */}
