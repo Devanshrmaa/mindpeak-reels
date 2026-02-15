@@ -104,7 +104,7 @@ export const NCERTDownloadModal = ({ isOpen, onClose, book }: Props) => {
                 <X className="w-4 h-4 text-foreground" />
               </button>
               <h3 className="font-display font-bold text-foreground text-lg sm:text-xl">
-                Download <span className="text-gradient-gold">NCERT Book</span>
+                Download <span className="text-gradient-gold">{book?.title?.includes('Brochure') ? 'Brochure' : 'NCERT Book'}</span>
               </h3>
               <p className="text-muted-foreground text-sm mt-1">{book?.title}</p>
             </div>
@@ -118,7 +118,7 @@ export const NCERTDownloadModal = ({ isOpen, onClose, book }: Props) => {
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="p-6 space-y-4">
-                <p className="text-muted-foreground text-xs">Fill in your details to download the free NCERT PDF.</p>
+                <p className="text-muted-foreground text-xs">Fill in your details to download the free PDF.</p>
                 <div className="relative">
                   <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                   <input name="name" value={form.name} onChange={handleChange} placeholder="Your Name *" maxLength={100} required className="w-full pl-10 pr-4 py-3 bg-muted border border-border rounded-lg text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all" />
