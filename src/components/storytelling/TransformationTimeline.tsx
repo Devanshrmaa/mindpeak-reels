@@ -1,14 +1,20 @@
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { AreaChart, Area, XAxis, YAxis, ResponsiveContainer, ReferenceLine } from 'recharts';
+import analyticsDashboard from '@/assets/icons/analytics-dashboard.png';
+import strategyPlan from '@/assets/icons/strategy-plan.png';
+import clarityLightbulb from '@/assets/icons/clarity-lightbulb.png';
+import growthChart from '@/assets/icons/growth-chart.png';
+import targetPrecision from '@/assets/icons/target-precision.png';
+import trophyAchievement from '@/assets/icons/trophy-achievement.png';
 
 const milestones = [
-  { month: 'Month 1', title: 'Diagnostic Assessment', description: 'Identified weak areas: Organic Chemistry, Calculus', score: 120, icon: '📊' },
-  { month: 'Month 2', title: 'Personalized Strategy', description: 'Custom study plan created, 1-on-1 sessions begin', score: 145, icon: '📋' },
-  { month: 'Month 3', title: 'Conceptual Clarity', description: 'Fundamentals strengthened, confidence building', score: 180, icon: '💡' },
-  { month: 'Month 4', title: 'Rapid Improvement', description: 'Mock test scores climbing consistently', score: 215, icon: '📈' },
-  { month: 'Month 5', title: 'Advanced Problem Solving', description: 'Tackling JEE Advanced level questions', score: 250, icon: '🎯' },
-  { month: 'Month 6', title: 'Peak Performance', description: 'Consistently scoring 280+/300 in mocks', score: 285, icon: '🏆' },
+  { month: 'Month 1', title: 'Diagnostic Assessment', description: 'Identified weak areas: Organic Chemistry, Calculus', score: 120, image: analyticsDashboard },
+  { month: 'Month 2', title: 'Personalized Strategy', description: 'Custom study plan created, 1-on-1 sessions begin', score: 145, image: strategyPlan },
+  { month: 'Month 3', title: 'Conceptual Clarity', description: 'Fundamentals strengthened, confidence building', score: 180, image: clarityLightbulb },
+  { month: 'Month 4', title: 'Rapid Improvement', description: 'Mock test scores climbing consistently', score: 215, image: growthChart },
+  { month: 'Month 5', title: 'Advanced Problem Solving', description: 'Tackling JEE Advanced level questions', score: 250, image: targetPrecision },
+  { month: 'Month 6', title: 'Peak Performance', description: 'Consistently scoring 280+/300 in mocks', score: 285, image: trophyAchievement },
 ];
 
 const chartData = [
@@ -86,7 +92,9 @@ export const TransformationTimeline = () => {
                             <div className="text-[10px] text-muted-foreground font-semibold">{m.month}</div>
                             <h3 className="text-foreground font-display text-sm">{m.title}</h3>
                           </div>
-                          <span className="text-lg shrink-0">{m.icon}</span>
+                          <div className="w-8 h-8 shrink-0 rounded-md overflow-hidden">
+                            <img src={m.image} alt={m.title} className="w-full h-full object-cover" />
+                          </div>
                         </div>
                         <p className="text-muted-foreground text-[11px] mt-1">{m.description}</p>
                         <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary text-foreground text-[11px] mt-1.5">
@@ -101,11 +109,11 @@ export const TransformationTimeline = () => {
               </div>
             </div>
 
-            {/* Right column - empty on desktop, chart goes below on mobile */}
+            {/* Right column - empty on desktop */}
             <div className="hidden lg:block" />
           </div>
 
-          {/* Chart - below timeline, full width */}
+          {/* Chart - below timeline */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

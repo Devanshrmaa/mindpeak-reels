@@ -1,32 +1,35 @@
 import { motion } from 'framer-motion';
+import trophyAchievement from '@/assets/icons/trophy-achievement.png';
+import growthChart from '@/assets/icons/growth-chart.png';
+import targetPrecision from '@/assets/icons/target-precision.png';
+import mentoringIcon from '@/assets/icons/mentoring-icon.png';
+import strategyPlan from '@/assets/icons/strategy-plan.png';
 
 const stats = [
-  { value: '165', label: 'Points Gained', icon: '📈' },
-  { value: '6', label: 'Months', icon: '⏱️' },
-  { value: '95%', label: 'Improvement', icon: '🎯' },
-  { value: '1:1', label: 'Mentorship', icon: '👨‍🏫' },
+  { value: '165', label: 'Points Gained', image: growthChart },
+  { value: '6', label: 'Months', image: strategyPlan },
+  { value: '95%', label: 'Improvement', image: targetPrecision },
+  { value: '1:1', label: 'Mentorship', image: mentoringIcon },
 ];
 
 export const ResultSection = () => {
   return (
     <section className="relative py-20 md:py-24 bg-gradient-to-br from-background via-secondary to-background flex items-center justify-center overflow-hidden">
-      {/* Floating celebration elements */}
+      {/* Floating celebration elements - subtle golden particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {Array.from({ length: 16 }).map((_, i) => (
+        {Array.from({ length: 12 }).map((_, i) => (
           <motion.div
             key={i}
-            initial={{ y: '110vh', x: `${(i / 16) * 100}%`, rotate: 0 }}
+            initial={{ y: '110vh', x: `${(i / 12) * 100}%`, rotate: 0 }}
             animate={{ y: '-10vh', rotate: 360 }}
             transition={{
-              duration: 4 + Math.random() * 3,
+              duration: 5 + Math.random() * 3,
               delay: Math.random() * 3,
               repeat: Infinity,
               ease: 'linear',
             }}
-            className="absolute text-2xl md:text-4xl"
-          >
-            {['🏆', '🎉', '⭐', '🎊'][i % 4]}
-          </motion.div>
+            className="absolute w-2 h-2 rounded-full bg-primary/20"
+          />
         ))}
       </div>
 
@@ -38,8 +41,8 @@ export const ResultSection = () => {
           transition={{ type: 'spring', duration: 1 }}
           className="inline-block mb-8"
         >
-          <div className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-gold-light to-gold-dark flex items-center justify-center text-5xl md:text-6xl shadow-gold-glow">
-            🏆
+          <div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden shadow-gold-glow ring-4 ring-primary/30">
+            <img src={trophyAchievement} alt="Achievement trophy" className="w-full h-full object-cover" />
           </div>
         </motion.div>
 
@@ -85,7 +88,9 @@ export const ResultSection = () => {
               whileHover={{ scale: 1.05 }}
               className="p-5 md:p-6 rounded-2xl bg-card/60 backdrop-blur-md border border-border"
             >
-              <div className="text-3xl md:text-4xl mb-3">{stat.icon}</div>
+              <div className="w-10 h-10 md:w-12 md:h-12 mx-auto mb-3 rounded-lg overflow-hidden">
+                <img src={stat.image} alt={stat.label} className="w-full h-full object-cover" />
+              </div>
               <div className="text-2xl md:text-3xl font-bold text-primary mb-1">{stat.value}</div>
               <div className="text-xs md:text-sm text-muted-foreground uppercase tracking-wider">{stat.label}</div>
             </motion.div>

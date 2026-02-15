@@ -1,5 +1,7 @@
 import { useScroll, useMotionValueEvent, motion } from 'framer-motion';
 import { useRef, useState } from 'react';
+import strugglingStudent from '@/assets/icons/struggling-student.png';
+import successRocket from '@/assets/icons/success-rocket.png';
 
 const beforeStats = [
   { label: 'Mock Score', value: '120/300' },
@@ -22,7 +24,6 @@ export const BeforeAfterSection = () => {
     offset: ["start start", "end end"]
   });
 
-  // 0 = fully BEFORE, 100 = fully AFTER
   const [pct, setPct] = useState(0);
   useMotionValueEvent(scrollYProgress, 'change', (v) => {
     setPct(Math.round(v * 100));
@@ -36,9 +37,7 @@ export const BeforeAfterSection = () => {
       className="relative bg-background"
       style={{ height: '110vh' }}
     >
-      <div
-        className="sticky top-0 flex items-center justify-center overflow-hidden h-screen"
-      >
+      <div className="sticky top-0 flex items-center justify-center overflow-hidden h-screen">
         <div className="w-full max-w-5xl mx-auto px-4 md:px-6">
           <h2
             className="font-display text-foreground text-center mb-6"
@@ -47,7 +46,7 @@ export const BeforeAfterSection = () => {
             THE TRANSFORMATION
           </h2>
 
-          {/* Progress bar showing scroll position */}
+          {/* Progress bar */}
           <div className="w-full max-w-md mx-auto mb-6">
             <div className="flex justify-between text-[10px] md:text-xs uppercase tracking-wider mb-2">
               <span className={`transition-colors ${!showAfter ? 'text-destructive font-bold' : 'text-muted-foreground'}`}>Before</span>
@@ -58,15 +57,13 @@ export const BeforeAfterSection = () => {
                 className="h-full rounded-full transition-all duration-150 ease-out"
                 style={{
                   width: `${pct}%`,
-                  background: pct < 50
-                    ? 'hsl(var(--destructive))'
-                    : 'hsl(var(--accent))',
+                  background: pct < 50 ? 'hsl(var(--destructive))' : 'hsl(var(--accent))',
                 }}
               />
             </div>
           </div>
 
-          {/* Card that transitions between BEFORE and AFTER */}
+          {/* Card */}
           <div
             className="relative rounded-2xl overflow-hidden border border-border shadow-card transition-colors duration-500"
             style={{
@@ -77,7 +74,7 @@ export const BeforeAfterSection = () => {
               borderColor: showAfter ? 'hsl(var(--accent) / 0.3)' : 'hsl(var(--destructive) / 0.3)',
             }}
           >
-            {/* BEFORE content */}
+            {/* BEFORE */}
             <div
               className="absolute inset-0 flex flex-col items-center justify-center p-5 md:p-8 text-center transition-all duration-500"
               style={{
@@ -86,7 +83,9 @@ export const BeforeAfterSection = () => {
                 pointerEvents: showAfter ? 'none' : 'auto',
               }}
             >
-              <div className="text-4xl md:text-6xl mb-3">😰</div>
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden mb-3 ring-2 ring-destructive/30">
+                <img src={strugglingStudent} alt="Before MindPeak" className="w-full h-full object-cover" />
+              </div>
               <h3 className="text-foreground font-display text-lg md:text-2xl mb-4">BEFORE MINDPEAK</h3>
               <div className="space-y-2 w-full max-w-xs">
                 {beforeStats.map((s, i) => (
@@ -97,11 +96,11 @@ export const BeforeAfterSection = () => {
                 ))}
               </div>
               <div className="mt-4 px-4 py-1.5 bg-destructive/10 border border-destructive/20 rounded-full text-destructive text-xs font-bold uppercase">
-                Struggling 📉
+                Struggling
               </div>
             </div>
 
-            {/* AFTER content */}
+            {/* AFTER */}
             <div
               className="absolute inset-0 flex flex-col items-center justify-center p-5 md:p-8 text-center transition-all duration-500"
               style={{
@@ -110,7 +109,9 @@ export const BeforeAfterSection = () => {
                 pointerEvents: showAfter ? 'auto' : 'none',
               }}
             >
-              <div className="text-4xl md:text-6xl mb-3">🚀</div>
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden mb-3 ring-2 ring-accent/30">
+                <img src={successRocket} alt="After MindPeak" className="w-full h-full object-cover" />
+              </div>
               <h3 className="text-foreground font-display text-lg md:text-2xl mb-4">AFTER MINDPEAK</h3>
               <div className="space-y-2 w-full max-w-xs">
                 {afterStats.map((s, i) => (
@@ -121,7 +122,7 @@ export const BeforeAfterSection = () => {
                 ))}
               </div>
               <div className="mt-4 px-4 py-1.5 bg-accent/10 border border-accent/20 rounded-full text-accent text-xs font-bold uppercase">
-                10× Improvement 📈
+                10× Improvement
               </div>
             </div>
           </div>

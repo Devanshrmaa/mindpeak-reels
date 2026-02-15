@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import strugglingStudent from '@/assets/icons/struggling-student.png';
 
 export const ProblemSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -28,7 +29,7 @@ export const ProblemSection = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-display text-foreground mb-12"
+            className="font-display text-foreground mb-6"
             style={{
               fontSize: 'clamp(2rem, 6vw, 5rem)',
               fontWeight: 700,
@@ -42,7 +43,7 @@ export const ProblemSection = () => {
 
           <motion.div
             style={{ opacity: chaosOpacity }}
-            className="relative w-full h-72 md:h-96"
+            className="relative w-full h-48 md:h-64"
           >
             {Array.from({ length: 40 }).map((_, i) => (
               <motion.div
@@ -75,8 +76,8 @@ export const ProblemSection = () => {
               transition={{ duration: 2, repeat: Infinity }}
               className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
             >
-              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-destructive to-destructive/60 flex items-center justify-center shadow-lg">
-                <span className="text-3xl md:text-4xl">😰</span>
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden shadow-lg ring-2 ring-destructive/40">
+                <img src={strugglingStudent} alt="Struggling student" className="w-full h-full object-cover" />
               </div>
             </motion.div>
           </motion.div>
@@ -85,7 +86,7 @@ export const ProblemSection = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.5 }}
-            className="grid grid-cols-3 gap-4 md:gap-8 mt-12 md:mt-16"
+            className="grid grid-cols-3 gap-4 md:gap-8 mt-6 md:mt-8"
           >
             {[
               { value: '100+', label: 'Students per batch' },
