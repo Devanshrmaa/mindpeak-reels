@@ -20,21 +20,18 @@ export const BeforeAfterSection = () => {
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start end", "end start"]
+    offset: ["start start", "end end"]  // animation runs while sticky is pinned
   });
 
-  // Scroll maps: 0→1 progress maps to slider 100→0 (BEFORE first, AFTER revealed)
-  const sliderPct = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [100, 100, 0, 0]
-  );
+  // 0 → 100 as user scrolls through section
+  const pct = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
-  const clipRight = useTransform(sliderPct, (v) => `inset(0 0 0 ${100 - v}%)`);
-  const sliderLeft = useTransform(sliderPct, (v) => `${100 - v}%`);
-
+  // BEFORE clips from the right as pct grows: fully visible at 0, gone at 100
+  const beforeClip = useTransform(pct, (v) => `inset(0 ${v}% 0 0)`);
+  // Slider line moves left→right
+  const sliderLeftPx = useTransform(pct, (v) => `${v}%`);
   // Progress bar
-  const progressScaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const progressX = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
     <section
@@ -44,7 +41,7 @@ export const BeforeAfterSection = () => {
     >
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
         <div className="w-full max-w-6xl mx-auto px-6 py-10">
-          {/* Header with glow */}
+          {/* Header */}
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -59,20 +56,19 @@ export const BeforeAfterSection = () => {
           </motion.h2>
 
           <div className="relative h-[420px] md:h-[520px] rounded-2xl overflow-hidden border border-border shadow-card">
-            {/* Ambient glow border */}
+            {/* Ambient glow */}
             <div className="absolute -inset-px bg-gradient-to-r from-destructive/30 via-primary/20 to-accent/30 rounded-2xl blur-sm opacity-40 pointer-events-none" />
 
-            {/* AFTER layer (background - revealed as slider moves) */}
+            {/* AFTER layer (background — fully visible underneath) */}
             <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-accent/10 to-accent/5">
-              {/* Success particles */}
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 {Array.from({ length: 12 }).map((_, i) => (
                   <motion.div
                     key={i}
                     className="absolute text-lg"
-                    style={{ left: `${(i / 12) * 100}%`, top: `${Math.random() * 80 + 10}%` }}
+                    style={{ left: `${(i / 12) * 100}%`, top: `${10 + (i * 7) % 70}%` }}
                     animate={{ y: [0, -30, 0], opacity: [0.2, 0.6, 0.2] }}
-                    transition={{ duration: 3 + Math.random() * 2, repeat: Infinity, delay: Math.random() * 2 }}
+                    transition={{ duration: 3 + (i % 3), repeat: Infinity, delay: i * 0.3 }}
                   >
                     {['⭐', '🎯', '🏆', '✨'][i % 4]}
                   </motion.div>
@@ -84,51 +80,37 @@ export const BeforeAfterSection = () => {
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 2.5, repeat: Infinity }}
                   className="text-5xl md:text-7xl mb-4 drop-shadow-lg"
-                >
-                  🚀
-                </motion.div>
+                >🚀</motion.div>
                 <h3 className="text-foreground font-display text-xl md:text-3xl mb-5">AFTER MINDPEAK</h3>
                 <div className="space-y-2.5 w-full max-w-sm">
                   {afterStats.map((s, i) => (
-                    <div
-                      key={i}
-                      className="glass-card p-3 rounded-xl border-accent/30 flex justify-between items-center"
-                    >
+                    <div key={i} className="glass-card p-3 rounded-xl border-accent/30 flex justify-between items-center">
                       <span className="text-accent text-xs uppercase tracking-wider font-semibold">{s.label}</span>
                       <span className="text-accent font-bold text-lg md:text-xl">{s.value}</span>
                     </div>
                   ))}
                 </div>
                 <motion.div
-                  animate={{
-                    boxShadow: [
-                      '0 0 15px hsl(217 91% 60% / 0.3)',
-                      '0 0 30px hsl(217 91% 60% / 0.5)',
-                      '0 0 15px hsl(217 91% 60% / 0.3)',
-                    ],
-                  }}
+                  animate={{ boxShadow: ['0 0 15px hsl(217 91% 60% / 0.3)', '0 0 30px hsl(217 91% 60% / 0.5)', '0 0 15px hsl(217 91% 60% / 0.3)'] }}
                   transition={{ duration: 2, repeat: Infinity }}
                   className="mt-5 px-5 py-2 bg-accent/15 border border-accent/30 rounded-full text-accent text-sm font-bold uppercase tracking-wider"
-                >
-                  10× Improvement 📈
-                </motion.div>
+                >10× Improvement 📈</motion.div>
               </div>
             </div>
 
-            {/* BEFORE layer (foreground - clips away as you scroll) */}
+            {/* BEFORE layer (foreground — clips away from right as you scroll) */}
             <motion.div
               className="absolute inset-0 bg-gradient-to-br from-destructive/25 via-destructive/15 to-destructive/5"
-              style={{ clipPath: clipRight }}
+              style={{ clipPath: beforeClip }}
             >
-              {/* Chaos particles */}
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 {Array.from({ length: 10 }).map((_, i) => (
                   <motion.div
                     key={i}
                     className="absolute w-1.5 h-1.5 bg-destructive/40 rounded-full"
-                    style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
+                    style={{ left: `${10 + (i * 9) % 80}%`, top: `${10 + (i * 11) % 80}%` }}
                     animate={{ y: [0, -20, 0], opacity: [0.2, 0.5, 0.2] }}
-                    transition={{ duration: 2.5 + Math.random() * 2, repeat: Infinity, delay: Math.random() * 2 }}
+                    transition={{ duration: 2.5 + (i % 3), repeat: Infinity, delay: i * 0.2 }}
                   />
                 ))}
               </div>
@@ -138,41 +120,28 @@ export const BeforeAfterSection = () => {
                   animate={{ scale: [1, 1.08, 1], rotate: [-3, 3, -3] }}
                   transition={{ duration: 2, repeat: Infinity }}
                   className="text-5xl md:text-7xl mb-4 drop-shadow-lg"
-                >
-                  😰
-                </motion.div>
+                >😰</motion.div>
                 <h3 className="text-foreground font-display text-xl md:text-3xl mb-5">BEFORE MINDPEAK</h3>
                 <div className="space-y-2.5 w-full max-w-sm">
                   {beforeStats.map((s, i) => (
-                    <div
-                      key={i}
-                      className="glass-card p-3 rounded-xl border-destructive/30 flex justify-between items-center"
-                    >
+                    <div key={i} className="glass-card p-3 rounded-xl border-destructive/30 flex justify-between items-center">
                       <span className="text-destructive text-xs uppercase tracking-wider font-semibold">{s.label}</span>
                       <span className="text-destructive font-bold text-lg md:text-xl">{s.value}</span>
                     </div>
                   ))}
                 </div>
                 <motion.div
-                  animate={{
-                    boxShadow: [
-                      '0 0 15px hsl(0 84% 60% / 0.3)',
-                      '0 0 30px hsl(0 84% 60% / 0.5)',
-                      '0 0 15px hsl(0 84% 60% / 0.3)',
-                    ],
-                  }}
+                  animate={{ boxShadow: ['0 0 15px hsl(0 84% 60% / 0.3)', '0 0 30px hsl(0 84% 60% / 0.5)', '0 0 15px hsl(0 84% 60% / 0.3)'] }}
                   transition={{ duration: 2, repeat: Infinity }}
                   className="mt-5 px-5 py-2 bg-destructive/15 border border-destructive/30 rounded-full text-destructive text-sm font-bold uppercase tracking-wider"
-                >
-                  Struggling 📉
-                </motion.div>
+                >Struggling 📉</motion.div>
               </div>
             </motion.div>
 
-            {/* Slider line */}
+            {/* Slider line — moves left to right with scroll */}
             <motion.div
               className="absolute top-0 bottom-0 w-0.5 bg-foreground z-20"
-              style={{ right: sliderLeft }}
+              style={{ left: sliderLeftPx }}
             >
               <div className="absolute inset-0 bg-foreground/50 blur-sm" />
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 md:w-14 md:h-14 bg-foreground rounded-full shadow-lg flex items-center justify-center">
@@ -184,18 +153,16 @@ export const BeforeAfterSection = () => {
             </motion.div>
           </div>
 
-          {/* Scroll instruction + progress bar */}
+          {/* Progress bar */}
           <div className="text-center mt-6">
             <motion.p
               animate={{ y: [0, 6, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
               className="text-muted-foreground text-sm uppercase tracking-wider mb-3"
-            >
-              ↓ Scroll to reveal transformation ↓
-            </motion.p>
+            >↓ Scroll to reveal transformation ↓</motion.p>
             <div className="w-40 h-1 bg-muted rounded-full mx-auto overflow-hidden">
               <motion.div
-                style={{ scaleX: progressScaleX }}
+                style={{ scaleX: progressX }}
                 className="h-full bg-gradient-to-r from-destructive via-primary to-accent origin-left"
               />
             </div>
