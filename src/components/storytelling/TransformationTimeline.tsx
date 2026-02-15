@@ -37,7 +37,7 @@ export const TransformationTimeline = () => {
     <section
       ref={sectionRef}
       className="relative bg-background"
-      style={{ minHeight: '200vh' }}
+      style={{ minHeight: '140vh' }}
     >
       <div className="sticky top-0 h-screen flex items-center pt-20">
         <div className="max-w-6xl mx-auto px-6 w-full">
