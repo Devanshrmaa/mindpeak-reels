@@ -4,8 +4,12 @@ import { ChevronDown, HelpCircle } from 'lucide-react';
 
 const faqs = [
   {
+    q: 'Are the classes conducted online or offline?',
+    a: 'All our classes are conducted online via live 1-on-1 video sessions. The best part? Every live class is recorded, so you can revisit any session anytime for revision. This means you never miss a concept — even if you couldn\'t attend a class, the recording is always available.',
+  },
+  {
     q: 'What makes MindPeak different from other coaching institutes?',
-    a: 'We offer personalized 1-on-1 classes 6 days a week with dedicated mentors — not crowded batch classes. Every student gets a customized study plan, regular performance analytics, and direct access to faculty for doubt resolution.',
+    a: 'We offer personalized 1-on-1 live online classes 6 days a week with dedicated mentors — not crowded batch classes. Every student gets a customized study plan, regular performance analytics, and direct access to faculty for doubt resolution. Plus, all sessions are recorded for later revision.',
   },
   {
     q: 'How are the demo classes conducted?',
