@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, Twitter, Download } from 'lucide-react';
+import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, Twitter, Download, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import { NCERTDownloadModal } from '@/components/NCERTDownloadModal';
@@ -13,7 +13,6 @@ const ncertBooks = [
   { title: 'Class 11 Maths', file: '/ncert/NCERT_CLASS_11_MATHEMATICS_ENGLISH-mindpeak-compressed_2.pdf' },
   { title: 'Class 12 Physics Part 1', file: '/ncert/NCERT_CLASS_12_PHYSICS_1-mindpeak.pdf' },
   { title: 'Class 12 Physics Part 2', file: '/ncert/NCERT_CLASS_12_PHYSICS_2.pdf' },
-  { title: 'Class 12 Physics Part 2 (MindPeak)', file: '/ncert/NCERT_CLASS_12_PHYSICS_2-mindpeak-2.pdf' },
   { title: 'Class 12 Chemistry Part 2', file: '/ncert/NCERT_CLASS_12_CHEMISTRY_2.pdf' },
   { title: 'Class 12 Maths Part 1', file: '/ncert/NCERT_CLASS_12_MATHEMATICS_1.pdf' },
   { title: 'Class 12 Maths Part 2', file: '/ncert/NCERT_CLASS_12_MATHEMATICS_2.pdf' },
@@ -108,6 +107,7 @@ export const ContactSection = () => {
               { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61584805776923', label: 'Facebook' },
               { icon: Linkedin, href: 'https://www.linkedin.com/company/mindpeak-institute/', label: 'LinkedIn' },
               { icon: Twitter, href: 'https://x.com/mindpeakins', label: 'X / Twitter' },
+              { icon: MessageCircle, href: 'https://wa.me/918219457704?text=Hello!!%20MindPeak%20Institute', label: 'WhatsApp' },
             ].map((s) => (
               <a
                 key={s.label}
