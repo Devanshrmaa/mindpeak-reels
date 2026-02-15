@@ -6,6 +6,7 @@ import { TransformationTimeline } from '@/components/storytelling/Transformation
 import { BeforeAfterSection } from '@/components/storytelling/BeforeAfterSection';
 import { ResultSection } from '@/components/storytelling/ResultSection';
 import { SuccessGrid } from '@/components/sections/SuccessGrid';
+import { CourseFlashcards } from '@/components/sections/CourseFlashcards';
 import { MethodologySection } from '@/components/sections/MethodologySection';
 import { ContactSection } from '@/components/sections/ContactSection';
 
@@ -20,6 +21,7 @@ const Index = () => {
       <BeforeAfterSection />
       <ResultSection />
       <SuccessGrid />
+      <CourseFlashcards />
       <MethodologySection />
       <ContactSection />
     </main>
