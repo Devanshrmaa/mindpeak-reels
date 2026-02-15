@@ -4,10 +4,10 @@ import { X } from 'lucide-react';
 
 import student1 from '@/assets/aarav-sharma.jpg';
 import student2 from '@/assets/priya-patel.jpg';
-import mentoring from '@/assets/mentoring.jpg';
-import student3 from '@/assets/study-routine.jpg';
+import mentoring from '@/assets/mentoring-session-1.jpg';
+import student3 from '@/assets/student-studying.jpg';
 import student4 from '@/assets/rohan-gupta.jpg';
-import mentoringSession from '@/assets/mentoring-session.jpg';
+import mentoringSession from '@/assets/mentoring-session-2.jpg';
 
 interface StoryItem {
   id: string;
