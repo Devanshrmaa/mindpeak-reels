@@ -38,7 +38,7 @@ const App = () => (
             {/* Redirect old/invalid nested routes like /hi/booking to homepage */}
             <Route path="/:slug/:subpath" element={<Navigate to="/" replace />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </DemoModalProvider>
       </BrowserRouter>

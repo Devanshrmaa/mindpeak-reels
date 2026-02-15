@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ChevronDown, Phone, ArrowRight, CheckCircle, Users, BarChart3, GraduationCap } from 'lucide-react';
@@ -24,17 +24,7 @@ const LocationPage = () => {
   const city: CityData | undefined = cities.find((c) => c.slug === citySlug);
 
   if (!exam || !city) {
-    return (
-      <>
-        <Navbar />
-        <main className="min-h-screen bg-background flex items-center justify-center pt-20">
-          <div className="text-center">
-            <h1 className="text-foreground font-display text-3xl mb-4">Page Not Found</h1>
-            <Link to="/" className="text-primary hover:underline">← Back to Home</Link>
-          </div>
-        </main>
-      </>
-    );
+    return <Navigate to="/" replace />;
   }
 
   const examLabel = exam === 'jee' ? 'JEE' : 'NEET';
