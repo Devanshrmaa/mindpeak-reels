@@ -3,10 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
 import student1 from '@/assets/aarav-sharma.jpg';
-import student2 from '@/assets/student-2.jpg';
+import student2 from '@/assets/priya-patel.jpg';
 import mentoring from '@/assets/mentoring.jpg';
-import student3 from '@/assets/student-3.jpg';
-import student4 from '@/assets/student-4.jpg';
+import student3 from '@/assets/study-routine.jpg';
+import student4 from '@/assets/rohan-gupta.jpg';
 import mentoringSession from '@/assets/mentoring-session.jpg';
 
 interface StoryItem {
@@ -20,7 +20,7 @@ interface StoryItem {
 const stories: StoryItem[] = [
   { id: '1', title: 'AARAV SHARMA', subtitle: 'AIR 42 — JEE Advanced', image: student1, aspect: 'portrait' },
   { id: '2', title: 'PERSONALIZED MENTORING', subtitle: '1-on-1 Session Highlights', image: mentoring, aspect: 'landscape' },
-  { id: '3', title: 'PRIYA PATEL', subtitle: 'AIR 156 — NEET', image: student2, aspect: 'portrait' },
+  { id: '3', title: 'PRIYA PATEL', subtitle: 'AIR 156 — NEET', image: student2, aspect: 'square' },
   { id: '4', title: 'STUDY ROUTINE', subtitle: 'Day in the Life', image: student3, aspect: 'square' },
   { id: '5', title: 'ROHAN GUPTA', subtitle: 'AIR 89 — JEE Mains', image: student4, aspect: 'portrait' },
   { id: '6', title: 'MENTOR SESSIONS', subtitle: 'Guided Problem Solving', image: mentoringSession, aspect: 'landscape' },
