@@ -34,7 +34,7 @@ export const BeforeAfterSection = () => {
     <section
       ref={sectionRef}
       className="relative bg-background"
-      style={{ height: '200vh' }}
+      style={{ height: '140vh' }}
     >
       <div
         className="sticky flex items-center justify-center overflow-hidden"
