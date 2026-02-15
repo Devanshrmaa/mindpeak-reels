@@ -12,9 +12,9 @@ export const DiscoverySection = () => {
     offset: ["start end", "end start"]
   });
 
-  const lightOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0.8]);
-  const logoScale = useTransform(scrollYProgress, [0.2, 0.5], [0.5, 1]);
-  const logoOpacity = useTransform(scrollYProgress, [0.2, 0.5], [0, 1]);
+  const lightOpacity = useTransform(scrollYProgress, [0, 0.3, 1], [0, 1, 0.8]);
+  const logoScale = useTransform(scrollYProgress, [0.05, 0.25], [0.5, 1]);
+  const logoOpacity = useTransform(scrollYProgress, [0.05, 0.25], [0, 1]);
 
   const pillars = [
     { image: mentoringIcon, title: 'Dedicated Mentor', description: 'Your personal guide through JEE/NEET' },
