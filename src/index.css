@@ -4,6 +4,15 @@ html, body {
   overflow-x: hidden;
 }
 
+/* Hide default scrollbar */
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+html::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Opera */
+}
+
 
 @tailwind base;
 @tailwind components;
