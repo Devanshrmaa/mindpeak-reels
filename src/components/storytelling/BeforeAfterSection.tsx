@@ -37,8 +37,7 @@ export const BeforeAfterSection = () => {
       style={{ height: '140vh' }}
     >
       <div
-        className="sticky flex items-center justify-center overflow-hidden"
-        style={{ top: '10vh', height: '80vh' }}
+        className="sticky top-0 flex items-center justify-center overflow-hidden h-screen"
       >
         <div className="w-full max-w-5xl mx-auto px-4 md:px-6">
           <h2
