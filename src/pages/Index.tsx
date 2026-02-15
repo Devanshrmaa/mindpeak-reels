@@ -1,5 +1,6 @@
 import { Navbar } from '@/components/sections/Navbar';
 import { HeroSection } from '@/components/sections/HeroSection';
+import { ScrollIndicator } from '@/components/ScrollIndicator';
 import { ProblemSection } from '@/components/storytelling/ProblemSection';
 import { DiscoverySection } from '@/components/storytelling/DiscoverySection';
 import { TransformationTimeline } from '@/components/storytelling/TransformationTimeline';
@@ -22,6 +23,7 @@ const Index = () => {
         Skip to main content
       </a>
       <Navbar />
+      <ScrollIndicator />
       <main id="main-content" className="bg-background">
         <HeroSection />
         <ProblemSection />
