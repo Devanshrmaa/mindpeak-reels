@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Users, Clock, BookOpen, Monitor, GraduationCap, Target, Zap, FlaskConical, Brain } from 'lucide-react';
+import { ChevronDown, Users, Clock, BookOpen, Monitor, GraduationCap, Target, Zap, FlaskConical, Brain, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useDemoModal } from '@/components/DemoBookingModal';
+import { NCERTDownloadModal } from '@/components/NCERTDownloadModal';
 import logo from '@/assets/logo.jpeg';
 import jeeLogo from '@/assets/jee-logo.jpeg';
 import neetLogo from '@/assets/neet-logo.jpeg';
@@ -21,6 +22,7 @@ interface Course {
   description: string;
   highlights: string[];
   logo?: string;
+  brochure?: { title: string; file: string };
 }
 
 const courses: Course[] = [
@@ -41,6 +43,7 @@ const courses: Course[] = [
       'Personalized study roadmap & doubt resolution',
       'Regular parent-mentor progress meetings',
     ],
+    brochure: { title: 'JEE Main Target 2028 Brochure', file: '/brochures/class-11-jee.pdf' },
   },
   {
     name: 'NEET Target 2028',
@@ -59,6 +62,7 @@ const courses: Course[] = [
       'Regular full-length mock tests mimicking NEET pattern',
       'Biology diagram practice & assertion-reason training',
     ],
+    brochure: { title: 'NEET Target 2028 Brochure', file: '/brochures/neet-2year.pdf' },
   },
   {
     name: 'JEE Target 2027',
@@ -77,6 +81,7 @@ const courses: Course[] = [
       'Advanced problem-solving & shortcut techniques',
       'Exam strategy & time management coaching',
     ],
+    brochure: { title: 'JEE Target 2027 Brochure', file: '/brochures/jee-main-adv.pdf' },
   },
   {
     name: 'NEET Target 2027',
@@ -95,6 +100,7 @@ const courses: Course[] = [
       'Extensive MCQ practice & error analysis',
       'Full-length mock tests with NEET-identical interface',
     ],
+    brochure: { title: 'NEET Target 2027 Brochure', file: '/brochures/neet-2year.pdf' },
   },
   {
     name: 'Subject Crash Course',
@@ -113,6 +119,7 @@ const courses: Course[] = [
       'Subject-specific mock tests & rapid revision cycles',
       'Ideal for quick revision before exams',
     ],
+    brochure: { title: 'Subject Crash Course Brochure', file: '/brochures/class-12-jee.pdf' },
   },
   {
     name: '1-on-1 Crash Program',
@@ -131,6 +138,7 @@ const courses: Course[] = [
       'Rapid problem-solving drills & timed practice',
       'Exam temperament & last-minute strategy coaching',
     ],
+    brochure: { title: '1-on-1 Crash Program Brochure', file: '/brochures/class-12-jee.pdf' },
   },
   {
     name: '6th Foundation',
@@ -149,6 +157,7 @@ const courses: Course[] = [
       'Fun, engaging teaching methods for young learners',
       'Regular assessments & progress reports for parents',
     ],
+    brochure: { title: '6th Foundation Brochure', file: '/brochures/foundation-class-8.pdf' },
   },
   {
     name: '7th Foundation',
@@ -167,6 +176,7 @@ const courses: Course[] = [
       'Habit-building for consistent study routines',
       'Monthly progress assessments with mentor feedback',
     ],
+    brochure: { title: '7th Foundation Brochure', file: '/brochures/foundation-class-8.pdf' },
   },
   {
     name: '8th Foundation',
@@ -185,6 +195,7 @@ const courses: Course[] = [
       'NTSE & Olympiad preparation integrated',
       'Personalized pacing based on student capability',
     ],
+    brochure: { title: '8th Foundation Brochure', file: '/brochures/foundation-class-8.pdf' },
   },
   {
     name: '9th Foundation',
@@ -203,6 +214,7 @@ const courses: Course[] = [
       'Exam-taking skills & time management basics',
       'Strong preparation for 10th boards & beyond',
     ],
+    brochure: { title: '9th Foundation Brochure', file: '/brochures/foundation-class-9.pdf' },
   },
   {
     name: '10th Foundation',
@@ -221,6 +233,7 @@ const courses: Course[] = [
       'Pre-JEE/NEET topic introduction for head start',
       'Complete 10th syllabus with advanced applications',
     ],
+    brochure: { title: '10th Foundation Brochure', file: '/brochures/foundation-class-10.pdf' },
   },
 ];
 
@@ -242,7 +255,7 @@ const testSeriesData: TestSeries[] = [
 
 /* ───────── components ───────── */
 
-const CourseCard = ({ course, index, onBookDemo }: { course: Course; index: number; onBookDemo: () => void }) => {
+const CourseCard = ({ course, index, onBookDemo, onDownloadBrochure }: { course: Course; index: number; onBookDemo: () => void; onDownloadBrochure: (brochure: { title: string; file: string }) => void }) => {
   const [open, setOpen] = useState(false);
   const Icon = course.icon;
 
@@ -315,12 +328,23 @@ const CourseCard = ({ course, index, onBookDemo }: { course: Course; index: numb
                   </li>
                 ))}
               </ul>
-              <button
-                onClick={onBookDemo}
-                className="mt-6 px-8 py-3 bg-gradient-to-r from-gold to-gold-dark text-background font-bold text-sm rounded-full hover:scale-105 transition-transform shadow-gold-glow"
-              >
-                Book Your Free Demo
-              </button>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <button
+                  onClick={onBookDemo}
+                  className="px-8 py-3 bg-gradient-to-r from-gold to-gold-dark text-background font-bold text-sm rounded-full hover:scale-105 transition-transform shadow-gold-glow"
+                >
+                  Book Your Free Demo
+                </button>
+                {course.brochure && (
+                  <button
+                    onClick={() => onDownloadBrochure(course.brochure!)}
+                    className="px-8 py-3 border border-primary text-primary font-bold text-sm rounded-full hover:bg-primary/10 transition-all flex items-center gap-2"
+                  >
+                    <Download className="w-4 h-4" />
+                    Download Brochure
+                  </button>
+                )}
+              </div>
             </div>
           </motion.div>
         )}
@@ -333,9 +357,18 @@ const CourseCard = ({ course, index, onBookDemo }: { course: Course; index: numb
 
 const Courses = () => {
   const { openDemoModal } = useDemoModal();
+  const [brochureBook, setBrochureBook] = useState<{ title: string; file: string } | null>(null);
+  const [brochureModalOpen, setBrochureModalOpen] = useState(false);
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
+  const handleDownloadBrochure = (brochure: { title: string; file: string }) => {
+    setBrochureBook(brochure);
+    setBrochureModalOpen(true);
+  };
+
   return (
+    <>
+    <NCERTDownloadModal isOpen={brochureModalOpen} onClose={() => setBrochureModalOpen(false)} book={brochureBook} />
     <div className="min-h-screen bg-background">
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-xl border-b border-border">
@@ -427,7 +460,7 @@ const Courses = () => {
 
           <div className="grid grid-cols-1 gap-5">
             {courses.map((course, i) => (
-              <CourseCard key={course.name} course={course} index={i} onBookDemo={openDemoModal} />
+              <CourseCard key={course.name} course={course} index={i} onBookDemo={openDemoModal} onDownloadBrochure={handleDownloadBrochure} />
             ))}
           </div>
 
@@ -505,6 +538,7 @@ const Courses = () => {
         </p>
       </footer>
     </div>
+    </>
   );
 };
 
