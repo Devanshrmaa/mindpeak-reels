@@ -18,7 +18,7 @@ interface StoryItem {
 }
 
 const stories: StoryItem[] = [
-  { id: '1', title: 'AARAV SHARMA', subtitle: 'AIR 42 — JEE Advanced', image: student1, objectPos: 'center 20%' },
+  { id: '1', title: 'AARAV SHARMA', subtitle: 'AIR 42 — JEE Advanced', image: student1, objectPos: 'center 10%' },
   { id: '2', title: 'PERSONALIZED MENTORING', subtitle: '1-on-1 Session Highlights', image: mentoring, objectPos: 'center 30%' },
   { id: '3', title: 'PRIYA PATEL', subtitle: 'AIR 156 — NEET', image: student2, objectPos: 'center 20%' },
   { id: '4', title: 'STUDY ROUTINE', subtitle: 'Day in the Life', image: student3, objectPos: 'center 25%' },
