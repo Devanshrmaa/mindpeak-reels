@@ -63,7 +63,7 @@ export const TransformationTimeline = () => {
 
           <div className="grid lg:grid-cols-2 gap-4 items-start">
             {/* Timeline - left column */}
-            <div className="relative max-h-[calc(100vh-180px)] overflow-y-auto pr-2 scrollbar-thin">
+            <div className="relative">
               <div className="absolute left-3 top-0 bottom-0 w-0.5 bg-border">
                 <motion.div
                   className="absolute top-0 left-0 w-full bg-gradient-to-b from-destructive via-primary to-accent"
