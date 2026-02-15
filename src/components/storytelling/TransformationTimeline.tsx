@@ -39,13 +39,13 @@ export const TransformationTimeline = () => {
       className="relative bg-background"
       style={{ minHeight: '400vh' }}
     >
-      <div className="sticky top-0 h-screen flex items-center">
+      <div className="sticky top-0 h-screen flex items-center pt-20">
         <div className="max-w-6xl mx-auto px-6 w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-8"
           >
             <h2 className="font-display text-foreground text-4xl md:text-6xl lg:text-7xl mb-4">
               THE JOURNEY
