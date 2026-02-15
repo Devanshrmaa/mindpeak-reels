@@ -1,6 +1,10 @@
 import { Navbar } from '@/components/sections/Navbar';
 import { HeroSection } from '@/components/sections/HeroSection';
-import { StatsSection } from '@/components/sections/StatsSection';
+import { ProblemSection } from '@/components/storytelling/ProblemSection';
+import { DiscoverySection } from '@/components/storytelling/DiscoverySection';
+import { TransformationTimeline } from '@/components/storytelling/TransformationTimeline';
+import { BeforeAfterSection } from '@/components/storytelling/BeforeAfterSection';
+import { ResultSection } from '@/components/storytelling/ResultSection';
 import { SuccessGrid } from '@/components/sections/SuccessGrid';
 import { MethodologySection } from '@/components/sections/MethodologySection';
 import { ContactSection } from '@/components/sections/ContactSection';
@@ -10,7 +14,11 @@ const Index = () => {
     <main className="bg-background">
       <Navbar />
       <HeroSection />
-      <StatsSection />
+      <ProblemSection />
+      <DiscoverySection />
+      <TransformationTimeline />
+      <BeforeAfterSection />
+      <ResultSection />
       <SuccessGrid />
       <MethodologySection />
       <ContactSection />
