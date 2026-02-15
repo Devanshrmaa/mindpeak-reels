@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import logo from '@/assets/logo.jpeg';
 
 const navLinks = [
   { label: 'Home', href: '#hero' },
+  { label: 'Courses', href: '/courses', isRoute: true },
   { label: 'Success Stories', href: '#success-stories' },
   { label: 'Methodology', href: '#methodology' },
   { label: 'Contact', href: '#contact' },
@@ -40,15 +42,25 @@ export const Navbar = () => {
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium tracking-wider uppercase"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) =>
+            link.isRoute ? (
+              <Link
+                key={link.label}
+                to={link.href}
+                className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium tracking-wider uppercase"
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.label}
+                href={link.href}
+                className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium tracking-wider uppercase"
+              >
+                {link.label}
+              </a>
+            )
+          )}
           <a
             href="#contact"
             className="px-6 py-2 border border-primary text-primary text-sm uppercase tracking-wider hover:bg-primary hover:text-primary-foreground transition-all duration-300"
@@ -77,16 +89,27 @@ export const Navbar = () => {
             className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden"
           >
             <div className="px-6 py-6 flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="text-foreground text-lg font-display tracking-wider uppercase"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) =>
+                link.isRoute ? (
+                  <Link
+                    key={link.label}
+                    to={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="text-foreground text-lg font-display tracking-wider uppercase"
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="text-foreground text-lg font-display tracking-wider uppercase"
+                  >
+                    {link.label}
+                  </a>
+                )
+              )}
               <a
                 href="#contact"
                 onClick={() => setMobileOpen(false)}
