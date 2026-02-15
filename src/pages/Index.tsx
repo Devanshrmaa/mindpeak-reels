@@ -8,6 +8,7 @@ import { ResultSection } from '@/components/storytelling/ResultSection';
 import { SuccessGrid } from '@/components/sections/SuccessGrid';
 import { CourseFlashcards } from '@/components/sections/CourseFlashcards';
 import { MethodologySection } from '@/components/sections/MethodologySection';
+import { FAQSection } from '@/components/sections/FAQSection';
 import { ContactSection } from '@/components/sections/ContactSection';
 
 const Index = () => {
@@ -23,6 +24,7 @@ const Index = () => {
       <SuccessGrid />
       <CourseFlashcards />
       <MethodologySection />
+      <FAQSection />
       <ContactSection />
     </main>
   );
