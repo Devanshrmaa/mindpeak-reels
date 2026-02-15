@@ -11,14 +11,14 @@ const pillars = [
 
 export const MethodologySection = () => {
   return (
-    <section id="methodology" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="methodology" className="relative flex items-center justify-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
         <img src={methodologyBg} alt="" className="w-full h-full object-cover opacity-20" />
         <div className="absolute inset-0 bg-background/80" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 sm:py-32 text-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 py-16 sm:py-20 text-center">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
