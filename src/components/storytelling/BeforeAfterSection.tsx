@@ -29,7 +29,7 @@ export const BeforeAfterSection = () => {
     <section
       ref={sectionRef}
       className="relative bg-background"
-      style={{ height: '200vh' }}
+      style={{ height: '250vh' }}
     >
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
         <div className="w-full max-w-6xl mx-auto px-6">
@@ -44,7 +44,7 @@ export const BeforeAfterSection = () => {
           </motion.h2>
 
           <div className="relative h-[420px] md:h-[520px] rounded-2xl overflow-hidden border border-border">
-            {/* BEFORE (background layer - visible first) */}
+            {/* BEFORE (background layer - always visible behind) */}
             <div className="absolute inset-0 bg-gradient-to-br from-destructive/30 to-destructive/10">
               <div className="h-full flex flex-col items-center justify-center p-8 text-center">
                 <span className="text-6xl md:text-8xl mb-6">😰</span>
@@ -63,7 +63,7 @@ export const BeforeAfterSection = () => {
               </div>
             </div>
 
-            {/* AFTER (foreground, revealed by scroll) */}
+            {/* AFTER (foreground overlay - clips in from left as you scroll) */}
             <div
               className="absolute inset-0 bg-gradient-to-br from-accent/30 to-accent/10"
               style={{ clipPath: `inset(0 ${100 - sliderPct}% 0 0)` }}
@@ -85,7 +85,7 @@ export const BeforeAfterSection = () => {
               </div>
             </div>
 
-            {/* Slider line */}
+            {/* Slider line - moves with scroll */}
             <div
               className="absolute top-0 bottom-0 w-0.5 bg-foreground z-10"
               style={{ left: `${sliderPct}%` }}
