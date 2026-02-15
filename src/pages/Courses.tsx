@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Users, Clock, BookOpen, Monitor, GraduationCap, Target, Zap, FlaskConical, Brain } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -308,7 +308,7 @@ const CourseCard = ({ course, index }: { course: Course; index: number }) => {
                 href="/#contact"
                 className="inline-block mt-6 px-8 py-3 bg-gradient-to-r from-gold to-gold-dark text-background font-bold text-sm rounded-full hover:scale-105 transition-transform shadow-gold-glow"
               >
-                Enroll Now
+                Book Your Free Demo
               </a>
             </div>
           </motion.div>
@@ -321,6 +321,8 @@ const CourseCard = ({ course, index }: { course: Course; index: number }) => {
 /* ───────── page ───────── */
 
 const Courses = () => {
+  useEffect(() => { window.scrollTo(0, 0); }, []);
+
   return (
     <div className="min-h-screen bg-background">
       {/* Navbar */}
@@ -333,7 +335,7 @@ const Courses = () => {
           <div className="hidden md:flex items-center gap-8">
             <Link to="/" className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium tracking-wider uppercase">Home</Link>
             <Link to="/courses" className="text-primary text-sm font-medium tracking-wider uppercase">Courses</Link>
-            <a href="/#contact" className="px-6 py-2 border border-primary text-primary text-sm uppercase tracking-wider hover:bg-primary hover:text-primary-foreground transition-all duration-300">Enroll Now</a>
+            <a href="/#contact" className="px-6 py-2 border border-primary text-primary text-sm uppercase tracking-wider hover:bg-primary hover:text-primary-foreground transition-all duration-300">Book Your Free Demo</a>
           </div>
         </div>
       </nav>
@@ -476,7 +478,7 @@ const Courses = () => {
               href="/#contact"
               className="inline-block px-12 py-4 bg-gradient-to-r from-gold to-gold-dark text-background font-bold text-base rounded-full hover:scale-105 transition-transform shadow-gold-glow"
             >
-              Enroll Now
+              Book Your Free Demo
             </a>
           </div>
         </div>

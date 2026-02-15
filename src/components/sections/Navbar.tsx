@@ -65,7 +65,7 @@ export const Navbar = () => {
             href="#contact"
             className="px-6 py-2 border border-primary text-primary text-sm uppercase tracking-wider hover:bg-primary hover:text-primary-foreground transition-all duration-300"
           >
-            Enroll Now
+            Book Your Free Demo
           </a>
         </div>
 
@@ -115,7 +115,7 @@ export const Navbar = () => {
                 onClick={() => setMobileOpen(false)}
                 className="mt-2 px-6 py-3 border border-primary text-primary text-center uppercase tracking-wider hover:bg-primary hover:text-primary-foreground transition-all"
               >
-                Enroll Now
+                Book Your Free Demo
               </a>
             </div>
           </motion.div>
