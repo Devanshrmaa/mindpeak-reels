@@ -25,8 +25,8 @@ export const ContactSection = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
           {[
-            { icon: Phone, label: '+91 98765 43210', href: 'tel:+919876543210' },
-            { icon: Mail, label: 'hello@mindpeak.in', href: 'mailto:hello@mindpeak.in' },
+            { icon: Phone, label: '+91 82194 57704', href: 'tel:+918219457704' },
+            { icon: Mail, label: 'mindpeak@mindpeakinstitute.com', href: 'mailto:mindpeak@mindpeakinstitute.com' },
             { icon: MapPin, label: 'Kota, Rajasthan', href: '#' },
           ].map((item, i) => (
             <motion.a
@@ -61,8 +61,8 @@ export const ContactSection = () => {
           <div className="flex items-center gap-4">
             {[
               { icon: Instagram, href: 'https://instagram.com/mindpeakinstitute', label: 'Instagram' },
-              { icon: Facebook, href: 'https://facebook.com/mindpeakinstitute', label: 'Facebook' },
-              { icon: Linkedin, href: 'https://linkedin.com/mindpeakinstitute', label: 'LinkedIn' },
+              { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61584805776923', label: 'Facebook' },
+              { icon: Linkedin, href: 'https://www.linkedin.com/company/mindpeak-institute/', label: 'LinkedIn' },
               { icon: Twitter, href: 'https://x.com/mindpeakins', label: 'X / Twitter' },
             ].map((s) => (
               <a

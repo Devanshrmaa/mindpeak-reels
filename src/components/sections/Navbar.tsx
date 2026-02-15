@@ -65,7 +65,7 @@ export const Navbar = () => {
           )}
           <button
             onClick={openDemoModal}
-            className="px-5 py-2 border border-primary text-primary text-xs uppercase tracking-wider hover:bg-primary hover:text-primary-foreground transition-all duration-300 whitespace-nowrap flex-shrink-0"
+            className="px-4 py-1.5 text-primary/80 text-xs uppercase tracking-wider hover:text-primary transition-colors whitespace-nowrap flex-shrink-0"
           >
             Book Free Demo
           </button>
