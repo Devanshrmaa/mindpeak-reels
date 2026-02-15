@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, Twitter } from 'lucide-react';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import logo from '@/assets/logo.jpeg';
 
@@ -54,8 +54,52 @@ export const ContactSection = () => {
       </div>
 
       {/* Footer */}
-      <div className="max-w-5xl mx-auto mt-20 pt-8 border-t border-border text-center">
-        <p className="text-muted-foreground text-xs tracking-wider">
+      <div className="max-w-5xl mx-auto mt-20 pt-8 border-t border-border">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-6">
+          {/* Social Links */}
+          <div className="flex items-center gap-4">
+            {[
+              { icon: Instagram, href: 'https://instagram.com/mindpeakinstitute', label: 'Instagram' },
+              { icon: Facebook, href: 'https://facebook.com/mindpeakinstitute', label: 'Facebook' },
+              { icon: Linkedin, href: 'https://linkedin.com/mindpeakinstitute', label: 'LinkedIn' },
+              { icon: Twitter, href: 'https://x.com/mindpeakins', label: 'X / Twitter' },
+            ].map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <s.icon className="w-5 h-5" />
+              </a>
+            ))}
+          </div>
+
+          {/* Policy Links */}
+          <div className="flex items-center gap-4 text-xs tracking-wider">
+            <a
+              href="/terms-and-conditions.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              Terms & Conditions
+            </a>
+            <span className="text-border">|</span>
+            <a
+              href="/terms-and-conditions.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              Refund Policy
+            </a>
+          </div>
+        </div>
+
+        <p className="text-muted-foreground text-xs tracking-wider text-center">
           © 2026 MindPeak Institute. All rights reserved. JEE & NEET Coaching.
         </p>
       </div>
