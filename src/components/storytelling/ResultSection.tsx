@@ -64,7 +64,7 @@ export const ResultSection = () => {
           transition={{ delay: 0.6 }}
           className="text-blue-soft text-xl md:text-2xl mb-4"
         >
-          JEE Advanced 2024
+          JEE Advanced
         </motion.p>
 
         <motion.p
