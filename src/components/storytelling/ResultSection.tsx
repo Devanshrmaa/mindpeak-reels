@@ -9,7 +9,7 @@ const stats = [
 
 export const ResultSection = () => {
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-background via-secondary to-background flex items-center justify-center overflow-hidden">
+    <section className="relative py-20 md:py-24 bg-gradient-to-br from-background via-secondary to-background flex items-center justify-center overflow-hidden">
       {/* Floating celebration elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {Array.from({ length: 16 }).map((_, i) => (

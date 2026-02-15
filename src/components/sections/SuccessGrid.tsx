@@ -36,14 +36,14 @@ export const SuccessGrid = () => {
   const [selected, setSelected] = useState<StoryItem | null>(null);
 
   return (
-    <section id="success-stories" className="bg-background py-24 sm:py-32 px-6">
+    <section id="success-stories" className="bg-background py-16 sm:py-20 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16 sm:mb-20"
+          className="mb-10 sm:mb-12"
         >
           <h2 className="font-display font-bold text-foreground leading-none mb-4" style={{ fontSize: 'clamp(2.5rem, 8vw, 7rem)' }}>
             SUCCESS

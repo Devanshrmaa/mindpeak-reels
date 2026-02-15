@@ -4,7 +4,7 @@ import logo from '@/assets/logo.jpeg';
 
 export const ContactSection = () => {
   return (
-    <section id="contact" className="bg-background py-24 px-6 border-t border-border">
+    <section id="contact" className="bg-background py-16 px-6 border-t border-border">
       <div className="max-w-5xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

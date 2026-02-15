@@ -23,7 +23,7 @@ export const DiscoverySection = () => {
     <section
       ref={sectionRef}
       className="relative bg-background"
-      style={{ height: '150vh' }}
+      style={{ height: '110vh' }}
     >
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
         <motion.div
