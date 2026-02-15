@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
 
@@ -37,54 +37,54 @@ function random<T>(arr: T[]): T {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-function randomMinutes(): number {
-  return Math.floor(Math.random() * 45) + 2; // 2–46 mins ago
-}
-
 export const SocialProofPopup = () => {
   const [visible, setVisible] = useState(false);
   const [data, setData] = useState({ name: '', course: '', city: '', mins: 0 });
+  const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
-  const showNext = useCallback(() => {
-    setData({
-      name: random(indianNames),
-      course: random(courses),
-      city: random(cities),
-      mins: randomMinutes(),
-    });
-    setVisible(true);
-    setTimeout(() => setVisible(false), 4000);
+  const scheduleNext = useCallback(() => {
+    const delay = Math.random() * 8000 + 7000; // 7–15s
+    timerRef.current = setTimeout(() => {
+      setData({
+        name: random(indianNames),
+        course: random(courses),
+        city: random(cities),
+        mins: Math.floor(Math.random() * 45) + 2,
+      });
+      setVisible(true);
+      setTimeout(() => setVisible(false), 3500);
+      scheduleNext();
+    }, delay);
   }, []);
 
   useEffect(() => {
-    // Initial delay
-    const first = setTimeout(showNext, 5000);
-    // Recurring
-    const interval = setInterval(showNext, Math.random() * 5000 + 3000); // 3–8s between cycles
-    return () => { clearTimeout(first); clearInterval(interval); };
-  }, [showNext]);
+    scheduleNext();
+    return () => clearTimeout(timerRef.current);
+  }, [scheduleNext]);
 
   return (
     <AnimatePresence>
       {visible && (
         <motion.div
-          initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ x: -100, opacity: 0 }}
-          transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-          className="fixed bottom-6 left-6 z-50 max-w-xs w-full bg-card border border-border rounded-xl shadow-lg p-4 flex items-start gap-3 cursor-default"
+          initial={{ x: -80, opacity: 0, scale: 0.95 }}
+          animate={{ x: 0, opacity: 1, scale: 1 }}
+          exit={{ x: -80, opacity: 0, scale: 0.95 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 24 }}
+          className="fixed bottom-5 left-5 z-50 max-w-[260px] w-full rounded-xl p-3 flex items-start gap-2.5 cursor-default
+            bg-background/40 backdrop-blur-xl backdrop-saturate-150 border border-border/50
+            shadow-[0_8px_32px_rgba(0,0,0,0.12),inset_0_1px_0_rgba(255,255,255,0.08)]"
         >
-          <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/15 flex items-center justify-center">
-            <CheckCircle className="w-5 h-5 text-primary" />
+          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 backdrop-blur-sm flex items-center justify-center">
+            <CheckCircle className="w-4 h-4 text-primary" />
           </div>
           <div className="min-w-0">
-            <p className="text-foreground text-sm font-semibold leading-tight truncate">
-              {data.name} <span className="text-muted-foreground font-normal">from {data.city}</span>
+            <p className="text-foreground/90 text-xs font-semibold leading-tight truncate">
+              {data.name} <span className="text-muted-foreground font-normal text-[11px]">• {data.city}</span>
             </p>
-            <p className="text-muted-foreground text-xs mt-0.5 leading-snug">
+            <p className="text-muted-foreground text-[11px] mt-0.5 leading-snug">
               enrolled in <span className="text-primary font-medium">{data.course}</span>
             </p>
-            <p className="text-muted-foreground/60 text-[10px] mt-1">{data.mins} min ago</p>
+            <p className="text-muted-foreground/50 text-[9px] mt-0.5">{data.mins} min ago</p>
           </div>
         </motion.div>
       )}
