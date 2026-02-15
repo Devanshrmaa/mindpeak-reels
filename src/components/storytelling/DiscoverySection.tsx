@@ -32,7 +32,7 @@ export const DiscoverySection = () => {
         />
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <motion.div style={{ scale: logoScale, opacity: logoOpacity }} className="mb-12">
+          <motion.div style={{ scale: logoScale, opacity: logoOpacity }} className="mb-16">
             <img
               src={logo}
               alt="MindPeak Institute"
@@ -44,7 +44,7 @@ export const DiscoverySection = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
-            className="font-display text-foreground mb-8"
+            className="font-display text-foreground mb-12"
             style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', fontWeight: 700 }}
           >
             THEN YOU DISCOVER
@@ -57,7 +57,7 @@ export const DiscoverySection = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="text-blue-soft text-lg md:text-xl mb-12"
+            className="text-blue-soft text-lg md:text-xl mb-20"
           >
             Where every student gets a dedicated mentor, adaptive curriculum, and individualized attention
           </motion.p>

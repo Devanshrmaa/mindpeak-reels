@@ -44,30 +44,8 @@ export const BeforeAfterSection = () => {
           </motion.h2>
 
           <div className="relative h-[420px] md:h-[520px] rounded-2xl overflow-hidden border border-border">
-            {/* AFTER (background layer) */}
-            <div className="absolute inset-0 bg-gradient-to-br from-accent/30 to-accent/10">
-              <div className="h-full flex flex-col items-center justify-center p-8 text-center">
-                <span className="text-6xl md:text-8xl mb-6">🚀</span>
-                <h3 className="text-foreground font-display text-2xl md:text-4xl mb-6">AFTER MINDPEAK</h3>
-                <div className="space-y-3 w-full max-w-sm">
-                  {afterStats.map((s, i) => (
-                    <div key={i} className="p-3 rounded-xl bg-accent/10 border border-accent/20 flex justify-between items-center">
-                      <span className="text-accent text-xs uppercase tracking-wider">{s.label}</span>
-                      <span className="text-accent font-bold text-lg md:text-xl">{s.value}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-6 px-4 py-2 bg-accent/10 border border-accent/20 rounded-lg text-accent text-sm">
-                  Status: 10× Improvement
-                </div>
-              </div>
-            </div>
-
-            {/* BEFORE (foreground, clipped) */}
-            <div
-              className="absolute inset-0 bg-gradient-to-br from-destructive/30 to-destructive/10"
-              style={{ clipPath: `inset(0 ${100 - sliderPct}% 0 0)` }}
-            >
+            {/* BEFORE (background layer - visible first) */}
+            <div className="absolute inset-0 bg-gradient-to-br from-destructive/30 to-destructive/10">
               <div className="h-full flex flex-col items-center justify-center p-8 text-center">
                 <span className="text-6xl md:text-8xl mb-6">😰</span>
                 <h3 className="text-foreground font-display text-2xl md:text-4xl mb-6">BEFORE MINDPEAK</h3>
@@ -81,6 +59,28 @@ export const BeforeAfterSection = () => {
                 </div>
                 <div className="mt-6 px-4 py-2 bg-destructive/10 border border-destructive/20 rounded-lg text-destructive text-sm">
                   Status: Struggling
+                </div>
+              </div>
+            </div>
+
+            {/* AFTER (foreground, revealed by scroll) */}
+            <div
+              className="absolute inset-0 bg-gradient-to-br from-accent/30 to-accent/10"
+              style={{ clipPath: `inset(0 ${100 - sliderPct}% 0 0)` }}
+            >
+              <div className="h-full flex flex-col items-center justify-center p-8 text-center">
+                <span className="text-6xl md:text-8xl mb-6">🚀</span>
+                <h3 className="text-foreground font-display text-2xl md:text-4xl mb-6">AFTER MINDPEAK</h3>
+                <div className="space-y-3 w-full max-w-sm">
+                  {afterStats.map((s, i) => (
+                    <div key={i} className="p-3 rounded-xl bg-accent/10 border border-accent/20 flex justify-between items-center">
+                      <span className="text-accent text-xs uppercase tracking-wider">{s.label}</span>
+                      <span className="text-accent font-bold text-lg md:text-xl">{s.value}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-6 px-4 py-2 bg-accent/10 border border-accent/20 rounded-lg text-accent text-sm">
+                  Status: 10× Improvement
                 </div>
               </div>
             </div>
