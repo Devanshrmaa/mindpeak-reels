@@ -67,12 +67,15 @@ export const SuccessGrid = () => {
               className={`relative group cursor-pointer overflow-hidden ${aspectMap[story.aspect]}`}
               onClick={() => setSelected(story)}
             >
-              <img
-                src={story.image}
-                alt={story.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                loading="lazy"
-              />
+              <div className="w-full h-full overflow-hidden">
+                <img
+                  src={story.image}
+                  alt={story.title}
+                  className="w-[103%] h-[103%] object-cover transition-transform duration-700 group-hover:scale-110"
+                  style={{ objectPosition: 'top left' }}
+                  loading="lazy"
+                />
+              </div>
 
 
               {/* Hover state */}
