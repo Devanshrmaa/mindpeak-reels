@@ -1,6 +1,7 @@
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { AreaChart, Area, XAxis, YAxis, ResponsiveContainer, ReferenceLine } from 'recharts';
+import { Sparkles } from 'lucide-react';
 import analyticsDashboard from '@/assets/icons/analytics-dashboard.png';
 import strategyPlan from '@/assets/icons/strategy-plan.png';
 import clarityLightbulb from '@/assets/icons/clarity-lightbulb.png';
@@ -30,14 +31,15 @@ export const TransformationTimeline = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start start", "end end"]
+    offset: ["start end", "end end"]
   });
 
   const [progress, setProgress] = useState(0);
   useMotionValueEvent(scrollYProgress, 'change', (v) => setProgress(v));
 
-  const activeIndex = Math.min(Math.floor(progress * milestones.length), milestones.length - 1);
-  const visibleChartPoints = Math.max(1, Math.min(Math.ceil(progress * chartData.length), chartData.length));
+  // Start activating milestones sooner — first card at 10% scroll, last at 70%
+  const activeIndex = Math.min(Math.floor(((progress - 0.1) / 0.6) * milestones.length), milestones.length - 1);
+  const visibleChartPoints = Math.max(1, Math.min(Math.ceil(((progress - 0.1) / 0.6) * chartData.length), chartData.length));
 
   return (
     <section
@@ -45,76 +47,148 @@ export const TransformationTimeline = () => {
       className="relative bg-background"
       style={{ minHeight: '120vh' }}
     >
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-0 w-72 h-72 rounded-full bg-primary/5 blur-[100px]" />
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 rounded-full bg-accent/5 blur-[120px]" />
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: 'linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)',
+          backgroundSize: '80px 80px',
+        }} />
+      </div>
+
       <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-        <div className="max-w-6xl mx-auto px-4 md:px-6 w-full py-8">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 w-full py-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-4"
+            className="text-center mb-6"
           >
-            <h2 className="font-display text-foreground text-3xl md:text-5xl lg:text-6xl mb-2">
-              THE JOURNEY
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 mb-4">
+              <Sparkles className="w-3.5 h-3.5 text-primary" />
+              <span className="text-primary text-xs font-semibold uppercase tracking-widest">Transformation</span>
+            </div>
+            <h2 className="font-display text-foreground text-3xl md:text-5xl lg:text-6xl mb-2 font-bold">
+              THE <span className="text-gradient-gold">JOURNEY</span>
             </h2>
-            <p className="text-muted-foreground text-sm md:text-base">
+            <p className="text-muted-foreground text-sm md:text-base max-w-lg mx-auto">
               Watch how Aarav transformed from struggle to success
             </p>
           </motion.div>
 
-          {/* Milestones grid - full width */}
+          {/* Progress bar */}
+          <div className="max-w-md mx-auto mb-5">
+            <div className="h-1 rounded-full bg-border overflow-hidden">
+              <motion.div
+                className="h-full rounded-full bg-gradient-to-r from-primary to-accent"
+                style={{ width: `${Math.max(0, Math.min(((progress - 0.1) / 0.6) * 100, 100))}%` }}
+                transition={{ duration: 0.3 }}
+              />
+            </div>
+            <div className="flex justify-between mt-1.5">
+              <span className="text-[10px] text-muted-foreground">Start</span>
+              <span className="text-[10px] text-primary font-semibold">
+                {activeIndex >= 0 ? milestones[Math.max(0, activeIndex)].month : 'Month 1'}
+              </span>
+              <span className="text-[10px] text-muted-foreground">Month 6</span>
+            </div>
+          </div>
+
+          {/* Milestones grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 w-full">
             {milestones.map((m, i) => {
               const isActive = i <= activeIndex;
+              const isCurrent = i === activeIndex;
               return (
                 <motion.div
                   key={i}
-                  animate={{ opacity: isActive ? 1 : 0.3 }}
-                  transition={{ duration: 0.4 }}
-                  className={`p-3 md:p-4 rounded-xl border transition-colors ${isActive ? 'border-primary/40 bg-card shadow-card' : 'border-border bg-card/30'}`}
+                  animate={{
+                    opacity: isActive ? 1 : 0.25,
+                    scale: isCurrent ? 1.02 : 1,
+                    y: isActive ? 0 : 8,
+                  }}
+                  transition={{ duration: 0.5, ease: 'easeOut' }}
+                  className="relative"
                 >
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-8 h-8 md:w-10 md:h-10 shrink-0 rounded-lg overflow-hidden">
-                      <img src={m.image} alt={m.title} className="w-full h-full object-cover" />
+                  <div className={`relative p-3 md:p-4 rounded-xl border transition-all duration-500 ${
+                    isCurrent
+                      ? 'border-primary/50 bg-card shadow-[0_0_30px_-8px_hsl(var(--primary)/0.25)]'
+                      : isActive
+                        ? 'border-primary/25 bg-card shadow-card'
+                        : 'border-border bg-card/20'
+                  }`}>
+                    {/* Active indicator dot */}
+                    {isCurrent && (
+                      <div className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-primary animate-pulse-glow" />
+                    )}
+
+                    {/* Top accent */}
+                    <div className={`absolute top-0 left-3 right-3 h-px transition-opacity duration-500 ${
+                      isActive ? 'opacity-100' : 'opacity-0'
+                    }`} style={{
+                      background: 'linear-gradient(90deg, transparent, hsl(var(--primary) / 0.5), transparent)',
+                    }} />
+
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className={`w-8 h-8 md:w-10 md:h-10 shrink-0 rounded-lg overflow-hidden ring-1 transition-all duration-500 ${
+                        isActive ? 'ring-primary/30' : 'ring-border'
+                      }`}>
+                        <img src={m.image} alt={m.title} className="w-full h-full object-cover" width={40} height={40} loading="lazy" />
+                      </div>
+                      <div className="min-w-0">
+                        <div className={`text-[10px] font-semibold transition-colors duration-300 ${
+                          isActive ? 'text-primary' : 'text-muted-foreground'
+                        }`}>{m.month}</div>
+                        <h3 className="text-foreground font-display text-xs md:text-sm leading-tight font-semibold">{m.title}</h3>
+                      </div>
                     </div>
-                    <div className="min-w-0">
-                      <div className="text-[10px] text-muted-foreground font-semibold">{m.month}</div>
-                      <h3 className="text-foreground font-display text-xs md:text-sm leading-tight">{m.title}</h3>
+                    <p className="text-muted-foreground text-[10px] md:text-[11px] mb-2 line-clamp-2">{m.description}</p>
+
+                    {/* Score badge */}
+                    <div className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] md:text-[11px] transition-all duration-500 ${
+                      isActive
+                        ? 'bg-primary/15 border border-primary/25 text-foreground'
+                        : 'bg-secondary text-foreground'
+                    }`}>
+                      <span className="text-muted-foreground text-[9px]">Score:</span>
+                      <span className={`font-bold ${isActive ? 'text-primary' : ''}`}>{m.score}</span>
+                      <span className="text-muted-foreground text-[9px]">/300</span>
                     </div>
-                  </div>
-                  <p className="text-muted-foreground text-[10px] md:text-[11px] mb-2 line-clamp-2">{m.description}</p>
-                  <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary text-foreground text-[10px] md:text-[11px]">
-                    <span className="text-muted-foreground text-[9px]">Score:</span>
-                    <span className="font-bold">{m.score}</span>
-                    <span className="text-muted-foreground text-[9px]">/300</span>
                   </div>
                 </motion.div>
               );
             })}
           </div>
 
-          {/* Chart - below timeline */}
+          {/* Chart */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-4 p-4 rounded-2xl bg-card border border-border shadow-card max-w-2xl mx-auto"
+            className="mt-4 p-4 rounded-2xl bg-card border border-border shadow-card max-w-2xl mx-auto relative overflow-hidden"
           >
-            <h3 className="text-foreground font-display text-base md:text-lg mb-3 text-center">Mock Test Progress</h3>
-            <ResponsiveContainer width="100%" height={180}>
-              <AreaChart data={chartData.slice(0, visibleChartPoints)}>
-                <defs>
-                  <linearGradient id="scoreGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="hsl(43, 72%, 52%)" stopOpacity={0.3} />
-                    <stop offset="95%" stopColor="hsl(43, 72%, 52%)" stopOpacity={0} />
-                  </linearGradient>
-                </defs>
-                <XAxis dataKey="month" stroke="hsl(215, 20%, 65%)" fontSize={11} />
-                <YAxis domain={[0, 300]} stroke="hsl(215, 20%, 65%)" fontSize={11} />
-                <ReferenceLine y={280} stroke="hsl(0, 84%, 60%)" strokeDasharray="5 5" label={{ value: 'Target', fill: 'hsl(0, 84%, 60%)', fontSize: 10 }} />
-                <Area type="monotone" dataKey="score" stroke="hsl(43, 72%, 52%)" strokeWidth={3} fill="url(#scoreGrad)" animationDuration={800} />
-              </AreaChart>
-            </ResponsiveContainer>
-            <div className="flex justify-center gap-6 mt-2">
+            {/* Subtle glow behind chart */}
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none" />
+
+            <h3 className="text-foreground font-display text-base md:text-lg mb-3 text-center relative z-10">Mock Test Progress</h3>
+            <div className="relative z-10">
+              <ResponsiveContainer width="100%" height={180}>
+                <AreaChart data={chartData.slice(0, visibleChartPoints)}>
+                  <defs>
+                    <linearGradient id="scoreGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="hsl(43, 72%, 52%)" stopOpacity={0.3} />
+                      <stop offset="95%" stopColor="hsl(43, 72%, 52%)" stopOpacity={0} />
+                    </linearGradient>
+                  </defs>
+                  <XAxis dataKey="month" stroke="hsl(215, 20%, 65%)" fontSize={11} />
+                  <YAxis domain={[0, 300]} stroke="hsl(215, 20%, 65%)" fontSize={11} />
+                  <ReferenceLine y={280} stroke="hsl(0, 84%, 60%)" strokeDasharray="5 5" label={{ value: 'Target', fill: 'hsl(0, 84%, 60%)', fontSize: 10 }} />
+                  <Area type="monotone" dataKey="score" stroke="hsl(43, 72%, 52%)" strokeWidth={3} fill="url(#scoreGrad)" animationDuration={800} />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
+            <div className="flex justify-center gap-6 mt-2 relative z-10">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-primary" />
                 <span className="text-muted-foreground text-xs">Actual Score</span>
