@@ -31,15 +31,16 @@ export const TransformationTimeline = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start end", "end end"]
+    offset: ["start start", "end end"]
   });
 
   const [progress, setProgress] = useState(0);
   useMotionValueEvent(scrollYProgress, 'change', (v) => setProgress(v));
 
-  // Start activating milestones sooner — first card at 10% scroll, last at 70%
-  const activeIndex = Math.min(Math.floor(((progress - 0.1) / 0.6) * milestones.length), milestones.length - 1);
-  const visibleChartPoints = Math.max(1, Math.min(Math.ceil(((progress - 0.1) / 0.6) * chartData.length), chartData.length));
+  // Milestones activate from 5% to 80% scroll progress
+  const normalizedProgress = Math.max(0, (progress - 0.05) / 0.75);
+  const activeIndex = normalizedProgress <= 0 ? -1 : Math.min(Math.floor(normalizedProgress * milestones.length), milestones.length - 1);
+  const visibleChartPoints = Math.max(1, Math.min(Math.ceil(normalizedProgress * chartData.length), chartData.length));
 
   return (
     <section
@@ -82,7 +83,7 @@ export const TransformationTimeline = () => {
             <div className="h-1 rounded-full bg-border overflow-hidden">
               <motion.div
                 className="h-full rounded-full bg-gradient-to-r from-primary to-accent"
-                style={{ width: `${Math.max(0, Math.min(((progress - 0.1) / 0.6) * 100, 100))}%` }}
+                style={{ width: `${Math.max(0, Math.min(normalizedProgress * 100, 100))}%` }}
                 transition={{ duration: 0.3 }}
               />
             </div>
