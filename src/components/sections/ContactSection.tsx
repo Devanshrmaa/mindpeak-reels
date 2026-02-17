@@ -31,7 +31,7 @@ export const ContactSection = () => {
   return (
     <>
     <NCERTDownloadModal isOpen={downloadModalOpen} onClose={() => setDownloadModalOpen(false)} book={selectedBook} />
-    <section id="contact" className="bg-background py-16 px-6 border-t border-border" aria-label="Contact and downloads">
+    <section id="contact" className="bg-background py-14 md:py-16 px-4 sm:px-6 border-t border-border relative" aria-label="Contact and downloads">
       <div className="max-w-5xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -47,7 +47,7 @@ export const ContactSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mb-10 md:mb-12">
           {[
             { icon: Phone, label: '+91 82194 57704', href: 'tel:+918219457704' },
             { icon: Mail, label: 'mindpeak@mindpeakinstitute.com', href: 'mailto:mindpeak@mindpeakinstitute.com' },
@@ -60,10 +60,10 @@ export const ContactSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-card border border-border rounded-lg p-6 flex flex-col items-center gap-3 hover:border-primary/40 transition-colors"
+              className="bg-card border border-border rounded-lg p-4 md:p-6 flex flex-col items-center gap-2 md:gap-3 hover:border-primary/40 transition-colors"
             >
-              <item.icon className="w-6 h-6 text-primary" />
-              <span className="text-foreground text-sm">{item.label}</span>
+              <item.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+              <span className="text-foreground text-xs md:text-sm break-all sm:break-normal">{item.label}</span>
             </motion.a>
           ))}
         </div>

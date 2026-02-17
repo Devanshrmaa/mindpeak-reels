@@ -39,8 +39,12 @@ export const SuccessGrid = () => {
   const [selected, setSelected] = useState<StoryItem | null>(null);
 
   return (
-    <section id="success-stories" className="bg-background py-16 sm:py-20 px-6">
-      <div className="max-w-7xl mx-auto">
+    <section id="success-stories" className="bg-background py-14 sm:py-20 px-4 sm:px-6 relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute inset-0 dot-grid pointer-events-none" />
+      <div className="absolute top-0 left-0 right-0 section-divider" />
+      <div className="absolute top-10 right-0 w-64 h-64 rounded-full bg-primary/5 blur-[80px] pointer-events-none" />
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -48,7 +52,7 @@ export const SuccessGrid = () => {
           viewport={{ once: true }}
           className="mb-10 sm:mb-12"
         >
-          <h2 className="font-display font-bold text-foreground leading-none mb-4" style={{ fontSize: 'clamp(2.5rem, 8vw, 7rem)' }}>
+          <h2 className="font-display font-bold text-foreground leading-none mb-4" style={{ fontSize: 'clamp(2rem, 8vw, 7rem)' }}>
             SUCCESS
             <br />
             <span className="text-gradient-gold">STORIES</span>

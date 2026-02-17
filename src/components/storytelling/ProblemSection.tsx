@@ -97,7 +97,7 @@ export const ProblemSection = () => {
           </motion.p>
 
           {/* Problem cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
             {problems.map((item, i) => {
               const Icon = item.icon;
               return (
@@ -117,7 +117,7 @@ export const ProblemSection = () => {
                       <Icon className="w-6 h-6 text-destructive" />
                     </div>
 
-                    <div className="text-4xl md:text-5xl font-display font-bold text-destructive mb-2" style={{
+                    <div className="text-3xl md:text-5xl font-display font-bold text-destructive mb-2" style={{
                       textShadow: '0 0 20px hsl(var(--destructive) / 0.3)',
                     }}>
                       {item.value}
@@ -140,10 +140,13 @@ export const ProblemSection = () => {
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="mt-10 h-px bg-gradient-to-r from-transparent via-destructive/40 to-transparent"
+            className="mt-8 md:mt-10 h-px bg-gradient-to-r from-transparent via-destructive/40 to-transparent"
           />
         </motion.div>
       </div>
+
+      {/* Section divider */}
+      <div className="absolute bottom-0 left-0 right-0 section-divider" />
     </section>
   );
 };

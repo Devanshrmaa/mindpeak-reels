@@ -97,7 +97,7 @@ export const TransformationTimeline = () => {
           </div>
 
           {/* Milestones grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 w-full">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3 w-full">
             {milestones.map((m, i) => {
               const isActive = i <= activeIndex;
               const isCurrent = i === activeIndex;
@@ -112,7 +112,7 @@ export const TransformationTimeline = () => {
                   transition={{ duration: 0.5, ease: 'easeOut' }}
                   className="relative"
                 >
-                  <div className={`relative p-3 md:p-4 rounded-xl border transition-all duration-500 ${
+                  <div className={`relative p-2.5 md:p-4 rounded-xl border transition-all duration-500 ${
                     isCurrent
                       ? 'border-primary/50 bg-card shadow-[0_0_30px_-8px_hsl(var(--primary)/0.25)]'
                       : isActive
@@ -131,20 +131,20 @@ export const TransformationTimeline = () => {
                       background: 'linear-gradient(90deg, transparent, hsl(var(--primary) / 0.5), transparent)',
                     }} />
 
-                    <div className="flex items-center gap-2 mb-2">
-                      <div className={`w-8 h-8 md:w-10 md:h-10 shrink-0 rounded-lg overflow-hidden ring-1 transition-all duration-500 ${
+                    <div className="flex items-center gap-1.5 md:gap-2 mb-1.5 md:mb-2">
+                      <div className={`w-7 h-7 md:w-10 md:h-10 shrink-0 rounded-lg overflow-hidden ring-1 transition-all duration-500 ${
                         isActive ? 'ring-primary/30' : 'ring-border'
                       }`}>
                         <img src={m.image} alt={m.title} className="w-full h-full object-cover" width={40} height={40} loading="lazy" />
                       </div>
                       <div className="min-w-0">
-                        <div className={`text-[10px] font-semibold transition-colors duration-300 ${
+                        <div className={`text-[9px] md:text-[10px] font-semibold transition-colors duration-300 ${
                           isActive ? 'text-primary' : 'text-muted-foreground'
                         }`}>{m.month}</div>
-                        <h3 className="text-foreground font-display text-xs md:text-sm leading-tight font-semibold">{m.title}</h3>
+                        <h3 className="text-foreground font-display text-[11px] md:text-sm leading-tight font-semibold truncate">{m.title}</h3>
                       </div>
                     </div>
-                    <p className="text-muted-foreground text-[10px] md:text-[11px] mb-2 line-clamp-2">{m.description}</p>
+                    <p className="text-muted-foreground text-[9px] md:text-[11px] mb-1.5 md:mb-2 line-clamp-2 leading-relaxed">{m.description}</p>
 
                     {/* Score badge */}
                     <div className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] md:text-[11px] transition-all duration-500 ${

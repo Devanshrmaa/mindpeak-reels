@@ -44,8 +44,10 @@ export const MethodologySection = () => {
         <img src={methodologyBg} alt="" role="presentation" className="w-full h-full object-cover opacity-20" loading="lazy" />
         <div className="absolute inset-0 bg-background/80" />
       </div>
+      {/* Accent divider */}
+      <div className="absolute top-0 left-0 right-0 section-divider z-10" />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-16 sm:py-20 text-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-14 sm:py-20 text-center">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

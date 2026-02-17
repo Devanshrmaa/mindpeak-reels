@@ -16,7 +16,7 @@ const stats = [
 export const ResultSection = () => {
   const { openDemoModal } = useDemoModal();
   return (
-    <section className="relative py-20 md:py-24 bg-gradient-to-br from-background via-secondary to-background flex items-center justify-center overflow-hidden">
+    <section className="relative py-16 md:py-24 bg-gradient-to-br from-background via-secondary to-background flex items-center justify-center overflow-hidden">
       {/* Floating celebration elements - subtle golden particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {Array.from({ length: 12 }).map((_, i) => (
@@ -54,7 +54,7 @@ export const ResultSection = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
           className="font-display text-foreground mb-6"
-          style={{ fontSize: 'clamp(3rem, 8vw, 7rem)', fontWeight: 900, lineHeight: 1.1 }}
+          style={{ fontSize: 'clamp(2.5rem, 8vw, 7rem)', fontWeight: 900, lineHeight: 1.1 }}
         >
           AIR <span className="text-gradient-gold">42</span>
         </motion.h2>
@@ -90,11 +90,11 @@ export const ResultSection = () => {
               whileHover={{ scale: 1.05 }}
               className="p-5 md:p-6 rounded-2xl bg-card/60 backdrop-blur-md border border-border"
             >
-              <div className="w-10 h-10 md:w-12 md:h-12 mx-auto mb-3 rounded-lg overflow-hidden">
+              <div className="w-8 h-8 md:w-12 md:h-12 mx-auto mb-2 md:mb-3 rounded-lg overflow-hidden">
                 <img src={stat.image} alt={stat.label} className="w-full h-full object-cover" />
               </div>
-              <div className="text-2xl md:text-3xl font-bold text-primary mb-1">{stat.value}</div>
-              <div className="text-xs md:text-sm text-muted-foreground uppercase tracking-wider">{stat.label}</div>
+              <div className="text-xl md:text-3xl font-bold text-primary mb-1">{stat.value}</div>
+              <div className="text-[10px] md:text-sm text-muted-foreground uppercase tracking-wider">{stat.label}</div>
             </motion.div>
           ))}
         </div>
