@@ -58,8 +58,8 @@ export const TransformationTimeline = () => {
         }} />
       </div>
 
-      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-        <div className="max-w-6xl mx-auto px-4 md:px-6 w-full py-8 relative z-10">
+      <div className="sticky top-0 min-h-screen flex items-center overflow-hidden py-16 md:py-0">
+        <div className="max-w-6xl mx-auto px-3 md:px-6 w-full relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

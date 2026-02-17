@@ -28,15 +28,15 @@ export const DiscoverySection = () => {
     <section
       ref={sectionRef}
       className="relative bg-background"
-      style={{ height: isMobile ? '110vh' : '130vh' }}
+      style={{ minHeight: '100vh' }}
     >
-      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+      <div className="relative flex items-center justify-center min-h-screen py-20 md:py-0 overflow-hidden">
         <motion.div
           style={{ opacity: lightOpacity }}
           className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(var(--primary)/0.2)_0%,transparent_70%)]"
         />
 
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
           {isMobile ? (
             <div className="mb-8 flex justify-center animate-fade-in">
               <div className="relative group">

@@ -38,7 +38,7 @@ export const ProblemSection = () => {
     <section
       ref={sectionRef}
       className="relative"
-      style={{ height: '120vh' }}
+      style={{ minHeight: '100vh' }}
     >
       {/* Dramatic red-tinted background */}
       <div className="absolute inset-0 bg-gradient-to-b from-destructive/15 via-background to-background" />
@@ -47,10 +47,10 @@ export const ProblemSection = () => {
         backgroundSize: '40px 40px',
       }} />
 
-      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+      <div className="relative flex items-center justify-center min-h-screen py-20 md:py-0 overflow-hidden">
         <motion.div
           style={{ opacity, scale, y }}
-          className="relative max-w-6xl mx-auto px-6 w-full"
+          className="relative max-w-6xl mx-auto px-4 sm:px-6 w-full"
         >
           {/* Warning icon */}
           <motion.div
