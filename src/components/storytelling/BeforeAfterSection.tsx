@@ -67,7 +67,7 @@ export const BeforeAfterSection = () => {
           <div
             className="relative rounded-2xl overflow-hidden border border-border shadow-card transition-colors duration-500"
             style={{
-              height: 'clamp(340px, 55vh, 480px)',
+              height: 'clamp(300px, 55vh, 480px)',
               background: showAfter
                 ? 'linear-gradient(135deg, hsl(var(--accent) / 0.15), hsl(var(--background)))'
                 : 'linear-gradient(135deg, hsl(var(--destructive) / 0.15), hsl(var(--background)))',
@@ -86,12 +86,12 @@ export const BeforeAfterSection = () => {
               <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden mb-3 ring-2 ring-destructive/30">
                 <img src={strugglingStudent} alt="Before MindPeak" className="w-full h-full object-cover" />
               </div>
-              <h3 className="text-foreground font-display text-lg md:text-2xl mb-4">BEFORE MINDPEAK</h3>
-              <div className="space-y-2 w-full max-w-xs">
+              <h3 className="text-foreground font-display text-base md:text-2xl mb-3 md:mb-4">BEFORE MINDPEAK</h3>
+              <div className="space-y-1.5 md:space-y-2 w-full max-w-xs">
                 {beforeStats.map((s, i) => (
-                  <div key={i} className="p-2.5 rounded-lg bg-destructive/10 border border-destructive/20 flex justify-between items-center">
-                    <span className="text-destructive text-[10px] md:text-xs uppercase tracking-wider">{s.label}</span>
-                    <span className="text-destructive font-bold text-sm md:text-lg">{s.value}</span>
+                  <div key={i} className="p-2 md:p-2.5 rounded-lg bg-destructive/10 border border-destructive/20 flex justify-between items-center">
+                    <span className="text-destructive text-[9px] md:text-xs uppercase tracking-wider">{s.label}</span>
+                    <span className="text-destructive font-bold text-xs md:text-lg">{s.value}</span>
                   </div>
                 ))}
               </div>
@@ -112,12 +112,12 @@ export const BeforeAfterSection = () => {
               <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden mb-3 ring-2 ring-accent/30">
                 <img src={successRocket} alt="After MindPeak" className="w-full h-full object-cover" />
               </div>
-              <h3 className="text-foreground font-display text-lg md:text-2xl mb-4">AFTER MINDPEAK</h3>
-              <div className="space-y-2 w-full max-w-xs">
+              <h3 className="text-foreground font-display text-base md:text-2xl mb-3 md:mb-4">AFTER MINDPEAK</h3>
+              <div className="space-y-1.5 md:space-y-2 w-full max-w-xs">
                 {afterStats.map((s, i) => (
-                  <div key={i} className="p-2.5 rounded-lg bg-accent/10 border border-accent/20 flex justify-between items-center">
-                    <span className="text-accent text-[10px] md:text-xs uppercase tracking-wider">{s.label}</span>
-                    <span className="text-accent font-bold text-sm md:text-lg">{s.value}</span>
+                  <div key={i} className="p-2 md:p-2.5 rounded-lg bg-accent/10 border border-accent/20 flex justify-between items-center">
+                    <span className="text-accent text-[9px] md:text-xs uppercase tracking-wider">{s.label}</span>
+                    <span className="text-accent font-bold text-xs md:text-lg">{s.value}</span>
                   </div>
                 ))}
               </div>

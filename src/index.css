@@ -174,4 +174,47 @@ html::-webkit-scrollbar {
   .glow-accent {
     box-shadow: 0 0 20px hsl(var(--accent) / 0.3), 0 0 40px hsl(var(--accent) / 0.15);
   }
+
+  /* Section divider gradient line */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.4), transparent);
+  }
+
+  /* Floating dot grid pattern */
+  .dot-grid {
+    background-image: radial-gradient(circle at 1px 1px, hsl(var(--primary) / 0.08) 1px, transparent 0);
+    background-size: 32px 32px;
+  }
+
+  /* Subtle corner accent */
+  .corner-glow::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at top left, hsl(var(--primary) / 0.15), transparent 70%);
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  /* Animated pulse glow */
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 4px hsl(var(--primary) / 0.4); }
+    50% { box-shadow: 0 0 16px hsl(var(--primary) / 0.7), 0 0 32px hsl(var(--primary) / 0.3); }
+  }
+
+  /* Horizontal scroll accent bar */
+  .accent-bar {
+    height: 2px;
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--primary)));
+    background-size: 200% 100%;
+    animation: gradientShift 4s ease infinite;
+  }
 }

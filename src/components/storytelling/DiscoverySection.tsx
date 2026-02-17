@@ -87,21 +87,23 @@ export const DiscoverySection = () => {
             Where every student gets a dedicated mentor, adaptive curriculum, and individualized attention
           </motion.p>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
             {pillars.map((pillar, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ delay: i * 0.2 }}
-                className="p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border"
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ delay: i * 0.15 }}
+                className="relative p-5 md:p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border corner-glow overflow-hidden"
               >
-                <div className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-4 rounded-xl overflow-hidden">
+                {/* Top accent */}
+                <div className="absolute top-0 left-3 right-3 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+                <div className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-3 md:mb-4 rounded-xl overflow-hidden ring-1 ring-primary/20">
                   <img src={pillar.image} alt={pillar.title} className="w-full h-full object-cover" />
                 </div>
-                <h3 className="text-foreground font-semibold text-lg md:text-xl mb-2">{pillar.title}</h3>
-                <p className="text-muted-foreground text-sm">{pillar.description}</p>
+                <h3 className="text-foreground font-semibold text-base md:text-xl mb-1 md:mb-2">{pillar.title}</h3>
+                <p className="text-muted-foreground text-xs md:text-sm">{pillar.description}</p>
               </motion.div>
             ))}
           </div>

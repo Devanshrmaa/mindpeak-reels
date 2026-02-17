@@ -37,12 +37,14 @@ export const CourseFlashcards = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-16 sm:py-20 px-6 bg-background relative overflow-hidden">
+    <section className="py-14 sm:py-20 px-4 sm:px-6 bg-background relative overflow-hidden">
       {/* Subtle background grid pattern */}
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: 'linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)',
         backgroundSize: '60px 60px',
       }} />
+      {/* Accent bar at top */}
+      <div className="absolute top-0 left-0 right-0 accent-bar" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
