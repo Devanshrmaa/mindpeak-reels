@@ -901,10 +901,15 @@ export const cities: CityData[] = [
   },
 ];
 
+/* ── Merge expansion cities ──────────────────────────────────── */
+import { expansionCities } from './cityExpansion';
+/** All cities: hand-crafted originals + template-generated expansion */
+export const allCities: CityData[] = [...cities, ...expansionCities];
+
 /** Get all exam-city combinations for route generation */
 export function getLocationRoutes(): { path: string; exam: 'jee' | 'neet'; city: CityData }[] {
   const routes: { path: string; exam: 'jee' | 'neet'; city: CityData }[] = [];
-  for (const city of cities) {
+  for (const city of allCities) {
     for (const exam of city.exams) {
       routes.push({
         path: `/${exam}-coaching-in-${city.slug}`,

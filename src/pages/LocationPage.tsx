@@ -7,7 +7,7 @@ import { AnimatePresence } from 'framer-motion';
 import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
 import { useDemoModal } from '@/components/DemoBookingModal';
-import { cities, getLocationTitle, getLocationDescription } from '@/data/cityData';
+import { cities, allCities, getLocationTitle, getLocationDescription } from '@/data/cityData';
 import type { CityData } from '@/data/cityData';
 import logo from '@/assets/logo.jpeg';
 
@@ -21,7 +21,7 @@ const LocationPage = () => {
   const exam = match?.[1] as 'jee' | 'neet' | undefined;
   const citySlug = match?.[2];
 
-  const city: CityData | undefined = cities.find((c) => c.slug === citySlug);
+  const city: CityData | undefined = allCities.find((c) => c.slug === citySlug);
 
   if (!exam || !city) {
     return <Navigate to="/" replace />;

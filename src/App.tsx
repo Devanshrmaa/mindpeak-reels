@@ -27,6 +27,7 @@ import KotaAlternative from "./pages/KotaAlternative";
 import OnlineVsOffline from "./pages/OnlineVsOffline";
 import ComparisonPage from "./pages/ComparisonPage";
 import SubjectPage, { SUBJECT_SLUGS } from "./pages/SubjectPage";
+import ChapterPage, { CHAPTER_SLUGS } from "./pages/ChapterPage";
 
 const queryClient = new QueryClient();
 
@@ -86,6 +87,11 @@ const App = () => (
             {/* Content Cluster Pages — Subject-wise preparation */}
             {SUBJECT_SLUGS.map((slug) => (
               <Route key={slug} path={`/${slug}`} element={<SubjectPage />} />
+            ))}
+
+            {/* Chapter-wise SEO pages — JEE/NEET chapters */}
+            {CHAPTER_SLUGS.map((slug) => (
+              <Route key={slug} path={`/${slug}`} element={<ChapterPage />} />
             ))}
 
             {/* Location Pages — SEO city pages for JEE/NEET */}
