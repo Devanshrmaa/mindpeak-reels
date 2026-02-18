@@ -33,7 +33,7 @@ export const DiscoverySection = () => {
       className="relative bg-background"
       style={{ height: isMobile ? '115vh' : '120vh' }}
     >
-      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+      <div className="sticky top-0 h-screen flex items-center justify-center">
         {/* radial glow (scroll-driven) */}
         <motion.div
           style={{ opacity: glowOpacity }}
@@ -106,14 +106,16 @@ export const DiscoverySection = () => {
 /* Reusable logo with spinning rings */
 function LogoRings() {
   return (
-    <div className="relative group p-6 md:p-8">
-      <div className="absolute inset-3 md:inset-2 rounded-full border-2 border-primary/30 animate-[spin_12s_linear_infinite]" />
-      <div className="absolute inset-1 md:inset-0 rounded-full border border-primary/15 animate-[spin_20s_linear_infinite_reverse]" />
-      <div className="absolute inset-4 md:inset-3 rounded-full bg-primary/10 blur-xl group-hover:bg-primary/20 transition-all duration-500" />
+    <div className="relative group flex items-center justify-center" style={{ width: 'clamp(120px, 30vw, 240px)', height: 'clamp(120px, 30vw, 240px)' }}>
+      {/* Spinning rings — sized relative to the wrapper */}
+      <div className="absolute inset-0 rounded-full border-2 border-primary/30 animate-[spin_12s_linear_infinite]" />
+      <div className="absolute -inset-2 md:-inset-3 rounded-full border border-primary/15 animate-[spin_20s_linear_infinite_reverse]" />
+      <div className="absolute inset-2 rounded-full bg-primary/10 blur-xl group-hover:bg-primary/20 transition-all duration-500" />
+      {/* Logo image — inset so rings frame it */}
       <img
         src={logo}
         alt="MindPeak Institute"
-        className="relative w-24 h-24 md:w-52 md:h-52 rounded-full object-cover border-4 border-primary/40 shadow-[0_0_40px_hsl(var(--primary)/0.3)] group-hover:shadow-[0_0_60px_hsl(var(--primary)/0.5)] transition-shadow duration-500"
+        className="relative w-[80%] h-[80%] rounded-full object-contain border-4 border-primary/40 shadow-[0_0_40px_hsl(var(--primary)/0.3)] group-hover:shadow-[0_0_60px_hsl(var(--primary)/0.5)] transition-shadow duration-500 bg-background"
       />
     </div>
   );
