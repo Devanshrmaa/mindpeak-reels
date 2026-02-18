@@ -46,7 +46,7 @@ export const TransformationTimeline = () => {
     <section
       ref={sectionRef}
       className="relative bg-background"
-      style={{ minHeight: '120vh' }}
+      style={{ minHeight: '103vh' }}
     >
       {/* Decorative background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

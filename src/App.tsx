@@ -11,11 +11,22 @@ import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import Index from "./pages/Index";
 import Courses from "./pages/Courses";
 import CourseDetail from "./pages/CourseDetail";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import RefundPolicy from "./pages/RefundPolicy";
 import LocationPage from "./pages/LocationPage";
 import SEOLandingPage from "./pages/SEOLandingPage";
 import NotFound from "./pages/NotFound";
+import JEECoaching from "./pages/JEECoaching";
+import NEETCoaching from "./pages/NEETCoaching";
+import FreeTrial from "./pages/FreeTrial";
+import Pricing from "./pages/Pricing";
+import Contact from "./pages/Contact";
+import KotaAlternative from "./pages/KotaAlternative";
+import OnlineVsOffline from "./pages/OnlineVsOffline";
+import ComparisonPage from "./pages/ComparisonPage";
+import SubjectPage, { SUBJECT_SLUGS } from "./pages/SubjectPage";
 
 const queryClient = new QueryClient();
 
@@ -34,15 +45,20 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/course/:slug" element={<CourseDetail />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
             <Route path="/refund-policy" element={<RefundPolicy />} />
-            {/* SEO Landing Pages — service, comparison, exam, subject pages */}
+
+            {/* Core Service Pages */}
+            <Route path="/jee-coaching" element={<JEECoaching />} />
+            <Route path="/neet-coaching" element={<NEETCoaching />} />
+            <Route path="/free-trial" element={<FreeTrial />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/contact" element={<Contact />} />
+
+            {/* SEO Landing Pages — exam, subject, and additional pages */}
             <Route path="/about" element={<SEOLandingPage />} />
-            <Route path="/jee-coaching" element={<SEOLandingPage />} />
-            <Route path="/neet-coaching" element={<SEOLandingPage />} />
-            <Route path="/pricing" element={<SEOLandingPage />} />
-            <Route path="/contact" element={<SEOLandingPage />} />
-            <Route path="/free-trial" element={<SEOLandingPage />} />
             <Route path="/jee-main-coaching" element={<SEOLandingPage />} />
             <Route path="/jee-advanced-coaching" element={<SEOLandingPage />} />
             <Route path="/neet-ug-coaching" element={<SEOLandingPage />} />
@@ -57,13 +73,21 @@ const App = () => (
             <Route path="/neet-biology-coaching" element={<SEOLandingPage />} />
             <Route path="/neet-physics-coaching" element={<SEOLandingPage />} />
             <Route path="/neet-chemistry-coaching" element={<SEOLandingPage />} />
-            <Route path="/kota-coaching-alternative" element={<SEOLandingPage />} />
-            <Route path="/online-vs-offline-jee-coaching" element={<SEOLandingPage />} />
             <Route path="/batch-vs-personal-coaching" element={<SEOLandingPage />} />
-            <Route path="/mindpeak-vs-allen" element={<SEOLandingPage />} />
-            <Route path="/mindpeak-vs-resonance" element={<SEOLandingPage />} />
-            <Route path="/mindpeak-vs-fiitjee" element={<SEOLandingPage />} />
-            <Route path="/mindpeak-vs-byju" element={<SEOLandingPage />} />
+
+            {/* Comparison Pages */}
+            <Route path="/kota-coaching-alternative" element={<KotaAlternative />} />
+            <Route path="/online-vs-offline-jee-coaching" element={<OnlineVsOffline />} />
+            <Route path="/mindpeak-vs-allen" element={<ComparisonPage />} />
+            <Route path="/mindpeak-vs-resonance" element={<ComparisonPage />} />
+            <Route path="/mindpeak-vs-fiitjee" element={<ComparisonPage />} />
+            <Route path="/mindpeak-vs-byjus" element={<ComparisonPage />} />
+
+            {/* Content Cluster Pages — Subject-wise preparation */}
+            {SUBJECT_SLUGS.map((slug) => (
+              <Route key={slug} path={`/${slug}`} element={<SubjectPage />} />
+            ))}
+
             {/* Location Pages — SEO city pages for JEE/NEET */}
             <Route path="/:slug" element={<LocationPage />} />
             {/* Redirect old/invalid nested routes like /hi/booking to homepage */}

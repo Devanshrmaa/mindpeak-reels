@@ -1,44 +1,62 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, type MotionValue } from 'framer-motion';
 import { useRef } from 'react';
-import { AlertTriangle, Users, UserX, TrendingDown } from 'lucide-react';
+import { Users, Clock, TrendingDown, HelpCircle } from 'lucide-react';
+
+const problems = [
+  {
+    icon: Users,
+    stat: '100+',
+    label: 'Students per batch',
+    title: 'Lost in the Crowd',
+    desc: 'Your child is one of 100-200 students. Teachers can\'t track individual progress.',
+  },
+  {
+    icon: Clock,
+    stat: '0',
+    label: 'Personal attention',
+    title: 'Zero Personalization',
+    desc: 'Same curriculum, same pace, same problems — regardless of each student\'s needs.',
+  },
+  {
+    icon: HelpCircle,
+    stat: '72%',
+    label: 'Doubts unresolved',
+    title: 'Doubts Pile Up',
+    desc: 'Crowded doubt sessions mean most questions go unanswered. Gaps compound silently.',
+  },
+  {
+    icon: TrendingDown,
+    stat: '60%',
+    label: 'Feel lost & stuck',
+    title: 'Confidence Crashes',
+    desc: 'A rigid one-size-fits-all model leaves the majority of students behind — and burned out.',
+  },
+];
+
+/* ── word-level scroll highlight ── */
+const highlightText =
+  'Every year, lakhs of students join batch coaching centres with dreams of cracking JEE & NEET. Most leave disappointed. The factory model treats students as numbers — not as individuals with unique strengths, weaknesses, and learning speeds.';
+const words = highlightText.split(' ');
+
+const HL_START = 0.05;
+const HL_END = 0.60;
+const HL_RAMP = 0.04;
 
 export const ProblemSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start start", "end start"]
+    offset: ['start start', 'end end'],
   });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
-  const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
-
-  const problems = [
-    {
-      icon: Users,
-      value: '100+',
-      label: 'Students crammed per batch',
-      desc: 'One teacher, hundred students — who gets heard?',
-    },
-    {
-      icon: UserX,
-      value: 'ZERO',
-      label: 'Personal attention',
-      desc: 'Your doubts drown in the crowd',
-    },
-    {
-      icon: TrendingDown,
-      value: '60%',
-      label: 'Students feel lost',
-      desc: 'Falling behind with no way to catch up',
-    },
-  ];
+  /* gentle fade-out at the very end so the next section isn't abrupt */
+  const sectionOpacity = useTransform(scrollYProgress, [0, 0.88, 1], [1, 1, 0]);
 
   return (
     <section
       ref={sectionRef}
-      className="relative"
-      style={{ minHeight: '100vh' }}
+      className="relative bg-background"
+      style={{ height: '140vh' }}
     >
       {/* Dramatic red-tinted background */}
       <div className="absolute inset-0 bg-gradient-to-b from-destructive/15 via-background to-background" />
@@ -49,99 +67,75 @@ export const ProblemSection = () => {
 
       <div className="relative flex items-center justify-center min-h-screen py-20 md:py-0 overflow-hidden">
         <motion.div
-          style={{ opacity, scale, y }}
-          className="relative max-w-6xl mx-auto px-4 sm:px-6 w-full"
+          style={{ opacity: sectionOpacity }}
+          className="relative max-w-5xl mx-auto px-6 w-full"
         >
-          {/* Warning icon */}
+          {/* ── Heading ── */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="flex justify-center mb-6"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7 }}
+            className="text-center mb-10 md:mb-14"
           >
-            <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-destructive/20 border-2 border-destructive/40 flex items-center justify-center">
-              <AlertTriangle className="w-8 h-8 md:w-10 md:h-10 text-destructive" />
-            </div>
+            <p className="text-destructive/80 text-xs uppercase tracking-[0.25em] font-semibold mb-3">
+              The Uncomfortable Truth
+            </p>
+            <h2
+              className="font-display text-foreground font-black leading-[1.1]"
+              style={{ fontSize: 'clamp(1.8rem, 5vw, 3.8rem)' }}
+            >
+              THE PROBLEM WITH
+              <br />
+              <span className="text-destructive">BATCH COACHING</span>
+            </h2>
           </motion.div>
 
-          {/* Title */}
-          <motion.h2
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-display text-foreground mb-4 text-center"
-            style={{
-              fontSize: 'clamp(2rem, 6vw, 4.5rem)',
-              fontWeight: 700,
-              letterSpacing: '0.02em',
-              lineHeight: 1.1,
-            }}
-          >
-            THE PROBLEM WITH
-            <br />
-            <span className="text-destructive" style={{
-              textShadow: '0 0 40px hsl(var(--destructive) / 0.4), 0 0 80px hsl(var(--destructive) / 0.2)',
-            }}>
-              BATCH COACHING
-            </span>
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-muted-foreground text-center text-base md:text-lg max-w-2xl mx-auto mb-12"
-          >
-            Traditional coaching treats every student the same. But every student is different.
-          </motion.p>
-
-          {/* Problem cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-            {problems.map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <motion.div
+          {/* ── Scroll-highlight paragraph ── */}
+          <div className="max-w-3xl mx-auto mb-12 md:mb-16">
+            <p className="text-lg md:text-xl leading-relaxed text-center font-body">
+              {words.map((word, i) => (
+                <WordHighlight
                   key={i}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.15, duration: 0.5 }}
-                  className="relative group"
-                >
-                  <div className="relative rounded-2xl border border-destructive/20 bg-destructive/5 backdrop-blur-sm p-6 md:p-8 text-center transition-all duration-500 hover:border-destructive/40 hover:bg-destructive/10 hover:shadow-[0_0_40px_-10px_hsl(var(--destructive)/0.3)]">
-                    {/* Top accent line */}
-                    <div className="absolute top-0 left-4 right-4 h-px bg-gradient-to-r from-transparent via-destructive/50 to-transparent" />
-                    
-                    <div className="w-12 h-12 rounded-xl bg-destructive/15 border border-destructive/25 flex items-center justify-center mx-auto mb-4">
-                      <Icon className="w-6 h-6 text-destructive" />
-                    </div>
-
-                    <div className="text-3xl md:text-5xl font-display font-bold text-destructive mb-2" style={{
-                      textShadow: '0 0 20px hsl(var(--destructive) / 0.3)',
-                    }}>
-                      {item.value}
-                    </div>
-                    <div className="text-foreground font-semibold text-sm uppercase tracking-wider mb-2">
-                      {item.label}
-                    </div>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {item.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              );
-            })}
+                  word={word}
+                  index={i}
+                  total={words.length}
+                  progress={scrollYProgress}
+                />
+              ))}
+            </p>
           </div>
 
-          {/* Bottom pulsing line */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            className="mt-8 md:mt-10 h-px bg-gradient-to-r from-transparent via-destructive/40 to-transparent"
-          />
+          {/* ── Problem cards (simple whileInView) ── */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
+            {problems.map((p, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="group relative rounded-xl border border-destructive/20 bg-destructive/[0.04] p-4 md:p-5 hover:border-destructive/40 hover:bg-destructive/[0.08] transition-all duration-300"
+              >
+                <div className="w-9 h-9 md:w-10 md:h-10 rounded-lg bg-destructive/10 flex items-center justify-center mb-3">
+                  <p.icon className="w-5 h-5 text-destructive" />
+                </div>
+                <div className="font-display font-black text-destructive text-2xl md:text-3xl leading-none mb-0.5">
+                  {p.stat}
+                </div>
+                <div className="text-muted-foreground text-[10px] md:text-xs uppercase tracking-wider mb-3">
+                  {p.label}
+                </div>
+                <h3 className="font-display font-bold text-foreground text-sm md:text-base mb-1">
+                  {p.title}
+                </h3>
+                <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">
+                  {p.desc}
+                </p>
+                <div className="absolute bottom-0 left-4 right-4 h-[2px] bg-destructive/20 group-hover:bg-destructive/50 transition-colors rounded-full" />
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
 
@@ -150,3 +144,28 @@ export const ProblemSection = () => {
     </section>
   );
 };
+
+/* ── Word that fades in with a smooth ramp tied to scroll ── */
+function WordHighlight({
+  word,
+  index,
+  total,
+  progress,
+}: {
+  word: string;
+  index: number;
+  total: number;
+  progress: MotionValue<number>;
+}) {
+  const t = total > 1 ? index / (total - 1) : 0;
+  const center = HL_START + t * (HL_END - HL_START);
+  const fadeIn = Math.max(0, center - HL_RAMP / 2);
+  const fadeOut = center + HL_RAMP / 2;
+  const opacity = useTransform(progress, [fadeIn, fadeOut], [0.12, 1]);
+
+  return (
+    <motion.span style={{ opacity }} className="text-foreground inline">
+      {word}{' '}
+    </motion.span>
+  );
+}

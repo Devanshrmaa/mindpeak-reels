@@ -607,6 +607,298 @@ export const cities: CityData[] = [
       { q: 'What are the fees compared to Kota coaching + hostel?', a: 'MindPeak\'s fees are significantly lower than Kota coaching + hostel costs combined — and you get better results through personalised 1-on-1 attention. Contact us for detailed pricing.' },
     ],
   },
+
+  // ─── NEW TIER 2 / 3 CITIES ────────────────────────────
+  {
+    slug: 'lucknow',
+    city: 'Lucknow',
+    state: 'Uttar Pradesh',
+    tier: 2,
+    lat: 26.8467,
+    lng: 80.9462,
+    exams: ['jee', 'neet'],
+    educationLandscape:
+      'Lucknow, the capital of Uttar Pradesh, is a rapidly growing educational hub with a strong medical entrance focus. With KGMU and numerous private medical colleges in the state, NEET preparation is in huge demand. The coaching market is dominated by local institutes in Hazratganj and Gomti Nagar that follow batch models with 100+ students. UP Board students face significant gaps in English-medium competitive exam content, and the transition from state board to JEE/NEET level requires careful bridging. Despite being a state capital, access to top-tier mentors remains limited compared to metro cities.',
+    whyMindPeak:
+      'MindPeak brings metro-quality 1-on-1 coaching to Lucknow students without the need to relocate to Delhi or Kota. Our mentors understand the UP Board curriculum gaps and create personalised bridging plans from Day 1. Whether you\'re in Aliganj, Indira Nagar, or Gomti Nagar, you receive identical premium coaching experience online. Hindi-medium support is available for students transitioning to English-medium competitive exams. Our adaptive curriculum accounts for the unique challenges UP state board students face — including different syllabus sequencing and foundational gaps in certain topics. Flexible scheduling works around school commitments and board exam preparation timelines.',
+    mentoringAdvantage:
+      'Lucknow students at MindPeak receive dedicated mentors who understand the UP academic system and its specific challenges. Your mentor conducts diagnostic assessments to identify foundational gaps, builds targeted remediation plans, and gradually elevates your preparation to national competitive level. Daily 1-on-1 sessions ensure concepts are thoroughly understood with real-time doubt resolution. Mentors provide bilingual support when needed, making complex concepts accessible. This personalised approach has helped Lucknow students achieve dramatic score improvements, with many reaching top 1% percentiles in JEE and NEET.',
+    parentTracking:
+      'Parents in Lucknow receive comprehensive weekly progress reports covering topic-wise performance, mock test analytics, and mentor observations. Our transparent tracking system provides attendance logs, homework completion rates, and percentile trends. Monthly parent-mentor calls in Hindi or English discuss strategy, address concerns, and provide realistic projections. This accountability ensures every family in Lucknow can track their child\'s growth with confidence.',
+    highlights: [
+      'UP Board to JEE/NEET bridging curriculum',
+      'Hindi-medium support available',
+      'No need to relocate to Delhi or Kota',
+      'Flexible scheduling around UP Board exams',
+    ],
+    faqs: [
+      { q: 'Can UP Board students from Lucknow crack JEE/NEET through online coaching?', a: 'Absolutely. MindPeak\'s personalised 1-on-1 coaching bridges UP Board gaps systematically. Our mentors create customised plans that strengthen fundamentals while building competitive exam readiness.' },
+      { q: 'Is MindPeak better than local coaching centres in Lucknow?', a: 'MindPeak offers dedicated 1-on-1 attention that no Lucknow batch centre can match. While local centres teach 100+ students per batch, your child gets a personal mentor focused entirely on their learning.' },
+      { q: 'Do you offer coaching in Hindi for Lucknow students?', a: 'Yes, bilingual support is available. Mentors can explain concepts in Hindi while building English-medium exam readiness gradually.' },
+      { q: 'What are the fees compared to Lucknow coaching centres?', a: 'MindPeak\'s fees are competitive with premium Lucknow centres but deliver 1-on-1 attention. Book a free trial for personalised pricing.' },
+    ],
+  },
+  {
+    slug: 'patna',
+    city: 'Patna',
+    state: 'Bihar',
+    tier: 2,
+    lat: 25.6093,
+    lng: 85.1376,
+    exams: ['jee', 'neet'],
+    educationLandscape:
+      'Patna has emerged as a surprising powerhouse for competitive exam preparation, with Bihar consistently producing high-rank JEE and NEET achievers. The city\'s coaching culture in Boring Road and Kankarbagh is intense, driven by families who see education as the primary path to upward mobility. However, local coaching centres follow rigid batch models, and top students often relocate to Kota or Delhi for better preparation. Bihar Board students face particular challenges in foundational English-medium concepts and require structured bridging to reach competitive exam level.',
+    whyMindPeak:
+      'MindPeak brings India\'s best mentors to Patna students\' homes — no relocation needed. Our online 1-on-1 coaching levels the playing field completely, giving Bihar students the same quality of personalised attention as Delhi or Mumbai students. Mentors understand Bihar Board gaps and create targeted bridging plans. Our adaptive curriculum builds from NCERT fundamentals (which Bihar Board emphasises) to advanced problem-solving. Patna students save lakhs in relocation costs while receiving superior coaching through dedicated mentorship. The result: more Bihar students achieving national-level ranks without leaving home.',
+    mentoringAdvantage:
+      'Every Patna student receives a dedicated mentor who understands the Bihar academic system. Daily 1-on-1 sessions focus on conceptual clarity, building from strong NCERT foundations to competitive exam mastery. Mentors provide Hindi support when needed and design study plans that account for Bihar Board exam timelines. Real-time doubt resolution eliminates the frustration of crowded doubt sessions at local centres. This personalised mentorship has helped Patna students achieve remarkable score jumps.',
+    parentTracking:
+      'Patna parents receive detailed weekly reports in a clear, accessible format. Topic-wise accuracy, mock test trends, attendance, and mentor feedback are shared consistently. Monthly parent-mentor calls (available in Hindi) discuss progress, strategy, and realistic expectations. This level of transparency is unprecedented for most Patna families used to batch coaching\'s minimal parent communication.',
+    highlights: [
+      'Bihar Board to JEE/NEET bridging from NCERT foundations',
+      'No relocation to Kota or Delhi needed',
+      'Hindi-medium mentoring support',
+      'Affordable compared to Kota relocation costs',
+    ],
+    faqs: [
+      { q: 'Can Patna students compete nationally without going to Kota?', a: 'Absolutely. MindPeak\'s 1-on-1 coaching gives Patna students the same quality as Kota — actually better, because of personalised attention. Bihar students have historically shown exceptional talent; MindPeak provides the right platform.' },
+      { q: 'Is online coaching reliable in Patna?', a: 'MindPeak works on basic mobile data connections. If connectivity issues arise, sessions are rescheduled at no cost. Most Patna students find the platform works smoothly.' },
+      { q: 'Do mentors understand Bihar Board syllabus differences?', a: 'Yes. Our mentors conduct diagnostic assessments to identify Bihar Board gaps and create personalised bridging plans from Day 1.' },
+      { q: 'How do MindPeak fees compare to Kota relocation from Patna?', a: 'Kota costs ₹2L-2.5L per year from Patna (tuition + hostel + travel). MindPeak offers 1-on-1 coaching for a fraction of that cost, with better personalised attention.' },
+    ],
+  },
+  {
+    slug: 'bhopal',
+    city: 'Bhopal',
+    state: 'Madhya Pradesh',
+    tier: 2,
+    lat: 23.2599,
+    lng: 77.4126,
+    exams: ['jee', 'neet'],
+    educationLandscape:
+      'Bhopal, the capital of Madhya Pradesh, has a growing competitive exam preparation ecosystem centred around MP Nagar and Arera Colony. With IIT Indore and AIIMS Bhopal enhancing the region\'s academic profile, demand for quality JEE/NEET coaching has surged. However, the city\'s coaching market remains dominated by batch-model institutes that struggle to provide individual attention. MP Board students face unique syllabus sequencing challenges when transitioning to competitive exams, and most local centres don\'t adequately bridge these gaps.',
+    whyMindPeak:
+      'MindPeak delivers personalised 1-on-1 coaching that Bhopal\'s batch centres cannot match. Our mentors understand MP Board curriculum nuances and create targeted bridging plans for competitive exam readiness. Students anywhere in Bhopal — from Kolar to Hoshangabad Road — receive identical premium coaching from home. The adaptive curriculum adjusts to each student\'s pace, whether they need extra support in specific topics or advanced problem-solving practice. Bhopal families save on commute time and get unprecedented visibility into their child\'s preparation through weekly reports.',
+    mentoringAdvantage:
+      'Bhopal students receive dedicated mentors who design study plans accounting for MP Board exam timelines and competitive exam overlap. Daily 1-on-1 sessions ensure thorough conceptual understanding with immediate doubt resolution. Mentors track learning patterns and adjust teaching approaches based on performance data. This systematic, personalised mentorship has helped Bhopal students achieve significant rank improvements in both JEE and NEET.',
+    parentTracking:
+      'Bhopal parents receive comprehensive weekly progress reports with topic-wise accuracy, mock trends, and actionable insights. Parent-mentor calls discuss strategy and address concerns transparently. The accountability system ensures consistent preparation quality throughout the academic year.',
+    highlights: [
+      'MP Board to JEE/NEET transition support',
+      'Study from home — no MP Nagar commute',
+      'Flexible scheduling for school + coaching balance',
+      'Access to mentors from top IITs and medical colleges',
+    ],
+    faqs: [
+      { q: 'How good is online JEE/NEET coaching for Bhopal students?', a: 'MindPeak\'s 1-on-1 online coaching is more effective than batch centres because every session is personalised to your child\'s needs. No Bhopal batch centre can offer this level of individual attention.' },
+      { q: 'Can MP Board students crack JEE through MindPeak?', a: 'Yes. Our mentors identify MP Board gaps through diagnostic tests and create targeted remediation plans. Many MP Board students have achieved excellent JEE ranks through our personalised approach.' },
+      { q: 'Do you cover AIIMS Bhopal preparation specifically?', a: 'AIIMS admissions now happen through NEET. Our comprehensive NEET preparation covers everything needed for AIIMS Bhopal and all government medical colleges.' },
+      { q: 'What makes MindPeak different from Bhopal coaching centres?', a: 'Dedicated 1-on-1 mentor (not 1:100 batch), adaptive curriculum, weekly parent reports, and flexible scheduling — all from the comfort of your Bhopal home.' },
+    ],
+  },
+  {
+    slug: 'visakhapatnam',
+    city: 'Visakhapatnam',
+    state: 'Andhra Pradesh',
+    tier: 2,
+    lat: 17.6868,
+    lng: 83.2185,
+    exams: ['jee', 'neet'],
+    educationLandscape:
+      'Visakhapatnam (Vizag) is Andhra Pradesh\'s largest city with a strong engineering and medical preparation culture. With Andhra University and numerous engineering colleges driving academic aspirations, JEE/NEET coaching demand is significant. The post-bifurcation shift has concentrated AP\'s academic infrastructure, and Vizag students often travel to Hyderabad or Vijayawada for coaching. Local institutes offer batch coaching but lack the personalised attention that competitive exam success increasingly demands. AP Board students face unique curriculum challenges in transitioning to JEE/NEET.',
+    whyMindPeak:
+      'MindPeak brings expert 1-on-1 coaching to Vizag students without the 600km trip to Hyderabad. Our mentors understand AP Board (BIEAP) curriculum and create personalised bridging plans. Whether you\'re in MVP Colony, Dwaraka Nagar, or Gajuwaka, the coaching quality is identical. Telugu-speaking mentor support is available for concept clarity. Our adaptive curriculum builds from AP Board foundations to competitive exam mastery systematically. Vizag students save on relocation costs while receiving superior coaching compared to any batch centre in the region.',
+    mentoringAdvantage:
+      'Vizag students receive dedicated mentors who build preparation plans considering AP Board timelines, EAMCET overlap, and JEE/NEET specific requirements. Daily 1-on-1 sessions provide thorough conceptual coverage with real-time doubt resolution. Mentors adjust teaching pace based on individual comprehension, focusing extra on topics where AP Board coverage differs from competitive exam expectations.',
+    parentTracking:
+      'Vizag parents receive weekly progress reports with detailed analytics. Mock test trends, topic-wise accuracy, and mentor observations keep families informed. Monthly calls in Telugu or English ensure transparent communication about preparation strategy and expected outcomes.',
+    highlights: [
+      'AP Board (BIEAP) to JEE/NEET bridging',
+      'No relocation to Hyderabad needed',
+      'EAMCET + JEE/NEET combined preparation',
+      'Telugu-speaking mentor support available',
+    ],
+    faqs: [
+      { q: 'Can Vizag students get quality JEE coaching without going to Hyderabad?', a: 'Yes. MindPeak\'s 1-on-1 online coaching delivers better personalised attention than any Hyderabad batch centre. Your mentor focuses entirely on you — something no batch class can offer.' },
+      { q: 'Does MindPeak cover AP EAMCET along with JEE?', a: 'Yes. Our mentors integrate EAMCET preparation with JEE coaching, leveraging the syllabus overlap efficiently and adding targeted EAMCET-specific practice.' },
+      { q: 'Is Telugu-medium coaching available?', a: 'Our mentors teach in English (exam medium) but can explain concepts in Telugu for better understanding. This bilingual approach helps AP Board students transition smoothly.' },
+      { q: 'How do Vizag MindPeak students perform compared to Hyderabad coaching students?', a: 'Our personalised 1-on-1 approach helps Vizag students achieve results comparable to or better than students at top Hyderabad batch centres, at a fraction of the cost.' },
+    ],
+  },
+  {
+    slug: 'nashik',
+    city: 'Nashik',
+    state: 'Maharashtra',
+    tier: 2,
+    lat: 20.0063,
+    lng: 73.7898,
+    exams: ['jee', 'neet'],
+    educationLandscape:
+      'Nashik is an emerging educational city in Maharashtra with a growing number of JEE/NEET aspirants. Traditionally overshadowed by Pune and Mumbai\'s coaching markets, Nashik students often face a choice: relocate for quality coaching or settle for limited local options. Local centres offer Maharashtra Board-focused preparation but lack the depth and personalisation needed for national competitive exams. The engineering and medical entrance preparation culture is growing, with families increasingly investing in quality coaching.',
+    whyMindPeak:
+      'MindPeak delivers metro-quality 1-on-1 coaching to Nashik without the need to relocate to Pune or Mumbai. Our mentors understand Maharashtra Board to JEE/NEET transition challenges and integrate MHT-CET preparation alongside national exams. Students in College Road, Gangapur Road, or Panchavati receive world-class coaching from home. The adaptive curriculum addresses each student\'s specific gaps while building progressively toward competitive exam readiness. Nashik families save significantly on relocation and commute costs.',
+    mentoringAdvantage:
+      'Nashik students receive dedicated mentors who design preparation accounting for Maharashtra Board exam timelines and MHT-CET overlap. Daily 1-on-1 sessions build deep conceptual understanding with immediate doubt resolution. Mentors provide targeted practice on high-weightage topics and conduct weekly assessment reviews to ensure consistent progress.',
+    parentTracking:
+      'Nashik parents receive weekly analytics on their child\'s preparation. Mock test trends, topic accuracy, and mentor recommendations are shared transparently. This consistent communication gives Nashik families confidence in their coaching investment.',
+    highlights: [
+      'Maharashtra Board to JEE/NEET bridging',
+      'MHT-CET + JEE combined preparation',
+      'No relocation to Pune or Mumbai',
+      'Marathi-medium concept support when needed',
+    ],
+    faqs: [
+      { q: 'Can Nashik students crack JEE without going to Pune or Mumbai?', a: 'Yes. MindPeak\'s 1-on-1 online coaching gives Nashik students the same quality as metro centres — actually better, because of personalised attention.' },
+      { q: 'Does MindPeak help with MHT-CET for Nashik students?', a: 'Yes. Maharashtra students get integrated MHT-CET + JEE preparation with syllabus overlap optimisation.' },
+      { q: 'How does MindPeak compare to coaching centres in Nashik?', a: 'MindPeak offers dedicated 1-on-1 mentors vs batch teaching (1:100+). Better attention, adaptive curriculum, and weekly parent reports — all from home.' },
+      { q: 'Are fees affordable for Nashik families?', a: 'MindPeak\'s fees are competitive with quality coaching anywhere. Book a free trial for personalised pricing.' },
+    ],
+  },
+  {
+    slug: 'guwahati',
+    city: 'Guwahati',
+    state: 'Assam',
+    tier: 2,
+    lat: 26.1445,
+    lng: 91.7362,
+    exams: ['jee', 'neet'],
+    educationLandscape:
+      'Guwahati is the educational gateway of Northeast India, with students from across the seven sister states converging here for competitive exam preparation. IIT Guwahati\'s presence has boosted JEE aspirations, while Guwahati Medical College drives NEET demand. However, the coaching infrastructure remains limited compared to mainland centres. Students often relocate to Delhi or Kota at enormous cost and emotional stress. Local coaching centres offer batch-model preparation that struggles to match national-level standards.',
+    whyMindPeak:
+      'MindPeak is a game-changer for Northeast India students. Our online 1-on-1 coaching brings IIT and AIIMS alumni mentors directly to Guwahati students\' homes — no relocation needed. We bridge the gap between Northeast regional boards and national competitive exam standards through personalised diagnostic-driven preparation. Students across the Northeast — from Guwahati to Shillong to Imphal — access identical premium coaching. Our mentors understand the unique foundational challenges and build customised remediation plans. This democratisation of quality coaching has helped Northeast students achieve ranks previously considered impossible without Kota relocation.',
+    mentoringAdvantage:
+      'Guwahati students receive dedicated mentors who design preparation plans considering state board specifics and foundational requirements. Daily 1-on-1 sessions build from NCERT foundations to advanced problem-solving. Mentors provide extra focus on topics where regional board coverage differs significantly from competitive exam expectations. The personalised pace ensures no concept is left unclear.',
+    parentTracking:
+      'Parents in Guwahati receive detailed weekly reports accessible from any device. Topic-wise analytics, mock test performance, and mentor observations keep families informed. Monthly calls discuss strategy and realistic projections, providing unprecedented transparency for Northeast families.',
+    highlights: [
+      'Best coaching access for Northeast India students',
+      'No relocation to Delhi or Kota needed',
+      'Regional board to JEE/NEET bridging curriculum',
+      'Affordable compared to mainland relocation costs',
+    ],
+    faqs: [
+      { q: 'Can Northeast students compete nationally through online coaching?', a: 'Absolutely. MindPeak levels the playing field completely. Our 1-on-1 coaching gives Guwahati students the same quality as Delhi students. Geography is no longer a barrier to JEE/NEET success.' },
+      { q: 'How does MindPeak address the Assam Board to JEE transition?', a: 'Our mentors conduct diagnostic assessments to identify specific Assam Board gaps and create customised bridging plans. The 1-on-1 format allows targeted remediation that batch centres cannot provide.' },
+      { q: 'Is online coaching reliable in Guwahati and Northeast?', a: 'MindPeak works on standard mobile data. Sessions disrupted by connectivity issues are rescheduled free of charge.' },
+      { q: 'Do you serve students from other Northeast states?', a: 'Yes. Students across all Northeast states — Assam, Meghalaya, Manipur, Nagaland, Mizoram, Tripura, Arunachal Pradesh, and Sikkim — receive the same premium 1-on-1 coaching.' },
+    ],
+  },
+  {
+    slug: 'mangalore',
+    city: 'Mangalore',
+    state: 'Karnataka',
+    tier: 2,
+    lat: 12.9141,
+    lng: 74.856,
+    exams: ['jee', 'neet'],
+    educationLandscape:
+      'Mangalore has a strong medical education tradition with Kasturba Medical College and several other medical institutions. This has created intense NEET preparation demand. The city also contributes JEE aspirants drawn to engineering opportunities. While local coaching centres exist, most follow batch models that cannot provide the individual attention needed for competitive exam success. Students often consider Bangalore for coaching, adding significant travel and living costs. Karnataka CET adds another exam layer to preparation.',
+    whyMindPeak:
+      'MindPeak delivers dedicated 1-on-1 coaching to Mangalore students without the Bangalore commute or relocation. Our mentors understand Karnataka board specifics and integrate KCET preparation with JEE/NEET coaching efficiently. Whether you\'re near Kadri, Bejai, or Hampankatta, the coaching quality is world-class from home. Medical-focused students benefit from mentors with top medical college backgrounds who understand NEET\'s biology-heavy pattern. Engineering aspirants get equally strong Physics and Math preparation. Our adaptive curriculum adapts to each Mangalore student\'s specific foundation level.',
+    mentoringAdvantage:
+      'Mangalore students receive dedicated mentors who design comprehensive preparation accounting for Karnataka Board, KCET, and JEE/NEET timelines. Daily 1-on-1 sessions build deep conceptual understanding, and Kannada-medium concept explanations are available when needed. Mentors track and optimise each student\'s learning trajectory through data-driven insights.',
+    parentTracking:
+      'Mangalore parents receive transparent weekly reports on preparation progress. Mock analytics, topic mastery, and mentor recommendations ensure families stay informed. Regular parent-mentor calls discuss strategy adjustments and realistic expectations.',
+    highlights: [
+      'Strong NEET focus aligned with Mangalore\'s medical education culture',
+      'KCET + JEE/NEET integrated preparation',
+      'No relocation to Bangalore needed',
+      'Karnataka Board transition support',
+    ],
+    faqs: [
+      { q: 'Is MindPeak good for NEET preparation from Mangalore?', a: 'Excellent. Our NEET program provides dedicated 1-on-1 mentorship with Biology-first approach, NCERT mastery, and extensive mock practice — ideal for Mangalore students targeting medical colleges.' },
+      { q: 'Does MindPeak cover KCET along with national exams?', a: 'Yes. Our Karnataka mentors integrate KCET preparation seamlessly with JEE/NEET coaching, leveraging syllabus overlaps efficiently.' },
+      { q: 'Can I get better coaching than Bangalore centres through MindPeak?', a: 'MindPeak offers 1-on-1 dedicated attention that even the best Bangalore batch centres cannot match. Better results at lower total cost.' },
+      { q: 'Do you have medical background mentors for NEET?', a: 'Yes. NEET students are matched with mentors from top medical colleges who understand the exam\'s pattern and the medical preparation mindset.' },
+    ],
+  },
+  {
+    slug: 'ranchi',
+    city: 'Ranchi',
+    state: 'Jharkhand',
+    tier: 2,
+    lat: 23.3441,
+    lng: 85.3096,
+    exams: ['jee', 'neet'],
+    educationLandscape:
+      'Ranchi, the capital of Jharkhand, has a growing competitive exam preparation culture. With IIT (ISM) Dhanbad in the state and NIT Jamshedpur, engineering aspirations run high. Medical aspirations target RIMS Ranchi and government medical colleges. However, the coaching infrastructure is underdeveloped compared to neighbouring Bihar and metro cities. Students often relocate to Patna, Kota, or Delhi for quality coaching. Local centres offer limited options with batch-model teaching that doesn\'t address individual student needs.',
+    whyMindPeak:
+      'MindPeak transforms JEE/NEET preparation for Ranchi by bringing India\'s best mentors to your home via online 1-on-1 coaching. No relocating to Kota or Delhi — students in Kanke, Doranda, or Main Road receive the same premium coaching. Our mentors understand Jharkhand Board curriculum and create personalised bridging plans. The adaptive approach builds from NCERT foundations to competitive exam mastery at each student\'s pace. Ranchi families save lakhs in relocation costs while their children receive more personalised attention than any batch centre provides.',
+    mentoringAdvantage:
+      'Ranchi students receive a dedicated mentor who designs study plans considering Jharkhand Board timelines and competitive exam requirements. Daily 1-on-1 sessions ensure deep conceptual understanding. Hindi-medium explanations are available for smoother concept comprehension. Mentors identify specific foundational gaps and conduct systematic remediation.',
+    parentTracking:
+      'Ranchi parents receive weekly progress reports with clear analytics. Monthly mentor calls (available in Hindi) discuss preparation trajectory and strategy. This regular communication gives families complete visibility into their child\'s coaching journey.',
+    highlights: [
+      'Jharkhand Board to JEE/NEET transition support',
+      'No relocation to Kota or Delhi',
+      'Hindi-medium concept support',
+      'Affordable 1-on-1 coaching',
+    ],
+    faqs: [
+      { q: 'Can Ranchi students crack JEE/NEET without Kota coaching?', a: 'Yes. MindPeak\'s 1-on-1 coaching provides more personalised attention than any Kota batch. Geographic location no longer determines coaching quality.' },
+      { q: 'How does MindPeak address Jharkhand Board gaps?', a: 'Diagnostic assessments identify specific gaps, and personalised bridging plans are created from Day 1. The 1-on-1 format allows targeted remediation.' },
+      { q: 'Is MindPeak affordable for Ranchi families?', a: 'MindPeak is significantly cheaper than Kota relocation (hostel + tuition) while providing better personalised attention. Book a free trial for exact pricing.' },
+      { q: 'Do you support Hindi-medium Ranchi students?', a: 'Yes. Mentors teach in the exam medium (English) but explain concepts in Hindi when needed for better understanding.' },
+    ],
+  },
+  {
+    slug: 'raipur',
+    city: 'Raipur',
+    state: 'Chhattisgarh',
+    tier: 2,
+    lat: 21.2514,
+    lng: 81.6296,
+    exams: ['jee', 'neet'],
+    educationLandscape:
+      'Raipur, the capital of Chhattisgarh, has a developing competitive exam preparation scene. With NIT Raipur and Pt. J.N.M. Medical College driving academic aspirations, demand for JEE/NEET coaching is steadily growing. The coaching market is small and dominated by a few batch-model institutes. Students targeting top national ranks typically relocate to Kota, Indore, or Bhopal. Chhattisgarh Board students face significant curriculum gaps when transitioning to national competitive exams.',
+    whyMindPeak:
+      'MindPeak democratises quality coaching for Raipur students. Our online 1-on-1 model brings top mentors directly to your home — no relocation to Kota, Indore, or Bhopal needed. Mentors understand Chhattisgarh Board curriculum and create customised bridging plans. Whether in Shankar Nagar, Telibandha, or Civil Lines, the coaching quality matches metro standards. Our adaptive curriculum adjusts to each student\'s foundation level and builds progressively. Raipur families save significantly while getting better attention than any batch centre.',
+    mentoringAdvantage:
+      'Raipur students receive dedicated mentors who build preparation considering CG Board specifics and competitive exam demands. Daily 1-on-1 sessions ensure thorough concept mastery. Hindi-medium support is available. Mentors track progress through data analytics and adjust strategies for optimal results.',
+    parentTracking:
+      'Raipur parents receive transparent weekly reports with topic accuracy, mock trends, and actionable insights. Monthly Hindi/English calls with mentors ensure complete preparation visibility for Chhattisgarh families.',
+    highlights: [
+      'CG Board to JEE/NEET transition support',
+      'No relocation needed — study from Raipur',
+      'Hindi-medium concept explanations available',
+      'Metro-quality coaching at affordable rates',
+    ],
+    faqs: [
+      { q: 'Can Raipur students get quality JEE/NEET coaching without leaving the city?', a: 'Yes. MindPeak\'s 1-on-1 online coaching delivers personalised attention better than any batch centre in Kota, Indore, or Bhopal.' },
+      { q: 'How does MindPeak handle CG Board syllabus gaps?', a: 'Our mentors conduct diagnostic assessments and create personalised gap-filling plans. The 1-on-1 format allows targeted remediation impossible in batch settings.' },
+      { q: 'Is online coaching reliable in Raipur?', a: 'MindPeak works on basic mobile data. Connectivity-disrupted sessions are rescheduled free of charge.' },
+      { q: 'Are fees affordable for Raipur families?', a: 'MindPeak offers competitive pricing with 1-on-1 attention. Significantly cheaper than Kota relocation. Book a free trial for details.' },
+    ],
+  },
+  {
+    slug: 'vijayawada',
+    city: 'Vijayawada',
+    state: 'Andhra Pradesh',
+    tier: 2,
+    lat: 16.5062,
+    lng: 80.648,
+    exams: ['jee', 'neet'],
+    educationLandscape:
+      'Vijayawada is the educational nerve centre of Andhra Pradesh, especially after the state\'s bifurcation. With a strong coaching culture driven by corporate colleges and residential academies, Vijayawada has an intense preparation ecosystem. However, the model is predominantly batch-based with 100+ students per section. AP EAMCET and JEE/NEET preparation often creates scheduling conflicts. The city\'s coaching centres are concentrated in Governorpet and Benz Circle areas, with limited options in outer areas.',
+    whyMindPeak:
+      'MindPeak offers Vijayawada students personalised 1-on-1 coaching that the city\'s crowded batch centres cannot provide. Our mentors integrate AP EAMCET preparation with JEE/NEET coaching, efficiently leveraging syllabus overlaps. Students across Vijayawada — from Gandhinagar to Poranki — receive world-class coaching from home. Telugu-medium concept support ensures clarity. The adaptive curriculum addresses AP Board (BIEAP) specific foundations and builds progressively to competitive exam readiness. Parents get weekly transparent reports that corporate colleges rarely provide.',
+    mentoringAdvantage:
+      'Vijayawada students receive dedicated mentors who understand AP\'s academic ecosystem — from BIEAP board specifics to EAMCET patterns. Daily 1-on-1 sessions provide deep concept coverage with real-time doubt resolution. Telugu explanations are available when needed. Mentors create multi-exam strategies that optimise preparation across AP EAMCET, JEE, and/or NEET simultaneously.',
+    parentTracking:
+      'Vijayawada parents (often accustomed to the limited communication of corporate colleges) are pleasantly surprised by MindPeak\'s weekly progress reports. Detailed analytics, Telugu/English calls with mentors, and transparent tracking provide complete visibility into preparation quality.',
+    highlights: [
+      'AP EAMCET + JEE/NEET integrated preparation',
+      'AP Board (BIEAP) curriculum expertise',
+      'Telugu-medium concept support',
+      '1-on-1 attention vs corporate college batches',
+    ],
+    faqs: [
+      { q: 'How does MindPeak compare to Vijayawada\'s corporate colleges?', a: 'MindPeak offers dedicated 1-on-1 mentoring that corporate colleges (with 100+ student batches) cannot match. Better personalised attention, adaptive curriculum, and weekly parent reports.' },
+      { q: 'Does MindPeak cover AP EAMCET along with JEE?', a: 'Yes. Our AP-focused mentors integrate EAMCET preparation with JEE/NEET coaching, optimising the significant syllabus overlap for efficient preparation.' },
+      { q: 'Can Telugu-medium students benefit from MindPeak?', a: 'Absolutely. Our mentors teach in English (exam medium) while explaining concepts in Telugu when needed. This bilingual approach ensures conceptual clarity.' },
+      { q: 'Is MindPeak affordable compared to residential academies?', a: 'MindPeak is significantly more affordable than residential coating academies while providing superior personalised attention. Contact us for detailed pricing.' },
+    ],
+  },
 ];
 
 /** Get all exam-city combinations for route generation */

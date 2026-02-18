@@ -65,88 +65,286 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Organization Schema -->
+    <!-- Resource Hints: Prefetch key pages for instant navigation -->
+    <link rel="prefetch" href="/free-trial" />
+    <link rel="prefetch" href="/jee-coaching" />
+    <link rel="prefetch" href="/neet-coaching" />
+    <link rel="prefetch" href="/pricing" />
+    <link rel="dns-prefetch" href="//www.google-analytics.com" />
+    <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+
+    <!-- Advanced @graph Structured Data (Nested Entity Schema) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "EducationalOrganization",
-      "name": "MindPeak Institute",
-      "alternateName": "MindPeak",
-      "url": "https://mindpeakinstitute.com",
-      "logo": "https://mindpeakinstitute.com/logo.png",
-      "description": "Personalized 1-on-1 JEE and NEET coaching with 95% success rate. Achieve AIR <5K with adaptive curriculum and dedicated mentors.",
-      "telephone": "+91-82194-57704",
-      "email": "mindpeak@mindpeakinstitute.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Kota",
-        "addressRegion": "Rajasthan",
-        "addressCountry": "IN"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+91-82194-57704",
-        "contactType": "Admissions",
-        "areaServed": "IN",
-        "availableLanguage": ["English", "Hindi"]
-      },
-      "sameAs": [
-        "https://instagram.com/mindpeakinstitute",
-        "https://www.facebook.com/profile.php?id=61584805776923",
-        "https://www.linkedin.com/company/mindpeak-institute/",
-        "https://x.com/mindpeakins"
-      ],
-      "foundingDate": "2018",
-      "areaServed": "IN",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "500",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Coaching Programs",
-        "itemListElement": [
-          {
-            "@type": "Course",
-            "name": "JEE Advanced Personalized Coaching",
-            "description": "Comprehensive 1-on-1 JEE Advanced coaching with personalized study plans, dedicated mentors, and adaptive curriculum designed to achieve AIR <5K.",
-            "provider": { "@type": "EducationalOrganization", "name": "MindPeak Institute", "sameAs": "https://mindpeakinstitute.com" },
-            "educationalLevel": "Class 11-12",
-            "hasCourseInstance": {
-              "@type": "CourseInstance",
-              "courseMode": "Online",
-              "courseWorkload": "PT6H"
-            }
+      "@graph": [
+        {
+          "@type": "EducationalOrganization",
+          "@id": "https://mindpeakinstitute.com/#organization",
+          "name": "MindPeak Institute",
+          "alternateName": "MindPeak",
+          "url": "https://mindpeakinstitute.com",
+          "logo": {
+            "@type": "ImageObject",
+            "@id": "https://mindpeakinstitute.com/#logo",
+            "url": "https://mindpeakinstitute.com/logo.png",
+            "width": 512,
+            "height": 512
           },
-          {
-            "@type": "Course",
-            "name": "NEET UG Personalized Coaching",
-            "description": "Personalized NEET UG coaching with NCERT-first approach, biology specialization, dedicated mentor, and CBT mock tests.",
-            "provider": { "@type": "EducationalOrganization", "name": "MindPeak Institute", "sameAs": "https://mindpeakinstitute.com" },
-            "educationalLevel": "Class 11-12",
-            "hasCourseInstance": {
-              "@type": "CourseInstance",
-              "courseMode": "Online",
-              "courseWorkload": "PT6H"
-            }
+          "description": "India's #1 personalized 1-on-1 JEE and NEET coaching with 95% success rate. Achieve AIR <5K with adaptive curriculum and dedicated mentors.",
+          "telephone": "+91-82194-57704",
+          "email": "mindpeak@mindpeakinstitute.com",
+          "foundingDate": "2018",
+          "areaServed": {
+            "@type": "Country",
+            "name": "India"
           },
-          {
-            "@type": "Course",
-            "name": "Foundation Program (Class 6-10)",
-            "description": "IIT/NEET foundation course for Class 6-10 with board preparation, Olympiad training, and competitive exam readiness.",
-            "provider": { "@type": "EducationalOrganization", "name": "MindPeak Institute", "sameAs": "https://mindpeakinstitute.com" },
-            "educationalLevel": "Class 6-10",
-            "hasCourseInstance": {
-              "@type": "CourseInstance",
-              "courseMode": "Online",
-              "courseWorkload": "PT4H"
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Kota",
+            "addressRegion": "Rajasthan",
+            "postalCode": "324005",
+            "addressCountry": "IN"
+          },
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": "+91-82194-57704",
+              "contactType": "Admissions",
+              "areaServed": "IN",
+              "availableLanguage": ["English", "Hindi"]
+            },
+            {
+              "@type": "ContactPoint",
+              "telephone": "+91-82194-57704",
+              "contactType": "customer service",
+              "areaServed": "IN",
+              "availableLanguage": ["English", "Hindi"]
             }
+          ],
+          "sameAs": [
+            "https://instagram.com/mindpeakinstitute",
+            "https://www.facebook.com/profile.php?id=61584805776923",
+            "https://www.linkedin.com/company/mindpeak-institute/",
+            "https://x.com/mindpeakins",
+            "https://www.youtube.com/@mindpeakinstitute"
+          ],
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "500",
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "INR",
+            "lowPrice": "60000",
+            "highPrice": "230000",
+            "offerCount": "6"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Coaching Programs",
+            "itemListElement": [
+              {
+                "@type": "Course",
+                "@id": "https://mindpeakinstitute.com/jee-coaching#course",
+                "name": "JEE Advanced Personalized Coaching",
+                "description": "Comprehensive 1-on-1 JEE Advanced coaching with personalized study plans, dedicated mentors, and adaptive curriculum. 95% success rate. AIR 42 best result.",
+                "provider": { "@id": "https://mindpeakinstitute.com/#organization" },
+                "educationalLevel": "Class 11-12",
+                "teaches": "JEE Main & Advanced — Physics, Chemistry, Mathematics",
+                "hasCourseInstance": {
+                  "@type": "CourseInstance",
+                  "courseMode": "Online",
+                  "courseWorkload": "PT6H",
+                  "instructor": { "@type": "Organization", "name": "MindPeak Institute" }
+                }
+              },
+              {
+                "@type": "Course",
+                "@id": "https://mindpeakinstitute.com/neet-coaching#course",
+                "name": "NEET UG Personalized Coaching",
+                "description": "Personalized NEET UG coaching with NCERT-first approach, biology specialization, dedicated mentor, and CBT mock tests. Top 100 results.",
+                "provider": { "@id": "https://mindpeakinstitute.com/#organization" },
+                "educationalLevel": "Class 11-12",
+                "teaches": "NEET UG — Biology, Chemistry, Physics with NCERT focus",
+                "hasCourseInstance": {
+                  "@type": "CourseInstance",
+                  "courseMode": "Online",
+                  "courseWorkload": "PT6H",
+                  "instructor": { "@type": "Organization", "name": "MindPeak Institute" }
+                }
+              },
+              {
+                "@type": "Course",
+                "name": "Foundation Program (Class 6-10)",
+                "description": "IIT/NEET foundation course for Class 6-10 with board preparation, Olympiad training, and competitive exam readiness.",
+                "provider": { "@id": "https://mindpeakinstitute.com/#organization" },
+                "educationalLevel": "Class 6-10",
+                "hasCourseInstance": {
+                  "@type": "CourseInstance",
+                  "courseMode": "Online",
+                  "courseWorkload": "PT4H"
+                }
+              }
+            ]
           }
-        ]
-      }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://mindpeakinstitute.com/#website",
+          "url": "https://mindpeakinstitute.com",
+          "name": "MindPeak Institute",
+          "publisher": { "@id": "https://mindpeakinstitute.com/#organization" },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://mindpeakinstitute.com/courses?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          },
+          "inLanguage": ["en-IN", "hi-IN"]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://mindpeakinstitute.com/#webpage",
+          "url": "https://mindpeakinstitute.com",
+          "name": "JEE & NEET Online Coaching — Personalized 1-on-1 | MindPeak Institute",
+          "description": "Transform your JEE/NEET preparation with personalized 1-on-1 coaching. Achieve AIR <5K with adaptive curriculum, dedicated mentors. 95% success rate.",
+          "isPartOf": { "@id": "https://mindpeakinstitute.com/#website" },
+          "about": { "@id": "https://mindpeakinstitute.com/#organization" },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "@id": "https://mindpeakinstitute.com/#primaryimage",
+            "url": "https://mindpeakinstitute.com/og-image.jpg",
+            "width": 1200,
+            "height": 630
+          },
+          "datePublished": "2020-01-01",
+          "dateModified": "2026-02-18",
+          "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": ["#hero-headline", "#key-benefits", "#success-rate"]
+          }
+        },
+        {
+          "@type": "ItemList",
+          "@id": "https://mindpeakinstitute.com/#courselist",
+          "name": "MindPeak Institute Courses",
+          "numberOfItems": 6,
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "url": "https://mindpeakinstitute.com/jee-coaching",
+              "name": "JEE Online Coaching — Personalized 1-on-1"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "url": "https://mindpeakinstitute.com/neet-coaching",
+              "name": "NEET Online Coaching — Personalized 1-on-1"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "url": "https://mindpeakinstitute.com/pricing",
+              "name": "Pricing & Plans"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "url": "https://mindpeakinstitute.com/free-trial",
+              "name": "Book Free Trial Class"
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://mindpeakinstitute.com/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://mindpeakinstitute.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Courses",
+              "item": "https://mindpeakinstitute.com/courses"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <!-- HowTo Schema (Featured Snippet Target) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Prepare for JEE Advanced 2026 with Personalized Coaching",
+      "description": "Complete step-by-step guide to crack JEE Advanced with personalized 1-on-1 coaching from MindPeak Institute. From diagnostic assessment to AIR <5K in 6 months.",
+      "totalTime": "PT4320H",
+      "estimatedCost": {
+        "@type": "MonetaryAmount",
+        "currency": "INR",
+        "value": "135000"
+      },
+      "supply": [
+        { "@type": "HowToSupply", "name": "Dedicated Personal Mentor" },
+        { "@type": "HowToSupply", "name": "Personalized Study Plan" },
+        { "@type": "HowToSupply", "name": "Weekly Mock Tests (CBT Format)" }
+      ],
+      "tool": [
+        { "@type": "HowToTool", "name": "MindPeak Learning Platform" },
+        { "@type": "HowToTool", "name": "Laptop or Tablet with Internet" }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Book Free Trial & Meet Your Mentor",
+          "text": "Schedule a free trial class to meet your dedicated mentor and discuss your current preparation level, target rank, and timeline.",
+          "url": "https://mindpeakinstitute.com/free-trial"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Diagnostic Assessment & Gap Analysis",
+          "text": "Complete a comprehensive diagnostic test covering Physics, Chemistry, and Mathematics. Your mentor identifies exact weak areas and knowledge gaps."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Get Personalized Study Plan",
+          "text": "Receive a customized study plan based on your strengths, weaknesses, target rank, and available preparation time. The plan adapts weekly."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Daily 1-on-1 Live Classes with Mentor",
+          "text": "Attend daily personalized live video classes covering all JEE topics with individual attention. Every session is recorded for revision."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Weekly Mock Tests & Performance Analysis",
+          "text": "Take weekly full-length mock tests in CBT format followed by detailed analysis with your mentor. Track topic-wise accuracy and improvement."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Achieve Your Target Rank (AIR <5K)",
+          "text": "Following the personalized approach, 95% of MindPeak students achieve their target rank. Our best result: AIR 42 in JEE Advanced."
+        }
+      ]
     }
     </script>
 
@@ -170,6 +368,22 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "MindPeak boasts a 95% success rate with over 500 students mentored. Our best result is AIR 42 in JEE Advanced, and our personalized approach ensures 10× improvement in mock test scores within 6 months."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does JEE coaching cost at MindPeak?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MindPeak's JEE coaching costs ₹60,000–₹2,30,000 per year depending on the program. This includes dedicated 1-on-1 mentor, adaptive curriculum, weekly mock tests, recorded sessions, and parent reports. Traditional institutes like Allen and Resonance charge ₹1.5–2L annually for batch coaching with far less personalization."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is online JEE coaching effective compared to offline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, online 1-on-1 JEE coaching is highly effective — often more so than offline batch coaching. MindPeak students have achieved AIR 42 (JEE Advanced) and 98.5+ percentile (NEET) through personalized online coaching. The key is 1-on-1 attention, not the delivery medium. Studies show individual tutoring produces 2 standard deviations better results than group instruction."
           }
         },
         {
@@ -198,10 +412,10 @@
         },
         {
           "@type": "Question",
-          "name": "Is online coaching as effective as offline coaching?",
+          "name": "Is MindPeak better than Kota coaching?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, MindPeak's online 1-on-1 coaching is highly effective with 95% success rate. Our adaptive learning platform, real-time doubt resolution, personalized study plans, and dedicated mentors ensure results comparable or better than traditional offline coaching."
+            "text": "MindPeak offers several advantages over Kota coaching: 60% lower cost (no hostel/travel expenses), study from home with family support, dedicated 1-on-1 mentor vs 100+ student batches, adaptive curriculum, and 95% success rate. Many students who chose MindPeak over Kota have achieved AIR <5K."
           }
         },
         {
@@ -209,30 +423,16 @@
           "name": "How do you track student progress?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We use detailed performance analytics dashboards that track topic-wise strengths, weaknesses, test scores, and improvement trends. Parents and students receive regular progress reports."
+            "text": "We use detailed performance analytics dashboards that track topic-wise strengths, weaknesses, test scores, and improvement trends. Parents and students receive weekly progress reports, and mentors adjust the study plan based on data."
           }
-        }
-      ]
-    }
-    </script>
-
-    <!-- BreadcrumbList Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://mindpeakinstitute.com"
         },
         {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Courses",
-          "item": "https://mindpeakinstitute.com/courses"
+          "@type": "Question",
+          "name": "What is personalized JEE coaching?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Personalized JEE coaching provides each student with a dedicated mentor who creates a customized study plan based on individual strengths and weaknesses. Unlike batch coaching where 100+ students share one teacher, personalized coaching offers 1-on-1 attention, adaptive curriculum, and instant doubt resolution, resulting in 3× faster improvement and 95% success rate."
+          }
         }
       ]
     }
