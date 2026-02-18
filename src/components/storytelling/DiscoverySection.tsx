@@ -41,7 +41,7 @@ export const DiscoverySection = () => {
         />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          {/* ── Logo (scroll-driven on desktop, static on mobile) ── */
+          {/* ── Logo (scroll-driven on desktop, static on mobile) ── */}
           {isMobile ? (
             <div className="mb-8 flex justify-center animate-fade-in">
               <LogoRings />
