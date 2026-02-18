@@ -106,14 +106,14 @@ export const DiscoverySection = () => {
 /* Reusable logo with spinning rings */
 function LogoRings() {
   return (
-    <div className="relative group">
-      <div className="absolute -inset-3 rounded-full border-2 border-primary/30 animate-[spin_12s_linear_infinite]" />
-      <div className="absolute -inset-5 rounded-full border border-primary/15 animate-[spin_20s_linear_infinite_reverse]" />
-      <div className="absolute -inset-2 rounded-full bg-primary/10 blur-xl group-hover:bg-primary/20 transition-all duration-500" />
+    <div className="relative group p-6 md:p-8">
+      <div className="absolute inset-3 md:inset-2 rounded-full border-2 border-primary/30 animate-[spin_12s_linear_infinite]" />
+      <div className="absolute inset-1 md:inset-0 rounded-full border border-primary/15 animate-[spin_20s_linear_infinite_reverse]" />
+      <div className="absolute inset-4 md:inset-3 rounded-full bg-primary/10 blur-xl group-hover:bg-primary/20 transition-all duration-500" />
       <img
         src={logo}
         alt="MindPeak Institute"
-        className="relative w-28 h-28 md:w-56 md:h-56 rounded-full object-cover border-4 border-primary/40 shadow-[0_0_40px_hsl(var(--primary)/0.3)] group-hover:shadow-[0_0_60px_hsl(var(--primary)/0.5)] transition-shadow duration-500"
+        className="relative w-24 h-24 md:w-52 md:h-52 rounded-full object-cover border-4 border-primary/40 shadow-[0_0_40px_hsl(var(--primary)/0.3)] group-hover:shadow-[0_0_60px_hsl(var(--primary)/0.5)] transition-shadow duration-500"
       />
     </div>
   );
