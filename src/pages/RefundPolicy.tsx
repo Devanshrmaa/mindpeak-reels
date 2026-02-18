@@ -42,12 +42,12 @@ const RefundPolicy = () => {
 
           <section>
             <h2 className="font-display text-xl font-bold text-foreground mb-3">6. How to Request a Refund</h2>
-            <p>To request a refund, email us at <a href="mailto:hello@mindpeak.in" className="text-primary hover:underline">hello@mindpeak.in</a> with your registered name, course details, and reason for the refund request.</p>
+            <p>To request a refund, email us at <a href="mailto:mindpeak@mindpeakinstitute.com" className="text-primary hover:underline">mindpeak@mindpeakinstitute.com</a> with your registered name, course details, and reason for the refund request.</p>
           </section>
 
           <section>
             <h2 className="font-display text-xl font-bold text-foreground mb-3">7. Contact</h2>
-            <p>For any questions regarding this Refund Policy, please contact us at <a href="mailto:hello@mindpeak.in" className="text-primary hover:underline">hello@mindpeak.in</a> or call +91 98765 43210.</p>
+            <p>For any questions regarding this Refund Policy, please contact us at <a href="mailto:mindpeak@mindpeakinstitute.com" className="text-primary hover:underline">mindpeak@mindpeakinstitute.com</a> or call +91 98765 43210.</p>
           </section>
         </div>
       </div>

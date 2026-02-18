@@ -116,7 +116,7 @@ const TermsAndConditions = () => {
 
           <section>
             <h2 className="font-display text-xl font-bold text-foreground mb-3">19. Contact</h2>
-            <p>For questions about these Terms, contact us at <a href="mailto:hello@mindpeak.in" className="text-primary hover:underline">hello@mindpeak.in</a>.</p>
+            <p>For questions about these Terms, contact us at <a href="mailto:mindpeak@mindpeakinstitute.com" className="text-primary hover:underline">mindpeak@mindpeakinstitute.com</a>.</p>
           </section>
         </div>
       </div>
