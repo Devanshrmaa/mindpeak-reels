@@ -1,0 +1,256 @@
+import { useLocation, Navigate, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown, ArrowRight, Phone, CheckCircle } from 'lucide-react';
+import { Navbar } from '@/components/sections/Navbar';
+import { SEOHead } from '@/components/SEOHead';
+import { useDemoModal } from '@/components/DemoBookingModal';
+import { getSEOPage } from '@/data/seoPageData';
+import type { SEOPageData, SEOPageSection } from '@/data/seoPageData';
+
+/* ── Section renderer ── */
+const ContentSection = ({ section, index }: { section: SEOPageSection; index: number }) => (
+  <motion.section
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ delay: index * 0.05 }}
+    className="mb-12"
+  >
+    <h2 className="font-display font-bold text-foreground text-xl sm:text-2xl mb-4">{section.heading}</h2>
+    {section.content && (
+      <p className="text-muted-foreground leading-relaxed mb-4">{section.content}</p>
+    )}
+    {section.bullets && (
+      <ul className="space-y-2 mb-4">
+        {section.bullets.map((b, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
+            <span className="text-muted-foreground text-sm leading-relaxed">{b}</span>
+          </li>
+        ))}
+      </ul>
+    )}
+    {section.table && (
+      <div className="overflow-x-auto rounded-xl border border-border mt-4">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="bg-secondary/50">
+              {section.table.headers.map((h) => (
+                <th key={h} className="text-left px-4 py-3 text-foreground font-display font-semibold whitespace-nowrap">{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-border">
+            {section.table.rows.map((row, ri) => (
+              <tr key={ri} className={ri % 2 === 0 ? 'bg-card/30' : 'bg-card/10'}>
+                {row.map((cell, ci) => (
+                  <td key={ci} className={`px-4 py-3 ${ci === 0 ? 'text-foreground font-medium' : 'text-muted-foreground'} whitespace-nowrap`}>{cell}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    )}
+  </motion.section>
+);
+
+/* ── Page component ── */
+const SEOLandingPage = () => {
+  const location = useLocation();
+  const slug = location.pathname.replace(/^\//, '');
+  const { openDemoModal } = useDemoModal();
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  useEffect(() => { window.scrollTo(0, 0); }, [slug]);
+
+  const page = slug ? getSEOPage(slug) : undefined;
+  if (!page) return <Navigate to="/" replace />;
+
+  const jsonLd: object[] = [];
+
+  if (page.schemaType === 'EducationalOrganization') {
+    jsonLd.push({
+      '@context': 'https://schema.org',
+      '@type': 'EducationalOrganization',
+      name: 'MindPeak Institute',
+      url: `https://mindpeakinstitute.com/${page.slug}`,
+      description: page.description,
+      telephone: '+91-82194-57704',
+      address: { '@type': 'PostalAddress', addressLocality: 'Kota', addressRegion: 'Rajasthan', addressCountry: 'IN' },
+      aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '500', bestRating: '5' },
+    });
+  } else if (page.schemaType === 'Course') {
+    jsonLd.push({
+      '@context': 'https://schema.org',
+      '@type': 'Course',
+      name: page.h1 + ' ' + page.h1Highlight,
+      description: page.description,
+      provider: { '@type': 'Organization', name: 'MindPeak Institute', url: 'https://mindpeakinstitute.com' },
+      url: `https://mindpeakinstitute.com/${page.slug}`,
+    });
+  }
+
+  if (page.faqs.length > 0) {
+    jsonLd.push({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: page.faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    });
+  }
+
+  jsonLd.push({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://mindpeakinstitute.com' },
+      { '@type': 'ListItem', position: 2, name: page.h1 + ' ' + page.h1Highlight, item: `https://mindpeakinstitute.com/${page.slug}` },
+    ],
+  });
+
+  return (
+    <>
+      <SEOHead title={page.title} description={page.description} jsonLd={jsonLd} />
+      <Navbar />
+      <main className="bg-background pt-20">
+        {/* Breadcrumb */}
+        <nav aria-label="Breadcrumb" className="max-w-4xl mx-auto px-6 py-4">
+          <ol className="flex items-center gap-2 text-xs text-muted-foreground">
+            <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
+            <span>/</span>
+            <li className="text-foreground">{page.h1} {page.h1Highlight}</li>
+          </ol>
+        </nav>
+
+        {/* Hero */}
+        <section className="max-w-4xl mx-auto px-6 pb-12">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <h1 className="font-display font-black text-foreground mb-6" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
+              {page.h1} <span className="text-gradient-gold">{page.h1Highlight}</span>
+            </h1>
+            <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mb-8">{page.heroSubtitle}</p>
+            <div className="flex flex-wrap gap-4">
+              <button
+                onClick={openDemoModal}
+                className="px-8 py-4 bg-primary text-primary-foreground font-display font-bold text-sm uppercase tracking-[0.15em] shadow-gold-glow hover:scale-105 transition-transform"
+              >
+                Book Free Demo Class
+              </button>
+              <a
+                href="tel:+918219457704"
+                className="px-8 py-4 border border-border text-foreground font-display text-sm uppercase tracking-[0.15em] hover:border-primary hover:text-primary transition-colors flex items-center gap-2"
+              >
+                <Phone className="w-4 h-4" /> Call +91 82194 57704
+              </a>
+            </div>
+          </motion.div>
+        </section>
+
+        {/* Section divider */}
+        <div className="section-divider max-w-4xl mx-auto" />
+
+        {/* Content Sections */}
+        <div className="max-w-4xl mx-auto px-6 py-12">
+          {page.sections.map((section, i) => (
+            <ContentSection key={i} section={section} index={i} />
+          ))}
+        </div>
+
+        {/* CTA Band */}
+        <section className="bg-primary/10 border-y border-primary/20 py-12 px-6 text-center">
+          <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl mb-4">
+            Ready to <span className="text-gradient-gold">Get Started</span>?
+          </h2>
+          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Join 500+ students across India who transformed their preparation with personalized 1-on-1 coaching. Book your free demo today.
+          </p>
+          <button
+            onClick={openDemoModal}
+            className="px-12 py-4 bg-primary text-primary-foreground font-display font-bold text-sm uppercase tracking-[0.15em] shadow-gold-glow hover:scale-105 transition-transform"
+          >
+            Book Your Free Demo
+          </button>
+        </section>
+
+        {/* FAQ Section */}
+        {page.faqs.length > 0 && (
+          <section className="max-w-3xl mx-auto px-6 py-16" aria-label="Frequently Asked Questions">
+            <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl text-center mb-10">
+              Frequently Asked <span className="text-gradient-gold">Questions</span>
+            </h2>
+            <div className="space-y-3">
+              {page.faqs.map((faq, i) => {
+                const isOpen = openFaq === i;
+                return (
+                  <div
+                    key={i}
+                    className={`rounded-xl border transition-all duration-300 ${
+                      isOpen ? 'bg-background/50 backdrop-blur-xl border-primary/30 shadow-card' : 'bg-background/25 backdrop-blur-lg border-border/40 hover:border-border/70'
+                    }`}
+                  >
+                    <button
+                      onClick={() => setOpenFaq(isOpen ? null : i)}
+                      className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left"
+                      aria-expanded={isOpen}
+                    >
+                      <span className={`text-sm font-semibold transition-colors ${isOpen ? 'text-foreground' : 'text-foreground/80'}`}>{faq.q}</span>
+                      <motion.div animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.25 }} className="flex-shrink-0">
+                        <ChevronDown className={`w-4 h-4 ${isOpen ? 'text-primary' : 'text-muted-foreground'}`} />
+                      </motion.div>
+                    </button>
+                    <AnimatePresence>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.25 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="px-5 pb-4">
+                            <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent mb-3" />
+                            <p className="text-muted-foreground text-sm leading-relaxed">{faq.a}</p>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        )}
+
+        {/* Related Pages / Internal Links */}
+        {page.relatedPages.length > 0 && (
+          <section className="max-w-4xl mx-auto px-6 pb-16">
+            <h3 className="font-display font-bold text-foreground text-xl mb-6">Explore More</h3>
+            <div className="flex flex-wrap gap-3">
+              {page.relatedPages.map((rp) => (
+                <Link
+                  key={rp.href}
+                  to={rp.href}
+                  className="px-5 py-3 rounded-lg bg-card border border-border text-foreground text-sm hover:border-primary/40 transition-colors flex items-center gap-2"
+                >
+                  <ArrowRight className="w-4 h-4 text-primary" /> {rp.label}
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Footer */}
+        <footer className="border-t border-border py-8 px-6 text-center">
+          <p className="text-muted-foreground text-sm">© {new Date().getFullYear()} MindPeak Institute. All rights reserved.</p>
+        </footer>
+      </main>
+    </>
+  );
+};
+
+export default SEOLandingPage;
