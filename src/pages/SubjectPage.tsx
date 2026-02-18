@@ -11,6 +11,7 @@ import { FreshnessBadge } from '@/components/FreshnessBadge';
 import { PeopleAlsoAsk, buildPAASchema } from '@/components/PeopleAlsoAsk';
 import type { PAAQuestion } from '@/components/PeopleAlsoAsk';
 import { useDemoModal } from '@/components/DemoBookingModal';
+import { SubjectChapterLinks, ChapterFooterGrid } from '@/components/SubjectChapterLinks';
 import {
   CheckCircle, ArrowRight, BookOpen, Phone, Star, Zap, Brain, Target,
   Atom, FlaskConical, Calculator, Microscope, Heart,
@@ -348,11 +349,135 @@ const SUBJECTS: Record<string, SubjectData> = {
       { question: 'How long to complete NEET Biology preparation?', answer: 'Complete NEET Biology coverage takes 6-8 months for a thorough first pass, including NCERT mastery, diagram practice, and revision. With MindPeak\'s focused approach, students achieve comprehensive Biology preparation including multiple revision cycles within our 1-year program.' },
     ],
     links: [
+      { label: 'NEET Physics Preparation', to: '/neet-physics-preparation' },
+      { label: 'NEET Chemistry Preparation', to: '/neet-chemistry-preparation' },
       { label: 'Complete NEET Coaching', to: '/neet-coaching' },
-      { label: 'JEE vs NEET — Which Exam?', to: '/blog' },
       { label: 'Free Trial Class', to: '/free-trial' },
       { label: 'All Courses & Pricing', to: '/pricing' },
       { label: 'NEET Coaching in Delhi', to: '/neet-coaching-in-delhi' },
+    ],
+  },
+
+  'neet-physics-preparation': {
+    exam: 'NEET',
+    subject: 'Physics',
+    slug: 'neet-physics-preparation',
+    icon: Atom,
+    title: 'NEET Physics Preparation — Chapter-Wise Strategy & NCERT Mastery | MindPeak',
+    description: 'Score 140+ in NEET Physics with personalized 1-on-1 coaching. Mechanics, Electrodynamics, Optics — NCERT-focused approach with daily practice. Start free trial!',
+    heroHeading: 'NEET Physics Preparation —',
+    heroHighlight: 'NCERT Mastery for 140+ in Physics',
+    heroParagraph: 'Physics is the most feared subject in NEET — but it\'s also the most scoring for students who master the fundamentals. Unlike JEE, NEET Physics rewards NCERT-level conceptual clarity and direct formula application. At MindPeak, your dedicated Physics mentor focuses on building rock-solid NCERT understanding, practicing numerical problems methodically, and eliminating the silly errors that cost 10-15 marks. No advanced problem-solving gymnastics — just clean, exam-ready preparation.',
+    snippetQ: 'How to score 140+ in NEET Physics?',
+    snippetA: 'Scoring 140+ in NEET Physics requires NCERT mastery (70% questions are NCERT-based), strong formula recall, and daily numerical practice. Focus on Mechanics (30% weightage) and Electrodynamics (20-25%) first. Practice 50+ numericals per chapter and solve 15 years of NEET PYQs. Personalized coaching identifies and fixes your weak chapters faster than self-study.',
+    snippetBullets: [
+      'NCERT is your PRIMARY textbook — read it 3-4 times with increasing depth',
+      'Mechanics carries ~30% weightage — master it thoroughly',
+      'Practice formula-based numericals daily (50+ per chapter)',
+      'Electrostatics + Current Electricity = consistent 20-25% of Physics',
+      'Solve 15 years of NEET Physics PYQs — patterns repeat',
+      'Focus on unit conversion — most silly errors come from wrong units',
+    ],
+    chapters: [
+      { name: 'Mechanics', topics: ['Kinematics (1D & 2D)', 'Laws of Motion', 'Work, Energy & Power', 'Gravitation', 'Properties of Matter (Elasticity, Viscosity, Surface Tension)', 'Rotational Motion & Moment of Inertia'] },
+      { name: 'Electrodynamics', topics: ['Electrostatics (Coulomb\'s Law, Capacitors)', 'Current Electricity (Kirchhoff, Wheatstone)', 'Magnetic Effects of Current', 'EMI & Alternating Current', 'Electromagnetic Waves'] },
+      { name: 'Optics & Waves', topics: ['Ray Optics (Mirrors, Lenses, Prisms)', 'Wave Optics (YDSE, Diffraction)', 'Mechanical Waves & Sound', 'Doppler Effect'] },
+      { name: 'Modern Physics & Thermal', topics: ['Dual Nature of Radiation', 'Atoms & Nuclei', 'Semiconductor Devices', 'Thermodynamics', 'Thermal Properties of Matter', 'Kinetic Theory of Gases'] },
+    ],
+    mistakes: [
+      { title: 'Studying Physics like JEE', desc: 'NEET Physics is simpler than JEE. Students waste time on JEE-Advanced-level problems that never appear in NEET. Stick to NCERT + NCERT Exemplar level for maximum ROI.' },
+      { title: 'Skipping unit conversion practice', desc: 'The #1 source of silly errors in NEET Physics. Always practice converting CGS to SI units. MindPeak mentors drill unit-checking habits into every session.' },
+      { title: 'Ignoring Modern Physics', desc: 'Modern Physics (Atoms, Nuclei, Semiconductors) is the easiest scoring section in NEET Physics. Students skip it thinking it\'s "too theoretical" but it gives direct formula-based questions.' },
+      { title: 'Not memorizing formula list systematically', desc: 'Unlike Biology, Physics requires formula recall under time pressure. Create chapter-wise formula sheets and revise them weekly. MindPeak provides ready-made formula decks.' },
+    ],
+    tips: [
+      'Read NCERT Physics carefully — focus on solved examples and in-text questions',
+      'Create a master formula sheet organized by chapter for daily revision',
+      'Practice 10 numericals daily from different chapters for variety',
+      'Focus on units — always check if your answer has correct dimensions',
+      'Master ray optics sign convention — it eliminates most optics errors',
+      'Solve NCERT Exemplar after completing each chapter from NCERT',
+    ],
+    paa: [
+      { question: 'Is NCERT enough for NEET Physics?', answer: 'NCERT covers about 70% of NEET Physics directly. For the remaining 30%, you need NCERT Exemplar and 15 years of PYQs. Unlike JEE, NEET doesn\'t require advanced problem-solving books. MindPeak\'s approach ensures complete NCERT mastery first, then targeted practice from PYQs.' },
+      { question: 'Which chapters are most important for NEET Physics?', answer: 'Mechanics (Kinematics + Laws of Motion + Work-Energy) carries ~30%, Electrostatics + Current Electricity ~20-25%, and Optics ~12-15%. Modern Physics is the easiest section. Focus on these four areas for 80%+ of NEET Physics marks.' },
+      { question: 'How to improve Physics for NEET in 3 months?', answer: 'Focus exclusively on NCERT + high-weightage chapters: Mechanics, Electrostatics, Current Electricity, and Optics. Solve 50 numericals daily. Take weekly topic tests. MindPeak\'s crash course provides daily 1-on-1 Physics sessions targeting your specific weak chapters.' },
+      { question: 'Why is NEET Physics considered difficult?', answer: 'NEET Physics requires numerical problem-solving under time pressure, which Biology-oriented students find challenging. The key is consistent daily practice and formula familiarity — not advanced concepts. MindPeak mentors build this muscle through daily numerical drills.' },
+    ],
+    faqs: [
+      { question: 'How does MindPeak teach NEET Physics?', answer: 'Your dedicated Physics mentor focuses on NCERT mastery + numerical practice. Daily short sessions cover concepts, solve NCERT examples, then progress to PYQ-level numericals. Your study plan adapts weekly based on topic-wise accuracy data.' },
+      { question: 'Can I take only NEET Physics coaching?', answer: 'Yes! If you\'re strong in Biology and Chemistry but need Physics help, MindPeak offers subject-specific coaching with a dedicated Physics mentor at adjusted pricing.' },
+      { question: 'How many months to prepare for NEET Physics?', answer: 'Complete NEET Physics preparation takes 5-7 months for a focused student. With MindPeak\'s 1-on-1 approach, students with some foundation can see significant improvement in 2-3 months.' },
+      { question: 'Do you cover both Class 11 and 12 Physics for NEET?', answer: 'Yes. Our curriculum covers the complete NEET Physics syllabus from both Class 11 (Mechanics, Thermodynamics, Waves) and Class 12 (Electrostatics, Optics, Modern Physics). Class 12 topics carry slightly higher weightage (~55%).' },
+    ],
+    links: [
+      { label: 'NEET Biology Preparation', to: '/neet-biology-preparation' },
+      { label: 'NEET Chemistry Preparation', to: '/neet-chemistry-preparation' },
+      { label: 'Complete NEET Coaching', to: '/neet-coaching' },
+      { label: 'Free Trial Class', to: '/free-trial' },
+      { label: 'NEET Rank Predictor', to: '/neet-rank-predictor' },
+      { label: 'All Courses & Pricing', to: '/pricing' },
+    ],
+  },
+
+  'neet-chemistry-preparation': {
+    exam: 'NEET',
+    subject: 'Chemistry',
+    slug: 'neet-chemistry-preparation',
+    icon: FlaskConical,
+    title: 'NEET Chemistry Preparation — Organic, Inorganic & Physical | NCERT Focus | MindPeak',
+    description: 'Score 140+ in NEET Chemistry with 1-on-1 coaching. Master Organic reactions, Inorganic NCERT facts, and Physical numericals. Start your free trial today!',
+    heroHeading: 'NEET Chemistry Preparation —',
+    heroHighlight: 'NCERT Mastery for 140+ in Chemistry',
+    heroParagraph: 'Chemistry is the highest-scoring subject in NEET for students who prepare smartly. It\'s equally split between Organic, Inorganic, and Physical Chemistry — each requiring a different study approach. At MindPeak, your dedicated Chemistry mentor ensures balanced preparation across all three branches. Inorganic is NCERT-memorization driven, Organic requires reaction mechanism understanding, and Physical demands numerical practice. Your personalized study plan adapts to which branch needs the most attention.',
+    snippetQ: 'How to score 140+ in NEET Chemistry?',
+    snippetA: 'Scoring 140+ in NEET Chemistry requires balanced preparation across all three branches: master NCERT for Inorganic (direct memory-based questions), understand reaction mechanisms for Organic, and practice numericals for Physical Chemistry. Solve NCERT Exemplar + 15 years PYQs. Personalized coaching ensures no branch is neglected.',
+    snippetBullets: [
+      'Inorganic Chemistry is 100% NCERT — read every line, table, and exception',
+      'Organic Chemistry: master Named Reactions + GOC + functional group interconversions',
+      'Physical Chemistry: practice 50+ numericals per chapter (formula-heavy)',
+      'NEET Chemistry is equally split: ~33% each for Physical, Organic, Inorganic',
+      'Solve 15 years of NEET Chemistry PYQs — many questions repeat',
+      'Create separate revision sheets for each branch',
+    ],
+    chapters: [
+      { name: 'Physical Chemistry', topics: ['Some Basic Concepts', 'Atomic Structure', 'Chemical Bonding', 'Thermodynamics', 'Equilibrium', 'Redox & Electrochemistry', 'Chemical Kinetics', 'Solutions', 'Surface Chemistry'] },
+      { name: 'Organic Chemistry', topics: ['Basic Organic Chemistry (GOC)', 'Haloalkanes & Haloarenes', 'Alcohols, Phenols, Ethers', 'Carbonyl Compounds', 'Amines', 'Biomolecules & Polymers', 'Chemistry in Everyday Life'] },
+      { name: 'Inorganic Chemistry', topics: ['Periodic Classification', 's-Block Elements', 'p-Block Elements (Groups 13-18)', 'd & f-Block Elements', 'Coordination Compounds', 'Metallurgy', 'Salt Analysis & Hydrogen', 'Environmental Chemistry'] },
+    ],
+    mistakes: [
+      { title: 'Neglecting Inorganic Chemistry', desc: 'Students find Inorganic "boring" and skip it. But it\'s the easiest section — direct NCERT facts. Every line of NCERT Inorganic can be a question. MindPeak mentors make Inorganic revision systematic and engaging.' },
+      { title: 'Learning Organic without mechanisms', desc: 'Rote-memorizing Organic reactions without understanding WHY they happen leads to confusion in twisted questions. Understanding mechanisms (SN1/SN2, electrophilic addition) makes everything logical.' },
+      { title: 'Skipping Physical Chemistry numericals', desc: 'Physical Chemistry is formula-based and scoring, but students skip practice because it feels like "Maths." Daily numerical practice of 10-15 problems builds speed and confidence.' },
+      { title: 'Using non-NCERT sources too early', desc: 'For NEET Chemistry, NCERT should be completed 3-4 times before touching any reference book. 80%+ of NEET Chemistry questions come from NCERT directly.' },
+    ],
+    tips: [
+      'Read NCERT Chemistry line-by-line — especially tables, exceptions, and side notes',
+      'For Organic Chemistry, practice reaction flowcharts daily',
+      'Create an "exceptions file" for Inorganic — diagonal relationships, anomalous properties',
+      'Physical Chemistry: memorize formulas + practice 50 numericals per chapter',
+      'Color-code your notes: Physical = Blue, Organic = Green, Inorganic = Red',
+      'Solve NCERT Exemplar after completing each NCERT chapter',
+    ],
+    paa: [
+      { question: 'Is NCERT enough for NEET Chemistry?', answer: 'Yes, NCERT covers 80-85% of NEET Chemistry. For Inorganic, NCERT is 100% sufficient. For Organic and Physical, supplement with NCERT Exemplar and 15 years of PYQs. MindPeak mentors ensure you extract every possible question from NCERT before moving to any additional resources.' },
+      { question: 'Which branch of Chemistry is most important for NEET?', answer: 'All three are equally important (~33% each). However, Inorganic is the easiest to score in (direct NCERT), Physical is the most scoring per hour of practice (formula-based), and Organic requires the most conceptual understanding. MindPeak personalizes the time split based on your strengths.' },
+      { question: 'How to memorize Inorganic Chemistry for NEET?', answer: 'Use active recall with flashcards, create comparison tables (s-block vs p-block properties), learn exceptions as stories/mnemonics, and revise every 3-4 days using spaced repetition. MindPeak mentors quiz you regularly on Inorganic facts to build long-term memory.' },
+      { question: 'How to improve NEET Chemistry in 3 months?', answer: 'Focus on Inorganic (fastest to improve — pure NCERT memory), then Physical numericals (formula practice), then Organic reactions. Solve 15 PYQs daily. MindPeak\'s crash course provides daily targeted Chemistry sessions for rapid improvement.' },
+    ],
+    faqs: [
+      { question: 'How does MindPeak teach NEET Chemistry?', answer: 'Your dedicated Chemistry mentor creates a balanced plan across Physical, Organic, and Inorganic. NCERT line-by-line coverage forms the foundation, followed by NCERT Exemplar practice and PYQ drilling. Daily sessions adapt based on which branch needs more attention.' },
+      { question: 'Do you teach all three branches of Chemistry?', answer: 'Yes! Our NEET Chemistry curriculum covers Physical, Organic, and Inorganic Chemistry comprehensively. Your mentor tracks branch-wise accuracy and adjusts study time to prevent imbalances — a common problem in self-study.' },
+      { question: 'Can I take only Chemistry coaching at MindPeak?', answer: 'Absolutely. If you need focused Chemistry help, we offer subject-specific coaching with a dedicated Chemistry mentor at adjusted pricing. Book a free trial to discuss your needs.' },
+      { question: 'How long to complete NEET Chemistry preparation?', answer: 'Complete NEET Chemistry preparation takes 5-7 months with consistent effort. Physical Chemistry requires the most practice time. With MindPeak\'s 1-on-1 sessions, students with some foundation see major improvement within 2-3 months.' },
+    ],
+    links: [
+      { label: 'NEET Biology Preparation', to: '/neet-biology-preparation' },
+      { label: 'NEET Physics Preparation', to: '/neet-physics-preparation' },
+      { label: 'Complete NEET Coaching', to: '/neet-coaching' },
+      { label: 'Free Trial Class', to: '/free-trial' },
+      { label: 'NEET Rank Predictor', to: '/neet-rank-predictor' },
+      { label: 'All Courses & Pricing', to: '/pricing' },
     ],
   },
 };
@@ -380,7 +505,7 @@ const SubjectPage = () => {
     name: data.title,
     description: data.description,
     provider: { '@type': 'EducationalOrganization', name: 'MindPeak Institute', url: 'https://mindpeakinstitute.com' },
-    offers: { '@type': 'Offer', price: '60000', priceCurrency: 'INR', availability: 'https://schema.org/InStock' },
+    offers: { '@type': 'Offer', price: '100000', priceCurrency: 'INR', availability: 'https://schema.org/InStock' },
     hasCourseInstance: { '@type': 'CourseInstance', courseMode: 'online' },
   };
 
@@ -491,6 +616,9 @@ const SubjectPage = () => {
           </motion.div>
         </section>
 
+        {/* ───── CHAPTER-WISE DEEP DIVES (clickable links to individual chapter pages) ───── */}
+        <SubjectChapterLinks exam={data.exam} subject={data.subject} />
+
         {/* ───── COMMON MISTAKES ───── */}
         <section className="bg-secondary/30 border-y border-border py-10 sm:py-16 px-4 sm:px-6">
           <div className="max-w-5xl mx-auto">
@@ -584,6 +712,9 @@ const SubjectPage = () => {
             </button>
           </motion.div>
         </section>
+
+        {/* ───── CHAPTER FOOTER GRID (SEO-friendly chapter link grid) ───── */}
+        <ChapterFooterGrid exam={data.exam} subject={data.subject} />
 
         <PageFooter extra={`${data.exam} ${data.subject} Preparation.`} />
       </main>

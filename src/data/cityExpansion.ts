@@ -402,6 +402,78 @@ const newCityConfigs: CityConfig[] = [
   // ─── ADDITIONAL ASSAM ─────────────────────────────────────
   { slug: 'nagaon', city: 'Nagaon', state: 'Assam', tier: 3, lat: 26.3460, lng: 92.6840, exams: ['jee', 'neet'], board: 'Assam Board', language: 'Assamese' },
   { slug: 'bongaigaon', city: 'Bongaigaon', state: 'Assam', tier: 3, lat: 26.4769, lng: 90.5584, exams: ['jee', 'neet'], board: 'Assam Board', language: 'Assamese' },
+
+  // ═══════════════════════════════════════════════════════════
+  //  AREA-LEVEL HYPER-LOCAL PAGES (Metro sub-areas)
+  //  Generates pages like "JEE Coaching in Rohini" etc.
+  // ═══════════════════════════════════════════════════════════
+
+  // ─── DELHI AREAS ──────────────────────────────────────────
+  { slug: 'rohini', city: 'Rohini, Delhi', state: 'Delhi', tier: 1, lat: 28.7495, lng: 77.0565, exams: ['jee', 'neet'], board: 'CBSE', coachingHub: 'Sector 7-8 Rohini' },
+  { slug: 'dwarka', city: 'Dwarka, Delhi', state: 'Delhi', tier: 1, lat: 28.5921, lng: 77.0460, exams: ['jee', 'neet'], board: 'CBSE', coachingHub: 'Sector 6 & 12 Dwarka' },
+  { slug: 'pitampura', city: 'Pitampura, Delhi', state: 'Delhi', tier: 1, lat: 28.6970, lng: 77.1352, exams: ['jee', 'neet'], board: 'CBSE', coachingHub: 'Kohat Enclave' },
+  { slug: 'janakpuri', city: 'Janakpuri, Delhi', state: 'Delhi', tier: 1, lat: 28.6214, lng: 77.0872, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'laxmi-nagar', city: 'Laxmi Nagar, Delhi', state: 'Delhi', tier: 1, lat: 28.6304, lng: 77.2777, exams: ['jee', 'neet'], board: 'CBSE', coachingHub: 'Laxmi Nagar coaching hub' },
+  { slug: 'rajouri-garden', city: 'Rajouri Garden, Delhi', state: 'Delhi', tier: 1, lat: 28.6466, lng: 77.1224, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'south-delhi', city: 'South Delhi', state: 'Delhi', tier: 1, lat: 28.5273, lng: 77.2189, exams: ['jee', 'neet'], board: 'CBSE', coachingHub: 'Hauz Khas & Kalu Sarai' },
+  { slug: 'east-delhi', city: 'East Delhi', state: 'Delhi', tier: 1, lat: 28.6358, lng: 77.3017, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'karol-bagh', city: 'Karol Bagh, Delhi', state: 'Delhi', tier: 1, lat: 28.6519, lng: 77.1905, exams: ['jee', 'neet'], board: 'CBSE', coachingHub: 'Karol Bagh' },
+  { slug: 'greater-kailash', city: 'Greater Kailash, Delhi', state: 'Delhi', tier: 1, lat: 28.5463, lng: 77.2340, exams: ['jee', 'neet'], board: 'CBSE' },
+
+  // ─── MUMBAI AREAS ─────────────────────────────────────────
+  { slug: 'andheri', city: 'Andheri, Mumbai', state: 'Maharashtra', tier: 1, lat: 19.1197, lng: 72.8464, exams: ['jee', 'neet'], board: 'Maharashtra State Board', stateExam: 'MHT-CET', language: 'Marathi' },
+  { slug: 'borivali', city: 'Borivali, Mumbai', state: 'Maharashtra', tier: 1, lat: 19.2307, lng: 72.8567, exams: ['jee', 'neet'], board: 'Maharashtra State Board', stateExam: 'MHT-CET', language: 'Marathi' },
+  { slug: 'dadar', city: 'Dadar, Mumbai', state: 'Maharashtra', tier: 1, lat: 19.0178, lng: 72.8478, exams: ['jee', 'neet'], board: 'Maharashtra State Board', stateExam: 'MHT-CET', language: 'Marathi', coachingHub: 'Dadar coaching cluster' },
+  { slug: 'mulund', city: 'Mulund, Mumbai', state: 'Maharashtra', tier: 1, lat: 19.1726, lng: 72.9570, exams: ['jee', 'neet'], board: 'Maharashtra State Board', stateExam: 'MHT-CET', language: 'Marathi' },
+  { slug: 'goregaon', city: 'Goregaon, Mumbai', state: 'Maharashtra', tier: 1, lat: 19.1558, lng: 72.8495, exams: ['jee', 'neet'], board: 'Maharashtra State Board', stateExam: 'MHT-CET', language: 'Marathi' },
+  { slug: 'kandivali', city: 'Kandivali, Mumbai', state: 'Maharashtra', tier: 1, lat: 19.2047, lng: 72.8532, exams: ['jee', 'neet'], board: 'Maharashtra State Board', stateExam: 'MHT-CET', language: 'Marathi' },
+  { slug: 'powai', city: 'Powai, Mumbai', state: 'Maharashtra', tier: 1, lat: 19.1176, lng: 72.9060, exams: ['jee', 'neet'], board: 'Maharashtra State Board', stateExam: 'MHT-CET', nearbyInstitute: 'IIT Bombay' },
+  { slug: 'chembur', city: 'Chembur, Mumbai', state: 'Maharashtra', tier: 1, lat: 19.0522, lng: 72.8994, exams: ['jee', 'neet'], board: 'Maharashtra State Board', stateExam: 'MHT-CET', language: 'Marathi' },
+
+  // ─── BANGALORE AREAS ──────────────────────────────────────
+  { slug: 'koramangala', city: 'Koramangala, Bangalore', state: 'Karnataka', tier: 1, lat: 12.9352, lng: 77.6245, exams: ['jee', 'neet'], board: 'Karnataka State Board', stateExam: 'KCET', language: 'Kannada' },
+  { slug: 'btm-layout', city: 'BTM Layout, Bangalore', state: 'Karnataka', tier: 1, lat: 12.9166, lng: 77.6101, exams: ['jee', 'neet'], board: 'Karnataka State Board', stateExam: 'KCET', language: 'Kannada' },
+  { slug: 'whitefield', city: 'Whitefield, Bangalore', state: 'Karnataka', tier: 1, lat: 12.9698, lng: 77.7500, exams: ['jee', 'neet'], board: 'Karnataka State Board', stateExam: 'KCET', language: 'Kannada' },
+  { slug: 'jayanagar', city: 'Jayanagar, Bangalore', state: 'Karnataka', tier: 1, lat: 12.9308, lng: 77.5838, exams: ['jee', 'neet'], board: 'Karnataka State Board', stateExam: 'KCET', language: 'Kannada', coachingHub: 'Jayanagar 4th Block coaching area' },
+  { slug: 'indiranagar', city: 'Indiranagar, Bangalore', state: 'Karnataka', tier: 1, lat: 12.9784, lng: 77.6408, exams: ['jee', 'neet'], board: 'Karnataka State Board', stateExam: 'KCET', language: 'Kannada' },
+  { slug: 'hsr-layout', city: 'HSR Layout, Bangalore', state: 'Karnataka', tier: 1, lat: 12.9116, lng: 77.6389, exams: ['jee', 'neet'], board: 'Karnataka State Board', stateExam: 'KCET', language: 'Kannada' },
+  { slug: 'rajajinagar', city: 'Rajajinagar, Bangalore', state: 'Karnataka', tier: 1, lat: 12.9906, lng: 77.5520, exams: ['jee', 'neet'], board: 'Karnataka State Board', stateExam: 'KCET', language: 'Kannada', coachingHub: 'Rajajinagar Institute Road' },
+  { slug: 'electronic-city', city: 'Electronic City, Bangalore', state: 'Karnataka', tier: 1, lat: 12.8399, lng: 77.6770, exams: ['jee', 'neet'], board: 'Karnataka State Board', stateExam: 'KCET', language: 'Kannada' },
+
+  // ─── HYDERABAD AREAS ──────────────────────────────────────
+  { slug: 'kukatpally', city: 'Kukatpally, Hyderabad', state: 'Telangana', tier: 1, lat: 17.4948, lng: 78.3996, exams: ['jee', 'neet'], board: 'Telangana State Board', stateExam: 'TS EAMCET', language: 'Telugu', coachingHub: 'KPHB coaching hub' },
+  { slug: 'dilsukhnagar', city: 'Dilsukhnagar, Hyderabad', state: 'Telangana', tier: 1, lat: 17.3688, lng: 78.5247, exams: ['jee', 'neet'], board: 'Telangana State Board', stateExam: 'TS EAMCET', language: 'Telugu', coachingHub: 'Dilsukhnagar coaching cluster' },
+  { slug: 'ameerpet', city: 'Ameerpet, Hyderabad', state: 'Telangana', tier: 1, lat: 17.4375, lng: 78.4483, exams: ['jee', 'neet'], board: 'Telangana State Board', stateExam: 'TS EAMCET', language: 'Telugu' },
+  { slug: 'begumpet', city: 'Begumpet, Hyderabad', state: 'Telangana', tier: 1, lat: 17.4432, lng: 78.4651, exams: ['jee', 'neet'], board: 'Telangana State Board', stateExam: 'TS EAMCET', language: 'Telugu' },
+  { slug: 'madhapur', city: 'Madhapur, Hyderabad', state: 'Telangana', tier: 1, lat: 17.4486, lng: 78.3908, exams: ['jee', 'neet'], board: 'Telangana State Board', stateExam: 'TS EAMCET', language: 'Telugu' },
+  { slug: 'gachibowli', city: 'Gachibowli, Hyderabad', state: 'Telangana', tier: 1, lat: 17.4401, lng: 78.3489, exams: ['jee', 'neet'], board: 'Telangana State Board', stateExam: 'TS EAMCET', language: 'Telugu', nearbyInstitute: 'IIIT Hyderabad' },
+
+  // ─── CHENNAI AREAS ────────────────────────────────────────
+  { slug: 'adyar', city: 'Adyar, Chennai', state: 'Tamil Nadu', tier: 1, lat: 13.0067, lng: 80.2554, exams: ['jee', 'neet'], board: 'TN State Board', language: 'Tamil', nearbyInstitute: 'IIT Madras' },
+  { slug: 'anna-nagar', city: 'Anna Nagar, Chennai', state: 'Tamil Nadu', tier: 1, lat: 13.0850, lng: 80.2101, exams: ['jee', 'neet'], board: 'TN State Board', language: 'Tamil', coachingHub: 'Anna Nagar coaching hub' },
+  { slug: 'velachery', city: 'Velachery, Chennai', state: 'Tamil Nadu', tier: 1, lat: 12.9815, lng: 80.2180, exams: ['jee', 'neet'], board: 'TN State Board', language: 'Tamil' },
+  { slug: 'tambaram', city: 'Tambaram, Chennai', state: 'Tamil Nadu', tier: 1, lat: 12.9249, lng: 80.1000, exams: ['jee', 'neet'], board: 'TN State Board', language: 'Tamil' },
+  { slug: 'porur', city: 'Porur, Chennai', state: 'Tamil Nadu', tier: 1, lat: 13.0382, lng: 80.1565, exams: ['jee', 'neet'], board: 'TN State Board', language: 'Tamil' },
+  { slug: 't-nagar', city: 'T. Nagar, Chennai', state: 'Tamil Nadu', tier: 1, lat: 13.0418, lng: 80.2341, exams: ['jee', 'neet'], board: 'TN State Board', language: 'Tamil' },
+
+  // ─── PUNE AREAS ───────────────────────────────────────────
+  { slug: 'kothrud', city: 'Kothrud, Pune', state: 'Maharashtra', tier: 1, lat: 18.5074, lng: 73.8077, exams: ['jee', 'neet'], board: 'Maharashtra State Board', stateExam: 'MHT-CET', language: 'Marathi', coachingHub: 'Kothrud coaching area' },
+  { slug: 'viman-nagar', city: 'Viman Nagar, Pune', state: 'Maharashtra', tier: 1, lat: 18.5679, lng: 73.9143, exams: ['jee', 'neet'], board: 'Maharashtra State Board', stateExam: 'MHT-CET', language: 'Marathi' },
+  { slug: 'hadapsar', city: 'Hadapsar, Pune', state: 'Maharashtra', tier: 1, lat: 18.5089, lng: 73.9260, exams: ['jee', 'neet'], board: 'Maharashtra State Board', stateExam: 'MHT-CET', language: 'Marathi' },
+  { slug: 'pimpri-chinchwad', city: 'Pimpri-Chinchwad', state: 'Maharashtra', tier: 2, lat: 18.6298, lng: 73.7997, exams: ['jee', 'neet'], board: 'Maharashtra State Board', stateExam: 'MHT-CET', language: 'Marathi' },
+
+  // ─── KOLKATA AREAS ────────────────────────────────────────
+  { slug: 'salt-lake', city: 'Salt Lake, Kolkata', state: 'West Bengal', tier: 1, lat: 22.5800, lng: 88.4050, exams: ['jee', 'neet'], board: 'WB Board', stateExam: 'WBJEE', language: 'Bengali' },
+  { slug: 'new-town', city: 'New Town, Kolkata', state: 'West Bengal', tier: 1, lat: 22.5958, lng: 88.4795, exams: ['jee', 'neet'], board: 'WB Board', stateExam: 'WBJEE', language: 'Bengali' },
+  { slug: 'ballygunge', city: 'Ballygunge, Kolkata', state: 'West Bengal', tier: 1, lat: 22.5268, lng: 88.3660, exams: ['jee', 'neet'], board: 'WB Board', stateExam: 'WBJEE', language: 'Bengali' },
+  { slug: 'jadavpur', city: 'Jadavpur, Kolkata', state: 'West Bengal', tier: 1, lat: 22.4991, lng: 88.3694, exams: ['jee', 'neet'], board: 'WB Board', stateExam: 'WBJEE', language: 'Bengali', nearbyInstitute: 'Jadavpur University' },
+  { slug: 'lake-town', city: 'Lake Town, Kolkata', state: 'West Bengal', tier: 1, lat: 22.5900, lng: 88.3902, exams: ['jee', 'neet'], board: 'WB Board', stateExam: 'WBJEE', language: 'Bengali' },
+
+  // ─── NCR SATELLITE CITIES ─────────────────────────────────
+  { slug: 'greater-noida', city: 'Greater Noida', state: 'Uttar Pradesh', tier: 2, lat: 28.4744, lng: 77.5040, exams: ['jee', 'neet'], board: 'CBSE/UP Board' },
+  { slug: 'indirapuram', city: 'Indirapuram, Ghaziabad', state: 'Uttar Pradesh', tier: 2, lat: 28.6407, lng: 77.3573, exams: ['jee', 'neet'], board: 'CBSE/UP Board' },
+  { slug: 'vasundhara', city: 'Vasundhara, Ghaziabad', state: 'Uttar Pradesh', tier: 2, lat: 28.6603, lng: 77.3571, exams: ['jee', 'neet'], board: 'CBSE/UP Board' },
+  { slug: 'sector-62-noida', city: 'Sector 62, Noida', state: 'Uttar Pradesh', tier: 2, lat: 28.6270, lng: 77.3649, exams: ['jee', 'neet'], board: 'CBSE' },
 ];
 
 /** All 170+ new cities, auto-generated from configs */

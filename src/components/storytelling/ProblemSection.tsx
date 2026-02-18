@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform, type MotionValue } from 'framer-motion';
 import { useRef } from 'react';
 import { Users, Clock, TrendingDown, HelpCircle } from 'lucide-react';
+// useTransform kept for WordHighlight scroll-driven text
 
 const problems = [
   {
@@ -49,14 +50,11 @@ export const ProblemSection = () => {
     offset: ['start start', 'end end'],
   });
 
-  /* gentle fade-out at the very end so the next section isn't abrupt */
-  const sectionOpacity = useTransform(scrollYProgress, [0, 0.88, 1], [1, 1, 0]);
-
   return (
     <section
       ref={sectionRef}
       className="relative bg-background"
-      style={{ height: '140vh' }}
+      style={{ height: '110vh' }}
     >
       {/* Dramatic red-tinted background */}
       <div className="absolute inset-0 bg-gradient-to-b from-destructive/15 via-background to-background" />
@@ -66,8 +64,7 @@ export const ProblemSection = () => {
       }} />
 
       <div className="relative flex items-center justify-center min-h-screen py-20 md:py-0 overflow-hidden">
-        <motion.div
-          style={{ opacity: sectionOpacity }}
+        <div
           className="relative max-w-5xl mx-auto px-6 w-full"
         >
           {/* ── Heading ── */}
@@ -136,7 +133,7 @@ export const ProblemSection = () => {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Section divider */}

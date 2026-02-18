@@ -16,3 +16,4 @@ Disallow: /*?*
 
 # Sitemaps
 Sitemap: https://mindpeakinstitute.com/sitemap.xml
+Sitemap: https://mindpeakinstitute.com/sitemap-topics.xml

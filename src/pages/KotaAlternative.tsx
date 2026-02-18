@@ -21,7 +21,7 @@ const kotaProblems = [
 
 const comparisonTable = [
   { feature: 'Teaching Format', mindpeak: '1-on-1 Online with Dedicated Mentor', kota: 'Batch Coaching (100-200 students)' },
-  { feature: 'Total Annual Cost', mindpeak: '₹60K – ₹2.3L (all-inclusive)', kota: '₹2L – ₹2.5L (tuition + living)' },
+  { feature: 'Total Annual Cost', mindpeak: '₹1L – ₹2.3L (all-inclusive)', kota: '₹2L – ₹2.5L (tuition + living)' },
   { feature: 'Location', mindpeak: 'Study from home (family support)', kota: 'Away from home (alone in Kota)' },
   { feature: 'Personal Attention', mindpeak: 'Dedicated mentor for 1 student', kota: '1 teacher for 100-200 students' },
   { feature: 'Curriculum', mindpeak: 'Adaptive & personalized to student', kota: 'Fixed, one-size-fits-all' },
@@ -43,7 +43,7 @@ const faqs: FAQItem[] = [
   { question: 'Is online coaching really as effective as Kota coaching?', answer: 'Yes — and often more effective. MindPeak\'s 1-on-1 format ensures 100% personal attention, adaptive curriculum, and real-time doubt resolution. Our students have achieved AIR 42 in JEE Advanced and 98.5+ percentile in NEET — results that match or exceed Kota\'s top institutes. The key difference: in batch coaching, only a few students benefit while most are left behind. In 1-on-1 coaching, every student gets the attention they need.' },
   { question: 'How do you ensure discipline without the Kota environment?', answer: 'Discipline comes from consistency, accountability, and motivation — not from a city. Your dedicated mentor conducts daily sessions (6 days/week), tracks progress through weekly analytics, and maintains accountability through regular assessments. Parents receive weekly reports. Students who feel supported and see measurable progress are naturally more disciplined than those stressed in a hostel.' },
   { question: 'What if my child needs in-person teaching?', answer: 'Our live 1-on-1 video sessions with real-time whiteboard interaction are as close to in-person as it gets — with the added benefit that every session is recorded for revision. Studies show that 1-on-1 online learning produces equal or better outcomes than in-person batch teaching. Your child gets MORE teacher interaction per hour than they would in any Kota classroom.' },
-  { question: 'How much can I save compared to Kota?', answer: 'Kota coaching costs ₹2L–₹2.5L per year (tuition ₹1.5L + hostel ₹50K-80K + food/transport). MindPeak\'s 1-year program starts at ₹1.35L all-inclusive (no travel, hostel, or hidden costs). That\'s a saving of ₹65K–₹1.15L per year — while getting more personalized attention.' },
+  { question: 'How much can I save compared to Kota?', answer: 'Kota coaching costs ₹2L–₹2.5L per year (tuition ₹1.5L + hostel ₹50K-80K + food/transport). MindPeak\'s 1-year program starts at ₹1.3L all-inclusive after discount (no travel, hostel, or hidden costs). That\'s a saving of ₹70K–₹1.2L per year — while getting more personalized attention.' },
   { question: 'Do you have students who chose MindPeak over Kota and succeeded?', answer: 'Absolutely. Many of our students were planning to go to Kota or had already been there. They switched to MindPeak and achieved comparable or better results. Our AIR 42 achiever, for example, chose MindPeak over Kota and credits the personalized attention for his success.' },
 ];
 

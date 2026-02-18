@@ -1,4 +1,4 @@
-import { BookOpen, Target, Brain, Clock, Lightbulb, TrendingUp, Calendar, Zap } from 'lucide-react';
+import { BookOpen, Target, Brain, Clock, Lightbulb, TrendingUp, Calendar, Zap, GraduationCap, Award, Heart, Shield, Users, BarChart3, Compass, Flame, Star } from 'lucide-react';
 
 export interface BlogPost {
   slug: string;

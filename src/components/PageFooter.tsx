@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Instagram, Facebook, Linkedin, Twitter, MessageCircle } from 'lucide-react';
 import logo from '@/assets/logo.jpeg';
+import { jeeRelatedLinks, neetRelatedLinks, RelatedPages } from './RelatedPages';
 
 const socialLinks = [
   { icon: Instagram, href: 'https://instagram.com/mindpeakinstitute', label: 'Instagram' },
@@ -9,6 +10,71 @@ const socialLinks = [
   { icon: Twitter, href: 'https://x.com/mindpeakins', label: 'X / Twitter' },
   { icon: MessageCircle, href: 'https://wa.me/918219457704?text=Hello!!%20MindPeak%20Institute', label: 'WhatsApp' },
 ];
+
+const footerSections = [
+  {
+    title: 'JEE Preparation',
+    links: [
+      { label: 'JEE Coaching', to: '/jee-coaching' },
+      { label: 'JEE Physics Preparation', to: '/jee-physics-preparation' },
+      { label: 'JEE Chemistry Preparation', to: '/jee-chemistry-preparation' },
+      { label: 'JEE Mathematics Preparation', to: '/jee-mathematics-preparation' },
+      { label: 'JEE Rank Predictor', to: '/jee-rank-predictor' },
+    ],
+  },
+  {
+    title: 'NEET Preparation',
+    links: [
+      { label: 'NEET Coaching', to: '/neet-coaching' },
+      { label: 'NEET Physics Preparation', to: '/neet-physics-preparation' },
+      { label: 'NEET Chemistry Preparation', to: '/neet-chemistry-preparation' },
+      { label: 'NEET Biology Preparation', to: '/neet-biology-preparation' },
+      { label: 'NEET Rank Predictor', to: '/neet-rank-predictor' },
+    ],
+  },
+  {
+    title: 'Quick Links',
+    links: [
+      { label: 'Courses', to: '/courses' },
+      { label: 'Free Trial', to: '/free-trial' },
+      { label: 'Pricing', to: '/pricing' },
+      { label: 'Blog', to: '/blog' },
+      { label: 'Contact', to: '/contact' },
+      { label: 'Kota Alternative', to: '/kota-coaching-alternative' },
+    ],
+  },
+];
+
+const importantLinks = [
+  { label: 'Home', to: '/' },
+  { label: 'JEE Coaching', to: '/jee-coaching' },
+  { label: 'NEET Coaching', to: '/neet-coaching' },
+  { label: 'Courses', to: '/courses' },
+  { label: 'Pricing', to: '/pricing' },
+  { label: 'Free Trial', to: '/free-trial' },
+  { label: 'Kota Alternative', to: '/kota-coaching-alternative' },
+  { label: 'JEE Rank Predictor', to: '/jee-rank-predictor' },
+  { label: 'NEET Rank Predictor', to: '/neet-rank-predictor' },
+  { label: 'Blog', to: '/blog' },
+  { label: 'Contact', to: '/contact' },
+  { label: 'Terms & Conditions', to: '/terms-and-conditions' },
+  { label: 'Refund Policy', to: '/refund-policy' },
+];
+
+const FooterSection = ({ title, links }: { title: string; links: { label: string; to: string }[] }) => (
+  <div>
+    <h3 className="font-display font-bold text-foreground text-xs uppercase tracking-[0.15em] mb-3">{title}</h3>
+    <ul className="space-y-2">
+      {links.map((l) => (
+        <li key={l.to}>
+          <Link to={l.to} className="text-muted-foreground text-xs hover:text-primary transition-colors">
+            {l.label}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
 
 export const PageFooter = ({ extra }: { extra?: string }) => (
   <footer className="bg-background border-t border-border py-10 px-6" role="contentinfo">
@@ -24,22 +90,23 @@ export const PageFooter = ({ extra }: { extra?: string }) => (
         </p>
       </div>
 
-      {/* Quick Links */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center mb-8">
-        {[
-          { label: 'JEE Coaching', to: '/jee-coaching' },
-          { label: 'NEET Coaching', to: '/neet-coaching' },
-          { label: 'Courses', to: '/courses' },
-          { label: 'Blog', to: '/blog' },
-          { label: 'Pricing', to: '/pricing' },
-          { label: 'Free Trial', to: '/free-trial' },
-          { label: 'Contact', to: '/contact' },
-          { label: 'Kota Alternative', to: '/kota-coaching-alternative' },
-        ].map((l) => (
-          <Link key={l.to} to={l.to} className="text-muted-foreground text-xs hover:text-primary transition-colors uppercase tracking-wider">
-            {l.label}
-          </Link>
+      {/* Categorized Links */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-8 max-w-3xl mx-auto">
+        {footerSections.map((section) => (
+          <FooterSection key={section.title} title={section.title} links={section.links} />
         ))}
+        <div>
+          <h3 className="font-display font-bold text-foreground text-xs uppercase tracking-[0.15em] mb-3">Important Links</h3>
+          <ul className="space-y-2">
+            {importantLinks.map((l) => (
+              <li key={l.to}>
+                <Link to={l.to} className="text-muted-foreground text-xs hover:text-primary transition-colors">
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       {/* Socials */}
@@ -59,6 +126,24 @@ export const PageFooter = ({ extra }: { extra?: string }) => (
           <Link to="/refund-policy" className="hover:text-primary transition-colors">Refund Policy</Link>
         </div>
         <p>© 2026 MindPeak Institute. All rights reserved.{extra ? ` ${extra}` : ''}</p>
+      </div>
+
+      {/* Related Pages (compact) */}
+      <div className="mt-8">
+        {/* Use a mix of JEE/NEET/utility links for broad relevance */}
+        <RelatedPages
+          title="Explore More Pages"
+          links={[
+            ...jeeRelatedLinks.slice(0, 3),
+            ...neetRelatedLinks.slice(0, 3),
+            { href: '/courses', label: 'All Courses', tag: 'Explore' },
+            { href: '/pricing', label: 'Pricing Plans', tag: 'Info' },
+            { href: '/blog', label: 'Blog & Tips', tag: 'Learn' },
+            { href: '/contact', label: 'Contact Us', tag: 'Help' },
+          ]}
+          columns={2}
+          variant="compact"
+        />
       </div>
     </div>
   </footer>

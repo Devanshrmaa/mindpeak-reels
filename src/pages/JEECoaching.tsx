@@ -9,6 +9,12 @@ import type { FAQItem } from '@/components/PageFAQ';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
 import { FreshnessBadge } from '@/components/FreshnessBadge';
+import { ExamCountdown } from '@/components/ExamCountdown';
+import { MonthlySuccessStory } from '@/components/MonthlySuccessStory';
+import { WeeklyTip } from '@/components/WeeklyTip';
+import { SeasonalBanner } from '@/components/SeasonalBanner';
+import { getLastUpdated, getCurrentExamYear } from '@/lib/contentFreshness';
+import { getLiveStat, formatStat } from '@/lib/liveStats';
 import { PeopleAlsoAsk, buildPAASchema } from '@/components/PeopleAlsoAsk';
 import type { PAAQuestion } from '@/components/PeopleAlsoAsk';
 import {
@@ -67,7 +73,7 @@ const syllabus = [
 
 const pricingComparison = [
   { feature: 'Teaching Format', mindpeak: '1-on-1 Online', allen: 'Batch (100+)', resonance: 'Batch (80+)', fiitjee: 'Batch (60-80)' },
-  { feature: 'Annual Fees', mindpeak: '₹60,000 – ₹2,30,000', allen: '₹1,20,000+', resonance: '₹1,00,000+', fiitjee: '₹1,50,000+' },
+  { feature: 'Annual Fees', mindpeak: '₹1,00,000 – ₹2,30,000', allen: '₹1,20,000+', resonance: '₹1,00,000+', fiitjee: '₹1,50,000+' },
   { feature: 'Personal Mentor', mindpeak: '✓ Dedicated', allen: '✗ Shared', resonance: '✗ Shared', fiitjee: '✗ Shared' },
   { feature: 'Adaptive Curriculum', mindpeak: '✓ AI-Driven', allen: '✗ Fixed', resonance: '✗ Fixed', fiitjee: '✗ Fixed' },
   { feature: 'Doubt Resolution', mindpeak: '✓ Real-time 1-on-1', allen: 'Group Sessions', resonance: 'Limited Slots', fiitjee: 'Group Sessions' },
@@ -78,7 +84,7 @@ const pricingComparison = [
 
 const paaQuestions: PAAQuestion[] = [
   { question: 'Is online JEE coaching effective?', answer: 'Yes — online 1-on-1 JEE coaching is highly effective when it provides personalized mentorship. MindPeak\'s online model delivers dedicated mentors, adaptive curricula, and daily live sessions. Students gain 100-150 extra marks on average, with results matching or exceeding top Kota institutes — all without travel time.' },
-  { question: 'How much does JEE coaching cost in India?', answer: 'JEE coaching fees range from ₹50,000 to ₹3,00,000 per year depending on the format. Batch coaching at Allen or FIITJEE costs ₹1-2 lakh. MindPeak\'s personalized 1-on-1 coaching starts at ₹60,000/year, offering better value per hour through dedicated personal attention.' },
+  { question: 'How much does JEE coaching cost in India?', answer: 'JEE coaching fees range from ₹50,000 to ₹3,00,000 per year depending on the format. Batch coaching at Allen or FIITJEE costs ₹1-2 lakh. MindPeak\'s personalized 1-on-1 coaching starts at ₹1,00,000/year, offering better value per hour through dedicated personal attention.' },
   { question: 'Can I crack JEE without Kota coaching?', answer: 'Absolutely. Many JEE toppers prepare from home with quality online coaching. MindPeak students have achieved AIR 42 without relocating to Kota. Personalized 1-on-1 mentorship, adaptive study plans, and daily live sessions deliver Kota-level preparation from any city in India.' },
   { question: 'How many hours should I study for JEE daily?', answer: '6-8 hours of focused, quality study daily is recommended for JEE. More important than hours is the quality of preparation — a personalized study plan that targets your weak areas is far more effective than 12-14 hours of unfocused batch coaching lectures.' },
   { question: 'What is the difference between JEE Main and JEE Advanced?', answer: 'JEE Main is the qualifying exam for NITs, IIITs, and GFTIs, while JEE Advanced — open only to JEE Main qualifiers — is the gateway to IITs. JEE Advanced tests deeper conceptual understanding with multi-concept problems. MindPeak\'s coaching covers both exams comprehensively.' },
@@ -91,7 +97,7 @@ const faqs: FAQItem[] = [
   { question: 'How are JEE classes conducted at MindPeak?', answer: 'Classes are conducted via live 1-on-1 video sessions with your dedicated mentor, 6 days a week. Sessions are short and focused for maximum retention. Every class is recorded so you can re-watch any explanation during revision. You can attend from anywhere — all you need is a laptop/tablet and internet.' },
   { question: 'Does MindPeak cover both JEE Main and JEE Advanced?', answer: 'Yes! Our JEE coaching program comprehensively covers the syllabus for both JEE Main and JEE Advanced. We offer separate 1-year and 2-year programs, each including complete Physics, Chemistry, and Mathematics coverage, weekly mock tests in CBT format, and previous year paper analysis.' },
   { question: 'Can I join mid-year? Is there a batch dependency?', answer: 'Since our coaching is entirely 1-on-1, there are no batches and no fixed start dates. You can join at any time. Your mentor will create a customized study plan aligned with your exam timeline, covering any syllabus gaps from the start.' },
-  { question: 'What is the fee for JEE coaching at MindPeak?', answer: 'MindPeak offers flexible pricing with monthly, quarterly, and annual plans. Our 2-year JEE program starts at ₹2,30,000 + GST and 1-year programs at ₹1,35,000 + GST, which is competitive with premium coaching and delivers significantly more value through 1-on-1 attention. Book a free demo to discuss personalized pricing.' },
+  { question: 'What is the fee for JEE coaching at MindPeak?', answer: 'MindPeak offers flexible pricing with monthly, quarterly, and annual plans. Our 2-year JEE program starts at ₹2,30,000 + GST and 1-year programs at ₹1,99,000 + GST (discounted to ₹1,30,000 with current offers), which is competitive with premium coaching and delivers significantly more value through 1-on-1 attention. Book a free demo to discuss personalized pricing.' },
   { question: 'Do you also help with CBSE board exams alongside JEE?', answer: 'Absolutely. Our mentors integrate board exam preparation with JEE coaching. Since the CBSE syllabus overlaps significantly with JEE, our approach ensures you excel in both without spreading yourself thin. We adjust the curriculum around your board exam schedule.' },
 ];
 
@@ -100,6 +106,9 @@ const faqs: FAQItem[] = [
 const JEECoaching = () => {
   const { openDemoModal } = useDemoModal();
   useEffect(() => { window.scrollTo(0, 0); }, []);
+
+  const lastUpdated = getLastUpdated('jee-coaching');
+  const examYear = getCurrentExamYear('JEE');
 
   const courseSchema = {
     '@context': 'https://schema.org',
@@ -113,16 +122,17 @@ const JEECoaching = () => {
     },
     offers: {
       '@type': 'Offer',
-      price: '60000',
+      price: '100000',
       priceCurrency: 'INR',
       availability: 'https://schema.org/InStock',
     },
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.9',
-      reviewCount: '500',
+      reviewCount: String(getLiveStat('studentsEnrolled')),
       bestRating: '5',
     },
+    dateModified: lastUpdated,
     hasCourseInstance: {
       '@type': 'CourseInstance',
       courseMode: 'online',
@@ -162,7 +172,7 @@ const JEECoaching = () => {
         {/* ───── HERO ───── */}
         <section className="max-w-5xl mx-auto px-4 sm:px-6 pb-8 sm:pb-16">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <FreshnessBadge lastUpdated="2026-02-18" verifiedFor="JEE 2026" />
+            <FreshnessBadge lastUpdated={lastUpdated} verifiedFor={examYear} />
 
             <div className="flex items-center gap-3 mb-4 sm:mb-6">
               <img src={logo} alt="MindPeak Institute" className="w-10 h-10 sm:w-14 sm:h-14 rounded-full flex-shrink-0" width={56} height={56} />
@@ -198,6 +208,12 @@ const JEECoaching = () => {
             </div>
           </motion.div>
         </section>
+
+        {/* ───── EXAM COUNTDOWN + SEASONAL BANNER ───── */}
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 pb-6 space-y-4">
+          <ExamCountdown exam="JEE" />
+          <SeasonalBanner />
+        </div>
 
         {/* ───── FEATURED SNIPPET ───── */}
         <div className="px-4 sm:px-6">
@@ -431,6 +447,12 @@ const JEECoaching = () => {
               ))}
             </div>
           </div>
+        </section>
+
+        {/* ───── MONTHLY SUCCESS STORY + WEEKLY TIP ───── */}
+        <section className="max-w-5xl mx-auto px-4 sm:px-6 py-10 space-y-6">
+          <MonthlySuccessStory exam="JEE" />
+          <WeeklyTip exam="JEE" />
         </section>
 
         {/* ───── PEOPLE ALSO ASK ───── */}

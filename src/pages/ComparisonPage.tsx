@@ -341,8 +341,8 @@ const ComparisonPage = () => {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-secondary/30 border border-primary/30 rounded-lg p-8 text-center">
               <h3 className="font-display font-bold text-primary text-xl mb-2">MindPeak</h3>
-              <p className="text-3xl font-display font-black text-foreground mb-2">₹1,35,000<span className="text-sm text-muted-foreground font-normal"> + GST / year</span></p>
-              <p className="text-muted-foreground text-sm mb-4">All-inclusive. No hidden costs.</p>
+              <p className="text-3xl font-display font-black text-foreground mb-2">₹1,30,000<span className="text-sm text-muted-foreground font-normal"> + GST / year*</span></p>
+              <p className="text-muted-foreground text-sm mb-4">All-inclusive. No hidden costs. <span className="text-green-400 font-semibold">*After discount</span></p>
               <ul className="text-left space-y-2 text-sm text-foreground">
                 <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-400" />Dedicated 1-on-1 mentor</li>
                 <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-green-400" />Daily live sessions (6 days/week)</li>

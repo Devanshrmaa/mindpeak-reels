@@ -9,6 +9,12 @@ import type { FAQItem } from '@/components/PageFAQ';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
 import { FreshnessBadge } from '@/components/FreshnessBadge';
+import { ExamCountdown } from '@/components/ExamCountdown';
+import { MonthlySuccessStory } from '@/components/MonthlySuccessStory';
+import { WeeklyTip } from '@/components/WeeklyTip';
+import { SeasonalBanner } from '@/components/SeasonalBanner';
+import { getLastUpdated, getCurrentExamYear } from '@/lib/contentFreshness';
+import { getLiveStat } from '@/lib/liveStats';
 import { PeopleAlsoAsk, buildPAASchema } from '@/components/PeopleAlsoAsk';
 import type { PAAQuestion } from '@/components/PeopleAlsoAsk';
 import {
@@ -70,7 +76,7 @@ const syllabus = [
 
 const pricingComparison = [
   { feature: 'Teaching Format', mindpeak: '1-on-1 Online', allen: 'Batch (100+)', aakash: 'Batch (80+)', byjus: 'Recorded + Batch' },
-  { feature: 'Annual Fees', mindpeak: '₹60,000 – ₹2,30,000', allen: '₹1,20,000+', aakash: '₹1,10,000+', byjus: '₹1,50,000+' },
+  { feature: 'Annual Fees', mindpeak: '₹1,00,000 – ₹2,30,000', allen: '₹1,20,000+', aakash: '₹1,10,000+', byjus: '₹1,50,000+' },
   { feature: 'Personal Mentor', mindpeak: '✓ Dedicated', allen: '✗ Shared', aakash: '✗ Shared', byjus: '✗ No' },
   { feature: 'Biology Focus', mindpeak: '✓ 50% Curriculum', allen: 'Equal Split', aakash: 'Equal Split', byjus: 'Generic' },
   { feature: 'NCERT Line-by-Line', mindpeak: '✓ Comprehensive', allen: 'Partial', aakash: 'Partial', byjus: '✗ No' },
@@ -81,7 +87,7 @@ const pricingComparison = [
 
 const paaQuestions: PAAQuestion[] = [
   { question: 'Is online NEET coaching effective?', answer: 'Yes — personalized online NEET coaching is highly effective. MindPeak\'s 1-on-1 model with Biology-first approach and NCERT mastery consistently produces 95%+ percentile results. Students gain 150-250 marks on average, with dedicated mentors from AIIMS and top medical colleges guiding every session.' },
-  { question: 'How much does NEET coaching cost?', answer: 'NEET coaching ranges from ₹50,000 to ₹3,00,000 annually. Allen and Aakash charge ₹1-1.5 lakh for batch coaching. MindPeak\'s personalized 1-on-1 NEET coaching starts at ₹60,000/year with Biology-focused curriculum, NCERT line-by-line coverage, and dedicated mentorship — better value per hour.' },
+  { question: 'How much does NEET coaching cost?', answer: 'NEET coaching ranges from ₹50,000 to ₹3,00,000 annually. Allen and Aakash charge ₹1-1.5 lakh for batch coaching. MindPeak\'s personalized 1-on-1 NEET coaching starts at ₹1,00,000/year with Biology-focused curriculum, NCERT line-by-line coverage, and dedicated mentorship — better value per hour.' },
   { question: 'How important is NCERT for NEET?', answer: 'NCERT is critical for NEET — approximately 90% of NEET questions are directly or indirectly from NCERT textbooks. MindPeak\'s NCERT Mastery Program ensures line-by-line coverage of every diagram, table, and footnote across Biology, Chemistry, and Physics NCERT books.' },
   { question: 'Can I crack NEET in one year?', answer: 'Yes, cracking NEET in one year is possible with focused, personalized preparation. MindPeak\'s 1-year NEET program provides an intensive study plan with daily sessions, weekly mock tests, and targeted Biology preparation. Multiple MindPeak students have scored 650+ in NEET within 8-12 months.' },
   { question: 'How many hours should I study for NEET?', answer: '6-8 hours of quality, focused study daily is ideal for NEET preparation. Biology deserves 50% of your study time matching its 360/720 marks weightage. Personalized coaching ensures every hour counts by targeting your specific weak chapters rather than generic revision.' },
@@ -95,7 +101,7 @@ const faqs: FAQItem[] = [
   { question: 'Are NEET classes conducted online?', answer: 'Yes! All NEET classes are conducted via live 1-on-1 video sessions with your dedicated mentor. Classes happen 6 days a week with short, focused sessions for maximum retention. Every session is recorded for revision. You can attend from anywhere with a laptop/tablet and internet connection.' },
   { question: 'Does MindPeak cover CBSE boards alongside NEET?', answer: 'Absolutely. For Class 11 and 12 students, our mentors integrate board exam preparation with NEET coaching. The CBSE Biology and Chemistry syllabus overlaps significantly with NEET, and our approach ensures you excel in both without double preparation.' },
   { question: 'Can I join MindPeak NEET coaching mid-year?', answer: 'Yes! Since our coaching is 1-on-1, there are no batches. You can join anytime. Your mentor will assess your current level, create a customized catch-up plan, and align the curriculum to your NEET exam timeline.' },
-  { question: 'What is the fee for NEET coaching at MindPeak?', answer: 'MindPeak offers flexible pricing — our 2-year NEET program starts at ₹2,30,000 + GST and 1-year programs at ₹1,35,000 + GST. Monthly and quarterly payment options available. Book a free demo to discuss pricing tailored to your needs.' },
+  { question: 'What is the fee for NEET coaching at MindPeak?', answer: 'MindPeak offers flexible pricing — our 2-year NEET program starts at ₹2,30,000 + GST and 1-year programs at ₹1,99,000 + GST (discounted to ₹1,30,000 with current offers). Monthly and quarterly payment options available. Book a free demo to discuss pricing tailored to your needs.' },
 ];
 
 /* ─── page ─── */
@@ -104,14 +110,18 @@ const NEETCoaching = () => {
   const { openDemoModal } = useDemoModal();
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
+  const lastUpdated = getLastUpdated('neet-coaching');
+  const examYear = getCurrentExamYear('NEET');
+
   const courseSchema = {
     '@context': 'https://schema.org',
     '@type': 'Course',
     name: 'NEET UG Personalized Coaching — MindPeak Institute',
     description: 'Comprehensive 1-on-1 personalized NEET coaching with Biology-first approach, dedicated mentors, and 95% success rate.',
     provider: { '@type': 'EducationalOrganization', name: 'MindPeak Institute', url: 'https://mindpeakinstitute.com' },
-    offers: { '@type': 'Offer', price: '60000', priceCurrency: 'INR', availability: 'https://schema.org/InStock' },
-    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '500', bestRating: '5' },
+    offers: { '@type': 'Offer', price: '100000', priceCurrency: 'INR', availability: 'https://schema.org/InStock' },
+    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: String(getLiveStat('studentsEnrolled')), bestRating: '5' },
+    dateModified: lastUpdated,
     hasCourseInstance: { '@type': 'CourseInstance', courseMode: 'online', courseWorkload: 'P1Y' },
   };
 
@@ -147,7 +157,7 @@ const NEETCoaching = () => {
         {/* ───── HERO ───── */}
         <section className="max-w-5xl mx-auto px-4 sm:px-6 pb-8 sm:pb-16">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <FreshnessBadge lastUpdated="2026-02-18" verifiedFor="NEET 2026" />
+            <FreshnessBadge lastUpdated={lastUpdated} verifiedFor={examYear} />
 
             <div className="flex items-center gap-3 mb-4 sm:mb-6">
               <img src={logo} alt="MindPeak Institute" className="w-10 h-10 sm:w-14 sm:h-14 rounded-full flex-shrink-0" width={56} height={56} />
@@ -177,6 +187,12 @@ const NEETCoaching = () => {
             </div>
           </motion.div>
         </section>
+
+        {/* ───── EXAM COUNTDOWN + SEASONAL ───── */}
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 pb-6 space-y-4">
+          <ExamCountdown exam="NEET" />
+          <SeasonalBanner />
+        </div>
 
         {/* ───── FEATURED SNIPPET ───── */}
         <div className="px-4 sm:px-6">
@@ -383,6 +399,12 @@ const NEETCoaching = () => {
               ))}
             </div>
           </div>
+        </section>
+
+        {/* ───── MONTHLY SUCCESS STORY + WEEKLY TIP ───── */}
+        <section className="max-w-5xl mx-auto px-4 sm:px-6 py-10 space-y-6">
+          <MonthlySuccessStory exam="NEET" />
+          <WeeklyTip exam="NEET" />
         </section>
 
         {/* ───── PEOPLE ALSO ASK ───── */}

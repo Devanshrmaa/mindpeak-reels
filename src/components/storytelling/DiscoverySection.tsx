@@ -31,7 +31,7 @@ export const DiscoverySection = () => {
     <section
       ref={sectionRef}
       className="relative bg-background"
-      style={{ height: isMobile ? '115vh' : '120vh' }}
+      style={{ height: isMobile ? '100vh' : '105vh' }}
     >
       <div className="sticky top-0 h-screen flex items-center justify-center">
         {/* radial glow (scroll-driven) */}

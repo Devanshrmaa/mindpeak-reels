@@ -1,0 +1,315 @@
+import { Atom, FlaskConical, Beaker, Thermometer, Zap, Droplets } from 'lucide-react';
+import type { ChapterData } from '../chapterData';
+
+/* ═══════════════════════════════════════════════════
+   NEET CHEMISTRY — 25 granular chapter pages
+   Physical (9) + Organic (8) + Inorganic (8)
+   ═══════════════════════════════════════════════════ */
+
+export const neetChemistryChapters: ChapterData[] = [
+
+  /* ──────── PHYSICAL CHEMISTRY ──────── */
+  {
+    slug: 'neet-chemistry-some-basic-concepts',
+    exam: 'NEET', subject: 'Chemistry', chapter: 'Some Basic Concepts of Chemistry',
+    icon: FlaskConical,
+    weightage: '2-3%', difficulty: 'Easy', pyqCount: 18,
+    description: 'Mole concept, stoichiometry, and concentration terms — the quantitative foundation of chemistry. MindPeak starts every NEET Chemistry batch by ensuring mole-concept mastery.',
+    topics: ['Laws of Chemical Combination', 'Atomic & Molecular Mass', 'Mole Concept & Avogadro\'s Number', 'Percentage Composition', 'Empirical & Molecular Formula', 'Stoichiometry & Limiting Reagent', 'Concentration Terms (Molarity, Molality, Normality)'],
+    keyFormulas: ['n = mass/molar mass', 'n = V(L)/22.4 (at STP)', 'Molarity = moles/Volume(L)', 'Molality = moles/mass of solvent(kg)', '1 mole = 6.022 × 10²³'],
+    commonMistakes: ['Wrong molar mass calculation', 'Forgetting to identify limiting reagent', 'Confusing molarity and molality', 'Wrong STP volume for gases'],
+    faqs: [
+      { q: 'Is Mole Concept important?', a: 'Absolutely foundational — every stoichiometry problem uses it. 2-3% direct NEET questions plus it\'s prerequisite for all Physical Chemistry. MindPeak ensures mole-concept fluency in the first week.' },
+    ],
+  },
+  {
+    slug: 'neet-chemistry-atomic-structure',
+    exam: 'NEET', subject: 'Chemistry', chapter: 'Structure of Atom',
+    icon: Atom,
+    weightage: '3-4%', difficulty: 'Moderate', pyqCount: 22,
+    description: 'Bohr model, quantum numbers, and electronic configuration — NCERT-focused for NEET. MindPeak teaches atomic structure with visual orbital diagrams for better retention.',
+    topics: ['Thomson, Rutherford & Bohr Models', 'Bohr\'s Postulates & Hydrogen Spectrum', 'Quantum Numbers (n, l, m, s)', 'Electronic Configuration', 'Aufbau Principle, Pauli\'s Exclusion & Hund\'s Rule', 'Shapes of Orbitals'],
+    keyFormulas: ['E_n = -13.6Z²/n² eV', 'r_n = 0.529n²/Z Å', 'Max electrons in shell = 2n²', 'Max electrons in subshell = 4l+2'],
+    commonMistakes: ['Wrong orbital filling order (Aufbau exceptions)', 'Confusing quantum number rules', 'Wrong number of radial/angular nodes', 'Forgetting half-filled stability exceptions'],
+    faqs: [
+      { q: 'Does NEET test Atomic Structure differently from JEE?', a: 'NEET focuses on NCERT content — Bohr model, quantum numbers, and electronic configuration. Less numerical, more conceptual. MindPeak tailors atomic structure teaching to NEET pattern specifically.' },
+    ],
+  },
+  {
+    slug: 'neet-chemistry-chemical-bonding',
+    exam: 'NEET', subject: 'Chemistry', chapter: 'Chemical Bonding & Molecular Structure',
+    icon: Atom,
+    weightage: '4-5%', difficulty: 'Moderate', pyqCount: 30,
+    description: 'VSEPR theory, hybridization, and molecular orbital theory — conceptually important NEET chapter. MindPeak teaches bonding through molecular models for visual learners.',
+    topics: ['Ionic & Covalent Bonding', 'Lewis Structures', 'VSEPR Theory', 'Hybridization', 'Molecular Orbital Theory (MOT)', 'Bond Order & Magnetic Properties', 'Hydrogen Bonding', 'Dipole Moment'],
+    keyFormulas: ['Bond Order = (Nb-Na)/2', 'Hybridization = ½(V+M-C+A)', 'VSEPR: lone pairs occupy more space', 'Dipole moment: μ = q × d'],
+    commonMistakes: ['Wrong molecular geometry (forgetting lone pairs)', 'Wrong hybridization for expanded octet molecules', 'Confusing bond order with bond strength trends', 'Wrong LCAO diagram for O₂ vs N₂'],
+    faqs: [
+      { q: 'How to predict molecular geometry quickly?', a: 'Count bonded atoms + lone pairs around central atom. 2→linear, 3→trigonal planar, 4→tetrahedral (if no lone pairs). Then adjust for lone pairs. MindPeak provides a geometry prediction flowchart.' },
+    ],
+  },
+  {
+    slug: 'neet-chemistry-thermodynamics',
+    exam: 'NEET', subject: 'Chemistry', chapter: 'Thermodynamics',
+    icon: Thermometer,
+    weightage: '4-5%', difficulty: 'Moderate', pyqCount: 28,
+    description: 'Enthalpy, entropy, Gibbs free energy, and Hess\'s law — core physical chemistry with 4-5% NEET weightage. MindPeak integrates chemistry thermodynamics with Physics for dual understanding.',
+    topics: ['System & Surroundings', 'First Law (ΔU = q + w)', 'Enthalpy & Enthalpy of Reaction', 'Hess\'s Law', 'Entropy & Second Law', 'Gibbs Free Energy & Spontaneity', 'Standard Enthalpy of Formation', 'Bond Enthalpy'],
+    keyFormulas: ['ΔH = ΔU + ΔnRT', 'ΔG = ΔH - TΔS', 'ΔG < 0 → spontaneous', 'Hess: ΔH = Σ(ΔHf products) - Σ(ΔHf reactants)'],
+    commonMistakes: ['Wrong sign convention for exothermic/endothermic', 'Forgetting to use kJ vs J consistently', 'Wrong ΔG spontaneity interpretation', 'Errors in bond enthalpy calculations'],
+    faqs: [
+      { q: 'What is the most tested concept in NEET Thermodynamics?', a: 'Hess\'s law calculations and ΔG-based spontaneity prediction. Practice 15+ numerical problems. MindPeak provides NEET-pattern thermodynamics problem sets.' },
+    ],
+  },
+  {
+    slug: 'neet-chemistry-equilibrium',
+    exam: 'NEET', subject: 'Chemistry', chapter: 'Equilibrium',
+    icon: FlaskConical,
+    weightage: '4-6%', difficulty: 'Moderate', pyqCount: 35,
+    description: 'Chemical and ionic equilibrium combined for NEET — Kp, Kc, pH, buffers, and Ksp. MindPeak covers both types of equilibrium together as NEET tests them as one chapter.',
+    topics: ['Le Chatelier\'s Principle', 'Equilibrium Constants (Kp, Kc)', 'Acids, Bases & pH', 'Buffer Solutions', 'Henderson-Hasselbalch Equation', 'Solubility Product (Ksp)', 'Common Ion Effect', 'Hydrolysis of Salts'],
+    keyFormulas: ['Kp = Kc(RT)^Δn', 'pH = -log[H⁺]', 'pH = pKa + log([A⁻]/[HA])', 'Ksp = [cation]^m[anion]^n', 'Kw = 10⁻¹⁴'],
+    commonMistakes: ['Wrong Le Chatelier prediction for temperature changes', 'Wrong pH calculation for weak acid/base', 'Confusing Ka and Kb relationship', 'Wrong common ion effect application'],
+    faqs: [
+      { q: 'How important is Equilibrium for NEET?', a: 'Very — 4-6% with both conceptual and numerical questions. pH calculations, Le Chatelier predictions, and Ksp problems are NEET staples. MindPeak ensures thorough practice with 40+ equilibrium problems.' },
+    ],
+  },
+  {
+    slug: 'neet-chemistry-redox-electrochemistry',
+    exam: 'NEET', subject: 'Chemistry', chapter: 'Redox Reactions & Electrochemistry',
+    icon: Zap,
+    weightage: '3-5%', difficulty: 'Moderate', pyqCount: 28,
+    description: 'Oxidation states, galvanic cells, Nernst equation, and Faraday\'s laws — combined for NEET efficiency. MindPeak teaches redox and electrochemistry back-to-back for logical flow.',
+    topics: ['Oxidation Number & Balancing Redox', 'Galvanic Cell', 'Standard Electrode Potential', 'Nernst Equation', 'Electrolysis & Faraday\'s Laws', 'Conductance & Kohlrausch\'s Law', 'Corrosion'],
+    keyFormulas: ['E_cell = E°_cell - (0.0591/n)log Q', 'ΔG° = -nFE°', 'Faraday: m = ZIt', 'Kohlrausch: Λ°m = Λ°_+ + Λ°_-'],
+    commonMistakes: ['Wrong anode/cathode assignment', 'Sign errors in Nernst equation', 'Wrong Faraday\'s law calculation', 'Confusing molar and equivalent conductivity'],
+    faqs: [
+      { q: 'How to avoid sign errors in Electrochemistry?', a: 'Anode = Oxidation (AO), Cathode = Reduction (CR). E_cell = E_cathode - E_anode. Always positive for spontaneous. MindPeak uses this mnemonic consistently.' },
+    ],
+  },
+  {
+    slug: 'neet-chemistry-kinetics',
+    exam: 'NEET', subject: 'Chemistry', chapter: 'Chemical Kinetics',
+    icon: FlaskConical,
+    weightage: '3-4%', difficulty: 'Moderate', pyqCount: 22,
+    description: 'Rate laws, order of reaction, and Arrhenius equation — formula-based scoring chapter. MindPeak drills kinetics numericals for guaranteed NEET marks.',
+    topics: ['Rate of Reaction', 'Rate Law & Order', 'Integrated Rate Laws (Zero & First Order)', 'Half-Life', 'Arrhenius Equation', 'Effect of Temperature & Catalyst'],
+    keyFormulas: ['First order: k = (2.303/t)log(a/(a-x))', 't₁/₂ = 0.693/k', 'Zero order: t₁/₂ = [A₀]/2k', 'Arrhenius: k = Ae^(-Ea/RT)'],
+    commonMistakes: ['Wrong integrated rate law selection', 'Units of k vary with order (forgetting this)', 'Wrong Arrhenius equation application', 'Confusing molecularity and order'],
+    faqs: [
+      { q: 'Is Chemical Kinetics scoring for NEET?', a: 'Yes — mostly numerical with standard formulas. Half-life and Arrhenius problems appear almost every year. Practice 20+ problems. MindPeak includes kinetics in the high-ROI quick-wins module.' },
+    ],
+  },
+  {
+    slug: 'neet-chemistry-solutions',
+    exam: 'NEET', subject: 'Chemistry', chapter: 'Solutions',
+    icon: Beaker,
+    weightage: '3-4%', difficulty: 'Moderate', pyqCount: 22,
+    description: 'Raoult\'s law, colligative properties, and Van\'t Hoff factor — important NEET physical chemistry chapter. MindPeak teaches colligative properties with everyday examples for intuitive understanding.',
+    topics: ['Types of Solutions', 'Concentration Terms', 'Raoult\'s Law', 'Ideal & Non-Ideal Solutions', 'Colligative Properties', 'Van\'t Hoff Factor', 'Osmotic Pressure', 'Henry\'s Law'],
+    keyFormulas: ['ΔTb = iKbm', 'ΔTf = iKfm', 'π = iCRT', 'i = 1+(n-1)α (dissociation)'],
+    commonMistakes: ['Wrong Van\'t Hoff factor for electrolytes', 'Confusing ΔTb and ΔTf applications', 'Wrong molality calculation', 'Forgetting i in colligative property formulas'],
+    faqs: [
+      { q: 'How important are Colligative Properties for NEET?', a: '3-4% with predictable numerical patterns. Master the 4 colligative properties with Van\'t Hoff factor. MindPeak provides 20 graded problems covering all types.' },
+    ],
+  },
+  {
+    slug: 'neet-chemistry-surface-chemistry',
+    exam: 'NEET', subject: 'Chemistry', chapter: 'Surface Chemistry',
+    icon: FlaskConical,
+    weightage: '2-3%', difficulty: 'Easy', pyqCount: 15,
+    description: 'Adsorption, colloids, and catalysis — low-effort scoring chapter for NEET. MindPeak recommends spending 2 sessions for easy marks.',
+    topics: ['Physical & Chemical Adsorption', 'Freundlich & Langmuir Isotherms', 'Catalysis', 'Colloids (Preparation, Properties)', 'Coagulation & Hardy-Schulze Rule', 'Emulsions'],
+    keyFormulas: ['x/m = kP^(1/n) (Freundlich)', 'Gold number: lower = better protective colloid', 'Hardy-Schulze: higher charge → better coagulation'],
+    commonMistakes: ['Confusing physical and chemical adsorption', 'Wrong charge on colloidal particles', 'Confusing lyophilic and lyophobic colloids'],
+    faqs: [
+      { q: 'Is Surface Chemistry worth studying for NEET?', a: '2-3% easy marks from NCERT. Focus on adsorption types, colloid properties, and Hardy-Schulze rule. MindPeak covers this in the quick-wins revision module.' },
+    ],
+  },
+
+  /* ──────── ORGANIC CHEMISTRY ──────── */
+  {
+    slug: 'neet-chemistry-organic-basics',
+    exam: 'NEET', subject: 'Chemistry', chapter: 'Basic Organic Chemistry (GOC & Hydrocarbons)',
+    icon: FlaskConical,
+    weightage: '4-6%', difficulty: 'Hard', pyqCount: 35,
+    description: 'IUPAC naming, electronic effects, isomerism, and hydrocarbon reactions — the organic foundation for NEET. MindPeak builds GOC mastery before teaching any reaction mechanisms.',
+    topics: ['IUPAC Nomenclature', 'Isomerism (Structural & Stereo)', 'Electronic Effects (I, M, H)', 'Stability of Intermediates', 'Alkane Reactions', 'Alkene & Alkyne Reactions', 'Aromatic Hydrocarbons (Benzene)', 'Electrophilic Aromatic Substitution'],
+    keyFormulas: ['Markownikoff: H to C with more H', 'Anti-Markownikoff: HBr + peroxide only', 'Hückel: 4n+2 π electrons = aromatic', 'Ozonolysis: C=C → 2 carbonyl compounds'],
+    commonMistakes: ['Wrong IUPAC naming priority', 'Confusing +I/-I and +M/-M groups', 'Wrong product in Markownikoff addition', 'Wrong directing effects in benzene substitution'],
+    faqs: [
+      { q: 'How important is GOC for NEET?', a: 'Critical! Every organic question uses GOC concepts. MindPeak spends 2 weeks on GOC fundamentals before moving to specific organic chapters. This investment pays dividends in all organic chemistry.' },
+    ],
+  },
+  {
+    slug: 'neet-chemistry-haloalkanes-haloarenes',
+    exam: 'NEET', subject: 'Chemistry', chapter: 'Haloalkanes & Haloarenes',
+    icon: FlaskConical,
+    weightage: '3-4%', difficulty: 'Moderate', pyqCount: 22,
+    description: 'Nucleophilic substitution (SN1/SN2), elimination, and Grignard reagent — NEET-focused organic reactions. MindPeak simplifies SN/E mechanism selection with a clear decision tree.',
+    topics: ['SN1 vs SN2 Mechanism', 'E1 vs E2 Mechanism', 'Grignard Reagent', 'Wurtz Reaction', 'Environmental Effects of Halogenated Compounds'],
+    keyFormulas: ['SN2: backside attack, inversion', 'SN1: carbocation, racemisation', 'RMgX + H₂O → RH + Mg(OH)X', 'Wurtz: 2RX + 2Na → R-R + 2NaX'],
+    commonMistakes: ['Wrong SN1/SN2 prediction based on substrate', 'Forgetting stereochemistry outcomes', 'Wrong Grignard product', 'Confusing substitution vs elimination conditions'],
+    faqs: [
+      { q: 'How does NEET test Haloalkanes?', a: 'NEET focuses on NCERT — mechanism basics, named reactions, and environmental impact. Less mechanistic detail than JEE. MindPeak tailors haloalkane teaching to NEET pattern.' },
+    ],
+  },
+  {
+    slug: 'neet-chemistry-alcohols-phenols-ethers',
+    exam: 'NEET', subject: 'Chemistry', chapter: 'Alcohols, Phenols & Ethers',
+    icon: FlaskConical,
+    weightage: '3-4%', difficulty: 'Moderate', pyqCount: 25,
+    description: 'Preparation, properties, and reactions of hydroxyl compounds — important NEET organic chapter. MindPeak connects all functional group transformations with a visual conversion chart.',
+    topics: ['Preparation of Alcohols', 'Reactions of Alcohols', 'Phenol Properties & Reactions', 'Ether Preparation & Reactions', 'Acidity Comparison', 'Distinguishing Tests (Lucas, Victor Meyer)'],
+    keyFormulas: ['Acidity: Phenol > Water > Alcohol', 'Lucas: 3° instant, 2° 5 min, 1° no reaction', 'Williamson: RONa + R\'X → ROR\''],
+    commonMistakes: ['Wrong acidity order', 'Confusing dehydration conditions', 'Wrong Williamson ether synthesis product', 'Mixing up phenol-specific reactions'],
+    faqs: [
+      { q: 'How to connect all organic conversions?', a: 'MindPeak provides a functional group interconversion chart: Alkane → Halide → Alcohol → Aldehyde → Acid → Ester. Each arrow has a reagent. This one chart connects 80% of organic chemistry.' },
+    ],
+  },
+  {
+    slug: 'neet-chemistry-carbonyl-compounds',
+    exam: 'NEET', subject: 'Chemistry', chapter: 'Aldehydes, Ketones & Carboxylic Acids',
+    icon: FlaskConical,
+    weightage: '4-5%', difficulty: 'Moderate', pyqCount: 30,
+    description: 'Nucleophilic addition, Aldol, Cannizzaro, and acid reactions — high-yield NEET organic chapter. MindPeak teaches named reactions with mechanism understanding for long-term retention.',
+    topics: ['Nucleophilic Addition Reactions', 'Aldol Condensation', 'Cannizzaro Reaction', 'Tollens\' & Fehling\'s Tests', 'Clemmensen & Wolff-Kishner Reduction', 'Carboxylic Acid Preparation & Reactions', 'Ester & Acid Chloride Formation', 'Acidity Comparisons'],
+    keyFormulas: ['Aldol: α-H + base → condensation', 'Cannizzaro: no α-H + conc. NaOH', 'Tollens: RCHO → silver mirror', 'Clemmensen: Zn(Hg)/HCl', 'Wolff-Kishner: NH₂NH₂/KOH'],
+    commonMistakes: ['Confusing Aldol vs Cannizzaro conditions', 'Wrong reduction method conditions', 'Ketones don\'t give Tollens (common trap)', 'Wrong acidity comparison for substituted acids'],
+    faqs: [
+      { q: 'How to remember Clemmensen vs Wolff-Kishner?', a: 'Clemmensen: Zn(Hg)/HCl → acidic conditions. Wolff-Kishner: NH₂NH₂, KOH/ethylene glycol → basic conditions. Both reduce C=O to CH₂ but in different media. Use "C=acid, W=base." MindPeak drills these with reaction identification problems.' },
+    ],
+  },
+  {
+    slug: 'neet-chemistry-amines',
+    exam: 'NEET', subject: 'Chemistry', chapter: 'Amines',
+    icon: FlaskConical,
+    weightage: '3-4%', difficulty: 'Moderate', pyqCount: 22,
+    description: 'Basicity, preparation, and reactions of amines plus diazonium salts — NCERT-focused NEET chapter. MindPeak covers amines with basicity-comparison drills for exam confidence.',
+    topics: ['Classification & Nomenclature', 'Preparation Methods', 'Basicity of Amines', 'Gabriel Phthalimide & Hofmann Bromamide', 'Diazonium Salt Reactions', 'Carbylamine & Hinsberg Tests'],
+    keyFormulas: ['Basicity (aq): 2° > 1° > 3° > NH₃', 'Sandmeyer: ArN₂⁺ + CuX → ArX', 'Carbylamine: 1° amine + CHCl₃ + KOH → isocyanide'],
+    commonMistakes: ['Wrong basicity order in different phases', 'Confusing 1°/2°/3° amine test results', 'Wrong diazonium salt reaction products'],
+    faqs: [
+      { q: 'How to distinguish 1°, 2°, 3° amines?', a: 'Hinsberg test: 1° → soluble in NaOH, 2° → insoluble, 3° → no reaction with sulfonyl chloride. Carbylamine test: only 1° gives isocyanide (foul smell). NEET asks these distinction tests frequently.' },
+    ],
+  },
+  {
+    slug: 'neet-chemistry-biomolecules-polymers',
+    exam: 'NEET', subject: 'Chemistry', chapter: 'Biomolecules, Polymers & Chemistry in Everyday Life',
+    icon: FlaskConical,
+    weightage: '3-5%', difficulty: 'Easy', pyqCount: 25,
+    description: 'Carbohydrates, proteins, vitamins, polymers, drugs, and detergents — factual NCERT chapters with easy marks. MindPeak covers all three chapters in focused revision sessions.',
+    topics: ['Carbohydrates (Classification, Glucose, Fructose)', 'Amino Acids & Proteins', 'Nucleic Acids (DNA/RNA)', 'Vitamins (Water & Fat Soluble)', 'Polymers (Types, Monomers)', 'Drugs & Pharmaceuticals', 'Soaps & Detergents'],
+    keyFormulas: ['Glucose: C₆H₁₂O₆ (aldohexose)', 'DNA: A=T, G≡C', 'Nylon-6,6: hexamethylenediamine + adipic acid', 'Vitamins: A,D,E,K (fat soluble), B,C (water soluble)'],
+    commonMistakes: ['Confusing reducing vs non-reducing sugars', 'Wrong monomer for common polymers', 'Mixing up vitamin deficiency diseases', 'Wrong drug classification'],
+    faqs: [
+      { q: 'How to score in these factual chapters?', a: 'Pure NCERT — read 2-3 times. Make tables: monomer→polymer, vitamin→deficiency, drug→use. 3-5% guaranteed marks with 4-5 hours of focused reading. MindPeak provides ready-made comparison tables.' },
+    ],
+  },
+
+  /* ──────── INORGANIC CHEMISTRY ──────── */
+  {
+    slug: 'neet-chemistry-periodic-classification',
+    exam: 'NEET', subject: 'Chemistry', chapter: 'Classification of Elements & Periodicity',
+    icon: Atom,
+    weightage: '3-4%', difficulty: 'Moderate', pyqCount: 22,
+    description: 'Periodic trends in properties — atomic radius, IE, EA, electronegativity. MindPeak teaches trends through electronic structure understanding, not memorization.',
+    topics: ['Modern Periodic Law', 'Periodic Trends (Atomic Radius, IE, EA, EN)', 'Anomalous Properties of 2nd Period', 'Diagonal Relationships', 'Metallic & Non-Metallic Character'],
+    keyFormulas: ['IE: increases L→R, decreases T→B', 'EA: Group 17 highest (Cl > F)', 'EN: F highest (3.98 Pauling)', 'Diagonal: Li~Mg, Be~Al, B~Si'],
+    commonMistakes: ['Wrong IE exceptions for half-filled shells', 'Confusing EA of F and Cl', 'Forgetting diagonal relationship pairs'],
+    faqs: [
+      { q: 'How are trends tested in NEET?', a: 'Direct trend questions and anomaly-based questions (why F has lower EA than Cl, why IE of N > O). Understand WHY each anomaly occurs. MindPeak explains every exception from first principles.' },
+    ],
+  },
+  {
+    slug: 'neet-chemistry-s-block',
+    exam: 'NEET', subject: 'Chemistry', chapter: 's-Block Elements',
+    icon: Beaker,
+    weightage: '2-3%', difficulty: 'Easy', pyqCount: 18,
+    description: 'Alkali and alkaline earth metals — properties, compounds, and anomalies from NCERT. MindPeak covers s-block with comparative tables for systematic revision.',
+    topics: ['Group 1 & Group 2 Properties', 'Important Compounds (NaOH, Na₂CO₃, NaHCO₃, CaO, CaSO₄)', 'Diagonal Relationships', 'Flame Colours', 'Biological Importance'],
+    keyFormulas: ['Flame: Li-crimson, Na-yellow, K-violet, Ca-brick red, Ba-green', 'Hydroxide solubility increases down Group 2', 'Thermal stability of carbonates increases down group'],
+    commonMistakes: ['Wrong flame colours', 'Confusing solubility trends (hydroxides vs sulphates)', 'Wrong diagonal relationship properties'],
+    faqs: [
+      { q: 'How to study s-Block for NEET?', a: 'NCERT is 100% sufficient. Focus on compound properties, flame tests, and trends. 2-3% easy marks. MindPeak provides a 1-page s-block comparison sheet.' },
+    ],
+  },
+  {
+    slug: 'neet-chemistry-p-block',
+    exam: 'NEET', subject: 'Chemistry', chapter: 'p-Block Elements',
+    icon: Beaker,
+    weightage: '6-8%', difficulty: 'Moderate', pyqCount: 50,
+    description: 'Groups 13-18 — the highest-weightage NEET Chemistry chapter. Boron, carbon, nitrogen, oxygen, halogens, and noble gas compounds. MindPeak breaks p-block into group-wise modules with 2 sessions per group.',
+    topics: ['Group 13 (Boron, Aluminium Compounds)', 'Group 14 (Carbon Allotropes, Silicon)', 'Group 15 (N₂, NH₃, HNO₃, Phosphorus)', 'Group 16 (O₂, O₃, H₂SO₄, Sulphur)', 'Group 17 (Halogens, Interhalogen, HX Acids)', 'Group 18 (Noble Gases, Xenon Compounds)', 'Oxoacids of N, P, S, Cl', 'Inert Pair Effect'],
+    keyFormulas: ['Boron: sp² in BF₃, back bonding', 'NH₃: sp³ pyramidal', 'H₂SO₄: Contact process (V₂O₅)', 'HNO₃: Ostwald process (Pt/Rh)', 'XeF₂: sp³d linear, XeF₄: sp³d² sq planar'],
+    commonMistakes: ['Wrong compound-group association', 'Confusing oxoacid structures', 'Wrong allotrope properties', 'Forgetting anomalous behaviour of first element'],
+    faqs: [
+      { q: 'How to handle such a large chapter?', a: '6-8% — biggest single chapter! Study group by group (13, 14, 15, 16, 17, 18). For each: properties, important compounds, anomalies. NCERT tables are essential. MindPeak divides p-block into 12 manageable sessions.' },
+    ],
+  },
+  {
+    slug: 'neet-chemistry-d-f-block',
+    exam: 'NEET', subject: 'Chemistry', chapter: 'd-Block & f-Block Elements',
+    icon: Beaker,
+    weightage: '3-5%', difficulty: 'Moderate', pyqCount: 28,
+    description: 'Transition metals, lanthanides, and actinides — electronic configuration, properties, and important compounds. MindPeak covers d-block trends with periodic table visualization.',
+    topics: ['Electronic Configuration & Anomalies', 'Variable Oxidation States', 'Colour & Magnetic Properties', 'KMnO₄ & K₂Cr₂O₇ (Preparation & Properties)', 'Lanthanide Contraction', 'f-Block Overview', 'Interstitial Compounds & Alloys'],
+    keyFormulas: ['Cr: [Ar]3d⁵4s¹, Cu: [Ar]3d¹⁰4s¹', 'μ = √(n(n+2)) BM', 'Lanthanide contraction: poor 4f shielding'],
+    commonMistakes: ['Wrong electronic configuration for Cr and Cu', 'Wrong oxidation state stability predictions', 'Confusing d-block compounds and their colours'],
+    faqs: [
+      { q: 'How important are KMnO₄ and K₂Cr₂O₇?', a: 'Very — preparation, properties, and oxidizing reactions of both are NEET favourites. Know equations in acidic and basic medium. MindPeak provides focused KMnO₄/K₂Cr₂O₇ problem sheets.' },
+    ],
+  },
+  {
+    slug: 'neet-chemistry-coordination-compounds',
+    exam: 'NEET', subject: 'Chemistry', chapter: 'Coordination Compounds',
+    icon: Atom,
+    weightage: '3-5%', difficulty: 'Hard', pyqCount: 28,
+    description: 'IUPAC naming, isomerism, VBT, and CFT — conceptually challenging but high-yield NEET chapter. MindPeak\'s systematic naming method eliminates IUPAC errors.',
+    topics: ['Werner\'s Theory', 'IUPAC Nomenclature', 'Isomerism', 'Valence Bond Theory', 'Crystal Field Theory', 'Spectrochemical Series', 'Colour & Magnetic Properties'],
+    keyFormulas: ['CFSE (octahedral): -0.4Δ₀(t₂g) + 0.6Δ₀(eg)', 'Spectrochemical: I⁻ < Br⁻ < Cl⁻ < ... < CN⁻ < CO', 'μ = √(n(n+2)) BM'],
+    commonMistakes: ['Wrong IUPAC naming order', 'Confusing geometrical and optical isomers', 'Wrong CFT splitting for different geometries'],
+    faqs: [
+      { q: 'Is CFT tested in NEET?', a: 'Yes — NEET asks CFT-based questions on colour and magnetism. Know octahedral and tetrahedral splitting diagrams, spectrochemical series, and CFSE calculation. MindPeak dedicates 4 sessions to coordination chemistry.' },
+    ],
+  },
+  {
+    slug: 'neet-chemistry-metallurgy',
+    exam: 'NEET', subject: 'Chemistry', chapter: 'General Principles of Metallurgy',
+    icon: Beaker,
+    weightage: '2-3%', difficulty: 'Easy', pyqCount: 15,
+    description: 'Extraction of metals, Ellingham diagram, and refining — NCERT factual chapter for NEET. MindPeak covers metallurgy with process-flow diagrams.',
+    topics: ['Concentration Methods', 'Thermodynamic Principles (Ellingham)', 'Extraction of Al, Fe, Cu, Zn', 'Refining Methods (Electrolytic, Zone, Vapour Phase)'],
+    keyFormulas: ['Al: Hall-Héroult (electrolysis of Al₂O₃ in cryolite)', 'Fe: Blast furnace', 'Cu: Electrolytic refining', 'Ellingham: ΔG vs T plot'],
+    commonMistakes: ['Wrong extraction method for specific metals', 'Wrong Ellingham diagram interpretation', 'Confusing refining methods'],
+    faqs: [
+      { q: 'Is Metallurgy worth deep study for NEET?', a: '2-3% with NCERT-based factual questions. Know extraction methods for Al, Fe, Cu, Zn and Ellingham diagram basics. 2-3 hours of focused study is sufficient.' },
+    ],
+  },
+  {
+    slug: 'neet-chemistry-salt-analysis-hydrogen',
+    exam: 'NEET', subject: 'Chemistry', chapter: 'Hydrogen & Qualitative Analysis',
+    icon: Droplets,
+    weightage: '2-3%', difficulty: 'Easy', pyqCount: 15,
+    description: 'Hydrogen preparation, properties, water chemistry, and qualitative analysis basics — scattered NCERT content combined for NEET. MindPeak covers these in the final revision module for last-minute marks.',
+    topics: ['Isotopes of Hydrogen', 'Preparation & Properties of H₂', 'Water (Hard & Soft, Heavy Water)', 'Hydrogen Peroxide', 'Hydrides (Ionic, Covalent, Metallic)', 'Basic Qualitative Salt Analysis'],
+    keyFormulas: ['H₂O₂: 2H₂O₂ → 2H₂O + O₂ (decomposition)', 'Hard water: Ca²⁺/Mg²⁺ salts', 'Heavy water: D₂O'],
+    commonMistakes: ['Confusing types of hydrides', 'Wrong H₂O₂ reactions', 'Mixing up temporary and permanent hardness'],
+    faqs: [
+      { q: 'Is Hydrogen chapter important for NEET?', a: '1-2 direct questions possible. Focus on H₂O₂ properties, hydride types, and hard water treatment. Quick study — MindPeak includes this in the fast-revision module.' },
+    ],
+  },
+  {
+    slug: 'neet-chemistry-environmental-chemistry',
+    exam: 'NEET', subject: 'Chemistry', chapter: 'Environmental Chemistry',
+    icon: Droplets,
+    weightage: '1-2%', difficulty: 'Easy', pyqCount: 10,
+    description: 'Pollution, ozone depletion, and green chemistry — short NCERT chapter with 1-2 NEET questions. MindPeak covers environmental chemistry with current-affairs connections.',
+    topics: ['Air Pollution (Smog, Acid Rain)', 'Water Pollution (BOD, Eutrophication)', 'Soil Pollution', 'Ozone Layer Depletion', 'Greenhouse Effect', 'Green Chemistry Principles'],
+    keyFormulas: ['BOD: higher = more polluted', 'Ozone: CFCs → Cl radicals → O₃ destruction', 'Greenhouse: CO₂, CH₄, N₂O trap IR radiation'],
+    commonMistakes: ['Confusing photochemical and classical smog', 'Wrong ozone depletion mechanism', 'Mixing up BOD and COD'],
+    faqs: [
+      { q: 'How much to study for Environmental Chemistry?', a: '1-2% — read NCERT once. Focus on smog types, ozone depletion, BOD, and greenhouse effect. 1 hour of reading is sufficient. MindPeak provides a 1-page summary.' },
+    ],
+  },
+];

@@ -49,7 +49,7 @@ const offlineCons = [
 const comparisonTable = [
   { feature: 'Personal Attention', online1on1: '100% dedicated mentor', onlineBatch: 'Minimal', offline: 'Minimal (1:100+)' },
   { feature: 'Curriculum', online1on1: 'Adaptive to student', onlineBatch: 'Fixed', offline: 'Fixed' },
-  { feature: 'Cost (Annual)', online1on1: '₹60K – ₹2.3L', onlineBatch: '₹30K – ₹1.5L', offline: '₹80K – ₹2.5L+' },
+  { feature: 'Cost (Annual)', online1on1: '₹1L – ₹2.3L', onlineBatch: '₹30K – ₹1.5L', offline: '₹80K – ₹2.5L+' },
   { feature: 'Commute', online1on1: 'Zero', onlineBatch: 'Zero', offline: '2-4 hrs/day' },
   { feature: 'Recorded Sessions', online1on1: '✓ Every class', onlineBatch: '✓ Some', offline: '✗ No' },
   { feature: 'Doubt Resolution', online1on1: 'Real-time 1-on-1', onlineBatch: 'Chat / limited', offline: 'Crowded sessions' },

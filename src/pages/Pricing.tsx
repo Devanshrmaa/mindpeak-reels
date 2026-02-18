@@ -8,6 +8,9 @@ import { PageFAQ, buildFAQSchema } from '@/components/PageFAQ';
 import type { FAQItem } from '@/components/PageFAQ';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import { CheckCircle, ArrowRight, Star, ShieldCheck, Phone, CreditCard } from 'lucide-react';
+import { DynamicOfferBanner } from '@/components/DynamicOfferBanner';
+import { FreshnessBadge } from '@/components/FreshnessBadge';
+import { getLastUpdated } from '@/lib/contentFreshness';
 import logo from '@/assets/logo.jpeg';
 
 /* ─── pricing tiers ─── */
@@ -16,6 +19,8 @@ interface Tier {
   name: string;
   badge?: string;
   price: string;
+  originalPrice?: string;
+  discountTag?: string;
   period: string;
   target: string;
   features: string[];
@@ -25,7 +30,9 @@ interface Tier {
 const tiers: Tier[] = [
   {
     name: 'Foundation',
-    price: '₹85,000',
+    originalPrice: '₹1,30,000',
+    price: '₹1,00,000',
+    discountTag: '23% OFF',
     period: '/ year + GST',
     target: 'Classes 6th – 10th',
     features: [
@@ -41,7 +48,9 @@ const tiers: Tier[] = [
   {
     name: 'JEE / NEET — 1 Year',
     badge: 'Most Popular',
-    price: '₹1,35,000',
+    originalPrice: '₹1,99,000',
+    price: '₹1,30,000',
+    discountTag: '35% OFF',
     period: '/ year + GST',
     target: 'JEE Main + Advanced or NEET UG',
     highlight: true,
@@ -59,7 +68,9 @@ const tiers: Tier[] = [
   },
   {
     name: 'JEE / NEET — 2 Year',
+    originalPrice: '₹2,99,000',
     price: '₹2,30,000',
+    discountTag: '23% OFF',
     period: '/ 2 years + GST',
     target: 'JEE Main + Advanced or NEET UG',
     features: [
@@ -78,7 +89,9 @@ const tiers: Tier[] = [
 const crashCourses: Tier[] = [
   {
     name: 'Crash Course — 6 Months',
+    originalPrice: '₹99,000',
     price: '₹75,000',
+    discountTag: '24% OFF',
     period: '+ GST',
     target: 'JEE / NEET last-mile preparation',
     features: [
@@ -122,7 +135,7 @@ const crashCourses: Tier[] = [
 
 const competitorComparison = [
   { feature: 'Format', mindpeak: '1-on-1 Online', allen: 'Batch (100+)', resonance: 'Batch (80+)', fiitjee: 'Batch (60+)', byjus: 'Recorded / Hybrid' },
-  { feature: '1-Year JEE/NEET Fee', mindpeak: '₹1,35,000', allen: '₹1,20,000+', resonance: '₹1,00,000+', fiitjee: '₹1,50,000+', byjus: '₹1,50,000+' },
+  { feature: '1-Year JEE/NEET Fee', mindpeak: '₹1,30,000*', allen: '₹1,20,000+', resonance: '₹1,00,000+', fiitjee: '₹1,50,000+', byjus: '₹1,50,000+' },
   { feature: 'Personal Mentor', mindpeak: '✓ Yes', allen: '✗ No', resonance: '✗ No', fiitjee: '✗ No', byjus: '✗ No' },
   { feature: 'Adaptive Curriculum', mindpeak: '✓ AI-Driven', allen: '✗ Fixed', resonance: '✗ Fixed', fiitjee: '✗ Fixed', byjus: 'Partial' },
   { feature: 'Recorded Sessions', mindpeak: '✓ All Classes', allen: 'Limited', resonance: '✗ No', fiitjee: '✗ No', byjus: '✓ Yes' },
@@ -150,6 +163,8 @@ const Pricing = () => {
   const { openDemoModal } = useDemoModal();
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
+  const lastUpdated = getLastUpdated('pricing');
+
   const jsonLd = [
     {
       '@context': 'https://schema.org',
@@ -165,7 +180,7 @@ const Pricing = () => {
     <>
       <SEOHead
         title="Pricing — Personalized JEE & NEET Coaching Plans | MindPeak Institute"
-        description="Transparent pricing for 1-on-1 JEE & NEET coaching. Foundation ₹85K, 1-Year ₹1.35L, 2-Year ₹2.3L. Free trial, no hidden fees, payment plans available."
+        description="Transparent pricing for 1-on-1 JEE & NEET coaching. Foundation ₹1L, 1-Year ₹1.3L, 2-Year ₹2.3L. Free trial, no hidden fees, payment plans available."
         jsonLd={jsonLd}
       />
       <Navbar />
@@ -201,7 +216,15 @@ const Pricing = () => {
             <p className="text-primary text-sm font-semibold flex items-center gap-2">
               <ShieldCheck className="w-4 h-4" /> 7-Day Money-Back Guarantee on All Plans
             </p>
+            <div className="mt-4">
+              <FreshnessBadge lastUpdated={lastUpdated} verifiedFor="2026 Plans" />
+            </div>
           </motion.div>
+        </section>
+
+        {/* ───── DYNAMIC OFFER ───── */}
+        <section className="max-w-md mx-auto px-6 pb-12">
+          <DynamicOfferBanner />
         </section>
 
         {/* ───── MAIN TIERS ───── */}
@@ -228,6 +251,12 @@ const Pricing = () => {
                 <h3 className="font-display font-bold text-foreground text-xl mb-1">{tier.name}</h3>
                 <p className="text-muted-foreground text-xs mb-4">{tier.target}</p>
                 <div className="mb-6">
+                  {tier.originalPrice && (
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-muted-foreground line-through text-base">{tier.originalPrice}</span>
+                      <span className="bg-green-500/20 text-green-400 text-[10px] font-bold px-2 py-0.5 rounded-full">{tier.discountTag}</span>
+                    </div>
+                  )}
                   <span className="font-display font-black text-foreground text-3xl">{tier.price}</span>
                   <span className="text-muted-foreground text-sm ml-1">{tier.period}</span>
                 </div>
@@ -266,6 +295,12 @@ const Pricing = () => {
                   <h3 className="font-display font-bold text-foreground text-lg mb-1">{tier.name}</h3>
                   <p className="text-muted-foreground text-xs mb-3">{tier.target}</p>
                   <div className="mb-4">
+                    {tier.originalPrice && (
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-muted-foreground line-through text-sm">{tier.originalPrice}</span>
+                        <span className="bg-green-500/20 text-green-400 text-[10px] font-bold px-2 py-0.5 rounded-full">{tier.discountTag}</span>
+                      </div>
+                    )}
                     <span className="font-display font-black text-foreground text-2xl">{tier.price}</span>
                     <span className="text-muted-foreground text-sm ml-1">{tier.period}</span>
                   </div>

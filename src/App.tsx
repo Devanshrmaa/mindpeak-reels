@@ -28,10 +28,16 @@ import OnlineVsOffline from "./pages/OnlineVsOffline";
 import ComparisonPage from "./pages/ComparisonPage";
 import SubjectPage, { SUBJECT_SLUGS } from "./pages/SubjectPage";
 import ChapterPage, { CHAPTER_SLUGS } from "./pages/ChapterPage";
+import TopicPage, { TOPIC_PATHS } from "./pages/TopicPage";
+import RankPredictor from "./pages/RankPredictor";
+import FormulaSheet, { FORMULA_SLUGS } from "./pages/FormulaSheet";
+import { ExitIntentModal } from "./components/ExitIntentModal";
+import { ErrorBoundary } from "./components/ErrorBoundary";
 
 const queryClient = new QueryClient();
 
 const App = () => (
+  <ErrorBoundary>
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
@@ -42,6 +48,7 @@ const App = () => (
           <SocialProofPopup />
           <LanguagePopup />
           <WhatsAppFloat />
+          <ExitIntentModal />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/courses" element={<Courses />} />
@@ -89,9 +96,23 @@ const App = () => (
               <Route key={slug} path={`/${slug}`} element={<SubjectPage />} />
             ))}
 
+            {/* Free Tools — Rank Predictors */}
+            <Route path="/jee-rank-predictor" element={<RankPredictor />} />
+            <Route path="/neet-rank-predictor" element={<RankPredictor />} />
+
+            {/* Formula Sheets — gated PDF downloads */}
+            {FORMULA_SLUGS.map((slug) => (
+              <Route key={slug} path={`/${slug}`} element={<FormulaSheet />} />
+            ))}
+
             {/* Chapter-wise SEO pages — JEE/NEET chapters */}
             {CHAPTER_SLUGS.map((slug) => (
               <Route key={slug} path={`/${slug}`} element={<ChapterPage />} />
+            ))}
+
+            {/* Topic-level SEO pages — sub-topics within each chapter */}
+            {TOPIC_PATHS.map((path) => (
+              <Route key={path} path={`/${path}`} element={<TopicPage />} />
             ))}
 
             {/* Location Pages — SEO city pages for JEE/NEET */}
@@ -105,6 +126,7 @@ const App = () => (
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
+  </ErrorBoundary>
 );
 
 export default App;
