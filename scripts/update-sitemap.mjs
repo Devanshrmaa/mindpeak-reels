@@ -2,13 +2,12 @@
  * update-sitemap.mjs
  * Run: node scripts/update-sitemap.mjs
  *
- * Auto-updates lastmod dates in sitting public/sitemap.xml and
- * public/sitemap-topics.xml to the current date.
+ * Auto-updates lastmod dates across all sitemaps in the enterprise
+ * sitemap index architecture (public/sitemap.xml + public/sitemaps/**).
  *
- * This keeps the sitemap fresh for Google without regenerating
- * the full structure. Run monthly (or add to CI/CD / Vercel build).
+ * Run monthly (or add to CI/CD / Vercel build).
  */
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync, readdirSync, statSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -25,7 +24,6 @@ function updateSitemapDates(filePath) {
     let content = readFileSync(filePath, 'utf-8');
     const original = content;
 
-    // Replace all lastmod dates
     content = content.replace(
       /<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g,
       `<lastmod>${today}</lastmod>`,
@@ -47,23 +45,51 @@ function updateSitemapDates(filePath) {
   }
 }
 
-// Update both sitemaps
+/**
+ * Recursively find all sitemap.xml files under a directory.
+ */
+function findSitemaps(dir) {
+  const results = [];
+  try {
+    for (const entry of readdirSync(dir)) {
+      const full = join(dir, entry);
+      const stat = statSync(full);
+      if (stat.isDirectory()) {
+        results.push(...findSitemaps(full));
+      } else if (entry === 'sitemap.xml' || entry.endsWith('-sitemap.xml') || entry.startsWith('sitemap')) {
+        results.push(full);
+      }
+    }
+  } catch { /* ignore */ }
+  return results;
+}
+
+// Update master sitemap index
 updateSitemapDates(join(ROOT, 'public/sitemap.xml'));
+
+// Update all sub-sitemaps
+const subSitemaps = findSitemaps(join(ROOT, 'public/sitemaps'));
+for (const file of subSitemaps) {
+  updateSitemapDates(file);
+}
+
+// Update legacy topic sitemap if it exists
 updateSitemapDates(join(ROOT, 'public/sitemap-topics.xml'));
 
-// Ping Google Search Console (optional, non-blocking)
+// Ping Google Search Console
 const sitemapUrl = 'https://mindpeakinstitute.com/sitemap.xml';
 const pingUrl = `https://www.google.com/ping?sitemap=${encodeURIComponent(sitemapUrl)}`;
 
 try {
   const res = await fetch(pingUrl);
   if (res.ok) {
-    console.log(`✅ Pinged Google: ${pingUrl}`);
+    console.log(`\n✅ Pinged Google: ${pingUrl}`);
   } else {
-    console.log(`⚠️  Google ping returned ${res.status}`);
+    console.log(`\n⚠️  Google ping returned ${res.status}`);
   }
 } catch {
-  console.log(`⚠️  Could not ping Google (network error) — sitemap still updated locally`);
+  console.log(`\n⚠️  Could not ping Google (network error) — sitemaps still updated locally`);
 }
 
-console.log(`\n📅 Sitemaps updated to ${today}`);
+console.log(`\n📅 All sitemaps updated to ${today}`);
+console.log(`📊 Updated ${subSitemaps.length + 1} sitemap files total`);
