@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Navbar } from '@/components/sections/Navbar';
@@ -33,6 +33,23 @@ const Contact = () => {
   const [form, setForm] = useState<FormData>({ name: '', phone: '', email: '', subject: '', message: '' });
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const conversionFired = useRef(false);
+
+  const fireConversion = () => {
+    try {
+      if (conversionFired.current) return;
+      if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+        (window as any).gtag('event', 'conversion', {
+          send_to: 'AW-17962731707/_Uc-CL7_g_sbELuRpvVC',
+          value: 1.0,
+          currency: 'INR',
+        });
+        conversionFired.current = true;
+      }
+    } catch (e) {
+      // ignore
+    }
+  };
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
@@ -60,6 +77,7 @@ const Contact = () => {
         body: JSON.stringify({ ...form, source: 'contact-page', timestamp: new Date().toISOString() }),
       });
       setSubmitted(true);
+      fireConversion();
       toast.success('Message sent! We\'ll get back to you within 24 hours.');
     } catch {
       toast.error('Something went wrong. Please try calling us instead.');

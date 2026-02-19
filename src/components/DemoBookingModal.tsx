@@ -1,4 +1,4 @@
-import { useState, createContext, useContext, ReactNode } from 'react';
+import { useState, useRef, createContext, useContext, ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, User, Phone, Mail, BookOpen, Loader2, CheckCircle } from 'lucide-react';
 import { toast } from 'sonner';
@@ -56,6 +56,23 @@ const DemoBookingModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
   const [form, setForm] = useState<FormData>({ name: '', phone: '', email: '', course: '', message: '' });
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const conversionFired = useRef(false);
+
+  const fireConversion = () => {
+    try {
+      if (conversionFired.current) return;
+      if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+        (window as any).gtag('event', 'conversion', {
+          send_to: 'AW-17962731707/_Uc-CL7_g_sbELuRpvVC',
+          value: 1.0,
+          currency: 'INR',
+        });
+        conversionFired.current = true;
+      }
+    } catch (e) {
+      // swallow errors to keep UI stable
+    }
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -90,6 +107,7 @@ const DemoBookingModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
         console.log('Demo booking data:', form);
         toast.info('Form submitted! (Google Sheet not configured yet — data logged to console)');
         setSubmitted(true);
+        fireConversion();
         return;
       }
 
@@ -108,6 +126,7 @@ const DemoBookingModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
       });
 
       setSubmitted(true);
+      fireConversion();
       toast.success('Demo booked successfully! We\'ll contact you soon.');
     } catch {
       toast.error('Something went wrong. Please try again or call us directly.');
