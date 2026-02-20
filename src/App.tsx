@@ -2,39 +2,64 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { useEffect, lazy, Suspense } from "react";
 import { DemoModalProvider } from "@/components/DemoBookingModal";
 import { SocialProofPopup } from "@/components/SocialProofPopup";
 import { LanguagePopup } from "@/components/LanguagePopup";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
-import Index from "./pages/Index";
-import Courses from "./pages/Courses";
-import CourseDetail from "./pages/CourseDetail";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
-import TermsAndConditions from "./pages/TermsAndConditions";
-import RefundPolicy from "./pages/RefundPolicy";
-import LocationPage from "./pages/LocationPage";
-import SEOLandingPage from "./pages/SEOLandingPage";
-import NotFound from "./pages/NotFound";
-import JEECoaching from "./pages/JEECoaching";
-import NEETCoaching from "./pages/NEETCoaching";
-import FreeTrial from "./pages/FreeTrial";
-import Pricing from "./pages/Pricing";
-import Contact from "./pages/Contact";
-import KotaAlternative from "./pages/KotaAlternative";
-import OnlineVsOffline from "./pages/OnlineVsOffline";
-import ComparisonPage from "./pages/ComparisonPage";
-import SubjectPage, { SUBJECT_SLUGS } from "./pages/SubjectPage";
-import ChapterPage, { CHAPTER_SLUGS } from "./pages/ChapterPage";
-import TopicPage, { TOPIC_PATHS } from "./pages/TopicPage";
-import RankPredictor from "./pages/RankPredictor";
-import FormulaSheet, { FORMULA_SLUGS } from "./pages/FormulaSheet";
 import { ExitIntentModal } from "./components/ExitIntentModal";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 
+/* ── Critical: loaded eagerly (homepage) ── */
+import Index from "./pages/Index";
+
+/* ── Lazy-loaded routes (code-split) ── */
+const Courses = lazy(() => import("./pages/Courses"));
+const CourseDetail = lazy(() => import("./pages/CourseDetail"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
+const RefundPolicy = lazy(() => import("./pages/RefundPolicy"));
+const LocationPage = lazy(() => import("./pages/LocationPage"));
+const SEOLandingPage = lazy(() => import("./pages/SEOLandingPage"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const JEECoaching = lazy(() => import("./pages/JEECoaching"));
+const NEETCoaching = lazy(() => import("./pages/NEETCoaching"));
+const FreeTrial = lazy(() => import("./pages/FreeTrial"));
+const Pricing = lazy(() => import("./pages/Pricing"));
+const Contact = lazy(() => import("./pages/Contact"));
+const KotaAlternative = lazy(() => import("./pages/KotaAlternative"));
+const OnlineVsOffline = lazy(() => import("./pages/OnlineVsOffline"));
+const ComparisonPage = lazy(() => import("./pages/ComparisonPage"));
+const RankPredictor = lazy(() => import("./pages/RankPredictor"));
+const JEEPracticeHub = lazy(() => import("./pages/JEEPracticeHub"));
+const JEEPYQHub = lazy(() => import("./pages/JEEPYQHub"));
+
+/* These are needed at route registration time, so import eagerly */
+import SubjectPage, { SUBJECT_SLUGS } from "./pages/SubjectPage";
+import ChapterPage, { CHAPTER_SLUGS } from "./pages/ChapterPage";
+import TopicPage, { TOPIC_PATHS } from "./pages/TopicPage";
+import FormulaSheet, { FORMULA_SLUGS } from "./pages/FormulaSheet";
+import JEEPracticeQuestion, { PRACTICE_SLUGS } from "./pages/JEEPracticeQuestion";
+import JEEPYQQuestion, { PYQ_SLUGS } from "./pages/JEEPYQQuestion";
+
 const queryClient = new QueryClient();
+
+/* Scroll to top on every route change (fixes footer-link issue) */
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+};
+
+/* Minimal loading fallback for lazy routes */
+const LazyFallback = () => (
+  <div className="min-h-screen bg-[hsl(225,43%,7%)] flex items-center justify-center">
+    <div className="w-8 h-8 border-2 border-amber-500 border-t-transparent rounded-full animate-spin" />
+  </div>
+);
 
 const App = () => (
   <ErrorBoundary>
@@ -44,11 +69,13 @@ const App = () => (
       <Sonner />
       <GoogleAnalytics />
       <BrowserRouter>
+        <ScrollToTop />
         <DemoModalProvider>
           <SocialProofPopup />
           <LanguagePopup />
           <WhatsAppFloat />
           <ExitIntentModal />
+          <Suspense fallback={<LazyFallback />}>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/courses" element={<Courses />} />
@@ -67,6 +94,9 @@ const App = () => (
 
             {/* SEO Landing Pages — exam, subject, and additional pages */}
             <Route path="/about" element={<SEOLandingPage />} />
+            <Route path="/success-stories" element={<SEOLandingPage />} />
+            <Route path="/methodology" element={<SEOLandingPage />} />
+            <Route path="/mentors" element={<SEOLandingPage />} />
             <Route path="/jee-main-coaching" element={<SEOLandingPage />} />
             <Route path="/jee-advanced-coaching" element={<SEOLandingPage />} />
             <Route path="/neet-ug-coaching" element={<SEOLandingPage />} />
@@ -82,6 +112,32 @@ const App = () => (
             <Route path="/neet-physics-coaching" element={<SEOLandingPage />} />
             <Route path="/neet-chemistry-coaching" element={<SEOLandingPage />} />
             <Route path="/batch-vs-personal-coaching" element={<SEOLandingPage />} />
+
+            {/* JEE Chapter-Category Pages */}
+            <Route path="/jee-physics-mechanics" element={<SEOLandingPage />} />
+            <Route path="/jee-physics-electrodynamics" element={<SEOLandingPage />} />
+            <Route path="/jee-physics-optics" element={<SEOLandingPage />} />
+            <Route path="/jee-physics-thermodynamics" element={<SEOLandingPage />} />
+            <Route path="/jee-physics-waves" element={<SEOLandingPage />} />
+            <Route path="/jee-chemistry-physical" element={<SEOLandingPage />} />
+            <Route path="/jee-chemistry-organic" element={<SEOLandingPage />} />
+            <Route path="/jee-chemistry-inorganic" element={<SEOLandingPage />} />
+            <Route path="/jee-math-algebra" element={<SEOLandingPage />} />
+            <Route path="/jee-math-calculus" element={<SEOLandingPage />} />
+            <Route path="/jee-math-trigonometry" element={<SEOLandingPage />} />
+            <Route path="/jee-math-geometry" element={<SEOLandingPage />} />
+
+            {/* JEE Practice Hub + Question Pages */}
+            <Route path="/jee-practice" element={<JEEPracticeHub />} />
+            {PRACTICE_SLUGS.map((slug) => (
+              <Route key={slug} path={`/${slug}`} element={<JEEPracticeQuestion />} />
+            ))}
+
+            {/* JEE Previous Year Questions Hub + Question Pages */}
+            <Route path="/jee-pyq" element={<JEEPYQHub />} />
+            {PYQ_SLUGS.map((slug) => (
+              <Route key={slug} path={`/${slug}`} element={<JEEPYQQuestion />} />
+            ))}
 
             {/* Comparison Pages */}
             <Route path="/kota-coaching-alternative" element={<KotaAlternative />} />
@@ -122,6 +178,7 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
+          </Suspense>
         </DemoModalProvider>
       </BrowserRouter>
     </TooltipProvider>

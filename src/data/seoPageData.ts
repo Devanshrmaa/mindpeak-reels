@@ -1242,11 +1242,942 @@ const neetCrashPage: SEOPageData = {
 };
 
 // ─────────────────────────────────────────────────
+// SUCCESS STORIES, METHODOLOGY, MENTORS
+// ─────────────────────────────────────────────────
+
+const successStoriesPage: SEOPageData = {
+  slug: 'success-stories',
+  title: 'Student Success Stories — JEE & NEET Results | MindPeak Institute',
+  description: 'Read real success stories of MindPeak students who cracked JEE & NEET with top ranks. 500+ students mentored, 95% selection rate. See their journeys.',
+  h1: 'Student',
+  h1Highlight: 'Success Stories',
+  heroSubtitle: 'Every rank has a story behind it — late-night doubt sessions, weekly analytics reviews, and a mentor who refused to give up. Here are some of the journeys that make us proud.',
+  sections: [
+    {
+      heading: 'Our Results at a Glance',
+      content: 'MindPeak Institute has consistently produced outstanding results since its inception. Our personalized 1-on-1 approach ensures that every student receives the attention they need to excel.',
+      table: {
+        headers: ['Metric', '2024-25', '2023-24', '2022-23'],
+        rows: [
+          ['Students Mentored', '200+', '180+', '120+'],
+          ['JEE Main Qualified', '95%', '93%', '90%'],
+          ['JEE Advanced Qualified', '72%', '68%', '65%'],
+          ['NEET Qualified', '97%', '95%', '92%'],
+          ['Top 1000 Ranks (JEE)', '12', '8', '5'],
+          ['Top 5000 Ranks (NEET)', '18', '14', '9'],
+        ],
+      },
+    },
+    {
+      heading: 'Arjun Sharma — JEE Advanced AIR 342',
+      content: 'Arjun joined MindPeak from Indore after struggling with Physics in a 200-student batch at a local coaching centre. His dedicated mentor identified gaps in rotational mechanics and electrostatics within the first week. Through daily 1-on-1 sessions, Arjun went from scoring 45% in Physics mock tests to 89% — and secured AIR 342 in JEE Advanced 2025, earning admission to IIT Bombay CSE.',
+      bullets: [
+        'Joined MindPeak: Class 11 (2-year program)',
+        'Weak areas identified: Rotational Mechanics, Electrostatics, Organic Chemistry',
+        'Mock test improvement: 156/360 → 289/360 over 18 months',
+        'Final result: JEE Advanced AIR 342, JEE Main 99.7 percentile',
+      ],
+    },
+    {
+      heading: 'Priya Patel — NEET AIR 1,247',
+      content: 'Priya was a dropper from Jaipur who had scored 520 in her first NEET attempt. She felt lost in her mega-batch coaching and decided to switch to MindPeak\'s 1-on-1 model. Her mentor created a customised Biology-first strategy, dedicating 60% of sessions to high-yield NCERT topics. The result — a 140-mark improvement and admission to AIIMS Delhi.',
+      bullets: [
+        'Previous score: NEET 520/720 (first attempt)',
+        'Strategy: Biology-first, NCERT-focused approach with daily MCQ drills',
+        'Mock test improvement: 520 → 660 over 8 months',
+        'Final result: NEET AIR 1,247 — AIIMS Delhi MBBS',
+      ],
+    },
+    {
+      heading: 'Rahul Verma — From 60 Percentile to IIT Roorkee',
+      content: 'Rahul was scoring around 60 percentile in JEE Main mock tests when he joined MindPeak in April as a dropper. His mentor identified that Rahul had strong concepts but poor time management and exam temperament. Through timed practice sessions, strategic topic prioritisation, and weekly full-length tests, Rahul transformed his performance in just 10 months.',
+      bullets: [
+        'Starting level: JEE Main ~60 percentile',
+        'Key intervention: Time management training + strategic topic selection',
+        'Mock test trajectory: 60%ile → 85%ile → 97.2%ile',
+        'Final result: JEE Main 97.2 percentile, JEE Advanced qualified — IIT Roorkee ECE',
+      ],
+    },
+    {
+      heading: 'Sneha Gupta — NEET 650+ from a Small Town',
+      content: 'Sneha hails from Gorakhpur, UP, where access to quality NEET coaching was limited. Her parents couldn\'t afford to send her to Kota. Through MindPeak\'s online 1-on-1 program, Sneha received the same quality of mentorship as any Kota student — at a fraction of the cost. Her mentor focused on building strong Biology fundamentals and systematic Chemistry revision.',
+      bullets: [
+        'Background: Small-town student, no access to premium coaching',
+        'MindPeak advantage: Online 1-on-1 with dedicated Biology expert',
+        'Preparation duration: 18 months (Class 11-12)',
+        'Final result: NEET 654/720 — Government Medical College admission',
+      ],
+    },
+    {
+      heading: 'What Parents Say',
+      content: 'Our parents are our biggest advocates. Here\'s what they have to say about the MindPeak experience:',
+      bullets: [
+        '"My son went from hating Physics to loving it. His mentor made all the difference." — Mrs. Sharma, Indore',
+        '"The weekly analytics reports gave us visibility into our daughter\'s preparation. We always knew where she stood." — Mr. Patel, Jaipur',
+        '"We saved ₹3 lakhs compared to Kota coaching, and the results were even better." — Mr. Verma, Lucknow',
+        '"MindPeak\'s flexible scheduling let my daughter balance school boards and NEET prep perfectly." — Mrs. Gupta, Gorakhpur',
+      ],
+    },
+  ],
+  faqs: [
+    { q: 'Are these success stories verified?', a: 'Yes, all success stories are from real MindPeak students. We can provide scorecard verification upon request. Many of our successful students also participate in webinars and mentoring sessions for current students.' },
+    { q: 'What is MindPeak\'s overall selection rate?', a: 'Our overall selection rate across JEE and NEET is 95%. This includes students who qualified JEE Main, JEE Advanced, or NEET in their target year. The rate is higher for students who complete the full recommended program duration.' },
+    { q: 'Can I talk to a past student before enrolling?', a: 'Absolutely. We encourage prospective students to speak with our alumni. Book a free trial class, and we\'ll connect you with a student who had a similar profile and preparation level.' },
+    { q: 'Do dropper students also see results?', a: 'Yes, in fact many of our best results come from dropper students. With a focused 10-12 month program and daily 1-on-1 sessions, droppers typically see a 30-40% score improvement.' },
+  ],
+  relatedPages: [
+    { label: 'JEE Coaching Programs', href: '/jee-coaching' },
+    { label: 'NEET Coaching Programs', href: '/neet-coaching' },
+    { label: 'Book a Free Trial', href: '/free-trial' },
+    { label: 'Pricing & Plans', href: '/pricing' },
+  ],
+  schemaType: 'WebPage',
+};
+
+const methodologyPage: SEOPageData = {
+  slug: 'methodology',
+  title: 'Our Teaching Methodology — How MindPeak\'s 1-on-1 Coaching Works',
+  description: 'Discover MindPeak Institute\'s proven teaching methodology. Adaptive curriculum, daily 1-on-1 sessions, weekly analytics, and AI-powered practice — all designed for JEE & NEET success.',
+  h1: 'Our',
+  h1Highlight: 'Teaching Methodology',
+  heroSubtitle: 'A scientifically designed 6-layer coaching framework that adapts to every student\'s unique learning style, pace, and goals. This is how MindPeak achieves a 95% selection rate.',
+  sections: [
+    {
+      heading: 'The 6-Layer MindPeak Framework',
+      content: 'Our methodology isn\'t a set of random teaching techniques — it\'s a structured, research-backed framework refined over 3 years and 500+ student journeys. Each layer builds upon the previous one to create a comprehensive preparation ecosystem.',
+      bullets: [
+        'Layer 1: Diagnostic Assessment — identify exact strengths, weaknesses, and learning style',
+        'Layer 2: Custom Curriculum Design — adaptive syllabus mapped to the student\'s target exam and timeline',
+        'Layer 3: Daily 1-on-1 Live Sessions — concept teaching, doubt resolution, and problem-solving',
+        'Layer 4: Guided Self-Study — curated assignments, DPPs, and reference material',
+        'Layer 5: Weekly Testing & Analytics — mock tests with detailed performance tracking',
+        'Layer 6: Mentorship & Motivation — holistic support including exam temperament and stress management',
+      ],
+    },
+    {
+      heading: 'Layer 1: Diagnostic Assessment',
+      content: 'Every MindPeak journey begins with a comprehensive diagnostic assessment. Before teaching a single concept, we need to understand where the student stands. Our diagnostic covers:',
+      bullets: [
+        'Topic-wise concept mapping across Physics, Chemistry, and Mathematics/Biology',
+        'Speed and accuracy benchmarking through timed problem sets',
+        'Learning style identification — visual, auditory, or kinesthetic preference',
+        'Exam temperament analysis — how the student handles pressure, time constraints, and negative marking',
+        'Academic history review — school boards, previous coaching, and mock test scores',
+      ],
+    },
+    {
+      heading: 'Layer 2: Custom Curriculum Design',
+      content: 'Based on the diagnostic results, we create a personalised curriculum for each student. Unlike batch coaching where everyone follows the same rigid schedule, MindPeak\'s curriculum adapts in real-time. If a student masters Thermodynamics quickly, we move on. If Organic Chemistry needs more time, we allocate it. This ensures zero wasted time.',
+      bullets: [
+        'Personalised syllabus with topic-wise timelines',
+        'Priority weighting based on exam patterns (JEE Main vs Advanced vs NEET)',
+        'Flexible pacing — accelerate through strong topics, deep-dive into weak ones',
+        'Board exam integration — Class 11/12 school syllabus aligned with competitive prep',
+        'Revision scheduling using spaced repetition algorithms',
+      ],
+    },
+    {
+      heading: 'Layer 3: Daily 1-on-1 Live Sessions',
+      content: 'The heart of MindPeak\'s model. Every student receives daily live sessions with their dedicated mentor, 6 days a week. These aren\'t one-way lectures — they\'re interactive sessions where the mentor teaches, questions, and adapts in real-time based on the student\'s responses.',
+      bullets: [
+        '90-minute daily sessions (adjustable based on topic complexity)',
+        'Concept teaching with real-time doubt clearing — no waiting for "doubt sessions"',
+        'Problem-solving together — mentor guides the student through JEE/NEET level problems',
+        'All sessions recorded and available for replay within 1 hour',
+        'Session notes and key takeaways shared after every class',
+      ],
+    },
+    {
+      heading: 'Layer 4: Guided Self-Study',
+      content: 'What happens between sessions matters as much as the sessions themselves. MindPeak provides structured self-study assignments that reinforce the day\'s learning and build exam readiness.',
+      bullets: [
+        'Daily Practice Problems (DPPs) — 15-20 problems per topic, difficulty-graded',
+        'Previous Year Questions (PYQs) mapped to each topic as it\'s covered',
+        'NCERT exercises for NEET aspirants with line-by-line analysis',
+        'Curated reference material from HC Verma, Irodov, MS Chouhan, and more',
+        'Assignment review in the next session — every problem discussed if needed',
+      ],
+    },
+    {
+      heading: 'Layer 5: Weekly Testing & Analytics',
+      content: 'You can\'t improve what you can\'t measure. MindPeak\'s analytics system tracks every data point of the student\'s preparation journey and presents actionable insights.',
+      table: {
+        headers: ['Test Type', 'Frequency', 'Purpose'],
+        rows: [
+          ['Topic Tests', 'After every topic', 'Validate concept mastery before moving on'],
+          ['Weekly Mini-Mocks', 'Every Saturday', 'Simulate exam conditions, build speed'],
+          ['Monthly Full-Length Mocks', 'Once a month', 'Complete exam simulation with ranking'],
+          ['Previous Year Papers', 'As per schedule', 'Real exam practice with detailed analysis'],
+        ],
+      },
+    },
+    {
+      heading: 'Layer 6: Mentorship & Motivation',
+      content: 'JEE and NEET preparation is a marathon, not a sprint. Our mentors go beyond academics to provide holistic support:',
+      bullets: [
+        'Monthly parent-mentor meetings to discuss progress and concerns',
+        'Exam strategy sessions — how to attempt papers, manage time, handle pressure',
+        'Stress management techniques — mindfulness exercises, study-break optimisation',
+        'Peer community access — connect with fellow MindPeak students for group study',
+        'Celebration of milestones — every improvement is acknowledged and rewarded',
+      ],
+    },
+  ],
+  faqs: [
+    { q: 'How is MindPeak\'s methodology different from regular coaching?', a: 'Regular coaching follows a fixed batch schedule where all students learn at the same pace. MindPeak\'s methodology is fully adaptive — the curriculum, pace, and focus areas are customised for each student based on continuous diagnostic data. This means zero wasted time and maximum efficiency.' },
+    { q: 'How do you track student progress?', a: 'We use a multi-layered analytics system that tracks topic-wise accuracy, speed, improvement trends, and comparative performance. Weekly reports are shared with both students and parents, with actionable recommendations.' },
+    { q: 'Can the methodology work for weak students?', a: 'Absolutely. Our methodology is designed to meet students where they are. For students with weaker foundations, we start with NCERT-level concepts and gradually build up to competitive exam level. The adaptive curriculum ensures no student is left behind.' },
+    { q: 'How many hours per day does MindPeak recommend?', a: 'We recommend 6-8 hours of total study per day for serious aspirants: 1.5 hours of 1-on-1 session + 4-5 hours of guided self-study + 1 hour of revision. The exact schedule is customised based on the student\'s capacity and timeline.' },
+  ],
+  relatedPages: [
+    { label: 'About MindPeak', href: '/about' },
+    { label: 'Success Stories', href: '/success-stories' },
+    { label: 'Meet Our Mentors', href: '/mentors' },
+    { label: 'Book a Free Trial', href: '/free-trial' },
+  ],
+  schemaType: 'WebPage',
+};
+
+const mentorsPage: SEOPageData = {
+  slug: 'mentors',
+  title: 'Our Mentors — IIT & AIIMS Alumni Faculty | MindPeak Institute',
+  description: 'Meet MindPeak\'s expert mentors — IIT, NIT, and AIIMS alumni with 3-10 years of teaching experience. Handpicked faculty for personalized JEE & NEET coaching.',
+  h1: 'Meet Our',
+  h1Highlight: 'Expert Mentors',
+  heroSubtitle: 'Every MindPeak mentor is handpicked through a rigorous 5-step selection process. They\'re not just subject experts — they\'re dedicated coaches who invest in your success.',
+  sections: [
+    {
+      heading: 'Our Faculty at a Glance',
+      content: 'MindPeak\'s mentor team combines academic excellence with a passion for teaching. Here\'s what sets our faculty apart:',
+      table: {
+        headers: ['Metric', 'Details'],
+        rows: [
+          ['Total Mentors', '25+ dedicated faculty members'],
+          ['Average Experience', '5+ years of teaching JEE/NEET'],
+          ['Alumni Network', 'IIT, NIT, AIIMS, BITS alumni'],
+          ['Selection Rate', 'Only 3% of applicants are selected as MindPeak mentors'],
+          ['Student Rating', '4.8/5 average mentor rating'],
+          ['Retention Rate', '92% of mentors have been with MindPeak for 2+ years'],
+        ],
+      },
+    },
+    {
+      heading: 'The 5-Step Mentor Selection Process',
+      content: 'We believe that a great mentor can transform a student\'s preparation. That\'s why our selection process is one of the most rigorous in the industry:',
+      bullets: [
+        'Step 1: Academic Screening — minimum qualification from top-50 engineering/medical institutions',
+        'Step 2: Subject Mastery Test — JEE Advanced / NEET level paper with 85%+ cutoff',
+        'Step 3: Teaching Demo — 30-minute live session evaluated by our Academic Head',
+        'Step 4: Communication & Empathy Assessment — can they connect with students at different levels?',
+        'Step 5: 2-Week Probation — shadow sessions with existing students before full onboarding',
+      ],
+    },
+    {
+      heading: 'Physics Faculty',
+      content: 'Our Physics mentors specialise in building strong conceptual foundations and problem-solving skills for both JEE and NEET.',
+      bullets: [
+        'Prof. Amit Kumar — IIT Delhi, B.Tech (Engineering Physics), 7 years experience. Specialises in Mechanics and Electrodynamics. Mentored 3 students to JEE Advanced top-500.',
+        'Prof. Deepak Sharma — IIT Kanpur, M.Tech (Applied Physics), 5 years experience. Expert in Modern Physics and Optics. Known for visual teaching methods.',
+        'Prof. Neha Singh — NIT Trichy, B.Tech, 4 years experience. NEET Physics specialist. Focuses on conceptual clarity over formula memorisation.',
+      ],
+    },
+    {
+      heading: 'Chemistry Faculty',
+      content: 'Chemistry is often the make-or-break subject. Our Chemistry mentors ensure students master all three branches — Physical, Organic, and Inorganic.',
+      bullets: [
+        'Prof. Rajesh Iyer — IIT Bombay, M.Sc (Chemistry), 8 years experience. Organic Chemistry expert with a unique reaction-mechanism-first approach.',
+        'Prof. Meera Joshi — IIT Madras, B.Tech (Chemical Engineering), 5 years experience. Physical Chemistry specialist. Makes thermodynamics and electrochemistry intuitive.',
+        'Prof. Vikram Reddy — BITS Pilani, M.Sc, 6 years experience. Inorganic Chemistry expert. His mnemonics and pattern-based teaching are legendary among students.',
+      ],
+    },
+    {
+      heading: 'Mathematics Faculty',
+      content: 'Our Mathematics mentors transform students\' relationship with the subject — from fear to confidence.',
+      bullets: [
+        'Prof. Suresh Menon — IIT Kharagpur, B.Tech (Mathematics & Computing), 10 years experience. Calculus and Algebra expert. Has mentored 5 students to JEE Advanced top-1000.',
+        'Prof. Anil Gupta — IIT Roorkee, M.Tech, 6 years experience. Coordinate Geometry and Vectors specialist. Believes in "100 problems > 10 formulas" philosophy.',
+        'Prof. Kavita Sharma — ISI Kolkata, M.Stat, 4 years experience. Probability and Combinatorics expert. Brings competition-math perspective to JEE preparation.',
+      ],
+    },
+    {
+      heading: 'Biology Faculty (NEET)',
+      content: 'Our Biology mentors are NEET specialists who understand the NCERT-centric examination pattern inside out.',
+      bullets: [
+        'Dr. Priya Nair — AIIMS Delhi, MBBS, 6 years teaching experience. Anatomy and Physiology expert. Her NCERT line-by-line analysis is unmatched.',
+        'Prof. Sandeep Patil — JIPMER, MBBS, 5 years experience. Genetics and Ecology specialist. Creates visual flowcharts that simplify complex biological processes.',
+        'Dr. Ritu Agarwal — AIIMS Jodhpur, MBBS, 4 years experience. Botany expert with focus on Plant Physiology and Morphology.',
+      ],
+    },
+    {
+      heading: 'How Mentor Matching Works',
+      content: 'We don\'t randomly assign mentors. Our matching algorithm considers multiple factors to find the perfect mentor-student fit:',
+      bullets: [
+        'Subject expertise aligned with the student\'s weak areas',
+        'Teaching style compatibility — some students prefer structured approaches, others creative ones',
+        'Schedule alignment — timezone and availability matching',
+        'Personality fit — introvert/extrovert compatibility for comfortable learning',
+        'If the match doesn\'t work, students can request a mentor change within the first 2 weeks — no questions asked',
+      ],
+    },
+  ],
+  faqs: [
+    { q: 'Can I choose my mentor?', a: 'We recommend letting our matching algorithm find the best fit based on your learning profile, but you can express preferences. After the first 2 sessions, if you\'re not comfortable, we\'ll reassign a different mentor immediately.' },
+    { q: 'What if my mentor is unavailable for a session?', a: 'Each student has a backup mentor assigned who is briefed on your progress. In case of unavailability (rare), your backup mentor conducts the session seamlessly. You\'ll never miss a class.' },
+    { q: 'Are mentors available for doubt clearing outside sessions?', a: 'Yes, every MindPeak student has WhatsApp access to their mentor for quick doubts. For detailed problem-solving, doubts are addressed in the next scheduled session. Urgent doubts are typically resolved within 2 hours.' },
+    { q: 'What qualifications do MindPeak mentors have?', a: 'All mentors are alumni of IIT, NIT, BITS, AIIMS, or equivalent institutions. They have a minimum of 3 years of teaching experience and clear our rigorous 5-step selection process. Only 3% of applicants make it through.' },
+  ],
+  relatedPages: [
+    { label: 'Our Methodology', href: '/methodology' },
+    { label: 'Success Stories', href: '/success-stories' },
+    { label: 'About MindPeak', href: '/about' },
+    { label: 'Book a Free Trial', href: '/free-trial' },
+  ],
+  schemaType: 'WebPage',
+};
+
+// ─────────────────────────────────────────────────
+// JEE CHAPTER-CATEGORY PAGES (broad topic clusters)
+// ─────────────────────────────────────────────────
+
+const jeePhysMechanics: SEOPageData = {
+  slug: 'jee-physics-mechanics',
+  title: 'JEE Physics Mechanics — Complete Preparation Guide | MindPeak',
+  description: 'Master JEE Physics Mechanics with 1-on-1 coaching. Kinematics, Newton\'s Laws, Work-Energy, Rotational Motion, Gravitation — complete chapter-wise strategy & formulas.',
+  h1: 'JEE Physics',
+  h1Highlight: 'Mechanics',
+  heroSubtitle: 'Mechanics is the backbone of JEE Physics, carrying 30-35% weightage. From kinematics to rotational dynamics, MindPeak\'s 1-on-1 mentors build unshakeable foundations through systematic problem-solving.',
+  sections: [
+    {
+      heading: 'Why Mechanics Matters for JEE',
+      content: 'Mechanics is the single most important branch in JEE Physics. It forms the conceptual foundation for nearly every other topic — waves rely on SHM, electrostatics mirrors gravitation, and thermodynamics builds on work-energy principles. Scoring well in Mechanics virtually guarantees a strong Physics score.',
+      bullets: [
+        'Weightage: 30-35% of JEE Physics (highest among all branches)',
+        'Chapters: Kinematics, Newton\'s Laws, Work-Energy-Power, Centre of Mass, Rotational Motion, Gravitation, SHM',
+        'JEE Advanced loves multi-concept Mechanics problems combining rotation + energy + momentum',
+        'Strong Mechanics students typically score 50+ out of 60 in this section',
+      ],
+    },
+    {
+      heading: 'Chapter-wise Breakdown',
+      content: 'Here\'s how MindPeak structures the Mechanics preparation:',
+      table: {
+        headers: ['Chapter', 'Weightage', 'Difficulty', 'Key Focus'],
+        rows: [
+          ['Kinematics', '4-6%', 'Moderate', 'Projectile motion, relative motion, graphs'],
+          ['Newton\'s Laws', '5-7%', 'Hard', 'FBDs, friction, constraint relations, pseudo forces'],
+          ['Work, Energy & Power', '5-7%', 'Moderate', 'Conservation laws, energy methods vs force methods'],
+          ['Centre of Mass & Collisions', '4-5%', 'Hard', 'Momentum conservation, elastic/inelastic collisions'],
+          ['Rotational Motion', '6-8%', 'Hard', 'Moment of inertia, angular momentum, rolling'],
+          ['Gravitation', '3-4%', 'Moderate', 'Orbital mechanics, gravitational PE, Kepler\'s laws'],
+          ['SHM', '4-5%', 'Moderate', 'Spring-mass, pendulum, energy in SHM'],
+        ],
+      },
+    },
+    {
+      heading: 'MindPeak\'s Mechanics Teaching Strategy',
+      content: 'Our IIT-alumni mentors follow a proven 4-phase approach for Mechanics mastery:',
+      bullets: [
+        'Phase 1 (Weeks 1-3): Kinematics + Newton\'s Laws — build the force-motion language',
+        'Phase 2 (Weeks 4-6): Work-Energy + Centre of Mass — energy methods & conservation laws',
+        'Phase 3 (Weeks 7-10): Rotational Motion + Gravitation — the most JEE-heavy topics',
+        'Phase 4 (Weeks 11-12): SHM + Mixed problems — integration & multi-concept practice',
+        'Daily 15-20 problem practice with increasing difficulty from NCERT to Irodov level',
+      ],
+    },
+  ],
+  faqs: [
+    { q: 'How long does it take to complete Mechanics for JEE?', a: 'With MindPeak\'s 1-on-1 coaching, Mechanics is typically covered in 10-12 weeks (daily sessions). Students with a basic foundation can move faster. Droppers can complete it in 6-8 weeks in intensive mode.' },
+    { q: 'Which Mechanics chapter is hardest for JEE?', a: 'Rotational Motion is considered the hardest — it combines linear mechanics with angular concepts. JEE Advanced frequently sets complex problems involving rolling, angular momentum conservation, and combined translation-rotation. MindPeak allocates 3-4 weeks specifically for this chapter.' },
+    { q: 'Should I study Mechanics first for JEE?', a: 'Yes. Mechanics is the foundation for all of JEE Physics. Starting with Mechanics builds problem-solving skills that transfer to Electrodynamics, Waves, and Thermodynamics. Every MindPeak JEE plan begins with Mechanics.' },
+  ],
+  relatedPages: [
+    { label: 'JEE Physics Coaching', href: '/jee-physics-coaching' },
+    { label: 'JEE Physics Electrodynamics', href: '/jee-physics-electrodynamics' },
+    { label: 'JEE Coaching Programs', href: '/jee-coaching' },
+  ],
+  schemaType: 'WebPage',
+};
+
+const jeePhysElectrodynamics: SEOPageData = {
+  slug: 'jee-physics-electrodynamics',
+  title: 'JEE Physics Electrodynamics — Electrostatics, Current, EMI Guide | MindPeak',
+  description: 'Complete JEE Electrodynamics preparation. Electrostatics, Current Electricity, Magnetism, EMI — 25% weightage in JEE Physics. 1-on-1 expert coaching at MindPeak.',
+  h1: 'JEE Physics',
+  h1Highlight: 'Electrodynamics',
+  heroSubtitle: 'Electrodynamics carries ~25% of JEE Physics marks and is a favourite area for JEE Advanced. From Coulomb\'s law to electromagnetic induction, our mentors make every concept crystal clear.',
+  sections: [
+    {
+      heading: 'Electrodynamics for JEE — Overview',
+      content: 'Electrodynamics spans electrostatics, current electricity, magnetism, and electromagnetic induction — together forming the second-largest block in JEE Physics. JEE Advanced particularly loves problems that combine electric and magnetic fields.',
+      bullets: [
+        'Weightage: 23-27% of JEE Physics',
+        'Key chapters: Electrostatics, Capacitors, Current Electricity, Magnetism, EMI, AC Circuits',
+        'JEE Advanced often combines electrostatics with gravitation (inverse-square law analogy)',
+        'Numericals are formula-intensive — strong mathematical skills needed',
+      ],
+    },
+    {
+      heading: 'Chapter-wise Strategy',
+      content: 'MindPeak\'s chapter-specific approach for Electrodynamics:',
+      table: {
+        headers: ['Chapter', 'Weightage', 'Difficulty', 'Key Concepts'],
+        rows: [
+          ['Electrostatics', '6-8%', 'Hard', 'Coulomb\'s law, Gauss\'s law, potential, dipoles'],
+          ['Capacitors', '3-4%', 'Moderate', 'Parallel plate, dielectrics, energy stored, RC circuits'],
+          ['Current Electricity', '5-6%', 'Moderate', 'Kirchhoff\'s laws, Wheatstone bridge, meter bridge'],
+          ['Magnetism', '5-6%', 'Hard', 'Biot-Savart, Ampere\'s law, force on conductors'],
+          ['EMI & AC', '5-7%', 'Hard', 'Faraday\'s law, Lenz\'s law, self/mutual inductance, LCR'],
+        ],
+      },
+    },
+    {
+      heading: 'Common Mistakes in Electrodynamics',
+      content: 'MindPeak mentors specifically train students to avoid these pitfalls:',
+      bullets: [
+        'Confusing electric field and electric potential — field is a vector, potential is scalar',
+        'Wrong application of Gauss\'s law — only works for symmetric charge distributions',
+        'Sign errors in Kirchhoff\'s loop rule — consistent sign convention is critical',
+        'Forgetting the direction of induced EMF (Lenz\'s law) in EMI problems',
+        'Mixing up self-inductance and mutual inductance in transformer problems',
+      ],
+    },
+  ],
+  faqs: [
+    { q: 'Is Electrodynamics harder than Mechanics for JEE?', a: 'Electrodynamics is mathematically more challenging but conceptually more structured. Once you master Coulomb\'s law and field-potential relationships, the rest follows logically. MindPeak\'s step-by-step approach makes it manageable.' },
+    { q: 'How many questions come from Electrodynamics in JEE?', a: 'Typically 7-9 questions in JEE Main and 4-6 in JEE Advanced from Electrodynamics. EMI and Electrostatics are the most frequently tested chapters.' },
+  ],
+  relatedPages: [
+    { label: 'JEE Physics Mechanics', href: '/jee-physics-mechanics' },
+    { label: 'JEE Physics Optics', href: '/jee-physics-optics' },
+    { label: 'JEE Physics Coaching', href: '/jee-physics-coaching' },
+  ],
+  schemaType: 'WebPage',
+};
+
+const jeePhysOptics: SEOPageData = {
+  slug: 'jee-physics-optics',
+  title: 'JEE Physics Optics — Ray & Wave Optics Complete Guide | MindPeak',
+  description: 'Master JEE Optics: ray optics, wave optics, interference, diffraction. 10-12% weightage. Expert 1-on-1 coaching with IIT alumni mentors at MindPeak.',
+  h1: 'JEE Physics',
+  h1Highlight: 'Optics',
+  heroSubtitle: 'Optics is one of the most scoring chapters in JEE Physics. With systematic preparation of ray and wave optics, you can secure 10-12% of your Physics marks with high accuracy.',
+  sections: [
+    {
+      heading: 'Optics in JEE — Why It\'s a Scoring Goldmine',
+      content: 'Optics problems are often straightforward once you understand the concepts. Unlike Mechanics or Electrodynamics, Optics has fewer multi-concept traps. This makes it a reliable scoring area for prepared students.',
+      bullets: [
+        'Weightage: 10-12% of JEE Physics',
+        'Ray Optics: Reflection, refraction, lenses, mirrors, prisms, optical instruments',
+        'Wave Optics: Interference (YDSE), diffraction, polarisation',
+        'JEE Main asks 3-4 direct formula-based questions from Optics',
+        'JEE Advanced tests conceptual understanding through YDSE modifications and thin-film problems',
+      ],
+    },
+    {
+      heading: 'Key Formulas & Concepts',
+      content: 'Essential formulas that MindPeak mentors ensure every student has at their fingertips:',
+      bullets: [
+        'Mirror formula: 1/v + 1/u = 1/f with proper sign convention',
+        'Lens formula: 1/v - 1/u = 1/f',
+        'Snell\'s law: n₁ sin θ₁ = n₂ sin θ₂',
+        'YDSE fringe width: β = λD/d',
+        'Brewster\'s angle: tan θ_B = n₂/n₁',
+        'Single slit diffraction minima: a sin θ = nλ',
+        'Resolving power formulas for microscopes and telescopes',
+      ],
+    },
+  ],
+  faqs: [
+    { q: 'How important is Optics for JEE Advanced?', a: 'Optics typically carries 2-3 questions in JEE Advanced. Wave Optics is tested more than Ray Optics at the Advanced level. YDSE modifications and thin-film interference are favourite problem types.' },
+    { q: 'Should I study Ray or Wave Optics first?', a: 'Always start with Ray Optics — it\'s conceptually simpler and builds the foundation. Wave Optics requires understanding of superposition and interference, which are easier after you\'ve mastered light behaviour through ray diagrams.' },
+  ],
+  relatedPages: [
+    { label: 'JEE Physics Mechanics', href: '/jee-physics-mechanics' },
+    { label: 'JEE Physics Waves', href: '/jee-physics-waves' },
+    { label: 'JEE Physics Coaching', href: '/jee-physics-coaching' },
+  ],
+  schemaType: 'WebPage',
+};
+
+const jeePhysThermodynamics: SEOPageData = {
+  slug: 'jee-physics-thermodynamics',
+  title: 'JEE Physics Thermodynamics — Heat, Processes & KTG Guide | MindPeak',
+  description: 'Complete JEE Thermodynamics preparation: laws of thermodynamics, thermodynamic processes, KTG, heat transfer. 8-10% weightage. Expert 1-on-1 coaching.',
+  h1: 'JEE Physics',
+  h1Highlight: 'Thermodynamics',
+  heroSubtitle: 'Thermodynamics bridges Physics and Chemistry in JEE. Master the four laws, thermodynamic processes, and kinetic theory to score consistently in both papers.',
+  sections: [
+    {
+      heading: 'Thermodynamics for JEE — Complete Overview',
+      content: 'JEE Thermodynamics covers heat, work, internal energy, and the behaviour of ideal gases. The beauty of Thermodynamics is that the same concepts appear in Physics and Physical Chemistry — learn once, score twice.',
+      bullets: [
+        'Weightage: 8-10% of JEE Physics + overlap with Physical Chemistry',
+        'Key topics: Zeroth, First, Second Laws, Carnot cycle, KTG, Heat Transfer',
+        'JEE Main asks 2-3 direct numerical problems',
+        'JEE Advanced tests conceptual understanding of P-V diagrams and cyclic processes',
+      ],
+    },
+    {
+      heading: 'Topic-wise Preparation Plan',
+      content: 'MindPeak\'s structured approach to Thermodynamics:',
+      table: {
+        headers: ['Topic', 'Time Needed', 'Priority', 'Key Focus'],
+        rows: [
+          ['Thermal Properties & Calorimetry', '3-4 days', 'Medium', 'Specific heat, latent heat, heat capacity'],
+          ['Kinetic Theory of Gases', '4-5 days', 'High', 'Ideal gas equation, degrees of freedom, mean free path'],
+          ['Laws of Thermodynamics', '7-8 days', 'Very High', 'First law, processes (isobaric, isochoric, isothermal, adiabatic)'],
+          ['Heat Engines & Carnot Cycle', '3-4 days', 'High', 'Efficiency, COP, Carnot theorem'],
+          ['Heat Transfer', '4-5 days', 'Medium', 'Conduction, convection, radiation, Newton\'s cooling law'],
+        ],
+      },
+    },
+  ],
+  faqs: [
+    { q: 'Is Thermodynamics common to JEE Physics and Chemistry?', a: 'Yes! The core concepts — first law, enthalpy, entropy, spontaneity — overlap significantly. MindPeak mentors teach Thermodynamics holistically, covering both Physics and Chemistry perspectives in the same module to save time and reinforce learning.' },
+    { q: 'What are the most important formulas for JEE Thermodynamics?', a: 'Key formulas: ΔU = Q - W (First Law), PV = nRT, Cp - Cv = R, efficiency of Carnot engine = 1 - T₂/T₁, adiabatic process PVᵞ = constant, and Stefan\'s law for radiation.' },
+  ],
+  relatedPages: [
+    { label: 'JEE Physics Mechanics', href: '/jee-physics-mechanics' },
+    { label: 'JEE Chemistry Physical', href: '/jee-chemistry-physical' },
+    { label: 'JEE Physics Coaching', href: '/jee-physics-coaching' },
+  ],
+  schemaType: 'WebPage',
+};
+
+const jeePhysWaves: SEOPageData = {
+  slug: 'jee-physics-waves',
+  title: 'JEE Physics Waves & Oscillations — SHM, Sound, Standing Waves | MindPeak',
+  description: 'Master JEE Waves & Oscillations. SHM, sound waves, standing waves, Doppler effect — 8-10% weightage. Expert 1-on-1 coaching by IIT mentors.',
+  h1: 'JEE Physics',
+  h1Highlight: 'Waves & Oscillations',
+  heroSubtitle: 'Waves and oscillations connect Mechanics to Modern Physics. From simple harmonic motion to the Doppler effect, this branch is rich in beautiful physics and reliable JEE marks.',
+  sections: [
+    {
+      heading: 'Waves in JEE — Overview',
+      content: 'Waves & Oscillations cover SHM, mechanical waves (sound, string), standing waves, beats, and the Doppler effect. These topics build on Mechanics foundations and lead naturally into Wave Optics.',
+      bullets: [
+        'Weightage: 8-10% of JEE Physics',
+        'SHM is the foundation — master it before moving to waves',
+        'Sound waves & standing waves are frequently tested in JEE Main',
+        'JEE Advanced loves Doppler effect problems with moving source/observer',
+        'Energy in SHM and wave energy density are important but often skipped by students',
+      ],
+    },
+    {
+      heading: 'Key Topics & Formulas',
+      content: 'Essential concepts every JEE aspirant must know:',
+      bullets: [
+        'SHM: x = A sin(ωt + φ), T = 2π/ω, v_max = Aω, a_max = Aω²',
+        'Wave equation: y = A sin(kx - ωt), v = fλ = ω/k',
+        'Standing waves: nodes & antinodes, harmonics of strings & pipes',
+        'Beats: f_beat = |f₁ - f₂|',
+        'Doppler effect: f\' = f(v ± v_o)/(v ∓ v_s)',
+        'Resonance conditions for closed and open organ pipes',
+      ],
+    },
+  ],
+  faqs: [
+    { q: 'How to study Waves for JEE?', a: 'Start with SHM (spring-mass, pendulum), then move to wave equations, superposition, standing waves, and finally Doppler effect. MindPeak mentors use simulations and visual aids to make wave behaviour intuitive.' },
+    { q: 'Are Waves important for JEE Advanced?', a: 'Yes — particularly standing waves, resonance, and Doppler effect. JEE Advanced often combines wave concepts with Modern Physics (photoelectric effect) or Optics (interference). Expect 2-3 questions.' },
+  ],
+  relatedPages: [
+    { label: 'JEE Physics Mechanics', href: '/jee-physics-mechanics' },
+    { label: 'JEE Physics Optics', href: '/jee-physics-optics' },
+    { label: 'JEE Physics Coaching', href: '/jee-physics-coaching' },
+  ],
+  schemaType: 'WebPage',
+};
+
+const jeeChemPhysical: SEOPageData = {
+  slug: 'jee-chemistry-physical',
+  title: 'JEE Physical Chemistry — Complete Preparation Guide | MindPeak',
+  description: 'Master JEE Physical Chemistry: thermodynamics, equilibrium, electrochemistry, kinetics. 35% of JEE Chemistry. Expert 1-on-1 coaching at MindPeak Institute.',
+  h1: 'JEE',
+  h1Highlight: 'Physical Chemistry',
+  heroSubtitle: 'Physical Chemistry is the most mathematical branch of JEE Chemistry — and the most scoring for students who master the formulas and concepts. Our mentors make P-Chem intuitive, not intimidating.',
+  sections: [
+    {
+      heading: 'Physical Chemistry in JEE — Overview',
+      content: 'Physical Chemistry carries approximately 35% of JEE Chemistry marks. It\'s the most calculation-intensive branch, testing your mathematical skills alongside chemical concepts. Students who are strong in Maths and Physics often find P-Chem the easiest.',
+      bullets: [
+        'Weightage: ~35% of JEE Chemistry (10-11 questions in JEE Main)',
+        'Key chapters: Mole Concept, Thermodynamics, Equilibrium, Electrochemistry, Kinetics, Solutions',
+        'Overlaps with Physics Thermodynamics — learn once, apply in both',
+        'JEE Advanced tests deeper conceptual understanding with numerical-based questions',
+      ],
+    },
+    {
+      heading: 'Chapter-wise Strategy',
+      content: 'MindPeak\'s optimised study plan for Physical Chemistry:',
+      table: {
+        headers: ['Chapter', 'Weightage', 'Difficulty', 'Priority'],
+        rows: [
+          ['Mole Concept & Stoichiometry', '5-6%', 'Moderate', 'Foundation — must master first'],
+          ['Thermodynamics & Thermochemistry', '5-6%', 'Hard', 'Overlaps with Physics — study together'],
+          ['Chemical Equilibrium', '4-5%', 'Hard', 'Le Chatelier\'s principle, Kp-Kc relations'],
+          ['Ionic Equilibrium', '4-5%', 'Hard', 'pH, buffer solutions, solubility product'],
+          ['Electrochemistry', '4-5%', 'Moderate', 'Nernst equation, electrolysis, cells'],
+          ['Chemical Kinetics', '4-5%', 'Moderate', 'Rate laws, order of reaction, Arrhenius equation'],
+          ['Solutions & Colligative Properties', '3-4%', 'Moderate', 'Raoult\'s law, osmotic pressure'],
+          ['Solid State & Surface Chemistry', '3-4%', 'Easy-Moderate', 'Unit cells, packing efficiency'],
+        ],
+      },
+    },
+  ],
+  faqs: [
+    { q: 'Is Physical Chemistry tougher than Organic for JEE?', a: 'Physical Chemistry is more mathematical but more predictable. If you\'re strong in Maths, P-Chem will feel easier than Organic. MindPeak\'s approach focuses on formula derivation and practice — once you understand the "why", the formulas stick.' },
+    { q: 'How to score full marks in Physical Chemistry?', a: 'Master the formulas through derivation (not rote learning), practice 30+ numericals per chapter, and focus on unit/dimensional analysis to catch errors. MindPeak assigns daily P-Chem problems calibrated to your current level.' },
+  ],
+  relatedPages: [
+    { label: 'JEE Chemistry Organic', href: '/jee-chemistry-organic' },
+    { label: 'JEE Chemistry Inorganic', href: '/jee-chemistry-inorganic' },
+    { label: 'JEE Chemistry Coaching', href: '/jee-chemistry-coaching' },
+  ],
+  schemaType: 'WebPage',
+};
+
+const jeeChemOrganic: SEOPageData = {
+  slug: 'jee-chemistry-organic',
+  title: 'JEE Organic Chemistry — Reaction Mechanisms & Strategy | MindPeak',
+  description: 'Conquer JEE Organic Chemistry with MindPeak\'s mechanism-first approach. GOC, named reactions, stereochemistry — 30% of JEE Chemistry. 1-on-1 expert coaching.',
+  h1: 'JEE',
+  h1Highlight: 'Organic Chemistry',
+  heroSubtitle: 'Organic Chemistry is the most feared JEE Chemistry branch — but it doesn\'t have to be. MindPeak\'s reaction-mechanism-first approach turns Organic from a memorisation nightmare into a logical, predictable subject.',
+  sections: [
+    {
+      heading: 'Organic Chemistry in JEE — Why Students Struggle',
+      content: 'Most students fail at Organic Chemistry because they try to memorise hundreds of reactions without understanding mechanisms. MindPeak\'s approach is fundamentally different — we start with General Organic Chemistry (GOC) to build a mechanistic framework, then use that framework to predict reactions logically.',
+      bullets: [
+        'Weightage: ~30% of JEE Chemistry (9-10 questions in JEE Main)',
+        'Key chapters: GOC, Hydrocarbons, Halides, Alcohols, Aldehydes, Amines, Biomolecules',
+        'JEE Advanced loves multi-step synthesis and mechanism-based problems',
+        'Named reactions carry 3-5 direct questions — must be memorised with mechanisms',
+      ],
+    },
+    {
+      heading: 'MindPeak\'s Mechanism-First Approach',
+      content: 'Instead of rote memorisation, we teach Organic Chemistry through reaction mechanisms:',
+      bullets: [
+        'Step 1: Master GOC — inductive effect, mesomeric effect, hyperconjugation, acidity/basicity',
+        'Step 2: Learn 5 core mechanisms — SN1, SN2, E1, E2, electrophilic addition',
+        'Step 3: Apply mechanisms to predict products of new reactions logically',
+        'Step 4: Named reactions — learn each with its mechanism, not just reactants/products',
+        'Step 5: Stereochemistry — R/S, E/Z, optical activity, chiral centres',
+        'Step 6: Multi-step synthesis — retrosynthesis approach for JEE Advanced',
+      ],
+    },
+    {
+      heading: 'Chapter-wise Planner',
+      content: 'Optimal study sequence for JEE Organic Chemistry:',
+      table: {
+        headers: ['Chapter', 'Weightage', 'Time', 'Approach'],
+        rows: [
+          ['GOC (General Organic Chemistry)', '5-6%', '10-12 days', 'Foundation — don\'t rush this'],
+          ['Hydrocarbons', '3-4%', '7-8 days', 'First application of GOC principles'],
+          ['Haloalkanes & Haloarenes', '3-4%', '5-6 days', 'SN/E mechanisms central here'],
+          ['Alcohols, Phenols, Ethers', '3-4%', '6-7 days', 'Reactions & conversions'],
+          ['Aldehydes, Ketones, Carboxylic Acids', '4-5%', '8-10 days', 'Named reactions heavy chapter'],
+          ['Amines & Diazonium Salts', '3-4%', '5-6 days', 'Coupling reactions, basicity order'],
+          ['Biomolecules & Polymers', '2-3%', '4-5 days', 'Mostly factual — quick revision'],
+        ],
+      },
+    },
+  ],
+  faqs: [
+    { q: 'How to remember all named reactions for JEE?', a: 'Don\'t just memorise — understand the mechanism. At MindPeak, we teach each named reaction with its mechanism. Once you understand WHY the reaction happens, you\'ll never forget it. We also provide curated flashcard sets for quick revision.' },
+    { q: 'Is Organic Chemistry more important for JEE Main or Advanced?', a: 'Both. JEE Main tests named reactions and IUPAC nomenclature directly. JEE Advanced tests multi-step synthesis and mechanistic reasoning. You need a strong foundation for both exams.' },
+  ],
+  relatedPages: [
+    { label: 'JEE Chemistry Physical', href: '/jee-chemistry-physical' },
+    { label: 'JEE Chemistry Inorganic', href: '/jee-chemistry-inorganic' },
+    { label: 'JEE Chemistry Coaching', href: '/jee-chemistry-coaching' },
+  ],
+  schemaType: 'WebPage',
+};
+
+const jeeChemInorganic: SEOPageData = {
+  slug: 'jee-chemistry-inorganic',
+  title: 'JEE Inorganic Chemistry — Periodic Table to Coordination Chemistry | MindPeak',
+  description: 'Ace JEE Inorganic Chemistry: periodic properties, chemical bonding, coordination compounds, metallurgy. 35% of JEE Chemistry. Pattern-based 1-on-1 coaching.',
+  h1: 'JEE',
+  h1Highlight: 'Inorganic Chemistry',
+  heroSubtitle: 'Inorganic Chemistry is often called the "easiest marks" in JEE — if you know the right approach. MindPeak\'s pattern-based teaching eliminates brute-force memorisation and makes Inorganic logical.',
+  sections: [
+    {
+      heading: 'Inorganic Chemistry in JEE',
+      content: 'Inorganic Chemistry carries ~35% of JEE Chemistry marks and is considered the most scoring branch by toppers. While students often skip Inorganic thinking it\'s "all memorisation", MindPeak\'s mentors teach the patterns and trends that make 80% of Inorganic Chemistry predictable.',
+      bullets: [
+        'Weightage: ~35% of JEE Chemistry',
+        'Key chapters: Periodic Properties, Chemical Bonding, s/p/d-block Elements, Coordination Chemistry',
+        'JEE Main asks 10-11 direct questions — many are one-liners if you know the trends',
+        'JEE Advanced tests deeper understanding of bonding and coordination chemistry',
+        'Chemical Bonding alone carries 5-7% — the highest among Inorganic chapters',
+      ],
+    },
+    {
+      heading: 'Chapter-wise Strategy',
+      content: 'MindPeak\'s systematic approach to Inorganic Chemistry:',
+      table: {
+        headers: ['Chapter', 'Weightage', 'Difficulty', 'Study Approach'],
+        rows: [
+          ['Periodic Properties', '3-4%', 'Easy', 'Understand trends — don\'t memorise values'],
+          ['Chemical Bonding', '5-7%', 'Hard', 'Hybridisation, MOT, VSEPR — concept-heavy'],
+          ['s-Block Elements', '2-3%', 'Easy', 'Pattern-based — group trends are key'],
+          ['p-Block Elements', '6-8%', 'Moderate', 'Most content — allotropes, compounds, reactions'],
+          ['d-Block & f-Block', '4-5%', 'Moderate', 'Transition metals, colour, magnetic properties'],
+          ['Coordination Chemistry', '4-5%', 'Hard', 'IUPAC naming, isomerism, CFT, VBT'],
+          ['Metallurgy', '2-3%', 'Easy', 'Process-flowchart based learning'],
+          ['Qualitative Analysis', '2-3%', 'Moderate', 'Salt analysis — systematic approach'],
+        ],
+      },
+    },
+  ],
+  faqs: [
+    { q: 'How to study p-Block Elements for JEE?', a: 'Don\'t try to memorise everything. Focus on group trends (reactivity, acidity, oxidation states), interhalogen compounds, and oxoacids. MindPeak mentors teach p-Block through comparison tables and mnemonic devices that simplify the enormous content.' },
+    { q: 'Is Inorganic Chemistry important for JEE Advanced?', a: 'Yes — Chemical Bonding and Coordination Chemistry are heavily tested. JEE Advanced asks conceptual questions that go beyond NCERT. MindPeak covers JD Lee-level content for advanced aspirants.' },
+  ],
+  relatedPages: [
+    { label: 'JEE Chemistry Physical', href: '/jee-chemistry-physical' },
+    { label: 'JEE Chemistry Organic', href: '/jee-chemistry-organic' },
+    { label: 'JEE Chemistry Coaching', href: '/jee-chemistry-coaching' },
+  ],
+  schemaType: 'WebPage',
+};
+
+const jeeMathAlgebra: SEOPageData = {
+  slug: 'jee-math-algebra',
+  title: 'JEE Mathematics Algebra — Complete Preparation Guide | MindPeak',
+  description: 'Master JEE Algebra: complex numbers, matrices, quadratics, progressions, binomial theorem. 30% of JEE Maths. 1-on-1 coaching with IIT mentors.',
+  h1: 'JEE Mathematics',
+  h1Highlight: 'Algebra',
+  heroSubtitle: 'Algebra is the largest branch of JEE Mathematics, spanning quadratics to matrices. MindPeak\'s systematic approach breaks down Algebra into manageable modules that build on each other.',
+  sections: [
+    {
+      heading: 'Algebra in JEE — Overview',
+      content: 'Algebra accounts for approximately 30% of JEE Mathematics marks, making it the most weightage-heavy branch. It spans diverse topics from basic equations to abstract structures like matrices and determinants.',
+      bullets: [
+        'Weightage: ~30% of JEE Mathematics',
+        'Key chapters: Quadratic Equations, Complex Numbers, Matrices, Progressions, Binomial Theorem, P&C, Probability',
+        'Complex Numbers is a JEE Advanced favourite — geometry of complex plane',
+        'Matrices & Determinants carry 5-7% and are highly scoring',
+        'Permutations & Combinations + Probability combined = 6-8% weightage',
+      ],
+    },
+    {
+      heading: 'Chapter-wise Plan',
+      content: 'MindPeak\'s optimised Algebra study sequence:',
+      table: {
+        headers: ['Chapter', 'Weightage', 'Difficulty', 'Time Needed'],
+        rows: [
+          ['Quadratic Equations', '4-5%', 'Moderate', '5-7 days'],
+          ['Complex Numbers', '5-6%', 'Hard', '8-10 days'],
+          ['Matrices & Determinants', '5-7%', 'Moderate', '7-9 days'],
+          ['Sequences & Series (AP, GP, HP)', '4-5%', 'Moderate', '5-6 days'],
+          ['Binomial Theorem', '3-4%', 'Moderate', '4-5 days'],
+          ['Permutations & Combinations', '3-4%', 'Hard', '6-8 days'],
+          ['Probability', '4-5%', 'Hard', '7-8 days'],
+          ['Mathematical Induction', '1-2%', 'Easy', '2-3 days'],
+        ],
+      },
+    },
+  ],
+  faqs: [
+    { q: 'Which Algebra chapter is most important for JEE?', a: 'Complex Numbers and Matrices together carry ~12% of JEE Maths marks. For JEE Advanced specifically, Complex Numbers is the single most tested Algebra chapter. MindPeak allocates 3 weeks to these two chapters alone.' },
+    { q: 'How to improve at Probability for JEE?', a: 'Probability is tricky because it requires logical thinking more than formula application. MindPeak mentors teach through categorisation — identify the problem type (classical, Bayes, conditional) before solving. Practice 100+ problems to build pattern recognition.' },
+  ],
+  relatedPages: [
+    { label: 'JEE Math Calculus', href: '/jee-math-calculus' },
+    { label: 'JEE Math Trigonometry', href: '/jee-math-trigonometry' },
+    { label: 'JEE Mathematics Coaching', href: '/jee-mathematics-coaching' },
+  ],
+  schemaType: 'WebPage',
+};
+
+const jeeMathCalculus: SEOPageData = {
+  slug: 'jee-math-calculus',
+  title: 'JEE Mathematics Calculus — Limits to Differential Equations | MindPeak',
+  description: 'Master JEE Calculus: limits, derivatives, integrals, differential equations, area under curves. 35% of JEE Maths. Expert 1-on-1 coaching.',
+  h1: 'JEE Mathematics',
+  h1Highlight: 'Calculus',
+  heroSubtitle: 'Calculus is the crown jewel of JEE Mathematics — carrying the highest weightage and testing the deepest understanding. MindPeak\'s IIT-alumni mentors take you from limits to differential equations with clarity and confidence.',
+  sections: [
+    {
+      heading: 'Calculus in JEE — The Highest Weightage Branch',
+      content: 'Calculus carries approximately 35% of JEE Mathematics marks — the single largest branch. It\'s also the most interconnected: limits build into derivatives, derivatives into integrals, and integrals into differential equations. MindPeak teaches Calculus as a unified story, not disconnected chapters.',
+      bullets: [
+        'Weightage: ~35% of JEE Mathematics (highest)',
+        'Key chapters: Limits, Continuity & Differentiability, Application of Derivatives, Integrals, Differential Equations, Area Under Curves',
+        'JEE Advanced heavily tests Calculus — expect 6-8 questions',
+        'Application of Derivatives (maxima/minima, rate of change) is a JEE Main favourite',
+        'Definite integrals with properties are frequently asked in JEE Advanced',
+      ],
+    },
+    {
+      heading: 'Chapter-wise Study Plan',
+      content: 'MindPeak\'s sequential approach to mastering Calculus:',
+      table: {
+        headers: ['Chapter', 'Weightage', 'Difficulty', 'Time Needed'],
+        rows: [
+          ['Limits & Continuity', '4-5%', 'Moderate', '6-7 days'],
+          ['Differentiability & Derivatives', '5-6%', 'Moderate', '7-8 days'],
+          ['Application of Derivatives', '6-7%', 'Hard', '8-10 days'],
+          ['Indefinite Integrals', '4-5%', 'Hard', '8-10 days'],
+          ['Definite Integrals', '5-6%', 'Hard', '7-8 days'],
+          ['Area Under Curves', '3-4%', 'Moderate', '4-5 days'],
+          ['Differential Equations', '4-5%', 'Moderate-Hard', '6-8 days'],
+        ],
+      },
+    },
+    {
+      heading: 'MindPeak\'s Calculus Mastery Tips',
+      content: 'Our mentors share these key strategies:',
+      bullets: [
+        'Learn limits properly — they\'re the foundation. L\'Hôpital\'s rule, sandwich theorem, and standard limits are essential.',
+        'For integration, master substitution and partial fractions before attempting complex problems',
+        'Practice graph-based questions for area under curves — JEE loves these',
+        'Differential equations: identify the type (separable, linear, homogeneous) before solving',
+        'Daily practice: minimum 15 Calculus problems per day for consistent improvement',
+      ],
+    },
+  ],
+  faqs: [
+    { q: 'Is Calculus the most important topic for JEE Maths?', a: 'Yes — it carries the highest weightage (~35%) and is crucial for JEE Advanced. MindPeak allocates 8-10 weeks to Calculus in our JEE preparation plan, more than any other Mathematics branch.' },
+    { q: 'How to master Integration for JEE?', a: 'Integration is a skill that improves with practice. Start with basic substitutions, move to partial fractions and by-parts, then tackle definite integral properties and reduction formulas. MindPeak assigns graded integration problems daily.' },
+  ],
+  relatedPages: [
+    { label: 'JEE Math Algebra', href: '/jee-math-algebra' },
+    { label: 'JEE Math Geometry', href: '/jee-math-geometry' },
+    { label: 'JEE Mathematics Coaching', href: '/jee-mathematics-coaching' },
+  ],
+  schemaType: 'WebPage',
+};
+
+const jeeMathTrigonometry: SEOPageData = {
+  slug: 'jee-math-trigonometry',
+  title: 'JEE Mathematics Trigonometry — Identities, Equations & Properties | MindPeak',
+  description: 'Complete JEE Trigonometry guide: identities, equations, inverse trig, properties of triangles. 8-10% weightage. Expert 1-on-1 coaching.',
+  h1: 'JEE Mathematics',
+  h1Highlight: 'Trigonometry',
+  heroSubtitle: 'Trigonometry is the glue that connects Algebra, Calculus, and Coordinate Geometry in JEE. Master the identities and equations, and you\'ll find it popping up everywhere — simplifying problems across all chapters.',
+  sections: [
+    {
+      heading: 'Trigonometry in JEE — Overview',
+      content: 'Trigonometry carries 8-10% direct weightage but is used extensively in Calculus (trig substitution in integration), Coordinate Geometry, and even Physics. A strong trigonometric foundation accelerates your entire JEE preparation.',
+      bullets: [
+        'Direct weightage: 8-10% of JEE Mathematics',
+        'Indirect usage: Integration, Coordinate Geometry, Physics (SHM, waves, optics)',
+        'Key chapters: Trigonometric Identities, Trigonometric Equations, Inverse Trig Functions, Properties of Triangles',
+        'JEE Main asks 2-3 questions; JEE Advanced 1-2 (often combined with Calculus)',
+      ],
+    },
+    {
+      heading: 'Essential Formulas & Identities',
+      content: 'MindPeak ensures every student has these at their fingertips:',
+      bullets: [
+        'Fundamental: sin²θ + cos²θ = 1, 1 + tan²θ = sec²θ',
+        'Compound angles: sin(A±B), cos(A±B), tan(A±B)',
+        'Multiple angles: sin2A = 2sinAcosA, cos2A formulas (3 forms)',
+        'Sum-to-product and product-to-sum formulas',
+        'Inverse trig: ranges, principal values, interconversion',
+        'Properties of triangles: sine rule, cosine rule, area formulas',
+      ],
+    },
+  ],
+  faqs: [
+    { q: 'How many trigonometric identities should I memorise?', a: 'You need about 25-30 core identities. But the key is understanding how they\'re derived — if you know the compound angle formulas, you can derive almost everything else. MindPeak mentors teach derivation-first, memorisation-second.' },
+    { q: 'Are Inverse Trig Functions important for JEE?', a: 'Yes, especially for JEE Advanced. Problems involving compositions of inverse trig functions and their derivatives/integrals are tested regularly. MindPeak dedicates 5-6 focused sessions to Inverse Trig.' },
+  ],
+  relatedPages: [
+    { label: 'JEE Math Algebra', href: '/jee-math-algebra' },
+    { label: 'JEE Math Calculus', href: '/jee-math-calculus' },
+    { label: 'JEE Mathematics Coaching', href: '/jee-mathematics-coaching' },
+  ],
+  schemaType: 'WebPage',
+};
+
+const jeeMathGeometry: SEOPageData = {
+  slug: 'jee-math-geometry',
+  title: 'JEE Coordinate Geometry & Vectors — Conics, 3D, Vectors | MindPeak',
+  description: 'Master JEE Coordinate Geometry: straight lines, circles, conics, 3D geometry, vectors. 25% of JEE Maths. 1-on-1 expert coaching at MindPeak.',
+  h1: 'JEE Mathematics',
+  h1Highlight: 'Geometry & Vectors',
+  heroSubtitle: 'Coordinate Geometry and Vectors together carry ~25% of JEE Mathematics. From straight lines to ellipses, from dot products to cross products — MindPeak makes geometry visual and intuitive.',
+  sections: [
+    {
+      heading: 'Geometry in JEE — Overview',
+      content: 'Coordinate Geometry and Vectors form a substantial portion of JEE Mathematics. These topics are highly visual, making them easier to understand with the right teaching approach. MindPeak\'s interactive whiteboard sessions bring geometry to life.',
+      bullets: [
+        'Combined weightage: ~25% of JEE Mathematics',
+        '2D Geometry: Straight Lines, Circles, Parabola, Ellipse, Hyperbola',
+        '3D Geometry & Vectors: Lines, Planes, Vector algebra, Products',
+        'Conics (Parabola, Ellipse, Hyperbola) carry 8-10% alone — highest in this branch',
+        'Vectors & 3D Geometry are JEE Advanced powerhouses — 5-7% weightage',
+      ],
+    },
+    {
+      heading: 'Chapter-wise Study Plan',
+      content: 'MindPeak\'s structured approach to Geometry:',
+      table: {
+        headers: ['Chapter', 'Weightage', 'Difficulty', 'Time Needed'],
+        rows: [
+          ['Straight Lines', '3-4%', 'Moderate', '5-6 days'],
+          ['Circles', '3-4%', 'Moderate', '5-6 days'],
+          ['Parabola', '3-4%', 'Hard', '5-6 days'],
+          ['Ellipse', '3-4%', 'Hard', '5-6 days'],
+          ['Hyperbola', '2-3%', 'Hard', '4-5 days'],
+          ['Vectors', '3-4%', 'Moderate', '5-6 days'],
+          ['3D Geometry', '4-5%', 'Hard', '7-8 days'],
+        ],
+      },
+    },
+    {
+      heading: 'Geometry Mastery Tips from MindPeak Mentors',
+      content: 'Our top strategies for acing Geometry in JEE:',
+      bullets: [
+        'Always draw the figure first — even for seemingly algebraic problems',
+        'Master parametric representation of conics — it simplifies 80% of problems',
+        'For 3D Geometry, practice converting between Cartesian and vector form',
+        'Vector products (dot & cross) have physical interpretations — understand them',
+        'Conics problems often reduce to solving the tangent/normal equation — practice these forms',
+      ],
+    },
+  ],
+  faqs: [
+    { q: 'Which conic section is most important for JEE?', a: 'Parabola and Ellipse are the most frequently tested conics. Hyperbola appears less often but carries similar marks when it does. MindPeak recommends mastering all three — they share similar problem-solving patterns.' },
+    { q: 'Is 3D Geometry tough in JEE?', a: '3D Geometry can feel challenging because students struggle to visualise 3D scenarios on paper. MindPeak mentors use interactive 3D visualisations in 1-on-1 sessions to build spatial intuition.' },
+  ],
+  relatedPages: [
+    { label: 'JEE Math Algebra', href: '/jee-math-algebra' },
+    { label: 'JEE Math Calculus', href: '/jee-math-calculus' },
+    { label: 'JEE Mathematics Coaching', href: '/jee-mathematics-coaching' },
+  ],
+  schemaType: 'WebPage',
+};
+
+const jeeChapterCategoryPages: SEOPageData[] = [
+  jeePhysMechanics,
+  jeePhysElectrodynamics,
+  jeePhysOptics,
+  jeePhysThermodynamics,
+  jeePhysWaves,
+  jeeChemPhysical,
+  jeeChemOrganic,
+  jeeChemInorganic,
+  jeeMathAlgebra,
+  jeeMathCalculus,
+  jeeMathTrigonometry,
+  jeeMathGeometry,
+];
+
+// ─────────────────────────────────────────────────
 // EXPORT ALL PAGES
 // ─────────────────────────────────────────────────
 
 export const allSEOPages: SEOPageData[] = [
   aboutPage,
+  successStoriesPage,
+  methodologyPage,
+  mentorsPage,
   jeeCoachingPage,
   neetCoachingPage,
   pricingPage,
@@ -1262,6 +2193,7 @@ export const allSEOPages: SEOPageData[] = [
   neetCrashPage,
   ...subjectPages,
   ...comparisonPages,
+  ...jeeChapterCategoryPages,
 ];
 
 /** Lookup a page by slug */

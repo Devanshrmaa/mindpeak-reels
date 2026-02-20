@@ -5,6 +5,8 @@ import { ChevronDown, ArrowRight, Phone, CheckCircle } from 'lucide-react';
 import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
 import { useDemoModal } from '@/components/DemoBookingModal';
+import { PageFooter } from '@/components/PageFooter';
+import { subjectBanks } from '@/data/practice';
 import { getSEOPage } from '@/data/seoPageData';
 import type { SEOPageData, SEOPageSection } from '@/data/seoPageData';
 
@@ -244,10 +246,39 @@ const SEOLandingPage = () => {
           </section>
         )}
 
-        {/* Footer */}
-        <footer className="border-t border-border py-8 px-6 text-center">
-          <p className="text-muted-foreground text-sm">© {new Date().getFullYear()} MindPeak Institute. All rights reserved.</p>
-        </footer>
+        {/* Practice Questions Quick Links */}
+        {page.slug.startsWith('jee') && (
+          <section className="max-w-4xl mx-auto px-6 pb-12">
+            <h3 className="font-display font-bold text-foreground text-lg mb-4">JEE Practice Questions</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {subjectBanks.map(bank => {
+                const firstCh = bank.chapters[0];
+                const firstTopic = firstCh?.topics[0];
+                if (!firstCh || !firstTopic) return null;
+                return (
+                  <div key={bank.slug} className="rounded-xl border border-border bg-card/50 p-4">
+                    <h4 className="font-display font-semibold text-foreground text-sm mb-3">{bank.icon} {bank.subject} Practice</h4>
+                    <ul className="space-y-1.5">
+                      {(['easy', 'medium', 'hard'] as const).map(diff => (
+                        <li key={diff}>
+                          <Link
+                            to={`/jee-${bank.slug}-${firstCh.slug}-${firstTopic.slug}-${diff}-q1`}
+                            className="text-xs text-muted-foreground hover:text-primary transition-colors flex items-center gap-1.5"
+                          >
+                            <span className={`w-1.5 h-1.5 rounded-full ${diff === 'easy' ? 'bg-green-400' : diff === 'medium' ? 'bg-yellow-400' : 'bg-red-400'}`} />
+                            {diff.charAt(0).toUpperCase() + diff.slice(1)} Questions
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        )}
+
+        <PageFooter extra={page.slug.startsWith('jee') ? 'JEE Practice & Coaching.' : page.slug.startsWith('neet') ? 'NEET Coaching.' : undefined} />
       </main>
     </>
   );

@@ -44,7 +44,7 @@ export const ResultSection = () => {
           className="inline-block mb-8"
         >
           <div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden shadow-gold-glow ring-4 ring-primary/30">
-            <img src={trophyAchievement} alt="Achievement trophy" className="w-full h-full object-cover" />
+            <img src={trophyAchievement} alt="Achievement trophy" className="w-full h-full object-cover" width={196} height={196} loading="lazy" />
           </div>
         </motion.div>
 
@@ -52,7 +52,7 @@ export const ResultSection = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
+          transition={{ delay: 0.15, duration: 0.5 }}
           className="font-display text-foreground mb-6"
           style={{ fontSize: 'clamp(2.5rem, 8vw, 7rem)', fontWeight: 900, lineHeight: 1.1 }}
         >
@@ -63,7 +63,7 @@ export const ResultSection = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
+          transition={{ delay: 0.25, duration: 0.4 }}
           className="text-blue-soft text-xl md:text-2xl mb-4"
         >
           JEE Advanced
@@ -73,7 +73,7 @@ export const ResultSection = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.9 }}
+          transition={{ delay: 0.35, duration: 0.4 }}
           className="text-muted-foreground text-lg md:text-xl mb-12 max-w-2xl mx-auto"
         >
           From struggling at 120/300 to achieving AIR 42 in just 6 months with personalized 1-on-1 coaching
@@ -86,12 +86,12 @@ export const ResultSection = () => {
               initial={{ opacity: 0, scale: 0.5 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 1.2 + i * 0.1 }}
+              transition={{ delay: 0.1 + i * 0.08, duration: 0.4 }}
               whileHover={{ scale: 1.05 }}
               className="p-5 md:p-6 rounded-2xl bg-card/60 backdrop-blur-md border border-border"
             >
               <div className="w-8 h-8 md:w-12 md:h-12 mx-auto mb-2 md:mb-3 rounded-lg overflow-hidden">
-                <img src={stat.image} alt={stat.label} className="w-full h-full object-cover" />
+                <img src={stat.image} alt={stat.label} className="w-full h-full object-cover" width={56} height={56} loading="lazy" />
               </div>
               <div className="text-xl md:text-3xl font-bold text-primary mb-1">{stat.value}</div>
               <div className="text-[10px] md:text-sm text-muted-foreground uppercase tracking-wider">{stat.label}</div>
@@ -103,7 +103,7 @@ export const ResultSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 1.8 }}
+          transition={{ delay: 0.3, duration: 0.4 }}
           className="mt-14"
         >
           <button
@@ -118,7 +118,7 @@ export const ResultSection = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 2.2 }}
+          transition={{ delay: 0.4, duration: 0.4 }}
           className="text-muted-foreground text-sm mt-8"
         >
           Join 500+ students who achieved their dream ranks with MindPeak

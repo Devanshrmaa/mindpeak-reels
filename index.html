@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <title>MindPeak Institute — #1 Personalized JEE & NEET Coaching | 95% Success</title>
     <meta name="description" content="Transform your JEE/NEET preparation with personalized 1-on-1 coaching. Achieve AIR <5K with adaptive curriculum, dedicated mentors. Trusted by 500+ students." />
     <meta name="keywords" content="jee coaching, neet coaching, online jee coaching, personalized coaching, iit jee coaching, one on one jee coaching, best jee coaching, neet online coaching, jee preparation, neet preparation, 1-on-1 coaching" />
@@ -31,7 +31,7 @@
     <meta property="og:url" content="https://mindpeakinstitute.com/" />
     <meta property="og:title" content="MindPeak Institute — #1 Personalized JEE & NEET Coaching" />
     <meta property="og:description" content="Achieve AIR <5K with personalized 1-on-1 coaching, adaptive curriculum, and dedicated mentors. 95% success rate. Trusted by 500+ students." />
-    <meta property="og:image" content="https://mindpeakinstitute.com/og-image.jpg" />
+    <meta property="og:image" content="https://mindpeakinstitute.com/hero-bg.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="en_IN" />
@@ -43,7 +43,7 @@
     <meta name="twitter:url" content="https://mindpeakinstitute.com/" />
     <meta name="twitter:title" content="MindPeak Institute — #1 Personalized JEE & NEET Coaching" />
     <meta name="twitter:description" content="Achieve AIR <5K with personalized 1-on-1 coaching. 95% success rate. Trusted by 500+ students across India." />
-    <meta name="twitter:image" content="https://mindpeakinstitute.com/og-image.jpg" />
+    <meta name="twitter:image" content="https://mindpeakinstitute.com/hero-bg.jpg" />
 
     <!-- Alternate Language -->
     <link rel="alternate" hreflang="en-in" href="https://mindpeakinstitute.com/" />
@@ -52,27 +52,44 @@
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json" />
 
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MM0L1F7JJ6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);} 
-      gtag('js', new Date());
-      gtag('config', 'G-MM0L1F7JJ6', { send_page_view: true });
-      gtag('config', 'AW-17962731707');
-    </script>
-
-    <!-- Preload critical fonts -->
+    <!-- Preconnect to font origins (BEFORE font link) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <!-- Resource Hints: Prefetch key pages for instant navigation -->
-    <link rel="prefetch" href="/free-trial" />
-    <link rel="prefetch" href="/jee-coaching" />
-    <link rel="prefetch" href="/neet-coaching" />
-    <link rel="prefetch" href="/pricing" />
     <link rel="dns-prefetch" href="//www.google-analytics.com" />
     <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+
+    <!-- Google Fonts — non-render-blocking with media swap -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" /></noscript>
+
+    <!-- Critical inline CSS for above-the-fold content (FCP/LCP) -->
+    <style>
+      :root{--background:225 43% 7%;--foreground:210 40% 98%}
+      *,::before,::after{box-sizing:border-box}
+      html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none}
+      html::-webkit-scrollbar{display:none}
+      body{margin:0;font-family:'Space Grotesk','Inter',system-ui,-apple-system,sans-serif;background:hsl(225 43% 7%);color:hsl(210 40% 98%);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+      #root{min-height:100vh}
+      .font-display{font-family:'Space Grotesk',system-ui,sans-serif}
+    </style>
+
+    <!-- Google Analytics 4 — deferred to after page load -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-MM0L1F7JJ6';
+          document.head.appendChild(s);
+          gtag('js', new Date());
+          gtag('config', 'G-MM0L1F7JJ6', { send_page_view: true });
+          gtag('config', 'AW-17962731707');
+        }, 2000);
+      });
+    </script>
 
     <!-- Advanced @graph Structured Data (Nested Entity Schema) -->
     <script type="application/ld+json">
@@ -88,9 +105,9 @@
           "logo": {
             "@type": "ImageObject",
             "@id": "https://mindpeakinstitute.com/#logo",
-            "url": "https://mindpeakinstitute.com/logo.png",
-            "width": 512,
-            "height": 512
+            "url": "https://mindpeakinstitute.com/favicon.ico",
+            "width": 64,
+            "height": 64
           },
           "description": "India's #1 personalized 1-on-1 JEE and NEET coaching with 95% success rate. Achieve AIR <5K with adaptive curriculum and dedicated mentors.",
           "telephone": "+91-82194-57704",
@@ -220,7 +237,7 @@
           "primaryImageOfPage": {
             "@type": "ImageObject",
             "@id": "https://mindpeakinstitute.com/#primaryimage",
-            "url": "https://mindpeakinstitute.com/og-image.jpg",
+            "url": "https://mindpeakinstitute.com/hero-bg.jpg",
             "width": 1200,
             "height": 630
           },
@@ -235,7 +252,7 @@
           "@type": "ItemList",
           "@id": "https://mindpeakinstitute.com/#courselist",
           "name": "MindPeak Institute Courses",
-          "numberOfItems": 6,
+          "numberOfItems": 4,
           "itemListElement": [
             {
               "@type": "ListItem",

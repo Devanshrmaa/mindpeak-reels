@@ -33,6 +33,33 @@ const footerSections = [
     ],
   },
   {
+    title: 'JEE Practice Questions',
+    links: [
+      { label: 'All Practice Questions', to: '/jee-practice' },
+      { label: 'Physics Easy Questions', to: '/jee-physics-units-dimensions-si-units-easy-q1' },
+      { label: 'Physics Medium Questions', to: '/jee-physics-units-dimensions-si-units-medium-q1' },
+      { label: 'Physics Hard Questions', to: '/jee-physics-units-dimensions-si-units-hard-q1' },
+      { label: 'Chemistry Easy Questions', to: '/jee-chemistry-mole-concept-mole-avogadro-easy-q1' },
+      { label: 'Chemistry Medium Questions', to: '/jee-chemistry-mole-concept-mole-avogadro-medium-q1' },
+      { label: 'Chemistry Hard Questions', to: '/jee-chemistry-mole-concept-mole-avogadro-hard-q1' },
+      { label: 'Maths Easy Questions', to: '/jee-mathematics-sets-relations-functions-sets-venn-easy-q1' },
+      { label: 'Maths Medium Questions', to: '/jee-mathematics-sets-relations-functions-sets-venn-medium-q1' },
+      { label: 'Maths Hard Questions', to: '/jee-mathematics-sets-relations-functions-sets-venn-hard-q1' },
+    ],
+  },
+  {
+    title: 'JEE Previous Year Questions',
+    links: [
+      { label: 'All PYQ Questions', to: '/jee-pyq' },
+      { label: 'Physics PYQ — Kinematics', to: '/jee-pyq-physics-kinematics-q1' },
+      { label: 'Physics PYQ — Electrostatics', to: '/jee-pyq-physics-electrostatics-q1' },
+      { label: 'Chemistry PYQ — Mole Concept', to: '/jee-pyq-chemistry-mole-concept-q1' },
+      { label: 'Chemistry PYQ — Electrochemistry', to: '/jee-pyq-chemistry-electrochemistry-q1' },
+      { label: 'Maths PYQ — Calculus', to: '/jee-pyq-mathematics-integral-calculus-q1' },
+      { label: 'Maths PYQ — Probability', to: '/jee-pyq-mathematics-probability-statistics-q1' },
+    ],
+  },
+  {
     title: 'Quick Links',
     links: [
       { label: 'Courses', to: '/courses' },
@@ -82,7 +109,7 @@ export const PageFooter = ({ extra }: { extra?: string }) => (
       {/* Logo & Tagline */}
       <div className="flex flex-col items-center gap-4 mb-8">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="MindPeak Institute" className="w-10 h-10 rounded-full" />
+          <img src={logo} alt="MindPeak Institute" className="w-10 h-10 rounded-full" width={40} height={40} loading="lazy" />
           <span className="font-display font-bold text-foreground text-lg tracking-wide">MINDPEAK</span>
         </Link>
         <p className="text-muted-foreground text-sm text-center max-w-md">
@@ -91,7 +118,7 @@ export const PageFooter = ({ extra }: { extra?: string }) => (
       </div>
 
       {/* Categorized Links */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-8 max-w-3xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 max-w-5xl mx-auto">
         {footerSections.map((section) => (
           <FooterSection key={section.title} title={section.title} links={section.links} />
         ))}

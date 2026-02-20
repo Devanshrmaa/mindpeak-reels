@@ -9,6 +9,7 @@ const navLinks = [
   { label: 'Home', href: '/#hero', isHash: true },
   { label: 'JEE Coaching', href: '/jee-coaching', isRoute: true },
   { label: 'NEET Coaching', href: '/neet-coaching', isRoute: true },
+  { label: 'Practice', href: '/jee-practice', isRoute: true },
   { label: 'Courses', href: '/courses', isRoute: true },
   { label: 'Pricing', href: '/pricing', isRoute: true },
   { label: 'Blog', href: '/blog', isRoute: true },
@@ -42,7 +43,7 @@ export const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="MindPeak Institute" className="w-10 h-10 rounded-full" />
+          <img src={logo} alt="MindPeak Institute" className="w-10 h-10 rounded-full" width={40} height={40} />
           <span className="font-display font-bold text-foreground text-lg tracking-wide">
             MINDPEAK
           </span>

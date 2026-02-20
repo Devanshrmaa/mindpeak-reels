@@ -1,15 +1,10 @@
 User-agent: *
 Allow: /
 
-# Block admin pages
+# Block admin/API pages
 Disallow: /admin/
 Disallow: /api/
 Disallow: /dashboard/
-Disallow: /_next/
-Disallow: /static/
-
-# Crawl-delay for polite crawling
-Crawl-delay: 1
 
 # Block duplicate content
 Disallow: /*?*

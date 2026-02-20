@@ -29,9 +29,8 @@ xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en-in" href="https://mindpeakinstitute.com/"/>
-    <xhtml:link rel="alternate" hreflang="hi-in" href="https://mindpeakinstitute.com/hi/"/>
     <image:image>
-      <image:loc>https://mindpeakinstitute.com/og-image.jpg</image:loc>
+      <image:loc>https://mindpeakinstitute.com/hero-bg.jpg</image:loc>
       <image:title>MindPeak Institute - #1 Personalized JEE and NEET Coaching India</image:title>
     </image:image>
   </url>
@@ -89,123 +88,22 @@ xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  <url>
-    <loc>https://mindpeakinstitute.com/jee-coaching</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  <url>
-    <loc>https://mindpeakinstitute.com/neet-coaching</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  <url>
-    <loc>https://mindpeakinstitute.com/pricing</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://mindpeakinstitute.com/free-trial</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://mindpeakinstitute.com/contact</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mindpeakinstitute.com/blog</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
 
-  <!-- Comparison Pages -->
+  <!-- JEE Practice & PYQ Hubs -->
   <url>
-    <loc>https://mindpeakinstitute.com/kota-coaching-alternative</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://mindpeakinstitute.com/jee-practice</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://mindpeakinstitute.com/online-vs-offline-jee-coaching</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://mindpeakinstitute.com/mindpeak-vs-allen</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://mindpeakinstitute.com/mindpeak-vs-resonance</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://mindpeakinstitute.com/mindpeak-vs-fiitjee</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://mindpeakinstitute.com/mindpeak-vs-byjus</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://mindpeakinstitute.com/jee-pyq</loc>
+    <lastmod>2026-02-18</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <!-- Content Cluster Pages — Subject-Wise Preparation -->
-  <url><loc>https://mindpeakinstitute.com/jee-physics-preparation</loc><lastmod>2026-02-18</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://mindpeakinstitute.com/jee-chemistry-preparation</loc><lastmod>2026-02-18</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://mindpeakinstitute.com/jee-mathematics-preparation</loc><lastmod>2026-02-18</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://mindpeakinstitute.com/jee-mock-test-strategy</loc><lastmod>2026-02-18</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://mindpeakinstitute.com/neet-biology-preparation</loc><lastmod>2026-02-18</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-
-  <!-- ⚠️ ADDED -->
-
-  <url>
-    <loc>https://mindpeakinstitute.com/contact</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- ⚠️ ADDED -->
-
-  <url>
-    <loc>https://mindpeakinstitute.com/about</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <!-- ⚠️ ADDED — Differentiates from Allen/Resonance/Kota -->
-
-  <url>
-    <loc>https://mindpeakinstitute.com/methodology</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <!-- ⚠️ ADDED — Faculty credibility = trust = conversions -->
-
-  <url>
-    <loc>https://mindpeakinstitute.com/mentors</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
 
   <!-- ══════════════════════════════════════════════════════════
        BLOCK 2 — EXAM & PROGRAM PAGES  [ Priority 0.85 → 0.75 ]
@@ -294,13 +192,7 @@ xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
        "mindpeak vs allen" searcher already chose online coaching
   ══════════════════════════════════════════════════════════ -->
 
-<url><loc>https://mindpeakinstitute.com/kota-coaching-alternative</loc><lastmod>2026-02-15</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
-<url><loc>https://mindpeakinstitute.com/online-vs-offline-jee-coaching</loc><lastmod>2026-02-15</lastmod><changefreq>monthly</changefreq><priority>0.78</priority></url>
-<url><loc>https://mindpeakinstitute.com/batch-vs-personal-coaching</loc><lastmod>2026-02-15</lastmod><changefreq>monthly</changefreq><priority>0.78</priority></url>
-<url><loc>https://mindpeakinstitute.com/mindpeak-vs-allen</loc><lastmod>2026-02-15</lastmod><changefreq>monthly</changefreq><priority>0.78</priority></url>
-<url><loc>https://mindpeakinstitute.com/mindpeak-vs-resonance</loc><lastmod>2026-02-15</lastmod><changefreq>monthly</changefreq><priority>0.78</priority></url>
-<url><loc>https://mindpeakinstitute.com/mindpeak-vs-fiitjee</loc><lastmod>2026-02-15</lastmod><changefreq>monthly</changefreq><priority>0.78</priority></url>
-<url><loc>https://mindpeakinstitute.com/mindpeak-vs-byju</loc><lastmod>2026-02-15</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+<url><loc>https://mindpeakinstitute.com/kota-coaching-alternative</loc><lastmod>2026-02-15</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>\n<url><loc>https://mindpeakinstitute.com/online-vs-offline-jee-coaching</loc><lastmod>2026-02-15</lastmod><changefreq>monthly</changefreq><priority>0.78</priority></url>\n<url><loc>https://mindpeakinstitute.com/batch-vs-personal-coaching</loc><lastmod>2026-02-15</lastmod><changefreq>monthly</changefreq><priority>0.78</priority></url>\n<url><loc>https://mindpeakinstitute.com/mindpeak-vs-allen</loc><lastmod>2026-02-15</lastmod><changefreq>monthly</changefreq><priority>0.78</priority></url>\n<url><loc>https://mindpeakinstitute.com/mindpeak-vs-resonance</loc><lastmod>2026-02-15</lastmod><changefreq>monthly</changefreq><priority>0.78</priority></url>\n<url><loc>https://mindpeakinstitute.com/mindpeak-vs-fiitjee</loc><lastmod>2026-02-15</lastmod><changefreq>monthly</changefreq><priority>0.78</priority></url>\n<url><loc>https://mindpeakinstitute.com/mindpeak-vs-byjus</loc><lastmod>2026-02-15</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
 
   <!-- ══════════════════════════════════════════════════════════
        BLOCK 5 — SUCCESS STORIES  [ Priority 0.70 ]
@@ -660,14 +552,7 @@ xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
        ⚠️ PRIVACY POLICY WAS MISSING IN v1 — IT Act India violation!
   ══════════════════════════════════════════════════════════ -->
 
-  <!-- ⚠️ ADDED: Legally required under India IT Act 2000 -->
-
-  <url>
-    <loc>https://mindpeakinstitute.com/privacy-policy</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.20</priority>
-  </url>
+  <!-- ⚠️ REMOVED privacy-policy and disclaimer — no routes exist yet -->
 
   <url>
     <loc>https://mindpeakinstitute.com/terms-and-conditions</loc>
@@ -681,15 +566,6 @@ xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <lastmod>2026-02-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.25</priority>
-  </url>
-
-  <!-- ⚠️ ADDED: Required for any paid service -->
-
-  <url>
-    <loc>https://mindpeakinstitute.com/disclaimer</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.20</priority>
   </url>
 
 </urlset>
