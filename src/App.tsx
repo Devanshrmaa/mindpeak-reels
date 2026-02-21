@@ -36,6 +36,7 @@ const ComparisonPage = lazy(() => import("./pages/ComparisonPage"));
 const RankPredictor = lazy(() => import("./pages/RankPredictor"));
 const JEEPracticeHub = lazy(() => import("./pages/JEEPracticeHub"));
 const JEEPYQHub = lazy(() => import("./pages/JEEPYQHub"));
+const NEETPYQHub = lazy(() => import("./pages/NEETPYQHub"));
 
 /* These are needed at route registration time, so import eagerly */
 import SubjectPage, { SUBJECT_SLUGS } from "./pages/SubjectPage";
@@ -44,6 +45,7 @@ import TopicPage, { TOPIC_PATHS } from "./pages/TopicPage";
 import FormulaSheet, { FORMULA_SLUGS } from "./pages/FormulaSheet";
 import JEEPracticeQuestion, { PRACTICE_SLUGS } from "./pages/JEEPracticeQuestion";
 import JEEPYQQuestion, { PYQ_SLUGS } from "./pages/JEEPYQQuestion";
+import NEETPYQQuestion, { NEET_PYQ_SLUGS } from "./pages/NEETPYQQuestion";
 
 const queryClient = new QueryClient();
 
@@ -137,6 +139,12 @@ const App = () => (
             <Route path="/jee-pyq" element={<JEEPYQHub />} />
             {PYQ_SLUGS.map((slug) => (
               <Route key={slug} path={`/${slug}`} element={<JEEPYQQuestion />} />
+            ))}
+
+            {/* NEET Previous Year Questions Hub + Question Pages */}
+            <Route path="/neet-pyq" element={<NEETPYQHub />} />
+            {NEET_PYQ_SLUGS.map((slug) => (
+              <Route key={slug} path={`/${slug}`} element={<NEETPYQQuestion />} />
             ))}
 
             {/* Comparison Pages */}

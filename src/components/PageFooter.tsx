@@ -60,6 +60,19 @@ const footerSections = [
     ],
   },
   {
+    title: 'NEET Previous Year Questions',
+    links: [
+      { label: 'All NEET PYQs', to: '/neet-pyq' },
+      { label: 'Biology PYQ — Cell Biology', to: '/neet-pyq-biology-cell-biology-biomolecules-q1' },
+      { label: 'Biology PYQ — Human Reproduction', to: '/neet-pyq-biology-human-reproduction-q1' },
+      { label: 'Biology PYQ — Genetics', to: '/neet-pyq-biology-genetics-molecular-biology-q1' },
+      { label: 'Physics PYQ — Kinematics', to: '/neet-pyq-physics-kinematics-q1' },
+      { label: 'Physics PYQ — Optics', to: '/neet-pyq-physics-optics-q1' },
+      { label: 'Chemistry PYQ — Equilibrium', to: '/neet-pyq-chemistry-equilibrium-q1' },
+      { label: 'Chemistry PYQ — GOC & Hydrocarbons', to: '/neet-pyq-chemistry-goc-hydrocarbons-q1' },
+    ],
+  },
+  {
     title: 'Quick Links',
     links: [
       { label: 'Courses', to: '/courses' },
