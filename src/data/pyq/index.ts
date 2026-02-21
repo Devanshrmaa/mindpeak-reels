@@ -1,4 +1,5 @@
 import type { PYQSubjectBank, PYQChapter, PYQuestion } from './types';
+import { slugifyQuestion, deduplicateSlugs } from '../../lib/slugify';
 import { physicsPyq1 } from './physics-pyq-1';
 import { physicsPyq2 } from './physics-pyq-2';
 import { physicsPyq3 } from './physics-pyq-3';
@@ -90,8 +91,11 @@ export function buildAllPYQSlugs(): { slug: string; params: PYQRouteParams }[] {
 
   for (const bank of pyqSubjectBanks) {
     for (const chapter of bank.chapters) {
+      // Build base slugs from question text, then deduplicate
+      const baseSlugs = chapter.questions.map(q => slugifyQuestion(q.q));
+      const uniqueSlugs = deduplicateSlugs(baseSlugs);
       chapter.questions.forEach((_, idx) => {
-        const slug = `jee-pyq-${bank.slug}-${chapter.slug}-q${idx + 1}`;
+        const slug = `jee-pyq-${bank.slug}-${chapter.slug}-${uniqueSlugs[idx]}`;
         result.push({
           slug,
           params: {

@@ -37,10 +37,30 @@ const examDates: Record<string, ExamInfo> = {
     shortLabel: 'JEE Main S1',
     date: new Date('2027-01-20'),
   },
+  jeeMain2027Session2: {
+    label: 'JEE Main 2027 — Session 2',
+    shortLabel: 'JEE Main S2',
+    date: new Date('2027-04-15'),
+  },
+  jeeAdvanced2027: {
+    label: 'JEE Advanced 2027',
+    shortLabel: 'JEE Adv.',
+    date: new Date('2027-05-25'),
+  },
   neet2027: {
     label: 'NEET UG 2027',
     shortLabel: 'NEET 2027',
     date: new Date('2027-05-04'),
+  },
+  jeeMain2028Session1: {
+    label: 'JEE Main 2028 — Session 1',
+    shortLabel: 'JEE Main S1',
+    date: new Date('2028-01-20'),
+  },
+  neet2028: {
+    label: 'NEET UG 2028',
+    shortLabel: 'NEET 2028',
+    date: new Date('2028-05-07'),
   },
 };
 

@@ -34,9 +34,11 @@ const KotaAlternative = lazy(() => import("./pages/KotaAlternative"));
 const OnlineVsOffline = lazy(() => import("./pages/OnlineVsOffline"));
 const ComparisonPage = lazy(() => import("./pages/ComparisonPage"));
 const RankPredictor = lazy(() => import("./pages/RankPredictor"));
+const StudyPlan = lazy(() => import("./pages/StudyPlan"));
 const JEEPracticeHub = lazy(() => import("./pages/JEEPracticeHub"));
 const JEEPYQHub = lazy(() => import("./pages/JEEPYQHub"));
 const NEETPYQHub = lazy(() => import("./pages/NEETPYQHub"));
+const NEETPracticeHub = lazy(() => import("./pages/NEETPracticeHub"));
 
 /* These are needed at route registration time, so import eagerly */
 import SubjectPage, { SUBJECT_SLUGS } from "./pages/SubjectPage";
@@ -46,6 +48,7 @@ import FormulaSheet, { FORMULA_SLUGS } from "./pages/FormulaSheet";
 import JEEPracticeQuestion, { PRACTICE_SLUGS } from "./pages/JEEPracticeQuestion";
 import JEEPYQQuestion, { PYQ_SLUGS } from "./pages/JEEPYQQuestion";
 import NEETPYQQuestion, { NEET_PYQ_SLUGS } from "./pages/NEETPYQQuestion";
+import NEETPracticeQuestion, { NEET_PRACTICE_SLUGS } from "./pages/NEETPracticeQuestion";
 
 const queryClient = new QueryClient();
 
@@ -92,6 +95,7 @@ const App = () => (
             <Route path="/neet-coaching" element={<NEETCoaching />} />
             <Route path="/free-trial" element={<FreeTrial />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/study-plan" element={<StudyPlan />} />
             <Route path="/contact" element={<Contact />} />
 
             {/* SEO Landing Pages — exam, subject, and additional pages */}
@@ -139,6 +143,12 @@ const App = () => (
             <Route path="/jee-pyq" element={<JEEPYQHub />} />
             {PYQ_SLUGS.map((slug) => (
               <Route key={slug} path={`/${slug}`} element={<JEEPYQQuestion />} />
+            ))}
+
+            {/* NEET Practice Hub + Question Pages */}
+            <Route path="/neet-practice" element={<NEETPracticeHub />} />
+            {NEET_PRACTICE_SLUGS.map((slug) => (
+              <Route key={slug} path={`/${slug}`} element={<NEETPracticeQuestion />} />
             ))}
 
             {/* NEET Previous Year Questions Hub + Question Pages */}

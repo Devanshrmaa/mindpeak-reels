@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 import { motion } from 'framer-motion';
 import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
@@ -543,7 +544,7 @@ const SubjectPage = () => {
         {/* ───── HERO ───── */}
         <section className="max-w-5xl mx-auto px-4 sm:px-6 pb-8 sm:pb-12">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <FreshnessBadge lastUpdated="2026-02-18" verifiedFor={`${data.exam} 2026`} />
+            <FreshnessBadge lastUpdated="2026-02-18" verifiedFor={`${data.exam} ${CURRENT_EXAM_YEAR}`} />
 
             <div className="flex items-center gap-3 mb-4 sm:mb-6">
               <img src={logo} alt="MindPeak Institute" className="w-10 h-10 sm:w-14 sm:h-14 rounded-full flex-shrink-0" width={56} height={56} />

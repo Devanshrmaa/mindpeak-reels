@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 
 /* ═══════════════════════════════════════════════════════
    RelatedPages — internal linking component
@@ -90,7 +91,7 @@ export const RelatedPages = ({ title = 'You Might Also Like', links, columns = 3
 
 export const jeeRelatedLinks: RelatedLink[] = [
   { href: '/jee-coaching', label: 'JEE Coaching — 1-on-1', tag: 'Service' },
-  { href: '/jee-rank-predictor', label: 'JEE Rank Predictor 2026', tag: 'Free Tool' },
+  { href: '/jee-rank-predictor', label: `JEE Rank Predictor ${CURRENT_EXAM_YEAR}`, tag: 'Free Tool' },
   { href: '/jee-physics-mechanics', label: 'JEE Physics: Mechanics Guide', tag: 'Chapter' },
   { href: '/jee-maths-calculus', label: 'JEE Maths: Calculus Guide', tag: 'Chapter' },
   { href: '/jee-chemistry-organic-basics', label: 'JEE Chemistry: Organic Guide', tag: 'Chapter' },
@@ -102,7 +103,7 @@ export const jeeRelatedLinks: RelatedLink[] = [
 
 export const neetRelatedLinks: RelatedLink[] = [
   { href: '/neet-coaching', label: 'NEET Coaching — 1-on-1', tag: 'Service' },
-  { href: '/neet-rank-predictor', label: 'NEET Rank Predictor 2026', tag: 'Free Tool' },
+  { href: '/neet-rank-predictor', label: `NEET Rank Predictor ${CURRENT_EXAM_YEAR}`, tag: 'Free Tool' },
   { href: '/neet-biology-human-physiology', label: 'NEET Bio: Human Physiology', tag: 'Chapter' },
   { href: '/neet-biology-genetics', label: 'NEET Bio: Genetics Guide', tag: 'Chapter' },
   { href: '/neet-biology-ecology', label: 'NEET Bio: Ecology Guide', tag: 'Chapter' },

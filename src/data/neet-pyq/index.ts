@@ -1,4 +1,5 @@
 import type { NEETPYQSubjectBank, NEETPYQChapter, NEETPYQuestion } from './types';
+import { slugifyQuestion, deduplicateSlugs } from '../../lib/slugify';
 import { botanyPyq } from './biology-botany-pyq';
 import { zoologyPyq } from './biology-zoology-pyq';
 import { neetPhysicsPyq } from './physics-pyq';
@@ -76,8 +77,11 @@ export function buildAllNEETPYQSlugs(): { slug: string; params: NEETPYQRoutePara
 
   for (const bank of neetPyqSubjectBanks) {
     for (const chapter of bank.chapters) {
+      // Build base slugs from question text, then deduplicate
+      const baseSlugs = chapter.questions.map(q => slugifyQuestion(q.q));
+      const uniqueSlugs = deduplicateSlugs(baseSlugs);
       chapter.questions.forEach((_, idx) => {
-        const slug = `neet-pyq-${bank.slug}-${chapter.slug}-q${idx + 1}`;
+        const slug = `neet-pyq-${bank.slug}-${chapter.slug}-${uniqueSlugs[idx]}`;
         result.push({
           slug,
           params: {

@@ -1,4 +1,5 @@
 import type { SubjectBank, ChapterData, PracticeQuestion } from './types';
+import { slugifyQuestion, deduplicateSlugs } from '../../lib/slugify';
 import { mechanicsChapters1 } from './physics-mechanics-1';
 import { mechanicsChapters2 } from './physics-mechanics-2';
 import { mechanicsChapters3 } from './physics-mechanics-3';
@@ -105,8 +106,11 @@ export function buildAllPracticeSlugs(): { slug: string; params: PracticeRoutePa
       for (const topic of chapter.topics) {
         for (const diff of ['easy', 'medium', 'hard'] as Difficulty[]) {
           const questions = topic[diff];
+          // Build base slugs from question text, then deduplicate
+          const baseSlugs = questions.map(q => slugifyQuestion(q.q));
+          const uniqueSlugs = deduplicateSlugs(baseSlugs);
           questions.forEach((_, idx) => {
-            const slug = `jee-${bank.slug}-${chapter.slug}-${topic.slug}-${diff}-q${idx + 1}`;
+            const slug = `jee-${bank.slug}-${chapter.slug}-${topic.slug}-${diff}-${uniqueSlugs[idx]}`;
             result.push({
               slug,
               params: {

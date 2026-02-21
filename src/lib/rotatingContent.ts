@@ -4,6 +4,8 @@
  * Google sees different content each time it crawls = dynamic / active site.
  */
 
+import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
+
 /* ─── types ─── */
 
 export interface MonthlyContentBlock {
@@ -88,7 +90,7 @@ export interface SeasonalBanner {
 }
 
 const seasonalBanners: Record<number, SeasonalBanner> = {
-  0: { headline: 'New Year, New Start 🎯', subtext: 'Begin your JEE / NEET journey with a personalized plan for 2026.', cta: 'Claim New Year Offer' },
+  0: { headline: 'New Year, New Start 🎯', subtext: `Begin your JEE / NEET journey with a personalized plan for ${CURRENT_EXAM_YEAR}.`, cta: 'Claim New Year Offer' },
   1: { headline: 'Board Exams Approaching 📝', subtext: "Balance boards + competitive exam prep with a personal mentor.", cta: 'Get Board + JEE/NEET Plan' },
   2: { headline: 'JEE Main Session 1 Done ✅', subtext: 'Didn\'t score as expected? There\'s still time — start your recovery plan now.', cta: 'Start Recovery Plan' },
   3: { headline: 'JEE Main Session 2 Countdown ⏰', subtext: 'Intensive 1-on-1 preparation to maximize your Session 2 score.', cta: 'Join Crash Course' },

@@ -1,4 +1,5 @@
 import { BookOpen, Target, Brain, Clock, Lightbulb, TrendingUp, Calendar, Zap, GraduationCap, Award, Heart, Shield, Users, BarChart3, Compass, Flame, Star } from 'lucide-react';
+import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 
 export interface BlogPost {
   slug: string;
@@ -17,8 +18,8 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
-    slug: 'top-10-jee-preparation-tips-2026',
-    title: 'Top 10 JEE Preparation Tips for 2026 Aspirants',
+    slug: `top-10-jee-preparation-tips-${CURRENT_EXAM_YEAR}`,
+    title: `Top 10 JEE Preparation Tips for ${CURRENT_EXAM_YEAR} Aspirants`,
     excerpt: 'Master the JEE Main and Advanced with these proven strategies that have helped thousands of students achieve their IIT dreams.',
     category: 'JEE',
     tags: ['JEE Main', 'JEE Advanced', 'Preparation Tips', 'Study Strategy'],
@@ -29,7 +30,7 @@ export const blogPosts: BlogPost[] = [
     color: 'from-blue-500 to-cyan-500',
     featured: true,
     content: `
-# Top 10 JEE Preparation Tips for 2026 Aspirants
+# Top 10 JEE Preparation Tips for ${CURRENT_EXAM_YEAR} Aspirants
 
 Preparing for JEE Main and Advanced is a marathon, not a sprint. With the right strategy and consistent effort, you can crack one of India's toughest entrance exams. Here are our top 10 tips:
 

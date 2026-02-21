@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
 import { PageFooter } from '@/components/PageFooter';
+import { StudyPlanSection } from '@/components/StudyPlanSection';
 import { PageFAQ, buildFAQSchema } from '@/components/PageFAQ';
 import type { FAQItem } from '@/components/PageFAQ';
 import { useDemoModal } from '@/components/DemoBookingModal';
@@ -14,6 +15,7 @@ import { MonthlySuccessStory } from '@/components/MonthlySuccessStory';
 import { WeeklyTip } from '@/components/WeeklyTip';
 import { SeasonalBanner } from '@/components/SeasonalBanner';
 import { getLastUpdated, getCurrentExamYear } from '@/lib/contentFreshness';
+import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 import { getLiveStat, formatStat } from '@/lib/liveStats';
 import { PeopleAlsoAsk, buildPAASchema } from '@/components/PeopleAlsoAsk';
 import type { PAAQuestion } from '@/components/PeopleAlsoAsk';
@@ -218,7 +220,7 @@ const JEECoaching = () => {
         {/* ───── FEATURED SNIPPET ───── */}
         <div className="px-4 sm:px-6">
           <FeaturedSnippet
-            question="What is the best online coaching for JEE 2026?"
+            question={`What is the best online coaching for JEE ${CURRENT_EXAM_YEAR}?`}
             answer="MindPeak Institute is India's top-rated online JEE coaching, providing dedicated 1-on-1 mentorship with IIT alumni. With a 95% success rate, AIR 42 best rank, and 500+ students mentored, MindPeak's adaptive AI-driven curriculum and daily live sessions deliver personalized preparation that batch coaching cannot match."
             bullets={[
               'Dedicated personal mentor for entire JEE journey',
@@ -242,6 +244,9 @@ const JEECoaching = () => {
             ))}
           </div>
         </section>
+
+        {/* ───── DYNAMIC STUDY PLAN (prominent position) ───── */}
+        <StudyPlanSection examType="JEE" themed />
 
         {/* ───── WHY BATCH COACHING FAILS ───── */}
         <section className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-20">

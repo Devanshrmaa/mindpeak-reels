@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation, Navigate } from 'react-router-dom';
+import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
@@ -36,7 +37,7 @@ const formulaSheets: FormulaSheetData[] = [
   {
     slug: 'jee-physics-formulas',
     exam: 'JEE', subject: 'Physics',
-    title: 'JEE Physics Formula Sheet 2026 — All Chapters PDF Download | MindPeak',
+    title: `JEE Physics Formula Sheet ${CURRENT_EXAM_YEAR} — All Chapters PDF Download | MindPeak`,
     description: 'Download the complete JEE Physics formula sheet PDF — all chapters, all formulas. Master Mechanics, Electrodynamics, Optics, Thermodynamics & Modern Physics.',
     heroHeading: 'JEE Physics',
     heroHighlight: 'Formula Sheet',
@@ -100,7 +101,7 @@ const formulaSheets: FormulaSheetData[] = [
   {
     slug: 'jee-chemistry-formulas',
     exam: 'JEE', subject: 'Chemistry',
-    title: 'JEE Chemistry Formula Sheet 2026 — Physical, Organic & Inorganic | MindPeak',
+    title: `JEE Chemistry Formula Sheet ${CURRENT_EXAM_YEAR} — Physical, Organic & Inorganic | MindPeak`,
     description: 'Download the complete JEE Chemistry formula sheet — Physical Chemistry equations, Organic named reactions, Inorganic trends. Free PDF from MindPeak Institute.',
     heroHeading: 'JEE Chemistry',
     heroHighlight: 'Formula Sheet',
@@ -145,7 +146,7 @@ const formulaSheets: FormulaSheetData[] = [
   {
     slug: 'jee-maths-formulas',
     exam: 'JEE', subject: 'Mathematics',
-    title: 'JEE Mathematics Formula Sheet 2026 — Calculus, Algebra, Trigonometry | MindPeak',
+    title: `JEE Mathematics Formula Sheet ${CURRENT_EXAM_YEAR} — Calculus, Algebra, Trigonometry | MindPeak`,
     description: 'Download the complete JEE Maths formula sheet — Calculus, Algebra, Coordinate Geometry, Trigonometry, Vectors & 3D. All important formulas in one PDF.',
     heroHeading: 'JEE Mathematics',
     heroHighlight: 'Formula Sheet',
@@ -196,7 +197,7 @@ const formulaSheets: FormulaSheetData[] = [
   {
     slug: 'neet-biology-formulas',
     exam: 'NEET', subject: 'Biology',
-    title: 'NEET Biology Important Facts & Formulas 2026 — All Chapters | MindPeak',
+    title: `NEET Biology Important Facts & Formulas ${CURRENT_EXAM_YEAR} — All Chapters | MindPeak`,
     description: 'Complete NEET Biology formulas, key facts & important values — Human Physiology, Genetics, Ecology, Cell Biology. Free revision sheet from MindPeak Institute.',
     heroHeading: 'NEET Biology',
     heroHighlight: 'Key Facts & Formulas',
@@ -238,8 +239,8 @@ const formulaSheets: FormulaSheetData[] = [
   {
     slug: 'neet-physics-formulas',
     exam: 'NEET', subject: 'Physics',
-    title: 'NEET Physics Formula Sheet 2026 — All Chapters PDF | MindPeak',
-    description: 'Download complete NEET Physics formulas — Mechanics, Electrodynamics, Optics, Modern Physics. Chapter-wise revision sheet for NEET UG 2026.',
+    title: `NEET Physics Formula Sheet ${CURRENT_EXAM_YEAR} — All Chapters PDF | MindPeak`,
+    description: `Download complete NEET Physics formulas — Mechanics, Electrodynamics, Optics, Modern Physics. Chapter-wise revision sheet for NEET UG ${CURRENT_EXAM_YEAR}.`,
     heroHeading: 'NEET Physics',
     heroHighlight: 'Formula Sheet',
     heroParagraph: 'All important NEET Physics formulas organized by chapter. Simpler than JEE but equally important — master these for 45/45 in Physics.',
@@ -332,7 +333,7 @@ const FormulaSheet = () => {
               <span className="text-primary text-xs font-semibold uppercase tracking-widest">Free Download</span>
             </div>
             <h1 className="font-display font-black text-foreground text-3xl sm:text-4xl md:text-5xl leading-tight mb-4">
-              {data.heroHeading} <span className="text-gradient-gold">{data.heroHighlight}</span> 2026
+              {data.heroHeading} <span className="text-gradient-gold">{data.heroHighlight}</span> {CURRENT_EXAM_YEAR}
             </h1>
             <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">{data.heroParagraph}</p>
           </motion.div>

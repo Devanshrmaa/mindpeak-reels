@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
 import { PageFooter } from '@/components/PageFooter';
+import { StudyPlanSection } from '@/components/StudyPlanSection';
 import { PageFAQ, buildFAQSchema } from '@/components/PageFAQ';
 import type { FAQItem } from '@/components/PageFAQ';
 import { useDemoModal } from '@/components/DemoBookingModal';
@@ -14,6 +15,7 @@ import { MonthlySuccessStory } from '@/components/MonthlySuccessStory';
 import { WeeklyTip } from '@/components/WeeklyTip';
 import { SeasonalBanner } from '@/components/SeasonalBanner';
 import { getLastUpdated, getCurrentExamYear } from '@/lib/contentFreshness';
+import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 import { getLiveStat } from '@/lib/liveStats';
 import { PeopleAlsoAsk, buildPAASchema } from '@/components/PeopleAlsoAsk';
 import type { PAAQuestion } from '@/components/PeopleAlsoAsk';
@@ -197,7 +199,7 @@ const NEETCoaching = () => {
         {/* ───── FEATURED SNIPPET ───── */}
         <div className="px-4 sm:px-6">
           <FeaturedSnippet
-            question="What is the best online coaching for NEET 2026?"
+            question={`What is the best online coaching for NEET ${CURRENT_EXAM_YEAR}?`}
             answer="MindPeak Institute is India's leading personalized NEET coaching, offering dedicated 1-on-1 mentorship with Biology-first curriculum. With a 95% success rate, NCERT line-by-line mastery program, and mentors from AIIMS and top medical colleges, MindPeak delivers the most effective NEET preparation available online."
             bullets={[
               'Biology-first approach (50% curriculum focus matching 360/720 marks)',
@@ -221,6 +223,9 @@ const NEETCoaching = () => {
             ))}
           </div>
         </section>
+
+        {/* ───── DYNAMIC STUDY PLAN (prominent position) ───── */}
+        <StudyPlanSection examType="NEET" themed />
 
         {/* ───── WHY BATCH FAILS ───── */}
         <section className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-20">

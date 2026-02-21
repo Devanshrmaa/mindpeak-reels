@@ -9,6 +9,8 @@ import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import { PageFooter } from '@/components/PageFooter';
+import ContinueTestModal from '@/components/ContinueTestModal';
+import { useQuestionGate } from '@/hooks/useQuestionGate';
 import {
   buildAllNEETPYQSlugs,
   parseNEETPYQSlug,
@@ -81,6 +83,10 @@ const NEETPYQQuestion = () => {
   const chapterName = chapter?.name ?? params.chapter;
   const subj = bank.subject;
   const totalInChapter = chapter?.questions.length ?? 0;
+
+  /* ── Question Gate (free first 5, then require form) ── */
+  const { isGated, onUnlock } = useQuestionGate(params.questionIndex);
+  const testName = `NEET PYQ — ${subj} — ${chapterName}`;
 
   /* navigation slugs */
   const prevSlug =
@@ -330,6 +336,9 @@ const NEETPYQQuestion = () => {
 
         <PageFooter extra={`NEET ${subj} PYQ — ${chapterName} — Question ${params.questionIndex}.`} />
       </main>
+
+      {/* Gate modal — shown for Q6+ until user submits form */}
+      <ContinueTestModal isOpen={isGated} testName={testName} onSuccess={onUnlock} />
     </>
   );
 };

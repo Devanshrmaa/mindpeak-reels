@@ -1,4 +1,5 @@
 import type { FAQItem } from '@/components/PageFAQ';
+import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 
 export interface CompetitorData {
   slug: string;
@@ -17,7 +18,7 @@ export const competitors: CompetitorData[] = [
     slug: 'mindpeak-vs-allen',
     competitorName: 'Allen',
     title: 'MindPeak vs Allen',
-    metaTitle: 'MindPeak vs Allen — 1-on-1 vs Batch JEE/NEET Coaching Comparison | 2026',
+    metaTitle: `MindPeak vs Allen — 1-on-1 vs Batch JEE/NEET Coaching Comparison | ${CURRENT_EXAM_YEAR}`,
     metaDescription: 'Detailed comparison of MindPeak vs Allen coaching for JEE & NEET. Compare teaching format, fees, mentor quality, doubt resolution, and results. See why students switch.',
     intro: 'Allen Career Institute is one of India\'s biggest coaching brands, known for mass-scale JEE and NEET preparation in Kota. With batches of 100-200+ students, Allen follows a factory-model where top students thrive but the majority struggle for attention. MindPeak takes the opposite approach: dedicated 1-on-1 mentorship where every student is the entire focus. Here\'s how the two approaches compare.',
     comparisonRows: [
@@ -49,7 +50,7 @@ export const competitors: CompetitorData[] = [
     slug: 'mindpeak-vs-resonance',
     competitorName: 'Resonance',
     title: 'MindPeak vs Resonance',
-    metaTitle: 'MindPeak vs Resonance — 1-on-1 vs Batch Coaching Comparison | JEE & NEET 2026',
+    metaTitle: `MindPeak vs Resonance — 1-on-1 vs Batch Coaching Comparison | JEE & NEET ${CURRENT_EXAM_YEAR}`,
     metaDescription: 'MindPeak vs Resonance coaching comparison. Compare fees, teaching quality, mentor attention, results. See why personalized 1-on-1 coaching beats batch teaching.',
     intro: 'Resonance Eduventures is a well-known coaching brand based in Kota, offering batch coaching for JEE and NEET with decent results. However, like all batch models, Resonance struggles to provide individual attention to each student. MindPeak\'s 1-on-1 approach fundamentally differs — every student gets a dedicated mentor, personalized curriculum, and real-time doubt resolution. Here\'s a detailed comparison.',
     comparisonRows: [
@@ -79,7 +80,7 @@ export const competitors: CompetitorData[] = [
     slug: 'mindpeak-vs-fiitjee',
     competitorName: 'FIITJEE',
     title: 'MindPeak vs FIITJEE',
-    metaTitle: 'MindPeak vs FIITJEE — 1-on-1 Personalized vs Batch Coaching | JEE 2026',
+    metaTitle: `MindPeak vs FIITJEE — 1-on-1 Personalized vs Batch Coaching | JEE ${CURRENT_EXAM_YEAR}`,
     metaDescription: 'MindPeak vs FIITJEE comparison for JEE coaching. Compare teaching methods, fees, results. Discover why 1-on-1 coaching delivers better results than FIITJEE batches.',
     intro: 'FIITJEE is one of India\'s oldest and most recognized JEE coaching brands, known for producing toppers through its intensive batch program. However, the FIITJEE model — like all batch models — primarily benefits the top-performing students who would likely succeed regardless. For the majority, the experience is high-pressure batch coaching with limited personal attention. MindPeak offers a fundamentally different proposition.',
     comparisonRows: [
@@ -109,7 +110,7 @@ export const competitors: CompetitorData[] = [
     slug: 'mindpeak-vs-byjus',
     competitorName: 'BYJU\'S',
     title: 'MindPeak vs BYJU\'S',
-    metaTitle: 'MindPeak vs BYJU\'S — Live 1-on-1 vs Recorded/Hybrid Coaching | 2026',
+    metaTitle: `MindPeak vs BYJU'S — Live 1-on-1 vs Recorded/Hybrid Coaching | ${CURRENT_EXAM_YEAR}`,
     metaDescription: 'MindPeak vs BYJU\'S for JEE & NEET coaching. Compare live 1-on-1 mentorship vs recorded content + hybrid model. See why live personalized coaching wins.',
     intro: 'BYJU\'S is India\'s largest edtech brand, known for produced content and app-based learning. However, for competitive exam preparation like JEE and NEET, recorded content and automated programs have significant limitations. MindPeak offers what BYJU\'S cannot: live 1-on-1 daily sessions with a dedicated human mentor who knows your child personally.',
     comparisonRows: [

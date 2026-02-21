@@ -1,7 +1,7 @@
 import { useParams, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ChevronDown, Phone, ArrowRight, CheckCircle, Users, BarChart3, GraduationCap } from 'lucide-react';
+import { ChevronDown, Phone, ArrowRight, CheckCircle, Users, BarChart3, GraduationCap, MapPin, Building2, Quote, Star, BookOpen } from 'lucide-react';
 import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { Navbar } from '@/components/sections/Navbar';
@@ -279,6 +279,118 @@ const LocationPage = () => {
             </div>
           </motion.div>
         </section>
+
+        {/* Student Testimonials */}
+        {city.testimonials && city.testimonials.length > 0 && (
+          <section className="max-w-5xl mx-auto px-6 py-16" aria-label={`${examLabel} coaching testimonials from ${city.city}`}>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <Star className="w-8 h-8 text-primary" />
+                <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl">
+                  Success Stories from <span className="text-gradient-gold">{city.city}</span>
+                </h2>
+              </div>
+              <p className="text-muted-foreground mb-8 max-w-3xl">
+                Real results from real {city.city} students who transformed their preparation with MindPeak's personalized 1-on-1 coaching.
+              </p>
+              <div className="grid md:grid-cols-3 gap-6">
+                {city.testimonials.map((t, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                    className="p-6 rounded-2xl bg-card border border-border relative"
+                  >
+                    <Quote className="w-8 h-8 text-primary/20 absolute top-4 right-4" />
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-4 italic">
+                      "{t.quote}"
+                    </p>
+                    <div className="border-t border-border pt-3">
+                      <p className="text-foreground font-semibold text-sm">{t.name}</p>
+                      <p className="text-primary text-xs font-medium">{t.rank}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </section>
+        )}
+
+        {/* Target Colleges */}
+        {city.targetColleges && city.targetColleges.length > 0 && (
+          <section className="bg-card/30 border-y border-border py-16 px-6" aria-label={`Target colleges for ${city.city} students`}>
+            <div className="max-w-5xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <Building2 className="w-8 h-8 text-primary" />
+                  <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl">
+                    Top Colleges {city.city} Students Target
+                  </h2>
+                </div>
+                <p className="text-muted-foreground mb-8 max-w-3xl">
+                  Our {examLabel} coaching prepares {city.city} students for admission to these premier institutions and more.
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                  {city.targetColleges.map((college, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.05 }}
+                      className="p-4 rounded-xl bg-background border border-border text-center hover:border-primary/40 transition-colors"
+                    >
+                      <BookOpen className="w-5 h-5 text-primary mx-auto mb-2" />
+                      <span className="text-foreground text-xs font-medium">{college}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+          </section>
+        )}
+
+        {/* Areas Served */}
+        {city.localAreas && city.localAreas.length > 0 && (
+          <section className="max-w-5xl mx-auto px-6 py-16" aria-label={`Areas served in ${city.city}`}>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <MapPin className="w-8 h-8 text-primary" />
+                <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl">
+                  {examLabel} Coaching for All Areas in {city.city}
+                </h2>
+              </div>
+              <p className="text-muted-foreground mb-6 max-w-3xl">
+                MindPeak's online 1-on-1 coaching is available for students across all localities in {city.city}. No commute, no area restrictions — world-class {examLabel} preparation from your home.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {city.localAreas.map((area, i) => (
+                  <span
+                    key={i}
+                    className="px-4 py-2 rounded-full bg-card border border-border text-muted-foreground text-xs hover:border-primary/40 hover:text-primary transition-colors"
+                  >
+                    <MapPin className="w-3 h-3 inline mr-1" />
+                    {area}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          </section>
+        )}
 
         {/* CTA Band */}
         <section className="bg-primary/10 border-y border-primary/20 py-12 px-6 text-center">

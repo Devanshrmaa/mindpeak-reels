@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 import { motion } from 'framer-motion';
 import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
@@ -74,7 +75,7 @@ const OnlineVsOffline = () => {
     {
       '@context': 'https://schema.org',
       '@type': 'Article',
-      headline: 'Online vs Offline JEE Coaching — Which Is Better in 2026?',
+      headline: `Online vs Offline JEE Coaching — Which Is Better in ${CURRENT_EXAM_YEAR}?`,
       author: { '@type': 'Organization', name: 'MindPeak Institute' },
       datePublished: '2026-02-18',
       publisher: { '@type': 'Organization', name: 'MindPeak Institute', url: 'https://mindpeakinstitute.com' },
@@ -85,7 +86,7 @@ const OnlineVsOffline = () => {
   return (
     <>
       <SEOHead
-        title="Online vs Offline JEE Coaching — Which Is Better in 2026? | MindPeak"
+        title={`Online vs Offline JEE Coaching — Which Is Better in ${CURRENT_EXAM_YEAR}? | MindPeak`}
         description="Honest comparison of online vs offline JEE/NEET coaching. Pros, cons, costs, effectiveness. See why 1-on-1 online coaching outperforms batch classrooms."
         jsonLd={jsonLd}
       />
@@ -113,7 +114,7 @@ const OnlineVsOffline = () => {
 
             <h1 className="font-display font-black text-foreground mb-6" style={{ fontSize: 'clamp(2rem, 6vw, 3.5rem)' }}>
               Online vs Offline JEE Coaching —{' '}
-              <span className="text-gradient-gold">Which Is Better in 2026?</span>
+              <span className="text-gradient-gold">Which Is Better in {CURRENT_EXAM_YEAR}?</span>
             </h1>
 
             <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mb-8">

@@ -31,14 +31,10 @@ export function getLastUpdated(pageSlug: string): string {
 
 /**
  * Returns the year label for current exam cycle.
- * e.g. "JEE 2026" or "NEET 2027"
+ * Delegates to the centralised examYears utility so the entire
+ * site stays in sync.
  */
-export function getCurrentExamYear(exam: 'JEE' | 'NEET' = 'JEE'): string {
-  const now = new Date();
-  // Exam cycle year: if we're past June, the target is next year
-  const year = now.getMonth() >= 6 ? now.getFullYear() + 1 : now.getFullYear();
-  return `${exam} ${year}`;
-}
+export { getExamYear as getCurrentExamYear } from './examYears';
 
 /**
  * Only show the freshness signal on content-heavy SEO pages.

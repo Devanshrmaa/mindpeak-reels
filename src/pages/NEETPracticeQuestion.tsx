@@ -9,14 +9,14 @@ import { PageFooter } from '@/components/PageFooter';
 import ContinueTestModal from '@/components/ContinueTestModal';
 import { useQuestionGate } from '@/hooks/useQuestionGate';
 import {
-  buildAllPracticeSlugs,
-  parsePracticeSlug,
-  getQuestion,
-  subjectBanks,
-  getChapter,
-  getChapterQuestionCount,
+  buildAllNEETPracticeSlugs,
+  parseNEETPracticeSlug,
+  getNEETPracticeQuestion,
+  neetSubjectBanks,
+  getNEETChapter,
+  getNEETChapterQuestionCount,
   type Difficulty,
-} from '@/data/practice';
+} from '@/data/neet-practice';
 
 /* ── label helpers ── */
 const difficultyLabel: Record<Difficulty, string> = {
@@ -27,23 +27,18 @@ const difficultyLabel: Record<Difficulty, string> = {
 
 /**
  * Deterministic shuffle for 4 options based on a string seed.
- * Same seed always produces the same permutation,
- * but different questions get different orderings.
  */
 function seededShuffle(seed: string): number[] {
-  // Simple hash from seed string
   let h = 0;
   for (let i = 0; i < seed.length; i++) {
     h = ((h << 5) - h + seed.charCodeAt(i)) | 0;
   }
   h = Math.abs(h);
-
-  // Generate a permutation of [0,1,2,3] using the hash
   const arr = [0, 1, 2, 3];
   for (let i = 3; i > 0; i--) {
     const j = h % (i + 1);
     [arr[i], arr[j]] = [arr[j], arr[i]];
-    h = Math.floor(h / (i + 1)) + (h % 7919); // advance deterministically
+    h = Math.floor(h / (i + 1)) + (h % 7919);
   }
   return arr;
 }
@@ -55,11 +50,11 @@ const difficultyColor: Record<Difficulty, string> = {
 };
 
 /* ── build slug list once (used by App.tsx for routing) ── */
-const allSlugs = buildAllPracticeSlugs();
-export const PRACTICE_SLUGS = allSlugs.map((s) => s.slug);
+const allSlugs = buildAllNEETPracticeSlugs();
+export const NEET_PRACTICE_SLUGS = allSlugs.map((s) => s.slug);
 
 /* ── Page Component ── */
-const JEEPracticeQuestion = () => {
+const NEETPracticeQuestion = () => {
   const location = useLocation();
   const slug = location.pathname.replace(/^\//, '');
   const { openDemoModal } = useDemoModal();
@@ -82,22 +77,22 @@ const JEEPracticeQuestion = () => {
     }
   }, [slug]);
 
-  const params = parsePracticeSlug(slug);
-  const question = params ? getQuestion(params) : null;
+  const params = parseNEETPracticeSlug(slug);
+  const question = params ? getNEETPracticeQuestion(params) : null;
 
-  /* Deterministic option shuffle — hook must run before conditional returns */
+  /* Deterministic option shuffle */
   const { shuffledOptions, shuffledAnswer } = useMemo(() => {
     if (!question) return { shuffledOptions: [] as string[], shuffledAnswer: -1 };
-    const perm = seededShuffle(slug);                         // e.g. [2, 0, 3, 1]
-    const sOpts = perm.map((origIdx) => question.o[origIdx]); // reordered options
-    const sAns = perm.indexOf(question.a);                    // new index of correct answer
+    const perm = seededShuffle(slug);
+    const sOpts = perm.map((origIdx) => question.o[origIdx]);
+    const sAns = perm.indexOf(question.a);
     return { shuffledOptions: sOpts, shuffledAnswer: sAns };
   }, [slug, question]);
 
   if (!params || !question) return <Navigate to="/" replace />;
 
-  const bank = subjectBanks.find((b) => b.slug === params.subject)!;
-  const chapter = getChapter(params.subject, params.chapter);
+  const bank = neetSubjectBanks.find((b) => b.slug === params.subject)!;
+  const chapter = getNEETChapter(params.subject, params.chapter);
   const topicObj = chapter?.topics.find((t) => t.slug === params.topic);
   const topicName = topicObj?.name ?? params.topic;
   const chapterName = chapter?.name ?? params.chapter;
@@ -106,27 +101,27 @@ const JEEPracticeQuestion = () => {
 
   /* ── Question Gate (free first 5, then require form) ── */
   const { isGated, onUnlock } = useQuestionGate(params.questionIndex);
-  const testName = `JEE ${subj} — ${chapterName} — ${topicName} (${diff})`;
+  const testName = `NEET ${subj} — ${chapterName} — ${topicName} (${diff})`;
 
   /* navigation slugs */
   const topicQuestions = topicObj?.[params.difficulty] ?? [];
   const prevSlug = params.questionIndex > 1
-    ? `jee-${params.subject}-${params.chapter}-${params.topic}-${params.difficulty}-q${params.questionIndex - 1}`
+    ? `neet-${params.subject}-${params.chapter}-${params.topic}-${params.difficulty}-q${params.questionIndex - 1}`
     : null;
   const nextSlug = params.questionIndex < topicQuestions.length
-    ? `jee-${params.subject}-${params.chapter}-${params.topic}-${params.difficulty}-q${params.questionIndex + 1}`
+    ? `neet-${params.subject}-${params.chapter}-${params.topic}-${params.difficulty}-q${params.questionIndex + 1}`
     : null;
 
-  const title = `JEE ${subj} — ${topicName} (${diff}) Q${params.questionIndex} | MindPeak`;
-  const description = `Practice JEE ${subj} ${diff} level question on ${topicName} (${chapterName}). Attempt the MCQ, check the answer & read the step-by-step solution. Free JEE prep by MindPeak.`;
+  const title = `NEET ${subj} — ${topicName} (${diff}) Q${params.questionIndex} | MindPeak`;
+  const description = `Practice NEET ${subj} ${diff} level question on ${topicName} (${chapterName}). Attempt the MCQ, check the answer & read the step-by-step solution. Free NEET prep by MindPeak.`;
 
   const jsonLd = [
     {
       '@context': 'https://schema.org',
       '@type': 'Quiz',
-      name: `JEE ${subj} — ${topicName} (${diff}) Q${params.questionIndex}`,
+      name: `NEET ${subj} — ${topicName} (${diff}) Q${params.questionIndex}`,
       educationalLevel: params.difficulty === 'easy' ? 'Beginner' : params.difficulty === 'medium' ? 'Intermediate' : 'Advanced',
-      about: { '@type': 'Thing', name: `JEE ${subj} — ${topicName}` },
+      about: { '@type': 'Thing', name: `NEET ${subj} — ${topicName}` },
       provider: { '@type': 'Organization', name: 'MindPeak Institute', url: 'https://mindpeakinstitute.com' },
     },
     {
@@ -134,8 +129,8 @@ const JEEPracticeQuestion = () => {
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://mindpeakinstitute.com' },
-        { '@type': 'ListItem', position: 2, name: `JEE ${subj} Coaching`, item: `https://mindpeakinstitute.com/jee-${params.subject}-coaching` },
-        { '@type': 'ListItem', position: 3, name: chapterName, item: `https://mindpeakinstitute.com/jee-practice` },
+        { '@type': 'ListItem', position: 2, name: 'NEET Practice', item: 'https://mindpeakinstitute.com/neet-practice' },
+        { '@type': 'ListItem', position: 3, name: chapterName, item: 'https://mindpeakinstitute.com/neet-practice' },
         { '@type': 'ListItem', position: 4, name: `${topicName} ${diff} Q${params.questionIndex}`, item: `https://mindpeakinstitute.com/${slug}` },
       ],
     },
@@ -153,15 +148,13 @@ const JEEPracticeQuestion = () => {
       <Navbar />
       <main className="bg-background pt-20">
         {/* Hero */}
-        <section className="relative overflow-hidden bg-gradient-to-b from-primary/5 via-background to-background py-16 sm:py-24">
+        <section className="relative overflow-hidden bg-gradient-to-b from-green-500/5 via-background to-background py-16 sm:py-24">
           <div className="mx-auto max-w-4xl px-4">
             {/* Breadcrumb */}
             <nav className="mb-6 text-sm text-muted-foreground flex items-center gap-1 flex-wrap">
-              <Link to="/" className="hover:text-primary transition-colors">Home</Link>
+              <Link to="/" className="hover:text-green-500 transition-colors">Home</Link>
               <span>/</span>
-              <Link to="/jee-practice" className="hover:text-primary transition-colors">Practice</Link>
-              <span>/</span>
-              <Link to={`/jee-${params.subject}-coaching`} className="hover:text-primary transition-colors">JEE {subj}</Link>
+              <Link to="/neet-practice" className="hover:text-green-500 transition-colors">NEET Practice</Link>
               <span>/</span>
               <span className="text-muted-foreground">{chapterName}</span>
               <span>/</span>
@@ -176,10 +169,10 @@ const JEEPracticeQuestion = () => {
                 </span>
               </div>
               <h1 className="font-display font-bold text-3xl sm:text-4xl text-foreground mb-3">
-                {chapterName} — <span className="text-primary">{topicName}</span>
+                {chapterName} — <span className="text-green-500">{topicName}</span>
               </h1>
               <p className="text-lg text-muted-foreground">
-                JEE {subj} · {diff} · Question {params.questionIndex} of {topicQuestions.length}
+                NEET {subj} · {diff} · Question {params.questionIndex} of {topicQuestions.length}
               </p>
             </motion.div>
           </div>
@@ -191,7 +184,7 @@ const JEEPracticeQuestion = () => {
           <motion.div ref={questionRef} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-xl border border-border bg-card/50 p-6 sm:p-8 scroll-mt-4">
             <div className="flex items-start justify-between gap-4 mb-6">
               <h2 className="font-display font-bold text-xl text-foreground flex items-center gap-2">
-                <BookOpen className="w-5 h-5 text-primary flex-shrink-0" /> Question {params.questionIndex}
+                <BookOpen className="w-5 h-5 text-green-500 flex-shrink-0" /> Question {params.questionIndex}
               </h2>
               <div className="flex items-center gap-2 text-xs text-muted-foreground">
                 <Clock className="w-4 h-4" />
@@ -206,7 +199,7 @@ const JEEPracticeQuestion = () => {
             {/* Options */}
             <div className="space-y-3 mb-6">
               {shuffledOptions.map((option, idx) => {
-                let optionClass = 'border-border hover:border-primary/50 cursor-pointer';
+                let optionClass = 'border-border hover:border-green-500/50 cursor-pointer';
                 if (isAnswered) {
                   if (idx === shuffledAnswer) {
                     optionClass = 'border-green-500 bg-green-500/10';
@@ -216,7 +209,7 @@ const JEEPracticeQuestion = () => {
                     optionClass = 'border-border opacity-60';
                   }
                 } else if (idx === selectedOption) {
-                  optionClass = 'border-primary bg-primary/5';
+                  optionClass = 'border-green-500 bg-green-500/5';
                 }
                 return (
                   <button
@@ -250,12 +243,12 @@ const JEEPracticeQuestion = () => {
               </motion.div>
             )}
 
-            {/* ── Solution (inside card) ── */}
+            {/* ── Solution ── */}
             {isAnswered && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mt-6">
                 <button
                   onClick={() => setShowSolution(!showSolution)}
-                  className="flex items-center gap-2 text-primary font-semibold text-sm mb-3"
+                  className="flex items-center gap-2 text-green-500 font-semibold text-sm mb-3"
                 >
                   {showSolution ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                   {showSolution ? 'Hide Solution' : 'Show Solution'}
@@ -271,16 +264,16 @@ const JEEPracticeQuestion = () => {
               </motion.div>
             )}
 
-            {/* ── Prev / Next Navigation (inside card) ── */}
+            {/* ── Prev / Next Navigation ── */}
             <div className="flex items-center justify-between mt-8 pt-5 border-t border-border">
               {prevSlug ? (
-                <Link to={`/${prevSlug}`} className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                <Link to={`/${prevSlug}`} className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-green-500 transition-colors">
                   <ChevronLeft className="w-4 h-4" /> Q{params.questionIndex - 1}
                 </Link>
               ) : <div />}
               <span className="text-xs text-muted-foreground">{params.questionIndex} / {topicQuestions.length}</span>
               {nextSlug ? (
-                <Link to={`/${nextSlug}`} className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                <Link to={`/${nextSlug}`} className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-green-500 transition-colors">
                   Q{params.questionIndex + 1} <ChevronRight className="w-4 h-4" />
                 </Link>
               ) : <div />}
@@ -291,21 +284,21 @@ const JEEPracticeQuestion = () => {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-xl border border-border bg-card/50 p-6">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="flex items-center gap-3 rounded-lg bg-secondary/30 p-3">
-                <Target className="w-5 h-5 text-primary" />
+                <Target className="w-5 h-5 text-green-500" />
                 <div>
                   <p className="text-xs text-muted-foreground">Chapter</p>
                   <p className="text-sm font-medium text-foreground">{chapterName}</p>
                 </div>
               </div>
               <div className="flex items-center gap-3 rounded-lg bg-secondary/30 p-3">
-                <Target className="w-5 h-5 text-primary" />
+                <Target className="w-5 h-5 text-green-500" />
                 <div>
                   <p className="text-xs text-muted-foreground">Topic</p>
                   <p className="text-sm font-medium text-foreground">{topicName}</p>
                 </div>
               </div>
               <div className="flex items-center gap-3 rounded-lg bg-secondary/30 p-3">
-                <Target className="w-5 h-5 text-primary" />
+                <Target className="w-5 h-5 text-green-500" />
                 <div>
                   <p className="text-xs text-muted-foreground">Difficulty</p>
                   <p className="text-sm font-medium text-foreground">{diff}</p>
@@ -321,7 +314,7 @@ const JEEPracticeQuestion = () => {
               className="w-full flex items-center justify-between px-5 py-4 hover:bg-secondary/20 transition-colors"
             >
               <div className="flex items-center gap-3">
-                <List className="w-5 h-5 text-primary" />
+                <List className="w-5 h-5 text-green-500" />
                 <div className="text-left">
                   <p className="font-display font-semibold text-foreground text-sm sm:text-base">Choose a Different Chapter</p>
                   <p className="text-xs text-muted-foreground mt-0.5">{bank.subject} — {bank.chapters.length} chapters available</p>
@@ -336,19 +329,19 @@ const JEEPracticeQuestion = () => {
                   {bank.chapters.map((ch) => {
                     const isCurrent = ch.slug === params.chapter;
                     const isExp = browserExpandedChapter === ch.slug;
-                    const qCount = getChapterQuestionCount(ch);
+                    const qCount = getNEETChapterQuestionCount(ch);
                     return (
-                      <div key={ch.slug} className={`rounded-lg border overflow-hidden ${isCurrent ? 'border-primary/50 bg-primary/5' : 'border-border/50'}`}>
+                      <div key={ch.slug} className={`rounded-lg border overflow-hidden ${isCurrent ? 'border-green-500/50 bg-green-500/5' : 'border-border/50'}`}>
                         <button
                           onClick={() => setBrowserExpandedChapter(isExp ? null : ch.slug)}
                           className="w-full flex items-center justify-between px-4 py-3 hover:bg-secondary/20 transition-colors text-left"
                         >
                           <div className="flex items-center gap-2">
-                            <BookOpen className="w-4 h-4 text-primary flex-shrink-0" />
+                            <BookOpen className="w-4 h-4 text-green-500 flex-shrink-0" />
                             <div>
                               <p className="text-sm font-medium text-foreground flex items-center gap-2">
                                 {ch.name}
-                                {isCurrent && <span className="text-[10px] bg-primary/20 text-primary px-1.5 py-0.5 rounded-full">Current</span>}
+                                {isCurrent && <span className="text-[10px] bg-green-500/20 text-green-400 px-1.5 py-0.5 rounded-full">Current</span>}
                               </p>
                               <p className="text-xs text-muted-foreground">{ch.topics.length} topics · {qCount} Qs</p>
                             </div>
@@ -364,17 +357,17 @@ const JEEPracticeQuestion = () => {
                                   <p className="text-xs font-medium text-foreground mb-2">{t.name}</p>
                                   <div className="flex flex-wrap gap-1.5">
                                     {counts.easy > 0 && (
-                                      <Link to={`/jee-${bank.slug}-${ch.slug}-${t.slug}-easy-q1`} className="inline-flex items-center gap-1 px-2 py-1 rounded border text-[11px] font-medium bg-green-500/10 border-green-500/30 text-green-400 hover:scale-105 transition-transform">
+                                      <Link to={`/neet-${bank.slug}-${ch.slug}-${t.slug}-easy-q1`} className="inline-flex items-center gap-1 px-2 py-1 rounded border text-[11px] font-medium bg-green-500/10 border-green-500/30 text-green-400 hover:scale-105 transition-transform">
                                         <Zap className="w-3 h-3" /> Easy ({counts.easy})
                                       </Link>
                                     )}
                                     {counts.medium > 0 && (
-                                      <Link to={`/jee-${bank.slug}-${ch.slug}-${t.slug}-medium-q1`} className="inline-flex items-center gap-1 px-2 py-1 rounded border text-[11px] font-medium bg-yellow-500/10 border-yellow-500/30 text-yellow-400 hover:scale-105 transition-transform">
+                                      <Link to={`/neet-${bank.slug}-${ch.slug}-${t.slug}-medium-q1`} className="inline-flex items-center gap-1 px-2 py-1 rounded border text-[11px] font-medium bg-yellow-500/10 border-yellow-500/30 text-yellow-400 hover:scale-105 transition-transform">
                                         <Target className="w-3 h-3" /> Medium ({counts.medium})
                                       </Link>
                                     )}
                                     {counts.hard > 0 && (
-                                      <Link to={`/jee-${bank.slug}-${ch.slug}-${t.slug}-hard-q1`} className="inline-flex items-center gap-1 px-2 py-1 rounded border text-[11px] font-medium bg-red-500/10 border-red-500/30 text-red-400 hover:scale-105 transition-transform">
+                                      <Link to={`/neet-${bank.slug}-${ch.slug}-${t.slug}-hard-q1`} className="inline-flex items-center gap-1 px-2 py-1 rounded border text-[11px] font-medium bg-red-500/10 border-red-500/30 text-red-400 hover:scale-105 transition-transform">
                                         <Award className="w-3 h-3" /> Hard ({counts.hard})
                                       </Link>
                                     )}
@@ -397,7 +390,7 @@ const JEEPracticeQuestion = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-xl bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border border-primary/20 p-8 text-center"
+            className="rounded-xl bg-gradient-to-r from-green-500/10 via-green-500/5 to-transparent border border-green-500/20 p-8 text-center"
           >
             <h2 className="font-display font-bold text-xl text-foreground mb-3">
               Want Detailed Solutions with a Personal Mentor?
@@ -408,7 +401,7 @@ const JEEPracticeQuestion = () => {
             </p>
             <button
               onClick={openDemoModal}
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg hover:bg-primary/90 transition-colors"
+              className="inline-flex items-center gap-2 rounded-full bg-green-600 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-green-700 transition-colors"
             >
               Book Free Demo Class <ArrowRight className="w-4 h-4" />
             </button>
@@ -422,8 +415,8 @@ const JEEPracticeQuestion = () => {
                 {siblingTopics.map((t) => (
                   <Link
                     key={t.slug}
-                    to={`/jee-${params.subject}-${params.chapter}-${t.slug}-easy-q1`}
-                    className="rounded-lg border border-border bg-card/50 p-4 hover:border-primary/50 transition-colors"
+                    to={`/neet-${params.subject}-${params.chapter}-${t.slug}-easy-q1`}
+                    className="rounded-lg border border-border bg-card/50 p-4 hover:border-green-500/50 transition-colors"
                   >
                     <p className="text-sm font-medium text-foreground">{t.name}</p>
                     <p className="text-xs text-muted-foreground mt-1">
@@ -437,13 +430,13 @@ const JEEPracticeQuestion = () => {
 
           {/* Cross-subject Practice */}
           <div>
-            <h3 className="font-display font-bold text-lg text-foreground mb-4">Practice Questions — All Subjects</h3>
+            <h3 className="font-display font-bold text-lg text-foreground mb-4">NEET Practice — All Subjects</h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {subjectBanks.map((b) => (
+              {neetSubjectBanks.map((b) => (
                 <div key={b.slug} className="rounded-xl border border-border bg-card/50 p-4">
                   <h4 className="font-display font-semibold text-foreground text-sm mb-3 flex items-center gap-2">
                     <span>{b.icon}</span> {b.subject}
-                    {b.slug === params.subject && <span className="text-[10px] bg-primary/10 text-primary px-1.5 py-0.5 rounded-full">Current</span>}
+                    {b.slug === params.subject && <span className="text-[10px] bg-green-500/10 text-green-400 px-1.5 py-0.5 rounded-full">Current</span>}
                   </h4>
                   <ul className="space-y-1.5">
                     {b.chapters.slice(0, 5).map((ch) => {
@@ -452,8 +445,8 @@ const JEEPracticeQuestion = () => {
                       return (
                         <li key={ch.slug}>
                           <Link
-                            to={`/jee-${b.slug}-${ch.slug}-${firstTopic.slug}-easy-q1`}
-                            className="text-xs text-muted-foreground hover:text-primary transition-colors"
+                            to={`/neet-${b.slug}-${ch.slug}-${firstTopic.slug}-easy-q1`}
+                            className="text-xs text-muted-foreground hover:text-green-500 transition-colors"
                           >
                             {ch.name}
                           </Link>
@@ -468,20 +461,21 @@ const JEEPracticeQuestion = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-display font-bold text-lg text-foreground mb-4">JEE {subj} Resources</h3>
+            <h3 className="font-display font-bold text-lg text-foreground mb-4">NEET {subj} Resources</h3>
             <div className="flex flex-wrap gap-2">
               {[
-                { label: `JEE ${subj} Coaching`, to: `/jee-${params.subject}-coaching` },
-                { label: 'JEE Coaching', to: '/jee-coaching' },
-                { label: 'JEE Main Coaching', to: '/jee-main-coaching' },
-                { label: 'JEE Advanced Coaching', to: '/jee-advanced-coaching' },
+                { label: 'NEET Coaching', to: '/neet-coaching' },
+                { label: 'NEET Biology Coaching', to: '/neet-biology-coaching' },
+                { label: 'NEET Physics Coaching', to: '/neet-physics-coaching' },
+                { label: 'NEET Chemistry Coaching', to: '/neet-chemistry-coaching' },
+                { label: 'NEET Practice Hub', to: '/neet-practice' },
                 { label: 'Free Trial', to: '/free-trial' },
                 { label: 'All Courses', to: '/courses' },
               ].map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
-                  className="px-3 py-1.5 rounded-lg bg-card border border-border text-xs text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors"
+                  className="px-3 py-1.5 rounded-lg bg-card border border-border text-xs text-muted-foreground hover:text-green-500 hover:border-green-500/40 transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -490,7 +484,7 @@ const JEEPracticeQuestion = () => {
           </div>
         </section>
 
-        <PageFooter extra={`JEE ${subj} Practice Questions — ${chapterName}.`} />
+        <PageFooter extra={`NEET ${subj} Practice Questions — ${chapterName}.`} />
       </main>
 
       {/* Gate modal — shown for Q6+ until user submits form */}
@@ -499,4 +493,4 @@ const JEEPracticeQuestion = () => {
   );
 };
 
-export default JEEPracticeQuestion;
+export default NEETPracticeQuestion;

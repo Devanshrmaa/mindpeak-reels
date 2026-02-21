@@ -1,3 +1,5 @@
+import { CURRENT_EXAM_YEAR, ONE_YEAR_TARGET, TWO_YEAR_TARGET } from '@/lib/examYears';
+
 export interface SEOPageSection {
   heading: string;
   content: string;
@@ -109,8 +111,8 @@ const jeeCoachingPage: SEOPageData = {
       heading: 'JEE Coaching Programs at MindPeak',
       content: 'We offer multiple JEE programs to match your timeline and preparation stage:',
       bullets: [
-        'JEE Target 2028 (2-Year Program) — ₹2,30,000 + GST: For students starting in Class 11, this comprehensive program builds strong foundations over two years.',
-        'JEE Target 2027 (1-Year Intensive) — ₹1,30,000 + GST: For Class 12 students or droppers, this accelerated program covers the full syllabus with intensive revision.',
+        `JEE Target ${TWO_YEAR_TARGET} (2-Year Program) — ₹2,30,000 + GST: For students starting in Class 11, this comprehensive program builds strong foundations over two years.`,
+        `JEE Target ${ONE_YEAR_TARGET} (1-Year Intensive) — ₹1,30,000 + GST: For Class 12 students or droppers, this accelerated program covers the full syllabus with intensive revision.`,
         '1-on-1 Crash Program (1-2 Months) — ₹30,000 + GST per subject: Last-minute intensive preparation targeting high-yield topics for maximum score improvement.',
         'Subject Crash Course (1-2 Months) — ₹18,000 per subject: Small batch (2-5 students) rapid revision for specific subjects.',
       ],
@@ -182,8 +184,8 @@ const neetCoachingPage: SEOPageData = {
       heading: 'NEET Coaching Programs at MindPeak',
       content: 'Choose the program that matches your preparation timeline:',
       bullets: [
-        'NEET Target 2028 (2-Year Program) — ₹2,30,000 + GST: Start early in Class 11 with a comprehensive 2-year preparation journey. Ideal for building an unshakeable foundation.',
-        'NEET Target 2027 (1-Year Intensive) — ₹1,30,000 + GST: For Class 12 students or NEET repeaters. Accelerated syllabus coverage with intensive revision cycles.',
+        `NEET Target ${TWO_YEAR_TARGET} (2-Year Program) — ₹2,30,000 + GST: Start early in Class 11 with a comprehensive 2-year preparation journey. Ideal for building an unshakeable foundation.`,
+        `NEET Target ${ONE_YEAR_TARGET} (1-Year Intensive) — ₹1,30,000 + GST: For Class 12 students or NEET repeaters. Accelerated syllabus coverage with intensive revision cycles.`,
         '1-on-1 Crash Program (1-2 Months) — ₹30,000 + GST per subject: Targeted last-minute preparation focusing on high-yield topics for maximum score improvement.',
         'Subject Crash Course (1-2 Months) — ₹18,000 per subject: Rapid revision in small batches (2-5 students) for specific subjects.',
       ],
@@ -224,8 +226,8 @@ const pricingPage: SEOPageData = {
       table: {
         headers: ['Program', 'Duration', 'Mode', 'Fee'],
         rows: [
-          ['JEE Target 2028', '2 Years', '1-on-1', '₹2,30,000 + GST'],
-          ['JEE Target 2027', '1 Year', '1-on-1', '₹1,30,000 + GST'],
+          [`JEE Target ${TWO_YEAR_TARGET}`, '2 Years', '1-on-1', '₹2,30,000 + GST'],
+          [`JEE Target ${ONE_YEAR_TARGET}`, '1 Year', '1-on-1', '₹1,30,000 + GST'],
           ['1-on-1 Crash Course', '1-2 Months', '1-on-1', '₹30,000/subject + GST'],
           ['Subject Crash Course', '1-2 Months', 'Batch (2-5)', '₹18,000/subject'],
         ],
@@ -237,8 +239,8 @@ const pricingPage: SEOPageData = {
       table: {
         headers: ['Program', 'Duration', 'Mode', 'Fee'],
         rows: [
-          ['NEET Target 2028', '2 Years', '1-on-1', '₹2,30,000 + GST'],
-          ['NEET Target 2027', '1 Year', '1-on-1', '₹1,30,000 + GST'],
+          [`NEET Target ${TWO_YEAR_TARGET}`, '2 Years', '1-on-1', '₹2,30,000 + GST'],
+          [`NEET Target ${ONE_YEAR_TARGET}`, '1 Year', '1-on-1', '₹1,30,000 + GST'],
           ['1-on-1 Crash Course', '1-2 Months', '1-on-1', '₹30,000/subject + GST'],
           ['Subject Crash Course', '1-2 Months', 'Batch (2-5)', '₹18,000/subject'],
         ],
@@ -418,7 +420,7 @@ const jeeMainPage: SEOPageData = {
   heroSubtitle: 'JEE Main is the gateway to NITs, IIITs, and JEE Advanced eligibility. MindPeak\'s targeted 1-on-1 approach focuses on NTA exam patterns, question-type mastery, and time management strategies to help you score 250+ in JEE Main.',
   sections: [
     {
-      heading: 'JEE Main 2026 — What You Need to Know',
+      heading: `JEE Main ${CURRENT_EXAM_YEAR} — What You Need to Know`,
       content: 'JEE Main is conducted by NTA and is the qualifying exam for JEE Advanced as well as the primary entrance for admissions to 31 NITs, 26 IIITs, and other centrally funded institutions. The exam has 90 questions across Physics, Chemistry, and Mathematics, with a mix of MCQs and numerical-value questions. Understanding NTA\'s question patterns, difficulty distribution, and scoring system is crucial for maximising your score.',
     },
     {
@@ -505,7 +507,7 @@ const neetUgPage: SEOPageData = {
   heroSubtitle: 'NEET UG is the only gateway to MBBS admissions in India. Our NCERT-first, Biology-focused approach with dedicated 1-on-1 mentoring has produced AIR 156 and consistently helped students score 650+ to secure government medical college seats.',
   sections: [
     {
-      heading: 'NEET UG 2026 — Exam Overview',
+      heading: `NEET UG ${CURRENT_EXAM_YEAR} — Exam Overview`,
       content: 'NEET UG is conducted by NTA for admissions to all MBBS, BDS, BAMS, and BHMS programs in India. With 20+ lakh students competing for approximately 1 lakh seats, the competition is fierce. The exam consists of 200 MCQs (180 to be attempted) across Physics, Chemistry, and Biology. Biology alone carries 50% of the total marks (360 out of 720), making it the most critical subject for NEET aspirants.',
     },
     {
@@ -925,13 +927,13 @@ const comparisonPages: SEOPageData[] = [
   },
   {
     slug: 'online-vs-offline-jee-coaching',
-    title: 'Online vs Offline JEE Coaching — Which is Better in 2026? | MindPeak',
-    description: 'Honest comparison of online vs offline JEE coaching. Pros, cons, cost analysis & results. Find which format works best for your JEE 2026 preparation.',
+    title: `Online vs Offline JEE Coaching — Which is Better in ${CURRENT_EXAM_YEAR}? | MindPeak`,
+    description: `Honest comparison of online vs offline JEE coaching. Pros, cons, cost analysis & results. Find which format works best for your JEE ${CURRENT_EXAM_YEAR} preparation.`,
     h1: 'Online vs Offline',
     h1Highlight: 'JEE Coaching',
-    heroSubtitle: 'The debate between online and offline coaching has never been more relevant. With AI-powered platforms and 1-on-1 mentoring, online coaching in 2026 is fundamentally different from the Zoom classes of 2020. Here\'s an honest comparison.',
+    heroSubtitle: `The debate between online and offline coaching has never been more relevant. With AI-powered platforms and 1-on-1 mentoring, online coaching in ${CURRENT_EXAM_YEAR} is fundamentally different from the Zoom classes of 2020. Here's an honest comparison.`,
     sections: [
-      { heading: 'The Evolution of Online Coaching', content: 'Online coaching in 2026 is nothing like the emergency Zoom classes during COVID. Modern online coaching — especially MindPeak\'s 1-on-1 model — offers interactive whiteboard sessions, real-time doubt resolution, recorded classes for revision, and AI-powered performance analytics. The technology has matured to deliver an experience that\'s often superior to offline classroom teaching.' },
+      { heading: 'The Evolution of Online Coaching', content: `Online coaching in ${CURRENT_EXAM_YEAR} is nothing like the emergency Zoom classes during COVID. Modern online coaching — especially MindPeak's 1-on-1 model — offers interactive whiteboard sessions, real-time doubt resolution, recorded classes for revision, and AI-powered performance analytics. The technology has matured to deliver an experience that's often superior to offline classroom teaching.` },
       {
         heading: 'Honest Comparison: Online vs Offline',
         content: 'Here\'s a balanced look at both formats:',
@@ -949,7 +951,7 @@ const comparisonPages: SEOPageData[] = [
         },
       },
       { heading: 'When Online Coaching is Better', content: 'Online 1-on-1 coaching is clearly superior when: you live in a city without top coaching centres, you need personalised attention for specific weak areas, your schedule requires flexibility, you want to save on hostel and travel costs, or you learn better through interactive discussions rather than passive lectures. For most students, online 1-on-1 coaching delivers better results than offline batch coaching — our AIR 42 proves this beyond doubt.' },
-      { heading: 'When Offline Coaching Might Work', content: 'Offline coaching might be a reasonable choice if: you genuinely need the physical presence of peers for motivation (though this is rarer than people think), you don\'t have reliable internet access (increasingly rare in 2026), or your parents can only trust coaching they can physically visit. For everyone else, online 1-on-1 coaching is the objectively better choice in 2026.' },
+      { heading: 'When Offline Coaching Might Work', content: `Offline coaching might be a reasonable choice if: you genuinely need the physical presence of peers for motivation (though this is rarer than people think), you don't have reliable internet access (increasingly rare in ${CURRENT_EXAM_YEAR}), or your parents can only trust coaching they can physically visit. For everyone else, online 1-on-1 coaching is the objectively better choice in ${CURRENT_EXAM_YEAR}.` },
     ],
     faqs: [
       { q: 'Can online coaching replace Kota for JEE?', a: 'Yes. Our AIR 42 result demonstrates that 1-on-1 online coaching produces results comparable to or better than Kota. The key differentiator is personalised attention, not physical location.' },
@@ -1002,7 +1004,7 @@ const comparisonPages: SEOPageData[] = [
   },
   {
     slug: 'mindpeak-vs-allen',
-    title: 'MindPeak vs Allen — Which is Better for JEE/NEET 2026? | Honest Comparison',
+    title: `MindPeak vs Allen — Which is Better for JEE/NEET ${CURRENT_EXAM_YEAR}? | Honest Comparison`,
     description: 'Honest comparison of MindPeak vs Allen for JEE & NEET coaching. 1-on-1 vs batch, fees, results, and methodology compared. Find which suits your preparation style.',
     h1: 'MindPeak vs Allen —',
     h1Highlight: 'Honest Comparison',
@@ -1079,7 +1081,7 @@ const comparisonPages: SEOPageData[] = [
   },
   {
     slug: 'mindpeak-vs-fiitjee',
-    title: 'MindPeak vs FIITJEE — Which is Better for JEE 2026? | Comparison',
+    title: `MindPeak vs FIITJEE — Which is Better for JEE ${CURRENT_EXAM_YEAR}? | Comparison`,
     description: 'MindPeak vs FIITJEE detailed comparison for JEE coaching. 1-on-1 mentoring vs classroom model, fees, results & approach compared. Make an informed choice.',
     h1: 'MindPeak vs FIITJEE —',
     h1Highlight: 'Which is Better?',

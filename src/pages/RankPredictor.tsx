@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
@@ -346,13 +347,13 @@ const RankPredictor = () => {
     toast.success('Your rank prediction is ready!');
   };
 
-  const title = `${examLabel} Rank Predictor 2026 — Predict Your AIR & College | MindPeak`;
-  const description = `Use MindPeak's free ${examLabel} Rank Predictor 2026 to estimate your All India Rank and get college suggestions. Based on JoSAA/MCC cutoff data.`;
+  const title = `${examLabel} Rank Predictor ${CURRENT_EXAM_YEAR} — Predict Your AIR & College | MindPeak`;
+  const description = `Use MindPeak's free ${examLabel} Rank Predictor ${CURRENT_EXAM_YEAR} to estimate your All India Rank and get college suggestions. Based on JoSAA/MCC cutoff data.`;
 
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    name: `${examLabel} Rank Predictor 2026`,
+    name: `${examLabel} Rank Predictor ${CURRENT_EXAM_YEAR}`,
     url: `https://mindpeakinstitute.com/${exam}-rank-predictor`,
     applicationCategory: 'EducationalApplication',
     operatingSystem: 'Web',
@@ -396,7 +397,7 @@ const RankPredictor = () => {
               <span className="text-primary text-xs font-semibold uppercase tracking-widest">Free Tool</span>
             </div>
             <h1 className="font-display font-black text-foreground text-3xl sm:text-4xl md:text-5xl leading-tight mb-4">
-              {examLabel} <span className="text-gradient-gold">Rank Predictor</span> 2026
+              {examLabel} <span className="text-gradient-gold">Rank Predictor</span> {CURRENT_EXAM_YEAR}
             </h1>
             <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
               Enter your expected score, get your predicted All India Rank,
@@ -624,7 +625,7 @@ const RankPredictor = () => {
         {/* Rank vs Marks Table */}
         <section className="max-w-5xl mx-auto px-4 sm:px-6 mb-16">
           <h2 className="font-display font-bold text-foreground text-2xl sm:text-3xl text-center mb-4">
-            {examLabel} <span className="text-gradient-gold">Rank vs Marks</span> — College Prediction 2026
+            {examLabel} <span className="text-gradient-gold">Rank vs Marks</span> — College Prediction {CURRENT_EXAM_YEAR}
           </h2>
           {exam === 'jee' && (
             <div className="flex justify-center gap-3 mb-6">
@@ -692,17 +693,17 @@ const RankPredictor = () => {
               How Our {examLabel} Rank Predictor Works
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              Our {examLabel} Rank Predictor 2026 uses 10+ years of {examFull} results, including normalisation trends, difficulty analysis, and JoSAA/MCC cutoff data. Enter your score, and the tool estimates your All India Rank range, then maps it to colleges based on historical closing ranks from counselling rounds. College recommendations include branch-level suggestions with approximate closing ranks for General category.
+              Our {examLabel} Rank Predictor {CURRENT_EXAM_YEAR} uses 10+ years of {examFull} results, including normalisation trends, difficulty analysis, and JoSAA/MCC cutoff data. Enter your score, and the tool estimates your All India Rank range, then maps it to colleges based on historical closing ranks from counselling rounds. College recommendations include branch-level suggestions with approximate closing ranks for General category.
             </p>
           </div>
           <div>
             <h2 className="font-display font-bold text-foreground text-xl sm:text-2xl mb-3">
-              {examLabel} 2026 Expected Cutoffs
+              {examLabel} {CURRENT_EXAM_YEAR} Expected Cutoffs
             </h2>
             <p className="text-muted-foreground leading-relaxed">
               {exam === 'jee'
-                ? 'For JEE Main 2026, the expected qualifying cutoff for General category is ~85-90 marks out of 300. For JEE Advanced eligibility, you need to be in the top 2,50,000 of JEE Main (approximately 160+ marks for General). JEE Advanced cutoff to qualify for IIT counselling is typically 90-100 marks out of 360. Top IITs like IIT Bombay CSE require ranks under 100, while newer IITs fill CSE seats within AIR 5,000-6,000.'
-                : 'For NEET UG 2026, the qualifying cutoff for General category is the 50th percentile (~137 marks out of 720). AIIMS New Delhi requires 700+ marks. Top government medical colleges across India fill seats at 650+ marks. State government colleges under state quota have lower cutoffs (530-600). Private medical colleges accept students with 400-530 marks through management/NRI quota.'
+                ? `For JEE Main ${CURRENT_EXAM_YEAR}, the expected qualifying cutoff for General category is ~85-90 marks out of 300. For JEE Advanced eligibility, you need to be in the top 2,50,000 of JEE Main (approximately 160+ marks for General). JEE Advanced cutoff to qualify for IIT counselling is typically 90-100 marks out of 360. Top IITs like IIT Bombay CSE require ranks under 100, while newer IITs fill CSE seats within AIR 5,000-6,000.`
+                : `For NEET UG ${CURRENT_EXAM_YEAR}, the qualifying cutoff for General category is the 50th percentile (~137 marks out of 720). AIIMS New Delhi requires 700+ marks. Top government medical colleges across India fill seats at 650+ marks. State government colleges under state quota have lower cutoffs (530-600). Private medical colleges accept students with 400-530 marks through management/NRI quota.`
               }
             </p>
           </div>
