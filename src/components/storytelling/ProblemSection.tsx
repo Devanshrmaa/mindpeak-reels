@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import { Users, Clock, TrendingDown, HelpCircle } from 'lucide-react';
 
 const problems = [
@@ -36,30 +37,34 @@ const highlightText =
   'Every year, lakhs of students join batch coaching centres with dreams of cracking JEE & NEET. Most leave disappointed. The factory model treats students as numbers — not as individuals with unique strengths, weaknesses, and learning speeds.';
 
 export const ProblemSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start end', 'end start'] });
+  const lineWidth = useTransform(scrollYProgress, [0, 0.5], ['0%', '100%']);
+
   return (
-    <section className="relative bg-background py-16 md:py-24">
+    <section ref={sectionRef} className="relative bg-background py-24 md:py-36">
       {/* Dramatic red-tinted background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-destructive/15 via-background to-background" />
-      <div className="absolute inset-0 opacity-[0.04]" style={{
-        backgroundImage: 'radial-gradient(circle at 1px 1px, hsl(var(--destructive)) 1px, transparent 0)',
-        backgroundSize: '40px 40px',
-      }} />
+      <div className="absolute inset-0 bg-gradient-to-b from-destructive/[0.08] via-transparent to-transparent" />
 
       <div className="relative max-w-5xl mx-auto px-6 w-full">
         {/* ── Heading ── */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-10 md:mb-14"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-12 md:mb-16"
         >
-          <p className="text-destructive/80 text-xs uppercase tracking-[0.25em] font-semibold mb-3">
-            The Uncomfortable Truth
-          </p>
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <span className="h-px w-8 bg-destructive/30" />
+            <p className="text-destructive/70 text-[11px] uppercase tracking-[0.3em] font-medium">
+              The Uncomfortable Truth
+            </p>
+            <span className="h-px w-8 bg-destructive/30" />
+          </div>
           <h2
-            className="font-display text-foreground font-black leading-[1.1]"
-            style={{ fontSize: 'clamp(1.8rem, 5vw, 3.8rem)' }}
+            className="font-display text-foreground font-bold leading-[1.05] tracking-[-0.02em]"
+            style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}
           >
             THE PROBLEM WITH
             <br />
@@ -67,53 +72,58 @@ export const ProblemSection = () => {
           </h2>
         </motion.div>
 
-        {/* ── Paragraph (simple fade-in) ── */}
+        {/* ── Animated line divider ── */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          className="h-px bg-destructive/20 mx-auto mb-12 md:mb-16 max-w-[200px]"
+          style={{ width: lineWidth }}
+        />
+
+        {/* ── Paragraph ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="max-w-3xl mx-auto mb-12 md:mb-16"
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-2xl mx-auto mb-16 md:mb-20"
         >
-          <p className="text-lg md:text-xl leading-relaxed text-center font-body text-foreground/80">
+          <p className="text-base md:text-lg leading-[1.8] text-center text-muted-foreground">
             {highlightText}
           </p>
         </motion.div>
 
         {/* ── Problem cards ── */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
           {problems.map((p, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ delay: i * 0.08, duration: 0.45 }}
-              className="group relative rounded-xl border border-destructive/20 bg-destructive/[0.04] p-4 md:p-5 hover:border-destructive/40 hover:bg-destructive/[0.08] transition-all duration-300"
+              transition={{ delay: i * 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="group relative rounded-2xl border border-foreground/[0.06] bg-foreground/[0.02] p-6 md:p-7 hover:border-destructive/30 hover:bg-destructive/[0.04] transition-all duration-500"
             >
-              <div className="w-9 h-9 md:w-10 md:h-10 rounded-lg bg-destructive/10 flex items-center justify-center mb-3">
-                <p.icon className="w-5 h-5 text-destructive" />
+              <div className="w-10 h-10 rounded-xl bg-destructive/[0.08] flex items-center justify-center mb-5">
+                <p.icon className="w-5 h-5 text-destructive/70" strokeWidth={1.5} />
               </div>
-              <div className="font-display font-black text-destructive text-2xl md:text-3xl leading-none mb-0.5">
+              <div className="font-display font-bold text-destructive text-3xl md:text-4xl leading-none mb-1 tracking-tight">
                 {p.stat}
               </div>
-              <div className="text-muted-foreground text-[10px] md:text-xs uppercase tracking-wider mb-3">
+              <div className="text-muted-foreground/60 text-[10px] uppercase tracking-[0.15em] mb-4">
                 {p.label}
               </div>
-              <h3 className="font-display font-bold text-foreground text-sm md:text-base mb-1">
+              <h3 className="font-display font-semibold text-foreground text-sm mb-2">
                 {p.title}
               </h3>
-              <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">
+              <p className="text-muted-foreground text-[13px] leading-relaxed">
                 {p.desc}
               </p>
-              <div className="absolute bottom-0 left-4 right-4 h-[2px] bg-destructive/20 group-hover:bg-destructive/50 transition-colors rounded-full" />
             </motion.div>
           ))}
         </div>
       </div>
 
-      {/* Section divider */}
-      <div className="absolute bottom-0 left-0 right-0 section-divider" />
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-foreground/[0.06] to-transparent" />
     </section>
   );
 };

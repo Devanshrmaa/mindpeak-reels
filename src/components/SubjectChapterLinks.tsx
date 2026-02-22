@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from '@/components/RouterLink';
 import { motion } from 'framer-motion';
 import { ArrowRight, BarChart3, BookOpen, Flame, Target } from 'lucide-react';
 import { chapters as allChapters, type ChapterData } from '@/data/chapterData';

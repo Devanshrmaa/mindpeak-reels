@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from '@/components/RouterLink';
 import { MapPin, BookOpen, GraduationCap, ArrowRight } from 'lucide-react';
 import { allCities } from '@/data/cityData';
 import { chapters } from '@/data/chapterData';

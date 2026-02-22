@@ -381,3 +381,220 @@ export function getMonthsUntilExam(examType: ExamType): number {
   const diff = examDate.getTime() - now.getTime();
   return Math.max(1, Math.round(diff / (1000 * 60 * 60 * 24 * 30.44)));
 }
+
+/* ─── Daily Schedule Templates ─── */
+export interface DailyScheduleBlock {
+  time: string;
+  activity: string;
+  duration: string;
+  type: 'study' | 'break' | 'test' | 'revision' | 'self-study';
+}
+
+export function getDailySchedule(tier: StudyPlan['tier']): DailyScheduleBlock[] {
+  if (tier === 'crash') {
+    return [
+      { time: '6:00 AM', activity: 'Formula Revision & Quick Notes', duration: '1 hr', type: 'revision' },
+      { time: '7:00 AM', activity: 'Subject 1 — 1-on-1 Live Class', duration: '2 hrs', type: 'study' },
+      { time: '9:00 AM', activity: 'Breakfast Break', duration: '30 min', type: 'break' },
+      { time: '9:30 AM', activity: 'PYQ Practice (Subject 1)', duration: '1.5 hrs', type: 'self-study' },
+      { time: '11:00 AM', activity: 'Subject 2 — 1-on-1 Live Class', duration: '2 hrs', type: 'study' },
+      { time: '1:00 PM', activity: 'Lunch & Rest', duration: '1 hr', type: 'break' },
+      { time: '2:00 PM', activity: 'Subject 3 — 1-on-1 Live Class', duration: '2 hrs', type: 'study' },
+      { time: '4:00 PM', activity: 'Mock Test / Topic Test', duration: '2 hrs', type: 'test' },
+      { time: '6:00 PM', activity: 'Break & Light Exercise', duration: '30 min', type: 'break' },
+      { time: '6:30 PM', activity: 'Mock Test Analysis & Error Log', duration: '1.5 hrs', type: 'revision' },
+      { time: '8:00 PM', activity: 'High-Weightage Problems', duration: '1.5 hrs', type: 'self-study' },
+      { time: '9:30 PM', activity: 'Quick Revision & Sleep', duration: '30 min', type: 'revision' },
+    ];
+  }
+  if (tier === 'intensive') {
+    return [
+      { time: '6:30 AM', activity: 'Morning Revision & Formulas', duration: '45 min', type: 'revision' },
+      { time: '7:15 AM', activity: 'Subject 1 — 1-on-1 Live Class', duration: '1.5 hrs', type: 'study' },
+      { time: '8:45 AM', activity: 'Breakfast Break', duration: '30 min', type: 'break' },
+      { time: '9:15 AM', activity: 'Self-Practice (Subject 1)', duration: '1 hr', type: 'self-study' },
+      { time: '10:15 AM', activity: 'Subject 2 — 1-on-1 Live Class', duration: '1.5 hrs', type: 'study' },
+      { time: '11:45 AM', activity: 'Self-Practice (Subject 2)', duration: '1 hr', type: 'self-study' },
+      { time: '12:45 PM', activity: 'Lunch & Rest', duration: '1 hr', type: 'break' },
+      { time: '1:45 PM', activity: 'Subject 3 — 1-on-1 Live Class', duration: '1.5 hrs', type: 'study' },
+      { time: '3:15 PM', activity: 'Self-Practice (Subject 3)', duration: '1 hr', type: 'self-study' },
+      { time: '4:15 PM', activity: 'Break', duration: '30 min', type: 'break' },
+      { time: '4:45 PM', activity: 'Mock Test / Topic Test', duration: '1.5 hrs', type: 'test' },
+      { time: '6:15 PM', activity: 'Error Analysis & Revision', duration: '1 hr', type: 'revision' },
+    ];
+  }
+  // standard / extended
+  return [
+    { time: '7:00 AM', activity: 'Morning Revision & NCERT Read', duration: '1 hr', type: 'revision' },
+    { time: '8:00 AM', activity: 'Subject 1 — 1-on-1 Live Class', duration: '1.5 hrs', type: 'study' },
+    { time: '9:30 AM', activity: 'Breakfast Break', duration: '30 min', type: 'break' },
+    { time: '10:00 AM', activity: 'Self-Practice (Subject 1)', duration: '1 hr', type: 'self-study' },
+    { time: '11:00 AM', activity: 'Subject 2 — 1-on-1 Live Class', duration: '1.5 hrs', type: 'study' },
+    { time: '12:30 PM', activity: 'Lunch & Rest', duration: '1 hr', type: 'break' },
+    { time: '1:30 PM', activity: 'Self-Practice (Subject 2)', duration: '1 hr', type: 'self-study' },
+    { time: '2:30 PM', activity: 'Subject 3 — 1-on-1 Live Class', duration: '1 hr', type: 'study' },
+    { time: '3:30 PM', activity: 'Break & Exercise', duration: '30 min', type: 'break' },
+    { time: '4:00 PM', activity: 'Self-Practice (Subject 3)', duration: '1 hr', type: 'self-study' },
+    { time: '5:00 PM', activity: 'Doubt Resolution & Revision', duration: '1 hr', type: 'revision' },
+  ];
+}
+
+/* ─── Subject Weightage Data ─── */
+export interface SubjectWeightage {
+  subject: string;
+  percentage: number;
+  totalQuestions: number;
+  totalMarks: number;
+  keyTopics: string[];
+}
+
+export function getSubjectWeightage(examType: ExamType): {
+  subjects: SubjectWeightage[];
+  totalQuestions: number;
+  totalMarks: number;
+  examDuration: string;
+  examPattern: string;
+} {
+  if (examType === 'JEE') {
+    return {
+      subjects: [
+        {
+          subject: 'Physics',
+          percentage: 33,
+          totalQuestions: 30,
+          totalMarks: 100,
+          keyTopics: ['Mechanics (25%)', 'Electrodynamics (20%)', 'Modern Physics (15%)', 'Optics (12%)', 'Thermodynamics (10%)'],
+        },
+        {
+          subject: 'Chemistry',
+          percentage: 33,
+          totalQuestions: 30,
+          totalMarks: 100,
+          keyTopics: ['Organic Chemistry (35%)', 'Inorganic Chemistry (30%)', 'Physical Chemistry (35%)'],
+        },
+        {
+          subject: 'Mathematics',
+          percentage: 34,
+          totalQuestions: 30,
+          totalMarks: 100,
+          keyTopics: ['Calculus (30%)', 'Algebra (25%)', 'Coordinate Geometry (20%)', 'Trigonometry (10%)', 'Probability (8%)'],
+        },
+      ],
+      totalQuestions: 90,
+      totalMarks: 300,
+      examDuration: '3 hours',
+      examPattern: '20 MCQs + 10 Numerical per subject (5 optional)',
+    };
+  }
+  return {
+    subjects: [
+      {
+        subject: 'Physics',
+        percentage: 25,
+        totalQuestions: 50,
+        totalMarks: 200,
+        keyTopics: ['Mechanics (30%)', 'Electrodynamics (22%)', 'Modern Physics (12%)', 'Optics (10%)', 'Heat & Thermo (10%)'],
+      },
+      {
+        subject: 'Chemistry',
+        percentage: 25,
+        totalQuestions: 50,
+        totalMarks: 200,
+        keyTopics: ['Organic Chemistry (30%)', 'Inorganic Chemistry (35%)', 'Physical Chemistry (35%)'],
+      },
+      {
+        subject: 'Biology',
+        percentage: 50,
+        totalQuestions: 100,
+        totalMarks: 400,
+        keyTopics: ['Human Physiology (20%)', 'Genetics & Evolution (18%)', 'Plant Physiology (12%)', 'Cell Biology (10%)', 'Ecology (10%)'],
+      },
+    ],
+    totalQuestions: 200,
+    totalMarks: 800, // 720 attempted (180 × 4)
+    examDuration: '3 hours 20 minutes',
+    examPattern: '200 MCQs (attempt 180) — Biology: 100, Physics: 50, Chemistry: 50',
+  };
+}
+
+/* ─── Phase breakdown helpers ─── */
+export interface PhaseInfo {
+  name: string;
+  color: string;
+  months: number;
+  percentage: number;
+  description: string;
+}
+
+export function getPhaseBreakdown(plan: StudyPlan): PhaseInfo[] {
+  const phaseCounts: Record<string, number> = {};
+  for (const m of plan.months) {
+    phaseCounts[m.phase] = (phaseCounts[m.phase] || 0) + 1;
+  }
+
+  const phaseColors: Record<string, string> = {
+    'Crash': '#ef4444',
+    'Foundation': '#3b82f6',
+    'Intensive': '#f59e0b',
+    'Revision': '#22c55e',
+    'Mock Test & Fine-tuning': '#a855f7',
+  };
+
+  const phaseDescriptions: Record<string, string> = {
+    'Crash': 'Laser-focused on top 40-50 high-weightage chapters. Daily mocks, rapid formula revision, PYQ drills.',
+    'Foundation': 'Build rock-solid fundamentals from NCERT. Concept clarity, formula derivation, basic problem-solving.',
+    'Intensive': 'Full-speed syllabus coverage with advanced problems. HC Verma, Irodov, and competition-level questions.',
+    'Revision': 'Comprehensive revision of all topics. Focus on weak areas identified through mock analysis.',
+    'Mock Test & Fine-tuning': 'Full-length NTA-pattern mocks daily. Time management, accuracy tuning, and exam temperament building.',
+  };
+
+  const phases: PhaseInfo[] = [];
+  const order = ['Foundation', 'Crash', 'Intensive', 'Revision', 'Mock Test & Fine-tuning'];
+  for (const name of order) {
+    if (phaseCounts[name]) {
+      phases.push({
+        name,
+        color: phaseColors[name] || '#6b7280',
+        months: phaseCounts[name],
+        percentage: Math.round((phaseCounts[name] / plan.totalMonths) * 100),
+        description: phaseDescriptions[name] || '',
+      });
+    }
+  }
+  return phases;
+}
+
+/* ─── Milestone data ─── */
+export interface Milestone {
+  month: number;
+  title: string;
+  description: string;
+}
+
+export function getMilestones(plan: StudyPlan): Milestone[] {
+  const milestones: Milestone[] = [];
+  const total = plan.totalMonths;
+
+  if (total <= 2) {
+    milestones.push(
+      { month: 1, title: 'High-Weightage Chapters Done', description: 'Complete top 40-50 chapters across all subjects' },
+      { month: total, title: 'Exam Ready', description: 'Final mock scores consistently above target cutoff' },
+    );
+  } else {
+    milestones.push(
+      { month: 1, title: 'Foundation Begins', description: 'NCERT mastery and basic problem-solving starts' },
+    );
+    const mid = Math.ceil(total * 0.5);
+    milestones.push(
+      { month: mid, title: '50% Syllabus Complete', description: 'Half the syllabus covered with concept clarity' },
+    );
+    const revStart = Math.ceil(total * 0.7);
+    milestones.push(
+      { month: revStart, title: 'Revision Phase Begins', description: 'Full syllabus covered — revision & mock drills start' },
+    );
+    milestones.push(
+      { month: total, title: 'Exam Ready', description: 'Peak performance through intensive mock cycles' },
+    );
+  }
+  return milestones;
+}

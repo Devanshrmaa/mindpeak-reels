@@ -1,16 +1,19 @@
+'use client';
+
 import { useEffect } from 'react';
 
 /**
  * Google Analytics 4 Integration
  * 
  * Set the GA4 Measurement ID via environment variable:
- * VITE_GA4_MEASUREMENT_ID=G-XXXXXXXXXX
+ * NEXT_PUBLIC_GA4_MEASUREMENT_ID=G-XXXXXXXXXX
  * 
- * The script loads automatically when the ID is configured.
+ * Falls back to hardcoded G-MM0L1F7JJ6 if not set.
+ * The script loads automatically after a 2s delay for performance.
  * Events can be tracked using the `trackEvent` helper.
  */
 
-const GA_ID = import.meta.env.VITE_GA4_MEASUREMENT_ID as string | undefined;
+const GA_ID = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID || 'G-MM0L1F7JJ6';
 
 // Extend window for gtag
 declare global {
@@ -38,16 +41,25 @@ function loadGA4Script(measurementId: string) {
   });
 }
 
-/** Drop-in component — renders nothing, just initializes GA4 */
+/** Drop-in component — renders nothing, just initializes GA4 after 2s delay */
 export const GoogleAnalytics = () => {
   useEffect(() => {
     if (GA_ID) {
-      loadGA4Script(GA_ID);
+      // Defer GA loading by 2s for better page load performance
+      const timer = setTimeout(() => loadGA4Script(GA_ID), 2000);
+      return () => clearTimeout(timer);
     }
   }, []);
 
   return null;
 };
+
+/** Also configure Google Ads if needed */
+export function configureGoogleAds(adsId: string) {
+  if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+    window.gtag('config', adsId);
+  }
+}
 
 /** Track custom events — safe to call even if GA4 isn't loaded */
 export function trackEvent(

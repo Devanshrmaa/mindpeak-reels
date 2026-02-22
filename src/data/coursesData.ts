@@ -1,7 +1,7 @@
 import { Users, Clock, BookOpen, Monitor, GraduationCap, Target, Zap, FlaskConical, Brain, Download } from 'lucide-react';
-import jeeLogo from '@/assets/jee-logo.jpeg';
-import neetLogo from '@/assets/neet-logo.jpeg';
-import foundationLogo from '@/assets/foundation-logo.png';
+const jeeLogo = '/images/jee-logo.jpeg';
+const neetLogo = '/images/neet-logo.jpeg';
+const foundationLogo = '/images/foundation-logo.png';
 import { ONE_YEAR_TARGET, TWO_YEAR_TARGET } from '@/lib/examYears';
 
 export interface Course {

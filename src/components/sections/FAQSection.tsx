@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, HelpCircle } from 'lucide-react';
 
 const faqs = [
   {
@@ -41,32 +40,28 @@ export const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative py-16 md:py-20 px-4 sm:px-6 overflow-hidden" aria-label="Frequently asked questions">
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 right-10 w-72 h-72 rounded-full bg-primary/5 blur-3xl" />
-        <div className="absolute bottom-20 left-10 w-64 h-64 rounded-full bg-primary/3 blur-3xl" />
-      </div>
-
-      <div className="max-w-3xl mx-auto relative z-10">
+    <section className="relative py-24 md:py-36 px-4 sm:px-6 overflow-hidden bg-background" aria-label="Frequently asked questions">
+      <div className="max-w-2xl mx-auto relative z-10">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-14"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 backdrop-blur-sm border border-primary/20 mb-6">
-            <HelpCircle className="w-4 h-4 text-primary" />
-            <span className="text-primary text-xs font-semibold uppercase tracking-widest">FAQ</span>
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <span className="h-px w-8 bg-foreground/10" />
+            <span className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground/70 font-medium">FAQ</span>
+            <span className="h-px w-8 bg-foreground/10" />
           </div>
-          <h2 className="font-display font-bold text-foreground text-3xl sm:text-4xl">
+          <h2 className="font-display font-bold text-foreground text-3xl sm:text-4xl tracking-[-0.02em]">
             Frequently Asked <span className="text-gradient-gold">Questions</span>
           </h2>
         </motion.div>
 
         {/* FAQ Items */}
-        <div className="space-y-3">
+        <div className="space-y-2">
           {faqs.map((faq, i) => {
             const isOpen = openIndex === i;
             return (
@@ -75,28 +70,30 @@ export const FAQSection = () => {
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.06 }}
+                transition={{ delay: i * 0.05, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               >
                 <div
-                  className={`rounded-xl border transition-all duration-300 ${
+                  className={`rounded-xl border transition-all duration-500 ${
                     isOpen
-                      ? 'bg-background/50 backdrop-blur-xl backdrop-saturate-150 border-primary/30 shadow-[0_8px_32px_rgba(0,0,0,0.15),inset_0_1px_0_rgba(255,255,255,0.06)]'
-                      : 'bg-background/25 backdrop-blur-lg border-border/40 hover:border-border/70 hover:bg-background/35'
+                      ? 'border-primary/15 bg-foreground/[0.03]'
+                      : 'border-foreground/[0.04] hover:border-foreground/[0.08]'
                   }`}
                 >
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : i)}
-                    className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left"
+                    className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
                   >
-                    <span className={`text-sm font-semibold transition-colors ${isOpen ? 'text-foreground' : 'text-foreground/80'}`}>
+                    <span className={`text-sm font-medium transition-colors duration-300 ${isOpen ? 'text-foreground' : 'text-foreground/70'}`}>
                       {faq.q}
                     </span>
                     <motion.div
-                      animate={{ rotate: isOpen ? 180 : 0 }}
-                      transition={{ duration: 0.25 }}
-                      className="flex-shrink-0"
+                      animate={{ rotate: isOpen ? 45 : 0 }}
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                      className="flex-shrink-0 w-6 h-6 rounded-full border border-foreground/10 grid place-items-center"
                     >
-                      <ChevronDown className={`w-4 h-4 transition-colors ${isOpen ? 'text-primary' : 'text-muted-foreground'}`} />
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 1V9M1 5H9" stroke={isOpen ? 'hsl(var(--primary))' : 'hsl(var(--muted-foreground))'} strokeWidth="1.2" />
+                      </svg>
                     </motion.div>
                   </button>
 
@@ -106,12 +103,12 @@ export const FAQSection = () => {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.25 }}
+                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                         className="overflow-hidden"
                       >
-                        <div className="px-5 pb-4">
-                          <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent mb-3" />
-                          <p className="text-muted-foreground text-sm leading-relaxed">{faq.a}</p>
+                        <div className="px-6 pb-5">
+                          <div className="w-full h-px bg-gradient-to-r from-foreground/[0.06] via-primary/10 to-foreground/[0.06] mb-4" />
+                          <p className="text-muted-foreground text-sm leading-[1.8]">{faq.a}</p>
                         </div>
                       </motion.div>
                     )}
@@ -122,6 +119,9 @@ export const FAQSection = () => {
           })}
         </div>
       </div>
+
+      {/* Bottom accent */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-foreground/[0.06] to-transparent" />
     </section>
   );
 };

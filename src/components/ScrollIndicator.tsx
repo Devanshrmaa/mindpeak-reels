@@ -17,6 +17,8 @@ export const ScrollIndicator = () => {
   const { scrollYProgress } = useScroll();
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 80, damping: 20 });
   const [scrollDir, setScrollDir] = useState<'down' | 'up'>('down');
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); }, []);
 
   useEffect(() => {
     let lastY = window.scrollY;
@@ -53,6 +55,10 @@ export const ScrollIndicator = () => {
   ];
 
   const trackFill = useTransform(smoothProgress, [0, 1], [0, HELIX_HEIGHT]);
+  const markerTop = useTransform(smoothProgress, [0, 1], [0, HELIX_HEIGHT - 8]);
+  const pctOpacity = useTransform(scrollYProgress, [0, 0.02, 0.98, 1], [0, 1, 1, 0]);
+
+  if (!mounted) return null;
 
   return (
     <div className="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col items-center pointer-events-none select-none">
@@ -125,7 +131,7 @@ export const ScrollIndicator = () => {
         <motion.div
           className="absolute left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-primary shadow-[0_0_12px_hsl(var(--primary)/0.6)]"
           style={{
-            top: useTransform(smoothProgress, [0, 1], [0, HELIX_HEIGHT - 8]),
+            top: markerTop,
           }}
         >
           <div className="absolute inset-0 rounded-full bg-primary animate-ping opacity-20" />
@@ -151,7 +157,7 @@ export const ScrollIndicator = () => {
       <motion.span
         className="mt-2 text-[9px] font-mono text-primary/30 tracking-widest"
         style={{
-          opacity: useTransform(scrollYProgress, [0, 0.02, 0.98, 1], [0, 1, 1, 0]),
+          opacity: pctOpacity,
         }}
       >
         <ProgressText progress={smoothProgress} />

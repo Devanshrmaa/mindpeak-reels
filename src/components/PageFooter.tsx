@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
+import { Link } from '@/components/RouterLink';
 import { Instagram, Facebook, Linkedin, Twitter, MessageCircle } from 'lucide-react';
-import logo from '@/assets/logo.jpeg';
+const logo = '/images/logo.jpeg';
 import { jeeRelatedLinks, neetRelatedLinks, RelatedPages } from './RelatedPages';
 
 const socialLinks = [
@@ -11,7 +12,11 @@ const socialLinks = [
   { icon: MessageCircle, href: 'https://wa.me/918219457704?text=Hello!!%20MindPeak%20Institute', label: 'WhatsApp' },
 ];
 
-const footerSections = [
+type SectionLink = { label: string; to: string };
+type FooterSectionData = { title: string; links: SectionLink[] };
+
+/* Static footer sections — no question data needed */
+const STATIC_SECTIONS: FooterSectionData[] = [
   {
     title: 'JEE Preparation',
     links: [
@@ -33,56 +38,12 @@ const footerSections = [
     ],
   },
   {
-    title: 'JEE Practice Questions',
+    title: 'Practice Questions',
     links: [
-      { label: 'All Practice Questions', to: '/jee-practice' },
-      { label: 'Physics Easy Questions', to: '/jee-physics-units-dimensions-si-units-easy-which-of-the-following-is-not-a-fundamental-si-unit' },
-      { label: 'Physics Medium Questions', to: '/jee-physics-units-dimensions-si-units-medium-the-dimensions-of-plancks-constant-are' },
-      { label: 'Physics Hard Questions', to: '/jee-physics-units-dimensions-si-units-hard-in-a-new-system-of-units-the-unit-of-mass-is-alpha-kg-length-is-beta-m-and-time-is-gamma-s-the-value-of-1-j-in-this-new-system-is' },
-      { label: 'Chemistry Easy Questions', to: '/jee-chemistry-mole-concept-mole-avogadro-easy-which-of-the-following-is-not-a-fundamental-si-unit' },
-      { label: 'Chemistry Medium Questions', to: '/jee-chemistry-mole-concept-mole-avogadro-medium-the-dimensions-of-plancks-constant-are' },
-      { label: 'Chemistry Hard Questions', to: '/jee-chemistry-mole-concept-mole-avogadro-hard-in-a-new-system-of-units-the-unit-of-mass-is-alpha-kg-length-is-beta-m-and-time-is-gamma-s-the-value-of-1-j-in-this-new-system-is' },
-      { label: 'Maths Easy Questions', to: '/jee-mathematics-sets-relations-functions-sets-venn-easy-which-of-the-following-is-not-a-fundamental-si-unit' },
-      { label: 'Maths Medium Questions', to: '/jee-mathematics-sets-relations-functions-sets-venn-medium-the-dimensions-of-plancks-constant-are' },
-      { label: 'Maths Hard Questions', to: '/jee-mathematics-sets-relations-functions-sets-venn-hard-in-a-new-system-of-units-the-unit-of-mass-is-alpha-kg-length-is-beta-m-and-time-is-gamma-s-the-value-of-1-j-in-this-new-system-is' },
-    ],
-  },
-  {
-    title: 'JEE Previous Year Questions',
-    links: [
-      { label: 'All PYQ Questions', to: '/jee-pyq' },
-      { label: 'Physics PYQ — Motion', to: '/jee-pyq-physics-motion-in-a-straight-line-a-body-of-mass-m-is-projected-vertically-upward-with-speed-u-the-time-to-reach-maximum-height-is' },
-      { label: 'Physics PYQ — Electrostatics', to: '/jee-pyq-physics-electrostatics-the-dimensional-formula-of-torque-is' },
-      { label: 'Chemistry PYQ — Mole Concept', to: '/jee-pyq-chemistry-mole-concept-the-density-of-a-material-in-the-shape-of-a-cube-is-determined-by-measuring-three-sides-of-the-cube-and-its-mass-if-the-relative-errors-in-measuring-the-mass-and-length-are-respectively-1-5-and-1-the-maximum-error-in-determining-the-density-is' },
-      { label: 'Chemistry PYQ — Electrochemistry', to: '/jee-pyq-chemistry-electrochemistry-the-dimensional-formula-of-torque-is' },
-      { label: 'Maths PYQ — Calculus', to: '/jee-pyq-mathematics-integral-calculus-a-body-of-mass-m-is-projected-vertically-upward-with-speed-u-the-time-to-reach-maximum-height-is' },
-      { label: 'Maths PYQ — Probability', to: '/jee-pyq-mathematics-probability-statistics-the-dimensional-formula-of-torque-is' },
-    ],
-  },
-  {
-    title: 'NEET Practice Questions',
-    links: [
-      { label: 'All NEET Practice', to: '/neet-practice' },
-      { label: 'Biology — Cell Biology', to: '/neet-biology-cell-biology-biomolecules-cell-organelles-easy-which-of-the-following-is-not-a-fundamental-si-unit' },
-      { label: 'Biology — Genetics', to: '/neet-biology-genetics-evolution-mendelian-molecular-easy-the-dimensions-of-plancks-constant-are' },
-      { label: 'Biology — Human Physiology', to: '/neet-biology-human-physiology-digestion-breathing-circulation-easy-in-a-new-system-of-units-the-unit-of-mass-is-alpha-kg-length-is-beta-m-and-time-is-gamma-s-the-value-of-1-j-in-this-new-system-is' },
-      { label: 'Physics — Mechanics', to: '/neet-physics-mechanics-laws-motion-energy-easy-which-of-the-following-is-not-a-fundamental-si-unit' },
-      { label: 'Physics — Optics', to: '/neet-physics-optics-modern-optics-easy-the-dimensions-of-plancks-constant-are' },
-      { label: 'Chemistry — Physical', to: '/neet-chemistry-physical-chemistry-atomic-structure-bonding-easy-in-a-new-system-of-units-the-unit-of-mass-is-alpha-kg-length-is-beta-m-and-time-is-gamma-s-the-value-of-1-j-in-this-new-system-is' },
-      { label: 'Chemistry — Organic', to: '/neet-chemistry-organic-chemistry-goc-hydrocarbons-easy-which-of-the-following-is-not-a-fundamental-si-unit' },
-    ],
-  },
-  {
-    title: 'NEET Previous Year Questions',
-    links: [
-      { label: 'All NEET PYQs', to: '/neet-pyq' },
-      { label: 'Biology PYQ — Cell Biology', to: '/neet-pyq-biology-cell-biology-biomolecules-the-density-of-a-material-in-the-shape-of-a-cube-is-determined-by-measuring-three-sides-of-the-cube-and-its-mass-if-the-relative-errors-in-measuring-the-mass-and-length-are-respectively-1-5-and-1-the-maximum-error-in-determining-the-density-is' },
-      { label: 'Biology PYQ — Human Reproduction', to: '/neet-pyq-biology-human-reproduction-the-dimensional-formula-of-torque-is' },
-      { label: 'Biology PYQ — Genetics', to: '/neet-pyq-biology-genetics-molecular-biology-a-body-of-mass-m-is-projected-vertically-upward-with-speed-u-the-time-to-reach-maximum-height-is' },
-      { label: 'Physics PYQ — Kinematics', to: '/neet-pyq-physics-kinematics-the-dimensional-formula-of-torque-is' },
-      { label: 'Physics PYQ — Optics', to: '/neet-pyq-physics-optics-a-body-of-mass-m-is-projected-vertically-upward-with-speed-u-the-time-to-reach-maximum-height-is' },
-      { label: 'Chemistry PYQ — Equilibrium', to: '/neet-pyq-chemistry-equilibrium-the-dimensional-formula-of-torque-is' },
-      { label: 'Chemistry PYQ — GOC & Hydrocarbons', to: '/neet-pyq-chemistry-goc-hydrocarbons-a-body-of-mass-m-is-projected-vertically-upward-with-speed-u-the-time-to-reach-maximum-height-is' },
+      { label: 'JEE Practice Questions', to: '/jee-practice' },
+      { label: 'JEE Previous Year Questions', to: '/jee-pyq' },
+      { label: 'NEET Practice Questions', to: '/neet-practice' },
+      { label: 'NEET Previous Year Questions', to: '/neet-pyq' },
     ],
   },
   {
@@ -98,6 +59,91 @@ const footerSections = [
     ],
   },
 ];
+
+/**
+ * Build full footer sections with question-specific links from lazy-loaded data.
+ * Called once data modules are dynamically imported.
+ */
+function buildQuestionSections(
+  practice: any, pyq: any, neetPractice: any, neetPyq: any,
+): FooterSectionData[] {
+  const jp = (label: string, subj: string, ch: string, topic: string, diff: 'easy' | 'medium' | 'hard') => ({
+    label,
+    to: `/${practice.getPracticeSlugByParams(subj, ch, topic, diff, 1) ?? 'jee-practice'}`,
+  });
+
+  const np = (label: string, subj: string, ch: string, topic: string, diff: 'easy' | 'medium' | 'hard') => ({
+    label,
+    to: `/${neetPractice.getNEETPracticeSlugByParams(subj, ch, topic, diff, 1) ?? 'neet-practice'}`,
+  });
+
+  return [
+    {
+      title: 'JEE Preparation',
+      links: STATIC_SECTIONS[0].links,
+    },
+    {
+      title: 'NEET Preparation',
+      links: STATIC_SECTIONS[1].links,
+    },
+    {
+      title: 'JEE Practice Questions',
+      links: [
+        { label: 'All Practice Questions', to: '/jee-practice' },
+        ...practice.subjectBanks.flatMap((bank: any) => {
+          const ch = bank.chapters[0];
+          const topic = ch?.topics[0];
+          if (!ch || !topic) return [];
+          return (['easy', 'medium', 'hard'] as const).map(diff =>
+            jp(`${bank.subject} ${diff.charAt(0).toUpperCase() + diff.slice(1)} Questions`, bank.slug, ch.slug, topic.slug, diff)
+          );
+        }),
+      ],
+    },
+    {
+      title: 'JEE Previous Year Questions',
+      links: [
+        { label: 'All PYQ Questions', to: '/jee-pyq' },
+        ...pyq.pyqSubjectBanks.flatMap((bank: any) =>
+          bank.chapters.slice(0, 2).map((ch: any) => ({
+            label: `${bank.subject} PYQ — ${ch.name}`,
+            to: `/${pyq.getPYQSlugByParams(bank.slug, ch.slug, 1) ?? 'jee-pyq'}`,
+          }))
+        ),
+      ],
+    },
+    {
+      title: 'NEET Practice Questions',
+      links: [
+        { label: 'All NEET Practice', to: '/neet-practice' },
+        ...neetPractice.neetSubjectBanks.flatMap((bank: any) => {
+          const chapters = bank.chapters.slice(0, bank.slug === 'biology' ? 3 : 2);
+          return chapters
+            .filter((ch: any) => ch.topics[0])
+            .map((ch: any) =>
+              np(`${bank.subject} — ${ch.name}`, bank.slug, ch.slug, ch.topics[0].slug, 'easy')
+            );
+        }),
+      ],
+    },
+    {
+      title: 'NEET Previous Year Questions',
+      links: [
+        { label: 'All NEET PYQs', to: '/neet-pyq' },
+        ...neetPyq.neetPyqSubjectBanks.flatMap((bank: any) =>
+          bank.chapters.slice(0, bank.slug === 'biology' ? 3 : 2).map((ch: any) => ({
+            label: `${bank.subject} PYQ — ${ch.name}`,
+            to: `/${neetPyq.getNEETPYQSlugByParams(bank.slug, ch.slug, 1) ?? 'neet-pyq'}`,
+          }))
+        ),
+      ],
+    },
+    {
+      title: 'Quick Links',
+      links: STATIC_SECTIONS[3].links,
+    },
+  ];
+}
 
 const importantLinks = [
   { label: 'Home', to: '/' },
@@ -130,7 +176,27 @@ const FooterSection = ({ title, links }: { title: string; links: { label: string
   </div>
 );
 
-export const PageFooter = ({ extra }: { extra?: string }) => (
+export const PageFooter = ({ extra }: { extra?: string }) => {
+  const [footerSections, setFooterSections] = useState<FooterSectionData[]>(STATIC_SECTIONS);
+  const loadedRef = useRef(false);
+
+  /* Lazy-load question data for enriched footer links (below the fold) */
+  useEffect(() => {
+    if (loadedRef.current) return;
+    loadedRef.current = true;
+    Promise.all([
+      import('@/data/practice'),
+      import('@/data/pyq'),
+      import('@/data/neet-practice'),
+      import('@/data/neet-pyq'),
+    ]).then(([practice, pyq, neetPractice, neetPyq]) => {
+      setFooterSections(buildQuestionSections(practice, pyq, neetPractice, neetPyq));
+    }).catch(() => {
+      loadedRef.current = false; // allow retry on next render
+    });
+  }, []);
+
+  return (
   <footer className="bg-background border-t border-border py-10 px-6" role="contentinfo">
     <div className="max-w-5xl mx-auto">
       {/* Logo & Tagline */}
@@ -201,4 +267,5 @@ export const PageFooter = ({ extra }: { extra?: string }) => (
       </div>
     </div>
   </footer>
-);
+  );
+};

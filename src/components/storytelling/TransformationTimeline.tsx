@@ -1,12 +1,11 @@
 import { motion } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, ResponsiveContainer, ReferenceLine } from 'recharts';
-import analyticsDashboard from '@/assets/icons/analytics-dashboard.png';
-import strategyPlan from '@/assets/icons/strategy-plan.png';
-import clarityLightbulb from '@/assets/icons/clarity-lightbulb.png';
-import growthChart from '@/assets/icons/growth-chart.png';
-import targetPrecision from '@/assets/icons/target-precision.png';
-import trophyAchievement from '@/assets/icons/trophy-achievement.png';
+const analyticsDashboard = '/images/icons/analytics-dashboard.png';
+const strategyPlan = '/images/icons/strategy-plan.png';
+const clarityLightbulb = '/images/icons/clarity-lightbulb.png';
+const growthChart = '/images/icons/growth-chart.png';
+const targetPrecision = '/images/icons/target-precision.png';
+const trophyAchievement = '/images/icons/trophy-achievement.png';
 
 const milestones = [
   { month: 'Month 1', title: 'Diagnostic Assessment', description: 'Identified weak areas: Organic Chemistry, Calculus', score: 120, image: analyticsDashboard },
@@ -28,70 +27,60 @@ const chartData = [
 
 export const TransformationTimeline = () => {
   return (
-    <section className="relative bg-background py-16 md:py-24 overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-0 w-72 h-72 rounded-full bg-primary/5 blur-[100px]" />
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 rounded-full bg-accent/5 blur-[120px]" />
-        <div className="absolute inset-0 opacity-[0.02]" style={{
-          backgroundImage: 'linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)',
-          backgroundSize: '80px 80px',
-        }} />
-      </div>
+    <section className="relative bg-background py-24 md:py-36 overflow-hidden">
+      {/* Subtle glow */}
+      <div className="absolute top-1/3 left-0 w-96 h-96 rounded-full bg-primary/[0.03] blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-0 w-80 h-80 rounded-full bg-accent/[0.03] blur-[120px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-3 md:px-6 w-full relative z-10">
+      <div className="max-w-5xl mx-auto px-3 md:px-6 w-full relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-8 md:mb-10"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-14 md:mb-18"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-primary" />
-            <span className="text-primary text-xs font-semibold uppercase tracking-widest">Transformation</span>
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <span className="h-px w-8 bg-primary/30" />
+            <span className="text-[11px] uppercase tracking-[0.3em] text-primary/60 font-medium">Transformation</span>
+            <span className="h-px w-8 bg-primary/30" />
           </div>
-          <h2 className="font-display text-foreground text-3xl md:text-5xl lg:text-6xl mb-2 font-bold">
+          <h2 className="font-display text-foreground font-bold tracking-[-0.02em]" style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}>
             THE <span className="text-gradient-gold">JOURNEY</span>
           </h2>
-          <p className="text-muted-foreground text-sm md:text-base max-w-lg mx-auto">
+          <p className="text-muted-foreground text-sm md:text-base max-w-md mx-auto mt-3">
             Watch how Aarav transformed from struggle to success
           </p>
         </motion.div>
 
         {/* Milestones grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3 w-full">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 w-full">
           {milestones.map((m, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ delay: i * 0.08, duration: 0.45 }}
+              transition={{ delay: i * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="relative"
             >
-              <div className="relative p-2.5 md:p-4 rounded-xl border border-primary/25 bg-card shadow-card transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_30px_-8px_hsl(var(--primary)/0.25)]">
-                {/* Top accent */}
-                <div className="absolute top-0 left-3 right-3 h-px" style={{
-                  background: 'linear-gradient(90deg, transparent, hsl(var(--primary) / 0.5), transparent)',
-                }} />
-
-                <div className="flex items-center gap-1.5 md:gap-2 mb-1.5 md:mb-2">
-                  <div className="w-7 h-7 md:w-10 md:h-10 shrink-0 rounded-lg overflow-hidden ring-1 ring-primary/30">
+              <div className="relative p-3 md:p-5 rounded-xl border border-foreground/[0.06] bg-foreground/[0.02] transition-all duration-500 hover:border-primary/20 hover:bg-foreground/[0.04]">
+                <div className="flex items-center gap-2 md:gap-2.5 mb-2 md:mb-3">
+                  <div className="w-8 h-8 md:w-9 md:h-9 shrink-0 rounded-lg overflow-hidden ring-1 ring-primary/15">
                     <img src={m.image} alt={m.title} className="w-full h-full object-cover" width={40} height={40} loading="lazy" />
                   </div>
                   <div className="min-w-0">
-                    <div className="text-[9px] md:text-[10px] font-semibold text-primary">{m.month}</div>
+                    <div className="text-[9px] md:text-[10px] font-medium text-primary/70 tracking-[0.1em] uppercase">{m.month}</div>
                     <h3 className="text-foreground font-display text-[11px] md:text-sm leading-tight font-semibold truncate">{m.title}</h3>
                   </div>
                 </div>
-                <p className="text-muted-foreground text-[9px] md:text-[11px] mb-1.5 md:mb-2 line-clamp-2 leading-relaxed">{m.description}</p>
+                <p className="text-muted-foreground/60 text-[9px] md:text-[11px] mb-2 line-clamp-2 leading-relaxed">{m.description}</p>
 
                 {/* Score badge */}
-                <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] md:text-[11px] bg-primary/15 border border-primary/25 text-foreground">
-                  <span className="text-muted-foreground text-[9px]">Score:</span>
-                  <span className="font-bold text-primary">{m.score}</span>
-                  <span className="text-muted-foreground text-[9px]">/300</span>
+                <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] bg-primary/[0.06] border border-primary/10 text-foreground">
+                  <span className="text-muted-foreground/50 text-[9px]">Score:</span>
+                  <span className="font-semibold text-primary">{m.score}</span>
+                  <span className="text-muted-foreground/50 text-[9px]">/300</span>
                 </div>
               </div>
             </motion.div>
@@ -103,41 +92,41 @@ export const TransformationTimeline = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mt-6 md:mt-8 p-4 rounded-2xl bg-card border border-border shadow-card max-w-2xl mx-auto relative overflow-hidden"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-8 md:mt-12 p-5 rounded-2xl border border-foreground/[0.06] bg-foreground/[0.02] max-w-2xl mx-auto relative overflow-hidden"
         >
-          {/* Subtle glow behind chart */}
-          <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none" />
-
-          <h3 className="text-foreground font-display text-base md:text-lg mb-3 text-center relative z-10">Mock Test Progress</h3>
+          <h3 className="text-foreground font-display text-sm md:text-base mb-4 text-center font-medium tracking-[0.05em]">Mock Test Progress</h3>
           <div className="relative z-10">
             <ResponsiveContainer width="100%" height={180}>
               <AreaChart data={chartData}>
                 <defs>
                   <linearGradient id="scoreGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="hsl(43, 72%, 52%)" stopOpacity={0.3} />
+                    <stop offset="5%" stopColor="hsl(43, 72%, 52%)" stopOpacity={0.2} />
                     <stop offset="95%" stopColor="hsl(43, 72%, 52%)" stopOpacity={0} />
                   </linearGradient>
                 </defs>
-                <XAxis dataKey="month" stroke="hsl(215, 20%, 65%)" fontSize={11} />
-                <YAxis domain={[0, 300]} stroke="hsl(215, 20%, 65%)" fontSize={11} />
-                <ReferenceLine y={280} stroke="hsl(0, 84%, 60%)" strokeDasharray="5 5" label={{ value: 'Target', fill: 'hsl(0, 84%, 60%)', fontSize: 10 }} />
-                <Area type="monotone" dataKey="score" stroke="hsl(43, 72%, 52%)" strokeWidth={3} fill="url(#scoreGrad)" animationDuration={800} />
+                <XAxis dataKey="month" stroke="hsl(215, 20%, 35%)" fontSize={11} tickLine={false} axisLine={false} />
+                <YAxis domain={[0, 300]} stroke="hsl(215, 20%, 35%)" fontSize={11} tickLine={false} axisLine={false} />
+                <ReferenceLine y={280} stroke="hsl(0, 84%, 60%)" strokeDasharray="5 5" strokeOpacity={0.4} label={{ value: 'Target', fill: 'hsl(0, 84%, 50%)', fontSize: 10, opacity: 0.5 }} />
+                <Area type="monotone" dataKey="score" stroke="hsl(43, 72%, 52%)" strokeWidth={2} fill="url(#scoreGrad)" animationDuration={1200} />
               </AreaChart>
             </ResponsiveContainer>
           </div>
-          <div className="flex justify-center gap-6 mt-2 relative z-10">
+          <div className="flex justify-center gap-6 mt-3 relative z-10">
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-primary" />
-              <span className="text-muted-foreground text-xs">Actual Score</span>
+              <div className="w-2.5 h-2.5 rounded-full bg-primary" />
+              <span className="text-muted-foreground/60 text-[11px]">Actual Score</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-4 h-0.5 bg-destructive" />
-              <span className="text-muted-foreground text-xs">Target (280)</span>
+              <div className="w-3.5 h-px bg-destructive/50" />
+              <span className="text-muted-foreground/60 text-[11px]">Target (280)</span>
             </div>
           </div>
         </motion.div>
       </div>
+
+      {/* Bottom accent */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-foreground/[0.06] to-transparent" />
     </section>
   );
 };

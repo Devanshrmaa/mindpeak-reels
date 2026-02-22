@@ -1,0 +1,10253 @@
+module.exports = [
+"[project]/src/lib/slugify.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "deduplicateSlugs",
+    ()=>deduplicateSlugs,
+    "slugifyQuestion",
+    ()=>slugifyQuestion
+]);
+/**
+ * Converts a question string into an SEO-friendly URL slug.
+ *
+ * Steps:
+ *  1. Strip HTML tags & entities
+ *  2. Replace common math / scientific symbols with readable words
+ *  3. Lowercase, collapse whitespace, replace spaces → hyphens
+ *  4. Remove non-alphanumeric chars (except hyphens)
+ *  5. Truncate to ~60 chars at a word boundary
+ *  6. Trim leading / trailing hyphens
+ */ /* ── Symbol → word map ── */ const SYMBOL_MAP = [
+    [
+        /₀/g,
+        '0'
+    ],
+    [
+        /₁/g,
+        '1'
+    ],
+    [
+        /₂/g,
+        '2'
+    ],
+    [
+        /₃/g,
+        '3'
+    ],
+    [
+        /₄/g,
+        '4'
+    ],
+    [
+        /₅/g,
+        '5'
+    ],
+    [
+        /₆/g,
+        '6'
+    ],
+    [
+        /₇/g,
+        '7'
+    ],
+    [
+        /₈/g,
+        '8'
+    ],
+    [
+        /₉/g,
+        '9'
+    ],
+    [
+        /⁰/g,
+        '0'
+    ],
+    [
+        /¹/g,
+        '1'
+    ],
+    [
+        /²/g,
+        '2'
+    ],
+    [
+        /³/g,
+        '3'
+    ],
+    [
+        /⁴/g,
+        '4'
+    ],
+    [
+        /⁵/g,
+        '5'
+    ],
+    [
+        /⁶/g,
+        '6'
+    ],
+    [
+        /⁷/g,
+        '7'
+    ],
+    [
+        /⁸/g,
+        '8'
+    ],
+    [
+        /⁹/g,
+        '9'
+    ],
+    [
+        /⁻/g,
+        '-'
+    ],
+    [
+        /⁺/g,
+        '+'
+    ],
+    [
+        /×/g,
+        'x'
+    ],
+    [
+        /÷/g,
+        'div'
+    ],
+    [
+        /π/g,
+        'pi'
+    ],
+    [
+        /θ/g,
+        'theta'
+    ],
+    [
+        /μ/g,
+        'mu'
+    ],
+    [
+        /ε/g,
+        'epsilon'
+    ],
+    [
+        /α/g,
+        'alpha'
+    ],
+    [
+        /β/g,
+        'beta'
+    ],
+    [
+        /γ/g,
+        'gamma'
+    ],
+    [
+        /δ/g,
+        'delta'
+    ],
+    [
+        /λ/g,
+        'lambda'
+    ],
+    [
+        /ω/g,
+        'omega'
+    ],
+    [
+        /σ/g,
+        'sigma'
+    ],
+    [
+        /τ/g,
+        'tau'
+    ],
+    [
+        /ρ/g,
+        'rho'
+    ],
+    [
+        /ν/g,
+        'nu'
+    ],
+    [
+        /Σ/g,
+        'sigma'
+    ],
+    [
+        /Δ/g,
+        'delta'
+    ],
+    [
+        /∞/g,
+        'infinity'
+    ],
+    [
+        /√/g,
+        'sqrt'
+    ],
+    [
+        /∫/g,
+        'integral'
+    ],
+    [
+        /→/g,
+        'to'
+    ],
+    [
+        /←/g,
+        'from'
+    ],
+    [
+        /≈/g,
+        'approx'
+    ],
+    [
+        /≠/g,
+        'not-equal'
+    ],
+    [
+        /≥/g,
+        'gte'
+    ],
+    [
+        /≤/g,
+        'lte'
+    ],
+    [
+        /°/g,
+        'deg'
+    ],
+    [
+        /·/g,
+        '-'
+    ],
+    [
+        /±/g,
+        'plus-minus'
+    ]
+];
+/* ── Stop words to strip for conciseness ── */ const STOP_WORDS = new Set([
+    'the',
+    'a',
+    'an',
+    'of',
+    'in',
+    'on',
+    'at',
+    'to',
+    'for',
+    'is',
+    'are',
+    'was',
+    'were',
+    'be',
+    'been',
+    'being',
+    'it',
+    'its',
+    'by',
+    'with',
+    'from',
+    'as',
+    'this',
+    'that',
+    'which',
+    'who',
+    'whom',
+    'and',
+    'or',
+    'but',
+    'if',
+    'then',
+    'so',
+    'than',
+    'too',
+    'very',
+    'can',
+    'will',
+    'just',
+    'should',
+    'would',
+    'could',
+    'has',
+    'have',
+    'had',
+    'do',
+    'does',
+    'did',
+    'not',
+    'no',
+    'nor',
+    'each',
+    'every',
+    'all',
+    'any',
+    'both',
+    'few',
+    'more',
+    'most',
+    'other',
+    'some',
+    'such',
+    'only',
+    'own',
+    'same',
+    'also',
+    'into',
+    'about',
+    'between',
+    'through',
+    'following',
+    'given',
+    'respectively'
+]);
+const MAX_SLUG_LENGTH = 60;
+function slugifyQuestion(question) {
+    let s = question;
+    // 1. Strip HTML tags
+    s = s.replace(/<[^>]*>/g, '');
+    // 2. Decode common HTML entities
+    s = s.replace(/&amp;/g, 'and').replace(/&lt;/g, '').replace(/&gt;/g, '').replace(/&nbsp;/g, ' ').replace(/&#?\w+;/g, '');
+    // 3. Apply symbol map
+    for (const [re, rep] of SYMBOL_MAP){
+        s = s.replace(re, rep);
+    }
+    // 4. Lowercase
+    s = s.toLowerCase();
+    // 5. Replace non-alphanumeric (except hyphens) with spaces
+    s = s.replace(/[^a-z0-9-]+/g, ' ');
+    // 6. Collapse whitespace → single space → trim
+    s = s.replace(/\s+/g, ' ').trim();
+    // 7. Remove stop words
+    const words = s.split(' ').filter((w)=>!STOP_WORDS.has(w) && w.length > 0);
+    // 8. Join with hyphens
+    s = words.join('-');
+    // 9. Collapse multiple hyphens
+    s = s.replace(/-{2,}/g, '-');
+    // 10. Truncate at word boundary (hyphen boundary)
+    if (s.length > MAX_SLUG_LENGTH) {
+        s = s.substring(0, MAX_SLUG_LENGTH);
+        const lastHyphen = s.lastIndexOf('-');
+        if (lastHyphen > 20) {
+            s = s.substring(0, lastHyphen);
+        }
+    }
+    // 11. Trim leading/trailing hyphens
+    s = s.replace(/^-+|-+$/g, '');
+    return s || 'question';
+}
+function deduplicateSlugs(slugs) {
+    const seen = new Map();
+    return slugs.map((slug)=>{
+        const count = seen.get(slug) ?? 0;
+        seen.set(slug, count + 1);
+        if (count === 0) return slug;
+        return `${slug}-${count + 1}`;
+    });
+}
+}),
+"[project]/src/data/pyq/physics-pyq-1.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "physicsPyq1",
+    ()=>physicsPyq1
+]);
+const physicsPyq1 = [
+    {
+        name: 'Units and Measurements',
+        slug: 'units-and-measurements',
+        questions: [
+            {
+                q: 'The density of a material in the shape of a cube is determined by measuring three sides of the cube and its mass. If the relative errors in measuring the mass and length are respectively 1.5% and 1%, the maximum error in determining the density is:',
+                o: [
+                    '2.5%',
+                    '3.5%',
+                    '4.5%',
+                    '6%'
+                ],
+                a: 2,
+                s: 'Density ρ = m/l³. So Δρ/ρ = Δm/m + 3(Δl/l) = 1.5% + 3×1% = 4.5%.',
+                year: 2018,
+                shift: 'Apr 15 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'The dimensional formula of torque is:',
+                o: [
+                    '[ML²T⁻²]',
+                    '[MLT⁻²]',
+                    '[ML²T⁻¹]',
+                    'None'
+                ],
+                a: 0,
+                s: 'Torque = Force × Distance = [MLT⁻²] × [L] = [ML²T⁻²]. Same as energy.',
+                year: 2018,
+                shift: 'Official',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Motion in a Straight Line',
+        slug: 'motion-in-a-straight-line',
+        questions: [
+            {
+                q: 'A body of mass m is projected vertically upward with speed u. The time to reach maximum height is:',
+                o: [
+                    'u/g',
+                    '2u/g',
+                    'u/2g',
+                    'g/u'
+                ],
+                a: 0,
+                s: 'At maximum height, v = 0. Using v = u − gt: 0 = u − gt → t = u/g.',
+                year: 2018,
+                shift: 'Apr 15 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'A particle of mass m is moving along a straight line with acceleration a(t) = 6t. Its initial velocity at t = 0 is 2 m/s. Velocity at t = 2 s is:',
+                o: [
+                    '8 m/s',
+                    '10 m/s',
+                    '12 m/s',
+                    '14 m/s'
+                ],
+                a: 3,
+                s: 'v = ∫a dt = ∫6t dt = 3t² + C. At t=0, v=2 → C=2. At t=2: v = 3(4) + 2 = 14 m/s.',
+                year: 2017,
+                shift: 'Apr Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'A body of mass 2 kg is projected vertically upward with 20 m/s. Maximum height reached:',
+                o: [
+                    '10 m',
+                    '15 m',
+                    '20 m',
+                    '25 m'
+                ],
+                a: 2,
+                s: 'h = v²/(2g) = 400/(2×10) = 20 m.',
+                year: 2019,
+                shift: 'Jan 10 Shift 1',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Motion in a Plane',
+        slug: 'motion-in-a-plane',
+        questions: [
+            {
+                q: 'For projectile at θ = 45° with speed u, horizontal range R = u²/g:',
+                o: [
+                    'True',
+                    'False',
+                    'Depends on air resistance',
+                    'Only for small angles'
+                ],
+                a: 0,
+                s: 'R = u²sin2θ/g. At θ = 45°: sin90° = 1 → R = u²/g. True.',
+                year: 2016,
+                shift: 'Official',
+                exam: 'main'
+            },
+            {
+                q: 'A particle moves such that its position vector is r = (2t²i + 3tj + 4k) m. Its velocity at t = 1 s is:',
+                o: [
+                    '4i + 3j',
+                    '2i + 3j',
+                    '4i + 3j + 4k',
+                    '2i + 3j + 4k'
+                ],
+                a: 0,
+                s: 'v = dr/dt = 4ti + 3j. At t = 1: v = 4i + 3j.',
+                year: 2019,
+                shift: 'Jan 10 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Projectile maximum range at angle:',
+                o: [
+                    '30°',
+                    '45°',
+                    '60°',
+                    '90°'
+                ],
+                a: 1,
+                s: 'R = u²sin2θ/g. Maximum when sin2θ = 1 → 2θ = 90° → θ = 45°.',
+                year: 2020,
+                shift: 'Jan 7 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'For circular motion centripetal force directed:',
+                o: [
+                    'Outward',
+                    'Tangential',
+                    'Toward centre',
+                    'Opposite velocity'
+                ],
+                a: 2,
+                s: 'Centripetal acceleration = v²/r directed toward centre.',
+                year: 2020,
+                shift: 'Jan 7 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Particle with position r = (at²)i + (bt)j has instantaneous speed at t = 1:',
+                o: [
+                    '√(4a² + b²)',
+                    'a + b',
+                    '2a + b',
+                    '√(a² + b²)'
+                ],
+                a: 0,
+                s: 'v = dr/dt = 2at·i + b·j. At t=1: v = 2a·i + b·j. Speed = √(4a² + b²).',
+                year: 2019,
+                shift: 'Jan 10 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Maximum height of projectile:',
+                o: [
+                    'H = u²sin²θ/(2g)',
+                    'H = u²/g',
+                    'H = u²sin2θ/g',
+                    'None'
+                ],
+                a: 0,
+                s: 'At maximum height, vertical component = 0. H = (u sinθ)²/(2g) = u²sin²θ/(2g).',
+                year: 2019,
+                shift: 'Official',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Laws of Motion',
+        slug: 'laws-of-motion',
+        questions: [
+            {
+                q: 'Two masses m₁ = 5 kg and m₂ = 10 kg, connected by an inextensible string over a frictionless pulley, are moving. The coefficient of friction of the horizontal surface is 0.15. The minimum weight m that should be put on top of m₂ to stop the motion is:',
+                o: [
+                    '18.3 kg',
+                    '27.3 kg',
+                    '43.3 kg',
+                    '10.3 kg'
+                ],
+                a: 0,
+                s: 'For stopping: m₁g = μ(m₂ + m)g → 5 = 0.15(10 + m) → m = 33.33 − 10 = 18.3 kg.',
+                year: 2018,
+                shift: 'Apr 15 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'A particle under constant net force F = 5 N for time Δt = 0.4 s acquires impulse J. J equals:',
+                o: [
+                    '1 Ns',
+                    '2 Ns',
+                    '0.5 Ns',
+                    '10 Ns'
+                ],
+                a: 1,
+                s: 'J = FΔt = 5 × 0.4 = 2 Ns.',
+                year: 2019,
+                shift: 'Official',
+                exam: 'main'
+            },
+            {
+                q: 'Condition for equilibrium:',
+                o: [
+                    'ΣF = 0',
+                    'Στ = 0',
+                    'Both',
+                    'None'
+                ],
+                a: 2,
+                s: 'Static equilibrium requires both ΣF = 0 (translational) and Στ = 0 (rotational).',
+                year: 2020,
+                shift: 'Jan 7 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'For circular motion in banked curve without friction, banking angle satisfies:',
+                o: [
+                    'tanθ = v²/(rg)',
+                    'tanθ = rg/v²',
+                    'tanθ = v/r',
+                    'tanθ = g/v²'
+                ],
+                a: 0,
+                s: 'Normal force components: Ncosθ = mg, Nsinθ = mv²/r → tanθ = v²/(rg).',
+                year: 2018,
+                shift: 'Apr 15 Shift 2',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Work, Energy and Power',
+        slug: 'work-energy-power',
+        questions: [
+            {
+                q: 'A particle is moving in a circular path of radius a under the action of an attractive potential U(r) = −k/(2r²). Its total energy is:',
+                o: [
+                    '−k/4a²',
+                    '−k/2a²',
+                    '0',
+                    '−2k/3a²'
+                ],
+                a: 1,
+                s: 'F = −dU/dr = −k/r³. For circular motion: mv²/r = k/r³ → KE = k/(2r²). Total E = KE + U. As per JEE key: −k/2a².',
+                year: 2018,
+                shift: 'Apr 15 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'In a collinear collision, a particle with initial speed v₀ strikes a stationary particle of the same mass. If the final total kinetic energy is 50% greater than the original kinetic energy, the magnitude of the relative velocity between the two particles after collision is:',
+                o: [
+                    'v₀/4',
+                    '2v₀',
+                    'v₀/√2',
+                    'v₀/2'
+                ],
+                a: 2,
+                s: 'Initial KE = ½mv₀². Final KE = 1.5 × ½mv₀². By momentum conservation: v₁ + v₂ = v₀. Energy condition gives |v₁−v₂| = v₀/√2.',
+                year: 2018,
+                shift: 'Apr 15 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Work done by variable force F(x) = kx in moving a particle from x = 0 to x = a is:',
+                o: [
+                    '½ka²',
+                    'ka²',
+                    'ka',
+                    '¼ka²'
+                ],
+                a: 0,
+                s: 'W = ∫₀ᵃ kx dx = k[x²/2]₀ᵃ = ½ka².',
+                year: 2018,
+                shift: 'Apr 15 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'A block slides down a frictionless incline of angle 30° and height h. Its speed at the bottom is:',
+                o: [
+                    '√(gh)',
+                    '√(2gh)',
+                    '2gh',
+                    '√(g/h)'
+                ],
+                a: 1,
+                s: 'By energy conservation: mgh = ½mv² → v = √(2gh).',
+                year: 2017,
+                shift: 'Apr Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Two equal masses undergo completely inelastic collision; one at speed v, other at rest. Combined speed:',
+                o: [
+                    'v/2',
+                    'v',
+                    '0',
+                    'v/4'
+                ],
+                a: 0,
+                s: 'By momentum conservation: mv = (m+m)v\' → v\' = v/2.',
+                year: 2016,
+                shift: 'Official',
+                exam: 'main'
+            },
+            {
+                q: 'The work done by a constant force F in moving a particle around a closed path is:',
+                o: [
+                    'Zero',
+                    'F × displacement',
+                    'Always positive',
+                    'Depends on speed'
+                ],
+                a: 0,
+                s: 'A constant (conservative) force does zero net work around any closed path.',
+                year: 2019,
+                shift: 'Jan 10 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Kinetic energy doubles when velocity:',
+                o: [
+                    'Doubles',
+                    'Increases √2 times',
+                    'Halves',
+                    'Quadruples'
+                ],
+                a: 1,
+                s: 'KE = ½mv². If KE → 2KE, then v → v√2.',
+                year: 2020,
+                shift: 'Jan 7 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Two identical spheres collide elastically; one at rest, other speed u. After collision their speeds are:',
+                o: [
+                    'u and 0',
+                    '0 and u',
+                    'u/2 and u/2',
+                    'u and u'
+                ],
+                a: 1,
+                s: 'In elastic collision of equal masses, moving one stops and stationary one moves with original speed.',
+                year: 2016,
+                shift: 'Official',
+                exam: 'main'
+            },
+            {
+                q: 'Energy loss due to friction over distance d with coefficient μ is:',
+                o: [
+                    'μmgd',
+                    'μmd',
+                    'μgd',
+                    'μg/m'
+                ],
+                a: 0,
+                s: 'Friction force = μmg. Work done by friction = μmgd (energy loss).',
+                year: 2018,
+                shift: 'Apr 15 Shift 2',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Systems of Particles and Rotational Motion',
+        slug: 'rotational-motion',
+        questions: [
+            {
+                q: 'Seven identical circular planar disks, each of mass M and radius R, are welded symmetrically. The moment of inertia about the axis normal to the plane and passing through point P is:',
+                o: [
+                    '19/2 MR²',
+                    '55/2 MR²',
+                    '73/2 MR²',
+                    '181/2 MR²'
+                ],
+                a: 0,
+                s: 'Using parallel axis theorem for all 7 discs (1 central + 6 surrounding), total MOI = 19MR²/2.',
+                year: 2018,
+                shift: 'Apr 15 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'From a uniform circular disc of radius R and mass 9M, a small disc of radius R/3 is removed at the centre. The moment of inertia of the remaining disc about the axis perpendicular to the plane and passing through centre is:',
+                o: [
+                    '4MR²',
+                    '40MR²/9',
+                    '10MR²',
+                    '37MR²/9'
+                ],
+                a: 0,
+                s: 'I_full = ½(9M)R² = 9MR²/2. Removed disc mass = M, I_removed = ½M(R/3)² = MR²/18. Remaining I = 80MR²/18 = 4MR².',
+                year: 2018,
+                shift: 'Apr 15 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Moment of inertia of a thin rod of length L about its centre is:',
+                o: [
+                    'mL²/12',
+                    'mL²/3',
+                    'mL²/2',
+                    'mL²'
+                ],
+                a: 0,
+                s: 'I = ∫₋L/2^L/2 (m/L)x² dx = mL²/12.',
+                year: 2017,
+                shift: 'Apr Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Angular momentum of a particle moving in a straight line not passing through origin:',
+                o: [
+                    'Zero',
+                    'Constant',
+                    'Changes direction',
+                    'Infinite'
+                ],
+                a: 1,
+                s: 'L = m(r × v). Perpendicular distance from origin is constant → |L| = mvb = constant, direction fixed.',
+                year: 2019,
+                shift: 'Jan 10 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Torque equals:',
+                o: [
+                    'r × F',
+                    'r · F',
+                    'F/r',
+                    'r/F'
+                ],
+                a: 0,
+                s: 'Torque τ = r × F (cross product of position and force vectors).',
+                year: 2020,
+                shift: 'Jan 7 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Rotational kinetic energy of a rigid body:',
+                o: [
+                    '½Iω²',
+                    'Iω',
+                    '½mv²',
+                    'I²ω'
+                ],
+                a: 0,
+                s: 'KE_rot = ½Iω² where I is moment of inertia and ω is angular velocity.',
+                year: 2018,
+                shift: 'Official',
+                exam: 'main'
+            },
+            {
+                q: 'Center of mass position of particle system:',
+                o: [
+                    'Weighted average',
+                    'Arithmetic mean',
+                    'Geometric mean',
+                    'None'
+                ],
+                a: 0,
+                s: 'r_cm = Σmᵢrᵢ / Σmᵢ — weighted average of positions with mass as weights.',
+                year: 2018,
+                shift: 'Apr 15 Shift 2',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Gravitation',
+        slug: 'gravitation',
+        questions: [
+            {
+                q: 'A particle is moving with uniform speed in a circular orbit of radius R in a central force inversely proportional to rⁿ. For which value of n is the orbit stable?',
+                o: [
+                    'n < 3',
+                    'n = 2',
+                    'n > 3',
+                    'n = 1'
+                ],
+                a: 0,
+                s: 'For a circular orbit under central force F ∝ 1/rⁿ to be stable, perturbation analysis shows the condition is n < 3.',
+                year: 2018,
+                shift: 'Apr 15 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Escape velocity from a planet of mass M and radius R is:',
+                o: [
+                    '√(2GM/R)',
+                    '√(GM/R)',
+                    'GM/R',
+                    '√(3GM/R)'
+                ],
+                a: 0,
+                s: 'Setting KE = PE: ½mv² = GMm/R → v_esc = √(2GM/R).',
+                year: 2016,
+                shift: 'Official',
+                exam: 'main'
+            },
+            {
+                q: 'Satellite in circular orbit near Earth has orbital speed v. Moved to orbit of radius 2R, new speed:',
+                o: [
+                    'v/√2',
+                    'v/2',
+                    'v√2',
+                    'v'
+                ],
+                a: 0,
+                s: 'v_orbital = √(GM/r). If r → 2r: v\' = √(GM/2R) = v/√2.',
+                year: 2016,
+                shift: 'Official',
+                exam: 'main'
+            },
+            {
+                q: 'Particle moving under central force F ∝ 1/r². Angular momentum L is:',
+                o: [
+                    'Conserved',
+                    'Increases',
+                    'Decreases',
+                    'Zero'
+                ],
+                a: 0,
+                s: 'Central force produces no torque about centre → angular momentum L = r × p is conserved.',
+                year: 2018,
+                shift: 'Apr 15 Shift 2',
+                exam: 'main'
+            }
+        ]
+    }
+];
+}),
+"[project]/src/data/pyq/physics-pyq-2.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "physicsPyq2",
+    ()=>physicsPyq2
+]);
+const physicsPyq2 = [
+    {
+        name: 'Work, Energy and Power',
+        slug: 'work-energy-power',
+        questions: [
+            {
+                q: 'A body of mass 2 kg has velocity 4 m/s. Work done to increase its velocity to 6 m/s is:',
+                o: [
+                    '20 J',
+                    '16 J',
+                    '36 J',
+                    '10 J'
+                ],
+                a: 0,
+                s: 'W = ½m(v₂²−v₁²) = ½(2)(36−16) = 20 J.',
+                year: 2023,
+                shift: 'Jan 24 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'A spring of force constant 200 N/m is compressed by 5 cm. The PE stored is:',
+                o: [
+                    '0.25 J',
+                    '0.5 J',
+                    '5 J',
+                    '50 J'
+                ],
+                a: 0,
+                s: 'U = ½kx² = ½(200)(0.05)² = 0.25 J.',
+                year: 2022,
+                shift: 'Jun 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Power is defined as:',
+                o: [
+                    'Rate of doing work',
+                    'Work × time',
+                    'Force × displacement',
+                    'Energy × time'
+                ],
+                a: 0,
+                s: 'P = dW/dt, rate of doing work.',
+                year: 2021,
+                shift: 'Feb 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'A 1 kg ball is dropped from 20 m. Its KE just before hitting ground is (g = 10 m/s²):',
+                o: [
+                    '200 J',
+                    '100 J',
+                    '400 J',
+                    '20 J'
+                ],
+                a: 0,
+                s: 'KE = mgh = 1×10×20 = 200 J by conservation.',
+                year: 2020,
+                shift: 'Jan 8 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'If kinetic energy of a body is increased by 300%, its momentum increases by:',
+                o: [
+                    '100%',
+                    '300%',
+                    '200%',
+                    '400%'
+                ],
+                a: 0,
+                s: 'KE ∝ p². If K → 4K, p → 2p. Increase = 100%.',
+                year: 2019,
+                shift: 'Jan 12 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'A bullet of 10 g moving at 400 m/s penetrates a wall and comes out at 100 m/s. Work done by wall is:',
+                o: [
+                    '−750 J',
+                    '750 J',
+                    '−1500 J',
+                    '1500 J'
+                ],
+                a: 0,
+                s: 'W = ½m(v²−u²) = ½(0.01)(10000−160000) = −750 J.',
+                year: 2023,
+                shift: 'Jan 29 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'In an elastic collision in 1D between equal masses, the velocities are:',
+                o: [
+                    'Exchanged',
+                    'Both zero',
+                    'Both halved',
+                    'Unchanged'
+                ],
+                a: 0,
+                s: 'In elastic collision with equal masses, velocities exchange completely.',
+                year: 2022,
+                shift: 'Jul 26 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The work-energy theorem states:',
+                o: [
+                    'Net work = change in KE',
+                    'Work = force × time',
+                    'Power = work/distance',
+                    'KE = PE always'
+                ],
+                a: 0,
+                s: 'W_net = ΔKE = ½mv₂² − ½mv₁².',
+                year: 2021,
+                shift: 'Mar 16 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'A pump lifts 200 kg of water through 10 m in 20 s. The power of pump is (g = 10 m/s²):',
+                o: [
+                    '1000 W',
+                    '2000 W',
+                    '500 W',
+                    '100 W'
+                ],
+                a: 0,
+                s: 'P = mgh/t = 200×10×10/20 = 1000 W.',
+                year: 2020,
+                shift: 'Sep 2 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'The potential energy of a spring is maximum when:',
+                o: [
+                    'Extension is maximum',
+                    'Extension is zero',
+                    'Velocity is maximum',
+                    'Force is zero'
+                ],
+                a: 0,
+                s: 'PE = ½kx², maximum when x is maximum.',
+                year: 2024,
+                shift: 'Jan 27 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'A force F = (3î + 4ĵ) N displaces a body by d = (3î + 4ĵ) m. Work done is:',
+                o: [
+                    '25 J',
+                    '12 J',
+                    '7 J',
+                    '0 J'
+                ],
+                a: 0,
+                s: 'W = F·d = 9 + 16 = 25 J.',
+                year: 2018,
+                shift: 'Apr 15 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'A body at rest explodes into two pieces of masses m and 2m. The ratio of their KE is:',
+                o: [
+                    '2:1',
+                    '1:2',
+                    '1:1',
+                    '4:1'
+                ],
+                a: 0,
+                s: 'By momentum conservation: KE ∝ 1/m, so K₁:K₂ = 2m:m = 2:1.',
+                year: 2017,
+                shift: 'Apr 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'A variable force F = kx acts on a body. Work done in moving from x = 0 to x = a is:',
+                o: [
+                    'ka²/2',
+                    'ka',
+                    'ka²',
+                    'k/a'
+                ],
+                a: 0,
+                s: 'W = ∫₀ᵃ kx dx = ka²/2.',
+                year: 2016,
+                shift: 'Online',
+                exam: 'main'
+            },
+            {
+                q: 'The coefficient of restitution for a perfectly inelastic collision is:',
+                o: [
+                    '0',
+                    '1',
+                    '∞',
+                    '0.5'
+                ],
+                a: 0,
+                s: 'e = 0 for perfectly inelastic (bodies stick together).',
+                year: 2015,
+                shift: 'Apr 4 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'A particle of mass m moves in a circular orbit under central force F = −k/r². Total energy is:',
+                o: [
+                    '−k/(2r)',
+                    'k/(2r)',
+                    '−k/r',
+                    'Zero'
+                ],
+                a: 0,
+                s: 'For inverse square force: E = −K/2 = −k/(2r).',
+                year: 2024,
+                shift: 'Jan 30 Shift 1',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Systems of Particles and Rotational Motion',
+        slug: 'rotational-motion',
+        questions: [
+            {
+                q: 'The moment of inertia of a solid sphere about its diameter is:',
+                o: [
+                    '(2/5)MR²',
+                    '(2/3)MR²',
+                    'MR²',
+                    '(1/2)MR²'
+                ],
+                a: 0,
+                s: 'I = (2/5)MR² for solid sphere about diameter.',
+                year: 2023,
+                shift: 'Jan 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'A disc of mass M and radius R rolls without slipping. Its total KE is:',
+                o: [
+                    '(3/4)Mv²',
+                    '(1/2)Mv²',
+                    'Mv²',
+                    '(1/4)Mv²'
+                ],
+                a: 0,
+                s: 'KE = ½Mv² + ½Iω² = ½Mv² + ½(MR²/2)(v/R)² = (3/4)Mv².',
+                year: 2022,
+                shift: 'Jun 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Angular momentum is conserved when:',
+                o: [
+                    'Net external torque is zero',
+                    'Net force is zero',
+                    'Velocity is constant',
+                    'Acceleration is zero'
+                ],
+                a: 0,
+                s: 'τ = dL/dt, when τ = 0, L is conserved.',
+                year: 2021,
+                shift: 'Feb 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'A rod of length L and mass M has moment of inertia about one end:',
+                o: [
+                    'ML²/3',
+                    'ML²/12',
+                    'ML²',
+                    'ML²/2'
+                ],
+                a: 0,
+                s: 'I_end = I_cm + Md² = ML²/12 + M(L/2)² = ML²/3.',
+                year: 2020,
+                shift: 'Jan 9 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'If a spinning skater pulls arms in, angular velocity:',
+                o: [
+                    'Increases',
+                    'Decreases',
+                    'Remains same',
+                    'Becomes zero'
+                ],
+                a: 0,
+                s: 'L = Iω = const. I decreases → ω increases.',
+                year: 2019,
+                shift: 'Jan 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Torque is defined as:',
+                o: [
+                    'r × F',
+                    'F × r',
+                    'r · F',
+                    'F/r'
+                ],
+                a: 0,
+                s: 'τ = r × F, cross product of position vector and force.',
+                year: 2018,
+                shift: 'Apr 8 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'A solid cylinder and hollow cylinder of same mass and radius roll down an incline. Which reaches first?',
+                o: [
+                    'Solid cylinder',
+                    'Hollow cylinder',
+                    'Both together',
+                    'Depends on length'
+                ],
+                a: 0,
+                s: 'Solid has smaller I (MR²/2 vs MR²), so greater acceleration.',
+                year: 2023,
+                shift: 'Jan 30 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'The radius of gyration of a disc about its axis is:',
+                o: [
+                    'R/√2',
+                    'R',
+                    'R/2',
+                    '√2 R'
+                ],
+                a: 0,
+                s: 'I = MR²/2 = Mk². k = R/√2.',
+                year: 2022,
+                shift: 'Jul 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'The condition for a body to be in complete equilibrium is:',
+                o: [
+                    'Both net force and net torque are zero',
+                    'Only net force is zero',
+                    'Only net torque is zero',
+                    'Velocity is constant'
+                ],
+                a: 0,
+                s: 'Complete equilibrium requires ΣF = 0 and Στ = 0.',
+                year: 2021,
+                shift: 'Aug 27 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'A wheel starts from rest with α = 2 rad/s². Angular velocity after 5 revolutions is:',
+                o: [
+                    '√(40π) rad/s',
+                    '20π rad/s',
+                    '10π rad/s',
+                    '√(20π) rad/s'
+                ],
+                a: 0,
+                s: 'ω² = 2αθ = 2(2)(10π) = 40π. ω = √(40π) rad/s.',
+                year: 2020,
+                shift: 'Sep 3 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The parallel axis theorem states I = I_cm + Md². It is valid for:',
+                o: [
+                    'Any axis parallel to one through CM',
+                    'Only symmetric bodies',
+                    'Only about diameter',
+                    'Only cylindrical bodies'
+                ],
+                a: 0,
+                s: 'Parallel axis theorem applies to any body, any axis parallel to CM axis.',
+                year: 2024,
+                shift: 'Jan 27 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'A uniform circular disc has moment of inertia ML²/12 about which axis?',
+                o: [
+                    'This is for a rod, not a disc',
+                    'Diameter',
+                    'Perpendicular axis',
+                    'Tangent'
+                ],
+                a: 0,
+                s: 'ML²/12 is MI of a uniform rod about center, not disc.',
+                year: 2017,
+                shift: 'Apr 2 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'In pure rolling, the velocity of the contact point is:',
+                o: [
+                    'Zero',
+                    'v',
+                    '2v',
+                    'v/2'
+                ],
+                a: 0,
+                s: 'v_contact = v − Rω = 0 in pure rolling (v = Rω).',
+                year: 2016,
+                shift: 'Apr 10 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'The angular momentum of a particle about origin with position r and momentum p is:',
+                o: [
+                    'r × p',
+                    'p × r',
+                    'r · p',
+                    'rp'
+                ],
+                a: 0,
+                s: 'L = r × p. Direction perpendicular to plane of r and p.',
+                year: 2015,
+                shift: 'Paper 2',
+                exam: 'advanced'
+            },
+            {
+                q: 'MOI of a ring about a tangent perpendicular to its plane is:',
+                o: [
+                    '2MR²',
+                    '3MR²/2',
+                    'MR²',
+                    'MR²/2'
+                ],
+                a: 0,
+                s: 'I_tangent = I_center + MR² = MR² + MR² = 2MR².',
+                year: 2024,
+                shift: 'Jan 29 Shift 1',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Gravitation',
+        slug: 'gravitation',
+        questions: [
+            {
+                q: 'Escape velocity from the surface of earth is:',
+                o: [
+                    '√(2gR)',
+                    '√(gR)',
+                    '2gR',
+                    'gR'
+                ],
+                a: 0,
+                s: 'v_e = √(2GM/R) = √(2gR).',
+                year: 2023,
+                shift: 'Jan 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'The gravitational PE of a body of mass m at height h from surface (h << R) is:',
+                o: [
+                    '−mgh (taking surface as reference)',
+                    'mgh',
+                    'mg/h',
+                    '−mg/h'
+                ],
+                a: 0,
+                s: 'PE = mgh above surface, or −GMm/(R+h) absolute.',
+                year: 2022,
+                shift: 'Jun 26 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Kepler\'s third law states:',
+                o: [
+                    'T² ∝ a³',
+                    'T ∝ a²',
+                    'T² ∝ a²',
+                    'T³ ∝ a²'
+                ],
+                a: 0,
+                s: 'T² = (4π²/GM)a³. Period squared proportional to semi-major axis cubed.',
+                year: 2021,
+                shift: 'Feb 26 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Acceleration due to gravity at depth d below surface is:',
+                o: [
+                    'g(1 − d/R)',
+                    'g(1 + d/R)',
+                    'g',
+                    'g(R/d)'
+                ],
+                a: 0,
+                s: 'g_d = g(1 − d/R). At center d = R, g = 0.',
+                year: 2020,
+                shift: 'Jan 7 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Time period of a satellite orbiting close to earth surface is approximately:',
+                o: [
+                    '84 min',
+                    '24 hrs',
+                    '12 hrs',
+                    '60 min'
+                ],
+                a: 0,
+                s: 'T = 2π√(R/g) ≈ 2π√(6400000/10) ≈ 5024 s ≈ 84 min.',
+                year: 2019,
+                shift: 'Apr 8 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'If earth\'s radius is halved keeping mass same, escape velocity becomes:',
+                o: [
+                    '√2 times',
+                    '2 times',
+                    'Same',
+                    'Half'
+                ],
+                a: 0,
+                s: 'v_e = √(2GM/R). If R → R/2, v_e → √2 × v_e.',
+                year: 2023,
+                shift: 'Jan 29 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Orbital velocity of a satellite at height h from surface is:',
+                o: [
+                    '√(GM/(R+h))',
+                    '√(2GM/(R+h))',
+                    '√(gR)',
+                    'GM/(R+h)'
+                ],
+                a: 0,
+                s: 'v_o = √(GM/r) where r = R+h.',
+                year: 2022,
+                shift: 'Jul 28 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The gravitational field inside a uniform spherical shell is:',
+                o: [
+                    'Zero',
+                    'Constant non-zero',
+                    'Proportional to r',
+                    'Proportional to 1/r²'
+                ],
+                a: 0,
+                s: 'By shell theorem, field inside a uniform shell is zero.',
+                year: 2021,
+                shift: 'Mar 17 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'If mass of earth becomes 4 times, for same escape velocity, radius should become:',
+                o: [
+                    '4 times',
+                    '2 times',
+                    'Same',
+                    '16 times'
+                ],
+                a: 0,
+                s: 'v_e = √(2GM/R). For same v_e: R ∝ M → R 4 times.',
+                year: 2020,
+                shift: 'Sep 2 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The ratio of escape velocity to orbital velocity is:',
+                o: [
+                    '√2',
+                    '2',
+                    '1',
+                    '1/√2'
+                ],
+                a: 0,
+                s: 'v_e = √2 × v_o.',
+                year: 2019,
+                shift: 'Jan 10 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Geostationary satellite orbits at height approximately:',
+                o: [
+                    '36000 km',
+                    '6400 km',
+                    '400 km',
+                    '100000 km'
+                ],
+                a: 0,
+                s: 'T = 24h requires orbital radius ≈ 42000 km, height ≈ 36000 km above surface.',
+                year: 2024,
+                shift: 'Jan 30 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'The gravitational force between two bodies is:',
+                o: [
+                    'Always attractive',
+                    'Always repulsive',
+                    'Can be both',
+                    'Zero at large distances'
+                ],
+                a: 0,
+                s: 'Gravity is always attractive. F = GMm/r².',
+                year: 2018,
+                shift: 'Apr 15 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Work done in moving a mass from surface to height h (h << R) is:',
+                o: [
+                    'mgh',
+                    'mg/h',
+                    '½mgh',
+                    '2mgh'
+                ],
+                a: 0,
+                s: 'W = mgh for h << R (uniform gravity approximation).',
+                year: 2017,
+                shift: 'Apr 8 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Variation of g with altitude h (h << R) is:',
+                o: [
+                    'g decreases linearly',
+                    'g increases',
+                    'g remains constant',
+                    'g decreases quadratically'
+                ],
+                a: 0,
+                s: 'g_h = g(1 − 2h/R) for h << R, approximately linear decrease.',
+                year: 2016,
+                shift: 'Apr 3 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Total energy of a satellite in orbit is:',
+                o: [
+                    'Negative',
+                    'Positive',
+                    'Zero',
+                    'Depends on height'
+                ],
+                a: 0,
+                s: 'E = −GMm/(2r) < 0 for bound orbits.',
+                year: 2015,
+                shift: 'Paper 1',
+                exam: 'advanced'
+            }
+        ]
+    },
+    {
+        name: 'Thermodynamics',
+        slug: 'thermodynamics',
+        questions: [
+            {
+                q: 'In an adiabatic process:',
+                o: [
+                    'No heat exchange (Q = 0)',
+                    'No work done',
+                    'Temperature constant',
+                    'Pressure constant'
+                ],
+                a: 0,
+                s: 'Adiabatic: Q = 0, no heat exchange with surroundings.',
+                year: 2023,
+                shift: 'Jan 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Efficiency of a Carnot engine operating between 500 K and 300 K is:',
+                o: [
+                    '40%',
+                    '60%',
+                    '50%',
+                    '30%'
+                ],
+                a: 0,
+                s: 'η = 1 − T₂/T₁ = 1 − 300/500 = 40%.',
+                year: 2022,
+                shift: 'Jun 27 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'For an ideal gas, internal energy depends on:',
+                o: [
+                    'Temperature only',
+                    'Pressure only',
+                    'Volume only',
+                    'Both P and V'
+                ],
+                a: 0,
+                s: 'For ideal gas, U = nCᵥT, depends only on temperature.',
+                year: 2021,
+                shift: 'Feb 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'First law of thermodynamics is:',
+                o: [
+                    'dQ = dU + dW',
+                    'dQ = dU − dW',
+                    'dU = dQ + dW',
+                    'dW = dQ + dU'
+                ],
+                a: 0,
+                s: 'dQ = dU + dW (heat = change in internal energy + work done).',
+                year: 2020,
+                shift: 'Jan 8 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Work done in an isothermal expansion of ideal gas from V₁ to V₂ is:',
+                o: [
+                    'nRT ln(V₂/V₁)',
+                    'nRT(V₂−V₁)',
+                    'P(V₂−V₁)',
+                    'Zero'
+                ],
+                a: 0,
+                s: 'W = nRT ln(V₂/V₁) for isothermal process (T = const).',
+                year: 2019,
+                shift: 'Jan 11 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'For a monoatomic ideal gas, Cₚ/Cᵥ (γ) is:',
+                o: [
+                    '5/3',
+                    '7/5',
+                    '4/3',
+                    '3/2'
+                ],
+                a: 0,
+                s: 'γ = Cₚ/Cᵥ = (f+2)/f = 5/3 for monoatomic (f = 3).',
+                year: 2023,
+                shift: 'Jan 30 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'In an isobaric process, work done is:',
+                o: [
+                    'PΔV',
+                    'VΔP',
+                    'Zero',
+                    'nRΔT/2'
+                ],
+                a: 0,
+                s: 'W = PΔV (constant pressure).',
+                year: 2022,
+                shift: 'Jul 26 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Second law of thermodynamics implies:',
+                o: [
+                    'Heat cannot spontaneously flow from cold to hot body',
+                    'Energy is conserved',
+                    'Entropy always decreases',
+                    'Work can be fully converted to heat'
+                ],
+                a: 0,
+                s: 'Clausius: Heat flows spontaneously only from hot to cold.',
+                year: 2021,
+                shift: 'Aug 26 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'An ideal gas undergoes free expansion. The temperature:',
+                o: [
+                    'Remains unchanged',
+                    'Increases',
+                    'Decreases',
+                    'First increases then decreases'
+                ],
+                a: 0,
+                s: 'Free expansion: W = 0, Q = 0, so ΔU = 0, ΔT = 0.',
+                year: 2020,
+                shift: 'Sep 3 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'The specific heat at constant pressure is always greater than at constant volume because:',
+                o: [
+                    'Extra work is done in expansion at constant pressure',
+                    'Pressure does not change',
+                    'Volume changes are larger',
+                    'Temperature rise is higher'
+                ],
+                a: 0,
+                s: 'At constant P, gas expands doing PdV work, requiring extra heat. Cₚ − Cᵥ = R.',
+                year: 2024,
+                shift: 'Jan 27 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Entropy of the universe in any natural process:',
+                o: [
+                    'Increases',
+                    'Decreases',
+                    'Remains constant',
+                    'Becomes zero'
+                ],
+                a: 0,
+                s: 'Second law: ΔS_universe ≥ 0; increases for irreversible processes.',
+                year: 2018,
+                shift: 'Apr 8 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'For an adiabatic process of ideal gas, PVᵞ = const. In terms of T and V:',
+                o: [
+                    'TVᵞ⁻¹ = constant',
+                    'TV = constant',
+                    'TV² = constant',
+                    'T²V = constant'
+                ],
+                a: 0,
+                s: 'PV = nRT, P = nRT/V. (nRT/V)Vᵞ = c → TVᵞ⁻¹ = const.',
+                year: 2017,
+                shift: 'Apr 9 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'A cyclic process returns to starting state. The change in internal energy is:',
+                o: [
+                    'Zero',
+                    'Positive',
+                    'Negative',
+                    'Maximum'
+                ],
+                a: 0,
+                s: 'U is a state function. ΔU = 0 for a complete cycle.',
+                year: 2016,
+                shift: 'Apr 10 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Which process has maximum work done for same ΔV?',
+                o: [
+                    'Isobaric',
+                    'Isothermal',
+                    'Adiabatic',
+                    'Isochoric'
+                ],
+                a: 0,
+                s: 'Isobaric: W = PΔV. Higher pressure maintained throughout expansion.',
+                year: 2015,
+                shift: 'Apr 4 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'The coefficient of performance of a refrigerator working between 0°C and 27°C is:',
+                o: [
+                    '~10.1',
+                    '~1',
+                    '~27',
+                    '~3'
+                ],
+                a: 0,
+                s: 'COP = T₂/(T₁−T₂) = 273/27 ≈ 10.1.',
+                year: 2024,
+                shift: 'Jan 29 Shift 2',
+                exam: 'main'
+            }
+        ]
+    }
+];
+}),
+"[project]/src/data/pyq/physics-pyq-3.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "physicsPyq3",
+    ()=>physicsPyq3
+]);
+const physicsPyq3 = [
+    {
+        name: 'Electrostatics',
+        slug: 'electrostatics',
+        questions: [
+            {
+                q: 'The electric field due to a point charge at distance r is:',
+                o: [
+                    'kq/r²',
+                    'kq/r',
+                    'kq²/r²',
+                    'kq/r³'
+                ],
+                a: 0,
+                s: 'E = kq/r² = q/(4πε₀r²).',
+                year: 2023,
+                shift: 'Jan 24 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Electric flux through a closed surface enclosing charge q is:',
+                o: [
+                    'q/ε₀',
+                    'qε₀',
+                    'q/(4πε₀)',
+                    '4πq/ε₀'
+                ],
+                a: 0,
+                s: 'Gauss\'s law: Φ = q/ε₀.',
+                year: 2022,
+                shift: 'Jun 24 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Capacitance of a parallel plate capacitor with plate area A and separation d is:',
+                o: [
+                    'ε₀A/d',
+                    'ε₀d/A',
+                    'A/(ε₀d)',
+                    'd/(ε₀A)'
+                ],
+                a: 0,
+                s: 'C = ε₀A/d for parallel plate capacitor.',
+                year: 2021,
+                shift: 'Feb 24 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Energy stored in a capacitor of capacitance C charged to voltage V is:',
+                o: [
+                    '½CV²',
+                    'CV²',
+                    'CV',
+                    '2CV²'
+                ],
+                a: 0,
+                s: 'U = ½CV² = ½QV = Q²/(2C).',
+                year: 2020,
+                shift: 'Jan 7 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Electric potential at a distance r from a point charge q is:',
+                o: [
+                    'kq/r',
+                    'kq/r²',
+                    'kq²/r',
+                    'kqr'
+                ],
+                a: 0,
+                s: 'V = kq/r = q/(4πε₀r).',
+                year: 2019,
+                shift: 'Jan 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'A dielectric of constant K is introduced in a parallel plate capacitor. New capacitance is:',
+                o: [
+                    'KC',
+                    'C/K',
+                    'C',
+                    'K²C'
+                ],
+                a: 0,
+                s: 'C\' = KC. Dielectric increases capacitance by factor K.',
+                year: 2023,
+                shift: 'Jan 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Electric field inside a conducting sphere is:',
+                o: [
+                    'Zero',
+                    'kq/r²',
+                    'kq/R²',
+                    'Constant'
+                ],
+                a: 0,
+                s: 'Inside conductor, all charge on surface, E = 0.',
+                year: 2022,
+                shift: 'Jun 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Two capacitors C₁ and C₂ in series give equivalent capacitance:',
+                o: [
+                    'C₁C₂/(C₁+C₂)',
+                    'C₁+C₂',
+                    'C₁C₂',
+                    '(C₁+C₂)/(C₁C₂)'
+                ],
+                a: 0,
+                s: '1/C_eq = 1/C₁ + 1/C₂ → C_eq = C₁C₂/(C₁+C₂).',
+                year: 2021,
+                shift: 'Mar 16 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The electric dipole moment is defined as:',
+                o: [
+                    'p = qd (charge × separation)',
+                    'p = q/d',
+                    'p = q²d',
+                    'p = d/q'
+                ],
+                a: 0,
+                s: 'p = q × 2a (charge times distance between charges).',
+                year: 2020,
+                shift: 'Jan 8 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Electric field at the centre of a uniformly charged ring is:',
+                o: [
+                    'Zero',
+                    'kQ/R²',
+                    'kQ/R',
+                    '2kQ/R²'
+                ],
+                a: 0,
+                s: 'By symmetry, all components cancel at the centre.',
+                year: 2024,
+                shift: 'Jan 27 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Equipotential surfaces are always:',
+                o: [
+                    'Perpendicular to electric field lines',
+                    'Parallel to field lines',
+                    'At 45° to field lines',
+                    'Circular'
+                ],
+                a: 0,
+                s: 'Work done along equipotential = 0 → E ⊥ surface.',
+                year: 2018,
+                shift: 'Apr 8 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Coulomb\'s law is analogous to:',
+                o: [
+                    'Newton\'s gravitational law',
+                    'Ohm\'s law',
+                    'Faraday\'s law',
+                    'Ampere\'s law'
+                ],
+                a: 0,
+                s: 'Both are inverse-square laws: F ∝ 1/r².',
+                year: 2017,
+                shift: 'Apr 2 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The potential energy of a system of two charges q₁ and q₂ separated by r is:',
+                o: [
+                    'kq₁q₂/r',
+                    'kq₁q₂/r²',
+                    'k(q₁+q₂)/r',
+                    'kq₁q₂r'
+                ],
+                a: 0,
+                s: 'U = kq₁q₂/r. Positive for like charges, negative for unlike.',
+                year: 2016,
+                shift: 'Apr 3 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'A conducting sphere of radius R has charge Q. The surface charge density is:',
+                o: [
+                    'Q/(4πR²)',
+                    'Q/(πR²)',
+                    'Q/R²',
+                    'Q/(2πR²)'
+                ],
+                a: 0,
+                s: 'σ = Q/A = Q/(4πR²).',
+                year: 2015,
+                shift: 'Paper 1',
+                exam: 'advanced'
+            },
+            {
+                q: 'The electric field between the plates of a parallel plate capacitor is:',
+                o: [
+                    'σ/ε₀',
+                    'σε₀',
+                    '2σ/ε₀',
+                    'σ/(2ε₀)'
+                ],
+                a: 0,
+                s: 'E = σ/ε₀ between plates. Each plate contributes σ/(2ε₀).',
+                year: 2024,
+                shift: 'Jan 29 Shift 1',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Current Electricity',
+        slug: 'current-electricity',
+        questions: [
+            {
+                q: 'Ohm\'s law states:',
+                o: [
+                    'V = IR',
+                    'V = I/R',
+                    'V = IR²',
+                    'I = VR'
+                ],
+                a: 0,
+                s: 'V = IR. Voltage proportional to current for ohmic conductors.',
+                year: 2023,
+                shift: 'Jan 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'The SI unit of electrical resistance is:',
+                o: [
+                    'Ohm (Ω)',
+                    'Siemens',
+                    'Volt',
+                    'Ampere'
+                ],
+                a: 0,
+                s: 'Resistance = V/I. Unit: Volt/Ampere = Ohm.',
+                year: 2022,
+                shift: 'Jun 26 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Three resistors of 3Ω each in parallel give equivalent resistance:',
+                o: [
+                    '1 Ω',
+                    '9 Ω',
+                    '3 Ω',
+                    '0.33 Ω'
+                ],
+                a: 0,
+                s: '1/R = 1/3 + 1/3 + 1/3 = 1. R = 1 Ω.',
+                year: 2021,
+                shift: 'Feb 26 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Kirchhoff\'s junction rule is based on conservation of:',
+                o: [
+                    'Charge',
+                    'Energy',
+                    'Momentum',
+                    'Mass'
+                ],
+                a: 0,
+                s: 'Junction rule: ΣI_in = ΣI_out (charge conservation).',
+                year: 2020,
+                shift: 'Jan 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The internal resistance of an ideal voltmeter is:',
+                o: [
+                    'Infinite',
+                    'Zero',
+                    '1 Ω',
+                    'Very small'
+                ],
+                a: 0,
+                s: 'Ideal voltmeter draws no current → infinite resistance.',
+                year: 2019,
+                shift: 'Jan 12 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'EMF of a cell is measured by:',
+                o: [
+                    'Potentiometer',
+                    'Ammeter',
+                    'Voltmeter',
+                    'Galvanometer'
+                ],
+                a: 0,
+                s: 'Potentiometer measures EMF without drawing current (null method).',
+                year: 2023,
+                shift: 'Jan 29 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Wheatstone bridge is balanced when:',
+                o: [
+                    'P/Q = R/S',
+                    'PQ = RS',
+                    'P+Q = R+S',
+                    'P−Q = R−S'
+                ],
+                a: 0,
+                s: 'Balance condition: P/Q = R/S → no current through galvanometer.',
+                year: 2022,
+                shift: 'Jul 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Power dissipated in a resistor R carrying current I is:',
+                o: [
+                    'I²R',
+                    'IR',
+                    'I/R',
+                    'IR²'
+                ],
+                a: 0,
+                s: 'P = I²R = V²/R = VI.',
+                year: 2021,
+                shift: 'Aug 27 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Drift velocity of electrons in a conductor is proportional to:',
+                o: [
+                    'Electric field',
+                    'Resistance',
+                    'Temperature',
+                    'Length of conductor'
+                ],
+                a: 0,
+                s: 'v_d = eEτ/m. Proportional to E.',
+                year: 2020,
+                shift: 'Sep 2 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Resistivity of a conductor depends on:',
+                o: [
+                    'Material and temperature',
+                    'Length',
+                    'Cross-sectional area',
+                    'Applied voltage'
+                ],
+                a: 0,
+                s: 'ρ is intrinsic property of material, varies with temperature.',
+                year: 2024,
+                shift: 'Jan 30 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Meter bridge is based on the principle of:',
+                o: [
+                    'Wheatstone bridge',
+                    'Potentiometer',
+                    'Ohm\'s law',
+                    'Kirchhoff\'s law'
+                ],
+                a: 0,
+                s: 'Meter bridge uses Wheatstone bridge principle to find unknown R.',
+                year: 2018,
+                shift: 'Apr 15 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Maximum power is transferred to external resistance when:',
+                o: [
+                    'External R = Internal r',
+                    'R >> r',
+                    'R << r',
+                    'R = 0'
+                ],
+                a: 0,
+                s: 'Maximum power theorem: P_max when R = r.',
+                year: 2017,
+                shift: 'Apr 9 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Temperature coefficient of resistance for metals is:',
+                o: [
+                    'Positive',
+                    'Negative',
+                    'Zero',
+                    'Infinite'
+                ],
+                a: 0,
+                s: 'Metals: R increases with T → positive temperature coefficient.',
+                year: 2016,
+                shift: 'Online',
+                exam: 'main'
+            },
+            {
+                q: 'In a potentiometer, for no deflection in galvanometer:',
+                o: [
+                    'EMF = potential drop across balance length',
+                    'Current is maximum',
+                    'Resistance is minimum',
+                    'Temperature is constant'
+                ],
+                a: 0,
+                s: 'At balance: E = V = kl (potential gradient × balance length).',
+                year: 2015,
+                shift: 'Apr 4 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Two cells of EMF E₁, E₂ and internal resistance r₁, r₂ in parallel give equivalent EMF:',
+                o: [
+                    '(E₁r₂+E₂r₁)/(r₁+r₂)',
+                    'E₁+E₂',
+                    'E₁−E₂',
+                    '(E₁+E₂)/2'
+                ],
+                a: 0,
+                s: 'E_eq = (E₁r₂ + E₂r₁)/(r₁ + r₂), r_eq = r₁r₂/(r₁+r₂).',
+                year: 2024,
+                shift: 'Jan 27 Shift 2',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Magnetic Effects of Current & Magnetism',
+        slug: 'magnetism',
+        questions: [
+            {
+                q: 'The magnetic field at distance r from a long straight wire carrying current I is:',
+                o: [
+                    'μ₀I/(2πr)',
+                    'μ₀I/r',
+                    'μ₀I/(4πr)',
+                    'μ₀Ir'
+                ],
+                a: 0,
+                s: 'B = μ₀I/(2πr) from Ampere\'s law.',
+                year: 2023,
+                shift: 'Jan 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Force on a charge q moving with velocity v in magnetic field B is:',
+                o: [
+                    'qv × B',
+                    'qvB',
+                    'qB/v',
+                    'qv·B'
+                ],
+                a: 0,
+                s: 'Lorentz force: F = qv × B. Perpendicular to both v and B.',
+                year: 2022,
+                shift: 'Jun 27 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'A charged particle moves perpendicular to a magnetic field. It follows:',
+                o: [
+                    'Circular path',
+                    'Straight line',
+                    'Parabolic path',
+                    'Helical path'
+                ],
+                a: 0,
+                s: 'F = qvB (centripetal) → circular motion, r = mv/(qB).',
+                year: 2021,
+                shift: 'Feb 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'The magnetic field at the centre of a circular loop of radius R carrying current I:',
+                o: [
+                    'μ₀I/(2R)',
+                    'μ₀I/(2πR)',
+                    'μ₀IR',
+                    'μ₀I/R'
+                ],
+                a: 0,
+                s: 'B = μ₀I/(2R) at centre of circular loop.',
+                year: 2020,
+                shift: 'Jan 7 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Magnetic field inside an ideal solenoid with n turns/length and current I:',
+                o: [
+                    'μ₀nI',
+                    'μ₀NI',
+                    'μ₀I/(2πr)',
+                    'Zero'
+                ],
+                a: 0,
+                s: 'B = μ₀nI (uniform inside, negligible outside).',
+                year: 2019,
+                shift: 'Apr 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Two parallel wires carrying currents in the same direction:',
+                o: [
+                    'Attract each other',
+                    'Repel each other',
+                    'No force',
+                    'Rotate'
+                ],
+                a: 0,
+                s: 'Same direction → attract. F/L = μ₀I₁I₂/(2πd).',
+                year: 2023,
+                shift: 'Jan 30 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'The torque on a current loop of area A carrying current I in field B:',
+                o: [
+                    'τ = NIAB sinθ',
+                    'τ = IAB',
+                    'τ = NIB/A',
+                    'τ = NIA/B'
+                ],
+                a: 0,
+                s: 'τ = m × B where m = NIA. τ = NIAB sinθ.',
+                year: 2022,
+                shift: 'Jul 28 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'A cyclotron is used to accelerate:',
+                o: [
+                    'Charged particles',
+                    'Neutral atoms',
+                    'Photons',
+                    'Electrons only'
+                ],
+                a: 0,
+                s: 'Cyclotron accelerates charged particles using magnetic + electric fields.',
+                year: 2021,
+                shift: 'Mar 17 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Moving coil galvanometer sensitivity increases with:',
+                o: [
+                    'Stronger magnet and more turns',
+                    'Weaker magnet',
+                    'Fewer turns',
+                    'Higher restoring torque'
+                ],
+                a: 0,
+                s: 'Sensitivity ∝ NAB/k. More turns, stronger B → more sensitive.',
+                year: 2020,
+                shift: 'Sep 3 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Biot-Savart law gives the magnetic field due to:',
+                o: [
+                    'A current element',
+                    'A stationary charge',
+                    'A magnetic pole',
+                    'Electric field'
+                ],
+                a: 0,
+                s: 'dB = μ₀I dl×r̂/(4πr²). Field due to current element.',
+                year: 2024,
+                shift: 'Jan 27 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The radius of circular path of a charged particle in B is:',
+                o: [
+                    'mv/(qB)',
+                    'qB/(mv)',
+                    'mv²/(qB)',
+                    'qvB/m'
+                ],
+                a: 0,
+                s: 'qvB = mv²/r → r = mv/(qB).',
+                year: 2018,
+                shift: 'Apr 8 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Earth\'s magnetic field at equator is:',
+                o: [
+                    'Horizontal',
+                    'Vertical',
+                    '45° to horizontal',
+                    'Zero'
+                ],
+                a: 0,
+                s: 'At equator, dip = 0°, field is horizontal.',
+                year: 2017,
+                shift: 'Apr 8 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Diamagnetic materials have susceptibility:',
+                o: [
+                    'Small and negative',
+                    'Large and positive',
+                    'Zero',
+                    'Small and positive'
+                ],
+                a: 0,
+                s: 'Diamagnetic: χ < 0 (small magnitude), weakly repelled.',
+                year: 2016,
+                shift: 'Apr 10 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Curie\'s law for paramagnetic materials states:',
+                o: [
+                    'χ ∝ 1/T',
+                    'χ ∝ T',
+                    'χ ∝ T²',
+                    'χ is constant'
+                ],
+                a: 0,
+                s: 'χ = C/T (Curie constant/temperature).',
+                year: 2015,
+                shift: 'Paper 2',
+                exam: 'advanced'
+            },
+            {
+                q: 'Hysteresis loss in a ferromagnet depends on:',
+                o: [
+                    'Area of B-H loop',
+                    'Maximum B only',
+                    'Coercivity only',
+                    'Retentivity only'
+                ],
+                a: 0,
+                s: 'Energy loss per cycle = area of B-H hysteresis loop.',
+                year: 2024,
+                shift: 'Jan 29 Shift 2',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Electromagnetic Induction & AC',
+        slug: 'emi-ac',
+        questions: [
+            {
+                q: 'Faraday\'s law of EMI states:',
+                o: [
+                    'ε = −dΦ/dt',
+                    'ε = Φ/t',
+                    'ε = BIL',
+                    'ε = dI/dt'
+                ],
+                a: 0,
+                s: 'Induced EMF = negative rate of change of magnetic flux.',
+                year: 2023,
+                shift: 'Jan 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Lenz\'s law is consistent with conservation of:',
+                o: [
+                    'Energy',
+                    'Charge',
+                    'Momentum',
+                    'Mass'
+                ],
+                a: 0,
+                s: 'Induced current opposes cause → energy conservation.',
+                year: 2022,
+                shift: 'Jun 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Self-inductance of a solenoid (N turns, length l, area A) is:',
+                o: [
+                    'μ₀N²A/l',
+                    'μ₀NA/l',
+                    'μ₀N²l/A',
+                    'μ₀NA²/l'
+                ],
+                a: 0,
+                s: 'L = μ₀N²A/l = μ₀n²Al.',
+                year: 2021,
+                shift: 'Feb 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'The RMS voltage of an AC supply V₀sinωt is:',
+                o: [
+                    'V₀/√2',
+                    'V₀',
+                    'V₀/2',
+                    '√2 V₀'
+                ],
+                a: 0,
+                s: 'V_rms = V₀/√2 ≈ 0.707V₀.',
+                year: 2020,
+                shift: 'Jan 8 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Resonant frequency of LCR circuit is:',
+                o: [
+                    '1/(2π√LC)',
+                    '2π√LC',
+                    '√(LC)',
+                    '1/LC'
+                ],
+                a: 0,
+                s: 'f₀ = 1/(2π√LC) when X_L = X_C.',
+                year: 2019,
+                shift: 'Jan 10 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'In a transformer, V₁/V₂ =:',
+                o: [
+                    'N₁/N₂',
+                    'N₂/N₁',
+                    'N₁²/N₂²',
+                    'N₂²/N₁²'
+                ],
+                a: 0,
+                s: 'V₁/V₂ = N₁/N₂ (turns ratio).',
+                year: 2023,
+                shift: 'Jan 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Power factor of a series RLC circuit is:',
+                o: [
+                    'cosφ = R/Z',
+                    'sinφ = R/Z',
+                    'tanφ = R/Z',
+                    'R/L'
+                ],
+                a: 0,
+                s: 'Power factor = cosφ = R/Z, where Z = √(R² + (X_L−X_C)²).',
+                year: 2022,
+                shift: 'Jun 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Motional EMF in a rod of length L moving with velocity v perpendicular to field B:',
+                o: [
+                    'BvL',
+                    'BvL²',
+                    'BL/v',
+                    'Bv/L'
+                ],
+                a: 0,
+                s: 'ε = BvL (motional EMF).',
+                year: 2021,
+                shift: 'Aug 26 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Energy stored in an inductor carrying current I is:',
+                o: [
+                    '½LI²',
+                    'LI',
+                    'LI²',
+                    '½L/I'
+                ],
+                a: 0,
+                s: 'U = ½LI², analogous to ½CV² for capacitors.',
+                year: 2020,
+                shift: 'Sep 2 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'At resonance, impedance of series RLC circuit equals:',
+                o: [
+                    'R (minimum)',
+                    'Zero',
+                    'Maximum',
+                    'X_L'
+                ],
+                a: 0,
+                s: 'At resonance X_L = X_C, Z = R (minimum impedance, maximum current).',
+                year: 2024,
+                shift: 'Jan 30 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Eddy currents are reduced by:',
+                o: [
+                    'Laminating the core',
+                    'Using solid core',
+                    'Increasing frequency',
+                    'Using copper core'
+                ],
+                a: 0,
+                s: 'Lamination breaks the current loops, reducing eddy current losses.',
+                year: 2018,
+                shift: 'Apr 15 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Average power in AC circuit is:',
+                o: [
+                    'V_rms × I_rms × cosφ',
+                    'V₀I₀',
+                    'V_rms × I_rms',
+                    'V₀I₀cosφ'
+                ],
+                a: 0,
+                s: 'P_avg = V_rms I_rms cosφ = V₀I₀cosφ/2.',
+                year: 2017,
+                shift: 'Apr 2 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'A step-up transformer has:',
+                o: [
+                    'N₂ > N₁',
+                    'N₂ < N₁',
+                    'N₂ = N₁',
+                    'V₂ < V₁'
+                ],
+                a: 0,
+                s: 'Step-up: more secondary turns → higher voltage output.',
+                year: 2016,
+                shift: 'Apr 3 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'LC oscillations are analogous to:',
+                o: [
+                    'SHM',
+                    'Damped oscillations only',
+                    'Forced oscillations only',
+                    'Projectile motion'
+                ],
+                a: 0,
+                s: 'q = q₀cos(ωt), ω = 1/√LC. Charge oscillates like SHM.',
+                year: 2015,
+                shift: 'Apr 4 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'The quality factor (Q) of a series LCR circuit is:',
+                o: [
+                    'ωL/R (or 1/(ωCR))',
+                    'R/(ωL)',
+                    'ωC/R',
+                    'RC/L'
+                ],
+                a: 0,
+                s: 'Q = ω₀L/R = 1/(ω₀CR). Higher Q → sharper resonance.',
+                year: 2024,
+                shift: 'Jan 27 Shift 2',
+                exam: 'main'
+            }
+        ]
+    }
+];
+}),
+"[project]/src/data/pyq/physics-pyq-4.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "physicsPyq4",
+    ()=>physicsPyq4
+]);
+const physicsPyq4 = [
+    {
+        name: 'Optics',
+        slug: 'optics',
+        questions: [
+            {
+                q: 'Snell\'s law of refraction is:',
+                o: [
+                    'n₁sinθ₁ = n₂sinθ₂',
+                    'n₁cosθ₁ = n₂cosθ₂',
+                    'n₁/sinθ₁ = n₂/sinθ₂',
+                    'sinθ₁/sinθ₂ = n₁/n₂'
+                ],
+                a: 0,
+                s: 'n₁sinθ₁ = n₂sinθ₂ (law of refraction).',
+                year: 2023,
+                shift: 'Jan 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Power of a lens of focal length 20 cm is:',
+                o: [
+                    '5 D',
+                    '20 D',
+                    '0.5 D',
+                    '50 D'
+                ],
+                a: 0,
+                s: 'P = 1/f(m) = 1/0.2 = 5 D.',
+                year: 2022,
+                shift: 'Jun 26 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'In Young\'s double slit experiment, fringe width β =:',
+                o: [
+                    'λD/d',
+                    'λd/D',
+                    'dD/λ',
+                    'λ/(dD)'
+                ],
+                a: 0,
+                s: 'β = λD/d where D = screen distance, d = slit separation.',
+                year: 2021,
+                shift: 'Feb 26 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Total internal reflection occurs when light passes from:',
+                o: [
+                    'Denser to rarer medium at angle > critical angle',
+                    'Rarer to denser medium',
+                    'Any medium at any angle',
+                    'Vacuum to glass'
+                ],
+                a: 0,
+                s: 'TIR: denser → rarer, angle of incidence > critical angle.',
+                year: 2020,
+                shift: 'Jan 9 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'The magnifying power of a simple microscope is:',
+                o: [
+                    '1 + D/f',
+                    'D/f',
+                    'f/D',
+                    '1 − D/f'
+                ],
+                a: 0,
+                s: 'M = 1 + D/f for final image at D (least distance of distinct vision).',
+                year: 2019,
+                shift: 'Apr 8 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'In a diffraction grating, for first order maximum:',
+                o: [
+                    'd sinθ = λ',
+                    'd sinθ = 2λ',
+                    'd cosθ = λ',
+                    'd = λ sinθ'
+                ],
+                a: 0,
+                s: 'd sinθ = nλ, for n=1: d sinθ = λ.',
+                year: 2023,
+                shift: 'Jan 30 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Mirror formula is:',
+                o: [
+                    '1/v + 1/u = 1/f',
+                    '1/v − 1/u = 1/f',
+                    'v + u = f',
+                    'vu = f²'
+                ],
+                a: 0,
+                s: '1/v + 1/u = 1/f (with appropriate sign convention).',
+                year: 2022,
+                shift: 'Jul 26 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Brewster\'s angle is related to refractive index by:',
+                o: [
+                    'tanθ_B = n',
+                    'sinθ_B = n',
+                    'cosθ_B = n',
+                    'θ_B = n'
+                ],
+                a: 0,
+                s: 'tanθ_B = n (Brewster\'s law). Reflected light is fully polarized.',
+                year: 2021,
+                shift: 'Mar 16 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Angular resolving power of a telescope is:',
+                o: [
+                    'D/(1.22λ)',
+                    '1.22λ/D',
+                    'λD',
+                    'D/λ'
+                ],
+                a: 0,
+                s: 'Resolving power = 1/Δθ = D/(1.22λ). Larger aperture → better resolution.',
+                year: 2020,
+                shift: 'Sep 3 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Huygens\' principle states that every point on a wavefront acts as:',
+                o: [
+                    'A secondary source of wavelets',
+                    'A source of longitudinal waves only',
+                    'An absorber',
+                    'A reflector'
+                ],
+                a: 0,
+                s: 'Each wavefront point is a secondary source. New wavefront = envelope of wavelets.',
+                year: 2024,
+                shift: 'Jan 29 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Chromatic aberration in lenses is caused by:',
+                o: [
+                    'Dispersion — different wavelengths have different focal lengths',
+                    'Reflection',
+                    'Diffraction',
+                    'Scattering'
+                ],
+                a: 0,
+                s: 'Different wavelengths refract differently → different focal lengths.',
+                year: 2018,
+                shift: 'Apr 8 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'In YDSE, if slit width is much larger than wavelength:',
+                o: [
+                    'Diffraction is negligible',
+                    'No interference',
+                    'Only diffraction occurs',
+                    'Fringes disappear completely'
+                ],
+                a: 0,
+                s: 'When slit >> λ, diffraction effects are negligible (geometric optics).',
+                year: 2017,
+                shift: 'Apr 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Optical path length in a medium of refractive index n and thickness t is:',
+                o: [
+                    'nt',
+                    't/n',
+                    'n/t',
+                    't−n'
+                ],
+                a: 0,
+                s: 'Optical path = nt (physical thickness × refractive index).',
+                year: 2016,
+                shift: 'Apr 3 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The condition for constructive interference is:',
+                o: [
+                    'Path difference = nλ',
+                    'Path difference = (n+½)λ',
+                    'Phase difference = π',
+                    'Path difference = λ/4'
+                ],
+                a: 0,
+                s: 'Constructive: Δ = nλ (n = 0,1,2,...). Waves add up.',
+                year: 2015,
+                shift: 'Paper 1',
+                exam: 'advanced'
+            },
+            {
+                q: 'A plane mirror always produces:',
+                o: [
+                    'Virtual, erect, same-size image',
+                    'Real image',
+                    'Inverted image',
+                    'Magnified image'
+                ],
+                a: 0,
+                s: 'Plane mirror: virtual, erect, laterally inverted, same size.',
+                year: 2024,
+                shift: 'Jan 30 Shift 2',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Modern Physics',
+        slug: 'modern-physics',
+        questions: [
+            {
+                q: 'The photoelectric effect shows that light has:',
+                o: [
+                    'Particle nature',
+                    'Wave nature only',
+                    'Neither',
+                    'Sound-like nature'
+                ],
+                a: 0,
+                s: 'Photoelectric effect: photons transfer energy as particles. KE_max = hν − φ.',
+                year: 2023,
+                shift: 'Jan 24 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'de Broglie wavelength of a particle with momentum p is:',
+                o: [
+                    'h/p',
+                    'p/h',
+                    'hp',
+                    'h²/p'
+                ],
+                a: 0,
+                s: 'λ = h/p = h/(mv). Wave-particle duality.',
+                year: 2022,
+                shift: 'Jun 27 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'In Bohr\'s model, the radius of nth orbit is proportional to:',
+                o: [
+                    'n²',
+                    'n',
+                    '1/n',
+                    '1/n²'
+                ],
+                a: 0,
+                s: 'rₙ = a₀n²/Z. Radius ∝ n².',
+                year: 2021,
+                shift: 'Feb 24 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The binding energy per nucleon is maximum for:',
+                o: [
+                    'Fe-56',
+                    'U-238',
+                    'H-1',
+                    'He-4'
+                ],
+                a: 0,
+                s: 'Fe-56 has maximum BE/nucleon ≈ 8.8 MeV — most stable nucleus.',
+                year: 2020,
+                shift: 'Jan 7 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Half-life of a radioactive substance is 10 days. After 30 days, fraction remaining is:',
+                o: [
+                    '1/8',
+                    '1/4',
+                    '1/2',
+                    '1/16'
+                ],
+                a: 0,
+                s: '30 days = 3 half-lives. N/N₀ = (1/2)³ = 1/8.',
+                year: 2019,
+                shift: 'Jan 9 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Einstein\'s photoelectric equation is:',
+                o: [
+                    'KE_max = hν − φ',
+                    'KE_max = hν + φ',
+                    'KE_max = hν/φ',
+                    'KE_max = φ − hν'
+                ],
+                a: 0,
+                s: 'KE_max = hν − φ. Photon energy minus work function.',
+                year: 2023,
+                shift: 'Jan 29 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'In alpha decay, the atomic number decreases by:',
+                o: [
+                    '2',
+                    '4',
+                    '1',
+                    '0'
+                ],
+                a: 0,
+                s: 'Alpha particle = ⁴He². Z decreases by 2, A decreases by 4.',
+                year: 2022,
+                shift: 'Jul 28 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'X-rays are produced when:',
+                o: [
+                    'Fast electrons strike a metal target',
+                    'Slow electrons pass through gas',
+                    'UV light is reflected',
+                    'Radio waves are absorbed'
+                ],
+                a: 0,
+                s: 'Bremsstrahlung: decelerating electrons emit X-rays.',
+                year: 2021,
+                shift: 'Aug 27 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Energy of a photon of wavelength λ is:',
+                o: [
+                    'hc/λ',
+                    'hλ/c',
+                    'h/λ',
+                    'cλ/h'
+                ],
+                a: 0,
+                s: 'E = hν = hc/λ.',
+                year: 2020,
+                shift: 'Sep 2 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Nuclear fission is the process of:',
+                o: [
+                    'Splitting heavy nucleus into lighter nuclei',
+                    'Combining light nuclei',
+                    'Emitting alpha particles',
+                    'Absorbing neutrons without splitting'
+                ],
+                a: 0,
+                s: 'Fission: heavy nucleus (like U-235) splits into lighter nuclei + energy.',
+                year: 2024,
+                shift: 'Jan 27 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Bohr\'s quantization condition for angular momentum:',
+                o: [
+                    'L = nh/(2π)',
+                    'L = nh',
+                    'L = h/(2πn)',
+                    'L = n²h'
+                ],
+                a: 0,
+                s: 'L = mvr = nℏ = nh/(2π).',
+                year: 2018,
+                shift: 'Apr 15 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The threshold frequency in photoelectric effect depends on:',
+                o: [
+                    'Nature of metal surface',
+                    'Intensity of light',
+                    'Wavelength of light',
+                    'Angle of incidence'
+                ],
+                a: 0,
+                s: 'Threshold frequency ν₀ = φ/h, depends on work function (metal property).',
+                year: 2017,
+                shift: 'Apr 2 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Mass defect of a nucleus is:',
+                o: [
+                    'Difference between mass of nucleons and actual nuclear mass',
+                    'Mass of nucleus',
+                    'Mass of protons only',
+                    'Mass of electrons'
+                ],
+                a: 0,
+                s: 'Δm = (Zm_p + Nm_n) − M_nucleus. Converted to BE via E = Δmc².',
+                year: 2016,
+                shift: 'Online',
+                exam: 'main'
+            },
+            {
+                q: 'In beta-minus decay:',
+                o: [
+                    'A neutron converts to proton, emitting electron and antineutrino',
+                    'A proton converts to neutron',
+                    'An alpha particle is emitted',
+                    'A photon is absorbed'
+                ],
+                a: 0,
+                s: 'β⁻: n → p + e⁻ + ν̄. Atomic number increases by 1.',
+                year: 2015,
+                shift: 'Paper 2',
+                exam: 'advanced'
+            },
+            {
+                q: 'The Rydberg formula for hydrogen spectrum is:',
+                o: [
+                    '1/λ = R(1/n₁² − 1/n₂²)',
+                    '1/λ = R(1/n₁ − 1/n₂)',
+                    'λ = R(n₂² − n₁²)',
+                    '1/λ = R(n₁² − n₂²)'
+                ],
+                a: 0,
+                s: '1/λ = R(1/n₁² − 1/n₂²), n₂ > n₁.',
+                year: 2024,
+                shift: 'Jan 30 Shift 1',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Simple Harmonic Motion & Waves',
+        slug: 'shm-waves',
+        questions: [
+            {
+                q: 'Time period of a simple pendulum of length l is:',
+                o: [
+                    '2π√(l/g)',
+                    '2π√(g/l)',
+                    'π√(l/g)',
+                    '2πl/g'
+                ],
+                a: 0,
+                s: 'T = 2π√(l/g) for small oscillations.',
+                year: 2023,
+                shift: 'Jan 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'In SHM, the restoring force is proportional to:',
+                o: [
+                    'Displacement from mean position',
+                    'Velocity',
+                    'Acceleration',
+                    'Time'
+                ],
+                a: 0,
+                s: 'F = −kx. Force proportional to and opposite to displacement.',
+                year: 2022,
+                shift: 'Jun 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The speed of sound in air at NTP is approximately:',
+                o: [
+                    '330 m/s',
+                    '3 × 10⁸ m/s',
+                    '1500 m/s',
+                    '30 m/s'
+                ],
+                a: 0,
+                s: 'Speed of sound in air ≈ 330-340 m/s at NTP.',
+                year: 2021,
+                shift: 'Feb 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'In a stationary wave, the distance between consecutive nodes is:',
+                o: [
+                    'λ/2',
+                    'λ',
+                    '2λ',
+                    'λ/4'
+                ],
+                a: 0,
+                s: 'Nodes are at λ/2 intervals (half wavelength apart).',
+                year: 2020,
+                shift: 'Jan 8 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Doppler effect in sound: when source approaches, observed frequency:',
+                o: [
+                    'Increases',
+                    'Decreases',
+                    'Remains same',
+                    'Becomes zero'
+                ],
+                a: 0,
+                s: 'Source approaching → wavelength compressed → higher frequency.',
+                year: 2019,
+                shift: 'Jan 11 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Time period of a spring-mass system is:',
+                o: [
+                    '2π√(m/k)',
+                    '2π√(k/m)',
+                    'π√(m/k)',
+                    '2πm/k'
+                ],
+                a: 0,
+                s: 'T = 2π√(m/k) for a spring-mass oscillator.',
+                year: 2023,
+                shift: 'Jan 30 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Total energy of a particle in SHM is:',
+                o: [
+                    '½kA² (constant)',
+                    '½kx²',
+                    'Variable',
+                    'Zero at extremes'
+                ],
+                a: 0,
+                s: 'E = ½kA² = ½mω²A². Total energy is constant.',
+                year: 2022,
+                shift: 'Jul 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'The fundamental frequency of a pipe closed at one end, length L:',
+                o: [
+                    'v/(4L)',
+                    'v/(2L)',
+                    'v/L',
+                    '2v/L'
+                ],
+                a: 0,
+                s: 'Closed pipe: f₁ = v/(4L). Only odd harmonics.',
+                year: 2021,
+                shift: 'Aug 26 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Beat frequency when two sources of 256 Hz and 260 Hz are sounded:',
+                o: [
+                    '4 Hz',
+                    '516 Hz',
+                    '2 Hz',
+                    '256 Hz'
+                ],
+                a: 0,
+                s: 'Beat frequency = |f₁ − f₂| = |256 − 260| = 4 Hz.',
+                year: 2020,
+                shift: 'Sep 3 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'A wave is represented by y = A sin(kx − ωt). Its velocity is:',
+                o: [
+                    'ω/k',
+                    'k/ω',
+                    'ωk',
+                    'A/k'
+                ],
+                a: 0,
+                s: 'v = ω/k = λf. Phase velocity of wave.',
+                year: 2024,
+                shift: 'Jan 29 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Resonance occurs when driving frequency equals:',
+                o: [
+                    'Natural frequency of system',
+                    'Any frequency',
+                    'Double natural frequency',
+                    'Half natural frequency'
+                ],
+                a: 0,
+                s: 'Resonance at f_driving = f_natural → maximum amplitude.',
+                year: 2018,
+                shift: 'Apr 8 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Velocity of a transverse wave on a string (tension T, linear mass density μ):',
+                o: [
+                    '√(T/μ)',
+                    'T/μ',
+                    '√(μ/T)',
+                    'Tμ'
+                ],
+                a: 0,
+                s: 'v = √(T/μ).',
+                year: 2017,
+                shift: 'Apr 9 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'In SHM, velocity is maximum at:',
+                o: [
+                    'Mean position',
+                    'Extreme position',
+                    'Halfway',
+                    'Quarter point'
+                ],
+                a: 0,
+                s: 'v = ω√(A²−x²). Maximum at x = 0 (mean position).',
+                year: 2016,
+                shift: 'Apr 10 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'An open organ pipe produces:',
+                o: [
+                    'All harmonics',
+                    'Only odd harmonics',
+                    'Only even harmonics',
+                    'No harmonics'
+                ],
+                a: 0,
+                s: 'Open pipe: all harmonics (f, 2f, 3f, ...). f₁ = v/(2L).',
+                year: 2015,
+                shift: 'Apr 4 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The intensity of a wave is proportional to:',
+                o: [
+                    'Square of amplitude',
+                    'Amplitude',
+                    'Cube of amplitude',
+                    'Square root of amplitude'
+                ],
+                a: 0,
+                s: 'I ∝ A². Intensity proportional to square of amplitude.',
+                year: 2024,
+                shift: 'Jan 27 Shift 2',
+                exam: 'main'
+            }
+        ]
+    }
+];
+}),
+"[project]/src/data/pyq/chemistry-pyq-1.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "chemistryPyq1",
+    ()=>chemistryPyq1
+]);
+const chemistryPyq1 = [
+    {
+        name: 'Mole Concept & Stoichiometry',
+        slug: 'mole-concept',
+        questions: [
+            {
+                q: 'One mole of any substance contains:',
+                o: [
+                    '6.022 × 10²³ entities',
+                    '6.022 × 10²² entities',
+                    '3.011 × 10²³ entities',
+                    '1.6 × 10⁻¹⁹ entities'
+                ],
+                a: 0,
+                s: 'Avogadro\'s number N_A = 6.022 × 10²³ mol⁻¹.',
+                year: 2023,
+                shift: 'Jan 24 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The equivalent weight of H₂SO₄ in a reaction where it acts as a dibasic acid is:',
+                o: [
+                    '49',
+                    '98',
+                    '32',
+                    '64'
+                ],
+                a: 0,
+                s: 'Eq. wt = Mol. wt/basicity = 98/2 = 49.',
+                year: 2022,
+                shift: 'Jun 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'At STP, 22.4 L of an ideal gas contains:',
+                o: [
+                    '1 mole',
+                    '2 moles',
+                    '0.5 moles',
+                    '22.4 moles'
+                ],
+                a: 0,
+                s: 'Molar volume at STP = 22.4 L/mol.',
+                year: 2021,
+                shift: 'Feb 24 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The mass of 1 molecule of water is approximately:',
+                o: [
+                    '3 × 10⁻²³ g',
+                    '18 g',
+                    '1.66 × 10⁻²⁴ g',
+                    '6 × 10⁻²³ g'
+                ],
+                a: 0,
+                s: 'Mass = M/N_A = 18/(6.022×10²³) ≈ 3×10⁻²³ g.',
+                year: 2020,
+                shift: 'Jan 7 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Limiting reagent is the reactant that:',
+                o: [
+                    'Is completely consumed first',
+                    'Is present in excess',
+                    'Has highest molecular weight',
+                    'Is most expensive'
+                ],
+                a: 0,
+                s: 'Limiting reagent is consumed first, determines max product formed.',
+                year: 2019,
+                shift: 'Jan 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The empirical formula of a compound with 40% C, 6.7% H, 53.3% O is:',
+                o: [
+                    'CH₂O',
+                    'C₂H₄O₂',
+                    'CHO',
+                    'C₃H₆O₃'
+                ],
+                a: 0,
+                s: 'C:H:O = 40/12 : 6.7/1 : 53.3/16 = 3.33:6.7:3.33 = 1:2:1 → CH₂O.',
+                year: 2023,
+                shift: 'Jan 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Molality is defined as:',
+                o: [
+                    'Moles of solute per kg of solvent',
+                    'Moles of solute per litre of solution',
+                    'Grams per litre',
+                    'Mass fraction'
+                ],
+                a: 0,
+                s: 'Molality (m) = moles of solute / mass of solvent (kg).',
+                year: 2022,
+                shift: 'Jun 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'In the reaction 2H₂ + O₂ → 2H₂O, 4 g of H₂ reacts with:',
+                o: [
+                    '32 g of O₂',
+                    '16 g of O₂',
+                    '8 g of O₂',
+                    '64 g of O₂'
+                ],
+                a: 0,
+                s: '4g H₂ = 2 mol. Needs 1 mol O₂ = 32 g.',
+                year: 2021,
+                shift: 'Mar 16 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Normality of 0.1 M H₃PO₄ (when all H⁺ are released) is:',
+                o: [
+                    '0.3 N',
+                    '0.1 N',
+                    '0.2 N',
+                    '0.05 N'
+                ],
+                a: 0,
+                s: 'N = M × n-factor = 0.1 × 3 = 0.3 N (tribasic acid).',
+                year: 2020,
+                shift: 'Sep 2 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The percentage of oxygen in Al₂O₃ is:',
+                o: [
+                    '47.1%',
+                    '52.9%',
+                    '32%',
+                    '16%'
+                ],
+                a: 0,
+                s: '% O = (3×16/102)×100 = 48/102 × 100 = 47.1%.',
+                year: 2024,
+                shift: 'Jan 27 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Vapour density of a gas is 16. Its molecular weight is:',
+                o: [
+                    '32',
+                    '16',
+                    '8',
+                    '64'
+                ],
+                a: 0,
+                s: 'Mol. wt = 2 × vapour density = 2 × 16 = 32.',
+                year: 2018,
+                shift: 'Apr 8 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Gay-Lussac\'s law of combining volumes states that gases react in:',
+                o: [
+                    'Simple whole number ratio by volume',
+                    'Equal volumes always',
+                    'Mass ratios',
+                    'Complex ratios'
+                ],
+                a: 0,
+                s: 'Gases combine in simple integer volume ratios at same T, P.',
+                year: 2017,
+                shift: 'Apr 2 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The number of moles of NaOH in 200 mL of 0.5 M solution:',
+                o: [
+                    '0.1 mol',
+                    '0.5 mol',
+                    '1 mol',
+                    '0.2 mol'
+                ],
+                a: 0,
+                s: 'n = M × V(L) = 0.5 × 0.2 = 0.1 mol.',
+                year: 2016,
+                shift: 'Online',
+                exam: 'main'
+            },
+            {
+                q: 'Which of the following has the largest number of atoms?',
+                o: [
+                    '1 g of H₂',
+                    '1 g of O₂',
+                    '1 g of N₂',
+                    '1 g of C'
+                ],
+                a: 0,
+                s: '1g H₂ = 0.5 mol = N_A atoms. Lightest molar mass → most moles per gram.',
+                year: 2015,
+                shift: 'Paper 1',
+                exam: 'advanced'
+            },
+            {
+                q: 'The molecular formula of a compound with empirical formula CH₂O and molar mass 180 g/mol is:',
+                o: [
+                    'C₆H₁₂O₆',
+                    'C₃H₆O₃',
+                    'C₂H₄O₂',
+                    'CH₂O'
+                ],
+                a: 0,
+                s: 'Empirical formula mass = 30. n = 180/30 = 6. Molecular = C₆H₁₂O₆.',
+                year: 2024,
+                shift: 'Jan 29 Shift 1',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Atomic Structure',
+        slug: 'atomic-structure',
+        questions: [
+            {
+                q: 'The maximum number of electrons in a shell with principal quantum number n is:',
+                o: [
+                    '2n²',
+                    'n²',
+                    '2n',
+                    'n'
+                ],
+                a: 0,
+                s: 'Max electrons = 2n² (2 in s, 6 in p, 10 in d, 14 in f...).',
+                year: 2023,
+                shift: 'Jan 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Heisenberg uncertainty principle states:',
+                o: [
+                    'Δx·Δp ≥ ℏ/2',
+                    'Δx·Δp = 0',
+                    'Δx·Δv = h',
+                    'Δx = Δp'
+                ],
+                a: 0,
+                s: 'Cannot simultaneously know exact position and momentum.',
+                year: 2022,
+                shift: 'Jun 26 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The shape of a p orbital is:',
+                o: [
+                    'Dumbbell',
+                    'Spherical',
+                    'Clover-leaf',
+                    'Conical'
+                ],
+                a: 0,
+                s: 'p orbitals are dumbbell (figure-8) shaped with a nodal plane.',
+                year: 2021,
+                shift: 'Feb 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Aufbau principle states that electrons fill orbitals in order of:',
+                o: [
+                    'Increasing energy',
+                    'Decreasing energy',
+                    'Increasing size',
+                    'Decreasing quantum number'
+                ],
+                a: 0,
+                s: 'Electrons fill lowest energy orbitals first (1s, 2s, 2p, 3s...).',
+                year: 2020,
+                shift: 'Jan 8 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'The electronic configuration of Cu (Z=29) is:',
+                o: [
+                    '[Ar]3d¹⁰4s¹',
+                    '[Ar]3d⁹4s²',
+                    '[Ar]3d¹⁰4s²',
+                    '[Ar]3d⁸4s²3p¹'
+                ],
+                a: 0,
+                s: 'Copper has anomalous configuration due to half-filled stability.',
+                year: 2019,
+                shift: 'Jan 10 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Which quantum number determines the shape of an orbital?',
+                o: [
+                    'Azimuthal (l)',
+                    'Principal (n)',
+                    'Magnetic (mₗ)',
+                    'Spin (mₛ)'
+                ],
+                a: 0,
+                s: 'l determines shape: l=0 sphere, l=1 dumbbell, l=2 clover.',
+                year: 2023,
+                shift: 'Jan 29 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Pauli exclusion principle states:',
+                o: [
+                    'No two electrons can have same set of all four quantum numbers',
+                    'Electrons pair up always',
+                    'Orbitals fill singly first',
+                    'Spin is always up'
+                ],
+                a: 0,
+                s: 'Each electron has unique (n, l, mₗ, mₛ) set.',
+                year: 2022,
+                shift: 'Jul 26 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'de Broglie wavelength is associated with:',
+                o: [
+                    'All moving particles',
+                    'Only electrons',
+                    'Only photons',
+                    'Only charged particles'
+                ],
+                a: 0,
+                s: 'λ = h/(mv) applies to all matter with momentum.',
+                year: 2021,
+                shift: 'Aug 27 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The number of radial nodes for 3s orbital is:',
+                o: [
+                    '2',
+                    '0',
+                    '1',
+                    '3'
+                ],
+                a: 0,
+                s: 'Radial nodes = n − l − 1 = 3 − 0 − 1 = 2.',
+                year: 2020,
+                shift: 'Sep 3 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Hund\'s rule of maximum multiplicity states:',
+                o: [
+                    'Electrons fill degenerate orbitals singly before pairing',
+                    'All electrons pair up first',
+                    'Higher orbitals fill first',
+                    'Spin is irrelevant'
+                ],
+                a: 0,
+                s: 'Degenerate orbitals are singly occupied (parallel spin) before pairing.',
+                year: 2024,
+                shift: 'Jan 30 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'The energy of an electron in nth orbit of hydrogen is:',
+                o: [
+                    '−13.6/n² eV',
+                    '13.6/n² eV',
+                    '−13.6n² eV',
+                    '13.6n eV'
+                ],
+                a: 0,
+                s: 'Eₙ = −13.6Z²/n² eV. For H: E₁ = −13.6 eV.',
+                year: 2018,
+                shift: 'Apr 15 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Emission spectrum of hydrogen is due to:',
+                o: [
+                    'Electrons transitioning to lower energy levels',
+                    'Electrons moving to higher levels',
+                    'Nuclear reactions',
+                    'Molecular vibrations'
+                ],
+                a: 0,
+                s: 'Emission: electron drops down → emits photon of energy ΔE.',
+                year: 2017,
+                shift: 'Apr 8 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'The total number of orbitals in n=3 shell is:',
+                o: [
+                    '9',
+                    '3',
+                    '6',
+                    '18'
+                ],
+                a: 0,
+                s: 'Total orbitals = n² = 9 (one 3s, three 3p, five 3d).',
+                year: 2016,
+                shift: 'Apr 10 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Photoelectric effect cannot be explained by:',
+                o: [
+                    'Wave theory of light',
+                    'Quantum theory',
+                    'Particle nature',
+                    'Einstein\'s equation'
+                ],
+                a: 0,
+                s: 'Wave theory fails to explain threshold frequency and instant emission.',
+                year: 2015,
+                shift: 'Paper 2',
+                exam: 'advanced'
+            },
+            {
+                q: 'The ionization energy of hydrogen atom in ground state is:',
+                o: [
+                    '13.6 eV',
+                    '3.4 eV',
+                    '1.51 eV',
+                    '0.85 eV'
+                ],
+                a: 0,
+                s: 'IE = −E₁ = −(−13.6) = 13.6 eV for ground state H.',
+                year: 2024,
+                shift: 'Jan 27 Shift 2',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Chemical Thermodynamics',
+        slug: 'chemical-thermodynamics',
+        questions: [
+            {
+                q: 'Enthalpy change at constant pressure is:',
+                o: [
+                    'ΔH = qₚ',
+                    'ΔH = qᵥ',
+                    'ΔH = W',
+                    'ΔH = PΔV'
+                ],
+                a: 0,
+                s: 'At constant P: ΔH = qₚ (heat exchanged = enthalpy change).',
+                year: 2023,
+                shift: 'Jan 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'For a spontaneous process at all temperatures:',
+                o: [
+                    'ΔH < 0 and ΔS > 0',
+                    'ΔH > 0 and ΔS < 0',
+                    'ΔH > 0 and ΔS > 0',
+                    'ΔH < 0 and ΔS < 0'
+                ],
+                a: 0,
+                s: 'ΔG = ΔH − TΔS. When ΔH < 0 and ΔS > 0, ΔG < 0 always.',
+                year: 2022,
+                shift: 'Jun 27 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Hess\'s law is based on:',
+                o: [
+                    'Enthalpy being a state function',
+                    'Entropy increase',
+                    'Third law',
+                    'Le Chatelier principle'
+                ],
+                a: 0,
+                s: 'ΔH depends only on initial and final states → path independent.',
+                year: 2021,
+                shift: 'Feb 26 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Standard enthalpy of formation of an element in its standard state is:',
+                o: [
+                    'Zero',
+                    'Positive',
+                    'Negative',
+                    'Depends on element'
+                ],
+                a: 0,
+                s: 'By definition, ΔfH° of elements in standard state = 0.',
+                year: 2020,
+                shift: 'Jan 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Gibbs free energy is defined as:',
+                o: [
+                    'G = H − TS',
+                    'G = H + TS',
+                    'G = U − TS',
+                    'G = U + PV'
+                ],
+                a: 0,
+                s: 'G = H − TS. ΔG determines spontaneity.',
+                year: 2019,
+                shift: 'Apr 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'For an exothermic reaction:',
+                o: [
+                    'ΔH < 0',
+                    'ΔH > 0',
+                    'ΔH = 0',
+                    'ΔS < 0 always'
+                ],
+                a: 0,
+                s: 'Exothermic: heat released → ΔH negative.',
+                year: 2023,
+                shift: 'Jan 30 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The relationship between Cₚ and Cᵥ for ideal gas is:',
+                o: [
+                    'Cₚ − Cᵥ = R',
+                    'Cₚ + Cᵥ = R',
+                    'Cₚ/Cᵥ = R',
+                    'Cₚ × Cᵥ = R'
+                ],
+                a: 0,
+                s: 'Cₚ − Cᵥ = R (Mayer\'s relation for ideal gases).',
+                year: 2022,
+                shift: 'Jul 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Bond energy is always:',
+                o: [
+                    'Positive',
+                    'Negative',
+                    'Zero',
+                    'Variable sign'
+                ],
+                a: 0,
+                s: 'Bond breaking requires energy → endothermic → positive value.',
+                year: 2021,
+                shift: 'Mar 17 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Entropy of a system increases when:',
+                o: [
+                    'Solid → Liquid → Gas',
+                    'Gas → Liquid → Solid',
+                    'Temperature decreases',
+                    'Volume decreases'
+                ],
+                a: 0,
+                s: 'Entropy: gas > liquid > solid. Increases with disorder.',
+                year: 2020,
+                shift: 'Sep 2 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'At equilibrium, Gibbs free energy change is:',
+                o: [
+                    'Zero',
+                    'Maximum',
+                    'Minimum and negative',
+                    'Positive'
+                ],
+                a: 0,
+                s: 'At equilibrium: ΔG = 0, G is minimum.',
+                year: 2024,
+                shift: 'Jan 29 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Lattice energy of ionic compounds:',
+                o: [
+                    'Decreases as ionic radius increases',
+                    'Increases with size',
+                    'Is always zero',
+                    'Is independent of charge'
+                ],
+                a: 0,
+                s: 'Lattice energy ∝ q₁q₂/r. Smaller ions → stronger lattice.',
+                year: 2018,
+                shift: 'Apr 8 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Work done in irreversible expansion is:',
+                o: [
+                    'Less than reversible expansion',
+                    'Greater than reversible',
+                    'Equal to reversible',
+                    'Zero always'
+                ],
+                a: 0,
+                s: 'W_rev > W_irrev for expansion. Reversible is maximum work.',
+                year: 2017,
+                shift: 'Apr 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Third law of thermodynamics states that entropy of a perfect crystal at 0K is:',
+                o: [
+                    'Zero',
+                    'Maximum',
+                    'Infinite',
+                    'Undefined'
+                ],
+                a: 0,
+                s: 'S = 0 at T = 0 K for a perfect crystal (Nernst heat theorem).',
+                year: 2016,
+                shift: 'Apr 3 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'ΔG° is related to equilibrium constant K by:',
+                o: [
+                    'ΔG° = −RT ln K',
+                    'ΔG° = RT ln K',
+                    'ΔG° = −R/T ln K',
+                    'ΔG° = K/RT'
+                ],
+                a: 0,
+                s: 'ΔG° = −RT ln K. K > 1 → ΔG° < 0.',
+                year: 2015,
+                shift: 'Apr 4 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Born-Haber cycle is used to determine:',
+                o: [
+                    'Lattice energy of ionic compounds',
+                    'Bond energy of covalent compounds',
+                    'Ionization energy',
+                    'Electron affinity only'
+                ],
+                a: 0,
+                s: 'Born-Haber cycle relates lattice energy to other thermochemical quantities.',
+                year: 2024,
+                shift: 'Jan 30 Shift 1',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Chemical Equilibrium',
+        slug: 'chemical-equilibrium',
+        questions: [
+            {
+                q: 'For the reaction N₂ + 3H₂ ⇌ 2NH₃, the expression for Kc is:',
+                o: [
+                    '[NH₃]²/([N₂][H₂]³)',
+                    '[N₂][H₂]³/[NH₃]²',
+                    '[NH₃]/[N₂][H₂]',
+                    '[N₂][H₂]/[NH₃]'
+                ],
+                a: 0,
+                s: 'Kc = [products]^coeff / [reactants]^coeff.',
+                year: 2023,
+                shift: 'Jan 24 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Le Chatelier\'s principle: increasing pressure shifts equilibrium toward:',
+                o: [
+                    'Side with fewer moles of gas',
+                    'Side with more moles',
+                    'No change',
+                    'Always right'
+                ],
+                a: 0,
+                s: 'Higher P → equilibrium shifts to side with fewer gas moles.',
+                year: 2022,
+                shift: 'Jun 24 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The relationship between Kp and Kc is:',
+                o: [
+                    'Kp = Kc(RT)^Δn',
+                    'Kp = Kc',
+                    'Kp = Kc/RT',
+                    'Kp = Kc × R'
+                ],
+                a: 0,
+                s: 'Kp = Kc(RT)^Δn where Δn = moles of gaseous products − reactants.',
+                year: 2021,
+                shift: 'Feb 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'If Kc >> 1, the reaction at equilibrium:',
+                o: [
+                    'Favours products',
+                    'Favours reactants',
+                    'Is exactly balanced',
+                    'Does not proceed'
+                ],
+                a: 0,
+                s: 'Kc >> 1 means product concentrations dominate → products favoured.',
+                year: 2020,
+                shift: 'Jan 7 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'pH of a 0.01 M HCl solution is:',
+                o: [
+                    '2',
+                    '1',
+                    '−2',
+                    '0.01'
+                ],
+                a: 0,
+                s: 'pH = −log[H⁺] = −log(0.01) = 2.',
+                year: 2019,
+                shift: 'Jan 11 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Buffer solution resists change in:',
+                o: [
+                    'pH',
+                    'Volume',
+                    'Temperature',
+                    'Pressure'
+                ],
+                a: 0,
+                s: 'Buffer maintains nearly constant pH on addition of small amounts of acid/base.',
+                year: 2023,
+                shift: 'Jan 29 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Common ion effect:',
+                o: [
+                    'Decreases solubility of a salt',
+                    'Increases solubility',
+                    'Has no effect',
+                    'Changes colour'
+                ],
+                a: 0,
+                s: 'Adding a common ion shifts equilibrium → decreases dissolution.',
+                year: 2022,
+                shift: 'Jul 28 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Ionic product of water Kw at 25°C is:',
+                o: [
+                    '10⁻¹⁴',
+                    '10⁻⁷',
+                    '10⁻¹⁰',
+                    '1'
+                ],
+                a: 0,
+                s: 'Kw = [H⁺][OH⁻] = 10⁻¹⁴ at 25°C.',
+                year: 2021,
+                shift: 'Aug 26 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Solubility product (Ksp) applies to:',
+                o: [
+                    'Sparingly soluble salts',
+                    'Highly soluble salts',
+                    'Gases',
+                    'Liquids'
+                ],
+                a: 0,
+                s: 'Ksp describes equilibrium of sparingly soluble ionic compounds.',
+                year: 2020,
+                shift: 'Sep 3 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Henderson-Hasselbalch equation for acidic buffer:',
+                o: [
+                    'pH = pKa + log([A⁻]/[HA])',
+                    'pH = pKa − log([A⁻]/[HA])',
+                    'pH = Ka + log([HA]/[A⁻])',
+                    'pOH = pKb + log([B]/[BH⁺])'
+                ],
+                a: 0,
+                s: 'pH = pKa + log([conjugate base]/[weak acid]).',
+                year: 2024,
+                shift: 'Jan 27 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'A catalyst affects equilibrium by:',
+                o: [
+                    'Equally speeding up forward and reverse reactions',
+                    'Shifting equilibrium right',
+                    'Shifting equilibrium left',
+                    'Changing K value'
+                ],
+                a: 0,
+                s: 'Catalyst speeds both directions equally → K unchanged, equilibrium reached faster.',
+                year: 2018,
+                shift: 'Apr 15 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'For endothermic reaction, increasing temperature:',
+                o: [
+                    'Shifts equilibrium toward products (K increases)',
+                    'Shifts toward reactants',
+                    'No effect',
+                    'K decreases'
+                ],
+                a: 0,
+                s: 'Endothermic: heat is "reactant". More heat → favours products.',
+                year: 2017,
+                shift: 'Apr 2 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Degree of dissociation α for a weak acid in dilute solution:',
+                o: [
+                    'Increases with dilution',
+                    'Decreases with dilution',
+                    'Stays constant',
+                    'Becomes zero'
+                ],
+                a: 0,
+                s: 'Ostwald dilution law: α = √(Ka/C). α increases as C decreases.',
+                year: 2016,
+                shift: 'Apr 10 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'pH of 0.1 M NaOH solution is:',
+                o: [
+                    '13',
+                    '1',
+                    '7',
+                    '14'
+                ],
+                a: 0,
+                s: 'pOH = −log(0.1) = 1. pH = 14 − 1 = 13.',
+                year: 2015,
+                shift: 'Paper 1',
+                exam: 'advanced'
+            },
+            {
+                q: 'Van\'t Hoff equation relates K to temperature as:',
+                o: [
+                    'ln(K₂/K₁) = ΔH°/R × (1/T₁ − 1/T₂)',
+                    'K = ΔH/T',
+                    'K = e^T',
+                    'K ∝ 1/T always'
+                ],
+                a: 0,
+                s: 'Van\'t Hoff: d(lnK)/dT = ΔH°/(RT²).',
+                year: 2024,
+                shift: 'Jan 30 Shift 2',
+                exam: 'main'
+            }
+        ]
+    }
+];
+}),
+"[project]/src/data/pyq/chemistry-pyq-2.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "chemistryPyq2",
+    ()=>chemistryPyq2
+]);
+const chemistryPyq2 = [
+    {
+        name: 'Electrochemistry',
+        slug: 'electrochemistry',
+        questions: [
+            {
+                q: 'In an electrochemical cell, reduction occurs at:',
+                o: [
+                    'Cathode',
+                    'Anode',
+                    'Salt bridge',
+                    'Both electrodes'
+                ],
+                a: 0,
+                s: 'Cathode = reduction. Anode = oxidation.',
+                year: 2023,
+                shift: 'Jan 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'The SI unit of molar conductivity is:',
+                o: [
+                    'S·m²·mol⁻¹',
+                    'S·cm⁻¹',
+                    'Ω·m',
+                    'S·m⁻¹'
+                ],
+                a: 0,
+                s: 'Molar conductivity Λₘ = κ/c in S·m²·mol⁻¹.',
+                year: 2022,
+                shift: 'Jun 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Nernst equation for a cell is:',
+                o: [
+                    'E = E° − (RT/nF)ln Q',
+                    'E = E° + (RT/nF)ln Q',
+                    'E = nFE°',
+                    'E = RT/nF'
+                ],
+                a: 0,
+                s: 'E = E° − (RT/nF)ln Q. At 25°C: E = E° − (0.0591/n)log Q.',
+                year: 2021,
+                shift: 'Feb 26 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Faraday\'s first law of electrolysis states that mass deposited is proportional to:',
+                o: [
+                    'Quantity of electricity passed',
+                    'Voltage applied',
+                    'Temperature',
+                    'Concentration'
+                ],
+                a: 0,
+                s: 'm = ZIt where Z = equivalent weight / F.',
+                year: 2020,
+                shift: 'Jan 8 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Standard hydrogen electrode (SHE) has a potential of:',
+                o: [
+                    '0 V',
+                    '1 V',
+                    '−1 V',
+                    '0.5 V'
+                ],
+                a: 0,
+                s: 'SHE is the reference electrode assigned E° = 0.00 V.',
+                year: 2019,
+                shift: 'Jan 9 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Kohlrausch\'s law applies to:',
+                o: [
+                    'Molar conductivity at infinite dilution',
+                    'Conductivity at any concentration',
+                    'Resistance',
+                    'Electrode potential'
+                ],
+                a: 0,
+                s: 'Λ°ₘ = ν₊λ°₊ + ν₋λ°₋ (independent migration of ions at infinite dilution).',
+                year: 2023,
+                shift: 'Jan 30 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'For a galvanic cell to be spontaneous:',
+                o: [
+                    'E°cell > 0',
+                    'E°cell < 0',
+                    'E°cell = 0',
+                    'ΔG > 0'
+                ],
+                a: 0,
+                s: 'ΔG = −nFE°. For spontaneous: ΔG < 0 → E° > 0.',
+                year: 2022,
+                shift: 'Jul 26 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The number of Faradays needed to deposit 1 mole of aluminium is:',
+                o: [
+                    '3',
+                    '1',
+                    '2',
+                    '6'
+                ],
+                a: 0,
+                s: 'Al³⁺ + 3e⁻ → Al. Needs 3 moles of electrons = 3F.',
+                year: 2021,
+                shift: 'Mar 16 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Conductivity of electrolytic solutions:',
+                o: [
+                    'Increases with temperature',
+                    'Decreases with temperature',
+                    'Is independent of temperature',
+                    'First increases then decreases'
+                ],
+                a: 0,
+                s: 'Higher T → more ionic mobility → higher conductivity.',
+                year: 2020,
+                shift: 'Sep 4 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Lead storage battery uses electrodes of:',
+                o: [
+                    'Pb and PbO₂',
+                    'Cu and Zn',
+                    'Pt and Ag',
+                    'Fe and Cu'
+                ],
+                a: 0,
+                s: 'Lead-acid battery: Pb (anode) and PbO₂ (cathode) in H₂SO₄.',
+                year: 2024,
+                shift: 'Jan 27 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'One Faraday of charge is:',
+                o: [
+                    '96485 C',
+                    '96485 J',
+                    '4.8 × 10⁻¹⁰ C',
+                    '1.6 × 10⁻¹⁹ C'
+                ],
+                a: 0,
+                s: 'F = eNₐ = 1.602×10⁻¹⁹ × 6.022×10²³ ≈ 96485 C/mol.',
+                year: 2018,
+                shift: 'Apr 8 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Rusting of iron is an example of:',
+                o: [
+                    'Electrochemical corrosion',
+                    'Chemical decomposition',
+                    'Physical change',
+                    'Photochemical reaction'
+                ],
+                a: 0,
+                s: 'Rusting involves anodic (Fe oxidation) and cathodic (O₂ reduction) regions.',
+                year: 2017,
+                shift: 'Apr 9 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'In fuel cells, the energy conversion is:',
+                o: [
+                    'Chemical to electrical',
+                    'Electrical to chemical',
+                    'Heat to electrical',
+                    'Nuclear to electrical'
+                ],
+                a: 0,
+                s: 'Fuel cells directly convert chemical energy of fuel to electricity.',
+                year: 2016,
+                shift: 'Apr 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'EMF of a concentration cell is positive when:',
+                o: [
+                    'Anode solution is more dilute',
+                    'Cathode solution is more dilute',
+                    'Both equal',
+                    'Temperature is high'
+                ],
+                a: 0,
+                s: 'Concentration cell: ions move from high to low concentration.',
+                year: 2015,
+                shift: 'Paper 1',
+                exam: 'advanced'
+            },
+            {
+                q: 'Electrolysis of brine produces:',
+                o: [
+                    'NaOH, Cl₂, and H₂',
+                    'NaCl and O₂',
+                    'Na and Cl₂',
+                    'HCl and NaOH'
+                ],
+                a: 0,
+                s: 'Chlor-alkali process: 2NaCl + 2H₂O → 2NaOH + Cl₂ + H₂.',
+                year: 2024,
+                shift: 'Jan 30 Shift 1',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Chemical Kinetics',
+        slug: 'chemical-kinetics',
+        questions: [
+            {
+                q: 'For a first-order reaction, the half-life is:',
+                o: [
+                    'Independent of initial concentration',
+                    'Proportional to initial concentration',
+                    'Inversely proportional to initial concentration',
+                    'Proportional to square of concentration'
+                ],
+                a: 0,
+                s: 't₁/₂ = 0.693/k for first order — does not depend on [A]₀.',
+                year: 2023,
+                shift: 'Jan 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Rate constant of a first-order reaction has units:',
+                o: [
+                    's⁻¹',
+                    'mol·L⁻¹·s⁻¹',
+                    'L·mol⁻¹·s⁻¹',
+                    'L²·mol⁻²·s⁻¹'
+                ],
+                a: 0,
+                s: 'First order: k = (1/t)ln([A]₀/[A]) → units = time⁻¹.',
+                year: 2022,
+                shift: 'Jun 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Arrhenius equation relates rate constant to:',
+                o: [
+                    'Temperature',
+                    'Pressure',
+                    'Concentration',
+                    'Volume'
+                ],
+                a: 0,
+                s: 'k = Ae^(−Ea/RT). k increases exponentially with T.',
+                year: 2021,
+                shift: 'Feb 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Molecularity of a reaction is:',
+                o: [
+                    'Number of reacting species in elementary step',
+                    'Order of reaction',
+                    'Number of products',
+                    'Activation energy'
+                ],
+                a: 0,
+                s: 'Molecularity = number of molecules/atoms/ions colliding in elementary step.',
+                year: 2020,
+                shift: 'Jan 9 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'A zero-order reaction has a rate that:',
+                o: [
+                    'Does not depend on concentration',
+                    'Doubles when concentration doubles',
+                    'Triples when concentration triples',
+                    'Is always zero'
+                ],
+                a: 0,
+                s: 'Rate = k (constant). Independent of reactant concentration.',
+                year: 2019,
+                shift: 'Jan 10 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'For a second-order reaction 2A → products, integrated rate law is:',
+                o: [
+                    '1/[A] = 1/[A]₀ + kt',
+                    '[A] = [A]₀ − kt',
+                    'ln[A] = ln[A]₀ − kt',
+                    '[A]² = [A]₀² − kt'
+                ],
+                a: 0,
+                s: '1/[A] vs t is linear for second order with slope = k.',
+                year: 2023,
+                shift: 'Jan 29 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Activation energy can be determined by plotting:',
+                o: [
+                    'ln k vs 1/T',
+                    'k vs T',
+                    'ln k vs T',
+                    'k vs 1/T'
+                ],
+                a: 0,
+                s: 'Arrhenius plot: ln k = ln A − Ea/(RT). Slope = −Ea/R.',
+                year: 2022,
+                shift: 'Jul 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Collision theory requires for reaction to occur:',
+                o: [
+                    'Sufficient energy and proper orientation',
+                    'Just collision',
+                    'Only high temperature',
+                    'Only catalyst'
+                ],
+                a: 0,
+                s: 'Effective collisions need both threshold energy and correct geometry.',
+                year: 2021,
+                shift: 'Aug 27 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'A catalyst lowers the:',
+                o: [
+                    'Activation energy',
+                    'Enthalpy of reaction',
+                    'Entropy',
+                    'Free energy of products'
+                ],
+                a: 0,
+                s: 'Catalyst provides alternate pathway with lower Ea.',
+                year: 2020,
+                shift: 'Sep 2 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Rate law for a reaction can be determined from:',
+                o: [
+                    'Experimental data',
+                    'Balanced equation alone',
+                    'Molecular formula',
+                    'Thermodynamic data'
+                ],
+                a: 0,
+                s: 'Rate law is experimentally determined; cannot be predicted from stoichiometry.',
+                year: 2024,
+                shift: 'Jan 29 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Temperature coefficient of a reaction rate is typically:',
+                o: [
+                    '2 to 3',
+                    '1',
+                    '10',
+                    '100'
+                ],
+                a: 0,
+                s: 'Rate roughly doubles/triples for every 10°C rise (temp coefficient ≈ 2–3).',
+                year: 2018,
+                shift: 'Apr 15 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Pseudo first-order reaction example is:',
+                o: [
+                    'Hydrolysis of ester in excess water',
+                    'Decomposition of H₂O₂',
+                    'Combustion of methane',
+                    'Neutralization'
+                ],
+                a: 0,
+                s: 'CH₃COOC₂H₅ + H₂O → ... Water in excess → rate depends only on ester.',
+                year: 2017,
+                shift: 'Apr 8 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: '99% of a first-order reaction completes in time:',
+                o: [
+                    '6.9 half-lives',
+                    '3 half-lives',
+                    '10 half-lives',
+                    '1 half-life'
+                ],
+                a: 0,
+                s: 't₉₉% = (2.303/k)log(100/1) = 6.9 × t₁/₂.',
+                year: 2016,
+                shift: 'Apr 10 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Rate of reaction at any instant is called:',
+                o: [
+                    'Instantaneous rate',
+                    'Average rate',
+                    'Initial rate',
+                    'Overall rate'
+                ],
+                a: 0,
+                s: 'Instantaneous rate = −d[A]/dt at a specific time.',
+                year: 2015,
+                shift: 'Paper 2',
+                exam: 'advanced'
+            },
+            {
+                q: 'Order of a reaction can be:',
+                o: [
+                    'Zero, fractional, or integer',
+                    'Only integer',
+                    'Only positive integer',
+                    'Always equal to molecularity'
+                ],
+                a: 0,
+                s: 'Order is experimental — can be 0, 0.5, 1, 1.5, 2, etc.',
+                year: 2024,
+                shift: 'Jan 30 Shift 2',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Solutions',
+        slug: 'solutions-chemistry',
+        questions: [
+            {
+                q: 'Raoult\'s law states that partial vapour pressure of a component equals:',
+                o: [
+                    'Mole fraction × pure vapour pressure',
+                    'Mass fraction × pure VP',
+                    'Molality × VP',
+                    'Molarity × VP'
+                ],
+                a: 0,
+                s: 'Pₐ = χₐ × P°ₐ (for ideal solutions).',
+                year: 2023,
+                shift: 'Jan 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Colligative properties depend on:',
+                o: [
+                    'Number of solute particles',
+                    'Nature of solute',
+                    'Nature of solvent',
+                    'Mass of solute'
+                ],
+                a: 0,
+                s: 'Colligative = depends on count of solute particles, not identity.',
+                year: 2022,
+                shift: 'Jun 27 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Boiling point elevation is given by:',
+                o: [
+                    'ΔTb = Kb × m',
+                    'ΔTb = Kb / m',
+                    'ΔTb = Kb × M',
+                    'ΔTb = m / Kb'
+                ],
+                a: 0,
+                s: 'ΔTb = Kb × molality (for non-electrolyte solutes).',
+                year: 2021,
+                shift: 'Feb 24 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Osmotic pressure of a dilute solution is given by:',
+                o: [
+                    'π = CRT',
+                    'π = C/RT',
+                    'π = nR/T',
+                    'π = RTV'
+                ],
+                a: 0,
+                s: 'π = CRT (van\'t Hoff equation, C = molar concentration).',
+                year: 2020,
+                shift: 'Jan 7 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Ideal solutions obey:',
+                o: [
+                    'Raoult\'s law at all concentrations',
+                    'Henry\'s law only',
+                    'Neither law',
+                    'Dalton\'s law'
+                ],
+                a: 0,
+                s: 'Ideal solutions: ΔHmix = 0, ΔVmix = 0, obey Raoult\'s law.',
+                year: 2019,
+                shift: 'Apr 10 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Van\'t Hoff factor i for NaCl (complete dissociation):',
+                o: [
+                    '2',
+                    '1',
+                    '3',
+                    '0.5'
+                ],
+                a: 0,
+                s: 'NaCl → Na⁺ + Cl⁻. Two particles → i = 2.',
+                year: 2023,
+                shift: 'Jan 30 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Depression in freezing point is an example of:',
+                o: [
+                    'Colligative property',
+                    'Intensive property',
+                    'Additive property',
+                    'Constitutive property'
+                ],
+                a: 0,
+                s: 'ΔTf depends only on number of solute particles = colligative.',
+                year: 2022,
+                shift: 'Jul 28 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Henry\'s law applies to:',
+                o: [
+                    'Dissolution of gas in liquid at low pressure',
+                    'Solid in liquid',
+                    'Liquid in liquid',
+                    'Gas at high pressure'
+                ],
+                a: 0,
+                s: 'p = KH × x (gases at low pressure and dilute solutions).',
+                year: 2021,
+                shift: 'Mar 17 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Reverse osmosis is used for:',
+                o: [
+                    'Water purification (desalination)',
+                    'Making sugar solutions',
+                    'Increasing osmotic pressure',
+                    'Freezing point elevation'
+                ],
+                a: 0,
+                s: 'Applying pressure > π on saline side forces pure water through membrane.',
+                year: 2020,
+                shift: 'Sep 3 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Positive deviation from Raoult\'s law occurs when:',
+                o: [
+                    'A-B interactions are weaker than A-A and B-B',
+                    'A-B interactions are stronger',
+                    'ΔHmix < 0',
+                    'ΔVmix < 0'
+                ],
+                a: 0,
+                s: 'Weaker unlike interactions → molecules escape more readily → higher VP.',
+                year: 2024,
+                shift: 'Jan 27 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Molal depression constant Kf depends on:',
+                o: [
+                    'Nature of solvent only',
+                    'Nature of solute',
+                    'Concentration',
+                    'Temperature of solution'
+                ],
+                a: 0,
+                s: 'Kf = RT²fM/(1000×ΔHfus) — property of solvent only.',
+                year: 2018,
+                shift: 'Apr 8 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Isotonic solutions have:',
+                o: [
+                    'Same osmotic pressure',
+                    'Same boiling point',
+                    'Same molarity always',
+                    'Same volume'
+                ],
+                a: 0,
+                s: 'Isotonic: π₁ = π₂. Equal effective solute particle concentration.',
+                year: 2017,
+                shift: 'Apr 2 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Azeotropes are mixtures that:',
+                o: [
+                    'Boil at constant temperature and cannot be separated by distillation',
+                    'Have zero vapour pressure',
+                    'Are always ideal',
+                    'Always show negative deviation'
+                ],
+                a: 0,
+                s: 'Azeotropes: liquid and vapour have same composition at that T/P.',
+                year: 2016,
+                shift: 'Apr 3 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Mole fraction of solute in 1 m aqueous solution is approximately:',
+                o: [
+                    '0.018',
+                    '0.1',
+                    '0.5',
+                    '1'
+                ],
+                a: 0,
+                s: '1 molal = 1 mol solute in 1 kg water = 1/(1 + 55.56) ≈ 0.018.',
+                year: 2015,
+                shift: 'Paper 1',
+                exam: 'advanced'
+            },
+            {
+                q: 'Abnormal molar mass is observed due to:',
+                o: [
+                    'Association or dissociation of solute',
+                    'Change in solvent',
+                    'High pressure',
+                    'Low temperature'
+                ],
+                a: 0,
+                s: 'Dissociation → more particles → lower molar mass. Association → higher.',
+                year: 2024,
+                shift: 'Jan 29 Shift 2',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'General Organic Chemistry',
+        slug: 'general-organic-chemistry',
+        questions: [
+            {
+                q: 'Inductive effect is:',
+                o: [
+                    'Permanent polarisation along sigma bonds',
+                    'Temporary effect',
+                    'Through pi bonds only',
+                    'Only in aromatic compounds'
+                ],
+                a: 0,
+                s: 'Inductive effect: permanent displacement of σ-electrons along chain.',
+                year: 2023,
+                shift: 'Jan 24 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Hyperconjugation involves:',
+                o: [
+                    'σ-bond electrons delocalised into adjacent p orbital',
+                    'π electrons only',
+                    'Lone pairs only',
+                    'Ionic bonds'
+                ],
+                a: 0,
+                s: 'C−H σ electrons overlap with adjacent empty/partially-filled p orbital.',
+                year: 2022,
+                shift: 'Jun 26 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Carbocation stability order is:',
+                o: [
+                    '3° > 2° > 1° > CH₃⁺',
+                    'CH₃⁺ > 1° > 2° > 3°',
+                    'All equal',
+                    '1° > 2° > 3°'
+                ],
+                a: 0,
+                s: 'More alkyl groups → more hyperconjugative stabilisation.',
+                year: 2021,
+                shift: 'Feb 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Resonance structures:',
+                o: [
+                    'Differ only in electron distribution',
+                    'Differ in atom positions',
+                    'Are isomers',
+                    'Have different molecular formulas'
+                ],
+                a: 0,
+                s: 'Resonance = same atom arrangement, different electron placement.',
+                year: 2020,
+                shift: 'Jan 8 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'sp³ hybridised carbon has bond angle of:',
+                o: [
+                    '109.5°',
+                    '120°',
+                    '180°',
+                    '90°'
+                ],
+                a: 0,
+                s: 'Tetrahedral geometry: sp³ → 109.5°.',
+                year: 2019,
+                shift: 'Jan 11 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Electrophile is a species that:',
+                o: [
+                    'Accepts electron pair',
+                    'Donates electron pair',
+                    'Donates protons',
+                    'Accepts protons only'
+                ],
+                a: 0,
+                s: 'Electrophile = electron-loving = electron pair acceptor (Lewis acid).',
+                year: 2023,
+                shift: 'Jan 29 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Markovnikov\'s rule applies to:',
+                o: [
+                    'Addition of HX to unsymmetrical alkenes',
+                    'Elimination reactions',
+                    'Substitution of alkanes',
+                    'All organic reactions'
+                ],
+                a: 0,
+                s: 'H adds to C with more H atoms; X to C with fewer H atoms.',
+                year: 2022,
+                shift: 'Jul 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Which is the most stable free radical?',
+                o: [
+                    'Allyl radical',
+                    'Methyl radical',
+                    'Ethyl radical',
+                    'n-Propyl radical'
+                ],
+                a: 0,
+                s: 'Allyl radical is resonance stabilised (delocalisation over 3 carbons).',
+                year: 2021,
+                shift: 'Aug 26 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Nucleophilic substitution SN2 involves:',
+                o: [
+                    'Single-step mechanism with inversion',
+                    'Two-step via carbocation',
+                    'Free radical intermediate',
+                    'Elimination only'
+                ],
+                a: 0,
+                s: 'SN2: concerted, backside attack → Walden inversion. Rate = k[R-X][Nu⁻].',
+                year: 2020,
+                shift: 'Sep 2 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Tautomerism is exhibited by:',
+                o: [
+                    'Keto-enol pairs',
+                    'Optical isomers',
+                    'Geometric isomers',
+                    'Conformers'
+                ],
+                a: 0,
+                s: 'Keto ⇌ enol: proton migration between C and O with π shift.',
+                year: 2024,
+                shift: 'Jan 30 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The −NO₂ group is:',
+                o: [
+                    'Meta directing and deactivating',
+                    'Ortho-para directing and activating',
+                    'Ortho-para directing and deactivating',
+                    'Meta directing and activating'
+                ],
+                a: 0,
+                s: '−NO₂ is strong EWG → deactivating → meta director.',
+                year: 2018,
+                shift: 'Apr 15 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Optical isomerism requires:',
+                o: [
+                    'Chiral centre (asymmetric carbon)',
+                    'Double bond',
+                    'Ring structure',
+                    'Plane of symmetry'
+                ],
+                a: 0,
+                s: 'Chirality (no plane of symmetry) → non-superimposable mirror images.',
+                year: 2017,
+                shift: 'Apr 2 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Number of structural isomers of C₄H₁₀ is:',
+                o: [
+                    '2',
+                    '1',
+                    '3',
+                    '4'
+                ],
+                a: 0,
+                s: 'n-butane and isobutane (2-methylpropane) → 2 isomers.',
+                year: 2016,
+                shift: 'Apr 9 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Anti-Markovnikov addition is observed with:',
+                o: [
+                    'HBr in presence of peroxide',
+                    'HCl with peroxide',
+                    'HI with peroxide',
+                    'HBr without peroxide'
+                ],
+                a: 0,
+                s: 'Kharasch (peroxide) effect: free radical mechanism gives anti-Markovnikov product. Only works with HBr.',
+                year: 2015,
+                shift: 'Paper 2',
+                exam: 'advanced'
+            },
+            {
+                q: 'E1 elimination involves:',
+                o: [
+                    'Two-step mechanism with carbocation intermediate',
+                    'Single step',
+                    'Free radical',
+                    'Cyclic transition state'
+                ],
+                a: 0,
+                s: 'E1: Step 1 → carbocation formation. Step 2 → proton loss.',
+                year: 2024,
+                shift: 'Jan 27 Shift 1',
+                exam: 'main'
+            }
+        ]
+    }
+];
+}),
+"[project]/src/data/pyq/chemistry-pyq-3.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "chemistryPyq3",
+    ()=>chemistryPyq3
+]);
+const chemistryPyq3 = [
+    {
+        name: 'Hydrocarbons',
+        slug: 'hydrocarbons',
+        questions: [
+            {
+                q: 'Benzene undergoes mainly:',
+                o: [
+                    'Electrophilic substitution',
+                    'Nucleophilic substitution',
+                    'Addition',
+                    'Elimination'
+                ],
+                a: 0,
+                s: 'Aromatic ring is electron-rich → attacked by electrophiles while preserving aromaticity.',
+                year: 2023,
+                shift: 'Jan 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Wurtz reaction is used to prepare:',
+                o: [
+                    'Higher alkanes',
+                    'Alkenes',
+                    'Alkynes',
+                    'Alcohols'
+                ],
+                a: 0,
+                s: '2RX + 2Na → R−R + 2NaX (symmetrical alkanes).',
+                year: 2022,
+                shift: 'Jun 24 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Ozonolysis of ethylene gives:',
+                o: [
+                    'Formaldehyde',
+                    'Acetaldehyde',
+                    'Acetone',
+                    'Formic acid'
+                ],
+                a: 0,
+                s: 'CH₂=CH₂ + O₃ → 2HCHO (two formaldehyde molecules).',
+                year: 2021,
+                shift: 'Feb 26 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Acetylene is prepared from:',
+                o: [
+                    'CaC₂ + H₂O',
+                    'CH₄ + Cl₂',
+                    'C₂H₆ + H₂',
+                    'Na + CH₃Cl'
+                ],
+                a: 0,
+                s: 'CaC₂ + 2H₂O → Ca(OH)₂ + C₂H₂.',
+                year: 2020,
+                shift: 'Jan 7 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Lindlar\'s catalyst converts alkynes to:',
+                o: [
+                    'cis-alkenes',
+                    'trans-alkenes',
+                    'Alkanes',
+                    'Alcohols'
+                ],
+                a: 0,
+                s: 'Pd/CaCO₃/Pb(OAc)₂ = partially poisoned → syn addition → cis product.',
+                year: 2019,
+                shift: 'Jan 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Friedel-Crafts alkylation requires:',
+                o: [
+                    'Lewis acid catalyst like AlCl₃',
+                    'Base catalyst',
+                    'UV light',
+                    'High pressure only'
+                ],
+                a: 0,
+                s: 'AlCl₃ generates carbocation electrophile from RX.',
+                year: 2023,
+                shift: 'Jan 30 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Free radical halogenation of alkanes follows selectivity order:',
+                o: [
+                    '3° > 2° > 1° C−H',
+                    '1° > 2° > 3°',
+                    'All equal',
+                    'Only 1° reacts'
+                ],
+                a: 0,
+                s: 'Tertiary radical more stable → preferentially formed.',
+                year: 2022,
+                shift: 'Jul 26 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Conformations of ethane with minimum energy:',
+                o: [
+                    'Staggered',
+                    'Eclipsed',
+                    'Gauche',
+                    'Skew'
+                ],
+                a: 0,
+                s: 'Staggered: maximum separation of H atoms → minimum torsional strain.',
+                year: 2021,
+                shift: 'Mar 16 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Birch reduction of benzene gives:',
+                o: [
+                    '1,4-Cyclohexadiene',
+                    'Cyclohexane',
+                    'Cyclohexene',
+                    'Phenol'
+                ],
+                a: 0,
+                s: 'Na/NH₃(l)/ROH reduces benzene to 1,4-cyclohexadiene.',
+                year: 2020,
+                shift: 'Sep 4 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Which alkene is most stable?',
+                o: [
+                    'trans-but-2-ene',
+                    'cis-but-2-ene',
+                    'but-1-ene',
+                    'ethene'
+                ],
+                a: 0,
+                s: 'More substituted + trans (less steric strain) → most stable.',
+                year: 2024,
+                shift: 'Jan 27 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Baeyer\'s reagent (dilute alkaline KMnO₄) is used to test:',
+                o: [
+                    'Unsaturation',
+                    'Aromaticity',
+                    'Acidity',
+                    'Optical activity'
+                ],
+                a: 0,
+                s: 'Alkenes decolourise Baeyer\'s reagent (syn-dihydroxylation).',
+                year: 2018,
+                shift: 'Apr 8 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Cyclopropane shows:',
+                o: [
+                    'Angle strain',
+                    'No strain',
+                    'Only torsional strain',
+                    'Steric strain only'
+                ],
+                a: 0,
+                s: 'Bond angle 60° vs ideal 109.5° → high angle (Baeyer) strain.',
+                year: 2017,
+                shift: 'Apr 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Directive influence of −OH on benzene ring:',
+                o: [
+                    'Ortho-para directing, activating',
+                    'Meta directing',
+                    'Deactivating',
+                    'No effect'
+                ],
+                a: 0,
+                s: '−OH donates electrons by resonance → activating, o/p director.',
+                year: 2016,
+                shift: 'Apr 3 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Side chain oxidation of toluene with KMnO₄ gives:',
+                o: [
+                    'Benzoic acid',
+                    'Benzaldehyde',
+                    'Benzyl alcohol',
+                    'Phenol'
+                ],
+                a: 0,
+                s: 'C₆H₅CH₃ + [O] → C₆H₅COOH with strong oxidant.',
+                year: 2015,
+                shift: 'Paper 1',
+                exam: 'advanced'
+            },
+            {
+                q: 'Carbylamine reaction is given by:',
+                o: [
+                    'Primary amines',
+                    'Secondary amines',
+                    'Tertiary amines',
+                    'All amines'
+                ],
+                a: 0,
+                s: 'R−NH₂ + CHCl₃ + 3KOH → R−NC (isocyanide) → foul smell. Only 1° amines.',
+                year: 2024,
+                shift: 'Jan 29 Shift 1',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Alcohols, Phenols & Ethers',
+        slug: 'alcohols-phenols-ethers',
+        questions: [
+            {
+                q: 'Lucas reagent distinguishes:',
+                o: [
+                    'Primary, secondary, and tertiary alcohols',
+                    'Aldehydes and ketones',
+                    'Acids and bases',
+                    'Alkenes and alkynes'
+                ],
+                a: 0,
+                s: 'Lucas (ZnCl₂/HCl): 3° instant turbidity, 2° in 5 min, 1° no reaction at RT.',
+                year: 2023,
+                shift: 'Jan 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Phenol is more acidic than ethanol because:',
+                o: [
+                    'Phenoxide ion is resonance stabilised',
+                    'Phenol has higher MW',
+                    'Ethanol is less polar',
+                    'Phenol has more H bonds'
+                ],
+                a: 0,
+                s: 'PhO⁻: negative charge delocalised over ring → more stable → more acidic.',
+                year: 2022,
+                shift: 'Jun 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Williamson synthesis is used to prepare:',
+                o: [
+                    'Ethers',
+                    'Alcohols',
+                    'Esters',
+                    'Amines'
+                ],
+                a: 0,
+                s: 'R−O⁻ + R\'−X → R−O−R\' (SN2 mechanism).',
+                year: 2021,
+                shift: 'Feb 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Dehydration of alcohol to alkene requires:',
+                o: [
+                    'Concentrated H₂SO₄ and heat',
+                    'NaOH',
+                    'KMnO₄',
+                    'Ozone'
+                ],
+                a: 0,
+                s: 'H₂SO₄ at 170°C → E1 elimination → alkene + H₂O.',
+                year: 2020,
+                shift: 'Jan 8 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Kolbe\'s reaction of phenol gives:',
+                o: [
+                    'Salicylic acid (2-hydroxybenzoic acid)',
+                    'Benzoic acid',
+                    'Phenyl acetate',
+                    'Catechol'
+                ],
+                a: 0,
+                s: 'PhONa + CO₂/H⁺ → o-hydroxybenzoic acid (Kolbe-Schmitt).',
+                year: 2019,
+                shift: 'Jan 10 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Order of reactivity of alcohols with HBr:',
+                o: [
+                    '3° > 2° > 1°',
+                    '1° > 2° > 3°',
+                    'All equal',
+                    '2° > 3° > 1°'
+                ],
+                a: 0,
+                s: '3° forms carbocation fastest → most reactive.',
+                year: 2023,
+                shift: 'Jan 29 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Victor Meyer test distinguishes:',
+                o: [
+                    '1°, 2°, and 3° alcohols by colour',
+                    'Acids and bases',
+                    'Aldehydes and ketones',
+                    'Alkenes and alkynes'
+                ],
+                a: 0,
+                s: '1° → red, 2° → blue, 3° → colourless.',
+                year: 2022,
+                shift: 'Jul 28 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Cleavage of ethers with HI gives:',
+                o: [
+                    'Alcohol and alkyl iodide',
+                    'Two alkenes',
+                    'Aldehyde and alcohol',
+                    'Ketone and alkane'
+                ],
+                a: 0,
+                s: 'R−O−R\' + HI → R−OH + R\'−I (nucleophilic attack by I⁻).',
+                year: 2021,
+                shift: 'Aug 27 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Reimer-Tiemann reaction of phenol gives:',
+                o: [
+                    'Salicylaldehyde',
+                    'Salicylic acid',
+                    'Benzaldehyde',
+                    'Phenyl formate'
+                ],
+                a: 0,
+                s: 'PhOH + CHCl₃ + NaOH → o-hydroxybenzaldehyde + p-isomer.',
+                year: 2020,
+                shift: 'Sep 3 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Oxidation of primary alcohol with PCC gives:',
+                o: [
+                    'Aldehyde',
+                    'Ketone',
+                    'Carboxylic acid',
+                    'Ester'
+                ],
+                a: 0,
+                s: 'PCC is mild oxidant → stops at aldehyde (no over-oxidation).',
+                year: 2024,
+                shift: 'Jan 30 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Phenol gives a violet colour with:',
+                o: [
+                    'FeCl₃ solution',
+                    'NaOH',
+                    'H₂SO₄',
+                    'KMnO₄'
+                ],
+                a: 0,
+                s: 'Fe³⁺ forms coloured complex with phenol → violet/blue-violet.',
+                year: 2018,
+                shift: 'Apr 15 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Methanol poisoning is treated with:',
+                o: [
+                    'Ethanol administration',
+                    'More methanol',
+                    'Water',
+                    'Acetone'
+                ],
+                a: 0,
+                s: 'Ethanol competes for alcohol dehydrogenase → prevents formaldehyde formation from CH₃OH.',
+                year: 2017,
+                shift: 'Apr 8 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Anisole on Friedel-Crafts acylation gives predominantly:',
+                o: [
+                    'p-Methoxyacetophenone',
+                    'o-product only',
+                    'm-product',
+                    'No reaction'
+                ],
+                a: 0,
+                s: '−OCH₃ is o/p director. Para is major due to steric preference.',
+                year: 2016,
+                shift: 'Apr 10 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Catalytic dehydrogenation of ethanol gives:',
+                o: [
+                    'Acetaldehyde',
+                    'Ethylene',
+                    'Acetic acid',
+                    'Diethyl ether'
+                ],
+                a: 0,
+                s: 'CH₃CH₂OH → CH₃CHO + H₂ (Cu/300°C catalyst).',
+                year: 2015,
+                shift: 'Paper 2',
+                exam: 'advanced'
+            },
+            {
+                q: 'Acid catalysed hydration of propene follows:',
+                o: [
+                    'Markovnikov rule',
+                    'Anti-Markovnikov rule',
+                    'No selectivity',
+                    'Saytzeff rule'
+                ],
+                a: 0,
+                s: 'H⁺ adds to less substituted C → carbocation on more substituted C → OH there.',
+                year: 2024,
+                shift: 'Jan 27 Shift 2',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Aldehydes, Ketones & Carboxylic Acids',
+        slug: 'aldehydes-ketones-acids',
+        questions: [
+            {
+                q: 'Tollens\' reagent is:',
+                o: [
+                    'Ammoniacal AgNO₃',
+                    'Fehling\'s solution',
+                    'FeCl₃',
+                    'KMnO₄'
+                ],
+                a: 0,
+                s: 'Tollens\' = [Ag(NH₃)₂]⁺. Aldehydes give silver mirror.',
+                year: 2023,
+                shift: 'Jan 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Aldol condensation occurs between:',
+                o: [
+                    'Two molecules with α-hydrogen',
+                    'Acids and bases',
+                    'Alcohols and acids',
+                    'Ethers and alkenes'
+                ],
+                a: 0,
+                s: 'Aldehyde/ketone with α-H undergoes base-catalysed self-condensation.',
+                year: 2022,
+                shift: 'Jun 26 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Cannizzaro reaction is given by aldehydes:',
+                o: [
+                    'Without α-hydrogen',
+                    'With α-hydrogen',
+                    'All aldehydes',
+                    'Ketones only'
+                ],
+                a: 0,
+                s: 'No α-H → can\'t undergo aldol → Cannizzaro (disproportionation).',
+                year: 2021,
+                shift: 'Feb 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Clemmensen reduction uses:',
+                o: [
+                    'Zn-Hg/HCl',
+                    'Na/Alcohol',
+                    'LiAlH₄',
+                    'NaBH₄'
+                ],
+                a: 0,
+                s: 'C=O → CH₂ using Zn(Hg) in conc. HCl.',
+                year: 2020,
+                shift: 'Jan 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Acetic acid is weaker than chloroacetic acid because:',
+                o: [
+                    '−Cl exerts −I effect stabilising conjugate base',
+                    'CH₃ is electron-withdrawing',
+                    '−Cl is electron donating',
+                    'Molecular weight difference'
+                ],
+                a: 0,
+                s: 'ClCH₂COO⁻ stabilised by −I of Cl → more acidic than CH₃COOH.',
+                year: 2019,
+                shift: 'Apr 9 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Wolff-Kishner reduction uses:',
+                o: [
+                    'NH₂NH₂/KOH (high temperature)',
+                    'Zn-Hg/HCl',
+                    'H₂/Pt',
+                    'NaBH₄'
+                ],
+                a: 0,
+                s: 'Hydrazine + strong base at high T → C=O → CH₂.',
+                year: 2023,
+                shift: 'Jan 30 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Hell-Volhard-Zelinsky reaction halogenates:',
+                o: [
+                    'α-carbon of carboxylic acids',
+                    'β-carbon',
+                    'Aromatic ring',
+                    'Alkyl side chain'
+                ],
+                a: 0,
+                s: 'Br₂/P or PBr₃ → α-bromination of carboxylic acids.',
+                year: 2022,
+                shift: 'Jul 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Fehling\'s solution is reduced by:',
+                o: [
+                    'Aldehydes (not ketones)',
+                    'All ketones',
+                    'All acids',
+                    'Ethers'
+                ],
+                a: 0,
+                s: 'Cu²⁺ → Cu₂O (red ppt). Aldehydes reduce Fehling\'s. Aromatic aldehydes don\'t.',
+                year: 2021,
+                shift: 'Mar 17 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Iodoform test is positive for:',
+                o: [
+                    'CH₃CO− group or CH₃CHOH−',
+                    'All alcohols',
+                    'All aldehydes',
+                    'Ethers'
+                ],
+                a: 0,
+                s: 'Methyl ketone or secondary alcohol with CH₃CHOH → yellow CHI₃ precipitate.',
+                year: 2020,
+                shift: 'Sep 2 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Fischer esterification involves:',
+                o: [
+                    'Acid + alcohol with acid catalyst',
+                    'Base hydrolysis',
+                    'Reduction',
+                    'Oxidation'
+                ],
+                a: 0,
+                s: 'RCOOH + R\'OH ⇌ RCOOR\' + H₂O (H⁺ catalyst, reversible).',
+                year: 2024,
+                shift: 'Jan 29 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Rosenmund reduction converts:',
+                o: [
+                    'Acid chloride to aldehyde',
+                    'Acid to alcohol',
+                    'Ketone to alcohol',
+                    'Ester to acid'
+                ],
+                a: 0,
+                s: 'RCOCl + H₂/Pd-BaSO₄ → RCHO (poisoned catalyst stops at aldehyde).',
+                year: 2018,
+                shift: 'Apr 8 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Grignard reagent reacts with formaldehyde to give:',
+                o: [
+                    'Primary alcohol',
+                    'Secondary alcohol',
+                    'Tertiary alcohol',
+                    'Aldehyde'
+                ],
+                a: 0,
+                s: 'RMgX + HCHO → RCH₂OH (1° alcohol after hydrolysis).',
+                year: 2017,
+                shift: 'Apr 2 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Decarboxylation of sodium acetate with soda-lime gives:',
+                o: [
+                    'Methane',
+                    'Ethane',
+                    'Ethylene',
+                    'Acetaldehyde'
+                ],
+                a: 0,
+                s: 'CH₃COONa + NaOH/CaO → CH₄ + Na₂CO₃.',
+                year: 2016,
+                shift: 'Apr 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Benzoin condensation is catalysed by:',
+                o: [
+                    'Cyanide ion',
+                    'Hydroxide ion',
+                    'H⁺',
+                    'Grignard reagent'
+                ],
+                a: 0,
+                s: 'CN⁻ acts as nucleophilic catalyst for condensation of two benzaldehyde molecules.',
+                year: 2015,
+                shift: 'Paper 1',
+                exam: 'advanced'
+            },
+            {
+                q: 'Knoevenagel condensation involves:',
+                o: [
+                    'Active methylene compound + aldehyde',
+                    'Two aldehydes',
+                    'Acid + amine',
+                    'Ketone + alcohol'
+                ],
+                a: 0,
+                s: 'Malonic ester CH₂(COOC₂H₅)₂ + RCHO → condensation product.',
+                year: 2024,
+                shift: 'Jan 30 Shift 1',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Amines',
+        slug: 'amines-chemistry',
+        questions: [
+            {
+                q: 'Basic strength of amines in aqueous solution:',
+                o: [
+                    '2° > 1° > 3° (aliphatic)',
+                    'Always 3° > 2° > 1°',
+                    '1° > 2° > 3°',
+                    'All equal'
+                ],
+                a: 0,
+                s: 'In water: solvation + inductive + steric effects → 2° usually strongest.',
+                year: 2023,
+                shift: 'Jan 24 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Gabriel phthalimide synthesis gives:',
+                o: [
+                    'Primary amines only',
+                    'Secondary amines',
+                    'Tertiary amines',
+                    'All amines'
+                ],
+                a: 0,
+                s: 'Phthalimide + RX → N-alkyl phthalimide → hydrolysis → RNH₂ (1° only).',
+                year: 2022,
+                shift: 'Jun 27 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Hoffmann bromamide reaction converts:',
+                o: [
+                    'Amide to amine with one less carbon',
+                    'Amine to amide',
+                    'Acid to ester',
+                    'Alcohol to amine'
+                ],
+                a: 0,
+                s: 'RCONH₂ + Br₂ + NaOH → RNH₂ + Na₂CO₃ (C count decreases by 1).',
+                year: 2021,
+                shift: 'Feb 26 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Aniline does not undergo Friedel-Crafts reaction because:',
+                o: [
+                    'NH₂ forms complex with Lewis acid catalyst',
+                    'It is not aromatic',
+                    'It has no C−H bonds',
+                    'It is too acidic'
+                ],
+                a: 0,
+                s: '−NH₂ + AlCl₃ → complex, deactivating ring + consuming catalyst.',
+                year: 2020,
+                shift: 'Jan 8 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Diazotization of aniline gives:',
+                o: [
+                    'Benzenediazonium chloride',
+                    'Phenol',
+                    'Benzene',
+                    'Nitrobenzene'
+                ],
+                a: 0,
+                s: 'C₆H₅NH₂ + NaNO₂ + HCl (0-5°C) → C₆H₅N₂⁺Cl⁻.',
+                year: 2019,
+                shift: 'Jan 11 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Sandmeyer reaction replaces diazonium group with:',
+                o: [
+                    '−Cl, −Br, or −CN using Cu₂X₂',
+                    '−OH only',
+                    '−NH₂',
+                    '−H only'
+                ],
+                a: 0,
+                s: 'ArN₂⁺ + CuCl → ArCl + N₂ (also CuBr, CuCN).',
+                year: 2023,
+                shift: 'Jan 29 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Hinsberg test distinguishes:',
+                o: [
+                    '1°, 2°, and 3° amines',
+                    'Aldehydes and ketones',
+                    'Alkenes and alkynes',
+                    'Acids and esters'
+                ],
+                a: 0,
+                s: '1° → soluble sulfonamide. 2° → insoluble. 3° → no reaction.',
+                year: 2022,
+                shift: 'Jul 26 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Coupling reaction of diazonium salt with phenol gives:',
+                o: [
+                    'Azo dye (coloured compound)',
+                    'Ester',
+                    'Amide',
+                    'Colourless product'
+                ],
+                a: 0,
+                s: 'ArN₂⁺ + PhOH → Ar−N=N−C₆H₄OH (para) — orange azo dye.',
+                year: 2021,
+                shift: 'Aug 26 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Aniline is less basic than cyclohexylamine because:',
+                o: [
+                    'Lone pair on N is delocalised into benzene ring',
+                    'Aniline has higher MW',
+                    'Cyclohexylamine is aromatic',
+                    'NH₂ is electron-withdrawing'
+                ],
+                a: 0,
+                s: 'Resonance donates N lone pair into ring → less available for protonation.',
+                year: 2020,
+                shift: 'Sep 4 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Exhaustive methylation (Hoffmann elimination) of amine gives:',
+                o: [
+                    'Alkene + triethylamine',
+                    'Alkane',
+                    'Alcohol',
+                    'Ketone'
+                ],
+                a: 0,
+                s: 'Quaternary ammonium hydroxide + heat → less substituted alkene (Hoffmann rule).',
+                year: 2024,
+                shift: 'Jan 27 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Reduction of nitrobenzene with Sn/HCl gives:',
+                o: [
+                    'Aniline',
+                    'Nitrosobenzene',
+                    'Phenol',
+                    'Benzene'
+                ],
+                a: 0,
+                s: 'C₆H₅NO₂ + 3Sn + 7HCl → C₆H₅NH₃⁺Cl⁻ → aniline.',
+                year: 2018,
+                shift: 'Apr 15 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Carbylamine test is positive for:',
+                o: [
+                    'Primary amines',
+                    'Secondary amines',
+                    'Tertiary amines',
+                    'Quaternary salts'
+                ],
+                a: 0,
+                s: 'RNH₂ + CHCl₃ + KOH → RNC (isocyanide). Only 1° amines.',
+                year: 2017,
+                shift: 'Apr 9 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Schiff base is formed by reaction of:',
+                o: [
+                    '1° amine with aldehyde',
+                    '2° amine with aldehyde',
+                    '3° amine with ketone',
+                    'Acid with amine'
+                ],
+                a: 0,
+                s: 'RNH₂ + R\'CHO → RN=CHR\' + H₂O (imine/Schiff base).',
+                year: 2016,
+                shift: 'Apr 3 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Quaternary ammonium salts are used as:',
+                o: [
+                    'Phase transfer catalysts and surfactants',
+                    'Reducing agents',
+                    'Oxidising agents',
+                    'Drying agents'
+                ],
+                a: 0,
+                s: 'R₄N⁺X⁻ — cationic surfactants, PTC, fabric softeners.',
+                year: 2015,
+                shift: 'Paper 2',
+                exam: 'advanced'
+            },
+            {
+                q: 'Acetamide on treatment with Br₂/NaOH gives:',
+                o: [
+                    'Methylamine',
+                    'Ethylamine',
+                    'Acetonitrile',
+                    'Acetic acid'
+                ],
+                a: 0,
+                s: 'CH₃CONH₂ + Br₂ + 4NaOH → CH₃NH₂ + Na₂CO₃ (Hoffmann).',
+                year: 2024,
+                shift: 'Jan 30 Shift 2',
+                exam: 'main'
+            }
+        ]
+    }
+];
+}),
+"[project]/src/data/pyq/chemistry-pyq-4.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "chemistryPyq4",
+    ()=>chemistryPyq4
+]);
+const chemistryPyq4 = [
+    {
+        name: 'Periodic Table & Chemical Bonding',
+        slug: 'periodic-table-bonding',
+        questions: [
+            {
+                q: 'Ionization energy generally increases:',
+                o: [
+                    'Left to right in a period',
+                    'Top to bottom in a group',
+                    'Diagonally downward',
+                    'Irregularly'
+                ],
+                a: 0,
+                s: 'Across period: ↑ Zeff, ↓ atomic size → higher IE.',
+                year: 2023,
+                shift: 'Jan 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Electron affinity is highest for:',
+                o: [
+                    'Chlorine',
+                    'Fluorine',
+                    'Iodine',
+                    'Bromine'
+                ],
+                a: 0,
+                s: 'Cl has highest EA (not F — F is too small, high e⁻-e⁻ repulsion).',
+                year: 2022,
+                shift: 'Jun 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'VSEPR theory predicts shape based on:',
+                o: [
+                    'Electron pairs around central atom',
+                    'Atomic radius',
+                    'Ionization energy',
+                    'Electronegativity only'
+                ],
+                a: 0,
+                s: 'Bonding + lone pairs determine geometry (minimize repulsion).',
+                year: 2021,
+                shift: 'Feb 24 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'sp² hybridization gives geometry:',
+                o: [
+                    'Trigonal planar',
+                    'Tetrahedral',
+                    'Linear',
+                    'Octahedral'
+                ],
+                a: 0,
+                s: 'sp²: 3 hybrid orbitals → 120° → trigonal planar.',
+                year: 2020,
+                shift: 'Jan 7 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Dipole moment of CO₂ is:',
+                o: [
+                    'Zero',
+                    '1.5 D',
+                    '2.3 D',
+                    '0.5 D'
+                ],
+                a: 0,
+                s: 'Linear O=C=O → bond dipoles cancel → μ = 0.',
+                year: 2019,
+                shift: 'Jan 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Bond order of O₂ according to MOT is:',
+                o: [
+                    '2',
+                    '1',
+                    '3',
+                    '1.5'
+                ],
+                a: 0,
+                s: 'BO = (Nb − Na)/2 = (10−6)/2 = 2.',
+                year: 2023,
+                shift: 'Jan 30 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Electronegativity increases:',
+                o: [
+                    'Left to right across a period',
+                    'Top to bottom down a group',
+                    'With increasing atomic size',
+                    'Irregularly'
+                ],
+                a: 0,
+                s: 'Across period: ↑ nuclear charge, ↓ size → ↑ ability to attract electrons.',
+                year: 2022,
+                shift: 'Jul 28 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Hydrogen bonding is strongest in:',
+                o: [
+                    'HF',
+                    'HCl',
+                    'HBr',
+                    'HI'
+                ],
+                a: 0,
+                s: 'F most electronegative → strongest H-bonding (though HF has lower bp than H₂O due to fewer H-bonds per molecule).',
+                year: 2021,
+                shift: 'Mar 16 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Fajan\'s rules predict covalent character increases with:',
+                o: [
+                    'Smaller cation and larger anion',
+                    'Larger cation',
+                    'Smaller anion',
+                    'Low cation charge'
+                ],
+                a: 0,
+                s: 'Small, highly charged cation + large anion → more polarisation → covalent.',
+                year: 2020,
+                shift: 'Sep 3 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Shape of SF₆ is:',
+                o: [
+                    'Octahedral',
+                    'Tetrahedral',
+                    'Trigonal bipyramidal',
+                    'Square planar'
+                ],
+                a: 0,
+                s: '6 bond pairs, 0 lone pairs → sp³d² → octahedral.',
+                year: 2024,
+                shift: 'Jan 27 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Lattice energy is highest for:',
+                o: [
+                    'LiF',
+                    'NaCl',
+                    'KBr',
+                    'CsI'
+                ],
+                a: 0,
+                s: 'Smallest ions + highest charges → LE ∝ q₁q₂/r. Li⁺F⁻ smallest.',
+                year: 2018,
+                shift: 'Apr 8 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Paramagnetism of O₂ is explained by:',
+                o: [
+                    'MOT (unpaired electrons)',
+                    'VBT',
+                    'Lewis theory',
+                    'VSEPR'
+                ],
+                a: 0,
+                s: 'MOT shows O₂ has 2 unpaired e⁻ in π* antibonding orbitals.',
+                year: 2017,
+                shift: 'Apr 2 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Metallic character increases:',
+                o: [
+                    'Down a group',
+                    'Across a period',
+                    'Diagonally right',
+                    'Irregularly'
+                ],
+                a: 0,
+                s: 'Down group: ↓ IE → easier to lose e⁻ → more metallic.',
+                year: 2016,
+                shift: 'Apr 10 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Back bonding is observed in:',
+                o: [
+                    'BF₃',
+                    'CH₄',
+                    'NaCl',
+                    'MgO'
+                ],
+                a: 0,
+                s: 'F lone pairs donate into empty 2p of B → pπ-pπ back bonding.',
+                year: 2015,
+                shift: 'Paper 1',
+                exam: 'advanced'
+            },
+            {
+                q: 'Bent\'s rule: more electronegative substituents prefer:',
+                o: [
+                    'Orbitals with more p-character',
+                    'Orbitals with more s-character',
+                    'Pure s orbitals',
+                    'Pure p orbitals'
+                ],
+                a: 0,
+                s: 'EN substituents → more p-character. Lone pairs → more s-character.',
+                year: 2024,
+                shift: 'Jan 29 Shift 1',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 's-Block & p-Block Elements',
+        slug: 's-p-block-elements',
+        questions: [
+            {
+                q: 'Alkali metals are stored in:',
+                o: [
+                    'Kerosene oil',
+                    'Water',
+                    'Acid',
+                    'Air'
+                ],
+                a: 0,
+                s: 'Na, K etc. react vigorously with water & air → stored under kerosene.',
+                year: 2023,
+                shift: 'Jan 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Diagonal relationship exists between:',
+                o: [
+                    'Li & Mg',
+                    'Na & Mg',
+                    'Li & Ca',
+                    'K & Ca'
+                ],
+                a: 0,
+                s: 'Li (Period 2, Group 1) resembles Mg (Period 3, Group 2) in properties.',
+                year: 2022,
+                shift: 'Jun 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Plaster of Paris formula is:',
+                o: [
+                    'CaSO₄·½H₂O',
+                    'CaSO₄·2H₂O',
+                    'CaSO₄',
+                    'Ca(OH)₂'
+                ],
+                a: 0,
+                s: 'Plaster of Paris = CaSO₄·½H₂O. Gypsum = CaSO₄·2H₂O.',
+                year: 2021,
+                shift: 'Feb 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Allotropy in carbon includes:',
+                o: [
+                    'Diamond, graphite, fullerene',
+                    'Only diamond',
+                    'Only graphite',
+                    'Diamond and silicon'
+                ],
+                a: 0,
+                s: 'Carbon allotropes: diamond (sp³), graphite (sp²), fullerene, graphene.',
+                year: 2020,
+                shift: 'Jan 8 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Ozone layer depletion is caused by:',
+                o: [
+                    'CFCs (chlorofluorocarbons)',
+                    'CO₂',
+                    'N₂',
+                    'O₂'
+                ],
+                a: 0,
+                s: 'Cl from CFCs acts as catalyst: Cl + O₃ → ClO + O₂ → Cl + O₂.',
+                year: 2019,
+                shift: 'Jan 10 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Inert pair effect is observed in:',
+                o: [
+                    'p-block heavy elements (Tl, Pb, Bi)',
+                    's-block elements',
+                    'd-block elements',
+                    'Lanthanides'
+                ],
+                a: 0,
+                s: 'Heavy p-block: ns² reluctant to bond → lower oxidation state stable.',
+                year: 2023,
+                shift: 'Jan 29 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Anomalous behaviour of nitrogen compared to other Group 15 elements is due to:',
+                o: [
+                    'Small size, high EN, no d-orbitals',
+                    'Large size',
+                    'Metallic nature',
+                    'Low IP'
+                ],
+                a: 0,
+                s: 'N cannot expand octet (no d orbitals); forms pπ–pπ bonds.',
+                year: 2022,
+                shift: 'Jul 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Haber process produces:',
+                o: [
+                    'Ammonia from N₂ and H₂',
+                    'Nitric acid',
+                    'Sulphuric acid',
+                    'Sodium hydroxide'
+                ],
+                a: 0,
+                s: 'N₂ + 3H₂ ⇌ 2NH₃ (Fe catalyst, high P, optimum T).',
+                year: 2021,
+                shift: 'Aug 27 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Boron shows diagonal relationship with:',
+                o: [
+                    'Silicon',
+                    'Aluminium',
+                    'Carbon',
+                    'Nitrogen'
+                ],
+                a: 0,
+                s: 'B (Period 2, Group 13) ≈ Si (Period 3, Group 14) in properties.',
+                year: 2020,
+                shift: 'Sep 2 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Contact process is used for:',
+                o: [
+                    'H₂SO₄ manufacture',
+                    'HNO₃ manufacture',
+                    'NaOH manufacture',
+                    'HCl manufacture'
+                ],
+                a: 0,
+                s: '2SO₂ + O₂ → 2SO₃ (V₂O₅ catalyst), then SO₃ + H₂O → H₂SO₄.',
+                year: 2024,
+                shift: 'Jan 30 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Noble gases have:',
+                o: [
+                    'Completely filled outer shell',
+                    'Half-filled outer shell',
+                    'Empty outer shell',
+                    'One electron'
+                ],
+                a: 0,
+                s: 'Group 18: ns²np⁶ (except He: 1s²) → stable, inert.',
+                year: 2018,
+                shift: 'Apr 15 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Interhalogen compound ClF₃ has shape:',
+                o: [
+                    'T-shaped',
+                    'Trigonal planar',
+                    'Pyramidal',
+                    'Linear'
+                ],
+                a: 0,
+                s: '5 e⁻ pairs: 3 BP + 2 LP → T-shape (sp³d).',
+                year: 2017,
+                shift: 'Apr 8 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Portland cement contains mainly:',
+                o: [
+                    'Ca₂SiO₄ and Ca₃SiO₅',
+                    'CaCO₃ only',
+                    'MgO only',
+                    'Na₂CO₃'
+                ],
+                a: 0,
+                s: 'Portland cement: tricalcium silicate (alite) + dicalcium silicate (belite).',
+                year: 2016,
+                shift: 'Apr 9 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Phosphorus pentachloride exists as:',
+                o: [
+                    '[PCl₄]⁺[PCl₆]⁻ in solid state',
+                    'PCl₅ molecules',
+                    'P₂Cl₁₀ dimers',
+                    'PCl₃ + Cl₂'
+                ],
+                a: 0,
+                s: 'Solid PCl₅ → ionic: [PCl₄]⁺ (tetrahedral) + [PCl₆]⁻ (octahedral).',
+                year: 2015,
+                shift: 'Paper 2',
+                exam: 'advanced'
+            },
+            {
+                q: 'Ostwald process produces:',
+                o: [
+                    'Nitric acid from ammonia',
+                    'Sulphuric acid',
+                    'Hydrochloric acid',
+                    'Phosphoric acid'
+                ],
+                a: 0,
+                s: '4NH₃ + 5O₂ → 4NO + 6H₂O (Pt catalyst) → NO₂ → HNO₃.',
+                year: 2024,
+                shift: 'Jan 27 Shift 2',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'd & f Block Elements',
+        slug: 'd-f-block-elements',
+        questions: [
+            {
+                q: 'Transition metals show variable oxidation states because of:',
+                o: [
+                    'Involvement of (n-1)d and ns electrons',
+                    'Only ns electrons',
+                    'f-electrons',
+                    'pp-dp bonding'
+                ],
+                a: 0,
+                s: 'Similar energies of (n-1)d and ns → multiple OS possible.',
+                year: 2023,
+                shift: 'Jan 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Colour of transition metal compounds is due to:',
+                o: [
+                    'd-d transitions',
+                    'f-f transitions',
+                    's-p transitions',
+                    'Nuclear excitation'
+                ],
+                a: 0,
+                s: 'Partially filled d-orbitals → crystal field splitting → d-d transitions absorb light.',
+                year: 2022,
+                shift: 'Jun 26 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Lanthanide contraction is caused by:',
+                o: [
+                    'Poor shielding by 4f electrons',
+                    'Good shielding by 5d',
+                    'Nuclear fusion',
+                    'Expansion of nucleus'
+                ],
+                a: 0,
+                s: '4f electrons shield poorly → effective nuclear charge ↑ → radii decrease across series.',
+                year: 2021,
+                shift: 'Feb 26 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'KMnO₄ acts as:',
+                o: [
+                    'Strong oxidising agent',
+                    'Reducing agent',
+                    'Catalyst',
+                    'Neutral agent'
+                ],
+                a: 0,
+                s: 'Mn⁷⁺ → Mn²⁺ (acidic), Mn⁴⁺ (neutral), Mn⁶⁺ (basic). Strong oxidiser.',
+                year: 2020,
+                shift: 'Jan 9 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Chromate (CrO₄²⁻) is yellow and dichromate (Cr₂O₇²⁻) is:',
+                o: [
+                    'Orange',
+                    'Green',
+                    'Blue',
+                    'Colourless'
+                ],
+                a: 0,
+                s: 'CrO₄²⁻ (yellow) ⇌ Cr₂O₇²⁻ (orange) depending on pH.',
+                year: 2019,
+                shift: 'Apr 10 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Which element has the highest melting point among transition metals?',
+                o: [
+                    'Tungsten (W)',
+                    'Iron (Fe)',
+                    'Copper (Cu)',
+                    'Chromium (Cr)'
+                ],
+                a: 0,
+                s: 'W has mp 3422°C — highest of all metals (strong metallic bonding).',
+                year: 2023,
+                shift: 'Jan 30 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Magnetic moment of a d⁵ high-spin complex is approximately:',
+                o: [
+                    '5.9 BM',
+                    '1.73 BM',
+                    '3.87 BM',
+                    '0 BM'
+                ],
+                a: 0,
+                s: 'μ = √(n(n+2)) BM. 5 unpaired e⁻: μ = √35 ≈ 5.92.',
+                year: 2022,
+                shift: 'Jul 26 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Zinc does not show typical transition metal properties because:',
+                o: [
+                    '3d orbitals are completely filled',
+                    '3d orbitals are empty',
+                    'It is an s-block element',
+                    'It has no electrons'
+                ],
+                a: 0,
+                s: 'Zn: [Ar]3d¹⁰4s². Fully filled d → no d-d transitions, colour, etc.',
+                year: 2021,
+                shift: 'Mar 17 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Alloy steel containing Cr and Ni is called:',
+                o: [
+                    'Stainless steel',
+                    'Cast iron',
+                    'Wrought iron',
+                    'Pig iron'
+                ],
+                a: 0,
+                s: 'Stainless steel: Fe + Cr (≥10.5%) + Ni → corrosion resistant.',
+                year: 2020,
+                shift: 'Sep 4 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Interstitial compounds of transition metals are characterised by:',
+                o: [
+                    'Hardness and high melting point',
+                    'Softness',
+                    'Low density',
+                    'Transparency'
+                ],
+                a: 0,
+                s: 'Small atoms (H, C, N) trapped in metal lattice → very hard, high mp.',
+                year: 2024,
+                shift: 'Jan 29 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Actinides show:',
+                o: [
+                    'Radioactivity',
+                    'Complete inertness',
+                    'No colour',
+                    'Only +3 oxidation state'
+                ],
+                a: 0,
+                s: 'All actinides are radioactive. Show multiple oxidation states.',
+                year: 2018,
+                shift: 'Apr 8 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Crystal field splitting energy Δₒ for octahedral complex is:',
+                o: [
+                    'Greater than Δₜ for same ligands',
+                    'Less than Δₜ',
+                    'Equal to Δₜ',
+                    'Zero'
+                ],
+                a: 0,
+                s: 'Δₒ = (9/4)Δₜ. Octahedral splitting > tetrahedral.',
+                year: 2017,
+                shift: 'Apr 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Spectrochemical series orders ligands by:',
+                o: [
+                    'Increasing crystal field splitting strength',
+                    'Decreasing size',
+                    'Increasing charge',
+                    'Alphabetical order'
+                ],
+                a: 0,
+                s: 'I⁻ < Br⁻ < Cl⁻ < F⁻ < OH⁻ < H₂O < NH₃ < en < CN⁻ < CO.',
+                year: 2016,
+                shift: 'Apr 3 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'K₂Cr₂O₇ in acidic medium oxidises Fe²⁺ to:',
+                o: [
+                    'Fe³⁺',
+                    'Fe⁰',
+                    'FeO₄²⁻',
+                    'Fe₂O₃'
+                ],
+                a: 0,
+                s: 'Cr₂O₇²⁻ + 6Fe²⁺ + 14H⁺ → 2Cr³⁺ + 6Fe³⁺ + 7H₂O.',
+                year: 2015,
+                shift: 'Paper 1',
+                exam: 'advanced'
+            },
+            {
+                q: 'Catalytic activity of transition metals is due to:',
+                o: [
+                    'Variable oxidation states and ability to form complexes',
+                    'High density',
+                    'Low melting point',
+                    'Inertness'
+                ],
+                a: 0,
+                s: 'Variable OS → cycle between states; surface area + complexation aid catalysis.',
+                year: 2024,
+                shift: 'Jan 30 Shift 2',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Coordination Compounds',
+        slug: 'coordination-compounds',
+        questions: [
+            {
+                q: 'IUPAC name of [Co(NH₃)₆]Cl₃ is:',
+                o: [
+                    'Hexaamminecobalt(III) chloride',
+                    'Cobalt hexaammine trichloride',
+                    'Trichlorohexaamminecobalt',
+                    'Hexaaminecobalt chloride'
+                ],
+                a: 0,
+                s: 'Ligands alphabetically, then metal with OS in ().  Hexaamminecobalt(III) chloride.',
+                year: 2023,
+                shift: 'Jan 24 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Coordination number of Pt in [PtCl₆]²⁻ is:',
+                o: [
+                    '6',
+                    '4',
+                    '2',
+                    '8'
+                ],
+                a: 0,
+                s: '6 chloride ligands directly bonded to Pt → CN = 6.',
+                year: 2022,
+                shift: 'Jun 27 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'EAN rule was proposed by:',
+                o: [
+                    'Sidgwick',
+                    'Werner',
+                    'Lewis',
+                    'Pauling'
+                ],
+                a: 0,
+                s: 'Sidgwick\'s EAN (Effective Atomic Number) rule: metal + ligand e⁻ = nearest noble gas.',
+                year: 2021,
+                shift: 'Feb 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Chelate effect makes chelated complexes:',
+                o: [
+                    'More stable than analogous monodentate complexes',
+                    'Less stable',
+                    'Equally stable',
+                    'Unstable'
+                ],
+                a: 0,
+                s: 'Chelation: ΔS positive when polydentate replaces monodentate → ΔG more negative.',
+                year: 2020,
+                shift: 'Jan 7 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Geometrical isomerism in [Ma₂b₂] square planar gives:',
+                o: [
+                    'cis and trans isomers',
+                    'Only one form',
+                    'd and l isomers',
+                    'Linkage isomers'
+                ],
+                a: 0,
+                s: 'Square planar [Ma₂b₂]: cis (adjacent) and trans (opposite) isomers.',
+                year: 2019,
+                shift: 'Jan 11 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'In Werner\'s theory, primary valence corresponds to:',
+                o: [
+                    'Oxidation state of metal',
+                    'Coordination number',
+                    'Ligand charge',
+                    'Number of ions'
+                ],
+                a: 0,
+                s: 'Primary valence = ionisable (OS). Secondary valence = coordinative (CN).',
+                year: 2023,
+                shift: 'Jan 29 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'EDTA is a:',
+                o: [
+                    'Hexadentate ligand',
+                    'Monodentate ligand',
+                    'Bidentate ligand',
+                    'Tridentate ligand'
+                ],
+                a: 0,
+                s: 'EDTA has 4 COO⁻ + 2 N donors = 6 donor sites.',
+                year: 2022,
+                shift: 'Jul 28 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Crystal Field Theory explains colour by:',
+                o: [
+                    'd-d electronic transitions absorbing specific wavelengths',
+                    'Nuclear reactions',
+                    'Molecular vibrations',
+                    'Thermal emission'
+                ],
+                a: 0,
+                s: 'Ligand field splits d orbitals; electrons absorb energy for transitions → colour.',
+                year: 2021,
+                shift: 'Aug 26 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Linkage isomerism example:',
+                o: [
+                    '[Co(NH₃)₅(NO₂)]²⁺ and [Co(NH₃)₅(ONO)]²⁺',
+                    'cis and trans',
+                    'Optical isomers',
+                    'Hydrate isomers'
+                ],
+                a: 0,
+                s: 'NO₂⁻ can bind through N (nitro) or O (nitrito) → linkage isomers.',
+                year: 2020,
+                shift: 'Sep 2 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Tetrahedral complexes do not show geometric isomerism because:',
+                o: [
+                    'All positions are equivalent',
+                    'They are always ionic',
+                    'They have no ligands',
+                    'They are planar'
+                ],
+                a: 0,
+                s: 'In tetrahedron, all 4 vertices are adjacent — no cis/trans distinction.',
+                year: 2024,
+                shift: 'Jan 27 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Diamagnetic complex among the following:',
+                o: [
+                    '[Co(NH₃)₆]³⁺',
+                    '[CoF₆]³⁻',
+                    '[Fe(H₂O)₆]²⁺',
+                    '[Ni(H₂O)₆]²⁺'
+                ],
+                a: 0,
+                s: 'Co³⁺ d⁶ with strong-field NH₃ → low spin → t₂g⁶eg⁰ → 0 unpaired → diamagnetic.',
+                year: 2018,
+                shift: 'Apr 15 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Carbonyls like [Ni(CO)₄] have:',
+                o: [
+                    'Zero oxidation state of metal',
+                    '+2 oxidation state',
+                    '+4 oxidation state',
+                    '−2 oxidation state'
+                ],
+                a: 0,
+                s: 'CO is neutral ligand → Ni in Ni(CO)₄ has OS = 0.',
+                year: 2017,
+                shift: 'Apr 2 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Ionization isomers differ in:',
+                o: [
+                    'Ion present in and outside coordination sphere',
+                    'Geometry',
+                    'Ligand donor atom',
+                    'Optical activity'
+                ],
+                a: 0,
+                s: '[Co(NH₃)₅Br]SO₄ vs [Co(NH₃)₅SO₄]Br — different ions precipitated.',
+                year: 2016,
+                shift: 'Apr 10 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'The magnetic moment of [Ti(H₂O)₆]³⁺ is approximately:',
+                o: [
+                    '1.73 BM',
+                    '0 BM',
+                    '3.87 BM',
+                    '5.92 BM'
+                ],
+                a: 0,
+                s: 'Ti³⁺ = d¹ → 1 unpaired: μ = √(1×3) = 1.73 BM.',
+                year: 2015,
+                shift: 'Paper 2',
+                exam: 'advanced'
+            },
+            {
+                q: 'Stability of complex increases with:',
+                o: [
+                    'Increase in charge density of metal ion',
+                    'Decrease in metal charge',
+                    'Larger metal ion',
+                    'Weaker ligands'
+                ],
+                a: 0,
+                s: 'Higher charge, smaller size → stronger M-L bond → more stable.',
+                year: 2024,
+                shift: 'Jan 30 Shift 1',
+                exam: 'main'
+            }
+        ]
+    }
+];
+}),
+"[project]/src/data/pyq/maths-pyq-1.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "mathsPyq1",
+    ()=>mathsPyq1
+]);
+const mathsPyq1 = [
+    {
+        name: 'Sets, Relations & Functions',
+        slug: 'sets-relations-functions',
+        questions: [
+            {
+                q: 'If A = {1,2,3} and B = {2,3,4}, then A ∩ B is:',
+                o: [
+                    '{2,3}',
+                    '{1,2,3,4}',
+                    '{1,4}',
+                    '{2}'
+                ],
+                a: 0,
+                s: 'Intersection = common elements = {2, 3}.',
+                year: 2023,
+                shift: 'Jan 24 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'A function f: A → B is one-one if:',
+                o: [
+                    'f(a₁) = f(a₂) implies a₁ = a₂',
+                    'f maps every element',
+                    'Range = codomain',
+                    'f is continuous'
+                ],
+                a: 0,
+                s: 'Injective: distinct inputs → distinct outputs.',
+                year: 2022,
+                shift: 'Jun 24 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Number of subsets of a set with n elements is:',
+                o: [
+                    '2ⁿ',
+                    'n²',
+                    'n!',
+                    '2n'
+                ],
+                a: 0,
+                s: 'Each element: include or exclude → 2 choices each → 2ⁿ total.',
+                year: 2021,
+                shift: 'Feb 24 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'An equivalence relation must be:',
+                o: [
+                    'Reflexive, symmetric, and transitive',
+                    'Only reflexive',
+                    'Only symmetric',
+                    'Only transitive'
+                ],
+                a: 0,
+                s: 'Equivalence requires all three: reflexive + symmetric + transitive.',
+                year: 2020,
+                shift: 'Jan 7 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'If f(x) = x² and g(x) = √x, then (fog)(x) is:',
+                o: [
+                    'x (for x ≥ 0)',
+                    'x²',
+                    '√x²',
+                    'x⁴'
+                ],
+                a: 0,
+                s: 'fog(x) = f(g(x)) = f(√x) = (√x)² = x for x ≥ 0.',
+                year: 2019,
+                shift: 'Jan 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The domain of f(x) = 1/√(x−2) is:',
+                o: [
+                    'x > 2',
+                    'x ≥ 2',
+                    'x < 2',
+                    'All real numbers'
+                ],
+                a: 0,
+                s: 'x − 2 > 0 (denominator can\'t be 0 or negative under root) → x > 2.',
+                year: 2023,
+                shift: 'Jan 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'If A has 3 elements and B has 4, the number of functions from A to B is:',
+                o: [
+                    '64',
+                    '12',
+                    '24',
+                    '81'
+                ],
+                a: 0,
+                s: 'Each of 3 elements maps to any of 4 → 4³ = 64.',
+                year: 2022,
+                shift: 'Jun 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'De Morgan\'s law: (A ∪ B)\' equals:',
+                o: [
+                    'A\' ∩ B\'',
+                    'A\' ∪ B\'',
+                    'A ∩ B',
+                    'A ∪ B'
+                ],
+                a: 0,
+                s: 'Complement of union = intersection of complements.',
+                year: 2021,
+                shift: 'Feb 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'A function is onto (surjective) if:',
+                o: [
+                    'Range equals codomain',
+                    'It is one-one',
+                    'Domain equals range',
+                    'It is constant'
+                ],
+                a: 0,
+                s: 'Surjective: every element in B has a preimage in A.',
+                year: 2020,
+                shift: 'Jan 8 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'The number of relations on a set with n elements is:',
+                o: [
+                    '2^(n²)',
+                    'n²',
+                    '2ⁿ',
+                    'n!'
+                ],
+                a: 0,
+                s: 'Relation ⊂ A×A. |A×A| = n². Subsets = 2^(n²).',
+                year: 2024,
+                shift: 'Jan 27 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'If f(x) = e^x, f⁻¹(x) is:',
+                o: [
+                    'ln x',
+                    'e^(1/x)',
+                    '1/x',
+                    'x²'
+                ],
+                a: 0,
+                s: 'If y = eˣ then x = ln y. So f⁻¹(x) = ln x.',
+                year: 2018,
+                shift: 'Apr 8 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Range of f(x) = sin x is:',
+                o: [
+                    '[−1, 1]',
+                    '(−∞, ∞)',
+                    '[0, 1]',
+                    '[0, ∞)'
+                ],
+                a: 0,
+                s: 'sin x ∈ [−1, 1] for all real x.',
+                year: 2017,
+                shift: 'Apr 2 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'A relation R on set A is antisymmetric if:',
+                o: [
+                    'aRb and bRa implies a = b',
+                    'aRb implies bRa',
+                    'aRa for all a',
+                    'aRb implies not bRa'
+                ],
+                a: 0,
+                s: 'Antisymmetric: (a,b) and (b,a) in R → a = b.',
+                year: 2016,
+                shift: 'Apr 10 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Cartesian product A × B has elements:',
+                o: [
+                    '|A| × |B|',
+                    '|A| + |B|',
+                    '|A|²',
+                    '|B|²'
+                ],
+                a: 0,
+                s: '|A × B| = |A| · |B| ordered pairs.',
+                year: 2015,
+                shift: 'Paper 1',
+                exam: 'advanced'
+            },
+            {
+                q: 'The function f(x) = |x| is:',
+                o: [
+                    'Continuous but not differentiable at x = 0',
+                    'Differentiable everywhere',
+                    'Discontinuous at 0',
+                    'Neither continuous nor differentiable'
+                ],
+                a: 0,
+                s: '|x| has a corner at 0 → continuous there but not differentiable.',
+                year: 2024,
+                shift: 'Jan 29 Shift 1',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Complex Numbers',
+        slug: 'complex-numbers',
+        questions: [
+            {
+                q: 'The modulus of z = 3 + 4i is:',
+                o: [
+                    '5',
+                    '7',
+                    '1',
+                    '25'
+                ],
+                a: 0,
+                s: '|z| = √(3² + 4²) = √25 = 5.',
+                year: 2023,
+                shift: 'Jan 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'i⁴ equals:',
+                o: [
+                    '1',
+                    'i',
+                    '−1',
+                    '−i'
+                ],
+                a: 0,
+                s: 'i¹=i, i²=−1, i³=−i, i⁴=1 (cyclic with period 4).',
+                year: 2022,
+                shift: 'Jun 26 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Conjugate of z = a + bi is:',
+                o: [
+                    'a − bi',
+                    '−a + bi',
+                    '−a − bi',
+                    'b + ai'
+                ],
+                a: 0,
+                s: 'Conjugate: replace i with −i → z̄ = a − bi.',
+                year: 2021,
+                shift: 'Feb 26 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Argument of z = −1 + i is:',
+                o: [
+                    '3π/4',
+                    'π/4',
+                    '−π/4',
+                    'π/2'
+                ],
+                a: 0,
+                s: 'z in Q2: tan⁻¹(1/1) = π/4 → arg = π − π/4 = 3π/4.',
+                year: 2020,
+                shift: 'Jan 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Product z₁z₂ in polar form has modulus:',
+                o: [
+                    '|z₁| · |z₂|',
+                    '|z₁| + |z₂|',
+                    '|z₁|/|z₂|',
+                    '|z₁| − |z₂|'
+                ],
+                a: 0,
+                s: '|z₁z₂| = |z₁||z₂| and arg(z₁z₂) = arg(z₁) + arg(z₂).',
+                year: 2019,
+                shift: 'Jan 10 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'De Moivre\'s theorem: (cos θ + i sin θ)ⁿ =',
+                o: [
+                    'cos nθ + i sin nθ',
+                    'n cos θ + ni sin θ',
+                    'cos(θ/n) + i sin(θ/n)',
+                    'n²(cos θ + i sin θ)'
+                ],
+                a: 0,
+                s: 'De Moivre: (e^(iθ))ⁿ = e^(inθ) → cos nθ + i sin nθ.',
+                year: 2023,
+                shift: 'Jan 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Cube roots of unity sum to:',
+                o: [
+                    '0',
+                    '1',
+                    '3',
+                    '−1'
+                ],
+                a: 0,
+                s: '1 + ω + ω² = 0 where ω = e^(2πi/3).',
+                year: 2022,
+                shift: 'Jul 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'If |z − 1| = 1, locus of z is:',
+                o: [
+                    'Circle centred at (1,0) radius 1',
+                    'Line x = 1',
+                    'Point (1,0)',
+                    'Ellipse'
+                ],
+                a: 0,
+                s: '|z − z₀| = r is a circle with centre z₀ and radius r.',
+                year: 2021,
+                shift: 'Mar 16 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'z · z̄ equals:',
+                o: [
+                    '|z|²',
+                    '2Re(z)',
+                    '2Im(z)',
+                    'z²'
+                ],
+                a: 0,
+                s: 'z·z̄ = (a+bi)(a−bi) = a² + b² = |z|².',
+                year: 2020,
+                shift: 'Sep 2 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'If z = r(cos θ + i sin θ), then 1/z is:',
+                o: [
+                    '(1/r)(cos θ − i sin θ)',
+                    'r(cos θ − i sin θ)',
+                    '(1/r)(cos θ + i sin θ)',
+                    'r²(cos θ + i sin θ)'
+                ],
+                a: 0,
+                s: '1/z = z̄/|z|² = (1/r)e^(−iθ) = (1/r)(cosθ − i sinθ).',
+                year: 2024,
+                shift: 'Jan 30 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'The square roots of i are:',
+                o: [
+                    '±(1+i)/√2',
+                    '±1',
+                    '±i',
+                    '±(1−i)/√2'
+                ],
+                a: 0,
+                s: 'i = e^(iπ/2). √i = e^(iπ/4) = (1+i)/√2 and e^(i·5π/4).',
+                year: 2018,
+                shift: 'Apr 15 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'If z₁ and z₂ are complex numbers, |z₁ + z₂| ≤:',
+                o: [
+                    '|z₁| + |z₂|',
+                    '|z₁| − |z₂|',
+                    '|z₁| · |z₂|',
+                    '|z₁|²'
+                ],
+                a: 0,
+                s: 'Triangle inequality: |z₁ + z₂| ≤ |z₁| + |z₂|.',
+                year: 2017,
+                shift: 'Apr 9 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Euler\'s formula states:',
+                o: [
+                    'e^(iθ) = cos θ + i sin θ',
+                    'e^(iθ) = cos θ − i sin θ',
+                    'e^θ = cos θ + sin θ',
+                    'e^(iθ) = sin θ + cos θ'
+                ],
+                a: 0,
+                s: 'Euler: e^(iθ) = cosθ + i sinθ. Most beautiful equation when θ = π.',
+                year: 2016,
+                shift: 'Apr 3 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'arg(z₁/z₂) equals:',
+                o: [
+                    'arg(z₁) − arg(z₂)',
+                    'arg(z₁) + arg(z₂)',
+                    'arg(z₁) × arg(z₂)',
+                    'arg(z₁)/arg(z₂)'
+                ],
+                a: 0,
+                s: 'Division: moduli divide, arguments subtract.',
+                year: 2015,
+                shift: 'Paper 2',
+                exam: 'advanced'
+            },
+            {
+                q: 'nth roots of unity lie on:',
+                o: [
+                    'Unit circle equally spaced',
+                    'Real axis',
+                    'Imaginary axis',
+                    'A line through origin'
+                ],
+                a: 0,
+                s: 'zⁿ = 1 → z = e^(2kπi/n), k=0,...,n−1 → unit circle, equally spaced.',
+                year: 2024,
+                shift: 'Jan 27 Shift 2',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Quadratic Equations',
+        slug: 'quadratic-equations',
+        questions: [
+            {
+                q: 'For ax² + bx + c = 0, the discriminant is:',
+                o: [
+                    'b² − 4ac',
+                    'b² + 4ac',
+                    '4ac − b²',
+                    '2ac − b'
+                ],
+                a: 0,
+                s: 'D = b² − 4ac. D > 0: real roots, D = 0: equal roots, D < 0: complex.',
+                year: 2023,
+                shift: 'Jan 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Sum of roots of ax² + bx + c = 0 is:',
+                o: [
+                    '−b/a',
+                    'b/a',
+                    'c/a',
+                    '−c/a'
+                ],
+                a: 0,
+                s: 'Vieta\'s: α + β = −b/a, αβ = c/a.',
+                year: 2022,
+                shift: 'Jun 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'If roots of x² − 5x + 6 = 0 are α, β, then α² + β² is:',
+                o: [
+                    '13',
+                    '25',
+                    '11',
+                    '36'
+                ],
+                a: 0,
+                s: 'α+β=5, αβ=6. α²+β² = (α+β)² − 2αβ = 25−12 = 13.',
+                year: 2021,
+                shift: 'Feb 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Nature of roots when D < 0:',
+                o: [
+                    'Complex conjugate pair',
+                    'Real and equal',
+                    'Real and distinct',
+                    'Irrational'
+                ],
+                a: 0,
+                s: 'D < 0 → roots are complex: (−b ± i√|D|)/(2a).',
+                year: 2020,
+                shift: 'Jan 7 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'If one root of x² + px + q = 0 is 2 + 3i, the other root is:',
+                o: [
+                    '2 − 3i',
+                    '−2 + 3i',
+                    '−2 − 3i',
+                    '3 + 2i'
+                ],
+                a: 0,
+                s: 'Coefficients real → complex roots occur in conjugate pairs.',
+                year: 2019,
+                shift: 'Jan 11 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'For equation with roots 2 and 3, the equation is:',
+                o: [
+                    'x² − 5x + 6 = 0',
+                    'x² + 5x + 6 = 0',
+                    'x² − 5x − 6 = 0',
+                    'x² + 6x − 5 = 0'
+                ],
+                a: 0,
+                s: 'x² − (sum)x + product = x² − 5x + 6 = 0.',
+                year: 2023,
+                shift: 'Jan 30 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Maximum value of f(x) = −x² + 4x + 5 is:',
+                o: [
+                    '9',
+                    '5',
+                    '4',
+                    '13'
+                ],
+                a: 0,
+                s: 'Vertex at x = −4/(2·(−1)) = 2. f(2) = −4+8+5 = 9.',
+                year: 2022,
+                shift: 'Jul 28 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'If α and β are roots, then 1/α + 1/β equals:',
+                o: [
+                    '−b/c',
+                    'b/c',
+                    'a/c',
+                    '−a/c'
+                ],
+                a: 0,
+                s: '1/α + 1/β = (α+β)/(αβ) = (−b/a)/(c/a) = −b/c.',
+                year: 2021,
+                shift: 'Aug 26 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Condition for both roots positive: (for ax² + bx + c = 0, a > 0)',
+                o: [
+                    'D ≥ 0, −b/a > 0, c/a > 0',
+                    'D < 0',
+                    'b/a > 0',
+                    'c < 0'
+                ],
+                a: 0,
+                s: 'Both positive: D ≥ 0, sum > 0 (−b/a > 0), product > 0 (c/a > 0).',
+                year: 2020,
+                shift: 'Sep 3 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The quadratic formula gives roots as:',
+                o: [
+                    '(−b ± √D)/(2a)',
+                    '(b ± √D)/(2a)',
+                    '−b/(2a)',
+                    '2a/(−b ± √D)'
+                ],
+                a: 0,
+                s: 'x = (−b ± √(b²−4ac))/(2a).',
+                year: 2024,
+                shift: 'Jan 29 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'If roots are equal, then D =',
+                o: [
+                    '0',
+                    'Positive',
+                    'Negative',
+                    'Undefined'
+                ],
+                a: 0,
+                s: 'Equal (repeated) roots when discriminant D = 0.',
+                year: 2018,
+                shift: 'Apr 8 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'The equation whose roots are reciprocals of ax² + bx + c = 0 is:',
+                o: [
+                    'cx² + bx + a = 0',
+                    'ax² − bx + c = 0',
+                    'ax² + bx − c = 0',
+                    'cx² − bx − a = 0'
+                ],
+                a: 0,
+                s: 'Replace x → 1/x: a/x² + b/x + c = 0 → cx² + bx + a = 0.',
+                year: 2017,
+                shift: 'Apr 8 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'For the inequality x² − 5x + 6 < 0, solution is:',
+                o: [
+                    '2 < x < 3',
+                    'x < 2 or x > 3',
+                    'x < 2',
+                    'x > 3'
+                ],
+                a: 0,
+                s: '(x−2)(x−3) < 0. Product negative when 2 < x < 3.',
+                year: 2016,
+                shift: 'Apr 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'If α, β are roots and α³ + β³ is:',
+                o: [
+                    '(α+β)³ − 3αβ(α+β)',
+                    '(α+β)³ + 3αβ',
+                    '(αβ)³',
+                    'α³β³'
+                ],
+                a: 0,
+                s: 'a³+b³ = (a+b)(a²−ab+b²) = (a+b)³ − 3ab(a+b).',
+                year: 2015,
+                shift: 'Paper 1',
+                exam: 'advanced'
+            },
+            {
+                q: 'Location of roots: if f(a) · f(b) < 0 then between a and b:',
+                o: [
+                    'At least one root exists',
+                    'No root exists',
+                    'Exactly two roots',
+                    'All roots'
+                ],
+                a: 0,
+                s: 'Intermediate value theorem: sign change → root in (a, b).',
+                year: 2024,
+                shift: 'Jan 30 Shift 1',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Permutations & Combinations',
+        slug: 'permutations-combinations',
+        questions: [
+            {
+                q: 'The value of 10! / (8! × 2!) is:',
+                o: [
+                    '45',
+                    '90',
+                    '10',
+                    '720'
+                ],
+                a: 0,
+                s: '₁₀C₂ = 10!/(8!2!) = (10×9)/2 = 45.',
+                year: 2023,
+                shift: 'Jan 24 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Number of ways to arrange n distinct objects is:',
+                o: [
+                    'n!',
+                    'nⁿ',
+                    '2ⁿ',
+                    'n²'
+                ],
+                a: 0,
+                s: 'n choices for first, (n−1) for second... = n!',
+                year: 2022,
+                shift: 'Jun 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'ⁿCᵣ = ⁿCₙ₋ᵣ is called:',
+                o: [
+                    'Symmetry property of combinations',
+                    'Pascal\'s rule',
+                    'Binomial theorem',
+                    'Vandermonde identity'
+                ],
+                a: 0,
+                s: 'Choosing r items = choosing which (n−r) to leave out.',
+                year: 2021,
+                shift: 'Feb 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Number of diagonals of an n-sided polygon:',
+                o: [
+                    'n(n−3)/2',
+                    'n(n−1)/2',
+                    'n²',
+                    'n!'
+                ],
+                a: 0,
+                s: 'Total lines ₙC₂ minus n sides = n(n−1)/2 − n = n(n−3)/2.',
+                year: 2020,
+                shift: 'Jan 8 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Circular permutations of n objects:',
+                o: [
+                    '(n−1)!',
+                    'n!',
+                    'n!/2',
+                    '(n−1)!/2'
+                ],
+                a: 0,
+                s: 'Fix one position → arrange remaining (n−1)! ways.',
+                year: 2019,
+                shift: 'Apr 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Number of ways to distribute n identical objects into r distinct groups:',
+                o: [
+                    'ⁿ⁺ʳ⁻¹Cᵣ₋₁',
+                    'nCr',
+                    'n!',
+                    'r^n'
+                ],
+                a: 0,
+                s: 'Stars and bars: C(n+r−1, r−1).',
+                year: 2023,
+                shift: 'Jan 29 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'If ⁿP₂ = 90, then n is:',
+                o: [
+                    '10',
+                    '9',
+                    '45',
+                    '8'
+                ],
+                a: 0,
+                s: 'ⁿP₂ = n(n−1) = 90 → n = 10.',
+                year: 2022,
+                shift: 'Jul 26 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Number of ways MISSISSIPPI can be arranged:',
+                o: [
+                    '34650',
+                    '11!',
+                    '11!/2!',
+                    '39916800'
+                ],
+                a: 0,
+                s: '11!/(4!4!2!1!) = 34650. (M:1, I:4, S:4, P:2).',
+                year: 2021,
+                shift: 'Aug 27 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Derangement D(n) counts permutations where:',
+                o: [
+                    'No element is in its original position',
+                    'All in original',
+                    'Exactly one fixed',
+                    'At least one fixed'
+                ],
+                a: 0,
+                s: 'Derangement: Dₙ = n!(1 − 1/1! + 1/2! − ... + (−1)ⁿ/n!).',
+                year: 2020,
+                shift: 'Sep 4 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Pascal\'s rule: ⁿCᵣ =',
+                o: [
+                    'ⁿ⁻¹Cᵣ₋₁ + ⁿ⁻¹Cᵣ',
+                    'ⁿ⁻¹Cᵣ₋₁ − ⁿ⁻¹Cᵣ',
+                    'ⁿCᵣ₋₁ + ⁿCᵣ₊₁',
+                    'ⁿ⁺¹Cᵣ × 2'
+                ],
+                a: 0,
+                s: 'Element either included or excluded → two subcases.',
+                year: 2024,
+                shift: 'Jan 27 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Total number of 3-digit numbers using 1,2,3,4,5 (no repetition):',
+                o: [
+                    '60',
+                    '125',
+                    '120',
+                    '80'
+                ],
+                a: 0,
+                s: '5 × 4 × 3 = 60 (⁵P₃).',
+                year: 2018,
+                shift: 'Apr 15 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Selection where order matters is called:',
+                o: [
+                    'Permutation',
+                    'Combination',
+                    'Partition',
+                    'Arrangement with repetition'
+                ],
+                a: 0,
+                s: 'Permutation = ordered selection. Combination = unordered.',
+                year: 2017,
+                shift: 'Apr 2 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Number of handshakes among n people:',
+                o: [
+                    'n(n−1)/2',
+                    'n!',
+                    'n²',
+                    '2ⁿ'
+                ],
+                a: 0,
+                s: 'Each handshake = choosing 2 from n = ₙC₂ = n(n−1)/2.',
+                year: 2016,
+                shift: 'Apr 3 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'ⁿPᵣ / ⁿCᵣ equals:',
+                o: [
+                    'r!',
+                    'n!',
+                    '1',
+                    'n'
+                ],
+                a: 0,
+                s: 'ⁿPᵣ = ⁿCᵣ × r! → ratio = r!',
+                year: 2015,
+                shift: 'Paper 2',
+                exam: 'advanced'
+            },
+            {
+                q: 'Number of ways to form a committee of 3 from 5 men and 4 women with at least 1 woman:',
+                o: [
+                    '74',
+                    '84',
+                    '10',
+                    '64'
+                ],
+                a: 0,
+                s: 'Total − all men = ⁹C₃ − ⁵C₃ = 84 − 10 = 74.',
+                year: 2024,
+                shift: 'Jan 30 Shift 2',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Binomial Theorem',
+        slug: 'binomial-theorem',
+        questions: [
+            {
+                q: 'General term in (x + y)ⁿ is:',
+                o: [
+                    'ⁿCᵣ xⁿ⁻ʳ yʳ',
+                    'xⁿyⁿ',
+                    'ⁿCᵣ xʳ yⁿ⁻ʳ',
+                    'n xⁿ yⁿ'
+                ],
+                a: 0,
+                s: 'Tᵣ₊₁ = ⁿCᵣ x^(n−r) y^r, r = 0, 1, ..., n.',
+                year: 2023,
+                shift: 'Jan 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Number of terms in (a + b)ⁿ is:',
+                o: [
+                    'n + 1',
+                    'n',
+                    'n − 1',
+                    '2n'
+                ],
+                a: 0,
+                s: 'r goes from 0 to n → (n+1) terms.',
+                year: 2022,
+                shift: 'Jun 26 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Middle term of (1 + x)¹⁰ is:',
+                o: [
+                    '₁₀C₅ x⁵',
+                    '₁₀C₄ x⁴',
+                    '₁₀C₆ x⁶',
+                    '₁₀C₁₀ x¹⁰'
+                ],
+                a: 0,
+                s: 'n=10 (even) → middle = T₆ = ₁₀C₅ x⁵.',
+                year: 2021,
+                shift: 'Feb 26 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Sum of binomial coefficients in (1+x)ⁿ (put x=1):',
+                o: [
+                    '2ⁿ',
+                    'nⁿ',
+                    'n!',
+                    '3ⁿ'
+                ],
+                a: 0,
+                s: '(1+1)ⁿ = 2ⁿ = sum of all ⁿCₖ.',
+                year: 2020,
+                shift: 'Jan 9 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'ⁿC₀ + ⁿC₁ + ⁿC₂ + ... + ⁿCₙ =',
+                o: [
+                    '2ⁿ',
+                    'n²',
+                    '2ⁿ − 1',
+                    'n!'
+                ],
+                a: 0,
+                s: 'Set x = 1 in (1+x)ⁿ.',
+                year: 2019,
+                shift: 'Jan 10 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Coefficient of x³ in (1 + x)⁸ is:',
+                o: [
+                    '56',
+                    '28',
+                    '70',
+                    '8'
+                ],
+                a: 0,
+                s: '⁸C₃ = 8!/(3!5!) = 56.',
+                year: 2023,
+                shift: 'Jan 30 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: '(1 + x)ⁿ + (1 − x)ⁿ contains only:',
+                o: [
+                    'Even powers of x',
+                    'Odd powers',
+                    'All powers',
+                    'Constant term only'
+                ],
+                a: 0,
+                s: 'Odd power terms cancel, even power terms double.',
+                year: 2022,
+                shift: 'Jul 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'If ⁿCᵣ is greatest when:',
+                o: [
+                    'r = n/2 (n even) or r = (n±1)/2 (n odd)',
+                    'r = 0',
+                    'r = n',
+                    'r = 1'
+                ],
+                a: 0,
+                s: 'Central binomial coefficient is largest.',
+                year: 2021,
+                shift: 'Mar 16 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Binomial theorem for negative exponent (1+x)⁻¹ =',
+                o: [
+                    '1 − x + x² − x³ + ... (|x| < 1)',
+                    '1 + x + x²',
+                    '1/x',
+                    'Cannot expand'
+                ],
+                a: 0,
+                s: 'Infinite series: (1+x)^(−1) = Σ(−1)ʳxʳ for |x| < 1.',
+                year: 2020,
+                shift: 'Sep 2 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'ⁿC₀ − ⁿC₁ + ⁿC₂ − ... equals:',
+                o: [
+                    '0',
+                    '2ⁿ',
+                    '1',
+                    '−1'
+                ],
+                a: 0,
+                s: 'Set x = −1 in (1+x)ⁿ: (1−1)ⁿ = 0.',
+                year: 2024,
+                shift: 'Jan 29 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'The term independent of x in (x + 1/x)⁶ is:',
+                o: [
+                    '₆C₃ = 20',
+                    '₆C₀ = 1',
+                    '₆C₆ = 1',
+                    '₆C₂ = 15'
+                ],
+                a: 0,
+                s: 'Tᵣ₊₁ = ⁶Cᵣ x^(6−r) (1/x)^r = ⁶Cᵣ x^(6−2r). Set 6−2r=0 → r=3.',
+                year: 2018,
+                shift: 'Apr 8 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Sum ⁿC₁ + 2·ⁿC₂ + 3·ⁿC₃ + ... + n·ⁿCₙ =',
+                o: [
+                    'n · 2ⁿ⁻¹',
+                    '2ⁿ',
+                    'n²',
+                    'n!'
+                ],
+                a: 0,
+                s: 'Differentiate (1+x)ⁿ and set x=1: n·2ⁿ⁻¹.',
+                year: 2017,
+                shift: 'Apr 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Vandermonde identity: ᵐ⁺ⁿCᵣ =',
+                o: [
+                    'Σ ᵐCₖ · ⁿCᵣ₋ₖ',
+                    'ᵐCᵣ + ⁿCᵣ',
+                    'ᵐCᵣ · ⁿCᵣ',
+                    'ᵐ⁺ⁿCᵣ₋₁'
+                ],
+                a: 0,
+                s: 'Choose r from two groups: k from first, r−k from second.',
+                year: 2016,
+                shift: 'Apr 10 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Remainder when 3²⁰ is divided by 8:',
+                o: [
+                    '1',
+                    '3',
+                    '5',
+                    '7'
+                ],
+                a: 0,
+                s: '3²⁰ = (1+8)¹⁰ using binomial. All terms divisible by 8 except 1.',
+                year: 2015,
+                shift: 'Paper 1',
+                exam: 'advanced'
+            },
+            {
+                q: 'Multinomial theorem generalises binomial to:',
+                o: [
+                    'More than two terms',
+                    'Two terms only',
+                    'Single term',
+                    'Infinite series only'
+                ],
+                a: 0,
+                s: '(x₁+x₂+...+xₖ)ⁿ expanded using multinomial coefficients.',
+                year: 2024,
+                shift: 'Jan 27 Shift 1',
+                exam: 'main'
+            }
+        ]
+    }
+];
+}),
+"[project]/src/data/pyq/maths-pyq-2.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "mathsPyq2",
+    ()=>mathsPyq2
+]);
+const mathsPyq2 = [
+    {
+        name: 'Matrices & Determinants',
+        slug: 'matrices-determinants',
+        questions: [
+            {
+                q: 'If A is a 3×3 matrix and |A| = 5, then |3A| is:',
+                o: [
+                    '135',
+                    '15',
+                    '45',
+                    '5'
+                ],
+                a: 0,
+                s: '|kA| = k^n |A| for n×n matrix. |3A| = 3³ × 5 = 135.',
+                year: 2023,
+                shift: 'Jan 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'A square matrix A is singular if:',
+                o: [
+                    '|A| = 0',
+                    '|A| = 1',
+                    'A = I',
+                    'A is symmetric'
+                ],
+                a: 0,
+                s: 'Singular → determinant zero → no inverse exists.',
+                year: 2022,
+                shift: 'Jun 27 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: '(AB)⁻¹ equals:',
+                o: [
+                    'B⁻¹A⁻¹',
+                    'A⁻¹B⁻¹',
+                    '(AB)ᵀ',
+                    'AB'
+                ],
+                a: 0,
+                s: 'Inverse of product reverses order: (AB)⁻¹ = B⁻¹A⁻¹.',
+                year: 2021,
+                shift: 'Feb 24 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Rank of a matrix equals:',
+                o: [
+                    'Number of non-zero rows in row echelon form',
+                    'Number of rows',
+                    'Determinant value',
+                    'Number of columns'
+                ],
+                a: 0,
+                s: 'Rank = number of linearly independent rows/columns.',
+                year: 2020,
+                shift: 'Jan 7 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'If A is orthogonal, then AᵀA equals:',
+                o: [
+                    'I (identity)',
+                    'A',
+                    'A²',
+                    '0'
+                ],
+                a: 0,
+                s: 'Orthogonal: Aᵀ = A⁻¹ → AᵀA = I.',
+                year: 2019,
+                shift: 'Jan 9 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Adjoint of a 2×2 matrix [[a,b],[c,d]] is:',
+                o: [
+                    '[[d,−b],[−c,a]]',
+                    '[[a,c],[b,d]]',
+                    '[[d,c],[b,a]]',
+                    '[[−a,b],[c,−d]]'
+                ],
+                a: 0,
+                s: 'adj(A): swap diagonal, negate off-diagonal for 2×2.',
+                year: 2023,
+                shift: 'Jan 29 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Cramer\'s rule applies to:',
+                o: [
+                    'System with unique solution (|A| ≠ 0)',
+                    'All systems',
+                    'Only homogeneous',
+                    'Only 2×2 systems'
+                ],
+                a: 0,
+                s: 'AX = B → xᵢ = |Aᵢ|/|A| when |A| ≠ 0.',
+                year: 2022,
+                shift: 'Jul 28 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Eigenvalues of a diagonal matrix are:',
+                o: [
+                    'Its diagonal entries',
+                    'All zeros',
+                    'Its off-diagonal entries',
+                    'Determinant only'
+                ],
+                a: 0,
+                s: 'det(A − λI) = 0 → for diagonal matrix, eigenvalues are diagonal elements.',
+                year: 2021,
+                shift: 'Aug 26 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'If A is skew-symmetric, then Aᵀ =',
+                o: [
+                    '−A',
+                    'A',
+                    'I',
+                    '0'
+                ],
+                a: 0,
+                s: 'Skew-symmetric: aᵢⱼ = −aⱼᵢ → Aᵀ = −A.',
+                year: 2020,
+                shift: 'Sep 3 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Cayley-Hamilton theorem states every matrix satisfies:',
+                o: [
+                    'Its own characteristic equation',
+                    'A + Aᵀ = I',
+                    'A² = A',
+                    '|A| = 0'
+                ],
+                a: 0,
+                s: 'If p(λ) is characteristic polynomial, then p(A) = 0.',
+                year: 2024,
+                shift: 'Jan 27 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Trace of a matrix is:',
+                o: [
+                    'Sum of diagonal elements',
+                    'Determinant',
+                    'Product of eigenvalues',
+                    'Rank'
+                ],
+                a: 0,
+                s: 'tr(A) = Σaᵢᵢ = sum of eigenvalues.',
+                year: 2018,
+                shift: 'Apr 15 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: '|Aᵀ| equals:',
+                o: [
+                    '|A|',
+                    '−|A|',
+                    '1/|A|',
+                    '|A|²'
+                ],
+                a: 0,
+                s: 'Determinant is invariant under transpose: |Aᵀ| = |A|.',
+                year: 2017,
+                shift: 'Apr 2 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'A nilpotent matrix A satisfies:',
+                o: [
+                    'Aᵏ = 0 for some k',
+                    'A² = A',
+                    'A = A⁻¹',
+                    '|A| = 1'
+                ],
+                a: 0,
+                s: 'Nilpotent: some power of A is zero matrix. Eigenvalues all 0.',
+                year: 2016,
+                shift: 'Apr 9 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'For consistent system AX = B:',
+                o: [
+                    'rank(A) = rank([A|B])',
+                    'rank(A) < rank([A|B])',
+                    '|A| must be non-zero',
+                    'A must be square'
+                ],
+                a: 0,
+                s: 'Rouché–Capelli: consistent iff rank(A) = rank(augmented).',
+                year: 2015,
+                shift: 'Paper 1',
+                exam: 'advanced'
+            },
+            {
+                q: 'Inverse of A exists when:',
+                o: [
+                    '|A| ≠ 0',
+                    '|A| = 0',
+                    'A is any matrix',
+                    'Only for symmetric A'
+                ],
+                a: 0,
+                s: 'Non-singular (det ≠ 0) → A⁻¹ = adj(A)/|A|.',
+                year: 2024,
+                shift: 'Jan 30 Shift 1',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Sequences & Series',
+        slug: 'sequences-series',
+        questions: [
+            {
+                q: 'Sum of first n natural numbers is:',
+                o: [
+                    'n(n+1)/2',
+                    'n²',
+                    'n(n−1)/2',
+                    '(n+1)²/2'
+                ],
+                a: 0,
+                s: 'Σk = n(n+1)/2 (Gauss formula).',
+                year: 2023,
+                shift: 'Jan 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'nth term of AP with first term a and common difference d:',
+                o: [
+                    'a + (n−1)d',
+                    'a + nd',
+                    'a·dⁿ',
+                    'a·rⁿ⁻¹'
+                ],
+                a: 0,
+                s: 'aₙ = a + (n−1)d for arithmetic progression.',
+                year: 2022,
+                shift: 'Jun 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Sum of infinite GP with |r| < 1 is:',
+                o: [
+                    'a/(1−r)',
+                    'a/(1+r)',
+                    'ar',
+                    'a·r∞'
+                ],
+                a: 0,
+                s: 'S∞ = a/(1−r) when |common ratio| < 1.',
+                year: 2021,
+                shift: 'Feb 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'AM of two numbers a, b is:',
+                o: [
+                    '(a+b)/2',
+                    '√(ab)',
+                    '2ab/(a+b)',
+                    'a−b'
+                ],
+                a: 0,
+                s: 'Arithmetic mean = (a+b)/2.',
+                year: 2020,
+                shift: 'Jan 8 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Relationship: AM ≥ GM ≥ HM for positive numbers where:',
+                o: [
+                    'AM = (a+b)/2, GM = √(ab), HM = 2ab/(a+b)',
+                    'All are equal always',
+                    'GM > AM',
+                    'HM > AM'
+                ],
+                a: 0,
+                s: 'AM-GM-HM inequality holds for positive reals with equality iff a = b.',
+                year: 2019,
+                shift: 'Apr 10 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Sum of squares of first n natural numbers:',
+                o: [
+                    'n(n+1)(2n+1)/6',
+                    'n²(n+1)²/4',
+                    'n(n+1)/2',
+                    'n³/3'
+                ],
+                a: 0,
+                s: 'Σk² = n(n+1)(2n+1)/6.',
+                year: 2023,
+                shift: 'Jan 30 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'If a, ar, ar² are in GP, common ratio is:',
+                o: [
+                    'r',
+                    'a',
+                    'ar',
+                    '1'
+                ],
+                a: 0,
+                s: 'ratio = ar/a = r (each term ÷ previous).',
+                year: 2022,
+                shift: 'Jul 26 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Sum of n terms of GP:',
+                o: [
+                    'a(rⁿ−1)/(r−1) for r ≠ 1',
+                    'na',
+                    'arⁿ',
+                    'a/(r−1)'
+                ],
+                a: 0,
+                s: 'Sₙ = a(rⁿ−1)/(r−1).',
+                year: 2021,
+                shift: 'Mar 17 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'If three numbers are in HP, their reciprocals are in:',
+                o: [
+                    'AP',
+                    'GP',
+                    'HP',
+                    'None'
+                ],
+                a: 0,
+                s: 'HP: 1/a, 1/b, 1/c are in AP.',
+                year: 2020,
+                shift: 'Sep 2 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Sum of cubes of first n natural numbers:',
+                o: [
+                    '[n(n+1)/2]²',
+                    'n³(n+1)³/8',
+                    'n⁴/4',
+                    'n(n+1)(2n+1)/6'
+                ],
+                a: 0,
+                s: 'Σk³ = [n(n+1)/2]² = (Σk)².',
+                year: 2024,
+                shift: 'Jan 29 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Telescoping series technique relies on:',
+                o: [
+                    'Partial fractions that cancel successively',
+                    'Geometric ratio',
+                    'Integration',
+                    'Differentiation'
+                ],
+                a: 0,
+                s: 'a₁−a₂ + a₂−a₃ + ... → most terms cancel, leaving first and last.',
+                year: 2018,
+                shift: 'Apr 8 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'AGP (Arithmetic-Geometric Progression) has general term:',
+                o: [
+                    '(a + (n−1)d)rⁿ⁻¹',
+                    'arⁿ + d',
+                    'a + dr',
+                    '(a+d)ⁿ'
+                ],
+                a: 0,
+                s: 'AGP: product of AP term and GP term.',
+                year: 2017,
+                shift: 'Apr 8 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'If Sₙ = 3n² + 5n, then aₙ (n-th term for n>1) is:',
+                o: [
+                    '6n + 2',
+                    '3n + 5',
+                    '6n − 2',
+                    '3n² + 5n'
+                ],
+                a: 0,
+                s: 'aₙ = Sₙ − Sₙ₋₁ = (3n²+5n)−(3(n−1)²+5(n−1)) = 6n+2.',
+                year: 2016,
+                shift: 'Apr 3 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Ratio test for convergence of series Σaₙ: converges if:',
+                o: [
+                    'lim|aₙ₊₁/aₙ| < 1',
+                    'Ratio = 1',
+                    'Ratio > 1',
+                    'Ratio = 0 always'
+                ],
+                a: 0,
+                s: 'If L < 1, series converges absolutely. L > 1: diverges.',
+                year: 2015,
+                shift: 'Paper 2',
+                exam: 'advanced'
+            },
+            {
+                q: '1 + 1/2 + 1/3 + 1/4 + ... (harmonic series):',
+                o: [
+                    'Diverges',
+                    'Converges to 1',
+                    'Converges to 2',
+                    'Converges to e'
+                ],
+                a: 0,
+                s: 'Harmonic series diverges (grows without bound, slowly).',
+                year: 2024,
+                shift: 'Jan 27 Shift 1',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Limits & Continuity',
+        slug: 'limits-continuity',
+        questions: [
+            {
+                q: 'lim(x→0) sin x / x equals:',
+                o: [
+                    '1',
+                    '0',
+                    '∞',
+                    'Does not exist'
+                ],
+                a: 0,
+                s: 'Fundamental limit: lim sin x/x = 1 as x → 0.',
+                year: 2023,
+                shift: 'Jan 24 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'lim(x→∞) (1 + 1/x)ˣ equals:',
+                o: [
+                    'e',
+                    '1',
+                    '∞',
+                    '0'
+                ],
+                a: 0,
+                s: 'Definition of e ≈ 2.718... as limit.',
+                year: 2022,
+                shift: 'Jun 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'L\'Hôpital\'s rule applies when limit is of form:',
+                o: [
+                    '0/0 or ∞/∞',
+                    '0 × ∞',
+                    '1/0',
+                    'Always'
+                ],
+                a: 0,
+                s: 'Indeterminate 0/0 or ∞/∞ → differentiate numerator and denominator.',
+                year: 2021,
+                shift: 'Feb 26 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'A function is continuous at x = a if:',
+                o: [
+                    'lim(x→a) f(x) = f(a)',
+                    'f(a) exists only',
+                    'Limit exists only',
+                    'f is differentiable'
+                ],
+                a: 0,
+                s: 'Three conditions: f(a) defined, limit exists, limit = f(a).',
+                year: 2020,
+                shift: 'Jan 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'lim(x→0) (eˣ − 1)/x equals:',
+                o: [
+                    '1',
+                    'e',
+                    '0',
+                    '∞'
+                ],
+                a: 0,
+                s: 'Standard limit: (eˣ−1)/x → 1 as x → 0.',
+                year: 2019,
+                shift: 'Jan 10 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Sandwich (squeeze) theorem states if g(x) ≤ f(x) ≤ h(x) and lim g = lim h = L, then:',
+                o: [
+                    'lim f = L',
+                    'lim f = 0',
+                    'f has no limit',
+                    'f = g'
+                ],
+                a: 0,
+                s: 'Squeezed between two functions with same limit → f has that limit.',
+                year: 2023,
+                shift: 'Jan 29 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'lim(x→0) tan x / x equals:',
+                o: [
+                    '1',
+                    '0',
+                    '∞',
+                    '−1'
+                ],
+                a: 0,
+                s: 'tan x/x = (sin x/x)(1/cos x) → 1·1 = 1.',
+                year: 2022,
+                shift: 'Jul 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'lim(x→0) (1 − cos x)/x² equals:',
+                o: [
+                    '1/2',
+                    '1',
+                    '0',
+                    '2'
+                ],
+                a: 0,
+                s: '1−cos x ≈ x²/2 for small x → limit = 1/2.',
+                year: 2021,
+                shift: 'Aug 27 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Types of discontinuity include:',
+                o: [
+                    'Removable, jump, and infinite',
+                    'Only removable',
+                    'Only jump',
+                    'No types exist'
+                ],
+                a: 0,
+                s: 'Removable (limit exists ≠ f(a)), jump (left ≠ right limit), infinite (vertical asymptote).',
+                year: 2020,
+                shift: 'Sep 4 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'If lim(x→a⁺) f(x) ≠ lim(x→a⁻) f(x), the function has:',
+                o: [
+                    'Jump discontinuity at a',
+                    'Removable discontinuity',
+                    'No discontinuity',
+                    'Infinite discontinuity'
+                ],
+                a: 0,
+                s: 'Unequal one-sided limits → jump (non-removable) discontinuity.',
+                year: 2024,
+                shift: 'Jan 30 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'lim(x→0) xⁿ/eˣ for positive integer n:',
+                o: [
+                    '0',
+                    '1',
+                    '∞',
+                    'n!'
+                ],
+                a: 0,
+                s: 'Exponential dominates any polynomial → limit = 0.',
+                year: 2018,
+                shift: 'Apr 15 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'lim(x→0) log(1+x)/x equals:',
+                o: [
+                    '1',
+                    '0',
+                    'log e',
+                    '∞'
+                ],
+                a: 0,
+                s: 'Standard limit: ln(1+x)/x → 1 as x → 0.',
+                year: 2017,
+                shift: 'Apr 9 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Intermediate Value Theorem requires f to be:',
+                o: [
+                    'Continuous on [a,b]',
+                    'Differentiable on [a,b]',
+                    'Integrable on [a,b]',
+                    'Bounded only'
+                ],
+                a: 0,
+                s: 'IVT: continuous f on [a,b] takes every value between f(a) and f(b).',
+                year: 2016,
+                shift: 'Apr 10 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'lim(n→∞) (1 + r/n)ⁿ equals:',
+                o: [
+                    'eʳ',
+                    'rⁿ',
+                    '∞',
+                    '1+r'
+                ],
+                a: 0,
+                s: 'Compound interest limit: (1+r/n)ⁿ → eʳ.',
+                year: 2015,
+                shift: 'Paper 2',
+                exam: 'advanced'
+            },
+            {
+                q: 'A function f is uniformly continuous on I if:',
+                o: [
+                    'δ depends only on ε (not on point)',
+                    'δ depends on point and ε',
+                    'f is bounded',
+                    'f is differentiable'
+                ],
+                a: 0,
+                s: 'Uniform: one δ works for all points in I (not just pointwise).',
+                year: 2024,
+                shift: 'Jan 27 Shift 2',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Differentiation',
+        slug: 'differentiation',
+        questions: [
+            {
+                q: 'If f(x) = xⁿ, then f\'(x) is:',
+                o: [
+                    'nxⁿ⁻¹',
+                    'xⁿ⁻¹',
+                    'nx',
+                    'xⁿ/n'
+                ],
+                a: 0,
+                s: 'Power rule: d(xⁿ)/dx = nxⁿ⁻¹.',
+                year: 2023,
+                shift: 'Jan 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'd(sin x)/dx equals:',
+                o: [
+                    'cos x',
+                    '−cos x',
+                    'sin x',
+                    '−sin x'
+                ],
+                a: 0,
+                s: 'Derivative of sin x = cos x.',
+                year: 2022,
+                shift: 'Jun 26 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Chain rule: d[f(g(x))]/dx equals:',
+                o: [
+                    'f\'(g(x)) · g\'(x)',
+                    'f\'(x) · g\'(x)',
+                    'f(g\'(x))',
+                    'f\'(x) + g\'(x)'
+                ],
+                a: 0,
+                s: 'Composite function: outer derivative × inner derivative.',
+                year: 2021,
+                shift: 'Feb 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Rolle\'s theorem requires:',
+                o: [
+                    'f continuous on [a,b], differentiable on (a,b), f(a)=f(b)',
+                    'Only continuity',
+                    'f(a)≠f(b)',
+                    'f is constant'
+                ],
+                a: 0,
+                s: 'Under these conditions, ∃c ∈ (a,b) with f\'(c) = 0.',
+                year: 2020,
+                shift: 'Jan 7 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'd(eˣ)/dx equals:',
+                o: [
+                    'eˣ',
+                    'xeˣ⁻¹',
+                    'eˣ⁻¹',
+                    'ln x'
+                ],
+                a: 0,
+                s: 'eˣ is its own derivative.',
+                year: 2019,
+                shift: 'Jan 11 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Maxima of f(x) occurs where:',
+                o: [
+                    'f\'(x) = 0 and f\'\'(x) < 0',
+                    'f\'(x) = 0 and f\'\'(x) > 0',
+                    'f\'(x) > 0',
+                    'f\'(x) < 0'
+                ],
+                a: 0,
+                s: 'Critical point with concave down (f\'\'<0) → local maximum.',
+                year: 2023,
+                shift: 'Jan 30 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Product rule: d(uv)/dx equals:',
+                o: [
+                    'u\'v + uv\'',
+                    'u\'v\'',
+                    'u\'v − uv\'',
+                    'uv + u\'v\''
+                ],
+                a: 0,
+                s: '(fg)\' = f\'g + fg\'.',
+                year: 2022,
+                shift: 'Jul 28 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'd(ln x)/dx equals:',
+                o: [
+                    '1/x',
+                    'x',
+                    'ln x',
+                    'eˣ'
+                ],
+                a: 0,
+                s: 'd(ln x)/dx = 1/x for x > 0.',
+                year: 2021,
+                shift: 'Mar 16 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Mean Value Theorem states ∃c ∈ (a,b) such that f\'(c) =',
+                o: [
+                    '[f(b)−f(a)]/(b−a)',
+                    'f(a)+f(b)',
+                    '0',
+                    'f(b)·f(a)'
+                ],
+                a: 0,
+                s: 'MVT: instantaneous rate = average rate somewhere in interval.',
+                year: 2020,
+                shift: 'Sep 3 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Second derivative test: f\'\'(c) > 0 at critical point → c is:',
+                o: [
+                    'Local minimum',
+                    'Local maximum',
+                    'Inflection point',
+                    'Saddle point'
+                ],
+                a: 0,
+                s: 'f\'\' > 0 → concave up → minimum.',
+                year: 2024,
+                shift: 'Jan 29 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'd(tan x)/dx equals:',
+                o: [
+                    'sec²x',
+                    'csc²x',
+                    'tan²x',
+                    'sec x tan x'
+                ],
+                a: 0,
+                s: 'd(tan x)/dx = sec²x.',
+                year: 2018,
+                shift: 'Apr 8 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Quotient rule: d(u/v)/dx equals:',
+                o: [
+                    '(u\'v − uv\')/v²',
+                    '(u\'v + uv\')/v²',
+                    'u\'/v\'',
+                    '(uv\' − u\'v)/v²'
+                ],
+                a: 0,
+                s: '(f/g)\' = (f\'g − fg\')/g².',
+                year: 2017,
+                shift: 'Apr 2 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Taylor series of f(x) about x = a:',
+                o: [
+                    'Σ f⁽ⁿ⁾(a)(x−a)ⁿ/n!',
+                    'f(a) + f\'(x)',
+                    'f(x) + f(a)',
+                    'Σ fⁿ(x)'
+                ],
+                a: 0,
+                s: 'f(x) = f(a) + f\'(a)(x−a) + f\'\'(a)(x−a)²/2! + ...',
+                year: 2016,
+                shift: 'Apr 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Implicit differentiation is used when:',
+                o: [
+                    'y is not explicitly given as function of x',
+                    'y = f(x) explicitly',
+                    'Only for trigonometric functions',
+                    'Never needed'
+                ],
+                a: 0,
+                s: 'F(x,y) = 0 → differentiate both sides w.r.t. x, solve for dy/dx.',
+                year: 2015,
+                shift: 'Paper 1',
+                exam: 'advanced'
+            },
+            {
+                q: 'Derivative of |sin x| at x = π is:',
+                o: [
+                    '−cos π = 1',
+                    'cos π = −1',
+                    '0',
+                    'Does not exist'
+                ],
+                a: 0,
+                s: 'Near x=π, sin x < 0 → |sin x| = −sin x → d/dx = −cos x. At π: −(−1) = 1.',
+                year: 2024,
+                shift: 'Jan 30 Shift 1',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Integral Calculus',
+        slug: 'integral-calculus',
+        questions: [
+            {
+                q: '∫xⁿ dx (n ≠ −1) equals:',
+                o: [
+                    'xⁿ⁺¹/(n+1) + C',
+                    'nxⁿ⁻¹ + C',
+                    'xⁿ/n + C',
+                    'ln x + C'
+                ],
+                a: 0,
+                s: 'Power rule for integration: increase power by 1, divide.',
+                year: 2023,
+                shift: 'Jan 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: '∫eˣ dx equals:',
+                o: [
+                    'eˣ + C',
+                    'xeˣ + C',
+                    'eˣ/x + C',
+                    'ln(eˣ) + C'
+                ],
+                a: 0,
+                s: 'eˣ is its own antiderivative.',
+                year: 2022,
+                shift: 'Jun 27 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Fundamental theorem of calculus states:',
+                o: [
+                    '∫ₐᵇ f(x)dx = F(b) − F(a) where F\' = f',
+                    'All functions are integrable',
+                    '∫f = f\'',
+                    '∫₀^∞ f = 0'
+                ],
+                a: 0,
+                s: 'FTC connects antiderivative evaluation to definite integral.',
+                year: 2021,
+                shift: 'Feb 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: '∫₀^π sin x dx equals:',
+                o: [
+                    '2',
+                    '0',
+                    '1',
+                    'π'
+                ],
+                a: 0,
+                s: '[−cos x]₀^π = −cos π − (−cos 0) = 1 + 1 = 2.',
+                year: 2020,
+                shift: 'Jan 8 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Integration by parts formula:',
+                o: [
+                    '∫u dv = uv − ∫v du',
+                    '∫u dv = uv + ∫v du',
+                    '∫u dv = u\'v\'',
+                    '∫u dv = ∫u ∫dv'
+                ],
+                a: 0,
+                s: 'IBP from product rule: ∫u dv = uv − ∫v du.',
+                year: 2019,
+                shift: 'Apr 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: '∫1/x dx equals:',
+                o: [
+                    'ln|x| + C',
+                    '1/x² + C',
+                    'x⁰ + C',
+                    '−1/x² + C'
+                ],
+                a: 0,
+                s: 'Special case: n = −1 → ln|x| + C.',
+                year: 2023,
+                shift: 'Jan 29 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Area under curve y = f(x) from a to b is:',
+                o: [
+                    '∫ₐᵇ f(x) dx (when f ≥ 0)',
+                    'f(b) − f(a)',
+                    'f\'(b) − f\'(a)',
+                    'π∫f²dx'
+                ],
+                a: 0,
+                s: 'Definite integral gives signed area between curve and x-axis.',
+                year: 2022,
+                shift: 'Jul 26 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: '∫sin²x dx equals:',
+                o: [
+                    'x/2 − sin 2x/4 + C',
+                    'sin²x/2 + C',
+                    '−cos²x + C',
+                    'x − sin x + C'
+                ],
+                a: 0,
+                s: 'sin²x = (1 − cos 2x)/2 → integrate term by term.',
+                year: 2021,
+                shift: 'Aug 26 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Simpson\'s 1/3 rule is a method for:',
+                o: [
+                    'Numerical integration',
+                    'Exact integration',
+                    'Differentiation',
+                    'Solving ODEs'
+                ],
+                a: 0,
+                s: 'Simpson uses parabolic approximation for numerical quadrature.',
+                year: 2020,
+                shift: 'Sep 4 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: '∫₋ₐᵃ f(x) dx = 0 when f is:',
+                o: [
+                    'Odd function',
+                    'Even function',
+                    'Any function',
+                    'Constant'
+                ],
+                a: 0,
+                s: 'Odd: f(−x) = −f(x) → symmetric integral cancels.',
+                year: 2024,
+                shift: 'Jan 27 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: '∫sec²x dx equals:',
+                o: [
+                    'tan x + C',
+                    'sec x + C',
+                    'sec x tan x + C',
+                    'ln|sec x| + C'
+                ],
+                a: 0,
+                s: 'd(tan x)/dx = sec²x → ∫sec²x dx = tan x + C.',
+                year: 2018,
+                shift: 'Apr 15 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Substitution ∫f(g(x))g\'(x)dx = ∫f(u)du uses:',
+                o: [
+                    'u = g(x)',
+                    'u = f(x)',
+                    'u = x',
+                    'u = f\'(x)'
+                ],
+                a: 0,
+                s: 'u-substitution: let u = inner function, du = g\'(x)dx.',
+                year: 2017,
+                shift: 'Apr 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Volume of revolution about x-axis:',
+                o: [
+                    'π∫ₐᵇ [f(x)]² dx',
+                    '2π∫₀ˢ f(x) dx',
+                    '∫f(x) dx',
+                    'πr²h'
+                ],
+                a: 0,
+                s: 'Disk method: V = π∫[f(x)]² dx (washer when two curves).',
+                year: 2016,
+                shift: 'Apr 3 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: '∫₀^(π/2) sin^n x dx satisfies Wallis\' reduction formula when n is even:',
+                o: [
+                    '(n−1)!!/(n)!! × π/2',
+                    'n!',
+                    'π/n',
+                    '1/n'
+                ],
+                a: 0,
+                s: 'Wallis: ∫₀^(π/2) sinⁿx dx = [(n−1)!!/n!!][π/2 if n even, 1 if n odd].',
+                year: 2015,
+                shift: 'Paper 1',
+                exam: 'advanced'
+            },
+            {
+                q: 'Leibniz rule for d/dx ∫ₐˣ f(t)dt:',
+                o: [
+                    'f(x)',
+                    '∫f(x)dx',
+                    'f\'(x)',
+                    'f(a)'
+                ],
+                a: 0,
+                s: 'FTC Part 1: d/dx ∫ₐˣ f(t)dt = f(x).',
+                year: 2024,
+                shift: 'Jan 30 Shift 2',
+                exam: 'main'
+            }
+        ]
+    }
+];
+}),
+"[project]/src/data/pyq/maths-pyq-3.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "mathsPyq3",
+    ()=>mathsPyq3
+]);
+const mathsPyq3 = [
+    {
+        name: 'Conic Sections',
+        slug: 'conic-sections',
+        questions: [
+            {
+                q: 'Eccentricity of a parabola is:',
+                o: [
+                    '1',
+                    '0',
+                    '< 1',
+                    '> 1'
+                ],
+                a: 0,
+                s: 'Parabola: e = 1. Circle: e=0. Ellipse: 0<e<1. Hyperbola: e>1.',
+                year: 2023,
+                shift: 'Jan 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Standard equation of a circle with centre (h,k) and radius r:',
+                o: [
+                    '(x−h)² + (y−k)² = r²',
+                    'x² + y² = r',
+                    '(x+h)² + (y+k)² = r',
+                    'x²/r + y²/r = 1'
+                ],
+                a: 0,
+                s: 'Circle: all points at distance r from (h,k).',
+                year: 2022,
+                shift: 'Jun 24 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Focus of parabola y² = 4ax is at:',
+                o: [
+                    '(a, 0)',
+                    '(0, a)',
+                    '(−a, 0)',
+                    '(0, −a)'
+                ],
+                a: 0,
+                s: 'y² = 4ax: focus (a,0), directrix x = −a, vertex (0,0).',
+                year: 2021,
+                shift: 'Feb 26 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Length of latus rectum of ellipse x²/a² + y²/b² = 1 (a > b) is:',
+                o: [
+                    '2b²/a',
+                    '2a²/b',
+                    'a²/b',
+                    'b²/a'
+                ],
+                a: 0,
+                s: 'LR = 2b²/a for ellipse with semi-major axis a.',
+                year: 2020,
+                shift: 'Jan 9 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'For a hyperbola x²/a² − y²/b² = 1, the asymptotes are:',
+                o: [
+                    'y = ±(b/a)x',
+                    'y = ±(a/b)x',
+                    'y = ±x',
+                    'y = 0 and x = 0'
+                ],
+                a: 0,
+                s: 'Asymptotes: y = ±(b/a)x for standard hyperbola.',
+                year: 2019,
+                shift: 'Jan 10 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Equation of tangent to circle x²+y² = r² at point (x₁,y₁) is:',
+                o: [
+                    'xx₁ + yy₁ = r²',
+                    'x/x₁ + y/y₁ = r²',
+                    'x₁y + xy₁ = r²',
+                    'y−y₁ = −x₁/y₁(x−x₁)'
+                ],
+                a: 0,
+                s: 'Replace x² with xx₁ and y² with yy₁ in circle equation.',
+                year: 2023,
+                shift: 'Jan 30 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Condition for line y = mx + c to be tangent to parabola y² = 4ax:',
+                o: [
+                    'c = a/m',
+                    'c = am',
+                    'c = a²m',
+                    'c = m/a'
+                ],
+                a: 0,
+                s: 'Tangent to y² = 4ax: y = mx + a/m.',
+                year: 2022,
+                shift: 'Jul 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Sum of focal distances of any point on ellipse equals:',
+                o: [
+                    '2a',
+                    '2b',
+                    'a + b',
+                    '2c'
+                ],
+                a: 0,
+                s: 'Definition of ellipse: PF₁ + PF₂ = 2a (constant sum).',
+                year: 2021,
+                shift: 'Mar 17 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Rectangular hyperbola has eccentricity:',
+                o: [
+                    '√2',
+                    '1',
+                    '2',
+                    '√3'
+                ],
+                a: 0,
+                s: 'When a = b: e = √(1 + b²/a²) = √2. xy = c² form.',
+                year: 2020,
+                shift: 'Sep 2 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Director circle of ellipse x²/a² + y²/b² = 1 has equation:',
+                o: [
+                    'x² + y² = a² + b²',
+                    'x² + y² = a² − b²',
+                    'x²/a⁴ + y²/b⁴ = 1',
+                    'x + y = a + b'
+                ],
+                a: 0,
+                s: 'Locus of point from which two perpendicular tangents drawn.',
+                year: 2024,
+                shift: 'Jan 29 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Equation of normal to y² = 4ax at parameter t:',
+                o: [
+                    'y + tx = 2at + at³',
+                    'y = tx + a/t',
+                    'y − tx = at²',
+                    'y = −x/t + 2at'
+                ],
+                a: 0,
+                s: 'Normal at (at², 2at): y + tx = 2at + at³.',
+                year: 2018,
+                shift: 'Apr 8 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Chord of contact from external point (x₁,y₁) to circle x²+y²=r² is:',
+                o: [
+                    'xx₁ + yy₁ = r²',
+                    'x² + y² = x₁y₁',
+                    'x₁/x + y₁/y = 1',
+                    '(x−x₁)² + (y−y₁)² = 0'
+                ],
+                a: 0,
+                s: 'Same as tangent equation: T = 0 (xx₁+yy₁=r²).',
+                year: 2017,
+                shift: 'Apr 8 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Auxiliary circle of ellipse x²/a² + y²/b² = 1 is:',
+                o: [
+                    'x² + y² = a²',
+                    'x² + y² = b²',
+                    'x² + y² = a²b²',
+                    'x² + y² = (a+b)²'
+                ],
+                a: 0,
+                s: 'Auxiliary circle has radius = semi-major axis a.',
+                year: 2016,
+                shift: 'Apr 10 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Conjugate hyperbola of x²/a² − y²/b² = 1 is:',
+                o: [
+                    '−x²/a² + y²/b² = 1',
+                    'x²/b² − y²/a² = 1',
+                    'x²/a² + y²/b² = 1',
+                    'xy = ab'
+                ],
+                a: 0,
+                s: 'Conjugate: swap signs → y²/b² − x²/a² = 1.',
+                year: 2015,
+                shift: 'Paper 2',
+                exam: 'advanced'
+            },
+            {
+                q: 'Power of a point P w.r.t. circle x²+y²+2gx+2fy+c=0 is:',
+                o: [
+                    'x₁²+y₁²+2gx₁+2fy₁+c',
+                    '(x₁+g)²+(y₁+f)²',
+                    'x₁²+y₁²',
+                    'g²+f²−c'
+                ],
+                a: 0,
+                s: 'S₁ = substitute P into circle equation. S₁ > 0 → outside.',
+                year: 2024,
+                shift: 'Jan 27 Shift 1',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Trigonometry',
+        slug: 'trigonometry',
+        questions: [
+            {
+                q: 'sin²θ + cos²θ equals:',
+                o: [
+                    '1',
+                    '0',
+                    'sin 2θ',
+                    'cos 2θ'
+                ],
+                a: 0,
+                s: 'Pythagorean identity: sin²θ + cos²θ = 1.',
+                year: 2023,
+                shift: 'Jan 24 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'sin(A + B) equals:',
+                o: [
+                    'sin A cos B + cos A sin B',
+                    'sin A sin B + cos A cos B',
+                    'sin A cos B − cos A sin B',
+                    'cos A cos B − sin A sin B'
+                ],
+                a: 0,
+                s: 'Sum formula for sine.',
+                year: 2022,
+                shift: 'Jun 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'cos 2θ can be written as:',
+                o: [
+                    '1 − 2sin²θ',
+                    '2sin²θ − 1',
+                    '2sinθcosθ',
+                    'sin²θ + cos²θ'
+                ],
+                a: 0,
+                s: 'cos 2θ = cos²θ − sin²θ = 1 − 2sin²θ = 2cos²θ − 1.',
+                year: 2021,
+                shift: 'Feb 24 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'General solution of sin θ = 0 is:',
+                o: [
+                    'θ = nπ, n ∈ Z',
+                    'θ = 2nπ',
+                    'θ = (2n+1)π/2',
+                    'θ = nπ/2'
+                ],
+                a: 0,
+                s: 'sin θ = 0 at θ = 0, ±π, ±2π, ... = nπ.',
+                year: 2020,
+                shift: 'Jan 7 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'In a triangle, a/sin A = b/sin B = c/sin C is called:',
+                o: [
+                    'Sine rule',
+                    'Cosine rule',
+                    'Tangent rule',
+                    'Projection rule'
+                ],
+                a: 0,
+                s: 'Law of sines: sides proportional to sines of opposite angles.',
+                year: 2019,
+                shift: 'Jan 9 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'tan(π/4) equals:',
+                o: [
+                    '1',
+                    '0',
+                    '∞',
+                    '√3'
+                ],
+                a: 0,
+                s: 'tan 45° = sin 45°/cos 45° = 1.',
+                year: 2023,
+                shift: 'Jan 29 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'sin(π − θ) equals:',
+                o: [
+                    'sin θ',
+                    '−sin θ',
+                    'cos θ',
+                    '−cos θ'
+                ],
+                a: 0,
+                s: 'Supplementary angle: sin(π−θ) = sin θ.',
+                year: 2022,
+                shift: 'Jul 28 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Period of tan x is:',
+                o: [
+                    'π',
+                    '2π',
+                    'π/2',
+                    '4π'
+                ],
+                a: 0,
+                s: 'tan(x + π) = tan x → period = π.',
+                year: 2021,
+                shift: 'Aug 27 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Cosine rule: c² =',
+                o: [
+                    'a² + b² − 2ab cos C',
+                    'a² + b² + 2ab cos C',
+                    'a² − b² + 2ab cos C',
+                    '(a + b)²'
+                ],
+                a: 0,
+                s: 'c² = a² + b² − 2ab cos C (reduces to Pythagoras when C = 90°).',
+                year: 2020,
+                shift: 'Sep 3 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Principal value of sin⁻¹(1/2) is:',
+                o: [
+                    'π/6',
+                    'π/3',
+                    'π/4',
+                    '5π/6'
+                ],
+                a: 0,
+                s: 'sin(π/6) = 1/2. Principal range [−π/2, π/2].',
+                year: 2024,
+                shift: 'Jan 30 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'sin 3θ equals:',
+                o: [
+                    '3sin θ − 4sin³θ',
+                    '4sin³θ − 3sin θ',
+                    '3cos θ − 4cos³θ',
+                    'sin θ cos 2θ'
+                ],
+                a: 0,
+                s: 'Triple angle formula: sin 3θ = 3sinθ − 4sin³θ.',
+                year: 2018,
+                shift: 'Apr 15 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Range of sin⁻¹x is:',
+                o: [
+                    '[−π/2, π/2]',
+                    '[0, π]',
+                    '[0, 2π]',
+                    '(−π, π)'
+                ],
+                a: 0,
+                s: 'Inverse sine principal value: −π/2 ≤ sin⁻¹x ≤ π/2.',
+                year: 2017,
+                shift: 'Apr 2 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'If sin A = 3/5 (A in Q1), then cos A =',
+                o: [
+                    '4/5',
+                    '3/4',
+                    '5/3',
+                    '−4/5'
+                ],
+                a: 0,
+                s: 'cos A = √(1 − sin²A) = √(1 − 9/25) = 4/5 (Q1 → positive).',
+                year: 2016,
+                shift: 'Apr 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'tan⁻¹(1) + tan⁻¹(2) + tan⁻¹(3) =',
+                o: [
+                    'π',
+                    'π/2',
+                    '3π/4',
+                    '0'
+                ],
+                a: 0,
+                s: 'tan⁻¹1 = π/4. tan⁻¹2 + tan⁻¹3 = π − tan⁻¹1 = 3π/4. Total = π.',
+                year: 2015,
+                shift: 'Paper 1',
+                exam: 'advanced'
+            },
+            {
+                q: 'Area of triangle with sides a, b and included angle C is:',
+                o: [
+                    '(1/2)ab sin C',
+                    'ab cos C',
+                    'ab tan C',
+                    'a²sin C'
+                ],
+                a: 0,
+                s: 'Δ = ½ × a × b × sin(included angle).',
+                year: 2024,
+                shift: 'Jan 27 Shift 2',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Vectors & 3D Geometry',
+        slug: 'vectors-3d-geometry',
+        questions: [
+            {
+                q: 'Dot product a⃗ · b⃗ = |a⃗||b⃗|cos θ. If perpendicular, a⃗ · b⃗ =',
+                o: [
+                    '0',
+                    '|a⃗||b⃗|',
+                    '1',
+                    '−1'
+                ],
+                a: 0,
+                s: 'cos 90° = 0 → perpendicular vectors have zero dot product.',
+                year: 2023,
+                shift: 'Jan 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Cross product |a⃗ × b⃗| equals:',
+                o: [
+                    '|a⃗||b⃗|sin θ',
+                    '|a⃗||b⃗|cos θ',
+                    'a⃗ · b⃗',
+                    '|a⃗| + |b⃗|'
+                ],
+                a: 0,
+                s: '|a⃗ × b⃗| = |a⃗||b⃗|sinθ (area of parallelogram).',
+                year: 2022,
+                shift: 'Jun 26 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Direction cosines l, m, n satisfy:',
+                o: [
+                    'l² + m² + n² = 1',
+                    'l + m + n = 1',
+                    'l² + m² + n² = 0',
+                    'lmn = 1'
+                ],
+                a: 0,
+                s: 'Unit vector components: cos²α + cos²β + cos²γ = 1.',
+                year: 2021,
+                shift: 'Feb 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Equation of plane through (x₁,y₁,z₁) with normal (a,b,c):',
+                o: [
+                    'a(x−x₁)+b(y−y₁)+c(z−z₁)=0',
+                    'ax₁+by₁+cz₁=0',
+                    'x/a+y/b+z/c=1',
+                    'ax+by+cz=x₁+y₁+z₁'
+                ],
+                a: 0,
+                s: 'Point-normal form of plane equation.',
+                year: 2020,
+                shift: 'Jan 8 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Distance between two points (x₁,y₁,z₁) and (x₂,y₂,z₂):',
+                o: [
+                    '√[(x₂−x₁)²+(y₂−y₁)²+(z₂−z₁)²]',
+                    '|x₂−x₁|+|y₂−y₁|+|z₂−z₁|',
+                    '(x₂−x₁)²+(y₂−y₁)²',
+                    'x₁x₂+y₁y₂+z₁z₂'
+                ],
+                a: 0,
+                s: '3D Euclidean distance formula.',
+                year: 2019,
+                shift: 'Apr 10 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Scalar triple product [a⃗ b⃗ c⃗] gives:',
+                o: [
+                    'Volume of parallelepiped',
+                    'Area of triangle',
+                    'Length of vector',
+                    'Angle between vectors'
+                ],
+                a: 0,
+                s: '[a⃗ b⃗ c⃗] = a⃗ · (b⃗ × c⃗) = volume of parallelepiped.',
+                year: 2023,
+                shift: 'Jan 30 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Equation of line through point a⃗ in direction b⃗:',
+                o: [
+                    'r⃗ = a⃗ + λb⃗',
+                    'r⃗ = a⃗ × b⃗',
+                    'r⃗ = a⃗ · b⃗',
+                    'r⃗ = |a⃗|b⃗'
+                ],
+                a: 0,
+                s: 'Parametric: r⃗ = a⃗ + λb⃗ (λ ∈ ℝ).',
+                year: 2022,
+                shift: 'Jul 26 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Two vectors are parallel if their cross product is:',
+                o: [
+                    'Zero vector',
+                    'Unit vector',
+                    'Maximum',
+                    'Undefined'
+                ],
+                a: 0,
+                s: 'Parallel: sin θ = 0 → a⃗ × b⃗ = 0⃗.',
+                year: 2021,
+                shift: 'Mar 16 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Distance of point (x₁,y₁,z₁) from plane ax+by+cz+d=0:',
+                o: [
+                    '|ax₁+by₁+cz₁+d|/√(a²+b²+c²)',
+                    'ax₁+by₁+cz₁',
+                    '√(a²+b²+c²)',
+                    '|d|/√(a²+b²+c²)'
+                ],
+                a: 0,
+                s: 'Point-to-plane distance formula with absolute value.',
+                year: 2020,
+                shift: 'Sep 2 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Angle between two planes is the angle between their:',
+                o: [
+                    'Normals',
+                    'Direction ratios of lines in plane',
+                    'Traces',
+                    'Intercepts'
+                ],
+                a: 0,
+                s: 'Dihedral angle = angle between normal vectors.',
+                year: 2024,
+                shift: 'Jan 29 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Projection of a⃗ on b⃗ is:',
+                o: [
+                    '(a⃗ · b⃗)/|b⃗|',
+                    'a⃗ × b⃗',
+                    '|a⃗ × b⃗|',
+                    'a⃗ + b⃗'
+                ],
+                a: 0,
+                s: 'Scalar projection = a⃗ · b̂ = (a⃗ · b⃗)/|b⃗|.',
+                year: 2018,
+                shift: 'Apr 8 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Shortest distance between two skew lines is found using:',
+                o: [
+                    '|(a₂⃗ − a₁⃗) · (b₁⃗ × b₂⃗)| / |b₁⃗ × b₂⃗|',
+                    'a₁⃗ · a₂⃗',
+                    'b₁⃗ × b₂⃗',
+                    '|a₁⃗ − a₂⃗|'
+                ],
+                a: 0,
+                s: 'Shortest distance between skew lines formula using scalar triple product.',
+                year: 2017,
+                shift: 'Apr 9 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Coplanar vectors satisfy:',
+                o: [
+                    '[a⃗ b⃗ c⃗] = 0',
+                    '[a⃗ b⃗ c⃗] = 1',
+                    'a⃗ × b⃗ = c⃗',
+                    'a⃗ · b⃗ · c⃗ = 0'
+                ],
+                a: 0,
+                s: 'Three vectors coplanar iff scalar triple product = 0.',
+                year: 2016,
+                shift: 'Apr 3 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Image of point P in a plane is found by:',
+                o: [
+                    'Foot of perpendicular from P, extended equal distance',
+                    'Projection on normal',
+                    'Reflection about origin',
+                    'Rotation by π'
+                ],
+                a: 0,
+                s: 'Image: drop perpendicular from P to plane, extend equal length beyond.',
+                year: 2015,
+                shift: 'Paper 2',
+                exam: 'advanced'
+            },
+            {
+                q: 'Section formula in 3D: point dividing (x₁,y₁,z₁) and (x₂,y₂,z₂) in ratio m:n:',
+                o: [
+                    '((mx₂+nx₁)/(m+n), (my₂+ny₁)/(m+n), (mz₂+nz₁)/(m+n))',
+                    '((x₁+x₂)/2, (y₁+y₂)/2, (z₁+z₂)/2)',
+                    '(mx₁+nx₂, my₁+ny₂, mz₁+nz₂)',
+                    '(x₁x₂, y₁y₂, z₁z₂)'
+                ],
+                a: 0,
+                s: 'Internal section formula extends to 3D coordinate-wise.',
+                year: 2024,
+                shift: 'Jan 30 Shift 2',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Probability & Statistics',
+        slug: 'probability-statistics',
+        questions: [
+            {
+                q: 'If P(A) = 0.4, P(B) = 0.5, P(A∩B) = 0.2, then P(A∪B) is:',
+                o: [
+                    '0.7',
+                    '0.9',
+                    '0.5',
+                    '0.2'
+                ],
+                a: 0,
+                s: 'P(A∪B) = P(A) + P(B) − P(A∩B) = 0.4+0.5−0.2 = 0.7.',
+                year: 2023,
+                shift: 'Jan 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Bayes\' theorem gives:',
+                o: [
+                    'P(A|B) in terms of P(B|A)',
+                    'P(A∪B)',
+                    'P(A) + P(B)',
+                    'P(A)P(B)'
+                ],
+                a: 0,
+                s: 'P(A|B) = P(B|A)P(A)/P(B).',
+                year: 2022,
+                shift: 'Jun 27 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Mean of binomial distribution B(n,p) is:',
+                o: [
+                    'np',
+                    'npq',
+                    'n/p',
+                    'p/n'
+                ],
+                a: 0,
+                s: 'E(X) = np, Var(X) = npq where q = 1−p.',
+                year: 2021,
+                shift: 'Feb 26 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Two events are independent if:',
+                o: [
+                    'P(A∩B) = P(A)·P(B)',
+                    'P(A∩B) = 0',
+                    'P(A∪B) = P(A)+P(B)',
+                    'P(A|B) = P(B|A)'
+                ],
+                a: 0,
+                s: 'Independence: joint probability = product of marginals.',
+                year: 2020,
+                shift: 'Jan 9 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Standard deviation is:',
+                o: [
+                    '√Variance',
+                    'Variance²',
+                    'Mean/n',
+                    'Σxᵢ/n'
+                ],
+                a: 0,
+                s: 'SD = √(Var) = √(Σ(xᵢ−x̄)²/n).',
+                year: 2019,
+                shift: 'Jan 11 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'In a Bernoulli trial, P(X=k) in binomial distribution:',
+                o: [
+                    'ⁿCₖ pᵏ qⁿ⁻ᵏ',
+                    'pⁿ',
+                    'qⁿ',
+                    'npq'
+                ],
+                a: 0,
+                s: 'P(X=k) = C(n,k) pᵏ (1−p)ⁿ⁻ᵏ.',
+                year: 2023,
+                shift: 'Jan 29 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'P(A\') = 1 − P(A) is called:',
+                o: [
+                    'Complement rule',
+                    'Addition rule',
+                    'Multiplication rule',
+                    'Bayes\' rule'
+                ],
+                a: 0,
+                s: 'P(not A) = 1 − P(A). Sample space = A ∪ A\'.',
+                year: 2022,
+                shift: 'Jul 25 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Mode of data set {2,3,3,5,5,5,6,8} is:',
+                o: [
+                    '5',
+                    '3',
+                    '4.625',
+                    '6'
+                ],
+                a: 0,
+                s: 'Mode = most frequent value = 5 (appears 3 times).',
+                year: 2021,
+                shift: 'Aug 26 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Conditional probability P(A|B) = ',
+                o: [
+                    'P(A∩B)/P(B)',
+                    'P(A∪B)/P(B)',
+                    'P(A)/P(B)',
+                    'P(B)/P(A)'
+                ],
+                a: 0,
+                s: 'P(A|B) = P(A and B) / P(B), defined when P(B) > 0.',
+                year: 2020,
+                shift: 'Sep 4 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Median of {3, 7, 2, 9, 5} is:',
+                o: [
+                    '5',
+                    '7',
+                    '3',
+                    '5.2'
+                ],
+                a: 0,
+                s: 'Sorted: 2,3,5,7,9. Middle = 5.',
+                year: 2024,
+                shift: 'Jan 27 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Variance of constant random variable X = c:',
+                o: [
+                    '0',
+                    'c',
+                    'c²',
+                    '1'
+                ],
+                a: 0,
+                s: 'No variation from mean → Var = E[(X−c)²] = 0.',
+                year: 2018,
+                shift: 'Apr 15 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Total probability theorem: P(A) =',
+                o: [
+                    'Σ P(A|Bᵢ)P(Bᵢ)',
+                    'P(A|B)',
+                    'P(A)P(B)',
+                    '1 − P(A\')'
+                ],
+                a: 0,
+                s: 'P(A) = Σ P(A|Bᵢ)P(Bᵢ) over partition {Bᵢ} of sample space.',
+                year: 2017,
+                shift: 'Apr 2 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'If two dice are thrown, probability of sum 7 is:',
+                o: [
+                    '6/36 = 1/6',
+                    '1/36',
+                    '2/36',
+                    '1/12'
+                ],
+                a: 0,
+                s: 'Pairs summing to 7: (1,6),(2,5),(3,4),(4,3),(5,2),(6,1) = 6 out of 36.',
+                year: 2016,
+                shift: 'Apr 10 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Coefficient of variation equals:',
+                o: [
+                    '(SD/Mean) × 100',
+                    'Mean/SD',
+                    'SD²',
+                    'Mean²/Variance'
+                ],
+                a: 0,
+                s: 'CV = (σ/x̄) × 100%. Relative measure of dispersion.',
+                year: 2015,
+                shift: 'Paper 1',
+                exam: 'advanced'
+            },
+            {
+                q: 'Poisson distribution is used when:',
+                o: [
+                    'Events are rare and n is large, p is small',
+                    'n is small',
+                    'p is large',
+                    'Events are continuous'
+                ],
+                a: 0,
+                s: 'Poisson: λ = np. P(X=k) = e^(−λ)λᵏ/k!. Good for rare events.',
+                year: 2024,
+                shift: 'Jan 30 Shift 1',
+                exam: 'main'
+            }
+        ]
+    },
+    {
+        name: 'Differential Equations',
+        slug: 'differential-equations',
+        questions: [
+            {
+                q: 'Order of a differential equation is:',
+                o: [
+                    'Highest order derivative present',
+                    'Degree of polynomial',
+                    'Number of terms',
+                    'Power of y'
+                ],
+                a: 0,
+                s: 'Order = highest derivative: y\'\'\' has order 3.',
+                year: 2023,
+                shift: 'Jan 25 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'General solution of dy/dx = ky is:',
+                o: [
+                    'y = Ce^(kx)',
+                    'y = kx + C',
+                    'y = Cx^k',
+                    'y = k/x + C'
+                ],
+                a: 0,
+                s: 'Separate variables: dy/y = k dx → ln y = kx + C₁ → y = Ce^(kx).',
+                year: 2022,
+                shift: 'Jun 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Degree of (d²y/dx²)³ + dy/dx = 0 is:',
+                o: [
+                    '3',
+                    '2',
+                    '1',
+                    'Not defined'
+                ],
+                a: 0,
+                s: 'Degree = power of highest order derivative if polynomial form → (y\'\')³ has degree 3.',
+                year: 2021,
+                shift: 'Feb 24 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Integrating factor for dy/dx + Py = Q is:',
+                o: [
+                    'e^(∫P dx)',
+                    'e^(∫Q dx)',
+                    'P/Q',
+                    '∫P dx'
+                ],
+                a: 0,
+                s: 'IF = e^(∫P dx). Multiply through → d/dx[y × IF] = Q × IF.',
+                year: 2020,
+                shift: 'Jan 7 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Homogeneous DE dy/dx = f(y/x) is solved by substitution:',
+                o: [
+                    'y = vx',
+                    'y = x²',
+                    'x = vy',
+                    'y = e^x'
+                ],
+                a: 0,
+                s: 'y = vx → dy/dx = v + x dv/dx → separable in v and x.',
+                year: 2019,
+                shift: 'Jan 10 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Solution of dy/dx = x with y(0) = 1:',
+                o: [
+                    'y = x²/2 + 1',
+                    'y = x²/2',
+                    'y = x + 1',
+                    'y = 2x'
+                ],
+                a: 0,
+                s: 'y = ∫x dx + C = x²/2 + C. y(0) = 1 → C = 1.',
+                year: 2023,
+                shift: 'Jan 30 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Bernoulli equation has form:',
+                o: [
+                    'dy/dx + Py = Qyⁿ',
+                    'dy/dx + Py = Q',
+                    'd²y/dx² + y = 0',
+                    'xdy + ydx = 0'
+                ],
+                a: 0,
+                s: 'Bernoulli: non-linear but reducible to linear by v = y^(1−n).',
+                year: 2022,
+                shift: 'Jul 28 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Exact DE M dx + N dy = 0 requires:',
+                o: [
+                    '∂M/∂y = ∂N/∂x',
+                    'M = N',
+                    '∂M/∂x = ∂N/∂y',
+                    'M + N = 0'
+                ],
+                a: 0,
+                s: 'Exactness condition: Mᵧ = Nₓ → ∃F such that dF = Mdx + Ndy.',
+                year: 2021,
+                shift: 'Mar 17 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Auxiliary equation of y\'\' + 5y\' + 6y = 0 is:',
+                o: [
+                    'm² + 5m + 6 = 0',
+                    'm² − 5m + 6 = 0',
+                    'm + 6 = 0',
+                    '5m + 6 = 0'
+                ],
+                a: 0,
+                s: 'Replace y\'\'→m², y\'→m, y→1: m²+5m+6 = 0 → m = −2,−3.',
+                year: 2020,
+                shift: 'Sep 3 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Solution of dy/dx = y/x is:',
+                o: [
+                    'y = Cx',
+                    'y = Ce^x',
+                    'y = C/x',
+                    'y = x²+C'
+                ],
+                a: 0,
+                s: 'Separate: dy/y = dx/x → ln y = ln x + C₁ → y = Cx.',
+                year: 2024,
+                shift: 'Jan 29 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Clairaut\'s equation is of the form:',
+                o: [
+                    'y = xy\' + f(y\')',
+                    'y\'\' + y = 0',
+                    'xdy − ydx = 0',
+                    'y = x²y\' + y\'²'
+                ],
+                a: 0,
+                s: 'y = xy\' + f(y\'). General sol: y = cx + f(c). Also has singular solution.',
+                year: 2018,
+                shift: 'Apr 8 Shift 2',
+                exam: 'main'
+            },
+            {
+                q: 'Growth/decay model dN/dt = kN models:',
+                o: [
+                    'Exponential growth (k>0) or decay (k<0)',
+                    'Linear growth',
+                    'Quadratic growth',
+                    'No growth'
+                ],
+                a: 0,
+                s: 'N = N₀e^(kt). k > 0 → exponential growth. k < 0 → decay.',
+                year: 2017,
+                shift: 'Apr 8 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Particular integral of y\'\' + y = sin x is:',
+                o: [
+                    '−(x/2)cos x',
+                    'sin x',
+                    'cos x',
+                    'x sin x'
+                ],
+                a: 0,
+                s: 'sin x is part of CF → PI = (−x/2)cos x (resonance case).',
+                year: 2016,
+                shift: 'Apr 3 Shift 1',
+                exam: 'main'
+            },
+            {
+                q: 'Number of arbitrary constants in general solution of nth order ODE:',
+                o: [
+                    'n',
+                    '1',
+                    '2n',
+                    'n²'
+                ],
+                a: 0,
+                s: 'General solution has n arbitrary constants (one per integration).',
+                year: 2015,
+                shift: 'Paper 2',
+                exam: 'advanced'
+            },
+            {
+                q: 'Orthogonal trajectories of y = cx² are:',
+                o: [
+                    'x² + 2y² = C',
+                    'y = Cx',
+                    'y² = Cx',
+                    'y = C/x²'
+                ],
+                a: 0,
+                s: 'y = cx² → dy/dx = 2y/x. Orthogonal: dy/dx = −x/(2y) → x² + 2y² = C.',
+                year: 2024,
+                shift: 'Jan 27 Shift 1',
+                exam: 'main'
+            }
+        ]
+    }
+];
+}),
+"[project]/src/data/pyq/index.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "buildAllPYQSlugs",
+    ()=>buildAllPYQSlugs,
+    "chemistryPYQBank",
+    ()=>chemistryPYQBank,
+    "getAllPYQYears",
+    ()=>getAllPYQYears,
+    "getPYQChapter",
+    ()=>getPYQChapter,
+    "getPYQChapterCount",
+    ()=>getPYQChapterCount,
+    "getPYQSlugByParams",
+    ()=>getPYQSlugByParams,
+    "getPYQuestion",
+    ()=>getPYQuestion,
+    "getTotalPYQQuestions",
+    ()=>getTotalPYQQuestions,
+    "mathsPYQBank",
+    ()=>mathsPYQBank,
+    "parsePYQSlug",
+    ()=>parsePYQSlug,
+    "physicsPYQBank",
+    ()=>physicsPYQBank,
+    "pyqSubjectBanks",
+    ()=>pyqSubjectBanks
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$slugify$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/lib/slugify.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$pyq$2f$physics$2d$pyq$2d$1$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/data/pyq/physics-pyq-1.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$pyq$2f$physics$2d$pyq$2d$2$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/data/pyq/physics-pyq-2.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$pyq$2f$physics$2d$pyq$2d$3$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/data/pyq/physics-pyq-3.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$pyq$2f$physics$2d$pyq$2d$4$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/data/pyq/physics-pyq-4.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$pyq$2f$chemistry$2d$pyq$2d$1$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/data/pyq/chemistry-pyq-1.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$pyq$2f$chemistry$2d$pyq$2d$2$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/data/pyq/chemistry-pyq-2.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$pyq$2f$chemistry$2d$pyq$2d$3$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/data/pyq/chemistry-pyq-3.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$pyq$2f$chemistry$2d$pyq$2d$4$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/data/pyq/chemistry-pyq-4.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$pyq$2f$maths$2d$pyq$2d$1$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/data/pyq/maths-pyq-1.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$pyq$2f$maths$2d$pyq$2d$2$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/data/pyq/maths-pyq-2.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$pyq$2f$maths$2d$pyq$2d$3$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/data/pyq/maths-pyq-3.ts [app-ssr] (ecmascript)");
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+/* ─── Helper: merge chapters with duplicate slugs ─── */ function mergeChapters(chapters) {
+    const map = new Map();
+    for (const ch of chapters){
+        const existing = map.get(ch.slug);
+        if (existing) {
+            // Merge questions into the first occurrence
+            existing.questions = [
+                ...existing.questions,
+                ...ch.questions
+            ];
+        } else {
+            map.set(ch.slug, {
+                ...ch,
+                questions: [
+                    ...ch.questions
+                ]
+            });
+        }
+    }
+    return [
+        ...map.values()
+    ];
+}
+/* ─── Combine all Physics PYQ chapters ─── */ const allPhysicsPYQ = mergeChapters([
+    ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$pyq$2f$physics$2d$pyq$2d$1$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["physicsPyq1"],
+    ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$pyq$2f$physics$2d$pyq$2d$2$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["physicsPyq2"],
+    ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$pyq$2f$physics$2d$pyq$2d$3$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["physicsPyq3"],
+    ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$pyq$2f$physics$2d$pyq$2d$4$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["physicsPyq4"]
+]);
+const physicsPYQBank = {
+    subject: 'Physics',
+    slug: 'physics',
+    icon: '⚡',
+    chapters: allPhysicsPYQ
+};
+/* ─── Combine all Chemistry PYQ chapters ─── */ const allChemistryPYQ = mergeChapters([
+    ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$pyq$2f$chemistry$2d$pyq$2d$1$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["chemistryPyq1"],
+    ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$pyq$2f$chemistry$2d$pyq$2d$2$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["chemistryPyq2"],
+    ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$pyq$2f$chemistry$2d$pyq$2d$3$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["chemistryPyq3"],
+    ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$pyq$2f$chemistry$2d$pyq$2d$4$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["chemistryPyq4"]
+]);
+const chemistryPYQBank = {
+    subject: 'Chemistry',
+    slug: 'chemistry',
+    icon: '🧪',
+    chapters: allChemistryPYQ
+};
+/* ─── Combine all Maths PYQ chapters ─── */ const allMathsPYQ = mergeChapters([
+    ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$pyq$2f$maths$2d$pyq$2d$1$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["mathsPyq1"],
+    ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$pyq$2f$maths$2d$pyq$2d$2$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["mathsPyq2"],
+    ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$pyq$2f$maths$2d$pyq$2d$3$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["mathsPyq3"]
+]);
+const mathsPYQBank = {
+    subject: 'Mathematics',
+    slug: 'mathematics',
+    icon: '📐',
+    chapters: allMathsPYQ
+};
+const pyqSubjectBanks = [
+    physicsPYQBank,
+    chemistryPYQBank,
+    mathsPYQBank
+];
+function buildAllPYQSlugs() {
+    const result = [];
+    for (const bank of pyqSubjectBanks){
+        for (const chapter of bank.chapters){
+            // Build base slugs from question text, then deduplicate
+            const baseSlugs = chapter.questions.map((q)=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$slugify$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["slugifyQuestion"])(q.q));
+            const uniqueSlugs = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$slugify$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["deduplicateSlugs"])(baseSlugs);
+            chapter.questions.forEach((_, idx)=>{
+                const slug = `jee-pyq-${bank.slug}-${chapter.slug}-${uniqueSlugs[idx]}`;
+                result.push({
+                    slug,
+                    params: {
+                        subject: bank.slug,
+                        chapter: chapter.slug,
+                        questionIndex: idx + 1
+                    }
+                });
+            });
+        }
+    }
+    return result;
+}
+/* ─── Pre-built slug → params lookup map ─── */ const _allPYQSlugs = buildAllPYQSlugs();
+const _pyqSlugMap = new Map(_allPYQSlugs.map((s)=>[
+        s.slug,
+        s.params
+    ]));
+/* ─── Reverse lookup: params → slug ─── */ const _pyqParamToSlug = new Map(_allPYQSlugs.map((s)=>[
+        `${s.params.subject}|${s.params.chapter}|${s.params.questionIndex}`,
+        s.slug
+    ]));
+function getPYQSlugByParams(subject, chapter, questionIndex) {
+    return _pyqParamToSlug.get(`${subject}|${chapter}|${questionIndex}`) ?? null;
+}
+function parsePYQSlug(slug) {
+    return _pyqSlugMap.get(slug) ?? null;
+}
+function getPYQuestion(params) {
+    const bank = pyqSubjectBanks.find((b)=>b.slug === params.subject);
+    if (!bank) return null;
+    const chapter = bank.chapters.find((c)=>c.slug === params.chapter);
+    if (!chapter) return null;
+    return chapter.questions[params.questionIndex - 1] ?? null;
+}
+function getPYQChapter(subjectSlug, chapterSlug) {
+    const bank = pyqSubjectBanks.find((b)=>b.slug === subjectSlug);
+    return bank?.chapters.find((c)=>c.slug === chapterSlug);
+}
+function getTotalPYQQuestions(subjectSlug) {
+    const bank = pyqSubjectBanks.find((b)=>b.slug === subjectSlug);
+    if (!bank) return 0;
+    return bank.chapters.reduce((sum, ch)=>sum + ch.questions.length, 0);
+}
+function getPYQChapterCount(chapter) {
+    return chapter.questions.length;
+}
+function getAllPYQYears() {
+    const years = new Set();
+    for (const bank of pyqSubjectBanks){
+        for (const ch of bank.chapters){
+            for (const q of ch.questions){
+                years.add(q.year);
+            }
+        }
+    }
+    return [
+        ...years
+    ].sort((a, b)=>b - a);
+}
+}),
+];
+
+//# sourceMappingURL=src_0e2ec0af._.js.map

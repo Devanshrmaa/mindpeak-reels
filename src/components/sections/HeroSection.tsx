@@ -1,124 +1,182 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
-import heroBg from '@/assets/hero-bg.jpg';
+import { motion, useScroll, useTransform, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
+import { useRef, useEffect, useState } from 'react';
+const heroBg = '/images/hero-bg.jpg';
+
+const charVariants = {
+  hidden: { y: '110%', opacity: 0 },
+  visible: (i: number) => ({
+    y: '0%',
+    opacity: 1,
+    transition: { delay: 0.6 + i * 0.025, duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+  }),
+};
+
+const SplitText = ({ text, className, startIndex = 0, isGold = false }: { text: string; className?: string; startIndex?: number; isGold?: boolean }) => (
+  <span className={`inline-flex flex-wrap justify-center overflow-hidden ${className || ''}`}>
+    {text.split('').map((char, i) => (
+      <motion.span
+        key={i}
+        custom={startIndex + i}
+        variants={charVariants}
+        initial="hidden"
+        animate="visible"
+        className={`inline-block ${char === ' ' ? 'w-[0.3em]' : ''} ${isGold ? 'text-gradient-gold' : ''}`}
+      >
+        {char === ' ' ? '\u00A0' : char}
+      </motion.span>
+    ))}
+  </span>
+);
 
 export const HeroSection = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
-  const opacity = useTransform(scrollY, [0, 400], [1, 0]);
-  const y = useTransform(scrollY, [0, 400], [0, 120]);
-  const scale = useTransform(scrollY, [0, 400], [1, 1.15]);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoLoaded, setVideoLoaded] = useState(false);
+  const smoothY = useSpring(scrollY, { stiffness: 100, damping: 30, mass: 0.5 });
+  const opacity = useTransform(smoothY, [0, 500], [1, 0]);
+  const contentY = useTransform(smoothY, [0, 500], [0, 150]);
+  const bgScale = useTransform(smoothY, [0, 600], [1, 1.2]);
+  const bgY = useTransform(smoothY, [0, 600], [0, 80]);
 
-  // Lazy-load the video after page is interactive
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const smoothMouseX = useSpring(mouseX, { stiffness: 50, damping: 20 });
+  const smoothMouseY = useSpring(mouseY, { stiffness: 50, damping: 20 });
+  const bgMoveX = useTransform(smoothMouseX, [-0.5, 0.5], [10, -10]);
+  const bgMoveY = useTransform(smoothMouseY, [-0.5, 0.5], [5, -5]);
+
+  const [showScrollHint, setShowScrollHint] = useState(true);
+
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (videoRef.current) {
-        videoRef.current.src = '/hero-loop.mp4';
-        videoRef.current.load();
-        videoRef.current.play().then(() => setVideoLoaded(true)).catch(() => {});
-      }
-    }, 1500);
-    return () => clearTimeout(timer);
-  }, []);
+    const handleMouse = (e: MouseEvent) => {
+      mouseX.set((e.clientX / window.innerWidth) - 0.5);
+      mouseY.set((e.clientY / window.innerHeight) - 0.5);
+    };
+    window.addEventListener('mousemove', handleMouse);
+    return () => window.removeEventListener('mousemove', handleMouse);
+  }, [mouseX, mouseY]);
 
-  const headlineWords = [
-    { text: 'INSTITUTE', gradient: false },
-    { text: 'THAT', gradient: false },
-    { text: 'TRANSFORMS', gradient: false },
-    { text: 'ASPIRANTS INTO', gradient: false },
-    { text: 'ACHIEVERS', gradient: true },
+  useEffect(() => {
+    const unsub = scrollY.on('change', v => { if (v > 60) setShowScrollHint(false); });
+    return unsub;
+  }, [scrollY]);
+
+  const lines = [
+    { text: 'INSTITUTE THAT', gold: false },
+    { text: 'TRANSFORMS', gold: false },
+    { text: 'ASPIRANTS INTO', gold: false },
+    { text: 'ACHIEVERS', gold: true },
   ];
 
+  let charOffset = 0;
+
   return (
-    <header id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden" role="banner">
-      {/* Background Image */}
-      <motion.div style={{ scale }} className="absolute inset-0">
-        {/* Poster image shown immediately; video lazy-loaded after 1.5s */}
-        <img
+    <header
+      ref={containerRef}
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      role="banner"
+    >
+      {/* Parallax background with mouse-follow */}
+      <motion.div style={{ scale: bgScale, y: bgY, x: bgMoveX }} className="absolute inset-[-20px]">
+        <motion.img
           src={heroBg}
           alt=""
           width={1920}
           height={1080}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${videoLoaded ? 'opacity-0' : 'opacity-100'}`}
+          className="absolute inset-0 w-full h-full object-cover"
           fetchPriority="high"
+          style={{ y: bgMoveY }}
         />
-        <video
-          ref={videoRef}
-          loop
-          muted
-          playsInline
-          preload="none"
-          className={`w-full h-full object-cover transition-opacity duration-700 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
-        >
-          <track kind="captions" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-overlay" />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/80" />
         <div className="absolute inset-0 vignette" />
       </motion.div>
 
+      {/* Noise grain overlay */}
+      <div className="absolute inset-0 noise pointer-events-none z-[1]" />
+
+      {/* Radial glow behind content */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[2]">
+        <div className="w-[min(800px,90vw)] h-[min(600px,70vh)] rounded-full bg-primary/[0.04] blur-[120px]" />
+      </div>
+
       {/* Content */}
       <motion.div
-        style={{ opacity, y }}
-        className="relative z-10 w-full max-w-[90vw] lg:max-w-[1400px] mx-auto text-center px-6"
+        style={{ opacity, y: contentY }}
+        className="relative z-10 w-full max-w-[92vw] lg:max-w-[1200px] mx-auto text-center px-4"
       >
-        <motion.h1
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 1 }}
-          className="font-display mb-8"
+        {/* Pre-headline label */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-10 flex items-center justify-center gap-3"
         >
-          {headlineWords.map((line, i) => (
-            <motion.span
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 + i * 0.12, duration: 0.6 }}
-              className={`block mb-1 font-black leading-[1.05] tracking-tight ${
-                line.gradient ? 'text-gradient-gold' : 'text-foreground'
-              }`}
-              style={{ fontSize: 'clamp(2rem, 9vw, 7rem)' }}
-            >
-              {line.text}
-            </motion.span>
-          ))}
-        </motion.h1>
+          <span className="h-px w-8 bg-primary/40" />
+          <span className="text-[11px] sm:text-xs uppercase tracking-[0.3em] text-muted-foreground font-medium">
+            Personalized JEE & NEET Coaching
+          </span>
+          <span className="h-px w-8 bg-primary/40" />
+        </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.0, duration: 0.6 }}
-          className="text-blue-soft text-sm sm:text-base uppercase mb-12 tracking-[0.2em]"
+        {/* Split-text headline */}
+        <h1 className="font-display mb-12">
+          {lines.map((line, i) => {
+            const startIdx = charOffset;
+            charOffset += line.text.length;
+            return (
+              <span
+                key={i}
+                className="block leading-[1.0] tracking-[-0.03em] font-bold"
+                style={{ fontSize: line.gold ? 'clamp(2.5rem, 10vw, 8rem)' : 'clamp(1.8rem, 7vw, 5.5rem)' }}
+              >
+                <SplitText text={line.text} startIndex={startIdx} isGold={line.gold} />
+              </span>
+            );
+          })}
+        </h1>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.8, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          Personalized JEE & NEET Coaching
-        </motion.p>
-
-        <motion.a
-          href="#success-stories"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.6 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="inline-block px-12 py-4 border-2 border-foreground text-foreground text-sm uppercase tracking-[0.2em] hover:bg-foreground hover:text-background transition-all duration-300"
-        >
-          Watch Our Stories
-        </motion.a>
-      </motion.div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-          <ChevronDown className="w-8 h-8 text-muted-foreground" />
+          <a
+            href="#success-stories"
+            className="group relative inline-flex items-center gap-3 px-10 py-4 border border-foreground/20 text-foreground text-[13px] uppercase tracking-[0.2em] btn-outline-fill rounded-full"
+          >
+            <span className="relative z-10">Explore Our Impact</span>
+            <span className="relative z-10 w-5 h-5 rounded-full border border-current grid place-items-center transition-transform duration-500 group-hover:rotate-45">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 9L9 1M9 1H2M9 1V8" stroke="currentColor" strokeWidth="1.2" />
+              </svg>
+            </span>
+          </a>
         </motion.div>
       </motion.div>
+
+      {/* Scroll hint */}
+      <AnimatePresence>
+        {showScrollHint && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ delay: 2.2, duration: 0.8 }}
+            className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+          >
+            <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground/60">Scroll</span>
+            <motion.div
+              className="w-[1px] h-8 bg-gradient-to-b from-foreground/30 to-transparent origin-top"
+              animate={{ scaleY: [0, 1, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Bottom fade for seamless transition */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-[3]" />
     </header>
   );
 };

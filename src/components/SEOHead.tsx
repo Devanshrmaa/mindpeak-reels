@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { usePathname } from 'next/navigation';
 
 interface SEOHeadProps {
   title: string;
@@ -14,9 +14,9 @@ interface SEOHeadProps {
  * and injects JSON-LD structured data into the <head>.
  */
 export const SEOHead = ({ title, description, canonical, ogImage, jsonLd }: SEOHeadProps) => {
-  const location = useLocation();
+  const pathname = usePathname();
   const baseUrl = 'https://mindpeakinstitute.com';
-  const fullCanonical = canonical || `${baseUrl}${location.pathname}`;
+  const fullCanonical = canonical || `${baseUrl}${pathname}`;
   const fullOgImage = ogImage || `${baseUrl}/hero-bg.jpg`;
 
   useEffect(() => {

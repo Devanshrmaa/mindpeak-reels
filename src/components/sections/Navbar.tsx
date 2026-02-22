@@ -1,50 +1,24 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, ChevronRight, ArrowLeft } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from '@/components/RouterLink';
+import { usePathname } from 'next/navigation';
 import { useDemoModal } from '@/components/DemoBookingModal';
-import logo from '@/assets/logo.jpeg';
-import { subjectBanks } from '@/data/practice';
-import { neetSubjectBanks } from '@/data/neet-practice';
+import Image from 'next/image';
+const logo = '/images/logo.jpeg';
 
-/* ── Practice mega-menu data ── */
-const practiceExams = [
-  {
-    label: 'JEE',
-    slug: 'jee',
-    hubPath: '/jee-practice',
-    color: 'text-orange-400',
-    bg: 'bg-orange-500/10',
-    border: 'border-orange-500/30',
-    subjects: subjectBanks.map((b) => ({
-      name: b.subject,
-      icon: b.icon,
-      slug: b.slug,
-      chapters: b.chapters.map((ch) => ({
-        name: ch.name,
-        slug: ch.slug,
-        firstTopicSlug: ch.topics[0]?.slug ?? '',
-      })),
-    })),
-  },
-  {
-    label: 'NEET',
-    slug: 'neet',
-    hubPath: '/neet-practice',
-    color: 'text-green-400',
-    bg: 'bg-green-500/10',
-    border: 'border-green-500/30',
-    subjects: neetSubjectBanks.map((b) => ({
-      name: b.subject,
-      icon: b.icon,
-      slug: b.slug,
-      chapters: b.chapters.map((ch) => ({
-        name: ch.name,
-        slug: ch.slug,
-        firstTopicSlug: ch.topics[0]?.slug ?? '',
-      })),
-    })),
-  },
+/* ── Practice mega-menu types & skeleton ── */
+interface ChapterItem { name: string; slug: string; firstTopicSlug: string; firstQuestionSlug: string; }
+interface SubjectItem { name: string; icon: string; slug: string; chapters: ChapterItem[]; }
+interface ExamItem { label: string; slug: string; hubPath: string; color: string; bg: string; border: string; subjects: SubjectItem[]; }
+
+/**
+ * Skeleton data shown immediately — no question data needed.
+ * Subjects/chapters populate once the user opens the Practice dropdown.
+ */
+const SKELETON_EXAMS: ExamItem[] = [
+  { label: 'JEE', slug: 'jee', hubPath: '/jee-practice', color: 'text-orange-400', bg: 'bg-orange-500/10', border: 'border-orange-500/30', subjects: [] },
+  { label: 'NEET', slug: 'neet', hubPath: '/neet-practice', color: 'text-green-400', bg: 'bg-green-500/10', border: 'border-green-500/30', subjects: [] },
 ];
 
 const navLinks = [
@@ -63,8 +37,65 @@ export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { openDemoModal } = useDemoModal();
-  const location = useLocation();
-  const isHome = location.pathname === '/';
+  const pathname = usePathname();
+  const isHome = pathname === '/';
+
+  /* ── Practice data — loaded lazily on dropdown interaction ── */
+  const [practiceExams, setPracticeExams] = useState<ExamItem[]>(SKELETON_EXAMS);
+  const practiceLoadedRef = useRef(false);
+
+  const loadPracticeData = useCallback(() => {
+    if (practiceLoadedRef.current) return;
+    practiceLoadedRef.current = true;
+    Promise.all([
+      import('@/data/practice'),
+      import('@/data/neet-practice'),
+    ]).then(([practice, neetPractice]) => {
+      practiceLoadedRef.current = true;
+      setPracticeExams([
+        {
+          label: 'JEE',
+          slug: 'jee',
+          hubPath: '/jee-practice',
+          color: 'text-orange-400',
+          bg: 'bg-orange-500/10',
+          border: 'border-orange-500/30',
+          subjects: practice.subjectBanks.map((b: any) => ({
+            name: b.subject,
+            icon: b.icon,
+            slug: b.slug,
+            chapters: b.chapters.map((ch: any) => ({
+              name: ch.name,
+              slug: ch.slug,
+              firstTopicSlug: ch.topics[0]?.slug ?? '',
+              firstQuestionSlug: practice.getPracticeSlugByParams(b.slug, ch.slug, ch.topics[0]?.slug ?? '', 'easy', 1) ?? '',
+            })),
+          })),
+        },
+        {
+          label: 'NEET',
+          slug: 'neet',
+          hubPath: '/neet-practice',
+          color: 'text-green-400',
+          bg: 'bg-green-500/10',
+          border: 'border-green-500/30',
+          subjects: neetPractice.neetSubjectBanks.map((b: any) => ({
+            name: b.subject,
+            icon: b.icon,
+            slug: b.slug,
+            chapters: b.chapters.map((ch: any) => ({
+              name: ch.name,
+              slug: ch.slug,
+              firstTopicSlug: ch.topics[0]?.slug ?? '',
+              firstQuestionSlug: neetPractice.getNEETPracticeSlugByParams(b.slug, ch.slug, ch.topics[0]?.slug ?? '', 'easy', 1) ?? '',
+            })),
+          })),
+        },
+      ]);
+    }).catch(() => {
+      practiceLoadedRef.current = false; // allow retry on failure
+    });
+  }, []);
 
   /* ── Desktop dropdown state ── */
   const [desktopDropdown, setDesktopDropdown] = useState(false);
@@ -103,7 +134,7 @@ export const Navbar = () => {
     setDeskSubject(null);
     setMobileOpen(false);
     setMobileLevel('root');
-  }, [location.pathname]);
+  }, [pathname]);
 
   /* ── helpers ── */
   const activeExam = practiceExams.find((e) => e.slug === (deskExam ?? ''));
@@ -116,18 +147,20 @@ export const Navbar = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        !isHome || scrolled ? 'bg-background/90 backdrop-blur-xl border-b border-border' : 'bg-transparent'
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
+        !isHome || scrolled
+          ? 'bg-background/80 backdrop-blur-2xl backdrop-saturate-[180%] border-b border-foreground/[0.06]'
+          : 'bg-transparent'
       }`}
       role="navigation"
       aria-label="Main navigation"
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="MindPeak Institute" className="w-10 h-10 rounded-full" width={40} height={40} />
-          <span className="font-display font-bold text-foreground text-lg tracking-wide">
+        <Link to="/" className="flex items-center gap-3 group">
+          <Image src={logo} alt="MindPeak Institute" className="w-9 h-9 rounded-full ring-1 ring-foreground/[0.08] transition-shadow duration-500 group-hover:ring-primary/30" width={36} height={36} priority />
+          <span className="font-display font-semibold text-foreground text-base tracking-[0.05em]">
             MINDPEAK
           </span>
         </Link>
@@ -139,7 +172,10 @@ export const Navbar = () => {
               /* ── Practice dropdown trigger ── */
               <div key="practice" className="relative" ref={dropdownRef}>
                 <button
+                  onMouseEnter={loadPracticeData}
+                  onFocus={loadPracticeData}
                   onClick={() => {
+                    loadPracticeData();
                     setDesktopDropdown(!desktopDropdown);
                     setDeskExam(null);
                     setDeskSubject(null);
@@ -223,7 +259,7 @@ export const Navbar = () => {
                             {activeSubject.chapters.map((ch) => (
                               <Link
                                 key={ch.slug}
-                                to={`/${activeExam.slug}-${activeSubject.slug}-${ch.slug}-${ch.firstTopicSlug}-easy-q1`}
+                                to={ch.firstQuestionSlug ? `/${ch.firstQuestionSlug}` : activeExam.hubPath}
                                 className="block px-4 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/40 transition-colors"
                               >
                                 {ch.name}
@@ -264,7 +300,7 @@ export const Navbar = () => {
           )}
           <button
             onClick={openDemoModal}
-            className="px-5 py-2 border border-primary text-primary text-xs uppercase tracking-wider hover:bg-primary hover:text-primary-foreground transition-all duration-300 whitespace-nowrap flex-shrink-0"
+            className="px-5 py-2.5 bg-primary text-primary-foreground text-[11px] uppercase tracking-[0.15em] font-medium rounded-full hover:shadow-[0_0_20px_-4px_hsl(var(--primary)/0.4)] transition-all duration-500 whitespace-nowrap flex-shrink-0"
           >
             Book Free Demo
           </button>
@@ -297,7 +333,7 @@ export const Navbar = () => {
                     link.isPractice ? (
                       <button
                         key="practice"
-                        onClick={() => setMobileLevel('exam')}
+                        onClick={() => { loadPracticeData(); setMobileLevel('exam'); }}
                         className="text-foreground text-lg font-display tracking-wider uppercase text-left flex items-center justify-between"
                       >
                         Practice <ChevronRight className="w-5 h-5 text-muted-foreground" />
@@ -412,7 +448,7 @@ export const Navbar = () => {
                         {mobActiveSubject.chapters.map((ch) => (
                           <Link
                             key={ch.slug}
-                            to={`/${mobActiveExam.slug}-${mobActiveSubject.slug}-${ch.slug}-${ch.firstTopicSlug}-easy-q1`}
+                            to={ch.firstQuestionSlug ? `/${ch.firstQuestionSlug}` : mobActiveExam.hubPath}
                             onClick={() => setMobileOpen(false)}
                             className="block px-4 py-3 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/40 transition-colors border border-transparent hover:border-border"
                           >

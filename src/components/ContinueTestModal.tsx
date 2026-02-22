@@ -133,7 +133,7 @@ const ContinueTestModal = ({ isOpen, testName, onSuccess }: ContinueTestModalPro
                 </h3>
               </div>
               <p className="text-muted-foreground text-sm">
-                You've completed 5 free questions! Fill in your details to unlock all questions.
+                You've completed 4 free questions! Fill in your details to unlock all questions.
               </p>
               <p className="text-xs text-muted-foreground mt-1 italic">
                 Test: {testName}

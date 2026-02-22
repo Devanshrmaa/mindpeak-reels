@@ -1656,12 +1656,12 @@ export const getPostsByCategory = (category: BlogPost['category']): BlogPost[] =
   return blogPosts.filter(post => post.category === category);
 };
 
-// Helper function to get post by slug
+// Helper function to get post by slug (static posts only — use blogResolver for all posts)
 export const getPostBySlug = (slug: string): BlogPost | undefined => {
   return blogPosts.find(post => post.slug === slug);
 };
 
-// Helper function to get related posts
+// Helper function to get related posts (static posts only — use blogResolver for all posts)
 export const getRelatedPosts = (currentPost: BlogPost, limit: number = 3): BlogPost[] => {
   return blogPosts
     .filter(post => 

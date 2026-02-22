@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from '@/components/RouterLink';
 import { ArrowRight } from 'lucide-react';
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 
