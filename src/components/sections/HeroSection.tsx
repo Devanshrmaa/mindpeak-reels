@@ -1,34 +1,18 @@
 import { motion, useScroll, useTransform, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, useCallback } from 'react';
 const heroBg = '/images/hero-bg.jpg';
 
-const charVariants = {
-  hidden: { y: '110%', opacity: 0 },
+/** Lightweight per-line reveal instead of per-character */
+const lineVariants = {
+  hidden: { y: '100%', opacity: 0 },
   visible: (i: number) => ({
     y: '0%',
     opacity: 1,
-    transition: { delay: 0.6 + i * 0.025, duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+    transition: { delay: 0.4 + i * 0.15, duration: 0.7, ease: [0.16, 1, 0.3, 1] },
   }),
 };
 
-const SplitText = ({ text, className, startIndex = 0, isGold = false }: { text: string; className?: string; startIndex?: number; isGold?: boolean }) => (
-  <span className={`inline-flex flex-wrap justify-center overflow-hidden ${className || ''}`}>
-    {text.split('').map((char, i) => (
-      <motion.span
-        key={i}
-        custom={startIndex + i}
-        variants={charVariants}
-        initial="hidden"
-        animate="visible"
-        className={`inline-block ${char === ' ' ? 'w-[0.3em]' : ''} ${isGold ? 'text-gradient-gold' : ''}`}
-      >
-        {char === ' ' ? '\u00A0' : char}
-      </motion.span>
-    ))}
-  </span>
-);
-
-export const HeroSection = () => {
+export const HeroSection = ({ onReady }: { onReady?: () => void }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
   const smoothY = useSpring(scrollY, { stiffness: 100, damping: 30, mass: 0.5 });
@@ -45,6 +29,13 @@ export const HeroSection = () => {
   const bgMoveY = useTransform(smoothMouseY, [-0.5, 0.5], [5, -5]);
 
   const [showScrollHint, setShowScrollHint] = useState(true);
+  const [heroReady, setHeroReady] = useState(false);
+
+  /** Signal that hero text is done animating — navbar can appear */
+  const onHeroAnimComplete = useCallback(() => {
+    setHeroReady(true);
+    onReady?.();
+  }, [onReady]);
 
   useEffect(() => {
     const handleMouse = (e: MouseEvent) => {
@@ -65,8 +56,6 @@ export const HeroSection = () => {
     { text: 'TRANSFORMS ASPIRANTS', gold: false },
     { text: 'INTO ACHIEVERS', gold: true },
   ];
-
-  let charOffset = 0;
 
   return (
     <header
@@ -117,21 +106,23 @@ export const HeroSection = () => {
           <span className="h-px w-8 bg-primary/40" />
         </motion.div>
 
-        {/* Split-text headline */}
+        {/* Per-line headline reveal */}
         <h1 className="font-display mb-8">
-          {lines.map((line, i) => {
-            const startIdx = charOffset;
-            charOffset += line.text.length;
-            return (
-              <span
-                key={i}
-                className="block leading-[1.1] tracking-[-0.02em] font-bold"
+          {lines.map((line, i) => (
+            <span key={i} className="block overflow-hidden">
+              <motion.span
+                custom={i}
+                variants={lineVariants}
+                initial="hidden"
+                animate="visible"
+                onAnimationComplete={i === lines.length - 1 ? onHeroAnimComplete : undefined}
+                className={`block leading-[1.1] tracking-[-0.02em] font-bold ${line.gold ? 'text-gradient-gold' : ''}`}
                 style={{ fontSize: line.gold ? 'clamp(2.2rem, 8vw, 6.5rem)' : 'clamp(1.5rem, 5vw, 4rem)' }}
               >
-                <SplitText text={line.text} startIndex={startIdx} isGold={line.gold} />
-              </span>
-            );
-          })}
+                {line.text}
+              </motion.span>
+            </span>
+          ))}
         </h1>
 
         {/* CTA */}

@@ -1,6 +1,8 @@
 "use client";
 
 import dynamic from 'next/dynamic';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Navbar } from '@/components/sections/Navbar';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { ScrollIndicator } from '@/components/ScrollIndicator';
@@ -17,6 +19,8 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const ContactSection = dynamic(() => import('@/components/sections/ContactSection').then(m => ({ default: m.ContactSection })), { ssr: false });
 
 const Index = () => {
+  const [navVisible, setNavVisible] = useState(false);
+
   return (
     <>
       {/* Skip Navigation for Accessibility */}
@@ -26,10 +30,23 @@ const Index = () => {
       >
         Skip to main content
       </a>
-      <Navbar />
+
+      {/* Navbar slides in after hero text finishes */}
+      <AnimatePresence>
+        {navVisible && (
+          <motion.div
+            initial={{ y: -80, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <Navbar />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <ScrollIndicator />
       <main id="main-content" className="bg-background">
-        <HeroSection />
+        <HeroSection onReady={() => setNavVisible(true)} />
         <ProblemSection />
         <DiscoverySection />
         <TransformationTimeline />
