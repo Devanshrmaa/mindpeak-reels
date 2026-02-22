@@ -10,6 +10,7 @@ import {
   pyqSubjectBanks,
   getTotalPYQQuestions,
   getPYQChapterCount,
+  getPYQSlugByParams,
 } from '@/data/pyq';
 
 const JEEPYQHub = () => {
@@ -144,7 +145,7 @@ const JEEPYQHub = () => {
                         {chapter.questions.map((q, qIdx) => (
                           <Link
                             key={qIdx}
-                            to={`/jee-pyq-${activeBank.slug}-${chapter.slug}-q${qIdx + 1}`}
+                            to={`/${getPYQSlugByParams(activeBank.slug, chapter.slug, qIdx + 1) ?? ''}`}
                             className="flex items-center justify-between gap-3 rounded-lg border border-border/50 bg-secondary/10 px-4 py-3 hover:border-orange-500/40 hover:bg-orange-500/5 transition-colors group"
                           >
                             <div className="flex items-start gap-3 min-w-0">

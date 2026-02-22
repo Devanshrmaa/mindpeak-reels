@@ -10,6 +10,7 @@ import {
   neetPyqSubjectBanks,
   getTotalNEETPYQQuestions,
   getNEETPYQChapterCount,
+  getNEETPYQSlugByParams,
 } from '@/data/neet-pyq';
 
 const NEETPYQHub = () => {
@@ -144,7 +145,7 @@ const NEETPYQHub = () => {
                         {chapter.questions.map((q, qIdx) => (
                           <Link
                             key={qIdx}
-                            to={`/neet-pyq-${activeBank.slug}-${chapter.slug}-q${qIdx + 1}`}
+                            to={`/${getNEETPYQSlugByParams(activeBank.slug, chapter.slug, qIdx + 1) ?? ''}`}
                             className="flex items-center justify-between gap-3 rounded-lg border border-border/50 bg-secondary/10 px-4 py-3 hover:border-green-500/40 hover:bg-green-500/5 transition-colors group"
                           >
                             <div className="flex items-start gap-3 min-w-0">

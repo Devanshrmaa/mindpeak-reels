@@ -136,6 +136,21 @@ const _slugMap = new Map<string, PracticeRouteParams>(
   _allSlugs.map((s) => [s.slug, s.params]),
 );
 
+/* ─── Reverse lookup: params → slug ─── */
+const _paramToSlug = new Map<string, string>(
+  _allSlugs.map((s) => [
+    `${s.params.subject}|${s.params.chapter}|${s.params.topic}|${s.params.difficulty}|${s.params.questionIndex}`,
+    s.slug,
+  ]),
+);
+
+/** Get the SEO-friendly slug for given practice question params */
+export function getPracticeSlugByParams(
+  subject: string, chapter: string, topic: string, difficulty: Difficulty, questionIndex: number,
+): string | null {
+  return _paramToSlug.get(`${subject}|${chapter}|${topic}|${difficulty}|${questionIndex}`) ?? null;
+}
+
 /** Parse a practice slug into route params via direct lookup */
 export function parsePracticeSlug(slug: string): PracticeRouteParams | null {
   return _slugMap.get(slug) ?? null;

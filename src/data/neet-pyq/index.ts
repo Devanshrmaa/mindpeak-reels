@@ -103,6 +103,21 @@ const _neetPyqSlugMap = new Map<string, NEETPYQRouteParams>(
   _allNEETPYQSlugs.map((s) => [s.slug, s.params]),
 );
 
+/* ─── Reverse lookup: params → slug ─── */
+const _neetPyqParamToSlug = new Map<string, string>(
+  _allNEETPYQSlugs.map((s) => [
+    `${s.params.subject}|${s.params.chapter}|${s.params.questionIndex}`,
+    s.slug,
+  ]),
+);
+
+/** Get the SEO-friendly slug for given NEET PYQ params */
+export function getNEETPYQSlugByParams(
+  subject: string, chapter: string, questionIndex: number,
+): string | null {
+  return _neetPyqParamToSlug.get(`${subject}|${chapter}|${questionIndex}`) ?? null;
+}
+
 /** Parse a NEET PYQ slug into route params via direct map lookup */
 export function parseNEETPYQSlug(slug: string): NEETPYQRouteParams | null {
   return _neetPyqSlugMap.get(slug) ?? null;

@@ -15,6 +15,7 @@ import {
   neetSubjectBanks,
   getNEETChapter,
   getNEETChapterQuestionCount,
+  getNEETPracticeSlugByParams,
   type Difficulty,
 } from '@/data/neet-practice';
 
@@ -25,9 +26,6 @@ const difficultyLabel: Record<Difficulty, string> = {
   hard: 'Hard',
 };
 
-/**
- * Deterministic shuffle for 4 options based on a string seed.
- */
 function seededShuffle(seed: string): number[] {
   let h = 0;
   for (let i = 0; i < seed.length; i++) {
@@ -80,7 +78,6 @@ const NEETPracticeQuestion = () => {
   const params = parseNEETPracticeSlug(slug);
   const question = params ? getNEETPracticeQuestion(params) : null;
 
-  /* Deterministic option shuffle */
   const { shuffledOptions, shuffledAnswer } = useMemo(() => {
     if (!question) return { shuffledOptions: [] as string[], shuffledAnswer: -1 };
     const perm = seededShuffle(slug);
@@ -99,17 +96,16 @@ const NEETPracticeQuestion = () => {
   const subj = bank.subject;
   const diff = difficultyLabel[params.difficulty];
 
-  /* ── Question Gate (free first 5, then require form) ── */
   const { isGated, onUnlock } = useQuestionGate(params.questionIndex);
   const testName = `NEET ${subj} — ${chapterName} — ${topicName} (${diff})`;
 
-  /* navigation slugs */
+  /* navigation slugs — use proper SEO slugs */
   const topicQuestions = topicObj?.[params.difficulty] ?? [];
   const prevSlug = params.questionIndex > 1
-    ? `neet-${params.subject}-${params.chapter}-${params.topic}-${params.difficulty}-q${params.questionIndex - 1}`
+    ? getNEETPracticeSlugByParams(params.subject, params.chapter, params.topic, params.difficulty, params.questionIndex - 1)
     : null;
   const nextSlug = params.questionIndex < topicQuestions.length
-    ? `neet-${params.subject}-${params.chapter}-${params.topic}-${params.difficulty}-q${params.questionIndex + 1}`
+    ? getNEETPracticeSlugByParams(params.subject, params.chapter, params.topic, params.difficulty, params.questionIndex + 1)
     : null;
 
   const title = `NEET ${subj} — ${topicName} (${diff}) Q${params.questionIndex} | MindPeak`;
@@ -138,8 +134,6 @@ const NEETPracticeQuestion = () => {
 
   const isAnswered = selectedOption !== null;
   const isCorrect = selectedOption === shuffledAnswer;
-
-  /* sibling topics in same chapter for related links */
   const siblingTopics = chapter?.topics.filter((t) => t.slug !== params.topic).slice(0, 4) ?? [];
 
   return (
@@ -150,7 +144,6 @@ const NEETPracticeQuestion = () => {
         {/* Hero */}
         <section className="relative overflow-hidden bg-gradient-to-b from-green-500/5 via-background to-background py-16 sm:py-24">
           <div className="mx-auto max-w-4xl px-4">
-            {/* Breadcrumb */}
             <nav className="mb-6 text-sm text-muted-foreground flex items-center gap-1 flex-wrap">
               <Link to="/" className="hover:text-green-500 transition-colors">Home</Link>
               <span>/</span>
@@ -178,9 +171,8 @@ const NEETPracticeQuestion = () => {
           </div>
         </section>
 
-        {/* Content */}
         <section className="mx-auto max-w-4xl px-4 py-12 space-y-12">
-          {/* ── MCQ Card ── */}
+          {/* MCQ Card */}
           <motion.div ref={questionRef} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-xl border border-border bg-card/50 p-6 sm:p-8 scroll-mt-4">
             <div className="flex items-start justify-between gap-4 mb-6">
               <h2 className="font-display font-bold text-xl text-foreground flex items-center gap-2">
@@ -192,47 +184,28 @@ const NEETPracticeQuestion = () => {
               </div>
             </div>
 
-            <p className="text-foreground text-lg font-medium leading-relaxed mb-8">
-              {question.q}
-            </p>
+            <p className="text-foreground text-lg font-medium leading-relaxed mb-8">{question.q}</p>
 
-            {/* Options */}
             <div className="space-y-3 mb-6">
               {shuffledOptions.map((option, idx) => {
                 let optionClass = 'border-border hover:border-green-500/50 cursor-pointer';
                 if (isAnswered) {
-                  if (idx === shuffledAnswer) {
-                    optionClass = 'border-green-500 bg-green-500/10';
-                  } else if (idx === selectedOption && !isCorrect) {
-                    optionClass = 'border-red-500 bg-red-500/10';
-                  } else {
-                    optionClass = 'border-border opacity-60';
-                  }
+                  if (idx === shuffledAnswer) optionClass = 'border-green-500 bg-green-500/10';
+                  else if (idx === selectedOption && !isCorrect) optionClass = 'border-red-500 bg-red-500/10';
+                  else optionClass = 'border-border opacity-60';
                 } else if (idx === selectedOption) {
                   optionClass = 'border-green-500 bg-green-500/5';
                 }
                 return (
-                  <button
-                    key={idx}
-                    onClick={() => !isAnswered && setSelectedOption(idx)}
-                    disabled={isAnswered}
-                    className={`w-full text-left flex items-start gap-4 rounded-lg border p-4 transition-all ${optionClass}`}
-                  >
-                    <span className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-secondary/50 text-sm font-semibold text-foreground">
-                      {String.fromCharCode(65 + idx)}
-                    </span>
-                    <span className="text-foreground text-sm sm:text-base leading-relaxed pt-1">
-                      {option}
-                    </span>
-                    {isAnswered && idx === shuffledAnswer && (
-                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 ml-auto mt-1" />
-                    )}
+                  <button key={idx} onClick={() => !isAnswered && setSelectedOption(idx)} disabled={isAnswered} className={`w-full text-left flex items-start gap-4 rounded-lg border p-4 transition-all ${optionClass}`}>
+                    <span className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-secondary/50 text-sm font-semibold text-foreground">{String.fromCharCode(65 + idx)}</span>
+                    <span className="text-foreground text-sm sm:text-base leading-relaxed pt-1">{option}</span>
+                    {isAnswered && idx === shuffledAnswer && <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 ml-auto mt-1" />}
                   </button>
                 );
               })}
             </div>
 
-            {/* Result */}
             {isAnswered && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mt-4">
                 <div className={`rounded-lg p-4 ${isCorrect ? 'bg-green-500/10 border border-green-500/30' : 'bg-red-500/10 border border-red-500/30'}`}>
@@ -243,13 +216,9 @@ const NEETPracticeQuestion = () => {
               </motion.div>
             )}
 
-            {/* ── Solution ── */}
             {isAnswered && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mt-6">
-                <button
-                  onClick={() => setShowSolution(!showSolution)}
-                  className="flex items-center gap-2 text-green-500 font-semibold text-sm mb-3"
-                >
+                <button onClick={() => setShowSolution(!showSolution)} className="flex items-center gap-2 text-green-500 font-semibold text-sm mb-3">
                   {showSolution ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                   {showSolution ? 'Hide Solution' : 'Show Solution'}
                 </button>
@@ -264,7 +233,6 @@ const NEETPracticeQuestion = () => {
               </motion.div>
             )}
 
-            {/* ── Prev / Next Navigation ── */}
             <div className="flex items-center justify-between mt-8 pt-5 border-t border-border">
               {prevSlug ? (
                 <Link to={`/${prevSlug}`} className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-green-500 transition-colors">
@@ -280,34 +248,22 @@ const NEETPracticeQuestion = () => {
             </div>
           </motion.div>
 
-          {/* ── Question Meta ── */}
+          {/* Question Meta */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-xl border border-border bg-card/50 p-6">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="flex items-center gap-3 rounded-lg bg-secondary/30 p-3">
-                <Target className="w-5 h-5 text-green-500" />
-                <div>
-                  <p className="text-xs text-muted-foreground">Chapter</p>
-                  <p className="text-sm font-medium text-foreground">{chapterName}</p>
+              {[{ label: 'Chapter', value: chapterName }, { label: 'Topic', value: topicName }, { label: 'Difficulty', value: diff }].map((item) => (
+                <div key={item.label} className="flex items-center gap-3 rounded-lg bg-secondary/30 p-3">
+                  <Target className="w-5 h-5 text-green-500" />
+                  <div>
+                    <p className="text-xs text-muted-foreground">{item.label}</p>
+                    <p className="text-sm font-medium text-foreground">{item.value}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-center gap-3 rounded-lg bg-secondary/30 p-3">
-                <Target className="w-5 h-5 text-green-500" />
-                <div>
-                  <p className="text-xs text-muted-foreground">Topic</p>
-                  <p className="text-sm font-medium text-foreground">{topicName}</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 rounded-lg bg-secondary/30 p-3">
-                <Target className="w-5 h-5 text-green-500" />
-                <div>
-                  <p className="text-xs text-muted-foreground">Difficulty</p>
-                  <p className="text-sm font-medium text-foreground">{diff}</p>
-                </div>
-              </div>
+              ))}
             </div>
           </motion.div>
 
-          {/* ── Chapter Browser ── */}
+          {/* Chapter Browser */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-xl border border-border bg-card/50 overflow-hidden">
             <button
               onClick={() => { setShowChapterBrowser(!showChapterBrowser); setBrowserExpandedChapter(null); }}
@@ -332,10 +288,7 @@ const NEETPracticeQuestion = () => {
                     const qCount = getNEETChapterQuestionCount(ch);
                     return (
                       <div key={ch.slug} className={`rounded-lg border overflow-hidden ${isCurrent ? 'border-green-500/50 bg-green-500/5' : 'border-border/50'}`}>
-                        <button
-                          onClick={() => setBrowserExpandedChapter(isExp ? null : ch.slug)}
-                          className="w-full flex items-center justify-between px-4 py-3 hover:bg-secondary/20 transition-colors text-left"
-                        >
+                        <button onClick={() => setBrowserExpandedChapter(isExp ? null : ch.slug)} className="w-full flex items-center justify-between px-4 py-3 hover:bg-secondary/20 transition-colors text-left">
                           <div className="flex items-center gap-2">
                             <BookOpen className="w-4 h-4 text-green-500 flex-shrink-0" />
                             <div>
@@ -356,21 +309,18 @@ const NEETPracticeQuestion = () => {
                                 <div key={t.slug} className="rounded-md bg-secondary/10 p-3">
                                   <p className="text-xs font-medium text-foreground mb-2">{t.name}</p>
                                   <div className="flex flex-wrap gap-1.5">
-                                    {counts.easy > 0 && (
-                                      <Link to={`/neet-${bank.slug}-${ch.slug}-${t.slug}-easy-q1`} className="inline-flex items-center gap-1 px-2 py-1 rounded border text-[11px] font-medium bg-green-500/10 border-green-500/30 text-green-400 hover:scale-105 transition-transform">
-                                        <Zap className="w-3 h-3" /> Easy ({counts.easy})
-                                      </Link>
-                                    )}
-                                    {counts.medium > 0 && (
-                                      <Link to={`/neet-${bank.slug}-${ch.slug}-${t.slug}-medium-q1`} className="inline-flex items-center gap-1 px-2 py-1 rounded border text-[11px] font-medium bg-yellow-500/10 border-yellow-500/30 text-yellow-400 hover:scale-105 transition-transform">
-                                        <Target className="w-3 h-3" /> Medium ({counts.medium})
-                                      </Link>
-                                    )}
-                                    {counts.hard > 0 && (
-                                      <Link to={`/neet-${bank.slug}-${ch.slug}-${t.slug}-hard-q1`} className="inline-flex items-center gap-1 px-2 py-1 rounded border text-[11px] font-medium bg-red-500/10 border-red-500/30 text-red-400 hover:scale-105 transition-transform">
-                                        <Award className="w-3 h-3" /> Hard ({counts.hard})
-                                      </Link>
-                                    )}
+                                    {counts.easy > 0 && (() => {
+                                      const s = getNEETPracticeSlugByParams(bank.slug, ch.slug, t.slug, 'easy', 1);
+                                      return s ? <Link to={`/${s}`} className="inline-flex items-center gap-1 px-2 py-1 rounded border text-[11px] font-medium bg-green-500/10 border-green-500/30 text-green-400 hover:scale-105 transition-transform"><Zap className="w-3 h-3" /> Easy ({counts.easy})</Link> : null;
+                                    })()}
+                                    {counts.medium > 0 && (() => {
+                                      const s = getNEETPracticeSlugByParams(bank.slug, ch.slug, t.slug, 'medium', 1);
+                                      return s ? <Link to={`/${s}`} className="inline-flex items-center gap-1 px-2 py-1 rounded border text-[11px] font-medium bg-yellow-500/10 border-yellow-500/30 text-yellow-400 hover:scale-105 transition-transform"><Target className="w-3 h-3" /> Medium ({counts.medium})</Link> : null;
+                                    })()}
+                                    {counts.hard > 0 && (() => {
+                                      const s = getNEETPracticeSlugByParams(bank.slug, ch.slug, t.slug, 'hard', 1);
+                                      return s ? <Link to={`/${s}`} className="inline-flex items-center gap-1 px-2 py-1 rounded border text-[11px] font-medium bg-red-500/10 border-red-500/30 text-red-400 hover:scale-105 transition-transform"><Award className="w-3 h-3" /> Hard ({counts.hard})</Link> : null;
+                                    })()}
                                   </div>
                                 </div>
                               );
@@ -386,49 +336,34 @@ const NEETPracticeQuestion = () => {
           </motion.div>
 
           {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="rounded-xl bg-gradient-to-r from-green-500/10 via-green-500/5 to-transparent border border-green-500/20 p-8 text-center"
-          >
-            <h2 className="font-display font-bold text-xl text-foreground mb-3">
-              Want Detailed Solutions with a Personal Mentor?
-            </h2>
-            <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
-              Get step-by-step solutions explained live in 1-on-1 sessions. Your MindPeak mentor will solve similar problems with you,
-              identify your weak areas, and create a personalised practice plan.
-            </p>
-            <button
-              onClick={openDemoModal}
-              className="inline-flex items-center gap-2 rounded-full bg-green-600 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-green-700 transition-colors"
-            >
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-xl bg-gradient-to-r from-green-500/10 via-green-500/5 to-transparent border border-green-500/20 p-8 text-center">
+            <h2 className="font-display font-bold text-xl text-foreground mb-3">Want Detailed Solutions with a Personal Mentor?</h2>
+            <p className="text-muted-foreground mb-6 max-w-lg mx-auto">Get step-by-step solutions explained live in 1-on-1 sessions.</p>
+            <button onClick={openDemoModal} className="inline-flex items-center gap-2 rounded-full bg-green-600 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-green-700 transition-colors">
               Book Free Demo Class <ArrowRight className="w-4 h-4" />
             </button>
           </motion.div>
 
-          {/* Related Topics in Same Chapter */}
+          {/* Related Topics */}
           {siblingTopics.length > 0 && (
             <div>
               <h3 className="font-display font-bold text-lg text-foreground mb-4">More from {chapterName}</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {siblingTopics.map((t) => (
-                  <Link
-                    key={t.slug}
-                    to={`/neet-${params.subject}-${params.chapter}-${t.slug}-easy-q1`}
-                    className="rounded-lg border border-border bg-card/50 p-4 hover:border-green-500/50 transition-colors"
-                  >
-                    <p className="text-sm font-medium text-foreground">{t.name}</p>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      {t.easy.length + t.medium.length + t.hard.length} questions · Easy / Medium / Hard
-                    </p>
-                  </Link>
-                ))}
+                {siblingTopics.map((t) => {
+                  const linkSlug = getNEETPracticeSlugByParams(params.subject, params.chapter, t.slug, 'easy', 1);
+                  if (!linkSlug) return null;
+                  return (
+                    <Link key={t.slug} to={`/${linkSlug}`} className="rounded-lg border border-border bg-card/50 p-4 hover:border-green-500/50 transition-colors">
+                      <p className="text-sm font-medium text-foreground">{t.name}</p>
+                      <p className="text-xs text-muted-foreground mt-1">{t.easy.length + t.medium.length + t.hard.length} questions</p>
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           )}
 
-          {/* Cross-subject Practice */}
+          {/* Cross-subject */}
           <div>
             <h3 className="font-display font-bold text-lg text-foreground mb-4">NEET Practice — All Subjects</h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -442,14 +377,11 @@ const NEETPracticeQuestion = () => {
                     {b.chapters.slice(0, 5).map((ch) => {
                       const firstTopic = ch.topics[0];
                       if (!firstTopic) return null;
+                      const linkSlug = getNEETPracticeSlugByParams(b.slug, ch.slug, firstTopic.slug, 'easy', 1);
+                      if (!linkSlug) return null;
                       return (
                         <li key={ch.slug}>
-                          <Link
-                            to={`/neet-${b.slug}-${ch.slug}-${firstTopic.slug}-easy-q1`}
-                            className="text-xs text-muted-foreground hover:text-green-500 transition-colors"
-                          >
-                            {ch.name}
-                          </Link>
+                          <Link to={`/${linkSlug}`} className="text-xs text-muted-foreground hover:text-green-500 transition-colors">{ch.name}</Link>
                         </li>
                       );
                     })}
@@ -472,11 +404,7 @@ const NEETPracticeQuestion = () => {
                 { label: 'Free Trial', to: '/free-trial' },
                 { label: 'All Courses', to: '/courses' },
               ].map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  className="px-3 py-1.5 rounded-lg bg-card border border-border text-xs text-muted-foreground hover:text-green-500 hover:border-green-500/40 transition-colors"
-                >
+                <Link key={link.to} to={link.to} className="px-3 py-1.5 rounded-lg bg-card border border-border text-xs text-muted-foreground hover:text-green-500 hover:border-green-500/40 transition-colors">
                   {link.label}
                 </Link>
               ))}
@@ -487,7 +415,6 @@ const NEETPracticeQuestion = () => {
         <PageFooter extra={`NEET ${subj} Practice Questions — ${chapterName}.`} />
       </main>
 
-      {/* Gate modal — shown for Q6+ until user submits form */}
       <ContinueTestModal isOpen={isGated} testName={testName} onSuccess={onUnlock} />
     </>
   );

@@ -113,6 +113,21 @@ const _slugMap = new Map<string, NEETPracticeRouteParams>(
   _allSlugs.map((s) => [s.slug, s.params]),
 );
 
+/* ─── Reverse lookup: params → slug ─── */
+const _neetParamToSlug = new Map<string, string>(
+  _allSlugs.map((s) => [
+    `${s.params.subject}|${s.params.chapter}|${s.params.topic}|${s.params.difficulty}|${s.params.questionIndex}`,
+    s.slug,
+  ]),
+);
+
+/** Get the SEO-friendly slug for given NEET practice question params */
+export function getNEETPracticeSlugByParams(
+  subject: string, chapter: string, topic: string, difficulty: Difficulty, questionIndex: number,
+): string | null {
+  return _neetParamToSlug.get(`${subject}|${chapter}|${topic}|${difficulty}|${questionIndex}`) ?? null;
+}
+
 /** Parse a NEET practice slug into route params via direct lookup */
 export function parseNEETPracticeSlug(slug: string): NEETPracticeRouteParams | null {
   return _slugMap.get(slug) ?? null;
