@@ -116,8 +116,8 @@ export const HeroSection = ({ onReady }: { onReady?: () => void }) => {
                 initial="hidden"
                 animate="visible"
                 onAnimationComplete={i === lines.length - 1 ? onHeroAnimComplete : undefined}
-                className={`block leading-[1.1] tracking-[-0.02em] font-bold ${line.gold ? 'text-gradient-gold' : ''}`}
-                style={{ fontSize: line.gold ? 'clamp(2.2rem, 8vw, 6.5rem)' : 'clamp(1.5rem, 5vw, 4rem)' }}
+                className={`block leading-[1.05] tracking-[-0.03em] font-black uppercase ${line.gold ? 'text-gradient-gold' : ''}`}
+                style={{ fontSize: line.gold ? 'clamp(3rem, 12vw, 9rem)' : 'clamp(2.2rem, 8vw, 6rem)' }}
               >
                 {line.text}
               </motion.span>
