@@ -18,6 +18,7 @@ import {
   pyqSubjectBanks,
   getPYQChapter,
   getPYQChapterCount,
+  getPYQSlugByParams,
 } from '@/data/pyq';
 
 /* ── Deterministic option shuffle (same as practice page) ── */
@@ -88,15 +89,13 @@ const JEEPYQQuestion = () => {
   const { isGated, onUnlock } = useQuestionGate(params.questionIndex);
   const testName = `JEE PYQ — ${subj} — ${chapterName}`;
 
-  /* navigation slugs */
-  const prevSlug =
-    params.questionIndex > 1
-      ? `jee-pyq-${params.subject}-${params.chapter}-q${params.questionIndex - 1}`
-      : null;
-  const nextSlug =
-    params.questionIndex < totalInChapter
-      ? `jee-pyq-${params.subject}-${params.chapter}-q${params.questionIndex + 1}`
-      : null;
+  /* navigation slugs — use proper SEO slugs */
+  const prevSlug = params.questionIndex > 1
+    ? getPYQSlugByParams(params.subject, params.chapter, params.questionIndex - 1)
+    : null;
+  const nextSlug = params.questionIndex < totalInChapter
+    ? getPYQSlugByParams(params.subject, params.chapter, params.questionIndex + 1)
+    : null;
 
   const title = `JEE ${subj} PYQ — ${chapterName} Q${params.questionIndex} (${question.year}) | MindPeak`;
   const description = `Solve JEE ${question.exam === 'advanced' ? 'Advanced' : 'Main'} ${question.year} (${question.shift}) ${subj} question on ${chapterName}. Attempt the MCQ, check the answer & read the solution. Free JEE PYQ practice by MindPeak.`;
@@ -289,23 +288,30 @@ const JEEPYQQuestion = () => {
                       </button>
                       {isExp && (
                         <div className="border-t border-border/50 px-4 py-2 space-y-1">
-                          {ch.questions.slice(0, 5).map((_, qi) => (
-                            <Link
-                              key={qi}
-                              to={`/jee-pyq-${bank.slug}-${ch.slug}-q${qi + 1}`}
-                              className="block text-xs text-muted-foreground hover:text-orange-400 transition-colors py-1"
-                            >
-                              Q{qi + 1} — {ch.questions[qi].q.slice(0, 60)}…
-                            </Link>
-                          ))}
-                          {count > 5 && (
-                            <Link
-                              to={`/jee-pyq-${bank.slug}-${ch.slug}-q1`}
-                              className="block text-xs text-orange-400 font-medium py-1"
-                            >
-                              View all {count} questions →
-                            </Link>
-                          )}
+                          {ch.questions.slice(0, 5).map((_, qi) => {
+                            const qSlug = getPYQSlugByParams(bank.slug, ch.slug, qi + 1);
+                            if (!qSlug) return null;
+                            return (
+                              <Link
+                                key={qi}
+                                to={`/${qSlug}`}
+                                className="block text-xs text-muted-foreground hover:text-orange-400 transition-colors py-1"
+                              >
+                                Q{qi + 1} — {ch.questions[qi].q.slice(0, 60)}…
+                              </Link>
+                            );
+                          })}
+                          {count > 5 && (() => {
+                            const firstSlug = getPYQSlugByParams(bank.slug, ch.slug, 1);
+                            return firstSlug ? (
+                              <Link
+                                to={`/${firstSlug}`}
+                                className="block text-xs text-orange-400 font-medium py-1"
+                              >
+                                View all {count} questions →
+                              </Link>
+                            ) : null;
+                          })()}
                         </div>
                       )}
                     </div>

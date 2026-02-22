@@ -15,6 +15,7 @@ import {
   subjectBanks,
   getChapter,
   getChapterQuestionCount,
+  getPracticeSlugByParams,
   type Difficulty,
 } from '@/data/practice';
 
@@ -27,23 +28,18 @@ const difficultyLabel: Record<Difficulty, string> = {
 
 /**
  * Deterministic shuffle for 4 options based on a string seed.
- * Same seed always produces the same permutation,
- * but different questions get different orderings.
  */
 function seededShuffle(seed: string): number[] {
-  // Simple hash from seed string
   let h = 0;
   for (let i = 0; i < seed.length; i++) {
     h = ((h << 5) - h + seed.charCodeAt(i)) | 0;
   }
   h = Math.abs(h);
-
-  // Generate a permutation of [0,1,2,3] using the hash
   const arr = [0, 1, 2, 3];
   for (let i = 3; i > 0; i--) {
     const j = h % (i + 1);
     [arr[i], arr[j]] = [arr[j], arr[i]];
-    h = Math.floor(h / (i + 1)) + (h % 7919); // advance deterministically
+    h = Math.floor(h / (i + 1)) + (h % 7919);
   }
   return arr;
 }
@@ -88,9 +84,9 @@ const JEEPracticeQuestion = () => {
   /* Deterministic option shuffle — hook must run before conditional returns */
   const { shuffledOptions, shuffledAnswer } = useMemo(() => {
     if (!question) return { shuffledOptions: [] as string[], shuffledAnswer: -1 };
-    const perm = seededShuffle(slug);                         // e.g. [2, 0, 3, 1]
-    const sOpts = perm.map((origIdx) => question.o[origIdx]); // reordered options
-    const sAns = perm.indexOf(question.a);                    // new index of correct answer
+    const perm = seededShuffle(slug);
+    const sOpts = perm.map((origIdx) => question.o[origIdx]);
+    const sAns = perm.indexOf(question.a);
     return { shuffledOptions: sOpts, shuffledAnswer: sAns };
   }, [slug, question]);
 
@@ -108,13 +104,13 @@ const JEEPracticeQuestion = () => {
   const { isGated, onUnlock } = useQuestionGate(params.questionIndex);
   const testName = `JEE ${subj} — ${chapterName} — ${topicName} (${diff})`;
 
-  /* navigation slugs */
+  /* navigation slugs — use proper SEO slugs */
   const topicQuestions = topicObj?.[params.difficulty] ?? [];
   const prevSlug = params.questionIndex > 1
-    ? `jee-${params.subject}-${params.chapter}-${params.topic}-${params.difficulty}-q${params.questionIndex - 1}`
+    ? getPracticeSlugByParams(params.subject, params.chapter, params.topic, params.difficulty, params.questionIndex - 1)
     : null;
   const nextSlug = params.questionIndex < topicQuestions.length
-    ? `jee-${params.subject}-${params.chapter}-${params.topic}-${params.difficulty}-q${params.questionIndex + 1}`
+    ? getPracticeSlugByParams(params.subject, params.chapter, params.topic, params.difficulty, params.questionIndex + 1)
     : null;
 
   const title = `JEE ${subj} — ${topicName} (${diff}) Q${params.questionIndex} | MindPeak`;
@@ -363,21 +359,30 @@ const JEEPracticeQuestion = () => {
                                 <div key={t.slug} className="rounded-md bg-secondary/10 p-3">
                                   <p className="text-xs font-medium text-foreground mb-2">{t.name}</p>
                                   <div className="flex flex-wrap gap-1.5">
-                                    {counts.easy > 0 && (
-                                      <Link to={`/jee-${bank.slug}-${ch.slug}-${t.slug}-easy-q1`} className="inline-flex items-center gap-1 px-2 py-1 rounded border text-[11px] font-medium bg-green-500/10 border-green-500/30 text-green-400 hover:scale-105 transition-transform">
-                                        <Zap className="w-3 h-3" /> Easy ({counts.easy})
-                                      </Link>
-                                    )}
-                                    {counts.medium > 0 && (
-                                      <Link to={`/jee-${bank.slug}-${ch.slug}-${t.slug}-medium-q1`} className="inline-flex items-center gap-1 px-2 py-1 rounded border text-[11px] font-medium bg-yellow-500/10 border-yellow-500/30 text-yellow-400 hover:scale-105 transition-transform">
-                                        <Target className="w-3 h-3" /> Medium ({counts.medium})
-                                      </Link>
-                                    )}
-                                    {counts.hard > 0 && (
-                                      <Link to={`/jee-${bank.slug}-${ch.slug}-${t.slug}-hard-q1`} className="inline-flex items-center gap-1 px-2 py-1 rounded border text-[11px] font-medium bg-red-500/10 border-red-500/30 text-red-400 hover:scale-105 transition-transform">
-                                        <Award className="w-3 h-3" /> Hard ({counts.hard})
-                                      </Link>
-                                    )}
+                                    {counts.easy > 0 && (() => {
+                                      const s = getPracticeSlugByParams(bank.slug, ch.slug, t.slug, 'easy', 1);
+                                      return s ? (
+                                        <Link to={`/${s}`} className="inline-flex items-center gap-1 px-2 py-1 rounded border text-[11px] font-medium bg-green-500/10 border-green-500/30 text-green-400 hover:scale-105 transition-transform">
+                                          <Zap className="w-3 h-3" /> Easy ({counts.easy})
+                                        </Link>
+                                      ) : null;
+                                    })()}
+                                    {counts.medium > 0 && (() => {
+                                      const s = getPracticeSlugByParams(bank.slug, ch.slug, t.slug, 'medium', 1);
+                                      return s ? (
+                                        <Link to={`/${s}`} className="inline-flex items-center gap-1 px-2 py-1 rounded border text-[11px] font-medium bg-yellow-500/10 border-yellow-500/30 text-yellow-400 hover:scale-105 transition-transform">
+                                          <Target className="w-3 h-3" /> Medium ({counts.medium})
+                                        </Link>
+                                      ) : null;
+                                    })()}
+                                    {counts.hard > 0 && (() => {
+                                      const s = getPracticeSlugByParams(bank.slug, ch.slug, t.slug, 'hard', 1);
+                                      return s ? (
+                                        <Link to={`/${s}`} className="inline-flex items-center gap-1 px-2 py-1 rounded border text-[11px] font-medium bg-red-500/10 border-red-500/30 text-red-400 hover:scale-105 transition-transform">
+                                          <Award className="w-3 h-3" /> Hard ({counts.hard})
+                                        </Link>
+                                      ) : null;
+                                    })()}
                                   </div>
                                 </div>
                               );
@@ -419,18 +424,22 @@ const JEEPracticeQuestion = () => {
             <div>
               <h3 className="font-display font-bold text-lg text-foreground mb-4">More from {chapterName}</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {siblingTopics.map((t) => (
-                  <Link
-                    key={t.slug}
-                    to={`/jee-${params.subject}-${params.chapter}-${t.slug}-easy-q1`}
-                    className="rounded-lg border border-border bg-card/50 p-4 hover:border-primary/50 transition-colors"
-                  >
-                    <p className="text-sm font-medium text-foreground">{t.name}</p>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      {t.easy.length + t.medium.length + t.hard.length} questions · Easy / Medium / Hard
-                    </p>
-                  </Link>
-                ))}
+                {siblingTopics.map((t) => {
+                  const linkSlug = getPracticeSlugByParams(params.subject, params.chapter, t.slug, 'easy', 1);
+                  if (!linkSlug) return null;
+                  return (
+                    <Link
+                      key={t.slug}
+                      to={`/${linkSlug}`}
+                      className="rounded-lg border border-border bg-card/50 p-4 hover:border-primary/50 transition-colors"
+                    >
+                      <p className="text-sm font-medium text-foreground">{t.name}</p>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        {t.easy.length + t.medium.length + t.hard.length} questions · Easy / Medium / Hard
+                      </p>
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           )}
@@ -449,10 +458,12 @@ const JEEPracticeQuestion = () => {
                     {b.chapters.slice(0, 5).map((ch) => {
                       const firstTopic = ch.topics[0];
                       if (!firstTopic) return null;
+                      const linkSlug = getPracticeSlugByParams(b.slug, ch.slug, firstTopic.slug, 'easy', 1);
+                      if (!linkSlug) return null;
                       return (
                         <li key={ch.slug}>
                           <Link
-                            to={`/jee-${b.slug}-${ch.slug}-${firstTopic.slug}-easy-q1`}
+                            to={`/${linkSlug}`}
                             className="text-xs text-muted-foreground hover:text-primary transition-colors"
                           >
                             {ch.name}

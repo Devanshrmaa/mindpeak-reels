@@ -117,6 +117,21 @@ const _pyqSlugMap = new Map<string, PYQRouteParams>(
   _allPYQSlugs.map((s) => [s.slug, s.params]),
 );
 
+/* ─── Reverse lookup: params → slug ─── */
+const _pyqParamToSlug = new Map<string, string>(
+  _allPYQSlugs.map((s) => [
+    `${s.params.subject}|${s.params.chapter}|${s.params.questionIndex}`,
+    s.slug,
+  ]),
+);
+
+/** Get the SEO-friendly slug for given PYQ params */
+export function getPYQSlugByParams(
+  subject: string, chapter: string, questionIndex: number,
+): string | null {
+  return _pyqParamToSlug.get(`${subject}|${chapter}|${questionIndex}`) ?? null;
+}
+
 /** Parse a PYQ slug into route params via direct map lookup */
 export function parsePYQSlug(slug: string): PYQRouteParams | null {
   return _pyqSlugMap.get(slug) ?? null;

@@ -10,6 +10,7 @@ import {
   subjectBanks,
   getTotalQuestions,
   getChapterQuestionCount,
+  getPracticeSlugByParams,
 } from '@/data/practice';
 
 const difficultyConfig = {
@@ -169,7 +170,7 @@ const JEEPracticeHub = () => {
                                   return (
                                     <Link
                                       key={diff}
-                                      to={`/jee-${activeBank.slug}-${chapter.slug}-${topic.slug}-${diff}-q1`}
+                                      to={`/${getPracticeSlugByParams(activeBank.slug, chapter.slug, topic.slug, diff, 1) ?? ''}`}
                                       className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-medium transition-colors hover:scale-105 ${cfg.bg} ${cfg.color}`}
                                     >
                                       <cfg.icon className="w-3 h-3" />
