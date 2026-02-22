@@ -61,10 +61,9 @@ export const HeroSection = () => {
   }, [scrollY]);
 
   const lines = [
-    { text: 'INSTITUTE THAT', gold: false },
-    { text: 'TRANSFORMS', gold: false },
-    { text: 'ASPIRANTS INTO', gold: false },
-    { text: 'ACHIEVERS', gold: true },
+    { text: 'THE INSTITUTE THAT', gold: false },
+    { text: 'TRANSFORMS ASPIRANTS', gold: false },
+    { text: 'INTO ACHIEVERS', gold: true },
   ];
 
   let charOffset = 0;
@@ -109,7 +108,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-10 flex items-center justify-center gap-3"
+          className="mb-6 flex items-center justify-center gap-3"
         >
           <span className="h-px w-8 bg-primary/40" />
           <span className="text-[11px] sm:text-xs uppercase tracking-[0.3em] text-muted-foreground font-medium">
@@ -119,15 +118,15 @@ export const HeroSection = () => {
         </motion.div>
 
         {/* Split-text headline */}
-        <h1 className="font-display mb-12">
+        <h1 className="font-display mb-8">
           {lines.map((line, i) => {
             const startIdx = charOffset;
             charOffset += line.text.length;
             return (
               <span
                 key={i}
-                className="block leading-[1.0] tracking-[-0.03em] font-bold"
-                style={{ fontSize: line.gold ? 'clamp(2.5rem, 10vw, 8rem)' : 'clamp(1.8rem, 7vw, 5.5rem)' }}
+                className="block leading-[1.1] tracking-[-0.02em] font-bold"
+                style={{ fontSize: line.gold ? 'clamp(2.2rem, 8vw, 6.5rem)' : 'clamp(1.5rem, 5vw, 4rem)' }}
               >
                 <SplitText text={line.text} startIndex={startIdx} isGold={line.gold} />
               </span>
