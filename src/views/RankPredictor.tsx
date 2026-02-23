@@ -353,6 +353,22 @@ const RankPredictor = () => {
   const title = `${examLabel} Rank Predictor ${CURRENT_EXAM_YEAR} — Predict Your AIR & College | MindPeak`;
   const description = `Use MindPeak's free ${examLabel} Rank Predictor ${CURRENT_EXAM_YEAR} to estimate your All India Rank and get college suggestions. Based on JoSAA/MCC cutoff data.`;
 
+  const faqItems = exam === 'jee' ? [
+    { q: 'Can I get into IIT through JEE Main?', a: 'No. IIT admissions happen exclusively through JEE Advanced. JEE Main qualifies you for NITs (31), IIITs (26), and GFTIs (33+). You must first clear JEE Main to become eligible for JEE Advanced, which is the only gateway to all 23 IITs in India.' },
+    { q: 'What is the difference between JEE Main and JEE Advanced rank?', a: 'JEE Main rank (out of ~12 lakh candidates) is used for NIT/IIIT/GFTI admissions via JoSAA counselling. JEE Advanced rank (out of ~1.5 lakh candidates) is used only for IIT admissions. Both are separate rankings — a good JEE Main rank doesn\'t guarantee a good JEE Advanced rank.' },
+    { q: `How accurate is this ${examLabel} rank predictor?`, a: 'Our predictor uses 10+ years of JEE data and JoSAA closing ranks to estimate your rank range with 90–95% accuracy. Actual ranks depend on paper difficulty, normalisation, and total candidates.' },
+    { q: 'What score do I need for top NITs?', a: 'For top NITs like NIT Trichy, Surathkal, Warangal — you need AIR under 3,000 (approximately 240+ marks). For CSE at mid-tier NITs, AIR 8,000-15,000 (200-230 marks). Home state quota students get preference.' },
+    { q: 'What JEE Main score qualifies for JEE Advanced?', a: 'Approximately the top 2,50,000 JEE Main candidates (across all categories) are eligible for JEE Advanced. For General category, this typically means 160+ marks out of 300.' },
+    { q: `Can I improve my predicted rank with coaching?`, a: `Absolutely. MindPeak students typically improve by 50-150 marks with personalised 1-on-1 coaching — that can shift your rank by 10,000-50,000 positions.` },
+  ] : [
+    { q: `How accurate is this NEET rank predictor?`, a: 'Our predictor uses 10+ years of NEET data and MCC counselling cutoffs. It achieves 90–95% accuracy for rank range estimation. Actual ranks may vary based on paper difficulty and total candidates.' },
+    { q: 'What NEET score do I need for AIIMS Delhi?', a: 'AIIMS New Delhi typically requires 700+ marks (AIR under 50) for General category. Other AIIMS like Jodhpur, Rishikesh need 660+ marks. The cutoff varies yearly based on difficulty.' },
+    { q: 'Can I get a government medical college with 550 marks?', a: 'With 550 marks (AIR ~25,000-40,000), you can target state government medical colleges under home state quota. The exact cutoff depends on your state, category, and number of seats.' },
+    { q: 'What is the minimum NEET score to qualify?', a: 'For General/EWS category, the minimum qualifying score is the 50th percentile (approximately 137 marks out of 720). For SC/ST/OBC, it is the 40th percentile (~107 marks).' },
+    { q: 'MBBS vs BDS — what score do I need?', a: 'For government MBBS seats, you typically need 530+ marks. For government BDS seats, 400-500 marks suffice. Private medical colleges accept 400-530 marks. Below 400, options are limited to BAMS/BHMS/private BDS.' },
+    { q: `Can I improve my predicted rank with coaching?`, a: `Absolutely. MindPeak students typically improve by 50-150 marks with personalised 1-on-1 coaching — that can shift your rank by 10,000-50,000 positions.` },
+  ];
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -368,19 +384,17 @@ const RankPredictor = () => {
   const faqJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: [
-      { '@type': 'Question', name: `How accurate is this ${examLabel} rank predictor?`, acceptedAnswer: { '@type': 'Answer', text: `Our predictor is based on 10 years of ${examLabel} data and JoSAA/MCC cutoff trends. It achieves 90-95% accuracy for rank range estimation.` } },
-      { '@type': 'Question', name: 'Can I get into IIT through JEE Main?', acceptedAnswer: { '@type': 'Answer', text: 'No. IIT admissions happen only through JEE Advanced. JEE Main qualifies you for NITs, IIITs, and GFTIs. You must clear JEE Main first to be eligible for JEE Advanced, which is the gateway to all 23 IITs.' } },
-      { '@type': 'Question', name: `Can I improve my predicted rank with coaching?`, acceptedAnswer: { '@type': 'Answer', text: `Absolutely. MindPeak students typically improve by 50-150 marks with personalised 1-on-1 coaching — that can shift your rank by 10,000-50,000 positions.` } },
-    ],
+    mainEntity: faqItems.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
   };
 
   return (
     <>
-      <SEOHead title={title} description={description} />
+      <SEOHead title={title} description={description} jsonLd={[jsonLd, faqJsonLd]} />
       <Navbar />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <main className="bg-background min-h-screen pt-20 sm:pt-24 overflow-x-hidden">
         {/* Breadcrumb */}
@@ -725,7 +739,7 @@ const RankPredictor = () => {
           <h2 className="font-display font-bold text-foreground text-2xl sm:text-3xl text-center mb-8">
             Frequently Asked <span className="text-gradient-gold">Questions</span>
           </h2>
-          <FAQAccordion exam={exam} examLabel={examLabel} />
+          <FAQAccordion items={faqItems} />
         </section>
 
         {/* Related Tools */}
@@ -775,25 +789,12 @@ function ToolCard({ title, desc, href }: { title: string; desc: string; href: st
 }
 
 /* ── FAQ Accordion ── */
-function FAQAccordion({ exam, examLabel }: { exam: Exam; examLabel: string }) {
+function FAQAccordion({ items }: { items: { q: string; a: string }[] }) {
   const [open, setOpen] = useState<number | null>(null);
-  const faqs = exam === 'jee' ? [
-    { q: 'Can I get into IIT through JEE Main?', a: 'No. IIT admissions happen exclusively through JEE Advanced. JEE Main qualifies you for NITs (31), IIITs (26), and GFTIs (33+). You must first clear JEE Main to become eligible for JEE Advanced, which is the only gateway to all 23 IITs in India.' },
-    { q: 'What is the difference between JEE Main and JEE Advanced rank?', a: 'JEE Main rank (out of ~12 lakh candidates) is used for NIT/IIIT/GFTI admissions via JoSAA counselling. JEE Advanced rank (out of ~1.5 lakh candidates) is used only for IIT admissions. Both are separate rankings — a good JEE Main rank doesn\'t guarantee a good JEE Advanced rank.' },
-    { q: `How accurate is this ${examLabel} rank predictor?`, a: 'Our predictor uses 10+ years of JEE data and JoSAA closing ranks to estimate your rank range with 90–95% accuracy. Actual ranks depend on paper difficulty, normalisation, and total candidates.' },
-    { q: 'What score do I need for top NITs?', a: 'For top NITs like NIT Trichy, Surathkal, Warangal — you need AIR under 3,000 (approximately 240+ marks). For CSE at mid-tier NITs, AIR 8,000-15,000 (200-230 marks). Home state quota students get preference.' },
-    { q: 'What JEE Main score qualifies for JEE Advanced?', a: 'Approximately the top 2,50,000 JEE Main candidates (across all categories) are eligible for JEE Advanced. For General category, this typically means 160+ marks out of 300.' },
-  ] : [
-    { q: `How accurate is this NEET rank predictor?`, a: 'Our predictor uses 10+ years of NEET data and MCC counselling cutoffs. It achieves 90–95% accuracy for rank range estimation. Actual ranks may vary based on paper difficulty and total candidates.' },
-    { q: 'What NEET score do I need for AIIMS Delhi?', a: 'AIIMS New Delhi typically requires 700+ marks (AIR under 50) for General category. Other AIIMS like Jodhpur, Rishikesh need 660+ marks. The cutoff varies yearly based on difficulty.' },
-    { q: 'Can I get a government medical college with 550 marks?', a: 'With 550 marks (AIR ~25,000-40,000), you can target state government medical colleges under home state quota. The exact cutoff depends on your state, category, and number of seats.' },
-    { q: 'What is the minimum NEET score to qualify?', a: 'For General/EWS category, the minimum qualifying score is the 50th percentile (approximately 137 marks out of 720). For SC/ST/OBC, it is the 40th percentile (~107 marks).' },
-    { q: 'MBBS vs BDS — what score do I need?', a: 'For government MBBS seats, you typically need 530+ marks. For government BDS seats, 400-500 marks suffice. Private medical colleges accept 400-530 marks. Below 400, options are limited to BAMS/BHMS/private BDS.' },
-  ];
 
   return (
     <div className="space-y-3">
-      {faqs.map((f, i) => (
+      {items.map((f, i) => (
         <div key={i} className={`rounded-xl border transition-all ${open === i ? 'border-primary/30 bg-card/50' : 'border-border bg-card/20 hover:border-border/70'}`}>
           <button onClick={() => setOpen(open === i ? null : i)} className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left">
             <span className={`text-sm font-semibold ${open === i ? 'text-foreground' : 'text-foreground/80'}`}>{f.q}</span>

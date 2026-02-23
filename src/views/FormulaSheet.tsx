@@ -313,9 +313,8 @@ const FormulaSheet = () => {
 
   return (
     <>
-      <SEOHead title={data.title} description={data.description} />
+      <SEOHead title={data.title} description={data.description} jsonLd={[faqJsonLd]} />
       <Navbar />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <main className="bg-background min-h-screen pt-20 sm:pt-24 overflow-x-hidden">
         {/* Breadcrumb */}

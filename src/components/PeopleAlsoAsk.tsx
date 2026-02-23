@@ -26,16 +26,13 @@ export const PeopleAlsoAsk = ({ questions, heading = 'People Also Ask' }: PAAPro
           {heading}
         </h2>
 
-        <div className="space-y-2 sm:space-y-3" role="list" itemScope itemType="https://schema.org/FAQPage">
+        <div className="space-y-2 sm:space-y-3" role="list">
           {questions.map((q, i) => {
             const isOpen = openIndex === i;
             return (
               <div
                 key={i}
                 role="listitem"
-                itemScope
-                itemProp="mainEntity"
-                itemType="https://schema.org/Question"
                 className="rounded-xl border border-border bg-card/50 overflow-hidden"
               >
                 <button
@@ -44,7 +41,6 @@ export const PeopleAlsoAsk = ({ questions, heading = 'People Also Ask' }: PAAPro
                   aria-expanded={isOpen}
                 >
                   <h3
-                    itemProp="name"
                     className="text-foreground font-semibold text-xs sm:text-sm md:text-base leading-snug"
                   >
                     {q.question}
@@ -60,13 +56,9 @@ export const PeopleAlsoAsk = ({ questions, heading = 'People Also Ask' }: PAAPro
 
                 {isOpen && (
                   <div
-                    itemScope
-                    itemProp="acceptedAnswer"
-                    itemType="https://schema.org/Answer"
                     className="px-3.5 sm:px-5 pb-4 sm:pb-5"
                   >
                     <p
-                      itemProp="text"
                       className="text-muted-foreground text-xs sm:text-sm md:text-base leading-relaxed"
                     >
                       {q.answer}
@@ -82,20 +74,4 @@ export const PeopleAlsoAsk = ({ questions, heading = 'People Also Ask' }: PAAPro
   );
 };
 
-/**
- * Build PAA JSON-LD schema for SEOHead injection.
- */
-export function buildPAASchema(questions: PAAQuestion[]) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: questions.map((q) => ({
-      '@type': 'Question',
-      name: q.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: q.answer,
-      },
-    })),
-  };
-}
+

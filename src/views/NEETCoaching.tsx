@@ -19,7 +19,7 @@ import { SeasonalBanner } from '@/components/SeasonalBanner';
 import { getLastUpdated, getCurrentExamYear } from '@/lib/contentFreshness';
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 import { getLiveStat } from '@/lib/liveStats';
-import { PeopleAlsoAsk, buildPAASchema } from '@/components/PeopleAlsoAsk';
+import { PeopleAlsoAsk } from '@/components/PeopleAlsoAsk';
 import type { PAAQuestion } from '@/components/PeopleAlsoAsk';
 import {
   GraduationCap, Users, BarChart3, Target, CheckCircle, ArrowRight, BookOpen,
@@ -143,7 +143,7 @@ const NEETCoaching = () => {
       <SEOHead
         title="NEET Online Coaching — Personalized 1-on-1 Mentorship | Top Medical Colleges | MindPeak"
         description="Crack NEET with personalized 1-on-1 coaching. Biology-first approach, NCERT mastery, dedicated mentors. 95% success rate, 500+ students. Start free trial today!"
-        jsonLd={[courseSchema, breadcrumbSchema, buildFAQSchema(faqs), buildPAASchema(paaQuestions)]}
+        jsonLd={[courseSchema, breadcrumbSchema, buildFAQSchema([...faqs, ...paaQuestions])]}
       />
 
       <Navbar />

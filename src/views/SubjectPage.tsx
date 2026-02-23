@@ -12,7 +12,7 @@ import { PageFAQ, buildFAQSchema } from '@/components/PageFAQ';
 import type { FAQItem } from '@/components/PageFAQ';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
 import { FreshnessBadge } from '@/components/FreshnessBadge';
-import { PeopleAlsoAsk, buildPAASchema } from '@/components/PeopleAlsoAsk';
+import { PeopleAlsoAsk } from '@/components/PeopleAlsoAsk';
 import type { PAAQuestion } from '@/components/PeopleAlsoAsk';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import { SubjectChapterLinks, ChapterFooterGrid } from '@/components/SubjectChapterLinks';
@@ -528,7 +528,7 @@ const SubjectPage = () => {
       <SEOHead
         title={data.title}
         description={data.description}
-        jsonLd={[courseSchema, breadcrumbSchema, buildFAQSchema(data.faqs), buildPAASchema(data.paa)]}
+        jsonLd={[courseSchema, breadcrumbSchema, buildFAQSchema([...data.faqs, ...data.paa])]}
       />
       <Navbar />
 

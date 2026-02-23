@@ -19,7 +19,7 @@ import { SeasonalBanner } from '@/components/SeasonalBanner';
 import { getLastUpdated, getCurrentExamYear } from '@/lib/contentFreshness';
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 import { getLiveStat, formatStat } from '@/lib/liveStats';
-import { PeopleAlsoAsk, buildPAASchema } from '@/components/PeopleAlsoAsk';
+import { PeopleAlsoAsk } from '@/components/PeopleAlsoAsk';
 import type { PAAQuestion } from '@/components/PeopleAlsoAsk';
 import {
   GraduationCap, Users, BarChart3, Target, CheckCircle, ArrowRight, BookOpen,
@@ -158,7 +158,7 @@ const JEECoaching = () => {
       <SEOHead
         title="JEE Online Coaching — Personalized 1-on-1 Mentorship | 95% Success Rate | MindPeak"
         description="Achieve AIR <5K with personalized JEE coaching. Dedicated mentors, adaptive curriculum, 95% success rate. 500+ students trust MindPeak. Start free trial today!"
-        jsonLd={[courseSchema, breadcrumbSchema, buildFAQSchema(faqs), buildPAASchema(paaQuestions)]}
+        jsonLd={[courseSchema, breadcrumbSchema, buildFAQSchema([...faqs, ...paaQuestions])]}
       />
 
       <Navbar />
