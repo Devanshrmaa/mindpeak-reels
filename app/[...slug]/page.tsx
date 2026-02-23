@@ -4,19 +4,15 @@
  * Catch-all route handler.
  *
  * Matches any path not handled by explicit routes above.
- * Dispatches to the appropriate page component based on slug patterns:
- *   - SUBJECT_SLUGS   → SubjectPage
- *   - FORMULA_SLUGS   → FormulaSheet
- *   - CHAPTER_SLUGS   → ChapterPage
- *   - TOPIC_PATHS     → TopicPage (two-segment paths like chapter/topic)
- *   - Question prefixes → QuestionSlugRouter (JEE/NEET practice + PYQ)
- *   - Location slugs  → LocationPage (via QuestionSlugRouter fallback)
- *   - Anything else    → redirect to /
+ * Dispatches to the appropriate page component based on slug patterns.
+ * Resolution is synchronous — no async delay.
  */
 
-import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState, useRef } from "react";
+import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
+import { CHAPTER_SLUGS, TOPIC_PATHS } from "@/data/chapterData";
+import { SUBJECT_SLUGS } from "@/views/SubjectPage";
+import { FORMULA_SLUGS } from "@/views/FormulaSheet";
 
 const SubjectPage = dynamic(() => import("@/views/SubjectPage"), { loading: () => <Spinner /> });
 const ChapterPage = dynamic(() => import("@/views/ChapterPage"), { loading: () => <Spinner /> });
@@ -30,72 +26,22 @@ const Spinner = () => (
   </div>
 );
 
+function resolve(slug: string): "subject" | "chapter" | "topic" | "formula" | "question" {
+  // Two-segment paths → TopicPage
+  if (slug.includes("/")) {
+    return TOPIC_PATHS.includes(slug) ? "topic" : "question";
+  }
+  // One-segment — check static arrays first
+  if (SUBJECT_SLUGS.includes(slug)) return "subject";
+  if (FORMULA_SLUGS.includes(slug)) return "formula";
+  if (CHAPTER_SLUGS.includes(slug)) return "chapter";
+  return "question";
+}
+
 export default function CatchAllPage() {
   const pathname = usePathname();
-  const router = useRouter();
-  const [resolved, setResolved] = useState<
-    "subject" | "chapter" | "topic" | "formula" | "question" | "redirect" | null
-  >(null);
-  const slugDataRef = useRef<{
-    SUBJECT_SLUGS: string[];
-    CHAPTER_SLUGS: string[];
-    TOPIC_PATHS: string[];
-    FORMULA_SLUGS: string[];
-  } | null>(null);
-
   const slug = pathname.replace(/^\//, "");
-
-  useEffect(() => {
-    // Lazy-load slug arrays only when needed (avoids importing ~15k lines of data eagerly)
-    async function resolve() {
-      if (!slugDataRef.current) {
-        const [subjectMod, chapterMod, topicMod, formulaMod] = await Promise.all([
-          import("@/views/SubjectPage"),
-          import("@/data/chapterData"),
-          import("@/data/chapterData"),
-          import("@/views/FormulaSheet"),
-        ]);
-        slugDataRef.current = {
-          SUBJECT_SLUGS: subjectMod.SUBJECT_SLUGS,
-          CHAPTER_SLUGS: chapterMod.CHAPTER_SLUGS,
-          TOPIC_PATHS: topicMod.TOPIC_PATHS,
-          FORMULA_SLUGS: formulaMod.FORMULA_SLUGS,
-        };
-      }
-
-      const { SUBJECT_SLUGS, CHAPTER_SLUGS, TOPIC_PATHS, FORMULA_SLUGS } = slugDataRef.current;
-
-      // Two-segment paths → TopicPage
-      if (slug.includes("/")) {
-        if (TOPIC_PATHS.includes(slug)) {
-          setResolved("topic");
-        } else {
-          router.replace("/");
-        }
-        return;
-      }
-
-      // One-segment paths — check static arrays first
-      if (SUBJECT_SLUGS.includes(slug)) {
-        setResolved("subject");
-      } else if (FORMULA_SLUGS.includes(slug)) {
-        setResolved("formula");
-      } else if (CHAPTER_SLUGS.includes(slug)) {
-        setResolved("chapter");
-      } else {
-        setResolved("question");
-      }
-    }
-    resolve();
-  }, [slug, router]);
-
-  if (resolved === null) {
-    return (
-      <div className="min-h-screen bg-[hsl(225,43%,7%)] flex items-center justify-center">
-        <div className="w-8 h-8 border-2 border-amber-500 border-t-transparent rounded-full animate-spin" />
-      </div>
-    );
-  }
+  const resolved = resolve(slug);
 
   switch (resolved) {
     case "subject":
@@ -108,9 +54,5 @@ export default function CatchAllPage() {
       return <FormulaSheet />;
     case "question":
       return <QuestionSlugRouter />;
-    case "redirect":
-      return null; // router.replace already called
-    default:
-      return null;
   }
 }
