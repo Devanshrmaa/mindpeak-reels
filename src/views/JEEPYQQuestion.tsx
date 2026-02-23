@@ -130,6 +130,7 @@ const JEEPYQQuestion = () => {
         { '@type': 'ListItem', position: 3, name: `${subj} — ${chapterName}`, item: `https://mindpeakinstitute.com/${slug}` },
       ],
     },
+    buildFAQSchema(faqItems),
   ];
 
   const isAnswered = selectedOption !== null;
