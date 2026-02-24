@@ -10,6 +10,7 @@ import { AnimatePresence } from 'framer-motion';
 import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
 import { useDemoModal } from '@/components/DemoBookingModal';
+import { buildFAQSchemaFromQA } from '@/components/PageFAQ';
 import { cities, allCities, getLocationTitle, getLocationDescription } from '@/data/cityData';
 import type { CityData } from '@/data/cityData';
 const logo = '/images/logo.jpeg';
@@ -64,15 +65,7 @@ const LocationPage = () => {
         bestRating: '5',
       },
     },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: city.faqs.map((faq) => ({
-        '@type': 'Question',
-        name: faq.q,
-        acceptedAnswer: { '@type': 'Answer', text: faq.a },
-      })),
-    },
+    buildFAQSchemaFromQA(city.faqs),
     {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',

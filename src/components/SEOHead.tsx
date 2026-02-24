@@ -10,8 +10,8 @@ interface SEOHeadProps {
 }
 
 /**
- * Dynamically sets <title>, meta description, canonical, OG tags,
- * and injects JSON-LD structured data into the <head>.
+ * Sets <title>, meta description, canonical, OG tags via useEffect,
+ * and renders JSON-LD structured data server-side as inline <script> tags.
  */
 export const SEOHead = ({ title, description, canonical, ogImage, jsonLd }: SEOHeadProps) => {
   const pathname = usePathname();
@@ -51,29 +51,22 @@ export const SEOHead = ({ title, description, canonical, ogImage, jsonLd }: SEOH
       document.head.appendChild(link);
     }
     link.setAttribute('href', fullCanonical);
+  }, [title, description, fullCanonical, fullOgImage]);
 
-    // JSON-LD
-    const scriptId = 'seo-jsonld';
-    let scriptEl = document.getElementById(scriptId) as HTMLScriptElement | null;
-    if (jsonLd) {
-      const ldArray = Array.isArray(jsonLd) ? jsonLd : [jsonLd];
-      const content = ldArray.map((ld) => JSON.stringify(ld)).join('\n');
-      if (!scriptEl) {
-        scriptEl = document.createElement('script');
-        scriptEl.id = scriptId;
-        scriptEl.type = 'application/ld+json';
-        document.head.appendChild(scriptEl);
-      }
-      // For multiple schemas, wrap in array
-      scriptEl.textContent = ldArray.length === 1 ? JSON.stringify(ldArray[0]) : JSON.stringify(ldArray);
-    }
+  // Render JSON-LD as inline script tags — works during SSR so Google can crawl it
+  if (!jsonLd) return null;
 
-    return () => {
-      // Cleanup JSON-LD on unmount
-      const el = document.getElementById(scriptId);
-      if (el) el.remove();
-    };
-  }, [title, description, fullCanonical, fullOgImage, jsonLd]);
+  const ldArray = Array.isArray(jsonLd) ? jsonLd : [jsonLd];
 
-  return null;
+  return (
+    <>
+      {ldArray.map((ld, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }}
+        />
+      ))}
+    </>
+  );
 };

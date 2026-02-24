@@ -9,6 +9,7 @@ import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
 import { PageFooter } from '@/components/PageFooter';
 import { useDemoModal } from '@/components/DemoBookingModal';
+import { buildFAQSchemaFromQA } from '@/components/PageFAQ';
 import {
   CheckCircle, Phone, BookOpen, ChevronDown, GraduationCap,
   BarChart3, Target, Lightbulb, Zap, Brain, Clock,
@@ -137,15 +138,7 @@ const TopicPage = () => {
   const canonicalUrl = `https://mindpeakinstitute.com/${chapterSlug}/${topicSlug}`;
   const prepSubjectSlug = `${chapter.exam.toLowerCase()}-${chapter.subject.toLowerCase()}-preparation`;
 
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: topicFaqs.map(f => ({
-      '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a },
-    })),
-  };
+  const faqSchema = buildFAQSchemaFromQA(topicFaqs);
 
   const articleSchema = {
     '@context': 'https://schema.org',

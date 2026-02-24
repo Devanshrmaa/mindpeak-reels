@@ -96,13 +96,34 @@ export const PageFAQ = ({ items, heading = 'Frequently Asked', highlight = 'Ques
   );
 };
 
-/** Helper: build FAQPage JSON-LD for SEOHead */
-export const buildFAQSchema = (items: FAQItem[]) => ({
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: items.map((faq) => ({
-    '@type': 'Question',
-    name: faq.question,
-    acceptedAnswer: { '@type': 'Answer', text: faq.answer },
-  })),
-});
+/** Helper: build FAQPage JSON-LD for SEOHead (filters out invalid items) */
+export const buildFAQSchema = (items: FAQItem[]) => {
+  const valid = items.filter(
+    (faq) => faq && typeof faq.question === 'string' && faq.question.trim() !== '' && typeof faq.answer === 'string' && faq.answer.trim() !== '',
+  );
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: valid.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+    })),
+  };
+};
+
+/** Helper: build FAQPage JSON-LD from { q, a } shaped data (filters out invalid items) */
+export const buildFAQSchemaFromQA = (items: { q: string; a: string }[]) => {
+  const valid = items.filter(
+    (faq) => faq && typeof faq.q === 'string' && faq.q.trim() !== '' && typeof faq.a === 'string' && faq.a.trim() !== '',
+  );
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: valid.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a },
+    })),
+  };
+};

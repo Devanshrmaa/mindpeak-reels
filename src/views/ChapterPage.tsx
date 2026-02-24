@@ -9,6 +9,7 @@ import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
 import { PageFooter } from '@/components/PageFooter';
 import { useDemoModal } from '@/components/DemoBookingModal';
+import { buildFAQSchemaFromQA } from '@/components/PageFAQ';
 import {
   CheckCircle, ArrowRight, Phone, AlertTriangle, RotateCcw,
   BookOpen, ChevronDown, GraduationCap, BarChart3, Target,
@@ -190,15 +191,7 @@ const ChapterPage = () => {
 
   const allFaqs = [...chapter.faqs, ...autoFaqs];
 
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: allFaqs.map(f => ({
-      '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a },
-    })),
-  };
+  const faqSchema = buildFAQSchemaFromQA(allFaqs);
 
   return (
     <>

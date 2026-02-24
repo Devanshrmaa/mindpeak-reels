@@ -10,6 +10,7 @@ import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
 import { PageFooter } from '@/components/PageFooter';
 import { useDemoModal } from '@/components/DemoBookingModal';
+import { buildFAQSchemaFromQA } from '@/components/PageFAQ';
 import { RelatedPages, getRelatedLinksForExam } from '@/components/RelatedPages';
 import {
   Download, Phone, BookOpen, CheckCircle, ChevronDown,
@@ -302,14 +303,7 @@ const FormulaSheet = () => {
 
   if (!data) return <Navigate to="/" replace />;
 
-  const faqJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: data.faqs.map((f) => ({
-      '@type': 'Question', name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a },
-    })),
-  };
+  const faqJsonLd = buildFAQSchemaFromQA(data.faqs);
 
   return (
     <>

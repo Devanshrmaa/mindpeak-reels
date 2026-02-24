@@ -11,6 +11,7 @@ import { SEOHead } from '@/components/SEOHead';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import { PageFooter } from '@/components/PageFooter';
 import { subjectBanks } from '@/data/practice';
+import { buildFAQSchemaFromQA } from '@/components/PageFAQ';
 import { getSEOPage } from '@/data/seoPageData';
 import type { SEOPageData, SEOPageSection } from '@/data/seoPageData';
 
@@ -99,15 +100,7 @@ const SEOLandingPage = () => {
   }
 
   if (page.faqs.length > 0) {
-    jsonLd.push({
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: page.faqs.map((f) => ({
-        '@type': 'Question',
-        name: f.q,
-        acceptedAnswer: { '@type': 'Answer', text: f.a },
-      })),
-    });
+    jsonLd.push(buildFAQSchemaFromQA(page.faqs));
   }
 
   jsonLd.push({

@@ -9,6 +9,7 @@ import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
 import { PageFooter } from '@/components/PageFooter';
 import { useDemoModal } from '@/components/DemoBookingModal';
+import { buildFAQSchemaFromQA } from '@/components/PageFAQ';
 import {
   ArrowRight, Phone, TrendingUp, GraduationCap,
   CheckCircle, Calculator, ChevronDown, User, Mail, Lock,
@@ -381,15 +382,7 @@ const RankPredictor = () => {
     description,
   };
 
-  const faqJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqItems.map((f) => ({
-      '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a },
-    })),
-  };
+  const faqJsonLd = buildFAQSchemaFromQA(faqItems);
 
   return (
     <>
