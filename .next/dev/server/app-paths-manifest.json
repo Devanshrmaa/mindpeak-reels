@@ -1,4 +1,6 @@
 {
+  "/[...slug]/page": "app/[...slug]/page.js",
   "/jee-coaching/page": "app/jee-coaching/page.js",
+  "/neet-coaching/page": "app/neet-coaching/page.js",
   "/page": "app/page.js"
 }

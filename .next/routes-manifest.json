@@ -1,0 +1,432 @@
+{
+  "version": 3,
+  "pages404": true,
+  "appType": "app",
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
+      ],
+      "regex": "^(?:/(.*))(?:/)?$"
+    }
+  ],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/blog/[slug]",
+      "regex": "^/blog/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/blog/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/course/[slug]",
+      "regex": "^/course/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/course/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/[...slug]",
+      "regex": "^/(.+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/(?<nxtPslug>.+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/about",
+      "regex": "^/about(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/about(?:/)?$"
+    },
+    {
+      "page": "/batch-vs-personal-coaching",
+      "regex": "^/batch\\-vs\\-personal\\-coaching(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/batch\\-vs\\-personal\\-coaching(?:/)?$"
+    },
+    {
+      "page": "/blog",
+      "regex": "^/blog(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog(?:/)?$"
+    },
+    {
+      "page": "/contact",
+      "regex": "^/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contact(?:/)?$"
+    },
+    {
+      "page": "/courses",
+      "regex": "^/courses(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/courses(?:/)?$"
+    },
+    {
+      "page": "/foundation-coaching",
+      "regex": "^/foundation\\-coaching(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/foundation\\-coaching(?:/)?$"
+    },
+    {
+      "page": "/free-trial",
+      "regex": "^/free\\-trial(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/free\\-trial(?:/)?$"
+    },
+    {
+      "page": "/jee-advanced-coaching",
+      "regex": "^/jee\\-advanced\\-coaching(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/jee\\-advanced\\-coaching(?:/)?$"
+    },
+    {
+      "page": "/jee-chemistry-coaching",
+      "regex": "^/jee\\-chemistry\\-coaching(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/jee\\-chemistry\\-coaching(?:/)?$"
+    },
+    {
+      "page": "/jee-chemistry-inorganic",
+      "regex": "^/jee\\-chemistry\\-inorganic(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/jee\\-chemistry\\-inorganic(?:/)?$"
+    },
+    {
+      "page": "/jee-chemistry-organic",
+      "regex": "^/jee\\-chemistry\\-organic(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/jee\\-chemistry\\-organic(?:/)?$"
+    },
+    {
+      "page": "/jee-chemistry-physical",
+      "regex": "^/jee\\-chemistry\\-physical(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/jee\\-chemistry\\-physical(?:/)?$"
+    },
+    {
+      "page": "/jee-coaching",
+      "regex": "^/jee\\-coaching(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/jee\\-coaching(?:/)?$"
+    },
+    {
+      "page": "/jee-crash-course",
+      "regex": "^/jee\\-crash\\-course(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/jee\\-crash\\-course(?:/)?$"
+    },
+    {
+      "page": "/jee-dropper-coaching",
+      "regex": "^/jee\\-dropper\\-coaching(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/jee\\-dropper\\-coaching(?:/)?$"
+    },
+    {
+      "page": "/jee-main-coaching",
+      "regex": "^/jee\\-main\\-coaching(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/jee\\-main\\-coaching(?:/)?$"
+    },
+    {
+      "page": "/jee-math-algebra",
+      "regex": "^/jee\\-math\\-algebra(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/jee\\-math\\-algebra(?:/)?$"
+    },
+    {
+      "page": "/jee-math-calculus",
+      "regex": "^/jee\\-math\\-calculus(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/jee\\-math\\-calculus(?:/)?$"
+    },
+    {
+      "page": "/jee-math-geometry",
+      "regex": "^/jee\\-math\\-geometry(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/jee\\-math\\-geometry(?:/)?$"
+    },
+    {
+      "page": "/jee-math-trigonometry",
+      "regex": "^/jee\\-math\\-trigonometry(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/jee\\-math\\-trigonometry(?:/)?$"
+    },
+    {
+      "page": "/jee-mathematics-coaching",
+      "regex": "^/jee\\-mathematics\\-coaching(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/jee\\-mathematics\\-coaching(?:/)?$"
+    },
+    {
+      "page": "/jee-physics-coaching",
+      "regex": "^/jee\\-physics\\-coaching(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/jee\\-physics\\-coaching(?:/)?$"
+    },
+    {
+      "page": "/jee-physics-electrodynamics",
+      "regex": "^/jee\\-physics\\-electrodynamics(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/jee\\-physics\\-electrodynamics(?:/)?$"
+    },
+    {
+      "page": "/jee-physics-mechanics",
+      "regex": "^/jee\\-physics\\-mechanics(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/jee\\-physics\\-mechanics(?:/)?$"
+    },
+    {
+      "page": "/jee-physics-optics",
+      "regex": "^/jee\\-physics\\-optics(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/jee\\-physics\\-optics(?:/)?$"
+    },
+    {
+      "page": "/jee-physics-thermodynamics",
+      "regex": "^/jee\\-physics\\-thermodynamics(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/jee\\-physics\\-thermodynamics(?:/)?$"
+    },
+    {
+      "page": "/jee-physics-waves",
+      "regex": "^/jee\\-physics\\-waves(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/jee\\-physics\\-waves(?:/)?$"
+    },
+    {
+      "page": "/jee-practice",
+      "regex": "^/jee\\-practice(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/jee\\-practice(?:/)?$"
+    },
+    {
+      "page": "/jee-pyq",
+      "regex": "^/jee\\-pyq(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/jee\\-pyq(?:/)?$"
+    },
+    {
+      "page": "/jee-rank-predictor",
+      "regex": "^/jee\\-rank\\-predictor(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/jee\\-rank\\-predictor(?:/)?$"
+    },
+    {
+      "page": "/kota-coaching-alternative",
+      "regex": "^/kota\\-coaching\\-alternative(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/kota\\-coaching\\-alternative(?:/)?$"
+    },
+    {
+      "page": "/mentors",
+      "regex": "^/mentors(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/mentors(?:/)?$"
+    },
+    {
+      "page": "/methodology",
+      "regex": "^/methodology(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/methodology(?:/)?$"
+    },
+    {
+      "page": "/mindpeak-vs-allen",
+      "regex": "^/mindpeak\\-vs\\-allen(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/mindpeak\\-vs\\-allen(?:/)?$"
+    },
+    {
+      "page": "/mindpeak-vs-byjus",
+      "regex": "^/mindpeak\\-vs\\-byjus(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/mindpeak\\-vs\\-byjus(?:/)?$"
+    },
+    {
+      "page": "/mindpeak-vs-fiitjee",
+      "regex": "^/mindpeak\\-vs\\-fiitjee(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/mindpeak\\-vs\\-fiitjee(?:/)?$"
+    },
+    {
+      "page": "/mindpeak-vs-resonance",
+      "regex": "^/mindpeak\\-vs\\-resonance(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/mindpeak\\-vs\\-resonance(?:/)?$"
+    },
+    {
+      "page": "/neet-biology-coaching",
+      "regex": "^/neet\\-biology\\-coaching(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/neet\\-biology\\-coaching(?:/)?$"
+    },
+    {
+      "page": "/neet-chemistry-coaching",
+      "regex": "^/neet\\-chemistry\\-coaching(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/neet\\-chemistry\\-coaching(?:/)?$"
+    },
+    {
+      "page": "/neet-coaching",
+      "regex": "^/neet\\-coaching(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/neet\\-coaching(?:/)?$"
+    },
+    {
+      "page": "/neet-crash-course",
+      "regex": "^/neet\\-crash\\-course(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/neet\\-crash\\-course(?:/)?$"
+    },
+    {
+      "page": "/neet-dropper-coaching",
+      "regex": "^/neet\\-dropper\\-coaching(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/neet\\-dropper\\-coaching(?:/)?$"
+    },
+    {
+      "page": "/neet-physics-coaching",
+      "regex": "^/neet\\-physics\\-coaching(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/neet\\-physics\\-coaching(?:/)?$"
+    },
+    {
+      "page": "/neet-practice",
+      "regex": "^/neet\\-practice(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/neet\\-practice(?:/)?$"
+    },
+    {
+      "page": "/neet-pyq",
+      "regex": "^/neet\\-pyq(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/neet\\-pyq(?:/)?$"
+    },
+    {
+      "page": "/neet-rank-predictor",
+      "regex": "^/neet\\-rank\\-predictor(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/neet\\-rank\\-predictor(?:/)?$"
+    },
+    {
+      "page": "/neet-ug-coaching",
+      "regex": "^/neet\\-ug\\-coaching(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/neet\\-ug\\-coaching(?:/)?$"
+    },
+    {
+      "page": "/online-vs-offline-jee-coaching",
+      "regex": "^/online\\-vs\\-offline\\-jee\\-coaching(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/online\\-vs\\-offline\\-jee\\-coaching(?:/)?$"
+    },
+    {
+      "page": "/pricing",
+      "regex": "^/pricing(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/pricing(?:/)?$"
+    },
+    {
+      "page": "/refund-policy",
+      "regex": "^/refund\\-policy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/refund\\-policy(?:/)?$"
+    },
+    {
+      "page": "/study-plan",
+      "regex": "^/study\\-plan(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/study\\-plan(?:/)?$"
+    },
+    {
+      "page": "/success-stories",
+      "regex": "^/success\\-stories(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/success\\-stories(?:/)?$"
+    },
+    {
+      "page": "/terms-and-conditions",
+      "regex": "^/terms\\-and\\-conditions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/terms\\-and\\-conditions(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

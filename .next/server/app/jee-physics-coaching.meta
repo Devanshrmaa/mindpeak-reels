@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/jee-physics-coaching/layout,_N_T_/jee-physics-coaching/page,_N_T_/jee-physics-coaching"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/jee-physics-coaching/__PAGE__",
+    "/jee-physics-coaching",
+    "/_index",
+    "/_head"
+  ]
+}

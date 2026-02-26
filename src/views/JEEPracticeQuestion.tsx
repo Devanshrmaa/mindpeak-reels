@@ -24,7 +24,7 @@ import {
 } from '@/data/practice';
 import { PageFAQ, buildFAQSchema, type FAQItem } from '@/components/PageFAQ';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
-import { buildJEEPracticeFAQs, buildTopicOverview, buildExamTips } from '@/lib/questionPageSEO';
+import { buildJEEPracticeFAQs, buildTopicOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema } from '@/lib/questionPageSEO';
 
 /* ── label helpers ── */
 const difficultyLabel: Record<Difficulty, string> = {
@@ -142,6 +142,7 @@ const JEEPracticeQuestion = () => {
   const faqItems: FAQItem[] = buildJEEPracticeFAQs(subj, chapterName, topicName, diff, topicQuestions.length);
   const topicOverview = buildTopicOverview('JEE', subj, chapterName, topicName, diff);
   const examTips = buildExamTips('JEE', subj, chapterName);
+  const conceptSummary = buildConceptSummary('JEE', subj, chapterName, topicName, diff);
 
   const title = `JEE ${subj} — ${topicName} (${diff}) Q${params.questionIndex} | MindPeak`;
   const description = `Practice JEE ${subj} ${diff} level question on ${topicName} (${chapterName}). Attempt the MCQ, check the answer & read the step-by-step solution. Free JEE prep by MindPeak.`;
@@ -166,6 +167,7 @@ const JEEPracticeQuestion = () => {
       ],
     },
     buildFAQSchema(faqItems),
+    buildLearningResourceSchema('JEE', subj, chapterName, topicName, slug, diff),
   ];
 
   const isAnswered = selectedOption !== null;
@@ -438,6 +440,16 @@ const JEEPracticeQuestion = () => {
             question={`What is ${topicName} in JEE ${subj}?`}
             answer={topicOverview}
           />
+
+          {/* ── Concept Summary — always-visible 150+ word block ── */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-xl border border-border bg-card/50 p-6 sm:p-8">
+            <h2 className="font-display font-bold text-lg text-foreground mb-4 flex items-center gap-2">
+              <BookOpen className="w-5 h-5 text-primary" /> {topicName} — Concept Overview
+            </h2>
+            <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
+              {conceptSummary.map((para, i) => <p key={i}>{para}</p>)}
+            </div>
+          </motion.div>
 
           {/* ── Exam Preparation Tips ── */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-xl border border-border bg-card/50 p-6 sm:p-8">

@@ -128,6 +128,48 @@ export function buildPYQOverview(
   return `This previous year question from ${exam} ${year} tests your understanding of ${chapterName} — one of the most important chapters in ${exam} ${subject}. By solving actual past-exam questions, you gain insight into the examiner's approach, learn to manage time under pressure, and identify which concepts get tested most frequently.`;
 }
 
+/* ── Concept Summary (always-visible 150+ word block for thin-content fix) ── */
+export function buildConceptSummary(
+  exam: 'JEE' | 'NEET', subject: string, chapterName: string, topicName: string, difficulty?: string,
+): string[] {
+  const diff = difficulty ? ` ${difficulty.toLowerCase()}-level` : '';
+  return [
+    `${topicName} is one of the most important concepts within ${chapterName} for ${exam} ${subject} preparation. ${exam === 'JEE' ? 'Both JEE Main and JEE Advanced' : 'The NEET UG exam'} regularly feature questions from this area, making it essential for every serious aspirant to develop a thorough understanding.`,
+    `This${diff} practice question tests your conceptual clarity and problem-solving ability on ${topicName}. Working through questions at various difficulty levels — Easy for building foundations, Medium for strengthening application skills, and Hard for developing competitive-level mastery — is the proven approach recommended by top rankers and expert educators.`,
+    `When studying ${chapterName}, pay close attention to the underlying principles, standard derivations, and common pitfalls that examiners love to exploit. The step-by-step solution provided after you attempt this question will help you understand not just the correct answer, but the reasoning and shortcuts that save time under exam conditions.`,
+    `MindPeak Institute offers personalised 1-on-1 coaching where expert mentors guide you through ${chapterName} and all other ${exam} ${subject} chapters. Our adaptive curriculum identifies your specific weak areas and creates a targeted study plan to maximise your score.`,
+  ];
+}
+
+/* ── LearningResource JSON-LD schema builder ── */
+export function buildLearningResourceSchema(
+  exam: string, subject: string, chapterName: string, topicName: string,
+  slug: string, difficulty?: string,
+): object {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LearningResource',
+    name: `${exam} ${subject} — ${topicName}${difficulty ? ` (${difficulty})` : ''}`,
+    description: `Practice ${exam} ${subject} question on ${topicName} from ${chapterName} with step-by-step solution.`,
+    educationalLevel: difficulty === 'Easy' ? 'Beginner' : difficulty === 'Hard' ? 'Advanced' : 'Intermediate',
+    learningResourceType: 'Practice Problem',
+    educationalAlignment: {
+      '@type': 'AlignmentObject',
+      alignmentType: 'teaches',
+      educationalFramework: exam === 'JEE' ? 'NTA JEE Syllabus' : 'NTA NEET Syllabus',
+      targetName: `${chapterName} — ${topicName}`,
+    },
+    provider: {
+      '@type': 'Organization',
+      name: 'MindPeak Institute',
+      url: 'https://mindpeakinstitute.com',
+    },
+    url: `https://mindpeakinstitute.com/${slug}`,
+    isAccessibleForFree: true,
+    inLanguage: 'en',
+  };
+}
+
 /* ── Exam Preparation Tips ── */
 export function buildExamTips(exam: 'JEE' | 'NEET', subject: string, chapterName: string): string[] {
   const base = [

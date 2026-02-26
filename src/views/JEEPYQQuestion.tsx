@@ -26,7 +26,7 @@ import {
 } from '@/data/pyq';
 import { PageFAQ, buildFAQSchema, type FAQItem } from '@/components/PageFAQ';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
-import { buildJEEPYQFAQs, buildPYQOverview, buildExamTips } from '@/lib/questionPageSEO';
+import { buildJEEPYQFAQs, buildPYQOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema } from '@/lib/questionPageSEO';
 
 /* ── Deterministic option shuffle (same as practice page) ── */
 function seededShuffle(seed: string): number[] {
@@ -100,6 +100,7 @@ const JEEPYQQuestion = () => {
   const faqItems: FAQItem[] = buildJEEPYQFAQs(subj, chapterName, question.year, question.exam, totalInChapter);
   const pyqOverview = buildPYQOverview('JEE', subj, chapterName, question.year);
   const examTips = buildExamTips('JEE', subj, chapterName);
+  const conceptSummary = buildConceptSummary('JEE', subj, chapterName, chapterName);
 
   /* navigation slugs — use proper SEO slugs */
   const prevSlug = params.questionIndex > 1
@@ -131,6 +132,7 @@ const JEEPYQQuestion = () => {
       ],
     },
     buildFAQSchema(faqItems),
+    buildLearningResourceSchema('JEE', subj, chapterName, chapterName, slug),
   ];
 
   const isAnswered = selectedOption !== null;
@@ -302,6 +304,16 @@ const JEEPYQQuestion = () => {
             question={`Why solve JEE ${subj} PYQs on ${chapterName}?`}
             answer={pyqOverview}
           />
+
+          {/* ── Concept Summary — always-visible 150+ word block ── */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-xl border border-border bg-card/50 p-6 sm:p-8">
+            <h2 className="font-display font-bold text-lg text-foreground mb-4 flex items-center gap-2">
+              <BookOpen className="w-5 h-5 text-orange-400" /> {chapterName} — Concept Overview
+            </h2>
+            <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
+              {conceptSummary.map((para, i) => <p key={i}>{para}</p>)}
+            </div>
+          </motion.div>
 
           {/* ── Exam Tips ── */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-xl border border-border bg-card/50 p-6 sm:p-8">

@@ -58,16 +58,32 @@ __turbopack_context__.n(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$v
 
 __turbopack_context__.s([
     "default",
-    ()=>JEECoachingPage
+    ()=>JEECoachingPage,
+    "metadata",
+    ()=>metadata
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.js [app-rsc] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$views$2f$JEECoaching$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/views/JEECoaching.tsx [app-rsc] (ecmascript)");
 ;
 ;
+const metadata = {
+    title: "JEE Online Coaching — Personalized 1-on-1 Mentorship | 95% Success Rate",
+    description: "Achieve AIR <5K with personalized JEE coaching. Dedicated mentors, adaptive curriculum, 95% success rate. 500+ students trust MindPeak. Start free trial today!",
+    alternates: {
+        canonical: "https://mindpeakinstitute.com/jee-coaching"
+    },
+    openGraph: {
+        title: "JEE Online Coaching — Personalized 1-on-1 Mentorship",
+        description: "Achieve AIR <5K with personalized JEE coaching. Dedicated mentors, adaptive curriculum, 95% success rate.",
+        url: "https://mindpeakinstitute.com/jee-coaching",
+        siteName: "MindPeak Institute",
+        type: "website"
+    }
+};
 function JEECoachingPage() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$views$2f$JEECoaching$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
         fileName: "[project]/app/jee-coaching/page.tsx",
-        lineNumber: 2,
+        lineNumber: 10,
         columnNumber: 52
     }, this);
 }

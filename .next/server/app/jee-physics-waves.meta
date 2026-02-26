@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/jee-physics-waves/layout,_N_T_/jee-physics-waves/page,_N_T_/jee-physics-waves"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/jee-physics-waves/__PAGE__",
+    "/jee-physics-waves",
+    "/_index",
+    "/_head"
+  ]
+}

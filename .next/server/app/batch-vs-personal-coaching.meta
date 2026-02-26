@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/batch-vs-personal-coaching/layout,_N_T_/batch-vs-personal-coaching/page,_N_T_/batch-vs-personal-coaching"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/batch-vs-personal-coaching/__PAGE__",
+    "/batch-vs-personal-coaching",
+    "/_index",
+    "/_head"
+  ]
+}

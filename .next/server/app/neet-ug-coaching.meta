@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/neet-ug-coaching/layout,_N_T_/neet-ug-coaching/page,_N_T_/neet-ug-coaching"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/neet-ug-coaching/__PAGE__",
+    "/neet-ug-coaching",
+    "/_index",
+    "/_head"
+  ]
+}

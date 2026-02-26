@@ -944,8 +944,10 @@ __turbopack_context__.s([
     "SEOHead",
     ()=>SEOHead
 ]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-ssr] (ecmascript)");
+;
 ;
 ;
 const SEOHead = ({ title, description, canonical, ogImage, jsonLd })=>{
@@ -982,36 +984,29 @@ const SEOHead = ({ title, description, canonical, ogImage, jsonLd })=>{
             document.head.appendChild(link);
         }
         link.setAttribute('href', fullCanonical);
-        // JSON-LD
-        const scriptId = 'seo-jsonld';
-        let scriptEl = document.getElementById(scriptId);
-        if (jsonLd) {
-            const ldArray = Array.isArray(jsonLd) ? jsonLd : [
-                jsonLd
-            ];
-            const content = ldArray.map((ld)=>JSON.stringify(ld)).join('\n');
-            if (!scriptEl) {
-                scriptEl = document.createElement('script');
-                scriptEl.id = scriptId;
-                scriptEl.type = 'application/ld+json';
-                document.head.appendChild(scriptEl);
-            }
-            // For multiple schemas, wrap in array
-            scriptEl.textContent = ldArray.length === 1 ? JSON.stringify(ldArray[0]) : JSON.stringify(ldArray);
-        }
-        return ()=>{
-            // Cleanup JSON-LD on unmount
-            const el = document.getElementById(scriptId);
-            if (el) el.remove();
-        };
     }, [
         title,
         description,
         fullCanonical,
-        fullOgImage,
-        jsonLd
+        fullOgImage
     ]);
-    return null;
+    // Render JSON-LD as inline script tags — works during SSR so Google can crawl it
+    if (!jsonLd) return null;
+    const ldArray = Array.isArray(jsonLd) ? jsonLd : [
+        jsonLd
+    ];
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+        children: ldArray.map((ld, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("script", {
+                type: "application/ld+json",
+                dangerouslySetInnerHTML: {
+                    __html: JSON.stringify(ld)
+                }
+            }, i, false, {
+                fileName: "[project]/src/components/SEOHead.tsx",
+                lineNumber: 64,
+                columnNumber: 9
+            }, ("TURBOPACK compile-time value", void 0)))
+    }, void 0, false);
 };
 }),
 "[project]/src/lib/examYears.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
@@ -3219,7 +3214,9 @@ __turbopack_context__.s([
     "PageFAQ",
     ()=>PageFAQ,
     "buildFAQSchema",
-    ()=>buildFAQSchema
+    ()=>buildFAQSchema,
+    "buildFAQSchemaFromQA",
+    ()=>buildFAQSchemaFromQA
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
@@ -3444,10 +3441,12 @@ const PageFAQ = ({ items, heading = 'Frequently Asked', highlight = 'Questions' 
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
-const buildFAQSchema = (items)=>({
+const buildFAQSchema = (items)=>{
+    const valid = items.filter((faq)=>faq && typeof faq.question === 'string' && faq.question.trim() !== '' && typeof faq.answer === 'string' && faq.answer.trim() !== '');
+    return {
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
-        mainEntity: items.map((faq)=>({
+        mainEntity: valid.map((faq)=>({
                 '@type': 'Question',
                 name: faq.question,
                 acceptedAnswer: {
@@ -3455,7 +3454,23 @@ const buildFAQSchema = (items)=>({
                     text: faq.answer
                 }
             }))
-    });
+    };
+};
+const buildFAQSchemaFromQA = (items)=>{
+    const valid = items.filter((faq)=>faq && typeof faq.q === 'string' && faq.q.trim() !== '' && typeof faq.a === 'string' && faq.a.trim() !== '');
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: valid.map((faq)=>({
+                '@type': 'Question',
+                name: faq.q,
+                acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: faq.a
+                }
+            }))
+    };
+};
 }),
 "[project]/src/components/FeaturedSnippet.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -4601,9 +4616,7 @@ function formatStat(statName) {
 
 __turbopack_context__.s([
     "PeopleAlsoAsk",
-    ()=>PeopleAlsoAsk,
-    "buildPAASchema",
-    ()=>buildPAASchema
+    ()=>PeopleAlsoAsk
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$dom$2f$motion$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/render/dom/motion.mjs [app-ssr] (ecmascript)");
@@ -4632,15 +4645,10 @@ const PeopleAlsoAsk = ({ questions, heading = 'People Also Ask' })=>{
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "space-y-2 sm:space-y-3",
                     role: "list",
-                    itemScope: true,
-                    itemType: "https://schema.org/FAQPage",
                     children: questions.map((q, i)=>{
                         const isOpen = openIndex === i;
                         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             role: "listitem",
-                            itemScope: true,
-                            itemProp: "mainEntity",
-                            itemType: "https://schema.org/Question",
                             className: "rounded-xl border border-border bg-card/50 overflow-hidden",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4649,12 +4657,11 @@ const PeopleAlsoAsk = ({ questions, heading = 'People Also Ask' })=>{
                                     "aria-expanded": isOpen,
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                            itemProp: "name",
                                             className: "text-foreground font-semibold text-xs sm:text-sm md:text-base leading-snug",
                                             children: q.question
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/PeopleAlsoAsk.tsx",
-                                            lineNumber: 46,
+                                            lineNumber: 43,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$dom$2f$motion$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -4669,37 +4676,33 @@ const PeopleAlsoAsk = ({ questions, heading = 'People Also Ask' })=>{
                                                 className: "w-4 h-4 text-muted-foreground"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/PeopleAlsoAsk.tsx",
-                                                lineNumber: 57,
+                                                lineNumber: 53,
                                                 columnNumber: 21
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/PeopleAlsoAsk.tsx",
-                                            lineNumber: 52,
+                                            lineNumber: 48,
                                             columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/PeopleAlsoAsk.tsx",
-                                    lineNumber: 41,
+                                    lineNumber: 38,
                                     columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 isOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    itemScope: true,
-                                    itemProp: "acceptedAnswer",
-                                    itemType: "https://schema.org/Answer",
                                     className: "px-3.5 sm:px-5 pb-4 sm:pb-5",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        itemProp: "text",
                                         className: "text-muted-foreground text-xs sm:text-sm md:text-base leading-relaxed",
                                         children: q.answer
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/PeopleAlsoAsk.tsx",
-                                        lineNumber: 68,
+                                        lineNumber: 61,
                                         columnNumber: 21
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/PeopleAlsoAsk.tsx",
-                                    lineNumber: 62,
+                                    lineNumber: 58,
                                     columnNumber: 19
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
@@ -4726,20 +4729,6 @@ const PeopleAlsoAsk = ({ questions, heading = 'People Also Ask' })=>{
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
-function buildPAASchema(questions) {
-    return {
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: questions.map((q)=>({
-                '@type': 'Question',
-                name: q.question,
-                acceptedAnswer: {
-                    '@type': 'Answer',
-                    text: q.answer
-                }
-            }))
-    };
-}
 }),
 "[project]/src/views/JEECoaching.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -5106,8 +5095,10 @@ const faqs = [
                 jsonLd: [
                     courseSchema,
                     breadcrumbSchema,
-                    (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PageFAQ$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["buildFAQSchema"])(faqs),
-                    (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PeopleAlsoAsk$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["buildPAASchema"])(paaQuestions)
+                    (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PageFAQ$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["buildFAQSchema"])([
+                        ...faqs,
+                        ...paaQuestions
+                    ])
                 ]
             }, void 0, false, {
                 fileName: "[project]/src/views/JEECoaching.tsx",

@@ -26,7 +26,7 @@ import {
 } from '@/data/neet-pyq';
 import { PageFAQ, buildFAQSchema, type FAQItem } from '@/components/PageFAQ';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
-import { buildNEETPYQFAQs, buildPYQOverview, buildExamTips } from '@/lib/questionPageSEO';
+import { buildNEETPYQFAQs, buildPYQOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema } from '@/lib/questionPageSEO';
 
 function seededShuffle(seed: string): number[] {
   let h = 0;
@@ -89,6 +89,7 @@ const NEETPYQQuestion = () => {
   const faqItems: FAQItem[] = buildNEETPYQFAQs(subj, chapterName, question.year, question.shift, totalInChapter);
   const pyqOverview = buildPYQOverview('NEET', subj, chapterName, question.year);
   const examTips = buildExamTips('NEET', subj, chapterName);
+  const conceptSummary = buildConceptSummary('NEET', subj, chapterName, chapterName);
 
   const prevSlug = params.questionIndex > 1
     ? getNEETPYQSlugByParams(params.subject, params.chapter, params.questionIndex - 1)
@@ -108,6 +109,7 @@ const NEETPYQQuestion = () => {
       { '@type': 'ListItem', position: 3, name: `${subj} — ${chapterName}`, item: `https://mindpeakinstitute.com/${slug}` },
     ] },
     buildFAQSchema(faqItems),
+    buildLearningResourceSchema('NEET', subj, chapterName, chapterName, slug),
   ];
 
   const isAnswered = selectedOption !== null;
@@ -215,6 +217,16 @@ const NEETPYQQuestion = () => {
             question={`Why solve NEET ${subj} PYQs on ${chapterName}?`}
             answer={pyqOverview}
           />
+
+          {/* ── Concept Summary — always-visible 150+ word block ── */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-xl border border-border bg-card/50 p-6 sm:p-8">
+            <h2 className="font-display font-bold text-lg text-foreground mb-4 flex items-center gap-2">
+              <BookOpen className="w-5 h-5 text-green-400" /> {chapterName} — Concept Overview
+            </h2>
+            <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
+              {conceptSummary.map((para, i) => <p key={i}>{para}</p>)}
+            </div>
+          </motion.div>
 
           {/* ── Exam Tips ── */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-xl border border-border bg-card/50 p-6 sm:p-8">

@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/jee-chemistry-coaching/layout,_N_T_/jee-chemistry-coaching/page,_N_T_/jee-chemistry-coaching"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/jee-chemistry-coaching/__PAGE__",
+    "/jee-chemistry-coaching",
+    "/_index",
+    "/_head"
+  ]
+}

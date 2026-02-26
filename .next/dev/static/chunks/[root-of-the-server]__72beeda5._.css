@@ -1588,10 +1588,6 @@ h1, h2, h3, h4, h5, h6 {
   width: var(--sidebar-width);
 }
 
-.w-\[0\.3em\] {
-  width: .3em;
-}
-
 .w-\[100px\] {
   width: 100px;
 }
@@ -4016,10 +4012,6 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.05;
 }
 
-.leading-\[1\.0\] {
-  line-height: 1;
-}
-
 .leading-\[1\.7\] {
   line-height: 1.7;
 }
@@ -5434,37 +5426,6 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: var(--shadow-card);
 }
 
-.focus\:not-sr-only:focus {
-  clip: auto;
-  white-space: normal;
-  width: auto;
-  height: auto;
-  margin: 0;
-  padding: 0;
-  position: static;
-  overflow: visible;
-}
-
-.focus\:fixed:focus {
-  position: fixed;
-}
-
-.focus\:left-4:focus {
-  left: 1rem;
-}
-
-.focus\:top-4:focus {
-  top: 1rem;
-}
-
-.focus\:z-\[100\]:focus {
-  z-index: 100;
-}
-
-.focus\:rounded:focus {
-  border-radius: .25rem;
-}
-
 .focus\:border-amber-500:focus {
   --tw-border-opacity: 1;
   border-color: rgb(245 158 11 / var(--tw-border-opacity, 1));
@@ -5484,16 +5445,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .focus\:bg-primary:focus {
   background-color: hsl(var(--primary));
-}
-
-.focus\:px-4:focus {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.focus\:py-2:focus {
-  padding-top: .5rem;
-  padding-bottom: .5rem;
 }
 
 .focus\:text-accent-foreground:focus {

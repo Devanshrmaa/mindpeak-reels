@@ -24,7 +24,7 @@ import {
 } from '@/data/neet-practice';
 import { PageFAQ, buildFAQSchema, type FAQItem } from '@/components/PageFAQ';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
-import { buildNEETPracticeFAQs, buildTopicOverview, buildExamTips } from '@/lib/questionPageSEO';
+import { buildNEETPracticeFAQs, buildTopicOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema } from '@/lib/questionPageSEO';
 
 /* ── label helpers ── */
 const difficultyLabel: Record<Difficulty, string> = {
@@ -131,6 +131,7 @@ const NEETPracticeQuestion = () => {
   const faqItems: FAQItem[] = buildNEETPracticeFAQs(subj, chapterName, topicName, diff, topicQuestions.length);
   const topicOverview = buildTopicOverview('NEET', subj, chapterName, topicName, diff);
   const examTips = buildExamTips('NEET', subj, chapterName);
+  const conceptSummary = buildConceptSummary('NEET', subj, chapterName, topicName, diff);
   const prevSlug = params.questionIndex > 1
     ? getNEETPracticeSlugByParams(params.subject, params.chapter, params.topic, params.difficulty, params.questionIndex - 1)
     : null;
@@ -161,6 +162,7 @@ const NEETPracticeQuestion = () => {
       ],
     },
     buildFAQSchema(faqItems),
+    buildLearningResourceSchema('NEET', subj, chapterName, topicName, slug, diff),
   ];
 
   const isAnswered = selectedOption !== null;
@@ -388,6 +390,16 @@ const NEETPracticeQuestion = () => {
             question={`What is ${topicName} in NEET ${subj}?`}
             answer={topicOverview}
           />
+
+          {/* ── Concept Summary — always-visible 150+ word block ── */}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-xl border border-border bg-card/50 p-6 sm:p-8">
+            <h2 className="font-display font-bold text-lg text-foreground mb-4 flex items-center gap-2">
+              <BookOpen className="w-5 h-5 text-green-500" /> {topicName} — Concept Overview
+            </h2>
+            <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
+              {conceptSummary.map((para, i) => <p key={i}>{para}</p>)}
+            </div>
+          </motion.div>
 
           {/* ── Exam Preparation Tips ── */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-xl border border-border bg-card/50 p-6 sm:p-8">

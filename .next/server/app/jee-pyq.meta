@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/jee-pyq/layout,_N_T_/jee-pyq/page,_N_T_/jee-pyq"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/jee-pyq/__PAGE__",
+    "/jee-pyq",
+    "/_index",
+    "/_head"
+  ]
+}

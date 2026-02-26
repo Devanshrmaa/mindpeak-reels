@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/mindpeak-vs-allen/layout,_N_T_/mindpeak-vs-allen/page,_N_T_/mindpeak-vs-allen"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/mindpeak-vs-allen/__PAGE__",
+    "/mindpeak-vs-allen",
+    "/_index",
+    "/_head"
+  ]
+}
