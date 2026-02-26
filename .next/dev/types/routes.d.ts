@@ -4,7 +4,7 @@
 type AppRoutes = "/" | "/[...slug]" | "/about" | "/batch-vs-personal-coaching" | "/blog" | "/blog/[slug]" | "/contact" | "/course/[slug]" | "/courses" | "/foundation-coaching" | "/free-trial" | "/jee-advanced-coaching" | "/jee-chemistry-coaching" | "/jee-chemistry-inorganic" | "/jee-chemistry-organic" | "/jee-chemistry-physical" | "/jee-coaching" | "/jee-crash-course" | "/jee-dropper-coaching" | "/jee-main-coaching" | "/jee-math-algebra" | "/jee-math-calculus" | "/jee-math-geometry" | "/jee-math-trigonometry" | "/jee-mathematics-coaching" | "/jee-physics-coaching" | "/jee-physics-electrodynamics" | "/jee-physics-mechanics" | "/jee-physics-optics" | "/jee-physics-thermodynamics" | "/jee-physics-waves" | "/jee-practice" | "/jee-pyq" | "/jee-rank-predictor" | "/kota-coaching-alternative" | "/mentors" | "/methodology" | "/mindpeak-vs-allen" | "/mindpeak-vs-byjus" | "/mindpeak-vs-fiitjee" | "/mindpeak-vs-resonance" | "/neet-biology-coaching" | "/neet-chemistry-coaching" | "/neet-coaching" | "/neet-crash-course" | "/neet-dropper-coaching" | "/neet-physics-coaching" | "/neet-practice" | "/neet-pyq" | "/neet-rank-predictor" | "/neet-ug-coaching" | "/online-vs-offline-jee-coaching" | "/pricing" | "/refund-policy" | "/study-plan" | "/success-stories" | "/terms-and-conditions"
 type PageRoutes = never
 type LayoutRoutes = "/"
-type RedirectRoutes = never
+type RedirectRoutes = "/[[...path]]"
 type RewriteRoutes = never
 type Routes = AppRoutes | PageRoutes | LayoutRoutes | RedirectRoutes | RewriteRoutes
 
@@ -12,6 +12,7 @@ type Routes = AppRoutes | PageRoutes | LayoutRoutes | RedirectRoutes | RewriteRo
 interface ParamMap {
   "/": {}
   "/[...slug]": { "slug": string[]; }
+  "/[[...path]]": { "path"?: string[]; }
   "/about": {}
   "/batch-vs-personal-coaching": {}
   "/blog": {}

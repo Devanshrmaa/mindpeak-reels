@@ -49,7 +49,15 @@ const nextConfig: NextConfig = {
 
   /* ── Redirects ── */
   async redirects() {
-    return [];
+    return [
+      /* www → non-www (permanent 308) — fixes GSC "alternate page with proper canonical" */
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.mindpeakinstitute.com' }],
+        destination: 'https://mindpeakinstitute.com/:path*',
+        permanent: true,
+      },
+    ];
   },
 
   /* ── Build tolerances (migration phase) ── */
