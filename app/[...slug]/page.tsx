@@ -16,8 +16,19 @@ interface Props {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  return resolveSlugMetadata(slug);
+  try {
+    const { slug } = await params;
+    return resolveSlugMetadata(slug);
+  } catch (err) {
+    // Keep error visible even in production (console.error is preserved)
+    // eslint-disable-next-line no-console
+    console.error("[generateMetadata] failed for catch-all route:", err);
+    return {
+      title: "MindPeak Institute",
+      description:
+        "Personalized JEE & NEET coaching by MindPeak Institute.",
+    };
+  }
 }
 
 export default async function CatchAllPage({ params }: Props) {

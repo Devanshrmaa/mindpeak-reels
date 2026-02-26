@@ -41,6 +41,22 @@ function resolveKind(slug: string): 'subject' | 'chapter' | 'topic' | 'formula' 
 
 /* ── Main export ── */
 export function resolveSlugMetadata(slugSegments: string[]): Metadata {
+  try {
+    return _resolveSlugMetadataInner(slugSegments);
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.error('[resolveSlugMetadata] Error for slug:', slugSegments.join('/'), err);
+    const fallbackSlug = slugSegments.join('/');
+    const prettyName = fallbackSlug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    return {
+      title: prettyName || 'MindPeak Institute',
+      description: 'Personalized JEE & NEET coaching by MindPeak Institute.',
+      alternates: { canonical: `${BASE}/${fallbackSlug}` },
+    };
+  }
+}
+
+function _resolveSlugMetadataInner(slugSegments: string[]): Metadata {
   const slug = slugSegments.join('/');
   const kind = resolveKind(slug);
   const canonical = `${BASE}/${slug}`;
@@ -97,7 +113,12 @@ export function resolveSlugMetadata(slugSegments: string[]): Metadata {
 
     /* ─── SEO Landing Pages (e.g. jee-advanced-coaching) ─── */
     case 'seo-landing': {
-      const page = getSEOPage(slug)!;
+      const page = getSEOPage(slug);
+      if (!page) {
+        // Defensive: shouldn't happen since resolveKind checked first
+        const prettyName = slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+        return { title: prettyName, description: `${prettyName} by MindPeak Institute.`, alternates: { canonical } };
+      }
       return {
         title: page.title,
         description: page.description.slice(0, 160),

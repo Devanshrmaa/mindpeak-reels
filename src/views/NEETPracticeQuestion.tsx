@@ -111,9 +111,9 @@ const NEETPracticeQuestion = () => {
     return { shuffledOptions: sOpts, shuffledAnswer: sAns };
   }, [slug, question]);
 
-  if (!params || !question) return <Navigate to="/" replace />;
+  const bank = params ? neetSubjectBanks.find((b) => b.slug === params.subject) : undefined;
+  if (!params || !question || !bank) return <Navigate to="/" replace />;
 
-  const bank = neetSubjectBanks.find((b) => b.slug === params.subject)!;
   const chapter = getNEETChapter(params.subject, params.chapter);
   const topicObj = chapter?.topics.find((t) => t.slug === params.topic);
   const topicName = topicObj?.name ?? params.topic;

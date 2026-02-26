@@ -84,9 +84,9 @@ const JEEPYQQuestion = () => {
     return { shuffledOptions: sOpts, shuffledAnswer: sAns };
   }, [slug, question]);
 
-  if (!params || !question) return <Navigate to="/" replace />;
+  const bank = params ? pyqSubjectBanks.find((b) => b.slug === params.subject) : undefined;
+  if (!params || !question || !bank) return <Navigate to="/" replace />;
 
-  const bank = pyqSubjectBanks.find((b) => b.slug === params.subject)!;
   const chapter = getPYQChapter(params.subject, params.chapter);
   const chapterName = chapter?.name ?? params.chapter;
   const subj = bank.subject;

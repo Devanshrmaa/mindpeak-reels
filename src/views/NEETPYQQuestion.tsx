@@ -74,9 +74,9 @@ const NEETPYQQuestion = () => {
     return { shuffledOptions: perm.map((i) => question.o[i]), shuffledAnswer: perm.indexOf(question.a) };
   }, [slug, question]);
 
-  if (!params || !question) return <Navigate to="/" replace />;
+  const bank = params ? neetPyqSubjectBanks.find((b) => b.slug === params.subject) : undefined;
+  if (!params || !question || !bank) return <Navigate to="/" replace />;
 
-  const bank = neetPyqSubjectBanks.find((b) => b.slug === params.subject)!;
   const chapter = getNEETPYQChapter(params.subject, params.chapter);
   const chapterName = chapter?.name ?? params.chapter;
   const subj = bank.subject;

@@ -7481,15 +7481,15 @@ const NEET_PRACTICE_SLUGS = allSlugs.map((s)=>s.slug);
         slug,
         question
     ]);
-    if (!params || !question) return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Navigate$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Navigate"], {
+    const bank = params ? __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$neet$2d$practice$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["neetSubjectBanks"].find((b)=>b.slug === params.subject) : undefined;
+    if (!params || !question || !bank) return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Navigate$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Navigate"], {
         to: "/",
         replace: true
     }, void 0, false, {
         fileName: "[project]/src/views/NEETPracticeQuestion.tsx",
-        lineNumber: 114,
-        columnNumber: 36
+        lineNumber: 115,
+        columnNumber: 45
     }, ("TURBOPACK compile-time value", void 0));
-    const bank = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$neet$2d$practice$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["neetSubjectBanks"].find((b)=>b.slug === params.subject);
     const chapter = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$neet$2d$practice$2f$index$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getNEETChapter"])(params.subject, params.chapter);
     const topicObj = chapter?.topics.find((t)=>t.slug === params.topic);
     const topicName = topicObj?.name ?? params.topic;

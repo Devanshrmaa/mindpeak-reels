@@ -572,6 +572,23 @@ function resolveKind(slug) {
     return 'question';
 }
 function resolveSlugMetadata(slugSegments) {
+    try {
+        return _resolveSlugMetadataInner(slugSegments);
+    } catch (err) {
+        // eslint-disable-next-line no-console
+        console.error('[resolveSlugMetadata] Error for slug:', slugSegments.join('/'), err);
+        const fallbackSlug = slugSegments.join('/');
+        const prettyName = fallbackSlug.replace(/-/g, ' ').replace(/\b\w/g, (c)=>c.toUpperCase());
+        return {
+            title: prettyName || 'MindPeak Institute',
+            description: 'Personalized JEE & NEET coaching by MindPeak Institute.',
+            alternates: {
+                canonical: `${BASE}/${fallbackSlug}`
+            }
+        };
+    }
+}
+function _resolveSlugMetadataInner(slugSegments) {
     const slug = slugSegments.join('/');
     const kind = resolveKind(slug);
     const canonical = `${BASE}/${slug}`;
@@ -635,6 +652,17 @@ function resolveSlugMetadata(slugSegments) {
         /* ─── SEO Landing Pages (e.g. jee-advanced-coaching) ─── */ case 'seo-landing':
             {
                 const page = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$seoPageData$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getSEOPage"])(slug);
+                if (!page) {
+                    // Defensive: shouldn't happen since resolveKind checked first
+                    const prettyName = slug.replace(/-/g, ' ').replace(/\b\w/g, (c)=>c.toUpperCase());
+                    return {
+                        title: prettyName,
+                        description: `${prettyName} by MindPeak Institute.`,
+                        alternates: {
+                            canonical
+                        }
+                    };
+                }
                 return {
                     title: page.title,
                     description: page.description.slice(0, 160),

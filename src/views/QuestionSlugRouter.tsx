@@ -9,7 +9,7 @@
  *
  * If the slug doesn't match any question pattern, it falls back to LocationPage.
  */
-import { lazy, type ComponentType } from 'react';
+import { lazy, Suspense, type ComponentType } from 'react';
 import { usePathname } from 'next/navigation';
 
 /** Retry wrapper matching App.tsx lazyRetry (handles chunk load failures) */
@@ -27,16 +27,23 @@ const LocationPage = lr(() => import('./LocationPage'));
 const JEE_PRACTICE_RE = /^jee-(physics|chemistry|mathematics)-/;
 const NEET_PRACTICE_RE = /^neet-(biology|physics|chemistry)-/;
 
+const LazyFallback = () => (
+  <div className="min-h-screen bg-[hsl(225,43%,7%)] flex items-center justify-center">
+    <div className="w-8 h-8 border-2 border-amber-500 border-t-transparent rounded-full animate-spin" />
+  </div>
+);
+
 export default function QuestionSlugRouter() {
   const pathname = usePathname();
   const slug = pathname.replace(/^\//, '') || '';
 
+  // Wrap lazy-loaded components in Suspense to prevent SSR crashes
   // Check most-specific prefixes first (PYQ before general practice)
-  if (slug.startsWith('jee-pyq-')) return <JEEPYQQuestion />;
-  if (slug.startsWith('neet-pyq-')) return <NEETPYQQuestion />;
-  if (JEE_PRACTICE_RE.test(slug)) return <JEEPracticeQuestion />;
-  if (NEET_PRACTICE_RE.test(slug)) return <NEETPracticeQuestion />;
+  if (slug.startsWith('jee-pyq-')) return <Suspense fallback={<LazyFallback />}><JEEPYQQuestion /></Suspense>;
+  if (slug.startsWith('neet-pyq-')) return <Suspense fallback={<LazyFallback />}><NEETPYQQuestion /></Suspense>;
+  if (JEE_PRACTICE_RE.test(slug)) return <Suspense fallback={<LazyFallback />}><JEEPracticeQuestion /></Suspense>;
+  if (NEET_PRACTICE_RE.test(slug)) return <Suspense fallback={<LazyFallback />}><NEETPracticeQuestion /></Suspense>;
 
   // Not a question slug — render LocationPage
-  return <LocationPage />;
+  return <Suspense fallback={<LazyFallback />}><LocationPage /></Suspense>;
 }
