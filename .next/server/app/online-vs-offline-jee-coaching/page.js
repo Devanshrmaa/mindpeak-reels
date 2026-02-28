@@ -1,5 +1,5 @@
 var R=require("../../chunks/ssr/[turbopack]_runtime.js")("server/app/online-vs-offline-jee-coaching/page.js")
-R.c("server/chunks/ssr/_3c14b164._.js")
+R.c("server/chunks/ssr/_d92f1875._.js")
 R.c("server/chunks/ssr/[root-of-the-server]__5d5aaa26._.js")
 R.c("server/chunks/ssr/_76c44218._.js")
 R.c("server/chunks/ssr/[root-of-the-server]__623640de._.js")

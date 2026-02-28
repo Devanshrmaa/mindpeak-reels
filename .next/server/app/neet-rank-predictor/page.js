@@ -1,5 +1,5 @@
 var R=require("../../chunks/ssr/[turbopack]_runtime.js")("server/app/neet-rank-predictor/page.js")
-R.c("server/chunks/ssr/_b0ce8787._.js")
+R.c("server/chunks/ssr/_0a7dca8f._.js")
 R.c("server/chunks/ssr/[root-of-the-server]__5d5aaa26._.js")
 R.c("server/chunks/ssr/_6dee9161._.js")
 R.c("server/chunks/ssr/[root-of-the-server]__623640de._.js")

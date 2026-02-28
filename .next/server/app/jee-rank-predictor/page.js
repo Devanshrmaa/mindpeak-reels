@@ -1,5 +1,5 @@
 var R=require("../../chunks/ssr/[turbopack]_runtime.js")("server/app/jee-rank-predictor/page.js")
-R.c("server/chunks/ssr/_844b1819._.js")
+R.c("server/chunks/ssr/_4ebe4c7f._.js")
 R.c("server/chunks/ssr/[root-of-the-server]__5d5aaa26._.js")
 R.c("server/chunks/ssr/_018dcaa7._.js")
 R.c("server/chunks/ssr/[root-of-the-server]__623640de._.js")

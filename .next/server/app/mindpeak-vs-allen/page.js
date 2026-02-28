@@ -1,5 +1,5 @@
 var R=require("../../chunks/ssr/[turbopack]_runtime.js")("server/app/mindpeak-vs-allen/page.js")
-R.c("server/chunks/ssr/_a0898e10._.js")
+R.c("server/chunks/ssr/_f3152564._.js")
 R.c("server/chunks/ssr/[root-of-the-server]__5d5aaa26._.js")
 R.c("server/chunks/ssr/_6738b7a6._.js")
 R.c("server/chunks/ssr/[root-of-the-server]__623640de._.js")

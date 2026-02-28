@@ -99,7 +99,12 @@
     },
     "logging": {},
     "compiler": {
-      "removeConsole": true
+      "removeConsole": {
+        "exclude": [
+          "error",
+          "warn"
+        ]
+      }
     },
     "expireTime": 31536000,
     "staticPageGenerationTimeout": 60,
@@ -309,7 +314,19 @@
       "root": "/workspaces/mindpeak-reels"
     },
     "distDirRoot": ".next",
-    "_originalRedirects": []
+    "_originalRedirects": [
+      {
+        "source": "/:path*",
+        "has": [
+          {
+            "type": "host",
+            "value": "www.mindpeakinstitute.com"
+          }
+        ],
+        "destination": "https://mindpeakinstitute.com/:path*",
+        "permanent": true
+      }
+    ]
   },
   "appDir": "/workspaces/mindpeak-reels",
   "relativeAppDir": "",
