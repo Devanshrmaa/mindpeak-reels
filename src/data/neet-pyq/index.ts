@@ -1,6 +1,7 @@
 import type { NEETPYQSubjectBank, NEETPYQChapter, NEETPYQuestion } from './types';
 import { slugifyQuestion, deduplicateSlugs } from '../../lib/slugify';
 import { botanyPyq } from './biology-botany-pyq';
+import { botanyPyq2 } from './biology-botany-pyq-2';
 import { zoologyPyq } from './biology-zoology-pyq';
 import { neetPhysicsPyq } from './physics-pyq';
 import { neetChemistryPyq } from './chemistry-pyq';
@@ -26,6 +27,7 @@ function mergeChapters(chapters: NEETPYQChapter[]): NEETPYQChapter[] {
 
 const allBiologyPYQ: NEETPYQChapter[] = mergeChapters([
   ...botanyPyq,
+  ...botanyPyq2,
   ...zoologyPyq,
 ]);
 
