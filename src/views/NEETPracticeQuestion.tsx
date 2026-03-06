@@ -137,6 +137,7 @@ const NEETPracticeQuestion = () => {
   const keyFormulas = buildKeyFormulas('NEET', subj, chapterName, topicName);
   const whyItMatters = buildWhyItMatters('NEET', subj, chapterName, topicName);
   const crossLinks = buildNEETPracticeCrossLinks(subj, params.subject, chapterName);
+  const studyStrategy = buildStudyStrategy('NEET', subj, chapterName, topicName);
   const prevSlug = params.questionIndex > 1
     ? getNEETPracticeSlugByParams(params.subject, params.chapter, params.topic, params.difficulty, params.questionIndex - 1)
     : null;

@@ -106,6 +106,7 @@ const JEEPYQQuestion = () => {
   const keyFormulas = buildKeyFormulas('JEE', subj, chapterName, chapterName);
   const whyItMatters = buildWhyItMatters('JEE', subj, chapterName, chapterName);
   const crossLinks = buildJEEPYQCrossLinks(subj, params.subject, chapterName);
+  const studyStrategy = buildStudyStrategy('JEE', subj, chapterName, chapterName);
 
   /* navigation slugs — use proper SEO slugs */
   const prevSlug = params.questionIndex > 1

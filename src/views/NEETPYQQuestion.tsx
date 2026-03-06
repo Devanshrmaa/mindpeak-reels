@@ -97,6 +97,7 @@ const NEETPYQQuestion = () => {
   const keyFormulas = buildKeyFormulas('NEET', subj, chapterName, chapterName);
   const whyItMatters = buildWhyItMatters('NEET', subj, chapterName, chapterName);
   const crossLinks = buildNEETPYQCrossLinks(subj, params.subject, chapterName);
+  const studyStrategy = buildStudyStrategy('NEET', subj, chapterName, chapterName);
 
   const prevSlug = params.questionIndex > 1
     ? getNEETPYQSlugByParams(params.subject, params.chapter, params.questionIndex - 1)

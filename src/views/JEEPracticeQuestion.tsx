@@ -148,6 +148,7 @@ const JEEPracticeQuestion = () => {
   const keyFormulas = buildKeyFormulas('JEE', subj, chapterName, topicName);
   const whyItMatters = buildWhyItMatters('JEE', subj, chapterName, topicName);
   const crossLinks = buildJEEPracticeCrossLinks(subj, params.subject, chapterName);
+  const studyStrategy = buildStudyStrategy('JEE', subj, chapterName, topicName);
 
   const title = `JEE ${subj} MCQ: ${topicName} [${diff}] — Solve & Check Answer`;
   const description = `Solve this ${diff} JEE ${subj} MCQ on ${topicName}. Instant answer reveal + step-by-step solution. 500+ free practice questions.`;
