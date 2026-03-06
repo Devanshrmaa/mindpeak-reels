@@ -5,7 +5,9 @@ import { botanyPyq2 } from './biology-botany-pyq-2';
 import { zoologyPyq } from './biology-zoology-pyq';
 import { zoologyPyq2 } from './biology-zoology-pyq-2';
 import { neetPhysicsPyq } from './physics-pyq';
+import { neetPhysicsPyq2 } from './physics-pyq-2';
 import { neetChemistryPyq } from './chemistry-pyq';
+import { neetChemistryPyq2 } from './chemistry-pyq-2';
 
 /* ─── Helper: merge chapters with duplicate slugs ─── */
 function mergeChapters(chapters: NEETPYQChapter[]): NEETPYQChapter[] {
@@ -40,7 +42,7 @@ export const neetBiologyPYQBank: NEETPYQSubjectBank = {
   chapters: allBiologyPYQ,
 };
 
-const allPhysicsPYQ: NEETPYQChapter[] = mergeChapters([...neetPhysicsPyq]);
+const allPhysicsPYQ: NEETPYQChapter[] = mergeChapters([...neetPhysicsPyq, ...neetPhysicsPyq2]);
 
 export const neetPhysicsPYQBank: NEETPYQSubjectBank = {
   subject: 'Physics',
@@ -49,7 +51,7 @@ export const neetPhysicsPYQBank: NEETPYQSubjectBank = {
   chapters: allPhysicsPYQ,
 };
 
-const allChemistryPYQ: NEETPYQChapter[] = mergeChapters([...neetChemistryPyq]);
+const allChemistryPYQ: NEETPYQChapter[] = mergeChapters([...neetChemistryPyq, ...neetChemistryPyq2]);
 
 export const neetChemistryPYQBank: NEETPYQSubjectBank = {
   subject: 'Chemistry',

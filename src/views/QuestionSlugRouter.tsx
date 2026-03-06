@@ -11,6 +11,7 @@
  */
 import { lazy, Suspense, type ComponentType } from 'react';
 import { usePathname } from 'next/navigation';
+import { parseNEETPYQHubSlug } from '@/data/neet-pyq/hierarchy';
 
 /** Retry wrapper matching App.tsx lazyRetry (handles chunk load failures) */
 function lr<T extends { default: ComponentType<any> }>(fn: () => Promise<T>) {
@@ -21,6 +22,9 @@ const JEEPracticeQuestion = lr(() => import('./JEEPracticeQuestion'));
 const JEEPYQQuestion = lr(() => import('./JEEPYQQuestion'));
 const NEETPracticeQuestion = lr(() => import('./NEETPracticeQuestion'));
 const NEETPYQQuestion = lr(() => import('./NEETPYQQuestion'));
+const NEETPYQChapterHub = lr(() => import('./NEETPYQChapterHub'));
+const NEETPYQUnitHub = lr(() => import('./NEETPYQUnitHub'));
+const NEETPYQClassHub = lr(() => import('./NEETPYQClassHub'));
 const LocationPage = lr(() => import('./LocationPage'));
 
 // Regex patterns for question slug matching
@@ -37,10 +41,25 @@ export default function QuestionSlugRouter() {
   const pathname = usePathname();
   const slug = pathname.replace(/^\//, '') || '';
 
-  // Wrap lazy-loaded components in Suspense to prevent SSR crashes
+  // Check NEET PYQ hub slugs first (chapter/unit/class hubs)
+  if (slug.startsWith('neet-pyq-')) {
+    const hubInfo = parseNEETPYQHubSlug(slug);
+    if (hubInfo) {
+      switch (hubInfo.type) {
+        case 'chapter':
+          return <Suspense fallback={<LazyFallback />}><NEETPYQChapterHub /></Suspense>;
+        case 'unit':
+          return <Suspense fallback={<LazyFallback />}><NEETPYQUnitHub /></Suspense>;
+        case 'class':
+          return <Suspense fallback={<LazyFallback />}><NEETPYQClassHub /></Suspense>;
+      }
+    }
+    // Not a hub slug — must be a question slug
+    return <Suspense fallback={<LazyFallback />}><NEETPYQQuestion /></Suspense>;
+  }
+
   // Check most-specific prefixes first (PYQ before general practice)
   if (slug.startsWith('jee-pyq-')) return <Suspense fallback={<LazyFallback />}><JEEPYQQuestion /></Suspense>;
-  if (slug.startsWith('neet-pyq-')) return <Suspense fallback={<LazyFallback />}><NEETPYQQuestion /></Suspense>;
   if (JEE_PRACTICE_RE.test(slug)) return <Suspense fallback={<LazyFallback />}><JEEPracticeQuestion /></Suspense>;
   if (NEET_PRACTICE_RE.test(slug)) return <Suspense fallback={<LazyFallback />}><NEETPracticeQuestion /></Suspense>;
 

@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Link } from '@/components/RouterLink';
 import { motion } from 'framer-motion';
-import { BookOpen, ChevronDown, ChevronRight, ArrowRight, Calendar, FileText } from 'lucide-react';
+import { BookOpen, ChevronDown, ChevronRight, ArrowRight, Calendar, FileText, Layers } from 'lucide-react';
 import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
 import { PageFooter } from '@/components/PageFooter';
@@ -14,6 +14,7 @@ import {
   getNEETPYQChapterCount,
   getNEETPYQSlugByParams,
 } from '@/data/neet-pyq';
+import { neetPyqHierarchy, getUnitsForClass } from '@/data/neet-pyq/hierarchy';
 
 const NEETPYQHub = () => {
   const { openDemoModal } = useDemoModal();
@@ -81,6 +82,21 @@ const NEETPYQHub = () => {
                     </div>
                   );
                 })}
+              </div>
+
+              {/* Class-level quick links */}
+              <div className="flex flex-wrap justify-center gap-2 mb-8">
+                {neetPyqSubjectBanks.map(bank => (
+                  [11, 12].map(cl => (
+                    <Link
+                      key={`${bank.slug}-${cl}`}
+                      to={`/neet-pyq-${bank.slug}-class-${cl}`}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs border border-border bg-card/50 text-muted-foreground hover:text-foreground hover:border-green-500/40 transition-colors"
+                    >
+                      <span>{bank.icon}</span> {bank.subject} Class {cl}
+                    </Link>
+                  ))
+                ))}
               </div>
             </motion.div>
           </div>
