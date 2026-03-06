@@ -70,7 +70,16 @@ export function generateFormulaPdf(data: FormulaSheetData): void {
     pdf.setFont('helvetica', 'normal');
     pdf.text('MindPeak Institute  |  mindpeakinstitute.com  |  +91 82194 57704', W / 2, H - 6, { align: 'center' });
   }
-  function newPage() { pdf.addPage(); bg(); footer(); y = 15; }
+  function newPage() {
+    pdf.addPage();
+    bg();
+    footer();
+    // Reset font state for new page content
+    pdf.setFont('helvetica', 'normal');
+    pdf.setFontSize(10);
+    pdf.setTextColor(...white);
+    y = 15;
+  }
   function need(h: number) { if (y + h > H - BM) newPage(); }
 
   // Wrapper to always sanitize + set font before splitTextToSize
