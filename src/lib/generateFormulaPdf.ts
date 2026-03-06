@@ -16,14 +16,16 @@ function sanitize(text: string): string {
     '\u2070': '^0', '\u00B9': '^1', '\u00B2': '^2', '\u00B3': '^3', '\u2074': '^4',
     '\u2075': '^5', '\u2076': '^6', '\u2077': '^7', '\u2078': '^8', '\u2079': '^9',
     '\u207A': '^+', '\u207B': '^-', '\u207F': '^n',
-    // Greek
-    '\u0394': 'Delta', '\u03B1': 'alpha', '\u03B2': 'beta', '\u03B3': 'gamma',
-    '\u03B4': 'delta', '\u03B5': 'epsilon', '\u03B7': 'eta', '\u03B8': 'theta',
-    '\u03BA': 'kappa', '\u03BB': 'lambda', '\u03BC': 'mu', '\u03BD': 'nu',
-    '\u03C0': 'pi', '\u03C1': 'rho', '\u03C3': 'sigma', '\u03C4': 'tau',
-    '\u03C6': 'phi', '\u03C7': 'chi', '\u03C8': 'psi', '\u03C9': 'omega',
-    '\u03D5': 'phi', '\u03A3': 'Sigma', '\u03A9': 'Omega', '\u03A6': 'Phi',
-    // Symbols
+    // Greek (short forms for readability)
+    '\u0394': 'D', '\u03B1': 'a', '\u03B2': 'b', '\u03B3': 'y',
+    '\u03B4': 'd', '\u03B5': 'e', '\u03B7': 'n', '\u03B8': 'O',
+    '\u03BA': 'k', '\u03BB': 'L', '\u03BC': 'u', '\u03BD': 'v',
+    '\u03C0': 'pi', '\u03C1': 'p', '\u03C3': 's', '\u03C4': 't',
+    '\u03C6': 'f', '\u03C7': 'X', '\u03C8': 'Y', '\u03C9': 'w',
+    '\u03D5': 'f', '\u03A3': 'E', '\u03A9': 'O', '\u03A6': 'F',
+    '\u03A0': 'P', '\u039B': 'A',
+    // Symbols & math operators
+    '\u2212': '-',  // MINUS SIGN — critical!
     '\u2192': '->', '\u2190': '<-', '\u2265': '>=', '\u2264': '<=', '\u2260': '!=',
     '\u00B7': '.', '\u2219': '.', '\u00D7': 'x', '\u00F7': '/',
     '\u221A': 'sqrt', '\u221E': 'inf', '\u2211': 'Sum', '\u222B': 'Int',
@@ -31,10 +33,17 @@ function sanitize(text: string): string {
     '\u2013': '-', '\u2014': '-', '\u00BD': '1/2',
     '\u2153': '1/3', '\u2154': '2/3', '\u00BC': '1/4', '\u00BE': '3/4',
     '\u2022': '.', '\u220F': 'Prod', '\u2261': '===',
-    '\u03A0': 'Pi', '\u039B': 'Lambda',
+    '\u00B1': '+-',  // plus-minus
+    '\u2032': "'",   // prime
+    '\u2033': "''",  // double prime
+    '\u00B5': 'u',   // micro sign
+    '\u2026': '...', // ellipsis
+    '\u201C': '"', '\u201D': '"', '\u2018': "'", '\u2019': "'",
   };
   let r = text;
   for (const [u, a] of Object.entries(map)) r = r.replaceAll(u, a);
+  // Strip any remaining non-ASCII chars that jsPDF can't render
+  r = r.replace(/[^\x00-\x7F]/g, '?');
   return r;
 }
 
