@@ -27,7 +27,8 @@ import {
 import { PageFAQ, buildFAQSchema, type FAQItem } from '@/components/PageFAQ';
 import { getUnitForChapter } from '@/data/neet-pyq/hierarchy';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
-import { buildNEETPYQFAQs, buildPYQOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema } from '@/lib/questionPageSEO';
+import { buildNEETPYQFAQs, buildPYQOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema, buildCommonMistakes, buildKeyFormulas, buildWhyItMatters } from '@/lib/questionPageSEO';
+import { CommonMistakesBlock, KeyFormulasBlock, WhyItMattersBlock, InternalLinkingMesh, buildNEETPYQCrossLinks } from '@/components/QuestionContentBlocks';
 
 function seededShuffle(seed: string): number[] {
   let h = 0;
