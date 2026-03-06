@@ -24,8 +24,8 @@ import {
 } from '@/data/neet-practice';
 import { PageFAQ, buildFAQSchema, type FAQItem } from '@/components/PageFAQ';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
-import { buildNEETPracticeFAQs, buildTopicOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema, buildCommonMistakes, buildKeyFormulas, buildWhyItMatters } from '@/lib/questionPageSEO';
-import { CommonMistakesBlock, KeyFormulasBlock, WhyItMattersBlock, InternalLinkingMesh, buildNEETPracticeCrossLinks } from '@/components/QuestionContentBlocks';
+import { buildNEETPracticeFAQs, buildTopicOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema, buildCommonMistakes, buildKeyFormulas, buildWhyItMatters, buildStudyStrategy } from '@/lib/questionPageSEO';
+import { CommonMistakesBlock, KeyFormulasBlock, WhyItMattersBlock, StudyStrategyBlock, InternalLinkingMesh, buildNEETPracticeCrossLinks } from '@/components/QuestionContentBlocks';
 
 /* ── label helpers ── */
 const difficultyLabel: Record<Difficulty, string> = {
@@ -137,6 +137,7 @@ const NEETPracticeQuestion = () => {
   const keyFormulas = buildKeyFormulas('NEET', subj, chapterName, topicName);
   const whyItMatters = buildWhyItMatters('NEET', subj, chapterName, topicName);
   const crossLinks = buildNEETPracticeCrossLinks(subj, params.subject, chapterName);
+  const studyStrategy = buildStudyStrategy('NEET', subj, chapterName, topicName);
   const prevSlug = params.questionIndex > 1
     ? getNEETPracticeSlugByParams(params.subject, params.chapter, params.topic, params.difficulty, params.questionIndex - 1)
     : null;
@@ -439,7 +440,8 @@ const NEETPracticeQuestion = () => {
           {/* ── Cross-type Internal Links ── */}
           <InternalLinkingMesh links={crossLinks} heading={`Related ${subj} Resources`} />
 
-          {/* CTA */}
+          {/* ── Study Strategy ── */}
+          <StudyStrategyBlock chapterName={chapterName} strategies={studyStrategy} />
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-xl bg-gradient-to-r from-green-500/10 via-green-500/5 to-transparent border border-green-500/20 p-8 text-center">
             <h2 className="font-display font-bold text-xl text-foreground mb-3">Want Detailed Solutions with a Personal Mentor?</h2>
             <p className="text-muted-foreground mb-6 max-w-lg mx-auto">Get step-by-step solutions explained live in 1-on-1 sessions.</p>

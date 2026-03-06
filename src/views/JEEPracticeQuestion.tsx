@@ -24,8 +24,8 @@ import {
 } from '@/data/practice';
 import { PageFAQ, buildFAQSchema, type FAQItem } from '@/components/PageFAQ';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
-import { buildJEEPracticeFAQs, buildTopicOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema, buildCommonMistakes, buildKeyFormulas, buildWhyItMatters } from '@/lib/questionPageSEO';
-import { CommonMistakesBlock, KeyFormulasBlock, WhyItMattersBlock, InternalLinkingMesh, buildJEEPracticeCrossLinks } from '@/components/QuestionContentBlocks';
+import { buildJEEPracticeFAQs, buildTopicOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema, buildCommonMistakes, buildKeyFormulas, buildWhyItMatters, buildStudyStrategy } from '@/lib/questionPageSEO';
+import { CommonMistakesBlock, KeyFormulasBlock, WhyItMattersBlock, StudyStrategyBlock, InternalLinkingMesh, buildJEEPracticeCrossLinks } from '@/components/QuestionContentBlocks';
 
 /* ── label helpers ── */
 const difficultyLabel: Record<Difficulty, string> = {
@@ -148,6 +148,7 @@ const JEEPracticeQuestion = () => {
   const keyFormulas = buildKeyFormulas('JEE', subj, chapterName, topicName);
   const whyItMatters = buildWhyItMatters('JEE', subj, chapterName, topicName);
   const crossLinks = buildJEEPracticeCrossLinks(subj, params.subject, chapterName);
+  const studyStrategy = buildStudyStrategy('JEE', subj, chapterName, topicName);
 
   const title = `JEE ${subj} MCQ: ${topicName} [${diff}] — Solve & Check Answer`;
   const description = `Solve this ${diff} JEE ${subj} MCQ on ${topicName}. Instant answer reveal + step-by-step solution. 500+ free practice questions.`;
@@ -489,7 +490,8 @@ const JEEPracticeQuestion = () => {
           {/* ── Cross-type Internal Links ── */}
           <InternalLinkingMesh links={crossLinks} heading={`Related ${subj} Resources`} />
 
-          {/* CTA */}
+          {/* ── Study Strategy ── */}
+          <StudyStrategyBlock chapterName={chapterName} strategies={studyStrategy} />
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

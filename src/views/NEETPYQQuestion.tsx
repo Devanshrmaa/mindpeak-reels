@@ -27,8 +27,8 @@ import {
 import { PageFAQ, buildFAQSchema, type FAQItem } from '@/components/PageFAQ';
 import { getUnitForChapter } from '@/data/neet-pyq/hierarchy';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
-import { buildNEETPYQFAQs, buildPYQOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema, buildCommonMistakes, buildKeyFormulas, buildWhyItMatters } from '@/lib/questionPageSEO';
-import { CommonMistakesBlock, KeyFormulasBlock, WhyItMattersBlock, InternalLinkingMesh, buildNEETPYQCrossLinks } from '@/components/QuestionContentBlocks';
+import { buildNEETPYQFAQs, buildPYQOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema, buildCommonMistakes, buildKeyFormulas, buildWhyItMatters, buildStudyStrategy } from '@/lib/questionPageSEO';
+import { CommonMistakesBlock, KeyFormulasBlock, WhyItMattersBlock, StudyStrategyBlock, InternalLinkingMesh, buildNEETPYQCrossLinks } from '@/components/QuestionContentBlocks';
 
 function seededShuffle(seed: string): number[] {
   let h = 0;
@@ -97,6 +97,7 @@ const NEETPYQQuestion = () => {
   const keyFormulas = buildKeyFormulas('NEET', subj, chapterName, chapterName);
   const whyItMatters = buildWhyItMatters('NEET', subj, chapterName, chapterName);
   const crossLinks = buildNEETPYQCrossLinks(subj, params.subject, chapterName);
+  const studyStrategy = buildStudyStrategy('NEET', subj, chapterName, chapterName);
 
   const prevSlug = params.questionIndex > 1
     ? getNEETPYQSlugByParams(params.subject, params.chapter, params.questionIndex - 1)
@@ -269,7 +270,8 @@ const NEETPYQQuestion = () => {
           {/* ── Cross-type Internal Links ── */}
           <InternalLinkingMesh links={crossLinks} heading={`Related ${subj} Resources`} />
 
-          {/* Chapter Browser */}
+          {/* ── Study Strategy ── */}
+          <StudyStrategyBlock chapterName={chapterName} strategies={studyStrategy} />
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-xl border border-border bg-card/50 overflow-hidden">
             <button onClick={() => setShowChapterBrowser(!showChapterBrowser)} className="w-full flex items-center justify-between px-5 py-4 hover:bg-secondary/20 transition-colors text-left">
               <div className="flex items-center gap-2 text-sm font-semibold text-foreground"><List className="w-4 h-4 text-green-400" /> Choose a Different Chapter</div>

@@ -7,7 +7,7 @@
 
 import { motion } from 'framer-motion';
 import { Link } from '@/components/RouterLink';
-import { AlertTriangle, BookOpen, Calculator, TrendingUp, FileText, ArrowRight } from 'lucide-react';
+import { AlertTriangle, BookOpen, Calculator, TrendingUp, FileText, ArrowRight, GraduationCap } from 'lucide-react';
 
 const block = { initial: { opacity: 0, y: 20 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
 
@@ -53,6 +53,20 @@ export function WhyItMattersBlock({ topicName, paragraphs }: { topicName: string
       </h2>
       <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
         {paragraphs.map((para, i) => <p key={i}>{para}</p>)}
+      </div>
+    </motion.div>
+  );
+}
+
+/* ── Study Strategy Section ── */
+export function StudyStrategyBlock({ chapterName, strategies }: { chapterName: string; strategies: string[] }) {
+  return (
+    <motion.div {...block} className="rounded-xl border border-border bg-card/50 p-6 sm:p-8">
+      <h2 className="font-display font-bold text-lg text-foreground mb-4 flex items-center gap-2">
+        <GraduationCap className="w-5 h-5 text-violet-400" /> Study Strategy — {chapterName}
+      </h2>
+      <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
+        {strategies.map((para, i) => <p key={i}>{para}</p>)}
       </div>
     </motion.div>
   );

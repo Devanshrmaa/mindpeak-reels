@@ -26,8 +26,8 @@ import {
 } from '@/data/pyq';
 import { PageFAQ, buildFAQSchema, type FAQItem } from '@/components/PageFAQ';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
-import { buildJEEPYQFAQs, buildPYQOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema, buildCommonMistakes, buildKeyFormulas, buildWhyItMatters } from '@/lib/questionPageSEO';
-import { CommonMistakesBlock, KeyFormulasBlock, WhyItMattersBlock, InternalLinkingMesh, buildJEEPYQCrossLinks } from '@/components/QuestionContentBlocks';
+import { buildJEEPYQFAQs, buildPYQOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema, buildCommonMistakes, buildKeyFormulas, buildWhyItMatters, buildStudyStrategy } from '@/lib/questionPageSEO';
+import { CommonMistakesBlock, KeyFormulasBlock, WhyItMattersBlock, StudyStrategyBlock, InternalLinkingMesh, buildJEEPYQCrossLinks } from '@/components/QuestionContentBlocks';
 
 /* ── Deterministic option shuffle (same as practice page) ── */
 function seededShuffle(seed: string): number[] {
@@ -106,6 +106,7 @@ const JEEPYQQuestion = () => {
   const keyFormulas = buildKeyFormulas('JEE', subj, chapterName, chapterName);
   const whyItMatters = buildWhyItMatters('JEE', subj, chapterName, chapterName);
   const crossLinks = buildJEEPYQCrossLinks(subj, params.subject, chapterName);
+  const studyStrategy = buildStudyStrategy('JEE', subj, chapterName, chapterName);
 
   /* navigation slugs — use proper SEO slugs */
   const prevSlug = params.questionIndex > 1
@@ -354,7 +355,8 @@ const JEEPYQQuestion = () => {
           {/* ── Cross-type Internal Links ── */}
           <InternalLinkingMesh links={crossLinks} heading={`Related ${subj} Resources`} />
 
-          {/* Chapter Browser */}
+          {/* ── Study Strategy ── */}
+          <StudyStrategyBlock chapterName={chapterName} strategies={studyStrategy} />
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-xl border border-border bg-card/50 overflow-hidden">
             <button
               onClick={() => setShowChapterBrowser(!showChapterBrowser)}
