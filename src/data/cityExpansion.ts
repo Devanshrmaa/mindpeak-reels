@@ -96,6 +96,42 @@ function generateFAQs(c: CityConfig): { q: string; a: string }[] {
   return faqs;
 }
 
+/* ─── NEW EXPANDED SECTION GENERATORS ───────────────────────── */
+
+function generateIntroduction(c: CityConfig): string {
+  const examList = c.exams.map(e => e.toUpperCase()).join(' and ');
+  const boardStr = c.board || 'CBSE and state board';
+  const langStr = c.language ? `, with support in ${c.language} when needed` : '';
+  return `MindPeak Institute is a premier online coaching platform that has been transforming how students in ${c.city}, ${c.state} prepare for competitive entrance examinations like ${examList}. Our mission is simple yet powerful — to provide every student in ${c.city} with access to world-class, personalised 1-on-1 mentoring that was once reserved only for students in metro coaching hubs like Delhi and Kota. We believe that a student's potential should never be limited by their geographic location, which is why MindPeak Institute in ${c.city} leverages cutting-edge online technology to deliver daily live sessions with dedicated expert mentors directly to students' homes. Whether a student comes from a ${boardStr} background${langStr}, our adaptive curriculum meets them exactly where they are and builds a customised roadmap toward their dream college. MindPeak Institute in ${c.city} has already helped hundreds of students across ${c.state} achieve ranks they once thought impossible — and our 95% success rate speaks to the effectiveness of truly personalised coaching. For families in ${c.city} who are tired of overcrowded batch coaching centres and want measurable, transparent results, MindPeak Institute offers a fundamentally better way to prepare for ${examList}.`;
+}
+
+function generateCoursesOffered(c: CityConfig): string {
+  const stateExamStr = c.stateExam ? `Additionally, ${c.stateExam} preparation is integrated into our JEE and NEET programs, so ${c.city} students don't need separate coaching for the state entrance exam — the syllabus overlap is leveraged efficiently, with targeted practice modules added closer to the exam date. ` : '';
+  const langStr = c.language ? `All sessions are conducted in English (the exam medium), with conceptual explanations available in ${c.language} when students need additional clarity. ` : '';
+  return `MindPeak Institute in ${c.city} offers a comprehensive suite of programs designed to cover every aspect of competitive exam preparation. Our flagship JEE Main & Advanced program is a rigorous, concept-first curriculum covering Physics, Chemistry, and Mathematics at a depth that matches and exceeds the best coaching institutes in the country. Each subject is taught by specialist mentors — IIT and NIT alumni who bring real problem-solving experience to every session. For medical aspirants, our NEET UG program provides exhaustive coverage of Physics, Chemistry, and Biology with a strong NCERT-first foundation that NEET demands, supplemented by advanced application-based practice. ${stateExamStr}Beyond subject coaching, MindPeak Institute in ${c.city} provides structured test series aligned with the latest exam patterns — including full-length mock tests, chapter-wise tests, and previous year question practice with detailed performance analytics. Our Foundation programs for Class 9-10 students build early competitive readiness, giving ${c.city} students a head start over peers who begin preparation in Class 11. ${langStr}Every program includes dedicated doubt-resolution sessions, personalised study material curated by mentors, and strategic revision plans designed around each student's strengths and weaknesses. Whether a ${c.city} student needs intensive crash-course preparation or a methodical two-year program, MindPeak Institute has the right course structure to deliver results.`;
+}
+
+function generateLearningApproach(c: CityConfig): string {
+  const boardStr = c.board ? `Our mentors are experienced with ${c.board} curriculum specifics and build effective bridges to competitive exam requirements. ` : '';
+  return `What makes MindPeak Institute in ${c.city} fundamentally different from traditional coaching is our learning methodology. Every student begins with a comprehensive diagnostic assessment that maps their conceptual strengths and gaps across all subjects. Based on this assessment, a personalised learning roadmap is created — not a generic syllabus schedule, but a truly adaptive curriculum that evolves as the student progresses. ${boardStr}Daily 1-on-1 live sessions with dedicated mentors ensure that teaching pace matches comprehension speed — no student is left behind, and no advanced learner is held back. Our mentors use interactive digital whiteboards, real-time problem-solving demonstrations, and recorded session playback to maximise learning retention. Every session is followed by curated practice assignments calibrated to the student's current level, progressively building toward exam-level difficulty. Weekly mock tests simulate actual exam conditions, and detailed post-test analysis with mentors identifies patterns — whether a student loses marks due to conceptual gaps, calculation errors, or time management issues. MindPeak Institute in ${c.city} also incorporates project-based learning for complex topics, making abstract concepts tangible through real-world applications. This multi-layered approach — diagnostic assessment, adaptive curriculum, daily mentoring, strategic practice, and analytical feedback — creates a preparation ecosystem that consistently produces outstanding results for ${c.city} students.`;
+}
+
+function generateCareerOpportunities(c: CityConfig): string {
+  const nearbyStr = c.nearbyInstitute ? `With ${c.nearbyInstitute} in proximity, ${c.city} students have excellent institutional options right in their region. ` : '';
+  return `Students from ${c.city} who complete their JEE or NEET preparation with MindPeak Institute open doors to India's most prestigious institutions and rewarding career paths. JEE qualifiers gain admission to IITs, NITs, IIITs, and top private engineering colleges — launching careers in software engineering, data science, artificial intelligence, robotics, aerospace, and core engineering disciplines that offer starting packages of ₹10-50+ LPA. NEET qualifiers secure seats in top government and private medical colleges, embarking on careers in medicine, surgery, specialised healthcare, medical research, and public health — professions that offer both financial stability and societal impact. ${nearbyStr}Beyond direct career outcomes, the analytical thinking, problem-solving discipline, and time management skills built during MindPeak Institute's rigorous preparation serve students throughout their professional lives. Our alumni from ${c.state} have gone on to pursue higher education at global universities, secure competitive internships at leading companies, and establish successful careers across diverse fields. MindPeak Institute in ${c.city} doesn't just prepare students for an exam — it builds the intellectual foundation for lifelong career success. Our mentors also provide guidance on college selection, branch preferences, and career planning, ensuring that ${c.city} students make informed decisions about their academic futures based on aptitude, interest, and market demand.`;
+}
+
+function generateWhyStandsOut(c: CityConfig): string {
+  const stateExamStr = c.stateExam ? `, integrated ${c.stateExam} preparation` : '';
+  const langStr = c.language ? `, ${c.language}-medium concept support` : '';
+  return `MindPeak Institute stands out in ${c.city} because of an unwavering commitment to personalised excellence. While batch coaching centres in ${c.city} and across ${c.state} treat students as numbers in a classroom, MindPeak pairs every student with a dedicated mentor who becomes their academic partner for the entire preparation journey. Our transparent weekly reporting system gives ${c.city} parents complete visibility into their child's progress — something no local batch centre offers. The combination of IIT/AIIMS alumni mentors, adaptive AI-driven curriculum${stateExamStr}${langStr}, and data-backed performance tracking creates a coaching experience that is genuinely unmatched in ${c.city}. Students who switch from batch coaching to MindPeak consistently report 100-150+ marks improvement within the first three months, validating that personalised attention is the single most important factor in competitive exam success.`;
+}
+
+function generateCallToAction(c: CityConfig): string {
+  const examList = c.exams.map(e => e.toUpperCase()).join(' and ');
+  return `Your ${examList} journey starts with a single step. MindPeak Institute in ${c.city} invites you to experience the power of personalised 1-on-1 mentoring through a completely free demo class — no commitments, no pressure. See firsthand how our dedicated mentors, adaptive curriculum, and transparent tracking system can transform your preparation. Speak with our academic counselors, get a personalised assessment of your current preparation level, and discover why hundreds of students across ${c.state} trust MindPeak Institute for their competitive exam success. Book your free demo class today or call us at +91-82194-57704.`;
+}
+
 function configToCity(c: CityConfig): CityData {
   return {
     slug: c.slug,
@@ -111,6 +147,12 @@ function configToCity(c: CityConfig): CityData {
     parentTracking: generateParentTracking(c),
     highlights: generateHighlights(c),
     faqs: generateFAQs(c),
+    introduction: generateIntroduction(c),
+    coursesOffered: generateCoursesOffered(c),
+    learningApproach: generateLearningApproach(c),
+    careerOpportunities: generateCareerOpportunities(c),
+    whyStandsOut: generateWhyStandsOut(c),
+    callToActionText: generateCallToAction(c),
   };
 }
 
