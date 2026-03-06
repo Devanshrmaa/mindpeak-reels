@@ -1,15 +1,11 @@
 /**
  * Server-side metadata resolver for the catch-all route.
- *
- * Determines page type from the slug and returns {title, description}
- * so that Next.js generateMetadata can set proper SSR <head> tags.
- *
- * This file is imported ONLY in server components — never "use client".
  */
 
 import { CHAPTER_SLUGS, TOPIC_PATHS } from '@/data/chapterData';
 import { SUBJECT_SLUGS } from '@/views/SubjectPage';
 import { FORMULA_SLUGS } from '@/views/FormulaSheet';
+import { parseSubjectCitySlug, buildSubjectCityPage } from '@/data/subjectCityData';
 import { parsePracticeSlug, getQuestion, subjectBanks } from '@/data/practice';
 import { parsePYQSlug, getPYQuestion, pyqSubjectBanks } from '@/data/pyq';
 import { parseNEETPracticeSlug, getNEETPracticeQuestion, neetSubjectBanks } from '@/data/neet-practice';
@@ -240,7 +236,18 @@ function resolveQuestionMetadata(slug: string, canonical: string): Metadata {
     }
   }
 
-  // 5. Fallback — location pages or unknown
+  // 5. Subject-city pages (e.g. jee-physics-coaching-in-delhi)
+  const subjectCityConfig = parseSubjectCitySlug(slug);
+  if (subjectCityConfig) {
+    const page = buildSubjectCityPage(subjectCityConfig);
+    return {
+      title: page.title,
+      description: page.description.slice(0, 160),
+      alternates: { canonical },
+    };
+  }
+
+  // 6. Fallback — location pages or unknown
   const prettyName = slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
   return {
     title: prettyName,

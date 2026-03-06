@@ -2,18 +2,12 @@
 
 /**
  * QuestionSlugRouter — prefix-based lazy router for question pages.
- *
- * Instead of registering thousands of individual routes (which forces all
- * question data to be imported eagerly), this component matches URL prefixes
- * and lazy-loads the appropriate question page component on demand.
- *
- * If the slug doesn't match any question pattern, it falls back to LocationPage.
+ * Handles: questions, location pages, subject-city pages.
  */
 import { lazy, Suspense, type ComponentType } from 'react';
 import { usePathname } from 'next/navigation';
 import { parseNEETPYQHubSlug } from '@/data/neet-pyq/hierarchy';
 
-/** Retry wrapper matching App.tsx lazyRetry (handles chunk load failures) */
 function lr<T extends { default: ComponentType<any> }>(fn: () => Promise<T>) {
   return lazy(() => fn().catch(() => fn()));
 }
@@ -26,10 +20,12 @@ const NEETPYQChapterHub = lr(() => import('./NEETPYQChapterHub'));
 const NEETPYQUnitHub = lr(() => import('./NEETPYQUnitHub'));
 const NEETPYQClassHub = lr(() => import('./NEETPYQClassHub'));
 const LocationPage = lr(() => import('./LocationPage'));
+const SubjectCityPage = lr(() => import('./SubjectCityPage'));
 
-// Regex patterns for question slug matching
+// Regex patterns
 const JEE_PRACTICE_RE = /^jee-(physics|chemistry|mathematics)-/;
 const NEET_PRACTICE_RE = /^neet-(biology|physics|chemistry)-/;
+const SUBJECT_CITY_RE = /^(jee|neet)-(physics|chemistry|mathematics|biology)-coaching-in-/;
 
 const LazyFallback = () => (
   <div className="min-h-screen bg-[hsl(225,43%,7%)] flex items-center justify-center">
@@ -41,7 +37,12 @@ export default function QuestionSlugRouter() {
   const pathname = usePathname();
   const slug = pathname.replace(/^\//, '') || '';
 
-  // Check NEET PYQ hub slugs first (chapter/unit/class hubs)
+  // Subject-city pages: jee-physics-coaching-in-delhi
+  if (SUBJECT_CITY_RE.test(slug)) {
+    return <Suspense fallback={<LazyFallback />}><SubjectCityPage /></Suspense>;
+  }
+
+  // NEET PYQ hub slugs
   if (slug.startsWith('neet-pyq-')) {
     const hubInfo = parseNEETPYQHubSlug(slug);
     if (hubInfo) {
@@ -54,15 +55,16 @@ export default function QuestionSlugRouter() {
           return <Suspense fallback={<LazyFallback />}><NEETPYQClassHub /></Suspense>;
       }
     }
-    // Not a hub slug — must be a question slug
     return <Suspense fallback={<LazyFallback />}><NEETPYQQuestion /></Suspense>;
   }
 
-  // Check most-specific prefixes first (PYQ before general practice)
+  // JEE PYQ
   if (slug.startsWith('jee-pyq-')) return <Suspense fallback={<LazyFallback />}><JEEPYQQuestion /></Suspense>;
+  // JEE Practice
   if (JEE_PRACTICE_RE.test(slug)) return <Suspense fallback={<LazyFallback />}><JEEPracticeQuestion /></Suspense>;
+  // NEET Practice
   if (NEET_PRACTICE_RE.test(slug)) return <Suspense fallback={<LazyFallback />}><NEETPracticeQuestion /></Suspense>;
 
-  // Not a question slug — render LocationPage
+  // Location pages (fallback)
   return <Suspense fallback={<LazyFallback />}><LocationPage /></Suspense>;
 }
