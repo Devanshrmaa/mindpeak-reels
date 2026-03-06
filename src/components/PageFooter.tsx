@@ -149,8 +149,12 @@ function buildQuestionSections(
       ],
     },
     {
-      title: 'Quick Links',
+      title: 'Formula Sheets',
       links: STATIC_SECTIONS[3].links,
+    },
+    {
+      title: 'Quick Links',
+      links: STATIC_SECTIONS[4].links,
     },
   ];
 }

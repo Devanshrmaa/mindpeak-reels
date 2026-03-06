@@ -98,11 +98,10 @@ export const PageFAQ = ({ items, heading = 'Frequently Asked', highlight = 'Ques
 
 /**
  * Build FAQPage JSON-LD for SEOHead.
- * Returns null when no valid items exist (prevents "Unnamed item" errors in GSC).
+ * Filters out invalid items and trims values to prevent "Unnamed item" GSC errors.
  */
-export const buildFAQSchema = (items: FAQItem[]): object | null => {
-  if (!items || !Array.isArray(items)) return null;
-  const valid = items.filter(
+export const buildFAQSchema = (items: FAQItem[]): object => {
+  const valid = (items || []).filter(
     (faq) =>
       faq &&
       typeof faq.question === 'string' &&
@@ -110,7 +109,6 @@ export const buildFAQSchema = (items: FAQItem[]): object | null => {
       typeof faq.answer === 'string' &&
       faq.answer.trim() !== '',
   );
-  if (valid.length === 0) return null;
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -124,11 +122,10 @@ export const buildFAQSchema = (items: FAQItem[]): object | null => {
 
 /**
  * Build FAQPage JSON-LD from { q, a } shaped data.
- * Returns null when no valid items exist.
+ * Filters out invalid items and trims values.
  */
-export const buildFAQSchemaFromQA = (items: { q: string; a: string }[]): object | null => {
-  if (!items || !Array.isArray(items)) return null;
-  const valid = items.filter(
+export const buildFAQSchemaFromQA = (items: { q: string; a: string }[]): object => {
+  const valid = (items || []).filter(
     (faq) =>
       faq &&
       typeof faq.q === 'string' &&
@@ -136,7 +133,6 @@ export const buildFAQSchemaFromQA = (items: { q: string; a: string }[]): object 
       typeof faq.a === 'string' &&
       faq.a.trim() !== '',
   );
-  if (valid.length === 0) return null;
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
