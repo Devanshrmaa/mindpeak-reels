@@ -415,6 +415,12 @@ const NEETCoaching = () => {
             <div className="flex flex-wrap gap-2">
               {[
                 { label: 'NEET Biology Preparation', to: '/neet-biology-preparation' },
+                { label: 'NEET Chemistry Preparation', to: '/neet-chemistry-preparation' },
+                { label: 'NEET Physics Preparation', to: '/neet-physics-preparation' },
+                { label: 'NEET Biology Formulas', to: '/neet-biology-formulas' },
+                { label: 'NEET Practice Questions', to: '/neet-practice' },
+                { label: 'NEET Previous Year Questions', to: '/neet-pyq' },
+                { label: 'NEET Rank Predictor', to: '/neet-rank-predictor' },
                 { label: 'JEE Coaching', to: '/jee-coaching' },
                 { label: 'All Courses & Pricing', to: '/courses' },
                 { label: 'Kota Alternative', to: '/kota-coaching-alternative' },
