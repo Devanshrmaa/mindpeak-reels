@@ -1,204 +1,111 @@
 
 
-# Plan: NEET Chapter-Wise PYQ Expansion + Hierarchical PYQ Pages
+# Continue: NEET PYQ Expansion — Next Steps
 
-## Current State
+## Status
 
-**NEET PYQ data has only 36 clustered chapters** with ~10 questions each (504 total). But `neetBiology.ts` has 34 chapters, `neetPhysics.ts` has 15, `neetChemistry.ts` has 25 = **74 granular chapters**. Many chapters have zero PYQs.
+**Completed:**
+- `hierarchy.ts` — all 74 chapters mapped to units and classes
+- `biology-botany-pyq-2.ts` — 6 chapters with 20+ Qs each (120 Qs added)
+- `index.ts` — imports botanyPyq2
 
-**Gap:** Need to expand from 36 → 74 chapter-level PYQ banks, each with 20+ questions. Plus create a 4-level hierarchy of aggregation pages.
+**Remaining work (in priority order):**
 
----
+## Step 1: Finish Botany Data (3 more chapters)
 
-## Part 1: Expand NEET PYQ Data (74 chapters × 20+ Qs = 1,480+ question pages)
+Add to `biology-botany-pyq-2.ts`:
+- `photosynthesis` — 20 Qs
+- `plant-respiration` — 20 Qs
+- `plant-growth-development` — 20 Qs
 
-Currently 504 questions → target ~1,500. Net new: ~1,000 question pages.
+## Step 2: Create Zoology Expansion (`biology-zoology-pyq-2.ts`)
 
-### Biology PYQ Expansion
+Current zoology has 8 clusters. Need granular chapters matching hierarchy.ts. Add 20+ Qs for each missing/thin chapter:
+- `breathing-gas-exchange`, `body-fluids-circulation`, `excretory-system`, `locomotion-movement`, `neural-control` (split from existing clusters)
+- `reproduction-organisms`, `sexual-reproduction-plants`, `reproductive-health` (new or split)
+- `inheritance-variation`, `molecular-inheritance`, `evolution` (new or split)
+- `food-production-microbes`, `biotechnology-principles`, `biotechnology-applications` (new or split)
+- `organisms-populations`, `ecosystem`, `biodiversity-conservation`, `environmental-issues` (new or split)
 
-Current botany PYQ has 8 clusters. Need to split into 17 granular chapters matching `neetBiology.ts`:
+~15 chapters × 20 Qs = ~300 Qs
 
-**New/expanded files:**
-- `src/data/neet-pyq/biology-botany-pyq-2.ts` — Split existing clusters + add new questions to cover all 17 botany chapters with 20+ Qs each:
-  - Living World & Classification (have 10, need 10 more)
-  - Animal Kingdom (have 10, need 10 more)
-  - Plant Morphology & Anatomy (have 10, need 10 more)
-  - Structural Organisation in Animals (NEW: 20 Qs)
-  - Cell: Unit of Life (split from "Cell Biology" cluster, need 10 more)
-  - Biomolecules (split from "Cell Biology", need 15 more)
-  - Cell Division (NEW: 20 Qs)
-  - Transport in Plants (split from "Plant Physiology", need 15 more)
-  - Mineral Nutrition (NEW: 20 Qs)
-  - Photosynthesis (split from "Plant Physiology", need 15 more)
-  - Plant Respiration (NEW: 20 Qs)
-  - Plant Growth & Development (NEW: 20 Qs)
+## Step 3: Create Physics Expansion (`physics-pyq-2.ts`)
 
-**Zoology expansion** — split 8 clusters into 17 chapters:
-- `src/data/neet-pyq/biology-zoology-pyq-2.ts`
-  - Digestion & Absorption (have 10, need 10 more)
-  - Breathing & Gas Exchange (split from cluster, need 15 more)
-  - Body Fluids & Circulation (split, need 15 more)
-  - Excretory Products (split from cluster, need 15 more)
-  - Locomotion & Movement (NEW: 20 Qs)
-  - Neural Control (split from cluster, need 15 more)
-  - Chemical Coordination (have 10, need 10 more)
-  - Reproduction in Organisms (NEW: 20 Qs)
-  - Sexual Reproduction in Plants (split from cluster, need 15 more)
-  - Human Reproduction (have 10, need 10 more)
-  - Reproductive Health (NEW: 20 Qs)
-  - Inheritance & Variation (split, need 15 more)
-  - Molecular Inheritance (NEW: 20 Qs)
-  - Evolution (split, need 15 more)
-  - Human Health & Diseases (have 10, need 10 more)
-  - Food Production & Microbes (NEW: 20 Qs)
-  - Biotechnology Principles (split, need 15 more)
-  - Biotechnology Applications (have 10, need 10 more)
-  - Organisms & Populations (NEW: 20 Qs)
-  - Ecosystem (split, need 15 more)
-  - Biodiversity & Conservation (NEW: 20 Qs)
-  - Environmental Issues (NEW: 20 Qs)
+Missing/thin chapters from hierarchy:
+- `thermal-properties` — 20 Qs (NEW)
+- `electrostatics`, `current-electricity` — 10 more each (split from `electrostatics-current`)
+- `ray-optics`, `wave-optics` — 10+20 (split from `optics-modern`)
+- `waves-sound` — 10 more
+- `dual-nature-atoms`, `nuclei-semiconductors` — 10+20 (split)
 
-### Physics PYQ Expansion (10 → 15 chapters)
+~8 chapters, ~140 Qs
 
-- `src/data/neet-pyq/physics-pyq-2.ts` — Add missing chapters + expand existing:
-  - Thermal Properties (NEW: 20 Qs)
-  - Electrostatics (split from combined, need 10 more)
-  - Current Electricity (split, need 10 more)
-  - Ray Optics (split from combined, need 10 more)
-  - Wave Optics (NEW: 20 Qs)
-  - Oscillations & Waves (split, need 10 more, currently combined)
-  - Dual Nature & Atoms (split from combined, need 10 more)
-  - Nuclei & Semiconductors (NEW: 20 Qs)
+## Step 4: Create Chemistry Expansion (`chemistry-pyq-2.ts`)
 
-### Chemistry PYQ Expansion (10 → 25 chapters)
+Missing/thin chapters from hierarchy:
+- `some-basic-concepts`, `atomic-structure`, `chemical-bonding` (split from `atomic-structure-bonding`)
+- `thermodynamics` (NEW), `redox-electrochemistry` (NEW)
+- `kinetics` (split from `kinetics-electrochemistry`)
+- `solutions`, `surface-chemistry` (split from `solutions-solid-state`)
+- `periodic-classification`, `s-block`, `p-block`, `d-f-block`, `coordination-compounds` (split from `inorganic` clusters)
+- `organic-basics`, `haloalkanes`, `alcohols-phenols-ethers`, `carbonyl-compounds`, `amines` (split from organic clusters)
+- `biomolecules-polymers` (expand)
 
-- `src/data/neet-pyq/chemistry-pyq-2.ts` — Most need splitting + new chapters:
-  - Some Basic Concepts (NEW: 20 Qs)
-  - Atomic Structure (split from combined, need 10 more)
-  - Chemical Bonding (split, need 10 more)
-  - Thermodynamics (NEW: 20 Qs)
-  - Redox & Electrochemistry (NEW: 20 Qs)
-  - Chemical Kinetics (split from combined, need 10 more)
-  - Solutions (NEW: 20 Qs)
-  - Surface Chemistry (NEW: 20 Qs)
-  - Periodic Classification (split, need 10 more)
-  - s-Block (split from combined, need 10 more)
-  - p-Block (NEW: 20 Qs)
-  - d-Block & Coordination (split, need 10 more)
-  - Haloalkanes (NEW: 20 Qs)
-  - Alcohols Phenols Ethers (NEW: 20 Qs)
-  - Carbonyl Compounds (NEW: 20 Qs)
-  - Amines (NEW: 20 Qs)
-  - Biomolecules Polymers (split, need 10 more)
+~17 chapters × 20 Qs = ~340 Qs
 
-**Update index:** `src/data/neet-pyq/index.ts` — import all new files, update `mergeChapters` to handle granular slugs matching `chapterData.ts` chapter slugs.
+## Step 5: Update `index.ts`
 
----
+Import `zoologyPyq2`, `neetPhysicsPyq2`, `neetChemistryPyq2` and merge into subject banks.
 
-## Part 2: Hierarchical PYQ Aggregation Pages
+## Step 6: Create Hub Views
 
-Create a 4-level page hierarchy (bottom-up):
-
-```text
-Level 1: Individual PYQ Question pages (existing)
-   ↓ grouped by chapter
-Level 2: Chapter PYQ Hub — /neet-pyq-biology-digestion-absorption
-   ↓ grouped by unit
-Level 3: Unit PYQ Hub — /neet-pyq-biology-human-physiology
-   ↓ grouped by class
-Level 4: Class PYQ Hub — /neet-pyq-biology-class-11, /neet-pyq-biology-class-12
-   ↓ grouped by subject
-Level 5: Subject PYQ Hub — /neet-pyq-biology (already exists partially in NEETPYQHub)
-```
-
-### New Data Structure
-
-**`src/data/neet-pyq/hierarchy.ts`** — Define unit groupings and class assignments:
-- Maps each chapter to a unit (e.g., "Human Physiology" unit contains Digestion, Breathing, Circulation, Excretion, Locomotion, Neural, Endocrine)
-- Maps each chapter to Class 11 or Class 12
-- Biology: ~8 units, Physics: ~6 units, Chemistry: ~7 units
-- Estimated: **~21 unit pages + 6 class pages + 3 subject pages = ~30 aggregation pages**
-
-### New Views
-
-**`src/views/NEETPYQChapterHub.tsx`** — Chapter-level PYQ hub page:
-- Lists all 20+ PYQs for one chapter with year/shift filters
+### `NEETPYQChapterHub.tsx`
+- Route: `/neet-pyq-{subject}-{chapter}` (e.g., `/neet-pyq-biology-digestion-absorption`)
+- Lists all PYQs for one chapter with year/shift filter
 - Links to individual question pages
-- Backlinks to unit hub, subject hub, and chapter study page
-- SEO: "NEET [Chapter] Previous Year Questions — Last 10 Years"
+- Breadcrumb: Home > NEET PYQ > Subject > Class > Unit > Chapter
+- Backlinks to chapter study page and related chapters
 
-**`src/views/NEETPYQUnitHub.tsx`** — Unit-level aggregation:
-- Lists all chapters in the unit with question counts
-- Year-wise distribution chart
+### `NEETPYQUnitHub.tsx`
+- Route: `/neet-pyq-{subject}-unit-{unit}` (e.g., `/neet-pyq-biology-unit-human-physiology`)
+- Lists all chapters in the unit with question counts and year distribution
 - Links to chapter hubs
-- "NEET [Unit] PYQ — All Chapters Combined"
 
-**`src/views/NEETPYQClassHub.tsx`** — Class 11/12 level:
-- Lists all units/chapters for that class
-- Subject-wise breakdown
+### `NEETPYQClassHub.tsx`
+- Route: `/neet-pyq-{subject}-class-{11|12}`
+- Lists all units for that class with total question counts
 - Links to unit hubs
-- "NEET Class 11/12 PYQ — Subject-Wise Chapter Analysis"
 
-### Routing Updates
+## Step 7: Update Routing
 
-**`src/views/QuestionSlugRouter.tsx`** — Add detection for:
-- `neet-pyq-{subject}-{chapter-slug}` → NEETPYQChapterHub
-- `neet-pyq-{subject}-unit-{unit-slug}` → NEETPYQUnitHub
-- `neet-pyq-{subject}-class-{11|12}` → NEETPYQClassHub
+### `QuestionSlugRouter.tsx`
+Currently all `neet-pyq-*` goes to NEETPYQQuestion. Need to intercept hub slugs first:
+1. Import `NEET_PYQ_HUB_SLUGS` and `parseNEETPYQHubSlug` from hierarchy
+2. Before the existing `neet-pyq-` check, test if slug is in hub slugs
+3. Route to appropriate hub component based on `type` (chapter/unit/class)
 
-**`app/[...slug]/CatchAllClient.tsx`** — Add imports for new hub views.
+### `resolveSlugMetadata.ts`
+Add hub metadata resolution in the `neet-pyq-` section:
+- Check `parseNEETPYQHubSlug` before `parseNEETPYQSlug`
+- Return appropriate title/description for chapter/unit/class hubs
 
-**`src/lib/resolveSlugMetadata.ts`** — Add metadata for all new hub page patterns.
+## Step 8: Update Existing Pages
 
-### Update Existing Pages
-
-**`src/views/NEETPYQHub.tsx`** — Update to:
-- Show unit groupings instead of flat chapter list
+### `NEETPYQHub.tsx`
 - Add Class 11/12 filter tabs
-- Link to unit hubs and class hubs
-- Show total question counts per unit
+- Show unit groupings within each subject
+- Link to class hubs, unit hubs, and chapter hubs
 
-**`src/views/NEETPYQQuestion.tsx`** — Update breadcrumb to include unit and class levels:
-```
-Home > NEET PYQ > Biology > Class 11 > Human Physiology > Digestion > Question
-```
+### `NEETPYQQuestion.tsx`
+- Update breadcrumb to include unit and class levels using `getUnitForChapter` and `getClassForChapter`
 
----
+## Implementation Approach
 
-## Part 3: Sitemap Integration
+Due to the large volume of question data (~900 new questions), I'll create the data files in batches across multiple steps. The hub views and routing can be done in parallel once the data structure is stable.
 
-Add all new URLs to `final2.xml` generation:
-- ~1,000 new individual NEET PYQ question pages
-- ~74 chapter hub pages
-- ~21 unit hub pages
-- ~6 class hub pages
-- Update existing sub-sitemaps
-
----
-
-## Page Count Impact
-
-| New Pages | Count |
-|---|---|
-| New NEET PYQ questions (~1,000 net new) | ~1,000 |
-| Chapter PYQ hub pages (74) | 74 |
-| Unit PYQ hub pages (~21) | 21 |
-| Class PYQ hub pages (6) | 6 |
-| **Total new pages** | **~1,100** |
-
-Combined with the 20,000 target from the previous plan: **~21,100+ pages** (on track for 22,000 when combined with other vectors).
-
----
-
-## Implementation Order
-
-1. Create `src/data/neet-pyq/hierarchy.ts` (unit/class mappings)
-2. Expand PYQ data files (biology-botany-pyq-2, biology-zoology-pyq-2, physics-pyq-2, chemistry-pyq-2) with granular chapter slugs and 20+ Qs each
-3. Update `src/data/neet-pyq/index.ts` to import new files
-4. Create `NEETPYQChapterHub.tsx` view
-5. Create `NEETPYQUnitHub.tsx` view
-6. Create `NEETPYQClassHub.tsx` view
-7. Update routing (QuestionSlugRouter, CatchAllClient, resolveSlugMetadata)
-8. Update `NEETPYQHub.tsx` and `NEETPYQQuestion.tsx` with hierarchy links
-9. Generate sitemaps for new pages into `final2.xml`
+**Batch 1** (this step): Finish botany + create zoology expansion + update index
+**Batch 2**: Create physics + chemistry expansion + update index
+**Batch 3**: Create all 3 hub views
+**Batch 4**: Update routing (QuestionSlugRouter, resolveSlugMetadata, CatchAllClient)
+**Batch 5**: Update NEETPYQHub and NEETPYQQuestion with hierarchy links
 
