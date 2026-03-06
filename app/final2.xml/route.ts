@@ -1,0 +1,122 @@
+/**
+ * Dynamic sitemap route: /final2.xml
+ * Generates a comprehensive sitemap with ALL URLs at request time.
+ * No script running needed — always up-to-date.
+ */
+
+import { NextResponse } from 'next/server';
+import { buildAllPracticeSlugs } from '@/data/practice/index';
+import { buildAllPYQSlugs } from '@/data/pyq/index';
+import { buildAllNEETPracticeSlugs } from '@/data/neet-practice/index';
+import { buildAllNEETPYQSlugs } from '@/data/neet-pyq/index';
+import { allCities } from '@/data/cityData';
+import { getAllSubjectCitySlugs } from '@/data/subjectCityData';
+import { getAllProgrammaticBlogSlugs } from '@/lib/programmaticBlogs';
+import { TOPIC_PATHS } from '@/data/chapterData';
+
+const BASE = 'https://mindpeakinstitute.com';
+
+function urlEntry(path: string, priority: string, changefreq: string, today: string): string {
+  return `  <url>\n    <loc>${BASE}${path}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+}
+
+export async function GET() {
+  const TODAY = new Date().toISOString().slice(0, 10);
+
+  /* ═══ 1. Static pages ═══ */
+  const STATIC = [
+    '/', '/jee-coaching', '/neet-coaching', '/courses', '/pricing', '/free-trial',
+    '/study-plan', '/contact', '/blog', '/about', '/success-stories', '/methodology', '/mentors',
+    '/jee-main-coaching', '/jee-advanced-coaching', '/neet-ug-coaching',
+    '/jee-dropper-coaching', '/neet-dropper-coaching', '/foundation-coaching',
+    '/jee-crash-course', '/neet-crash-course',
+    '/jee-physics-coaching', '/jee-chemistry-coaching', '/jee-mathematics-coaching',
+    '/neet-biology-coaching', '/neet-physics-coaching', '/neet-chemistry-coaching',
+    '/batch-vs-personal-coaching',
+    '/jee-physics-mechanics', '/jee-physics-electrodynamics', '/jee-physics-optics',
+    '/jee-physics-thermodynamics', '/jee-physics-waves',
+    '/jee-chemistry-physical', '/jee-chemistry-organic', '/jee-chemistry-inorganic',
+    '/jee-math-algebra', '/jee-math-calculus', '/jee-math-trigonometry', '/jee-math-geometry',
+    '/jee-practice', '/jee-pyq', '/neet-practice', '/neet-pyq',
+    '/kota-coaching-alternative', '/online-vs-offline-jee-coaching',
+    '/mindpeak-vs-allen', '/mindpeak-vs-resonance', '/mindpeak-vs-fiitjee', '/mindpeak-vs-byjus',
+    '/jee-rank-predictor', '/neet-rank-predictor',
+    '/jee-physics-formulas', '/jee-chemistry-formulas', '/jee-maths-formulas',
+    '/neet-biology-formulas', '/neet-physics-formulas',
+    '/jee-physics-preparation', '/jee-chemistry-preparation', '/jee-mathematics-preparation',
+    '/neet-biology-preparation', '/neet-physics-preparation', '/neet-chemistry-preparation',
+    '/jee-mock-test-strategy', '/neet-mock-test-strategy',
+    '/course/jee-main-target-2027', '/course/neet-target-2027',
+    '/course/jee-target-2026', '/course/neet-target-2026',
+    '/course/subject-crash-course', '/course/1-on-1-crash-program',
+    '/course/6th-foundation', '/course/7th-foundation', '/course/8th-foundation',
+    '/course/9th-foundation', '/course/10th-foundation',
+    '/terms-and-conditions', '/refund-policy',
+  ];
+
+  /* ═══ 2. Location pages ═══ */
+  const locationPaths: string[] = [];
+  for (const city of allCities) {
+    for (const exam of city.exams) {
+      locationPaths.push(`/${exam}-coaching-in-${city.slug}`);
+    }
+  }
+
+  /* ═══ 3. Subject-city pages ═══ */
+  const subjectCitySlugs = getAllSubjectCitySlugs().map(s => `/${s}`);
+
+  /* ═══ 4. Blog posts ═══ */
+  const blogSlugs = getAllProgrammaticBlogSlugs().map(s => `/${s}`);
+
+  /* ═══ 5. Topic pages ═══ */
+  const topicPaths = TOPIC_PATHS.map(p => `/${p}`);
+
+  /* ═══ 6. Question pages ═══ */
+  const practiceSlugs = buildAllPracticeSlugs().map(s => `/${s.slug}`);
+  const pyqSlugs = buildAllPYQSlugs().map(s => `/${s.slug}`);
+  const neetPracticeSlugs = buildAllNEETPracticeSlugs().map(s => `/${s.slug}`);
+  const neetPyqSlugs = buildAllNEETPYQSlugs().map(s => `/${s.slug}`);
+
+  /* ═══ Build XML ═══ */
+  const lines: string[] = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    `<!-- MindPeak Institute — Comprehensive Sitemap — Generated ${TODAY} -->`,
+  ];
+
+  const counts = {
+    static: STATIC.length,
+    locations: locationPaths.length,
+    subjectCity: subjectCitySlugs.length,
+    blogs: blogSlugs.length,
+    topics: topicPaths.length,
+    jeePractice: practiceSlugs.length,
+    jeePyq: pyqSlugs.length,
+    neetPractice: neetPracticeSlugs.length,
+    neetPyq: neetPyqSlugs.length,
+  };
+  const total = Object.values(counts).reduce((a, b) => a + b, 0);
+
+  lines.push(`<!-- Static: ${counts.static} | Locations: ${counts.locations} | Subject-City: ${counts.subjectCity} | Blogs: ${counts.blogs} | Topics: ${counts.topics} | JEE Practice: ${counts.jeePractice} | JEE PYQ: ${counts.jeePyq} | NEET Practice: ${counts.neetPractice} | NEET PYQ: ${counts.neetPyq} | TOTAL: ${total} -->`);
+  lines.push('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
+
+  for (const p of STATIC) lines.push(urlEntry(p, '0.80', 'weekly', TODAY));
+  for (const p of locationPaths) lines.push(urlEntry(p, '0.65', 'monthly', TODAY));
+  for (const p of subjectCitySlugs) lines.push(urlEntry(p, '0.60', 'monthly', TODAY));
+  for (const p of blogSlugs) lines.push(urlEntry(p, '0.60', 'weekly', TODAY));
+  for (const p of topicPaths) lines.push(urlEntry(p, '0.55', 'monthly', TODAY));
+  for (const p of practiceSlugs) lines.push(urlEntry(p, '0.50', 'monthly', TODAY));
+  for (const p of pyqSlugs) lines.push(urlEntry(p, '0.50', 'monthly', TODAY));
+  for (const p of neetPracticeSlugs) lines.push(urlEntry(p, '0.50', 'monthly', TODAY));
+  for (const p of neetPyqSlugs) lines.push(urlEntry(p, '0.50', 'monthly', TODAY));
+
+  lines.push('</urlset>');
+
+  const xml = lines.join('\n');
+
+  return new NextResponse(xml, {
+    headers: {
+      'Content-Type': 'application/xml; charset=utf-8',
+      'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=43200',
+    },
+  });
+}
