@@ -96,34 +96,54 @@ export const PageFAQ = ({ items, heading = 'Frequently Asked', highlight = 'Ques
   );
 };
 
-/** Helper: build FAQPage JSON-LD for SEOHead (filters out invalid items) */
-export const buildFAQSchema = (items: FAQItem[]) => {
+/**
+ * Build FAQPage JSON-LD for SEOHead.
+ * Returns null when no valid items exist (prevents "Unnamed item" errors in GSC).
+ */
+export const buildFAQSchema = (items: FAQItem[]): object | null => {
+  if (!items || !Array.isArray(items)) return null;
   const valid = items.filter(
-    (faq) => faq && typeof faq.question === 'string' && faq.question.trim() !== '' && typeof faq.answer === 'string' && faq.answer.trim() !== '',
+    (faq) =>
+      faq &&
+      typeof faq.question === 'string' &&
+      faq.question.trim() !== '' &&
+      typeof faq.answer === 'string' &&
+      faq.answer.trim() !== '',
   );
+  if (valid.length === 0) return null;
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: valid.map((faq) => ({
       '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+      name: faq.question.trim(),
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer.trim() },
     })),
   };
 };
 
-/** Helper: build FAQPage JSON-LD from { q, a } shaped data (filters out invalid items) */
-export const buildFAQSchemaFromQA = (items: { q: string; a: string }[]) => {
+/**
+ * Build FAQPage JSON-LD from { q, a } shaped data.
+ * Returns null when no valid items exist.
+ */
+export const buildFAQSchemaFromQA = (items: { q: string; a: string }[]): object | null => {
+  if (!items || !Array.isArray(items)) return null;
   const valid = items.filter(
-    (faq) => faq && typeof faq.q === 'string' && faq.q.trim() !== '' && typeof faq.a === 'string' && faq.a.trim() !== '',
+    (faq) =>
+      faq &&
+      typeof faq.q === 'string' &&
+      faq.q.trim() !== '' &&
+      typeof faq.a === 'string' &&
+      faq.a.trim() !== '',
   );
+  if (valid.length === 0) return null;
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: valid.map((faq) => ({
       '@type': 'Question',
-      name: faq.q,
-      acceptedAnswer: { '@type': 'Answer', text: faq.a },
+      name: faq.q.trim(),
+      acceptedAnswer: { '@type': 'Answer', text: faq.a.trim() },
     })),
   };
 };
