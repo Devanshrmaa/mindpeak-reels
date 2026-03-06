@@ -179,12 +179,18 @@ export function generateFormulaPdf(data: FormulaSheetData): void {
       const left = chapter.formulas[i];
       const right = i + 1 < chapter.formulas.length ? chapter.formulas[i + 1] : null;
 
-      // Calculate heights for both cards
+      // Calculate heights for both cards — use tighter width to avoid overflow
+      const textW = colW - 14; // leave room for badge + padding
       const calcH = (f: typeof left) => {
-        const nl = pdf.splitTextToSize(f.name, colW - 10).length;
-        const el = pdf.splitTextToSize(f.expression, colW - 10).length;
-        const notL = f.note ? pdf.splitTextToSize(f.note, colW - 14).length : 0;
-        return 10 + nl * 4 + el * 5 + (notL > 0 ? notL * 3.5 + 3 : 0) + 4;
+        pdf.setFont('helvetica', 'bold');
+        pdf.setFontSize(8.5);
+        const nl = pdf.splitTextToSize(f.name, textW).length;
+        pdf.setFont('helvetica', 'normal');
+        pdf.setFontSize(8);
+        const el = pdf.splitTextToSize(f.expression, textW).length;
+        pdf.setFontSize(6.5);
+        const notL = f.note ? pdf.splitTextToSize(f.note, textW - 4).length : 0;
+        return 10 + nl * 4 + el * 4.5 + (notL > 0 ? notL * 3.5 + 3 : 0) + 4;
       };
 
       const lh = calcH(left);
@@ -220,21 +226,21 @@ export function generateFormulaPdf(data: FormulaSheetData): void {
         pdf.setFontSize(8.5);
         pdf.setTextColor(...white);
         pdf.setFont('helvetica', 'bold');
-        const nameL = pdf.splitTextToSize(f.name, colW - 10);
+        const nameL = pdf.splitTextToSize(f.name, textW);
         nameL.forEach((line: string) => {
           pdf.text(line, x + 5, fy);
           fy += 4;
         });
 
-        // Expression
+        // Expression (use helvetica, not courier — avoids wide spacing overflow)
         fy += 1.5;
-        pdf.setFontSize(9);
+        pdf.setFontSize(8);
         pdf.setTextColor(...gold);
         pdf.setFont('helvetica', 'normal');
-        const exprL = pdf.splitTextToSize(f.expression, colW - 10);
+        const exprL = pdf.splitTextToSize(f.expression, textW);
         exprL.forEach((line: string) => {
           pdf.text(line, x + 5, fy);
-          fy += 5;
+          fy += 4.5;
         });
 
         // Note
@@ -243,7 +249,7 @@ export function generateFormulaPdf(data: FormulaSheetData): void {
           pdf.setFontSize(6.5);
           pdf.setTextColor(...dimText);
           pdf.setFont('helvetica', 'italic');
-          const noteL = pdf.splitTextToSize(f.note, colW - 14);
+          const noteL = pdf.splitTextToSize(f.note, textW - 4);
           noteL.forEach((line: string) => {
             pdf.text('> ' + line, x + 5, fy);
             fy += 3.5;
