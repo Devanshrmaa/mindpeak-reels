@@ -26,7 +26,8 @@ import {
 } from '@/data/pyq';
 import { PageFAQ, buildFAQSchema, type FAQItem } from '@/components/PageFAQ';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
-import { buildJEEPYQFAQs, buildPYQOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema } from '@/lib/questionPageSEO';
+import { buildJEEPYQFAQs, buildPYQOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema, buildCommonMistakes, buildKeyFormulas, buildWhyItMatters } from '@/lib/questionPageSEO';
+import { CommonMistakesBlock, KeyFormulasBlock, WhyItMattersBlock, InternalLinkingMesh, buildJEEPYQCrossLinks } from '@/components/QuestionContentBlocks';
 
 /* ── Deterministic option shuffle (same as practice page) ── */
 function seededShuffle(seed: string): number[] {
@@ -101,6 +102,10 @@ const JEEPYQQuestion = () => {
   const pyqOverview = buildPYQOverview('JEE', subj, chapterName, question.year);
   const examTips = buildExamTips('JEE', subj, chapterName);
   const conceptSummary = buildConceptSummary('JEE', subj, chapterName, chapterName);
+  const commonMistakes = buildCommonMistakes('JEE', subj, chapterName, chapterName);
+  const keyFormulas = buildKeyFormulas('JEE', subj, chapterName, chapterName);
+  const whyItMatters = buildWhyItMatters('JEE', subj, chapterName, chapterName);
+  const crossLinks = buildJEEPYQCrossLinks(subj, params.subject, chapterName);
 
   /* navigation slugs — use proper SEO slugs */
   const prevSlug = params.questionIndex > 1
@@ -336,6 +341,18 @@ const JEEPYQQuestion = () => {
               ))}
             </ul>
           </motion.div>
+
+          {/* ── Common Mistakes ── */}
+          <CommonMistakesBlock chapterName={chapterName} mistakes={commonMistakes} />
+
+          {/* ── Key Formulas ── */}
+          <KeyFormulasBlock topicName={chapterName} formulas={keyFormulas} formulaSheetLink={`/jee-${params.subject}-formula-sheet`} />
+
+          {/* ── Why It Matters ── */}
+          <WhyItMattersBlock topicName={chapterName} paragraphs={whyItMatters} />
+
+          {/* ── Cross-type Internal Links ── */}
+          <InternalLinkingMesh links={crossLinks} heading={`Related ${subj} Resources`} />
 
           {/* Chapter Browser */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-xl border border-border bg-card/50 overflow-hidden">

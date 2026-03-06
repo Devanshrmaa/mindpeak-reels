@@ -27,7 +27,8 @@ import {
 import { PageFAQ, buildFAQSchema, type FAQItem } from '@/components/PageFAQ';
 import { getUnitForChapter } from '@/data/neet-pyq/hierarchy';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
-import { buildNEETPYQFAQs, buildPYQOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema } from '@/lib/questionPageSEO';
+import { buildNEETPYQFAQs, buildPYQOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema, buildCommonMistakes, buildKeyFormulas, buildWhyItMatters } from '@/lib/questionPageSEO';
+import { CommonMistakesBlock, KeyFormulasBlock, WhyItMattersBlock, InternalLinkingMesh, buildNEETPYQCrossLinks } from '@/components/QuestionContentBlocks';
 
 function seededShuffle(seed: string): number[] {
   let h = 0;
@@ -92,6 +93,10 @@ const NEETPYQQuestion = () => {
   const pyqOverview = buildPYQOverview('NEET', subj, chapterName, question.year);
   const examTips = buildExamTips('NEET', subj, chapterName);
   const conceptSummary = buildConceptSummary('NEET', subj, chapterName, chapterName);
+  const commonMistakes = buildCommonMistakes('NEET', subj, chapterName, chapterName);
+  const keyFormulas = buildKeyFormulas('NEET', subj, chapterName, chapterName);
+  const whyItMatters = buildWhyItMatters('NEET', subj, chapterName, chapterName);
+  const crossLinks = buildNEETPYQCrossLinks(subj, params.subject, chapterName);
 
   const prevSlug = params.questionIndex > 1
     ? getNEETPYQSlugByParams(params.subject, params.chapter, params.questionIndex - 1)
@@ -251,6 +256,18 @@ const NEETPYQQuestion = () => {
               ))}
             </ul>
           </motion.div>
+
+          {/* ── Common Mistakes ── */}
+          <CommonMistakesBlock chapterName={chapterName} mistakes={commonMistakes} />
+
+          {/* ── Key Formulas ── */}
+          <KeyFormulasBlock topicName={chapterName} formulas={keyFormulas} formulaSheetLink={`/neet-${params.subject}-formula-sheet`} />
+
+          {/* ── Why It Matters ── */}
+          <WhyItMattersBlock topicName={chapterName} paragraphs={whyItMatters} />
+
+          {/* ── Cross-type Internal Links ── */}
+          <InternalLinkingMesh links={crossLinks} heading={`Related ${subj} Resources`} />
 
           {/* Chapter Browser */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-xl border border-border bg-card/50 overflow-hidden">

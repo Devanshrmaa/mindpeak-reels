@@ -24,7 +24,8 @@ import {
 } from '@/data/neet-practice';
 import { PageFAQ, buildFAQSchema, type FAQItem } from '@/components/PageFAQ';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
-import { buildNEETPracticeFAQs, buildTopicOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema } from '@/lib/questionPageSEO';
+import { buildNEETPracticeFAQs, buildTopicOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema, buildCommonMistakes, buildKeyFormulas, buildWhyItMatters } from '@/lib/questionPageSEO';
+import { CommonMistakesBlock, KeyFormulasBlock, WhyItMattersBlock, InternalLinkingMesh, buildNEETPracticeCrossLinks } from '@/components/QuestionContentBlocks';
 
 /* ── label helpers ── */
 const difficultyLabel: Record<Difficulty, string> = {
@@ -132,6 +133,10 @@ const NEETPracticeQuestion = () => {
   const topicOverview = buildTopicOverview('NEET', subj, chapterName, topicName, diff);
   const examTips = buildExamTips('NEET', subj, chapterName);
   const conceptSummary = buildConceptSummary('NEET', subj, chapterName, topicName, diff);
+  const commonMistakes = buildCommonMistakes('NEET', subj, chapterName, topicName);
+  const keyFormulas = buildKeyFormulas('NEET', subj, chapterName, topicName);
+  const whyItMatters = buildWhyItMatters('NEET', subj, chapterName, topicName);
+  const crossLinks = buildNEETPracticeCrossLinks(subj, params.subject, chapterName);
   const prevSlug = params.questionIndex > 1
     ? getNEETPracticeSlugByParams(params.subject, params.chapter, params.topic, params.difficulty, params.questionIndex - 1)
     : null;
@@ -421,6 +426,18 @@ const NEETPracticeQuestion = () => {
               ))}
             </ul>
           </motion.div>
+
+          {/* ── Common Mistakes ── */}
+          <CommonMistakesBlock chapterName={chapterName} mistakes={commonMistakes} />
+
+          {/* ── Key Formulas ── */}
+          <KeyFormulasBlock topicName={topicName} formulas={keyFormulas} formulaSheetLink={`/neet-${params.subject}-formula-sheet`} />
+
+          {/* ── Why It Matters ── */}
+          <WhyItMattersBlock topicName={topicName} paragraphs={whyItMatters} />
+
+          {/* ── Cross-type Internal Links ── */}
+          <InternalLinkingMesh links={crossLinks} heading={`Related ${subj} Resources`} />
 
           {/* CTA */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-xl bg-gradient-to-r from-green-500/10 via-green-500/5 to-transparent border border-green-500/20 p-8 text-center">

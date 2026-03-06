@@ -24,7 +24,8 @@ import {
 } from '@/data/practice';
 import { PageFAQ, buildFAQSchema, type FAQItem } from '@/components/PageFAQ';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
-import { buildJEEPracticeFAQs, buildTopicOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema } from '@/lib/questionPageSEO';
+import { buildJEEPracticeFAQs, buildTopicOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema, buildCommonMistakes, buildKeyFormulas, buildWhyItMatters } from '@/lib/questionPageSEO';
+import { CommonMistakesBlock, KeyFormulasBlock, WhyItMattersBlock, InternalLinkingMesh, buildJEEPracticeCrossLinks } from '@/components/QuestionContentBlocks';
 
 /* ── label helpers ── */
 const difficultyLabel: Record<Difficulty, string> = {
@@ -143,6 +144,10 @@ const JEEPracticeQuestion = () => {
   const topicOverview = buildTopicOverview('JEE', subj, chapterName, topicName, diff);
   const examTips = buildExamTips('JEE', subj, chapterName);
   const conceptSummary = buildConceptSummary('JEE', subj, chapterName, topicName, diff);
+  const commonMistakes = buildCommonMistakes('JEE', subj, chapterName, topicName);
+  const keyFormulas = buildKeyFormulas('JEE', subj, chapterName, topicName);
+  const whyItMatters = buildWhyItMatters('JEE', subj, chapterName, topicName);
+  const crossLinks = buildJEEPracticeCrossLinks(subj, params.subject, chapterName);
 
   const title = `JEE ${subj} MCQ: ${topicName} [${diff}] — Solve & Check Answer`;
   const description = `Solve this ${diff} JEE ${subj} MCQ on ${topicName}. Instant answer reveal + step-by-step solution. 500+ free practice questions.`;
@@ -471,6 +476,18 @@ const JEEPracticeQuestion = () => {
               ))}
             </ul>
           </motion.div>
+
+          {/* ── Common Mistakes ── */}
+          <CommonMistakesBlock chapterName={chapterName} mistakes={commonMistakes} />
+
+          {/* ── Key Formulas ── */}
+          <KeyFormulasBlock topicName={topicName} formulas={keyFormulas} formulaSheetLink={`/jee-${params.subject}-formula-sheet`} />
+
+          {/* ── Why It Matters ── */}
+          <WhyItMattersBlock topicName={topicName} paragraphs={whyItMatters} />
+
+          {/* ── Cross-type Internal Links ── */}
+          <InternalLinkingMesh links={crossLinks} heading={`Related ${subj} Resources`} />
 
           {/* CTA */}
           <motion.div
