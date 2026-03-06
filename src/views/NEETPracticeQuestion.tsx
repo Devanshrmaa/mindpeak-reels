@@ -133,6 +133,10 @@ const NEETPracticeQuestion = () => {
   const topicOverview = buildTopicOverview('NEET', subj, chapterName, topicName, diff);
   const examTips = buildExamTips('NEET', subj, chapterName);
   const conceptSummary = buildConceptSummary('NEET', subj, chapterName, topicName, diff);
+  const commonMistakes = buildCommonMistakes('NEET', subj, chapterName, topicName);
+  const keyFormulas = buildKeyFormulas('NEET', subj, chapterName, topicName);
+  const whyItMatters = buildWhyItMatters('NEET', subj, chapterName, topicName);
+  const crossLinks = buildNEETPracticeCrossLinks(subj, params.subject, chapterName);
   const prevSlug = params.questionIndex > 1
     ? getNEETPracticeSlugByParams(params.subject, params.chapter, params.topic, params.difficulty, params.questionIndex - 1)
     : null;
