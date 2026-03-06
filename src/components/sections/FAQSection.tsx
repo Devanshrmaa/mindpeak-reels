@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { buildFAQSchemaFromQA } from '@/components/PageFAQ';
 
 const faqs = [
   {
@@ -38,8 +39,16 @@ const faqs = [
 
 export const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const faqSchema = buildFAQSchemaFromQA(faqs);
 
   return (
+    <>
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
     <section className="relative py-24 md:py-36 px-4 sm:px-6 overflow-hidden bg-background" aria-label="Frequently asked questions">
       <div className="max-w-2xl mx-auto relative z-10">
         {/* Header */}
@@ -123,5 +132,6 @@ export const FAQSection = () => {
       {/* Bottom accent */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-foreground/[0.06] to-transparent" />
     </section>
+    </>
   );
 };

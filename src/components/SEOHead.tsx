@@ -56,7 +56,11 @@ export const SEOHead = ({ title, description, canonical, ogImage, jsonLd }: SEOH
   // Render JSON-LD as inline script tags — works during SSR so Google can crawl it
   if (!jsonLd) return null;
 
-  const ldArray = Array.isArray(jsonLd) ? jsonLd : [jsonLd];
+  const ldArray = (Array.isArray(jsonLd) ? jsonLd : [jsonLd]).filter(
+    (ld): ld is object => ld != null && typeof ld === 'object' && Object.keys(ld).length > 0,
+  );
+
+  if (ldArray.length === 0) return null;
 
   return (
     <>
