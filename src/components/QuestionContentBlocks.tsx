@@ -58,6 +58,20 @@ export function WhyItMattersBlock({ topicName, paragraphs }: { topicName: string
   );
 }
 
+/* ── Study Strategy Section ── */
+export function StudyStrategyBlock({ chapterName, strategies }: { chapterName: string; strategies: string[] }) {
+  return (
+    <motion.div {...block} className="rounded-xl border border-border bg-card/50 p-6 sm:p-8">
+      <h2 className="font-display font-bold text-lg text-foreground mb-4 flex items-center gap-2">
+        <GraduationCap className="w-5 h-5 text-violet-400" /> Study Strategy — {chapterName}
+      </h2>
+      <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
+        {strategies.map((para, i) => <p key={i}>{para}</p>)}
+      </div>
+    </motion.div>
+  );
+}
+
 /* ── Cross-type Links (Practice ↔ PYQ + Formula Sheet) ── */
 interface CrossLink {
   label: string;
