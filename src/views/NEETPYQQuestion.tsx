@@ -257,6 +257,18 @@ const NEETPYQQuestion = () => {
             </ul>
           </motion.div>
 
+          {/* ── Common Mistakes ── */}
+          <CommonMistakesBlock chapterName={chapterName} mistakes={commonMistakes} />
+
+          {/* ── Key Formulas ── */}
+          <KeyFormulasBlock topicName={chapterName} formulas={keyFormulas} formulaSheetLink={`/neet-${params.subject}-formula-sheet`} />
+
+          {/* ── Why It Matters ── */}
+          <WhyItMattersBlock topicName={chapterName} paragraphs={whyItMatters} />
+
+          {/* ── Cross-type Internal Links ── */}
+          <InternalLinkingMesh links={crossLinks} heading={`Related ${subj} Resources`} />
+
           {/* Chapter Browser */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-xl border border-border bg-card/50 overflow-hidden">
             <button onClick={() => setShowChapterBrowser(!showChapterBrowser)} className="w-full flex items-center justify-between px-5 py-4 hover:bg-secondary/20 transition-colors text-left">
