@@ -110,17 +110,24 @@ const JEEPYQQuestion = () => {
     ? getPYQSlugByParams(params.subject, params.chapter, params.questionIndex + 1)
     : null;
 
-  const title = `JEE ${subj} PYQ — ${chapterName} Q${params.questionIndex} (${question.year}) | MindPeak`;
-  const description = `Solve JEE ${question.exam === 'advanced' ? 'Advanced' : 'Main'} ${question.year} (${question.shift}) ${subj} question on ${chapterName}. Attempt the MCQ, check the answer & read the solution. Free JEE PYQ practice by MindPeak.`;
+  const examType = question.exam === 'advanced' ? 'Advanced' : 'Main';
+  const title = `JEE ${examType} ${question.year} ${subj} PYQ: ${chapterName} Q${params.questionIndex} — Solution`;
+  const description = `Solve JEE ${examType} ${question.year} ${subj} PYQ on ${chapterName}. Instant answer + step-by-step solution. Practice 10+ years of JEE PYQs free.`;
 
   const jsonLd = [
     {
       '@context': 'https://schema.org',
       '@type': 'Quiz',
-      name: `JEE ${subj} PYQ — ${chapterName} Q${params.questionIndex} (${question.year})`,
+      name: `JEE ${examType} ${question.year} ${subj} PYQ: ${chapterName} Q${params.questionIndex}`,
       educationalLevel: 'Advanced',
       about: { '@type': 'Thing', name: `JEE ${subj} — ${chapterName}` },
       provider: { '@type': 'Organization', name: 'MindPeak Institute', url: 'https://mindpeakinstitute.com' },
+      hasPart: [{
+        '@type': 'Question',
+        eduQuestionType: 'Multiple choice',
+        text: question.q,
+        acceptedAnswer: { '@type': 'Answer', text: question.o[question.a] },
+      }],
     },
     {
       '@context': 'https://schema.org',
