@@ -7,7 +7,7 @@
 
 import { motion } from 'framer-motion';
 import { Link } from '@/components/RouterLink';
-import { AlertTriangle, BookOpen, Calculator, TrendingUp, FileText, ArrowRight } from 'lucide-react';
+import { AlertTriangle, BookOpen, Calculator, TrendingUp, FileText, ArrowRight, GraduationCap } from 'lucide-react';
 
 const block = { initial: { opacity: 0, y: 20 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
 
