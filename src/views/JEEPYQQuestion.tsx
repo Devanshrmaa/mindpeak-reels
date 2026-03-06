@@ -118,10 +118,16 @@ const JEEPYQQuestion = () => {
     {
       '@context': 'https://schema.org',
       '@type': 'Quiz',
-      name: `JEE ${subj} PYQ — ${chapterName} Q${params.questionIndex} (${question.year})`,
+      name: `JEE ${examType} ${question.year} ${subj} PYQ: ${chapterName} Q${params.questionIndex}`,
       educationalLevel: 'Advanced',
       about: { '@type': 'Thing', name: `JEE ${subj} — ${chapterName}` },
       provider: { '@type': 'Organization', name: 'MindPeak Institute', url: 'https://mindpeakinstitute.com' },
+      hasPart: [{
+        '@type': 'Question',
+        eduQuestionType: 'Multiple choice',
+        text: question.q,
+        acceptedAnswer: { '@type': 'Answer', text: question.o[question.a] },
+      }],
     },
     {
       '@context': 'https://schema.org',

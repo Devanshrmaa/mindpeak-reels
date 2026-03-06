@@ -139,17 +139,23 @@ const NEETPracticeQuestion = () => {
     ? getNEETPracticeSlugByParams(params.subject, params.chapter, params.topic, params.difficulty, params.questionIndex + 1)
     : null;
 
-  const title = `NEET ${subj} — ${topicName} (${diff}) Q${params.questionIndex} | MindPeak`;
-  const description = `Practice NEET ${subj} ${diff} level question on ${topicName} (${chapterName}). Attempt the MCQ, check the answer & read the step-by-step solution. Free NEET prep by MindPeak.`;
+  const title = `NEET ${subj} MCQ: ${topicName} [${diff}] — Solve & Check Answer`;
+  const description = `Solve this ${diff} NEET ${subj} MCQ on ${topicName}. Instant answer + step-by-step solution. 500+ free practice questions.`;
 
   const jsonLd = [
     {
       '@context': 'https://schema.org',
       '@type': 'Quiz',
-      name: `NEET ${subj} — ${topicName} (${diff}) Q${params.questionIndex}`,
+      name: `NEET ${subj}: ${topicName} (${diff}) Q${params.questionIndex}`,
       educationalLevel: params.difficulty === 'easy' ? 'Beginner' : params.difficulty === 'medium' ? 'Intermediate' : 'Advanced',
       about: { '@type': 'Thing', name: `NEET ${subj} — ${topicName}` },
       provider: { '@type': 'Organization', name: 'MindPeak Institute', url: 'https://mindpeakinstitute.com' },
+      hasPart: [{
+        '@type': 'Question',
+        eduQuestionType: 'Multiple choice',
+        text: question.q,
+        acceptedAnswer: { '@type': 'Answer', text: question.o[question.a] },
+      }],
     },
     {
       '@context': 'https://schema.org',

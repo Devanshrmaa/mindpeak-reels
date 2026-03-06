@@ -144,24 +144,30 @@ const JEEPracticeQuestion = () => {
   const examTips = buildExamTips('JEE', subj, chapterName);
   const conceptSummary = buildConceptSummary('JEE', subj, chapterName, topicName, diff);
 
-  const title = `JEE ${subj} — ${topicName} (${diff}) Q${params.questionIndex} | MindPeak`;
-  const description = `Practice JEE ${subj} ${diff} level question on ${topicName} (${chapterName}). Attempt the MCQ, check the answer & read the step-by-step solution. Free JEE prep by MindPeak.`;
+  const title = `JEE ${subj} MCQ: ${topicName} [${diff}] — Solve & Check Answer`;
+  const description = `Solve this ${diff} JEE ${subj} MCQ on ${topicName}. Instant answer reveal + step-by-step solution. 500+ free practice questions.`;
 
   const jsonLd = [
     {
       '@context': 'https://schema.org',
       '@type': 'Quiz',
-      name: `JEE ${subj} — ${topicName} (${diff}) Q${params.questionIndex}`,
+      name: `JEE ${subj}: ${topicName} (${diff}) Q${params.questionIndex}`,
       educationalLevel: params.difficulty === 'easy' ? 'Beginner' : params.difficulty === 'medium' ? 'Intermediate' : 'Advanced',
       about: { '@type': 'Thing', name: `JEE ${subj} — ${topicName}` },
       provider: { '@type': 'Organization', name: 'MindPeak Institute', url: 'https://mindpeakinstitute.com' },
+      hasPart: [{
+        '@type': 'Question',
+        eduQuestionType: 'Multiple choice',
+        text: question.q,
+        acceptedAnswer: { '@type': 'Answer', text: question.o[question.a] },
+      }],
     },
     {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://mindpeakinstitute.com' },
-        { '@type': 'ListItem', position: 2, name: `JEE ${subj} Coaching`, item: `https://mindpeakinstitute.com/jee-${params.subject}-coaching` },
+        { '@type': 'ListItem', position: 2, name: `JEE ${subj}`, item: `https://mindpeakinstitute.com/jee-${params.subject}-coaching` },
         { '@type': 'ListItem', position: 3, name: chapterName, item: `https://mindpeakinstitute.com/jee-practice` },
         { '@type': 'ListItem', position: 4, name: `${topicName} ${diff} Q${params.questionIndex}`, item: `https://mindpeakinstitute.com/${slug}` },
       ],
