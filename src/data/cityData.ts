@@ -1,3 +1,56 @@
+export interface CityFAQ {
+  q: string;
+  a: string;
+  tldr?: string;
+}
+
+export interface QuickStat {
+  value: string;
+  label: string;
+  source?: string;
+}
+
+export interface CourseTile {
+  title: string;
+  duration: string;
+  benefit: string;
+  outcomes: string[];
+  commitment: string;
+  whoFor: string;
+  icon: string;
+  link?: string;
+}
+
+export interface LocalValueProp {
+  title: string;
+  description: string;
+  localExample: string;
+  microCTA: string;
+  microCTAAction?: string;
+}
+
+export interface CityEvent {
+  title: string;
+  date: string;
+  description: string;
+  ctaLabel: string;
+}
+
+export interface CityTestimonial {
+  name: string;
+  role: string;
+  result: string;
+  quote: string;
+  isSample?: boolean;
+}
+
+export interface TabbedContent {
+  curriculum: string;
+  schedule: string;
+  fees: string;
+  paymentNote: string;
+}
+
 export interface CityData {
   slug: string;
   city: string;
@@ -5,41 +58,36 @@ export interface CityData {
   tier: 1 | 2 | 3;
   lat: number;
   lng: number;
-  /** Exam types to generate pages for */
   exams: ('jee' | 'neet')[];
-  /** Unique educational landscape paragraph (100-120 words) */
   educationLandscape: string;
-  /** Why MindPeak for this city (120-150 words) */
   whyMindPeak: string;
-  /** Mentoring advantage paragraph (100-130 words) */
   mentoringAdvantage: string;
-  /** Parent-focused tracking paragraph (100-120 words) */
   parentTracking: string;
-  /** City-specific unique selling points */
   highlights: string[];
-  /** 4 city-specific FAQs */
-  faqs: { q: string; a: string }[];
-  /** Top colleges/institutions students from this city target */
+  faqs: CityFAQ[];
   targetColleges?: string[];
-  /** Localities/areas served in this city */
   localAreas?: string[];
-  /** Student testimonials from this city */
   testimonials?: { name: string; rank: string; quote: string }[];
 
   /* ─── EXPANDED CONTENT (5x landing page) ─── */
-
-  /** Introduction paragraph about MindPeak's mission for this city (150-250 words) */
   introduction?: string;
-  /** Courses offered for students in this city (200-350 words) */
   coursesOffered?: string;
-  /** Learning approach & methodology (150-250 words) */
   learningApproach?: string;
-  /** Career opportunities after training (150-250 words) */
   careerOpportunities?: string;
-  /** Why MindPeak stands out in this city (100-200 words) */
   whyStandsOut?: string;
-  /** Call to action text (50-100 words) */
   callToActionText?: string;
+
+  /* ─── INTERACTIVE MINI-LANDING PAGE FIELDS ─── */
+  heroHeadline?: string;
+  heroSublead?: string;
+  socialProofLine?: string;
+  quickStats?: QuickStat[];
+  courseTiles?: CourseTile[];
+  localValueProps?: LocalValueProp[];
+  expandedFaqs?: CityFAQ[];
+  tabbedContent?: TabbedContent;
+  cityTestimonials?: CityTestimonial[];
+  events?: CityEvent[];
 }
 
 export const cities: CityData[] = [
