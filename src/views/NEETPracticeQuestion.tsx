@@ -427,6 +427,18 @@ const NEETPracticeQuestion = () => {
             </ul>
           </motion.div>
 
+          {/* ── Common Mistakes ── */}
+          <CommonMistakesBlock chapterName={chapterName} mistakes={commonMistakes} />
+
+          {/* ── Key Formulas ── */}
+          <KeyFormulasBlock topicName={topicName} formulas={keyFormulas} formulaSheetLink={`/neet-${params.subject}-formula-sheet`} />
+
+          {/* ── Why It Matters ── */}
+          <WhyItMattersBlock topicName={topicName} paragraphs={whyItMatters} />
+
+          {/* ── Cross-type Internal Links ── */}
+          <InternalLinkingMesh links={crossLinks} heading={`Related ${subj} Resources`} />
+
           {/* CTA */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-xl bg-gradient-to-r from-green-500/10 via-green-500/5 to-transparent border border-green-500/20 p-8 text-center">
             <h2 className="font-display font-bold text-xl text-foreground mb-3">Want Detailed Solutions with a Personal Mentor?</h2>

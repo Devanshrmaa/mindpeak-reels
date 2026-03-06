@@ -477,6 +477,18 @@ const JEEPracticeQuestion = () => {
             </ul>
           </motion.div>
 
+          {/* ── Common Mistakes ── */}
+          <CommonMistakesBlock chapterName={chapterName} mistakes={commonMistakes} />
+
+          {/* ── Key Formulas ── */}
+          <KeyFormulasBlock topicName={topicName} formulas={keyFormulas} formulaSheetLink={`/jee-${params.subject}-formula-sheet`} />
+
+          {/* ── Why It Matters ── */}
+          <WhyItMattersBlock topicName={topicName} paragraphs={whyItMatters} />
+
+          {/* ── Cross-type Internal Links ── */}
+          <InternalLinkingMesh links={crossLinks} heading={`Related ${subj} Resources`} />
+
           {/* CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

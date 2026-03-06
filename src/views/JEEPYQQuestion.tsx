@@ -102,6 +102,10 @@ const JEEPYQQuestion = () => {
   const pyqOverview = buildPYQOverview('JEE', subj, chapterName, question.year);
   const examTips = buildExamTips('JEE', subj, chapterName);
   const conceptSummary = buildConceptSummary('JEE', subj, chapterName, chapterName);
+  const commonMistakes = buildCommonMistakes('JEE', subj, chapterName, chapterName);
+  const keyFormulas = buildKeyFormulas('JEE', subj, chapterName, chapterName);
+  const whyItMatters = buildWhyItMatters('JEE', subj, chapterName, chapterName);
+  const crossLinks = buildJEEPYQCrossLinks(subj, params.subject, chapterName);
 
   /* navigation slugs — use proper SEO slugs */
   const prevSlug = params.questionIndex > 1
