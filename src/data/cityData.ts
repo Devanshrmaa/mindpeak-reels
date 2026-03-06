@@ -25,6 +25,21 @@ export interface CityData {
   localAreas?: string[];
   /** Student testimonials from this city */
   testimonials?: { name: string; rank: string; quote: string }[];
+
+  /* ─── EXPANDED CONTENT (5x landing page) ─── */
+
+  /** Introduction paragraph about MindPeak's mission for this city (150-250 words) */
+  introduction?: string;
+  /** Courses offered for students in this city (200-350 words) */
+  coursesOffered?: string;
+  /** Learning approach & methodology (150-250 words) */
+  learningApproach?: string;
+  /** Career opportunities after training (150-250 words) */
+  careerOpportunities?: string;
+  /** Why MindPeak stands out in this city (100-200 words) */
+  whyStandsOut?: string;
+  /** Call to action text (50-100 words) */
+  callToActionText?: string;
 }
 
 export const cities: CityData[] = [
