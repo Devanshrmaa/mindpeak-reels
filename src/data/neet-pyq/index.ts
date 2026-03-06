@@ -3,6 +3,7 @@ import { slugifyQuestion, deduplicateSlugs } from '../../lib/slugify';
 import { botanyPyq } from './biology-botany-pyq';
 import { botanyPyq2 } from './biology-botany-pyq-2';
 import { zoologyPyq } from './biology-zoology-pyq';
+import { zoologyPyq2 } from './biology-zoology-pyq-2';
 import { neetPhysicsPyq } from './physics-pyq';
 import { neetChemistryPyq } from './chemistry-pyq';
 
@@ -29,6 +30,7 @@ const allBiologyPYQ: NEETPYQChapter[] = mergeChapters([
   ...botanyPyq,
   ...botanyPyq2,
   ...zoologyPyq,
+  ...zoologyPyq2,
 ]);
 
 export const neetBiologyPYQBank: NEETPYQSubjectBank = {
