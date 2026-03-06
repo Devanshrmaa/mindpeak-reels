@@ -49,7 +49,19 @@ function sanitize(text: string): string {
 
 const s = sanitize; // shorthand
 
-export function generateFormulaPdf(data: FormulaSheetData): void {
+function loadImage(src: string): Promise<HTMLImageElement> {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => resolve(img);
+    img.onerror = reject;
+    img.src = src;
+  });
+}
+
+export async function generateFormulaPdf(data: FormulaSheetData): Promise<void> {
+  let logoImg: HTMLImageElement | null = null;
+  try { logoImg = await loadImage('/images/mindpeak-logo-pdf.jpeg'); } catch { /* fallback to text */ }
   const pdf = new jsPDF('p', 'mm', 'a4');
   const W = 210, H = 297, ML = 15, CW = W - ML - 15, BM = 18;
   let y = 0;
@@ -103,11 +115,16 @@ export function generateFormulaPdf(data: FormulaSheetData): void {
   pdf.setFillColor(...gold);
   pdf.rect(0, 0, W, 3, 'F');
 
-  y = 45;
-  pdf.setFillColor(...gold);
-  pdf.circle(W / 2, y, 13, 'F');
-  pdf.setFontSize(15); pdf.setTextColor(...navy); pdf.setFont('helvetica', 'bold');
-  pdf.text('MP', W / 2, y + 5.5, { align: 'center' });
+  y = 40;
+  const logoSize = 30;
+  if (logoImg) {
+    pdf.addImage(logoImg, 'JPEG', W / 2 - logoSize / 2, y - logoSize / 2, logoSize, logoSize);
+  } else {
+    pdf.setFillColor(...gold);
+    pdf.circle(W / 2, y, 13, 'F');
+    pdf.setFontSize(15); pdf.setTextColor(...navy); pdf.setFont('helvetica', 'bold');
+    pdf.text('MP', W / 2, y + 5.5, { align: 'center' });
+  }
 
   y = 75;
   pdf.setFontSize(26); pdf.setTextColor(...white); pdf.setFont('helvetica', 'bold');
@@ -279,10 +296,15 @@ export function generateFormulaPdf(data: FormulaSheetData): void {
 
   // ── Back Cover ──
   newPage();
-  y = H / 2 - 35;
-  pdf.setFillColor(...gold); pdf.circle(W / 2, y, 16, 'F');
-  pdf.setFontSize(17); pdf.setTextColor(...navy); pdf.setFont('helvetica', 'bold');
-  pdf.text('MP', W / 2, y + 6, { align: 'center' });
+  y = H / 2 - 40;
+  const backLogoSize = 36;
+  if (logoImg) {
+    pdf.addImage(logoImg, 'JPEG', W / 2 - backLogoSize / 2, y - backLogoSize / 2, backLogoSize, backLogoSize);
+  } else {
+    pdf.setFillColor(...gold); pdf.circle(W / 2, y, 16, 'F');
+    pdf.setFontSize(17); pdf.setTextColor(...navy); pdf.setFont('helvetica', 'bold');
+    pdf.text('MP', W / 2, y + 6, { align: 'center' });
+  }
 
   y += 28;
   pdf.setFontSize(22); pdf.setTextColor(...white); pdf.setFont('helvetica', 'bold');

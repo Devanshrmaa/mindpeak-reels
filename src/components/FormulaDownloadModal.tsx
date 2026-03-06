@@ -58,7 +58,7 @@ export const FormulaDownloadModal = ({ isOpen, onClose, formulaData }: Props) =>
 
       // Dynamically import and generate PDF
       const { generateFormulaPdf } = await import('@/lib/generateFormulaPdf');
-      generateFormulaPdf(formulaData);
+      await generateFormulaPdf(formulaData);
 
       toast.success('Your formula sheet PDF is downloading!');
     } catch {
