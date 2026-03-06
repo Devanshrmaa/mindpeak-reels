@@ -131,13 +131,6 @@ const jsonLdGraph = {
         "https://x.com/mindpeakins",
         "https://www.youtube.com/@mindpeakinstitute",
       ],
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.9",
-        reviewCount: "500",
-        bestRating: "5",
-        worstRating: "1",
-      },
     },
     {
       "@type": "WebSite",
