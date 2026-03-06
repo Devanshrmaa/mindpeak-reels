@@ -5,45 +5,113 @@ import type { FormulaSheetData, FrequencyTag } from '@/data/formulaSheetData';
  * Sanitize Unicode characters that jsPDF's built-in fonts can't render.
  */
 function sanitize(text: string): string {
+  // Step 1: Replace multi-char Unicode sequences FIRST (before individual chars)
+  // Common formula patterns with superscripts
+  const patterns: [RegExp | string, string][] = [
+    [/10⁻¹⁴/g, '10^(-14)'],
+    [/10⁻⁷/g, '10^(-7)'],
+    [/10²³/g, '10^23'],
+    [/10⁷/g, '10^7'],
+    [/10⁶/g, '10^6'],
+    [/10¹⁵/g, '10^15'],
+    [/mol⁻¹/g, 'mol^(-1)'],
+    [/m⁻¹/g, 'm^(-1)'],
+    [/s⁻¹/g, 's^(-1)'],
+    [/n²/g, 'n^2'],
+    [/n³/g, 'n^3'],
+    [/Z²/g, 'Z^2'],
+    [/r²/g, 'r^2'],
+    [/T²/g, 'T^2'],
+    [/V²/g, 'V^2'],
+    [/v²/g, 'v^2'],
+    [/R²/g, 'R^2'],
+  ];
+  let r = text;
+  for (const [pat, rep] of patterns) {
+    if (typeof pat === 'string') r = r.replaceAll(pat, rep);
+    else r = r.replace(pat, rep);
+  }
+
+  // Step 2: Single character replacements
   const map: Record<string, string> = {
-    // Subscripts
+    // Subscripts - just inline them (they look fine as regular chars)
     '\u2080': '0', '\u2081': '1', '\u2082': '2', '\u2083': '3', '\u2084': '4',
     '\u2085': '5', '\u2086': '6', '\u2087': '7', '\u2088': '8', '\u2089': '9',
     '\u2090': 'a', '\u2091': 'e', '\u2092': 'o', '\u2093': 'x', '\u2095': 'h',
     '\u2096': 'k', '\u2097': 'l', '\u2098': 'm', '\u2099': 'n', '\u209A': 'p',
     '\u209B': 's', '\u209C': 't', '\u1D62': 'i', '\u2C7C': 'j',
-    // Superscripts
-    '\u2070': '^0', '\u00B9': '^1', '\u00B2': '^2', '\u00B3': '^3', '\u2074': '^4',
-    '\u2075': '^5', '\u2076': '^6', '\u2077': '^7', '\u2078': '^8', '\u2079': '^9',
-    '\u207A': '^+', '\u207B': '^-', '\u207F': '^n',
-    // Greek (short forms for readability)
-    '\u0394': 'D', '\u03B1': 'a', '\u03B2': 'b', '\u03B3': 'y',
-    '\u03B4': 'd', '\u03B5': 'e', '\u03B7': 'n', '\u03B8': 'O',
-    '\u03BA': 'k', '\u03BB': 'L', '\u03BC': 'u', '\u03BD': 'v',
-    '\u03C0': 'pi', '\u03C1': 'p', '\u03C3': 's', '\u03C4': 't',
-    '\u03C6': 'f', '\u03C7': 'X', '\u03C8': 'Y', '\u03C9': 'w',
-    '\u03D5': 'f', '\u03A3': 'E', '\u03A9': 'O', '\u03A6': 'F',
-    '\u03A0': 'P', '\u039B': 'A',
-    // Symbols & math operators
-    '\u2212': '-',  // MINUS SIGN — critical!
-    '\u2192': '->', '\u2190': '<-', '\u2265': '>=', '\u2264': '<=', '\u2260': '!=',
-    '\u00B7': '.', '\u2219': '.', '\u00D7': 'x', '\u00F7': '/',
-    '\u221A': 'sqrt', '\u221E': 'inf', '\u2211': 'Sum', '\u222B': 'Int',
-    '\u2248': '~=', '\u00B0': 'deg', '\u212B': 'A',
-    '\u2013': '-', '\u2014': '-', '\u00BD': '1/2',
+    // Remaining superscripts (ones not caught by patterns above)
+    '\u2070': '0', '\u00B9': '1', '\u00B2': '2', '\u00B3': '3', '\u2074': '4',
+    '\u2075': '5', '\u2076': '6', '\u2077': '7', '\u2078': '8', '\u2079': '9',
+    '\u207A': '+', '\u207B': '-', '\u207F': 'n',
+    // Greek - use readable abbreviations
+    '\u0394': 'D',      // Delta
+    '\u03B1': 'alpha',  // α
+    '\u03B2': 'beta',   // β
+    '\u03B3': 'gamma',  // γ
+    '\u03B4': 'delta',  // δ
+    '\u03B5': 'epsilon', // ε
+    '\u03B7': 'eta',    // η
+    '\u03B8': 'theta',  // θ
+    '\u03BA': 'kappa',  // κ
+    '\u03BB': 'lambda', // λ
+    '\u03BC': 'mu',     // μ
+    '\u03BD': 'nu',     // ν
+    '\u03C0': 'pi',     // π
+    '\u03C1': 'rho',    // ρ
+    '\u03C3': 'sigma',  // σ
+    '\u03C4': 'tau',    // τ
+    '\u03C6': 'phi',    // φ
+    '\u03C7': 'chi',    // χ
+    '\u03C8': 'psi',    // ψ
+    '\u03C9': 'omega',  // ω
+    '\u03D5': 'phi',
+    '\u03A3': 'Sigma',  // Σ
+    '\u03A9': 'Omega',  // Ω
+    '\u03A6': 'Phi',    // Φ
+    '\u03A0': 'Pi',     // Π
+    '\u039B': 'Lambda', // Λ
+    // Math symbols
+    '\u2212': '-',       // minus sign
+    '\u2192': ' -> ',   // right arrow
+    '\u2190': ' <- ',   // left arrow
+    '\u2265': '>=',
+    '\u2264': '<=',
+    '\u2260': '!=',
+    '\u00B7': '*',      // middle dot
+    '\u2219': '*',
+    '\u00D7': ' x ',    // multiplication
+    '\u00F7': '/',
+    '\u221A': 'sqrt',
+    '\u221E': 'infinity',
+    '\u2211': 'Sum',
+    '\u222B': 'Integral',
+    '\u2248': '~',      // approximately
+    '\u00B0': ' deg',   // degree
+    '\u212B': 'A',      // angstrom
+    '\u2013': '-',      // en-dash
+    '\u2014': '-',      // em-dash
+    '\u00BD': '1/2',
     '\u2153': '1/3', '\u2154': '2/3', '\u00BC': '1/4', '\u00BE': '3/4',
-    '\u2022': '.', '\u220F': 'Prod', '\u2261': '===',
-    '\u00B1': '+-',  // plus-minus
-    '\u2032': "'",   // prime
-    '\u2033': "''",  // double prime
-    '\u00B5': 'u',   // micro sign
-    '\u2026': '...', // ellipsis
+    '\u2022': '*',
+    '\u220F': 'Product',
+    '\u2261': '=',
+    '\u00B1': '+/-',    // plus-minus
+    '\u2032': "'",      // prime
+    '\u2033': "''",     // double prime
+    '\u00B5': 'mu',     // micro sign
+    '\u2026': '...',    // ellipsis
     '\u201C': '"', '\u201D': '"', '\u2018': "'", '\u2019': "'",
   };
-  let r = text;
   for (const [u, a] of Object.entries(map)) r = r.replaceAll(u, a);
-  // Strip any remaining non-ASCII chars that jsPDF can't render
-  r = r.replace(/[^\x00-\x7F]/g, '?');
+
+  // Step 3: Clean up ugly patterns from chained superscript replacements
+  // e.g. ^-^1^4 should not happen anymore, but just in case
+  r = r.replace(/\^([+-]?)(\d)(\d)/g, '^($1$2$3)'); // ^14 -> ^(14)
+  
+  // Strip any remaining non-ASCII chars
+  r = r.replace(/[^\x00-\x7F]/g, '');
+  
   return r;
 }
 
