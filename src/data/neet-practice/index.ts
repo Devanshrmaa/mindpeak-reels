@@ -28,14 +28,14 @@ export const neetPhysicsBank: NEETSubjectBank = {
   subject: 'Physics',
   slug: 'physics',
   icon: '⚡',
-  chapters: physicsChapters,
+  chapters: [...physicsChapters, ...physicsExpansionChapters],
 };
 
 export const neetChemistryBank: NEETSubjectBank = {
   subject: 'Chemistry',
   slug: 'chemistry',
   icon: '🧪',
-  chapters: neetChemistryChapters,
+  chapters: [...neetChemistryChapters, ...neetChemistryExpansionChapters],
 };
 
 /* ─── All NEET practice subject banks ─── */
