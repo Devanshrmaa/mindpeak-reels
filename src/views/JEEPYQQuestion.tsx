@@ -355,7 +355,8 @@ const JEEPYQQuestion = () => {
           {/* ── Cross-type Internal Links ── */}
           <InternalLinkingMesh links={crossLinks} heading={`Related ${subj} Resources`} />
 
-          {/* Chapter Browser */}
+          {/* ── Study Strategy ── */}
+          <StudyStrategyBlock chapterName={chapterName} strategies={studyStrategy} />
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-xl border border-border bg-card/50 overflow-hidden">
             <button
               onClick={() => setShowChapterBrowser(!showChapterBrowser)}

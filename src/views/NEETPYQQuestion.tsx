@@ -270,7 +270,8 @@ const NEETPYQQuestion = () => {
           {/* ── Cross-type Internal Links ── */}
           <InternalLinkingMesh links={crossLinks} heading={`Related ${subj} Resources`} />
 
-          {/* Chapter Browser */}
+          {/* ── Study Strategy ── */}
+          <StudyStrategyBlock chapterName={chapterName} strategies={studyStrategy} />
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-xl border border-border bg-card/50 overflow-hidden">
             <button onClick={() => setShowChapterBrowser(!showChapterBrowser)} className="w-full flex items-center justify-between px-5 py-4 hover:bg-secondary/20 transition-colors text-left">
               <div className="flex items-center gap-2 text-sm font-semibold text-foreground"><List className="w-4 h-4 text-green-400" /> Choose a Different Chapter</div>
