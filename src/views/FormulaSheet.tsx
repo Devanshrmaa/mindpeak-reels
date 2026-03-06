@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
 import { PageFooter } from '@/components/PageFooter';
-import { useDemoModal } from '@/components/DemoBookingModal';
+import { NCERTDownloadModal } from '@/components/NCERTDownloadModal';
 import { buildFAQSchemaFromQA } from '@/components/PageFAQ';
 import { RelatedPages, getRelatedLinksForExam } from '@/components/RelatedPages';
 import {
@@ -38,7 +38,7 @@ const FormulaSheet = () => {
   const pathname = usePathname();
   const slug = pathname.replace('/', '');
   const data = getFormulaSheet(slug);
-  const { openDemoModal } = useDemoModal();
+  const [downloadModalOpen, setDownloadModalOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState<FrequencyTag | 'all'>('all');
@@ -79,6 +79,16 @@ const FormulaSheet = () => {
   }, [data]);
 
   if (!data) return <Navigate to="/" replace />;
+
+  // Map formula sheet to downloadable PDF
+  const pdfMap: Record<string, { title: string; file: string }> = {
+    'jee-physics-formulas': { title: `JEE Physics Formula Sheet ${CURRENT_EXAM_YEAR}`, file: '/brochures/jee-main-adv.pdf' },
+    'jee-chemistry-formulas': { title: `JEE Chemistry Formula Sheet ${CURRENT_EXAM_YEAR}`, file: '/brochures/jee-main-adv.pdf' },
+    'jee-maths-formulas': { title: `JEE Mathematics Formula Sheet ${CURRENT_EXAM_YEAR}`, file: '/brochures/jee-main-adv.pdf' },
+    'neet-biology-formulas': { title: `NEET Biology Formula Sheet ${CURRENT_EXAM_YEAR}`, file: '/brochures/neet-2year.pdf' },
+    'neet-physics-formulas': { title: `NEET Physics Formula Sheet ${CURRENT_EXAM_YEAR}`, file: '/brochures/neet-2year.pdf' },
+  };
+  const formulaPdfBook = pdfMap[slug] || { title: `${data.subject} Formula Sheet`, file: '/brochures/jee-main-adv.pdf' };
 
   return (
     <>
@@ -338,7 +348,7 @@ const FormulaSheet = () => {
               Get the full {data.totalFormulas}+ formula sheet PDF with derivation tips + a free 1-on-1 demo class with an IIT/AIIMS mentor.
             </p>
             <button
-              onClick={openDemoModal}
+              onClick={() => setDownloadModalOpen(true)}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-primary text-primary-foreground font-display font-bold hover:brightness-110 transition"
             >
               <Download className="w-5 h-5" />
@@ -346,6 +356,13 @@ const FormulaSheet = () => {
             </button>
           </div>
         </section>
+
+        {/* Download Modal */}
+        <NCERTDownloadModal
+          isOpen={downloadModalOpen}
+          onClose={() => setDownloadModalOpen(false)}
+          book={formulaPdfBook}
+        />
 
         {/* FAQ */}
         <section className="max-w-3xl mx-auto px-4 sm:px-6 mb-16">
