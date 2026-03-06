@@ -38,12 +38,21 @@ const STATIC_SECTIONS: FooterSectionData[] = [
     ],
   },
   {
-    title: 'Practice Questions',
+    title: 'Practice & PYQs',
     links: [
       { label: 'JEE Practice Questions', to: '/jee-practice' },
       { label: 'JEE Previous Year Questions', to: '/jee-pyq' },
       { label: 'NEET Practice Questions', to: '/neet-practice' },
       { label: 'NEET Previous Year Questions', to: '/neet-pyq' },
+    ],
+  },
+  {
+    title: 'Formula Sheets',
+    links: [
+      { label: 'JEE Physics Formulas', to: '/jee-physics-formulas' },
+      { label: 'JEE Chemistry Formulas', to: '/jee-chemistry-formulas' },
+      { label: 'JEE Maths Formulas', to: '/jee-maths-formulas' },
+      { label: 'NEET Biology Formulas', to: '/neet-biology-formulas' },
     ],
   },
   {
@@ -56,6 +65,7 @@ const STATIC_SECTIONS: FooterSectionData[] = [
       { label: 'Blog', to: '/blog' },
       { label: 'Contact', to: '/contact' },
       { label: 'Kota Alternative', to: '/kota-coaching-alternative' },
+      { label: 'Online vs Offline', to: '/online-vs-offline-jee-coaching' },
     ],
   },
 ];
