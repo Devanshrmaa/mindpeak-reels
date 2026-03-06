@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
 import { PageFooter } from '@/components/PageFooter';
-import { NCERTDownloadModal } from '@/components/NCERTDownloadModal';
+import { FormulaDownloadModal } from '@/components/FormulaDownloadModal';
 import { buildFAQSchemaFromQA } from '@/components/PageFAQ';
 import { RelatedPages, getRelatedLinksForExam } from '@/components/RelatedPages';
 import {
@@ -80,15 +80,6 @@ const FormulaSheet = () => {
 
   if (!data) return <Navigate to="/" replace />;
 
-  // Map formula sheet to downloadable PDF
-  const pdfMap: Record<string, { title: string; file: string }> = {
-    'jee-physics-formulas': { title: `JEE Physics Formula Sheet ${CURRENT_EXAM_YEAR}`, file: '/brochures/jee-main-adv.pdf' },
-    'jee-chemistry-formulas': { title: `JEE Chemistry Formula Sheet ${CURRENT_EXAM_YEAR}`, file: '/brochures/jee-main-adv.pdf' },
-    'jee-maths-formulas': { title: `JEE Mathematics Formula Sheet ${CURRENT_EXAM_YEAR}`, file: '/brochures/jee-main-adv.pdf' },
-    'neet-biology-formulas': { title: `NEET Biology Formula Sheet ${CURRENT_EXAM_YEAR}`, file: '/brochures/neet-2year.pdf' },
-    'neet-physics-formulas': { title: `NEET Physics Formula Sheet ${CURRENT_EXAM_YEAR}`, file: '/brochures/neet-2year.pdf' },
-  };
-  const formulaPdfBook = pdfMap[slug] || { title: `${data.subject} Formula Sheet`, file: '/brochures/jee-main-adv.pdf' };
 
   return (
     <>
@@ -358,10 +349,10 @@ const FormulaSheet = () => {
         </section>
 
         {/* Download Modal */}
-        <NCERTDownloadModal
+        <FormulaDownloadModal
           isOpen={downloadModalOpen}
           onClose={() => setDownloadModalOpen(false)}
-          book={formulaPdfBook}
+          formulaData={data}
         />
 
         {/* FAQ */}
