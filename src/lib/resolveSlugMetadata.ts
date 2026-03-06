@@ -14,6 +14,7 @@ import { parsePracticeSlug, getQuestion, subjectBanks } from '@/data/practice';
 import { parsePYQSlug, getPYQuestion, pyqSubjectBanks } from '@/data/pyq';
 import { parseNEETPracticeSlug, getNEETPracticeQuestion, neetSubjectBanks } from '@/data/neet-practice';
 import { parseNEETPYQSlug, getNEETPYQuestion, neetPyqSubjectBanks } from '@/data/neet-pyq';
+import { parseNEETPYQHubSlug, getUnitBySlug } from '@/data/neet-pyq/hierarchy';
 import { getSEOPage } from '@/data/seoPageData';
 import { chapters, getTopicInfo } from '@/data/chapterData';
 import type { Metadata } from 'next';
@@ -153,8 +154,39 @@ function resolveQuestionMetadata(slug: string, canonical: string): Metadata {
     }
   }
 
-  // 2. NEET PYQ
+  // 2. NEET PYQ (check hub slugs first, then question slugs)
   if (slug.startsWith('neet-pyq-')) {
+    // Hub pages: chapter, unit, class
+    const hubInfo = parseNEETPYQHubSlug(slug);
+    if (hubInfo) {
+      const bank = neetPyqSubjectBanks.find(b => b.slug === hubInfo.subjectSlug);
+      const subj = bank?.subject ?? cap(hubInfo.subjectSlug);
+      if (hubInfo.type === 'class') {
+        return {
+          title: `NEET ${subj} Class ${hubInfo.classLevel} PYQ | Previous Year Questions`,
+          description: `NEET ${subj} Class ${hubInfo.classLevel} previous year questions — unit-wise and chapter-wise PYQs with solutions by MindPeak.`.slice(0, 160),
+          alternates: { canonical },
+        };
+      }
+      if (hubInfo.type === 'unit') {
+        const unit = getUnitBySlug(hubInfo.subjectSlug, hubInfo.unitSlug!);
+        return {
+          title: `NEET ${subj} PYQ — ${unit?.unitName ?? hubInfo.unitSlug} | Unit-wise PYQ`,
+          description: `Solve NEET ${subj} previous year questions from ${unit?.unitName ?? hubInfo.unitSlug}. Chapter-wise PYQs with solutions by MindPeak.`.slice(0, 160),
+          alternates: { canonical },
+        };
+      }
+      if (hubInfo.type === 'chapter') {
+        const ch = bank?.chapters.find(c => c.slug === hubInfo.chapterSlug);
+        const chName = ch?.name ?? hubInfo.chapterSlug ?? '';
+        return {
+          title: `NEET ${subj} PYQ — ${chName} | Chapter-wise Previous Year Questions`,
+          description: `Solve ${ch?.questions.length ?? '20'}+ NEET ${subj} PYQs on ${chName}. Year-wise questions with NCERT-based solutions by MindPeak.`.slice(0, 160),
+          alternates: { canonical },
+        };
+      }
+    }
+
     const params = parseNEETPYQSlug(slug);
     if (params) {
       const q = getNEETPYQuestion(params);

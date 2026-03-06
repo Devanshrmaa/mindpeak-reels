@@ -25,6 +25,7 @@ import {
   getNEETPYQSlugByParams,
 } from '@/data/neet-pyq';
 import { PageFAQ, buildFAQSchema, type FAQItem } from '@/components/PageFAQ';
+import { getUnitForChapter } from '@/data/neet-pyq/hierarchy';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
 import { buildNEETPYQFAQs, buildPYQOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema } from '@/lib/questionPageSEO';
 
@@ -81,6 +82,7 @@ const NEETPYQQuestion = () => {
   const chapterName = chapter?.name ?? params.chapter;
   const subj = bank.subject;
   const totalInChapter = chapter?.questions.length ?? 0;
+  const unit = getUnitForChapter(params.subject, params.chapter);
 
   const { isGated, onUnlock } = useQuestionGate(params.questionIndex);
   const testName = `NEET PYQ — ${subj} — ${chapterName}`;
@@ -125,7 +127,14 @@ const NEETPYQQuestion = () => {
             <nav className="mb-6 text-sm text-muted-foreground flex items-center gap-1 flex-wrap">
               <Link to="/" className="hover:text-primary transition-colors">Home</Link><span>/</span>
               <Link to="/neet-pyq" className="hover:text-primary transition-colors">NEET PYQ</Link><span>/</span>
-              <span className="text-foreground">{chapterName} · Q{params.questionIndex}</span>
+              {unit && (
+                <>
+                  <Link to={`/neet-pyq-${params.subject}-class-${unit.classLevel}`} className="hover:text-primary transition-colors">Class {unit.classLevel}</Link><span>/</span>
+                  <Link to={`/neet-pyq-${params.subject}-unit-${unit.unitSlug}`} className="hover:text-primary transition-colors">{unit.unitName}</Link><span>/</span>
+                </>
+              )}
+              <Link to={`/neet-pyq-${params.subject}-${params.chapter}`} className="hover:text-primary transition-colors">{chapterName}</Link><span>/</span>
+              <span className="text-foreground">Q{params.questionIndex}</span>
             </nav>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
               <div className="flex items-center gap-3 mb-4 flex-wrap">
