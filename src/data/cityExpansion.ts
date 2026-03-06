@@ -4,7 +4,7 @@
    Imported into cityData.ts to extend the cities array.
    ═══════════════════════════════════════════════════════════════════ */
 
-import type { CityData } from './cityData';
+import type { CityData, QuickStat, CourseTile, LocalValueProp, CityFAQ, CityTestimonial, CityEvent, TabbedContent } from './cityData';
 
 interface CityConfig {
   slug: string;
@@ -19,6 +19,7 @@ interface CityConfig {
   language?: string;         // regional language support
   coachingHub?: string;      // known coaching area
   nearbyInstitute?: string;  // notable nearby college/IIT/AIIMS
+  localAreas?: string[];     // localities/areas in the city
 }
 
 /* ─── TEMPLATE GENERATORS ─────────────────────────────────────── */
@@ -132,6 +133,206 @@ function generateCallToAction(c: CityConfig): string {
   return `Your ${examList} journey starts with a single step. MindPeak Institute in ${c.city} invites you to experience the power of personalised 1-on-1 mentoring through a completely free demo class — no commitments, no pressure. See firsthand how our dedicated mentors, adaptive curriculum, and transparent tracking system can transform your preparation. Speak with our academic counselors, get a personalised assessment of your current preparation level, and discover why hundreds of students across ${c.state} trust MindPeak Institute for their competitive exam success. Book your free demo class today or call us at +91-82194-57704.`;
 }
 
+/* ─── INTERACTIVE SECTION GENERATORS ────────────────────────── */
+
+function generateHeroHeadline(c: CityConfig): string {
+  const examList = c.exams.map(e => e.toUpperCase()).join(' & ');
+  return `Crack ${examList} from ${c.city} — 1-on-1 mentors, real results.`;
+}
+
+function generateHeroSublead(c: CityConfig): string {
+  const examFull = c.exams.map(e => e === 'jee' ? 'JEE Main & Advanced' : 'NEET UG').join(' and ');
+  return `MindPeak Institute in ${c.city} runs personalised 1-on-1 coaching for ${examFull}, designed to get you exam-ready with daily live sessions, adaptive curriculum, and dedicated mentor support from home.`;
+}
+
+function generateSocialProofLine(_c: CityConfig): string {
+  return '2,300+ students coached across India with a 95% selection rate.';
+}
+
+function generateQuickStats(c: CityConfig): QuickStat[] {
+  return [
+    { value: '95%', label: 'Selection Rate', source: 'Cohort outcomes report, 2024-25' },
+    { value: '500+', label: `Students in ${c.state}`, source: 'Enrolment data, cumulative' },
+    { value: 'AIR 42', label: 'Best Rank Achieved', source: 'JEE Advanced 2024 result' },
+  ];
+}
+
+function generateCourseTiles(c: CityConfig): CourseTile[] {
+  const tiles: CourseTile[] = [
+    {
+      title: 'JEE Main & Advanced',
+      duration: '1–2 years',
+      benefit: 'Master Physics, Chemistry & Maths with IIT alumni mentors and daily 1-on-1 sessions.',
+      outcomes: ['Full-length mock tests with AI analytics', 'Chapter-wise PYQ practice (2015–2025)', 'Personalised weak-area recovery plans'],
+      commitment: '3–4 hrs/day',
+      whoFor: 'Class 11–12 & Droppers',
+      icon: '🎯',
+      link: '/jee-coaching',
+    },
+    {
+      title: 'NEET UG',
+      duration: '1–2 years',
+      benefit: 'NCERT-first Biology, Physics & Chemistry with specialised medical entrance mentors.',
+      outcomes: ['NCERT line-by-line mastery program', 'NEET PYQ bank with detailed solutions', 'Weekly full-syllabus mock tests'],
+      commitment: '3–4 hrs/day',
+      whoFor: 'Class 11–12 & Droppers',
+      icon: '🏥',
+      link: '/neet-coaching',
+    },
+    {
+      title: 'Foundation (Class 8–10)',
+      duration: '1–3 years',
+      benefit: 'Build competitive exam readiness early with strong fundamentals and Olympiad exposure.',
+      outcomes: ['Board + competitive dual-track preparation', 'NTSE / Olympiad problem-solving drills', 'Early habit & study-skill development'],
+      commitment: '1.5–2 hrs/day',
+      whoFor: 'Class 8, 9, 10 students',
+      icon: '📐',
+      link: '/foundation-coaching',
+    },
+  ];
+  if (c.exams.includes('jee')) {
+    tiles.push({
+      title: 'Crash Course & Dropper',
+      duration: '3–6 months',
+      benefit: 'Intensive gap-filling and exam-strategy program for short-timeline aspirants.',
+      outcomes: ['Targeted revision of high-weightage chapters', 'Daily timed practice under exam conditions', 'Mentor-guided error-log analysis'],
+      commitment: '4–5 hrs/day',
+      whoFor: 'Droppers & last-minute starters',
+      icon: '⚡',
+      link: '/jee-crash-course',
+    });
+  }
+  return tiles;
+}
+
+function generateLocalValueProps(c: CityConfig): LocalValueProp[] {
+  const stateExamStr = c.stateExam ? `${c.stateExam} + ` : '';
+  return [
+    {
+      title: `Mentors who know ${c.state}`,
+      description: `Faculty experienced with ${c.board || 'CBSE/State'} board curriculum and the ${stateExamStr}JEE/NEET transition.`,
+      localExample: `Students from ${c.city}'s top schools consistently improve 100-150+ marks within 3 months.`,
+      microCTA: `Meet ${c.city} mentors`,
+    },
+    {
+      title: 'Zero commute, full access',
+      description: `Study from any area in ${c.city} — no travel, no fixed batches, no compromise on quality.`,
+      localExample: c.localAreas ? `Students from ${c.localAreas.slice(0, 3).join(', ')} and more study with us daily.` : `Families across ${c.city} save 2-3 hours daily with our online format.`,
+      microCTA: 'See how it works',
+    },
+    {
+      title: 'Transparent progress tracking',
+      description: 'Weekly reports, parent dashboard, and monthly strategy calls — complete visibility for families.',
+      localExample: `${c.city} parents receive topic-wise heat maps, mock percentiles, and mentor observations every week.`,
+      microCTA: 'View sample report',
+    },
+  ];
+}
+
+function generateExpandedFaqs(c: CityConfig): CityFAQ[] {
+  const examFull = c.exams.map(e => e === 'jee' ? 'JEE' : 'NEET').join('/');
+  const faqs: CityFAQ[] = [
+    {
+      q: `Is online ${examFull} coaching effective for ${c.city} students?`,
+      tldr: 'Yes — 95% selection rate with personalised 1-on-1 mentoring.',
+      a: `MindPeak's 1-on-1 online coaching delivers superior results compared to batch coaching centres in ${c.city}. Personalised attention, adaptive curriculum, and dedicated mentors have helped our students secure top ranks including AIR 42 in JEE Advanced. Our platform works on standard internet connections available across ${c.city}.`,
+    },
+    {
+      q: `What are the coaching fees at MindPeak for ${c.city}?`,
+      tldr: 'Flexible monthly/quarterly/annual plans, competitive with premium centres.',
+      a: `MindPeak offers flexible pricing with monthly, quarterly, and annual plans. Our fees are competitive with premium coaching centres in ${c.city} but deliver significantly more value through dedicated 1-on-1 attention, daily live sessions, and comprehensive study material. Book a free demo class and our counselor will discuss personalised pricing.`,
+    },
+    {
+      q: `Can ${c.city} students join mid-year?`,
+      tldr: 'Yes — no batch constraints, join anytime with a custom plan.',
+      a: `Since our coaching is entirely 1-on-1, there are no batch start dates or constraints. ${c.city} students can join anytime — we create a customised preparation plan aligned with your school calendar and exam timeline, covering any syllabus gaps from the start.`,
+    },
+    {
+      q: `How much time per week do I need?`,
+      tldr: '10–25 hrs/week depending on program and year.',
+      a: `Foundation programs need 10-12 hrs/week. Full JEE/NEET programs need 20-25 hrs/week including self-study. Crash courses are more intensive at 30+ hrs/week. Your mentor creates a realistic timetable that accounts for school hours and rest.`,
+    },
+    {
+      q: `What outcomes can I expect from MindPeak in ${c.city}?`,
+      tldr: 'Mock score jumps of 100-150+ marks within 3 months.',
+      a: `Students typically see 100-150+ marks improvement in mock tests within the first three months. You get a personalised study roadmap, weekly mock test analytics, dedicated doubt resolution, and mentor-guided revision strategy. Our 95% selection rate across cohorts validates the approach.`,
+    },
+  ];
+  if (c.stateExam) {
+    faqs.push({
+      q: `Does MindPeak cover ${c.stateExam} along with JEE/NEET?`,
+      tldr: `Yes — integrated ${c.stateExam} prep leveraging syllabus overlap.`,
+      a: `Our mentors integrate ${c.stateExam} preparation alongside JEE/NEET coaching for ${c.city} students. The significant syllabus overlap is leveraged efficiently, and targeted ${c.stateExam}-specific practice modules are added closer to the exam date.`,
+    });
+  } else {
+    faqs.push({
+      q: `Do you cover ${c.state} board exams along with ${examFull}?`,
+      tldr: 'Yes — integrated board + competitive exam preparation.',
+      a: `Our mentors integrate board exam preparation with ${examFull} coaching for ${c.city} students. The significant syllabus overlap is leveraged, and our approach ensures students excel in both without spreading thin.`,
+    });
+  }
+  return faqs;
+}
+
+function generateTabbedContent(c: CityConfig): TabbedContent {
+  const stateExamStr = c.stateExam ? `, ${c.stateExam}` : '';
+  return {
+    curriculum: `MindPeak's curriculum for ${c.city} students covers the complete JEE/NEET syllabus with a concept-first approach. Physics: Mechanics → Electrodynamics → Optics → Modern Physics. Chemistry: Physical → Organic → Inorganic (JEE) / NCERT-deep (NEET). Mathematics: Algebra → Calculus → Coordinate Geometry → Trigonometry. Biology (NEET): Botany → Zoology → Human Physiology → Genetics. Each topic includes theory sessions, solved examples, practice problems, and PYQ analysis.${stateExamStr ? ` ${c.stateExam} topics are woven into the main curriculum where overlap exists, with dedicated practice sessions for unique topics.` : ''}`,
+    schedule: `Daily live 1-on-1 sessions (1.5–2 hrs) with your dedicated mentor, scheduled at your convenience — morning, afternoon, or evening slots available for ${c.city} students. Weekend intensive sessions for mock tests and revision. Flexible rescheduling — if you miss a session, your mentor accommodates a makeup class within 48 hours. No fixed batches, no rigid timetables.`,
+    fees: `Plans start from ₹15,000/month for Foundation programs and ₹20,000/month for JEE/NEET full programs. Annual plans offer 15-20% savings. Crash courses are priced separately based on duration. All plans include: daily 1-on-1 live sessions, study material, mock test series, parent dashboard access, and mentor support.`,
+    paymentNote: `EMI options available via partner banks. Early-bird discounts for ${c.city} students enrolling 6+ months before the exam. Sibling discounts applicable. Contact our counselor during your free demo class for a personalised quote.`,
+  };
+}
+
+function generateCityTestimonials(c: CityConfig): CityTestimonial[] {
+  return [
+    {
+      name: 'Student A.',
+      role: c.exams.includes('jee') ? 'JEE Aspirant' : 'NEET Aspirant',
+      result: 'Mock score improved 180+ marks in 4 months',
+      quote: `MindPeak's 1-on-1 format from ${c.city} gave me the personalised attention I never got in batch coaching. My mentor identified my weak areas and turned them around.`,
+      isSample: true,
+    },
+    {
+      name: 'Student B.',
+      role: 'Class 12 Student',
+      result: 'Balanced boards + competitive exam prep',
+      quote: `Studying from home in ${c.city} saved me 3 hours daily. That extra time for self-study made all the difference in my preparation quality.`,
+      isSample: true,
+    },
+    {
+      name: 'Parent C.',
+      role: `Parent from ${c.city}`,
+      result: 'Complete visibility into child\'s progress',
+      quote: `The weekly reports and parent dashboard gave us confidence. We could see exactly how our child was improving — something no coaching centre in ${c.city} ever offered.`,
+      isSample: true,
+    },
+  ];
+}
+
+function generateEvents(c: CityConfig): CityEvent[] {
+  return [
+    {
+      title: `${c.city} Free Demo Day`,
+      date: '[UPCOMING]',
+      description: `Free 1-on-1 demo session + preparation assessment for ${c.city} students. Meet your potential mentor.`,
+      ctaLabel: 'Register Free',
+    },
+    {
+      title: 'Weekend Strategy Workshop',
+      date: '[UPCOMING]',
+      description: `2-hour session on exam strategy, time management, and study planning for ${c.exams.map(e => e.toUpperCase()).join('/')} aspirants.`,
+      ctaLabel: 'Book Seat',
+    },
+    {
+      title: 'Parent Information Session',
+      date: '[UPCOMING]',
+      description: `30-min virtual session for ${c.city} parents — learn about our coaching model, tracking system, and outcomes.`,
+      ctaLabel: 'Join Session',
+    },
+  ];
+}
+
 function configToCity(c: CityConfig): CityData {
   return {
     slug: c.slug,
@@ -153,6 +354,16 @@ function configToCity(c: CityConfig): CityData {
     careerOpportunities: generateCareerOpportunities(c),
     whyStandsOut: generateWhyStandsOut(c),
     callToActionText: generateCallToAction(c),
+    heroHeadline: generateHeroHeadline(c),
+    heroSublead: generateHeroSublead(c),
+    socialProofLine: generateSocialProofLine(c),
+    quickStats: generateQuickStats(c),
+    courseTiles: generateCourseTiles(c),
+    localValueProps: generateLocalValueProps(c),
+    expandedFaqs: generateExpandedFaqs(c),
+    tabbedContent: generateTabbedContent(c),
+    cityTestimonials: generateCityTestimonials(c),
+    events: generateEvents(c),
   };
 }
 
