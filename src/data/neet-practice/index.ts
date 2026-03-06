@@ -1,14 +1,20 @@
 import type { NEETSubjectBank, NEETChapterData, NEETPracticeQuestion } from './types';
 import { slugifyQuestion, deduplicateSlugs } from '../../lib/slugify';
 import { botanyChapters } from './biology-botany';
+import { botanyExpansionChapters } from './biology-botany-2';
 import { zoologyChapters } from './biology-zoology';
+import { zoologyExpansionChapters } from './biology-zoology-2';
 import { physicsChapters } from './physics';
+import { physicsExpansionChapters } from './physics-2';
 import { neetChemistryChapters } from './chemistry';
+import { neetChemistryExpansionChapters } from './chemistry-2';
 
 /* ─── Combine Biology = Botany + Zoology ─── */
 const allBiologyChapters: NEETChapterData[] = [
   ...botanyChapters,
+  ...botanyExpansionChapters,
   ...zoologyChapters,
+  ...zoologyExpansionChapters,
 ];
 
 export const biologyBank: NEETSubjectBank = {
@@ -22,14 +28,14 @@ export const neetPhysicsBank: NEETSubjectBank = {
   subject: 'Physics',
   slug: 'physics',
   icon: '⚡',
-  chapters: physicsChapters,
+  chapters: [...physicsChapters, ...physicsExpansionChapters],
 };
 
 export const neetChemistryBank: NEETSubjectBank = {
   subject: 'Chemistry',
   slug: 'chemistry',
   icon: '🧪',
-  chapters: neetChemistryChapters,
+  chapters: [...neetChemistryChapters, ...neetChemistryExpansionChapters],
 };
 
 /* ─── All NEET practice subject banks ─── */
