@@ -727,6 +727,41 @@ const newCityConfigs: CityConfig[] = [
   { slug: 'indirapuram', city: 'Indirapuram, Ghaziabad', state: 'Uttar Pradesh', tier: 2, lat: 28.6407, lng: 77.3573, exams: ['jee', 'neet'], board: 'CBSE/UP Board' },
   { slug: 'vasundhara', city: 'Vasundhara, Ghaziabad', state: 'Uttar Pradesh', tier: 2, lat: 28.6603, lng: 77.3571, exams: ['jee', 'neet'], board: 'CBSE/UP Board' },
   { slug: 'sector-62-noida', city: 'Sector 62, Noida', state: 'Uttar Pradesh', tier: 2, lat: 28.6270, lng: 77.3649, exams: ['jee', 'neet'], board: 'CBSE' },
+
+  // ═══════════════════════════════════════════════════════════
+  //  NRI CITY PAGES (30 international cities)
+  //  For Indian students studying abroad for JEE/NEET
+  // ═══════════════════════════════════════════════════════════
+  { slug: 'dubai', city: 'Dubai', state: 'UAE', tier: 1, lat: 25.2048, lng: 55.2708, exams: ['jee', 'neet'], board: 'CBSE', language: 'Hindi' },
+  { slug: 'abu-dhabi', city: 'Abu Dhabi', state: 'UAE', tier: 1, lat: 24.4539, lng: 54.3773, exams: ['jee', 'neet'], board: 'CBSE', language: 'Hindi' },
+  { slug: 'sharjah', city: 'Sharjah', state: 'UAE', tier: 2, lat: 25.3463, lng: 55.4209, exams: ['jee', 'neet'], board: 'CBSE', language: 'Hindi' },
+  { slug: 'singapore', city: 'Singapore', state: 'Singapore', tier: 1, lat: 1.3521, lng: 103.8198, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'london', city: 'London', state: 'United Kingdom', tier: 1, lat: 51.5074, lng: -0.1278, exams: ['jee', 'neet'], board: 'CBSE/IGCSE' },
+  { slug: 'new-york', city: 'New York', state: 'United States', tier: 1, lat: 40.7128, lng: -74.0060, exams: ['jee', 'neet'], board: 'CBSE/AP' },
+  { slug: 'san-francisco', city: 'San Francisco', state: 'United States', tier: 1, lat: 37.7749, lng: -122.4194, exams: ['jee', 'neet'], board: 'CBSE/AP' },
+  { slug: 'toronto', city: 'Toronto', state: 'Canada', tier: 1, lat: 43.6532, lng: -79.3832, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'sydney', city: 'Sydney', state: 'Australia', tier: 1, lat: -33.8688, lng: 151.2093, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'melbourne', city: 'Melbourne', state: 'Australia', tier: 1, lat: -37.8136, lng: 144.9631, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'kuala-lumpur', city: 'Kuala Lumpur', state: 'Malaysia', tier: 1, lat: 3.1390, lng: 101.6869, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'doha', city: 'Doha', state: 'Qatar', tier: 1, lat: 25.2854, lng: 51.5310, exams: ['jee', 'neet'], board: 'CBSE', language: 'Hindi' },
+  { slug: 'riyadh', city: 'Riyadh', state: 'Saudi Arabia', tier: 1, lat: 24.7136, lng: 46.6753, exams: ['jee', 'neet'], board: 'CBSE', language: 'Hindi' },
+  { slug: 'muscat', city: 'Muscat', state: 'Oman', tier: 2, lat: 23.5880, lng: 58.3829, exams: ['jee', 'neet'], board: 'CBSE', language: 'Hindi' },
+  { slug: 'bahrain', city: 'Bahrain', state: 'Bahrain', tier: 2, lat: 26.0667, lng: 50.5577, exams: ['jee', 'neet'], board: 'CBSE', language: 'Hindi' },
+  { slug: 'hong-kong', city: 'Hong Kong', state: 'Hong Kong', tier: 1, lat: 22.3193, lng: 114.1694, exams: ['jee', 'neet'], board: 'CBSE/IB' },
+  { slug: 'bangkok', city: 'Bangkok', state: 'Thailand', tier: 1, lat: 13.7563, lng: 100.5018, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'jakarta', city: 'Jakarta', state: 'Indonesia', tier: 1, lat: -6.2088, lng: 106.8456, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'nairobi', city: 'Nairobi', state: 'Kenya', tier: 2, lat: -1.2921, lng: 36.8219, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'lagos', city: 'Lagos', state: 'Nigeria', tier: 2, lat: 6.5244, lng: 3.3792, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'berlin', city: 'Berlin', state: 'Germany', tier: 1, lat: 52.5200, lng: 13.4050, exams: ['jee', 'neet'], board: 'CBSE/IB' },
+  { slug: 'amsterdam', city: 'Amsterdam', state: 'Netherlands', tier: 1, lat: 52.3676, lng: 4.9041, exams: ['jee', 'neet'], board: 'CBSE/IB' },
+  { slug: 'tokyo', city: 'Tokyo', state: 'Japan', tier: 1, lat: 35.6762, lng: 139.6503, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'seoul', city: 'Seoul', state: 'South Korea', tier: 1, lat: 37.5665, lng: 126.9780, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'auckland', city: 'Auckland', state: 'New Zealand', tier: 2, lat: -36.8485, lng: 174.7633, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'kuwait-city', city: 'Kuwait City', state: 'Kuwait', tier: 2, lat: 29.3759, lng: 47.9774, exams: ['jee', 'neet'], board: 'CBSE', language: 'Hindi' },
+  { slug: 'colombo', city: 'Colombo', state: 'Sri Lanka', tier: 2, lat: 6.9271, lng: 79.8612, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'kathmandu', city: 'Kathmandu', state: 'Nepal', tier: 2, lat: 27.7172, lng: 85.3240, exams: ['jee', 'neet'], board: 'CBSE/Nepal Board' },
+  { slug: 'dhaka', city: 'Dhaka', state: 'Bangladesh', tier: 2, lat: 23.8103, lng: 90.4125, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'frankfurt', city: 'Frankfurt', state: 'Germany', tier: 1, lat: 50.1109, lng: 8.6821, exams: ['jee', 'neet'], board: 'CBSE/IB' },
 ];
 
 /** All 170+ new cities, auto-generated from configs */
