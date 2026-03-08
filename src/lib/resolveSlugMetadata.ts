@@ -17,6 +17,10 @@ import { chapters, getTopicInfo } from '@/data/chapterData';
 import { resolveOgImageMeta } from '@/lib/ogImage';
 import { parseStudyGuideSlug, buildStudyGuide } from '@/lib/topicStudyGuides';
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
+import { getExamInfoPage } from '@/data/examInfoData';
+import { getDifferencePair } from '@/data/differenceBetweenData';
+import { IMPORTANT_Q_SLUGS } from '@/views/ImportantQuestionsHub';
+import { getCounsellingPage } from '@/data/counsellingData';
 import type { Metadata } from 'next';
 
 const BASE = 'https://mindpeakinstitute.com';

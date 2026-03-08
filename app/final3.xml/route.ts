@@ -17,6 +17,10 @@ import { TOPIC_PATHS, CHAPTER_SLUGS } from '@/data/chapterData';
 import { competitors } from '@/data/comparisonData';
 import { getAllStudyGuideSlugs } from '@/lib/topicStudyGuides';
 import { examRegistry } from '@/data/examRegistry';
+import { getAllExamInfoSlugs } from '@/data/examInfoData';
+import { getAllDifferenceSlugs } from '@/data/differenceBetweenData';
+import { IMPORTANT_Q_SLUGS } from '@/views/ImportantQuestionsHub';
+import { getAllCounsellingSlugs } from '@/data/counsellingData';
 
 const BASE = 'https://mindpeakinstitute.com';
 
@@ -92,6 +96,21 @@ export async function GET() {
   const neetPracticeSlugs = buildAllNEETPracticeSlugs().map(s => `/${s.slug}`);
   const neetPyqSlugs = buildAllNEETPYQSlugs().map(s => `/${s.slug}`);
 
+  /* ═══ 10. Exam info hub pages ═══ */
+  const examInfoSlugs = getAllExamInfoSlugs().map(s => `/${s}`);
+
+  /* ═══ 11. Difference Between pages ═══ */
+  const differenceSlugs = getAllDifferenceSlugs().map(s => `/${s}`);
+
+  /* ═══ 12. Important Questions hubs ═══ */
+  const importantQSlugs = IMPORTANT_Q_SLUGS.map(s => `/${s}`);
+
+  /* ═══ 13. Counselling & college pages ═══ */
+  const counsellingSlugs = getAllCounsellingSlugs().map(s => `/${s}`);
+
+  /* ═══ 14. Revision notes pages ═══ */
+  const notesSlugs = CHAPTER_SLUGS.map(s => `/${s}/notes`);
+
   /* ═══ Build XML ═══ */
   const lines: string[] = [
     '<?xml version="1.0" encoding="UTF-8"?>',
@@ -111,6 +130,11 @@ export async function GET() {
     jeePyq: pyqSlugs.length,
     neetPractice: neetPracticeSlugs.length,
     neetPyq: neetPyqSlugs.length,
+    examInfo: examInfoSlugs.length,
+    difference: differenceSlugs.length,
+    importantQ: importantQSlugs.length,
+    counselling: counsellingSlugs.length,
+    notes: notesSlugs.length,
   };
   const total = Object.values(counts).reduce((a, b) => a + b, 0);
 
@@ -129,6 +153,11 @@ export async function GET() {
   for (const p of pyqSlugs) lines.push(urlEntry(p, '0.50', 'monthly', TODAY));
   for (const p of neetPracticeSlugs) lines.push(urlEntry(p, '0.50', 'monthly', TODAY));
   for (const p of neetPyqSlugs) lines.push(urlEntry(p, '0.50', 'monthly', TODAY));
+  for (const p of examInfoSlugs) lines.push(urlEntry(p, '0.75', 'weekly', TODAY));
+  for (const p of differenceSlugs) lines.push(urlEntry(p, '0.60', 'monthly', TODAY));
+  for (const p of importantQSlugs) lines.push(urlEntry(p, '0.65', 'weekly', TODAY));
+  for (const p of counsellingSlugs) lines.push(urlEntry(p, '0.65', 'monthly', TODAY));
+  for (const p of notesSlugs) lines.push(urlEntry(p, '0.55', 'monthly', TODAY));
 
   lines.push('</urlset>');
 

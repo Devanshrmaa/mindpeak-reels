@@ -12,6 +12,10 @@ import { CHAPTER_SLUGS, TOPIC_PATHS } from "@/data/chapterData";
 import { SUBJECT_SLUGS } from "@/views/SubjectPage";
 import { FORMULA_SLUGS } from "@/views/FormulaSheet";
 import { getSEOPage } from "@/data/seoPageData";
+import { getExamInfoPage } from "@/data/examInfoData";
+import { getDifferencePair } from "@/data/differenceBetweenData";
+import { IMPORTANT_Q_SLUGS } from "@/views/ImportantQuestionsHub";
+import { getCounsellingPage } from "@/data/counsellingData";
 
 const SubjectPage = dynamic(() => import("@/views/SubjectPage"), { loading: () => <Spinner /> });
 const ChapterPage = dynamic(() => import("@/views/ChapterPage"), { loading: () => <Spinner /> });
@@ -19,6 +23,11 @@ const TopicPage = dynamic(() => import("@/views/TopicPage"), { loading: () => <S
 const FormulaSheet = dynamic(() => import("@/views/FormulaSheet"), { loading: () => <Spinner /> });
 const SEOLandingPage = dynamic(() => import("@/views/SEOLandingPage"), { loading: () => <Spinner /> });
 const QuestionSlugRouter = dynamic(() => import("@/views/QuestionSlugRouter"), { loading: () => <Spinner /> });
+const ExamInfoPage = dynamic(() => import("@/views/ExamInfoPage"), { loading: () => <Spinner /> });
+const DifferenceBetweenPage = dynamic(() => import("@/views/DifferenceBetweenPage"), { loading: () => <Spinner /> });
+const RevisionNotesPage = dynamic(() => import("@/views/RevisionNotesPage"), { loading: () => <Spinner /> });
+const ImportantQuestionsHub = dynamic(() => import("@/views/ImportantQuestionsHub"), { loading: () => <Spinner /> });
+const CounsellingGuidePage = dynamic(() => import("@/views/CounsellingGuidePage"), { loading: () => <Spinner /> });
 
 const Spinner = () => (
   <div className="min-h-screen bg-[hsl(225,43%,7%)] flex items-center justify-center">
@@ -26,15 +35,24 @@ const Spinner = () => (
   </div>
 );
 
-function resolve(slug: string): "subject" | "chapter" | "topic" | "formula" | "seo-landing" | "question" {
-  // Two-segment paths → TopicPage
+type PageKind = "subject" | "chapter" | "topic" | "formula" | "seo-landing" | "exam-info" | "difference" | "notes" | "important-q" | "counselling" | "question";
+
+function resolve(slug: string): PageKind {
+  // Two-segment paths
   if (slug.includes("/")) {
-    return TOPIC_PATHS.includes(slug) ? "topic" : "question";
+    // Revision notes: {chapter-slug}/notes
+    if (slug.endsWith("/notes") && CHAPTER_SLUGS.includes(slug.replace(/\/notes$/, ""))) return "notes";
+    if (TOPIC_PATHS.includes(slug)) return "topic";
+    return "question";
   }
   // One-segment — check static arrays first
   if (SUBJECT_SLUGS.includes(slug)) return "subject";
   if (FORMULA_SLUGS.includes(slug)) return "formula";
   if (CHAPTER_SLUGS.includes(slug)) return "chapter";
+  if (getExamInfoPage(slug)) return "exam-info";
+  if (getDifferencePair(slug)) return "difference";
+  if (IMPORTANT_Q_SLUGS.includes(slug)) return "important-q";
+  if (getCounsellingPage(slug)) return "counselling";
   if (getSEOPage(slug)) return "seo-landing";
   return "question";
 }
@@ -55,6 +73,16 @@ export default function CatchAllClient() {
       return <FormulaSheet />;
     case "seo-landing":
       return <SEOLandingPage />;
+    case "exam-info":
+      return <ExamInfoPage />;
+    case "difference":
+      return <DifferenceBetweenPage />;
+    case "notes":
+      return <RevisionNotesPage />;
+    case "important-q":
+      return <ImportantQuestionsHub />;
+    case "counselling":
+      return <CounsellingGuidePage />;
     case "question":
       return <QuestionSlugRouter />;
   }
