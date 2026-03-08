@@ -157,13 +157,17 @@ function generateCallToAction(c: CityConfig): string {
 /* ─── INTERACTIVE SECTION GENERATORS ────────────────────────── */
 
 function generateHeroHeadline(c: CityConfig): string {
+  const u = cityUniqueContent[c.slug];
+  if (u?.heroVariant) return u.heroVariant;
   const examList = c.exams.map(e => e.toUpperCase()).join(' & ');
   return `Crack ${examList} from ${c.city} — 1-on-1 mentors, real results.`;
 }
 
 function generateHeroSublead(c: CityConfig): string {
   const examFull = c.exams.map(e => e === 'jee' ? 'JEE Main & Advanced' : 'NEET UG').join(' and ');
-  return `MindPeak Institute in ${c.city} runs personalised 1-on-1 coaching for ${examFull}, designed to get you exam-ready with daily live sessions, adaptive curriculum, and dedicated mentor support from home.`;
+  const u = cityUniqueContent[c.slug];
+  const nearStr = u?.nearestPremierInstitute ? ` ${u.nearestPremierInstitute}` : '';
+  return `MindPeak Institute in ${c.city} runs personalised 1-on-1 coaching for ${examFull}, designed to get you exam-ready with daily live sessions, adaptive curriculum, and dedicated mentor support from home.${nearStr}`;
 }
 
 function generateSocialProofLine(_c: CityConfig): string {
