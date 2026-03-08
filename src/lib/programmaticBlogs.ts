@@ -664,7 +664,7 @@ function generatePaperAnalysisPosts(): BlogPost[] {
         category: exam,
         tags: [exam, `${y}`, 'Paper Analysis', 'Exam Review'],
         author: 'MindPeak Team',
-        publishDate: '2026-02-20',
+        publishDate: dynamicPublishDate(yi * 2 + (exam === 'JEE' ? 0 : 1)),
         readTime: '12 min read',
         icon: pickIcon(y % 16),
         content: `# ${exam} ${y} Paper Analysis — Complete Breakdown
