@@ -8,6 +8,10 @@ import { physicsChapters } from './physics';
 import { physicsExpansionChapters } from './physics-2';
 import { neetChemistryChapters } from './chemistry';
 import { neetChemistryExpansionChapters } from './chemistry-2';
+import { botanyExpansion3Chapters } from './biology-botany-3';
+import { zoologyExpansion3Chapters } from './biology-zoology-3';
+import { physicsExpansion3Chapters } from './physics-3';
+import { neetChemistryExpansion3Chapters } from './chemistry-3';
 
 /* ─── Combine Biology = Botany + Zoology ─── */
 const allBiologyChapters: NEETChapterData[] = [
@@ -15,6 +19,8 @@ const allBiologyChapters: NEETChapterData[] = [
   ...botanyExpansionChapters,
   ...zoologyChapters,
   ...zoologyExpansionChapters,
+  ...botanyExpansion3Chapters,
+  ...zoologyExpansion3Chapters,
 ];
 
 export const biologyBank: NEETSubjectBank = {
