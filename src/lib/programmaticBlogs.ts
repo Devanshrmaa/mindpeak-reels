@@ -364,7 +364,7 @@ function generateSubjectStrategyPosts(): BlogPost[] {
         category: c.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
         tags: [c.exam, c.subject, 'Revision', `${d}-Day Plan`],
         author: 'MindPeak Team',
-        publishDate: '2026-02-25',
+        publishDate: dynamicPublishDate(ci * 3 + di),
         readTime: '12 min read',
         icon: pickIcon(ci * 3 + di),
         content: `# ${c.exam} ${c.subject} Revision in ${d} Days — Complete Strategy
