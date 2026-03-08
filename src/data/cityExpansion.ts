@@ -1,10 +1,11 @@
 /* ═══════════════════════════════════════════════════════════════════
    CITY EXPANSION — Programmatic SEO: 200+ cities
-   Template-generated content from minimal city configs.
-   Imported into cityData.ts to extend the cities array.
+   Uses state-level educational data to make each city page unique
+   based on real colleges, cutoffs, board specifics, and competition stats.
    ═══════════════════════════════════════════════════════════════════ */
 
 import type { CityData, QuickStat, CourseTile, LocalValueProp, CityFAQ, CityTestimonial, CityEvent, TabbedContent } from './cityData';
+import { getStateEducation } from './stateEducationData';
 
 interface CityConfig {
   slug: string;
@@ -29,14 +30,21 @@ function generateEducationLandscape(c: CityConfig): string {
   const boardStr = c.board ? `${c.board} board` : 'various board';
   const hubStr = c.coachingHub ? ` Coaching centres in ${c.coachingHub} follow the traditional batch-based model with 60-100+ students per class.` : ' Most local coaching centres follow the traditional batch-based model with large class sizes.';
   const instStr = c.nearbyInstitute ? ` Proximity to ${c.nearbyInstitute} drives strong competitive exam aspirations among students.` : '';
-  return `${c.city} is a growing educational hub in ${c.state} with increasing numbers of ${examList} aspirants every year. Students from ${boardStr} backgrounds face intense competition for seats in top engineering and medical colleges.${hubStr}${instStr} The one-size-fits-all approach of large batch coaching often leaves students without the personalised attention needed to crack highly competitive exams. Many ${c.city} families are now seeking smarter, technology-driven alternatives that provide individual focus.`;
+  const stateData = getStateEducation(c.state);
+  const aspirantStr = stateData ? ` ${c.state} produces ${stateData.aspirantCount} annually, making it one of India's most competitive states for entrance exams.` : '';
+  const collegeStr = stateData?.topEnggColleges?.[0] ? ` Top targets for engineering aspirants include ${stateData.topEnggColleges.slice(0, 3).map(col => col.name).join(', ')}, while medical aspirants aim for ${stateData.topMedColleges.slice(0, 2).map(col => col.name).join(' and ')}.` : '';
+  const boardChallengeStr = stateData?.boardTransitionChallenges ? ` ${stateData.boardTransitionChallenges.split('.').slice(0, 2).join('.')}.` : '';
+  return `${c.city} is a growing educational hub in ${c.state} with increasing numbers of ${examList} aspirants every year. Students from ${boardStr} backgrounds face intense competition for seats in top engineering and medical colleges.${hubStr}${instStr}${aspirantStr}${collegeStr}${boardChallengeStr} The one-size-fits-all approach of large batch coaching often leaves students without the personalised attention needed to crack highly competitive exams. Many ${c.city} families are now seeking smarter, technology-driven alternatives that provide individual focus.`;
 }
 
 function generateWhyMindPeak(c: CityConfig): string {
   const examFull = c.exams.map(e => e === 'jee' ? 'JEE Main & Advanced' : 'NEET UG').join(' and ');
   const stateExamStr = c.stateExam ? ` Our mentors also integrate ${c.stateExam} preparation alongside national exam coaching, efficiently leveraging syllabus overlaps.` : '';
   const langStr = c.language ? ` ${c.language}-medium concept support is available when students need conceptual clarity in their mother tongue.` : '';
-  return `MindPeak Institute offers ${c.city} students a transformative 1-on-1 online coaching experience for ${examFull}. Instead of competing for a teacher's attention in a crowded classroom, every ${c.city} student receives dedicated sessions from expert faculty who understand ${c.state}'s educational ecosystem. Our adaptive curriculum uses diagnostic assessments to create a personalised learning roadmap — identifying and filling conceptual gaps systematically. Students across ${c.city} receive world-class coaching from the comfort of home, saving hours of commute time.${stateExamStr}${langStr} With 95% of our students achieving their target score improvements, MindPeak has become the trusted choice for ${c.city} families seeking results-oriented JEE/NEET preparation.`;
+  const stateData = getStateEducation(c.state);
+  const challengeStr = stateData?.regionalChallenge ? ` ${stateData.regionalChallenge.split('.').slice(0, 2).join('.')}.` : '';
+  const stateExamDetailStr = stateData?.stateExamDetails ? ` For ${stateData.stateExamDetails.name}, which offers ${stateData.stateExamDetails.seats}: ${stateData.stateExamDetails.overlapWithNational}.` : '';
+  return `MindPeak Institute offers ${c.city} students a transformative 1-on-1 online coaching experience for ${examFull}. Instead of competing for a teacher's attention in a crowded classroom, every ${c.city} student receives dedicated sessions from expert faculty who understand ${c.state}'s educational ecosystem.${challengeStr} Our adaptive curriculum uses diagnostic assessments to create a personalised learning roadmap — identifying and filling conceptual gaps systematically. Students across ${c.city} receive world-class coaching from the comfort of home, saving hours of commute time.${stateExamStr}${stateExamDetailStr}${langStr} With 95% of our students achieving their target score improvements, MindPeak has become the trusted choice for ${c.city} families seeking results-oriented JEE/NEET preparation.`;
 }
 
 function generateMentoringAdvantage(c: CityConfig): string {
@@ -103,7 +111,10 @@ function generateIntroduction(c: CityConfig): string {
   const examList = c.exams.map(e => e.toUpperCase()).join(' and ');
   const boardStr = c.board || 'CBSE and state board';
   const langStr = c.language ? `, with support in ${c.language} when needed` : '';
-  return `MindPeak Institute is a premier online coaching platform that has been transforming how students in ${c.city}, ${c.state} prepare for competitive entrance examinations like ${examList}. Our mission is simple yet powerful — to provide every student in ${c.city} with access to world-class, personalised 1-on-1 mentoring that was once reserved only for students in metro coaching hubs like Delhi and Kota. We believe that a student's potential should never be limited by their geographic location, which is why MindPeak Institute in ${c.city} leverages cutting-edge online technology to deliver daily live sessions with dedicated expert mentors directly to students' homes. Whether a student comes from a ${boardStr} background${langStr}, our adaptive curriculum meets them exactly where they are and builds a customised roadmap toward their dream college. MindPeak Institute in ${c.city} has already helped hundreds of students across ${c.state} achieve ranks they once thought impossible — and our 95% success rate speaks to the effectiveness of truly personalised coaching. For families in ${c.city} who are tired of overcrowded batch coaching centres and want measurable, transparent results, MindPeak Institute offers a fundamentally better way to prepare for ${examList}.`;
+  const stateData = getStateEducation(c.state);
+  const factStr = stateData?.educationFact ? ` ${stateData.educationFact}` : '';
+  const competitionStr = stateData?.competitionContext ? ` ${stateData.competitionContext}` : '';
+  return `MindPeak Institute is a premier online coaching platform transforming how students in ${c.city}, ${c.state} prepare for ${examList}.${factStr} Our mission: provide every student in ${c.city} with world-class 1-on-1 mentoring once reserved for metro coaching hubs.${competitionStr} Whether from a ${boardStr} background${langStr}, our adaptive curriculum meets students where they are and builds a customised roadmap toward their dream college. MindPeak's 95% success rate speaks to the effectiveness of truly personalised coaching. For families in ${c.city} tired of overcrowded batch centres, MindPeak offers a fundamentally better way to prepare.`;
 }
 
 function generateCoursesOffered(c: CityConfig): string {
@@ -119,13 +130,18 @@ function generateLearningApproach(c: CityConfig): string {
 
 function generateCareerOpportunities(c: CityConfig): string {
   const nearbyStr = c.nearbyInstitute ? `With ${c.nearbyInstitute} in proximity, ${c.city} students have excellent institutional options right in their region. ` : '';
-  return `Students from ${c.city} who complete their JEE or NEET preparation with MindPeak Institute open doors to India's most prestigious institutions and rewarding career paths. JEE qualifiers gain admission to IITs, NITs, IIITs, and top private engineering colleges — launching careers in software engineering, data science, artificial intelligence, robotics, aerospace, and core engineering disciplines that offer starting packages of ₹10-50+ LPA. NEET qualifiers secure seats in top government and private medical colleges, embarking on careers in medicine, surgery, specialised healthcare, medical research, and public health — professions that offer both financial stability and societal impact. ${nearbyStr}Beyond direct career outcomes, the analytical thinking, problem-solving discipline, and time management skills built during MindPeak Institute's rigorous preparation serve students throughout their professional lives. Our alumni from ${c.state} have gone on to pursue higher education at global universities, secure competitive internships at leading companies, and establish successful careers across diverse fields. MindPeak Institute in ${c.city} doesn't just prepare students for an exam — it builds the intellectual foundation for lifelong career success. Our mentors also provide guidance on college selection, branch preferences, and career planning, ensuring that ${c.city} students make informed decisions about their academic futures based on aptitude, interest, and market demand.`;
+  const stateData = getStateEducation(c.state);
+  const careerStr = stateData?.careerEcosystem ? ` ${stateData.careerEcosystem}` : '';
+  const collegeTargets = stateData ? ` Top engineering targets: ${stateData.topEnggColleges.slice(0, 3).map(col => `${col.name} (${col.cutoff})`).join(', ')}. Top medical targets: ${stateData.topMedColleges.slice(0, 3).map(col => `${col.name} (${col.cutoff})`).join(', ')}.` : '';
+  return `Students from ${c.city} who prepare with MindPeak open doors to India's most prestigious institutions.${collegeTargets} ${nearbyStr}JEE qualifiers launch careers in software engineering, AI, robotics, and aerospace (₹10-50+ LPA). NEET qualifiers secure MBBS seats and enter medicine, surgery, and research.${careerStr} MindPeak in ${c.city} doesn't just prepare for exams — it builds intellectual foundations for lifelong career success. Our mentors provide guidance on college selection and branch preferences based on aptitude, interest, and market demand.`;
 }
 
 function generateWhyStandsOut(c: CityConfig): string {
   const stateExamStr = c.stateExam ? `, integrated ${c.stateExam} preparation` : '';
   const langStr = c.language ? `, ${c.language}-medium concept support` : '';
-  return `MindPeak Institute stands out in ${c.city} because of an unwavering commitment to personalised excellence. While batch coaching centres in ${c.city} and across ${c.state} treat students as numbers in a classroom, MindPeak pairs every student with a dedicated mentor who becomes their academic partner for the entire preparation journey. Our transparent weekly reporting system gives ${c.city} parents complete visibility into their child's progress — something no local batch centre offers. The combination of IIT/AIIMS alumni mentors, adaptive AI-driven curriculum${stateExamStr}${langStr}, and data-backed performance tracking creates a coaching experience that is genuinely unmatched in ${c.city}. Students who switch from batch coaching to MindPeak consistently report 100-150+ marks improvement within the first three months, validating that personalised attention is the single most important factor in competitive exam success.`;
+  const stateData = getStateEducation(c.state);
+  const premierStr = stateData?.nearbyPremierInstitutes ? ` Our mentors include alumni from ${stateData.nearbyPremierInstitutes.slice(0, 3).join(', ')} who understand ${c.state}'s academic ecosystem deeply.` : '';
+  return `MindPeak stands out in ${c.city} through dedicated 1-on-1 mentoring, transparent weekly reports, and adaptive AI-driven curriculum${stateExamStr}${langStr}.${premierStr} While batch centres in ${c.city} treat students as numbers, MindPeak pairs every student with a dedicated mentor who becomes their academic partner. Students switching from batch coaching consistently report 100-150+ marks improvement within 3 months. Our data-backed performance tracking gives ${c.city} parents complete visibility into their child's progress — something no local batch centre offers.`;
 }
 
 function generateCallToAction(c: CityConfig): string {
