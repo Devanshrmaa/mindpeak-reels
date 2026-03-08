@@ -2525,7 +2525,7 @@ function generateNCERTAnalysisPosts(): BlogPost[] {
     category: ch.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [ch.exam, 'NCERT', ch.subject, ch.chapter],
     author: 'MindPeak Team',
-    publishDate: '2026-02-22',
+    publishDate: dynamicPublishDate(i + 1500),
     readTime: '15 min read',
     icon: pickIcon(i + 2),
     content: `# NCERT ${ch.chapter} Analysis for ${ch.exam} ${year}
