@@ -85,9 +85,17 @@ export default function QuestionSlugRouter() {
     return <Suspense fallback={<LazyFallback />}><NEETPYQQuestion /></Suspense>;
   }
 
-  // JEE PYQ
-  if (slug.startsWith('jee-pyq-')) return <Suspense fallback={<LazyFallback />}><JEEPYQQuestion /></Suspense>;
-  // JEE Practice
+  // JEE PYQ — check chapter hub first, then question
+  if (slug.startsWith('jee-pyq-')) {
+    if (isJEEPYQHub(slug)) return <Suspense fallback={<LazyFallback />}><JEEPYQChapterHub /></Suspense>;
+    return <Suspense fallback={<LazyFallback />}><JEEPYQQuestion /></Suspense>;
+  }
+  // JEE Practice — check chapter hub first, then question
+  if (slug.startsWith('jee-practice-') || JEE_PRACTICE_RE.test(slug)) {
+    if (isJEEPracticeHub(slug)) return <Suspense fallback={<LazyFallback />}><JEEPracticeChapterHub /></Suspense>;
+    return <Suspense fallback={<LazyFallback />}><JEEPracticeQuestion /></Suspense>;
+  }
+  // JEE Practice (legacy pattern without "practice" prefix)
   if (JEE_PRACTICE_RE.test(slug)) return <Suspense fallback={<LazyFallback />}><JEEPracticeQuestion /></Suspense>;
   // NEET Practice
   if (NEET_PRACTICE_RE.test(slug)) return <Suspense fallback={<LazyFallback />}><NEETPracticeQuestion /></Suspense>;
