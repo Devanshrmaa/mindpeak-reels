@@ -3419,6 +3419,10 @@ h1, h2, h3, h4, h5, h6 {
   --tw-gradient-to: #f59e0b var(--tw-gradient-to-position);
 }
 
+.to-amber-500\/10 {
+  --tw-gradient-to: #f59e0b1a var(--tw-gradient-to-position);
+}
+
 .to-amber-500\/20 {
   --tw-gradient-to: #f59e0b33 var(--tw-gradient-to-position);
 }
@@ -5167,6 +5171,10 @@ h1, h2, h3, h4, h5, h6 {
   border-color: #f59e0b4d;
 }
 
+.hover\:border-amber-500\/40:hover {
+  border-color: #f59e0b66;
+}
+
 .hover\:border-border:hover {
   border-color: hsl(var(--border));
 }
@@ -5246,6 +5254,15 @@ h1, h2, h3, h4, h5, h6 {
 .hover\:bg-amber-400:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(251 191 36 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-amber-500\/5:hover {
+  background-color: #f59e0b0d;
+}
+
+.hover\:bg-amber-600:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(217 119 6 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:bg-background\/35:hover {
@@ -5387,6 +5404,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .hover\:bg-yellow-500\/20:hover {
   background-color: #eab30833;
+}
+
+.hover\:bg-opacity-20:hover {
+  --tw-bg-opacity: .2;
 }
 
 .hover\:text-accent-foreground:hover {
@@ -5709,6 +5730,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .group:hover .group-hover\:bg-primary\/\[0\.12\] {
   background-color: hsl(var(--primary) / .12);
+}
+
+.group:hover .group-hover\:text-amber-400 {
+  --tw-text-opacity: 1;
+  color: rgb(251 191 36 / var(--tw-text-opacity, 1));
 }
 
 .group:hover .group-hover\:text-foreground {
