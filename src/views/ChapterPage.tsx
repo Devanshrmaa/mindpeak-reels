@@ -151,7 +151,7 @@ const ChapterPage = () => {
 
   // Difficulty-based study hours estimate
   const studyHours = chapter.difficulty === 'Easy' ? '15-20' : chapter.difficulty === 'Moderate' ? '25-35' : '40-50';
-  const prepSubjectSlug = `${chapter.exam.toLowerCase()}-${chapter.subject.toLowerCase()}-preparation`;
+  // prepSubjectSlug moved above articleSchema
 
   // ── 5x content data generation ──
   const topicDifficultyMap = chapter.topics.map((t, i) => {
