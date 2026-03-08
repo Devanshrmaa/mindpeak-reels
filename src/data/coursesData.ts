@@ -17,7 +17,7 @@ export interface Course {
   highlights: string[];
   logo?: string;
   brochure?: { title: string; file: string };
-  category: 'jee' | 'neet' | 'foundation' | 'crash';
+  category: 'jee' | 'neet' | 'foundation' | 'crash' | 'other';
   detailedSections: {
     title: string;
     content: string;
@@ -994,7 +994,152 @@ export const courses: Course[] = [
       'Equally valuable for JEE, NEET, and State Board students',
     ],
   },
+  // ═══════════════════════════════════════════════════
+  // OTHER EXAM COURSES
+  // ═══════════════════════════════════════════════════
+  {
+    slug: 'bitsat-target',
+    name: 'BITSAT Target Program',
+    targetExam: 'BITSAT',
+    duration: '1 Year',
+    mode: '1-on-1',
+    fee: '₹1,30,000 + GST',
+    icon: Target,
+    logo: jeeLogo,
+    category: 'other',
+    description:
+      'A focused BITSAT preparation program with 1-on-1 mentoring. Covers PCM at JEE Main level plus dedicated English Proficiency and Logical Reasoning sessions. Designed to help you score 300+ and secure admission to BITS Pilani, Goa, or Hyderabad.',
+    highlights: [
+      'Live online 1-on-1 daily class, 6 days/week',
+      'All sessions recorded — rewatch anytime',
+      'PCM at JEE Main level + English & Logical Reasoning',
+      'Speed-building drills for 130 questions in 3 hours',
+      'BITSAT-pattern mock tests with bonus question simulation',
+      'Integrated JEE + BITSAT preparation — no duplication',
+    ],
+    detailedSections: [
+      {
+        title: 'Who Is This Course For?',
+        content: 'This program is ideal for students targeting BITS Pilani alongside JEE. If you want CS/ECE at any BITS campus, you need a BITSAT-specific strategy on top of your JEE preparation. This course covers 80% JEE-overlapping PCM content plus the unique English and Logical Reasoning sections that most JEE coaching ignores.',
+      },
+      {
+        title: 'How It Works',
+        content: 'Your mentor creates a dual-track plan: JEE-level PCM mastery (covering 80% of BITSAT) plus 30-minute daily drills for English vocabulary, grammar, and logical reasoning. Weekly full-length BITSAT mocks under timed conditions train you for the extreme speed pressure. The bonus question strategy is practiced from Month 6 onwards.',
+      },
+      {
+        title: 'English & Logical Reasoning — The BITSAT Edge',
+        content: 'Most JEE students lose 15-25 marks in English and LR sections because they never practice them. Our program includes: daily vocabulary building (10 words/day), grammar rules with practice MCQs, logical reasoning puzzles from RS Aggarwal, and timed section practice (25 questions in 22 minutes). Students who master these sections gain a massive advantage over pure JEE aspirants.',
+      },
+    ],
+    faqs: [
+      { q: 'Can I prepare for BITSAT and JEE together with this course?', a: 'Yes — this course is designed for dual preparation. 80% of session time covers JEE-level PCM (which is BITSAT\'s core), and the remaining 20% covers BITSAT-unique sections. You\'ll be fully prepared for both exams.' },
+      { q: 'What BITSAT score can I expect?', a: 'Our BITSAT students average 280-310/390. Top performers have scored 340+, securing CS at BITS Pilani. The key differentiator is our speed training and English/LR preparation that other coaching ignores.' },
+    ],
+    whyChoose: [
+      'Dual JEE + BITSAT preparation — no separate coaching needed',
+      'Dedicated English & Logical Reasoning training (25 questions = 40 marks)',
+      'Speed drills to finish 130 questions and unlock bonus questions',
+      'Same fee as JEE Main program — maximum value',
+      'BITSAT mock tests simulating the exact exam interface',
+      'Personalized 1-on-1 mentoring — not lost in a batch of 200',
+    ],
+  },
+  {
+    slug: 'isi-entrance-target',
+    name: 'ISI Entrance Program',
+    targetExam: 'ISI B.Stat/B.Math',
+    duration: '1 Year',
+    mode: '1-on-1',
+    fee: '₹1,30,000 + GST',
+    icon: Brain,
+    logo: jeeLogo,
+    category: 'other',
+    description:
+      'An intensive ISI entrance preparation program with Olympiad-trained mentors. Covers both UGA (objective) and UGB (subjective proof-based) papers. Designed for students with a passion for mathematics who want to enter India\'s most prestigious statistics and mathematics institution.',
+    highlights: [
+      'Live online 1-on-1 daily class, 6 days/week',
+      'All sessions recorded — rewatch anytime',
+      'Olympiad-level combinatorics, number theory, and algebra',
+      'Subjective proof-writing training by ISI/CMI alumni',
+      'UGA (MCQ) + UGB (subjective) both covered',
+      'Interview preparation with mock interviews',
+    ],
+    detailedSections: [
+      {
+        title: 'Who Is This Course For?',
+        content: 'This program is for mathematically gifted students who dream of studying at the Indian Statistical Institute. Whether you\'re targeting B.Stat or B.Math, this course develops the deep mathematical thinking and elegant proof-writing skills needed to crack one of India\'s toughest entrance exams.',
+      },
+      {
+        title: 'Proof-Writing Mastery',
+        content: 'The ISI UGB paper requires you to write complete mathematical proofs — a skill not taught in any JEE coaching. Your mentor (an ISI/CMI alumnus or Olympiad medalist) trains you in: proof by contradiction, mathematical induction (strong and weak forms), constructive proofs, combinatorial arguments, and inequality proofs (AM-GM, Cauchy-Schwarz, Jensen\'s). Each session includes solving 2-3 subjective problems end-to-end.',
+      },
+      {
+        title: 'Topics Beyond JEE',
+        content: 'ISI tests topics that JEE doesn\'t cover: Graph Theory basics, Pigeonhole Principle applications, advanced combinatorics (Burnside\'s lemma, generating functions), modular arithmetic and number theory, and functional equations. These topics are introduced gradually alongside your JEE Mathematics preparation.',
+      },
+    ],
+    faqs: [
+      { q: 'Is ISI harder than JEE Advanced?', a: 'ISI tests different skills — deep reasoning and proof writing vs speed and multi-concept application. Many students find ISI subjective papers more challenging than JEE, but ISI has fewer questions (8 in 2 hours) allowing deeper thought per problem.' },
+      { q: 'Can I prepare for ISI and JEE together?', a: 'Yes — ISI preparation strengthens your JEE Mathematics significantly. The overlap is about 60% for algebra, calculus, and coordinate geometry. ISI-specific topics (combinatorics, number theory, proofs) add maybe 4-5 hours/week on top of JEE prep.' },
+    ],
+    whyChoose: [
+      'Mentors are ISI/CMI alumni and Olympiad medalists',
+      'Proof-writing training not available in any batch coaching',
+      'Covers both UGA (objective) and UGB (subjective) papers',
+      'Interview preparation with mock panels',
+      'Same affordable fee as JEE Main program',
+      'Dual ISI + JEE preparation — mathematics excellence guaranteed',
+    ],
+  },
+  {
+    slug: 'olympiad-coaching',
+    name: 'Olympiad Coaching Program',
+    targetExam: 'Math/Science Olympiads',
+    duration: '1 Year',
+    mode: '1-on-1',
+    fee: '₹1,30,000 + GST',
+    icon: GraduationCap,
+    logo: foundationLogo,
+    category: 'other',
+    description:
+      'A specialized Olympiad preparation program covering Mathematics Olympiad (RMO/INMO/IMO), Physics Olympiad (INPhO/IPhO), Chemistry Olympiad (INChO/IChO), and Biology Olympiad (INBO/IBO). 1-on-1 mentoring by Olympiad medalists and KVPY scholars who\'ve been through the system.',
+    highlights: [
+      'Live online 1-on-1 sessions, 6 days/week',
+      'All sessions recorded — rewatch anytime',
+      'RMO → INMO → IMO pathway for Mathematics',
+      'INPhO → IPhO pathway for Physics',
+      'Mentors are Olympiad medalists themselves',
+      'Boosts JEE/NEET prep — Olympiad skills = competitive edge',
+    ],
+    detailedSections: [
+      {
+        title: 'Who Is This Course For?',
+        content: 'This program is for exceptionally talented students in Class 8-12 who want to represent India at International Olympiads or win medals at the national level. Even if your primary target is JEE/NEET, Olympiad training develops problem-solving abilities that give you a massive edge. KVPY, ISI, and JEE Advanced all reward Olympiad-style thinking.',
+      },
+      {
+        title: 'Mathematics Olympiad Track',
+        content: 'The pathway: Pre-RMO → RMO → INMO → IMO Training Camp → IMO. Our curriculum covers: Number Theory (divisibility, primes, modular arithmetic, Fermat\'s/Wilson\'s theorems), Combinatorics (counting, Pigeonhole, graph theory, generating functions), Algebra (inequalities, functional equations, polynomials), and Geometry (Euclidean geometry, triangle centers, projective methods). Each topic is taught through problem-solving — not lectures.',
+      },
+      {
+        title: 'How Olympiad Training Helps JEE/NEET',
+        content: 'Olympiad students consistently outperform in JEE Advanced because: they develop deep problem-solving intuition, they can handle "unseen" problems that haven\'t been taught explicitly, their speed and accuracy on standard problems is much higher, and JEE Advanced Paper 2 often includes Olympiad-flavored questions. Our KVPY scholars report that Olympiad training made JEE "feel easy" in comparison.',
+      },
+    ],
+    faqs: [
+      { q: 'At what age should Olympiad preparation start?', a: 'Ideally Class 8-9 for Mathematics Olympiad and Class 9-10 for Science Olympiads. Earlier starters have more time to develop the deep problem-solving skills needed. However, talented students in Class 11 can still achieve strong RMO/INPhO results with intensive preparation.' },
+      { q: 'Will Olympiad coaching conflict with JEE/NEET prep?', a: 'Not at all — it enhances JEE/NEET prep. Olympiad topics overlap significantly with JEE Advanced Mathematics and Physics. Your mentor creates an integrated schedule. Students who do Olympiad + JEE typically score higher in JEE than pure JEE students.' },
+    ],
+    whyChoose: [
+      'Mentors are Olympiad medalists (INMO, INPhO, KVPY fellows)',
+      'Problem-solving approach — not rote learning',
+      'Covers all major Olympiads: RMO, INMO, INPhO, INChO, INBO',
+      'Builds skills that give massive JEE Advanced advantage',
+      'Same affordable pricing as JEE Main program',
+      'Only 1-on-1 Olympiad coaching program in India at this price',
+    ],
+  },
 ];
+
 
 export interface TestSeries {
   name: string;
