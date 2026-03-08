@@ -534,7 +534,7 @@ function generateBestBooksPosts(): BlogPost[] {
     category: s.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [s.exam, s.subject, 'Best Books', 'Recommended'],
     author: 'MindPeak Team',
-    publishDate: '2026-02-18',
+    publishDate: dynamicPublishDate(i + 200),
     readTime: '12 min read',
     icon: pickIcon(i + 10),
     content: `# Best Books for ${s.exam} ${s.subject} ${year}
