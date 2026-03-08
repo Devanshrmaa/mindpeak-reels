@@ -54,6 +54,7 @@ const CourseDetail = () => {
     neet: 'NEET Program',
     foundation: 'Foundation Program',
     crash: 'Crash Course',
+    other: course.targetExam + ' Program',
   }[course.category];
 
   return (
