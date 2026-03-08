@@ -3077,7 +3077,7 @@ function generateExamCityPosts(): BlogPost[] {
         category: exam.overlapsWith === 'neet' ? 'NEET' as const : 'JEE' as const,
         tags: [exam.name, city.city, city.state, 'Coaching', 'City Guide'],
         author: 'MindPeak Team',
-        publishDate: '2026-03-01',
+        publishDate: dynamicPublishDate(i + 1900),
         readTime: '13 min read',
         icon: examIcons[i % examIcons.length],
         content: `# Best ${exam.name} Coaching in ${city.city} ${year}
