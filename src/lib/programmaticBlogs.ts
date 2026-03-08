@@ -2665,7 +2665,7 @@ This is a ${exam.name}-exclusive topic that many students neglect, assuming thei
         category: exam.overlapsWith === 'neet' ? 'NEET' as const : 'JEE' as const,
         tags: [exam.name, subj.name, 'Preparation Guide', 'Strategy', overlapExam],
         author: 'MindPeak Team',
-        publishDate: '2026-03-01',
+        publishDate: dynamicPublishDate(i + 1600),
         readTime: '15 min read',
         icon: examIcons[i % examIcons.length],
         content: `# How to Prepare ${subj.name} for ${exam.name} ${year}
