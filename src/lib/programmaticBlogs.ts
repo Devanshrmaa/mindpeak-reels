@@ -300,7 +300,7 @@ ${ch.topics.map(t => `- ☐ ${t} — concepts clear, 10+ problems solved, PYQs d
 **Q: How many tricks should I memorise for ${ch.chapter}?**
 A: Focus on the top 5 tricks listed above. Quality over quantity — master 5 tricks completely rather than knowing 20 superficially.
 
-**Q: Do these tricks work for both ${exam} Main and Advanced?**
+**Q: Do these tricks work for both ${ch.exam} Main and Advanced?**
 A: ${ch.exam === 'JEE' ? 'Yes, with slight modifications. Main focuses on speed (tricks 1, 3, 5 are crucial), while Advanced requires deeper conceptual tricks (2, 6, 7).' : 'These tricks are specifically designed for NEET\'s MCQ format. Assertion-reasoning questions benefit most from tricks 3, 4, and 6.'}
 
 **Q: Can I learn these tricks on my own?**
