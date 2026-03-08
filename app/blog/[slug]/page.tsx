@@ -1,14 +1,19 @@
-import { resolvePostBySlug } from "@/lib/blogResolver";
 import BlogPostClient from "./BlogPostClient";
 import { notFound } from "next/navigation";
 
-/** Force dynamic — avoids 20MB ISR fallback */
+/** Prevent any static pre-rendering of blog posts */
 export const dynamic = 'force-dynamic';
+export const dynamicParams = true;
+export const revalidate = 0;
 
 type Props = { params: Promise<{ slug: string }> };
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
+  
+  // Dynamic import to prevent blogResolver (and its 20MB programmatic content)
+  // from being included in the pre-rendered fallback bundle
+  const { resolvePostBySlug } = await import("@/lib/blogResolver");
   const post = resolvePostBySlug(slug);
   if (!post) notFound();
 
