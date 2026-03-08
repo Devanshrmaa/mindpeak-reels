@@ -48,6 +48,18 @@ const JEEPracticeHub = () => {
         { '@type': 'ListItem', position: 2, name: 'JEE Practice Questions', item: 'https://mindpeakinstitute.com/jee-practice' },
       ],
     },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: 'JEE Practice — Subject-wise Question Banks',
+      numberOfItems: subjectBanks.length,
+      itemListElement: subjectBanks.map((bank, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: `JEE ${bank.subject} Practice Questions`,
+        url: `https://mindpeakinstitute.com/jee-practice`,
+      })),
+    },
   ];
 
   return (

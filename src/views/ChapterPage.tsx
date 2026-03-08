@@ -110,6 +110,8 @@ const ChapterPage = () => {
   const pageTitle = `${chapter.chapter} for ${chapter.exam} — Complete Guide & 1-on-1 Coaching | MindPeak`;
   const pageDesc = chapter.description;
 
+  const prepSubjectSlug = `${chapter.exam.toLowerCase()}-${chapter.subject.toLowerCase()}-preparation`;
+
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -126,6 +128,15 @@ const ChapterPage = () => {
     about: [
       { '@type': 'Thing', name: chapter.exam === 'JEE' ? 'JEE Main' : 'NEET-UG', sameAs: chapter.exam === 'JEE' ? 'https://en.wikipedia.org/wiki/Joint_Entrance_Examination_%E2%80%93_Main' : 'https://en.wikipedia.org/wiki/National_Eligibility_cum_Entrance_Test_(Undergraduate)' },
     ],
+    isPartOf: {
+      '@type': 'WebPage',
+      '@id': `https://mindpeakinstitute.com/${prepSubjectSlug}`,
+      name: `${chapter.exam} ${chapter.subject} Preparation`,
+    },
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', '.hero-description'],
+    },
   };
 
   // Related chapters same subject
@@ -140,7 +151,7 @@ const ChapterPage = () => {
 
   // Difficulty-based study hours estimate
   const studyHours = chapter.difficulty === 'Easy' ? '15-20' : chapter.difficulty === 'Moderate' ? '25-35' : '40-50';
-  const prepSubjectSlug = `${chapter.exam.toLowerCase()}-${chapter.subject.toLowerCase()}-preparation`;
+  // prepSubjectSlug moved above articleSchema
 
   // ── 5x content data generation ──
   const topicDifficultyMap = chapter.topics.map((t, i) => {

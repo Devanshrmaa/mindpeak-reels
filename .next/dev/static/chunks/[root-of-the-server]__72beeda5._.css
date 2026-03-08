@@ -1932,12 +1932,12 @@ h1, h2, h3, h4, h5, h6 {
   resize: none;
 }
 
-.scroll-mt-4 {
-  scroll-margin-top: 1rem;
-}
-
 .scroll-mt-24 {
   scroll-margin-top: 6rem;
+}
+
+.scroll-mt-4 {
+  scroll-margin-top: 1rem;
 }
 
 .list-inside {
@@ -2131,6 +2131,12 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: calc(3rem * var(--tw-space-y-reverse));
 }
 
+.space-y-16 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(4rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(4rem * var(--tw-space-y-reverse));
+}
+
 .space-y-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(.5rem * calc(1 - var(--tw-space-y-reverse)));
@@ -2165,12 +2171,6 @@ h1, h2, h3, h4, h5, h6 {
   --tw-space-y-reverse: 0;
   margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
-}
-
-.space-y-16 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(4rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(4rem * var(--tw-space-y-reverse));
 }
 
 .divide-y > :not([hidden]) ~ :not([hidden]) {
@@ -2392,6 +2392,10 @@ h1, h2, h3, h4, h5, h6 {
   border-color: hsl(var(--destructive) / .1);
 }
 
+.border-destructive\/20 {
+  border-color: hsl(var(--destructive) / .2);
+}
+
 .border-destructive\/30 {
   border-color: hsl(var(--destructive) / .3);
 }
@@ -2579,10 +2583,6 @@ h1, h2, h3, h4, h5, h6 {
   border-color: #eab3084d;
 }
 
-.border-destructive\/20 {
-  border-color: hsl(var(--destructive) / .2);
-}
-
 .border-l-amber-500 {
   --tw-border-opacity: 1;
   border-left-color: rgb(245 158 11 / var(--tw-border-opacity, 1));
@@ -2640,6 +2640,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .bg-accent\/10 {
   background-color: hsl(var(--accent) / .1);
+}
+
+.bg-accent\/20 {
+  background-color: hsl(var(--accent) / .2);
 }
 
 .bg-accent\/40 {
@@ -3076,10 +3080,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .bg-yellow-500\/5 {
   background-color: #eab3080d;
-}
-
-.bg-accent\/20 {
-  background-color: hsl(var(--accent) / .2);
 }
 
 .bg-\[radial-gradient\(ellipse_at_top_right\,hsl\(var\(--primary\)\/0\.15\)\,transparent_60\%\)\] {

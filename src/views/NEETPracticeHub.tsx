@@ -48,6 +48,18 @@ const NEETPracticeHub = () => {
         { '@type': 'ListItem', position: 2, name: 'NEET Practice Questions', item: 'https://mindpeakinstitute.com/neet-practice' },
       ],
     },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: 'NEET Practice — Subject-wise Question Banks',
+      numberOfItems: neetSubjectBanks.length,
+      itemListElement: neetSubjectBanks.map((bank, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: `NEET ${bank.subject} Practice Questions`,
+        url: `https://mindpeakinstitute.com/neet-practice`,
+      })),
+    },
   ];
 
   return (
