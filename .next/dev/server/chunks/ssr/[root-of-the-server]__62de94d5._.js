@@ -275,7 +275,7 @@ const viewport = {
                 "@type": "SearchAction",
                 target: {
                     "@type": "EntryPoint",
-                    urlTemplate: "https://mindpeakinstitute.com/courses?q={search_term_string}"
+                    urlTemplate: "https://mindpeakinstitute.com/blog?q={search_term_string}"
                 },
                 "query-input": "required name=search_term_string"
             },
