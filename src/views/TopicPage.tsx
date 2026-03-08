@@ -20,6 +20,7 @@ import {
   TrendingUp, Route,
 } from 'lucide-react';
 import { getTopicInfo, topicToSlug, TOPIC_PATHS } from '@/data/chapterData';
+import { getLastUpdated } from '@/lib/contentFreshness';
 import type { TopicInfo } from '@/data/chapterData';
 
 export { TOPIC_PATHS };

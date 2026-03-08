@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 const logo = '/images/logo.jpeg';
 import { getChapterBySlug, chapters, CHAPTER_SLUGS, topicToSlug } from '@/data/chapterData';
+import { getLastUpdated } from '@/lib/contentFreshness';
 import type { ChapterData } from '@/data/chapterData';
 
 export { CHAPTER_SLUGS };
