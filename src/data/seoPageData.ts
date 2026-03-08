@@ -158,10 +158,10 @@ const jeeCoachingPage: SEOPageData = {
 
 const neetCoachingPage: SEOPageData = {
   slug: 'neet-coaching',
-  title: 'NEET Coaching Online — 1-on-1 Personalized Mentoring | MindPeak',
-  description: 'Crack NEET UG with personalized 1-on-1 coaching. NCERT-first approach, dedicated biology focus, daily sessions. AIR 156 achieved. Book free demo today!',
-  h1: 'NEET Coaching Online —',
-  h1Highlight: 'Personalized Mentoring',
+  title: `Best NEET Coaching Online ${CURRENT_EXAM_YEAR} — 1-on-1 by AIIMS Alumni | MindPeak`,
+  description: `India's #1 online NEET coaching. Dedicated AIIMS-alumnus mentor, NCERT-first approach, daily sessions. AIR 156 achieved. 95% selection rate. Book free demo!`,
+  h1: `Best NEET Coaching Online ${CURRENT_EXAM_YEAR}`,
+  h1Highlight: '1-on-1 by AIIMS Alumni — NCERT Mastery',
   heroSubtitle: 'Your dream of AIIMS, JIPMER, or a top government medical college starts with the right mentor. MindPeak\'s NEET coaching combines NCERT mastery, dedicated 1-on-1 sessions, and intelligent performance tracking to maximise your NEET score.',
   sections: [
     {
