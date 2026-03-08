@@ -36,6 +36,7 @@ const allPhysicsChapters: ChapterData[] = [
   ...opticsModernChapters, // Optics, Modern Physics
   ...fluidElasticityChapters,  // Fluid Mechanics, Elasticity
   ...satelliteKeplerChapters,  // Satellite Motion, Kepler's Laws
+  ...gravPropChapters,         // Gravitation, Properties of Fluids
 ];
 
 export const physicsBank: SubjectBank = {
