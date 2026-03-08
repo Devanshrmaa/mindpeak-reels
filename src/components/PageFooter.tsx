@@ -162,12 +162,16 @@ function buildQuestionSections(
       ],
     },
     {
+      title: 'Other Exams',
+      links: STATIC_SECTIONS[2].links,
+    },
+    {
       title: 'Formula Sheets',
-      links: STATIC_SECTIONS[3].links,
+      links: STATIC_SECTIONS[4].links,
     },
     {
       title: 'Quick Links',
-      links: STATIC_SECTIONS[4].links,
+      links: STATIC_SECTIONS[5].links,
     },
   ];
 }
