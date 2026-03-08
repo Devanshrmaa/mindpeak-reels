@@ -24,14 +24,23 @@ export const dynamicParams = true;
  */
 export async function generateStaticParams() {
   const { CHAPTER_SLUGS } = await import("@/data/chapterData");
-  const { SUBJECT_SLUGS } = await import("@/views/SubjectPage");
-  const { FORMULA_SLUGS } = await import("@/views/FormulaSheet");
+  const { FORMULA_SLUGS } = await import("@/data/formulaSheetData");
   const { getAllExamInfoSlugs } = await import("@/data/examInfoData");
   const { getAllDifferenceSlugs } = await import("@/data/differenceBetweenData");
-  const { IMPORTANT_Q_SLUGS } = await import("@/views/ImportantQuestionsHub");
 
   const EXAM_INFO_SLUGS = getAllExamInfoSlugs();
   const DIFFERENCE_SLUGS = getAllDifferenceSlugs();
+
+  /* Inline slugs from "use client" view files to avoid SSG import errors */
+  const SUBJECT_SLUGS = [
+    'jee-physics-preparation', 'jee-chemistry-preparation', 'jee-mathematics-preparation',
+    'neet-physics-preparation', 'neet-chemistry-preparation', 'neet-biology-preparation',
+  ];
+  const IMPORTANT_Q_SLUGS = [
+    'jee-physics-important-questions', 'jee-chemistry-important-questions',
+    'jee-mathematics-important-questions', 'neet-physics-important-questions',
+    'neet-chemistry-important-questions', 'neet-biology-important-questions',
+  ];
 
   const staticSlugs: string[] = [
     // Core coaching pages
