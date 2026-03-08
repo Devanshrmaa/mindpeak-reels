@@ -1962,7 +1962,7 @@ function generateDropperStrategyPosts(): BlogPost[] {
     category: s.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [s.exam, s.subject, 'Dropper', 'Strategy', year.toString()],
     author: 'MindPeak Team',
-    publishDate: '2026-03-01',
+    publishDate: dynamicPublishDate(i + 1100),
     readTime: '15 min read',
     icon: pickIcon(i),
     content: `# ${s.exam} Dropper Strategy for ${s.subject} ${year}
