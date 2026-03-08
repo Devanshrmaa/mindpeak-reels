@@ -17,7 +17,7 @@ export interface Course {
   highlights: string[];
   logo?: string;
   brochure?: { title: string; file: string };
-  category: 'jee' | 'neet' | 'foundation' | 'crash';
+  category: 'jee' | 'neet' | 'foundation' | 'crash' | 'other';
   detailedSections: {
     title: string;
     content: string;
