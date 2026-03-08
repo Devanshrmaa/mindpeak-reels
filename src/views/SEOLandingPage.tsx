@@ -111,6 +111,25 @@ const SEOLandingPage = () => {
     jsonLd.push(buildFAQSchemaFromQA(page.faqs));
   }
 
+  // Article schema with freshness signals
+  const lastUpdated = getLastUpdated(slug);
+  jsonLd.push({
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: `${page.h1} ${page.h1Highlight}`,
+    description: page.description,
+    author: { '@type': 'Organization', name: 'MindPeak Institute' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'MindPeak Institute',
+      logo: { '@type': 'ImageObject', url: 'https://mindpeakinstitute.com/images/logo.jpeg' },
+    },
+    datePublished: '2025-01-01',
+    dateModified: lastUpdated,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://mindpeakinstitute.com/${page.slug}` },
+    about: getExamEntities(slug.includes('neet') ? 'NEET' : 'JEE'),
+  });
+
   jsonLd.push({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
