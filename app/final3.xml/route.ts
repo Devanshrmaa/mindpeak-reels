@@ -16,6 +16,7 @@ import { getAllProgrammaticBlogSlugs } from '@/lib/programmaticBlogs';
 import { TOPIC_PATHS, CHAPTER_SLUGS } from '@/data/chapterData';
 import { competitors } from '@/data/comparisonData';
 import { getAllStudyGuideSlugs } from '@/lib/topicStudyGuides';
+import { examRegistry } from '@/data/examRegistry';
 
 const BASE = 'https://mindpeakinstitute.com';
 
@@ -54,6 +55,8 @@ export async function GET() {
     '/course/6th-foundation', '/course/7th-foundation', '/course/8th-foundation',
     '/course/9th-foundation', '/course/10th-foundation',
     '/terms-and-conditions', '/refund-policy',
+    // Exam landing pages
+    ...examRegistry.map(e => `/${e.slug}-coaching`),
   ];
 
   /* ═══ 2. Comparison pages ═══ */
