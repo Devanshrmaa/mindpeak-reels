@@ -266,6 +266,18 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
     };
   }
 
+  // 5b. Study guide pages
+  const studyGuideInfo = parseStudyGuideSlug(slug);
+  if (studyGuideInfo) {
+    const guide = buildStudyGuide(studyGuideInfo);
+    return {
+      title: `How to Study ${guide.topicName} for ${guide.exam} ${YEAR} — Complete Guide`,
+      description: `Learn how to study ${guide.topicName} for ${guide.exam} ${guide.subject}. Step-by-step plan, resources, PYQs & common mistakes.`.slice(0, 160),
+      alternates: { canonical },
+      openGraph: { ...og, url: canonical },
+    };
+  }
+
   // 6. Location / unknown fallback
   const prettyName = slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
   const isLocation = slug.includes('coaching-in-') || slug.includes('-in-');
