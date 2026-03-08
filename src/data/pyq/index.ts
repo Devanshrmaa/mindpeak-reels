@@ -13,6 +13,9 @@ import { mathsPyq2 } from './maths-pyq-2';
 import { mathsPyq3 } from './maths-pyq-3';
 import { physicsPyq5 } from './physics-pyq-5';
 import { mathsPyq4 } from './maths-pyq-4';
+import { physicsPyq6 } from './physics-pyq-6';
+import { chemistryPyq5 } from './chemistry-pyq-5';
+import { mathsPyq5 } from './maths-pyq-5';
 
 /* ─── Helper: merge chapters with duplicate slugs ─── */
 function mergeChapters(chapters: PYQChapter[]): PYQChapter[] {
@@ -36,6 +39,7 @@ const allPhysicsPYQ: PYQChapter[] = mergeChapters([
   ...physicsPyq3,
   ...physicsPyq4,
   ...physicsPyq5,
+  ...physicsPyq6,
 ]);
 
 export const physicsPYQBank: PYQSubjectBank = {
@@ -51,6 +55,7 @@ const allChemistryPYQ: PYQChapter[] = mergeChapters([
   ...chemistryPyq2,
   ...chemistryPyq3,
   ...chemistryPyq4,
+  ...chemistryPyq5,
 ]);
 
 export const chemistryPYQBank: PYQSubjectBank = {
@@ -66,6 +71,7 @@ const allMathsPYQ: PYQChapter[] = mergeChapters([
   ...mathsPyq2,
   ...mathsPyq3,
   ...mathsPyq4,
+  ...mathsPyq5,
 ]);
 
 export const mathsPYQBank: PYQSubjectBank = {

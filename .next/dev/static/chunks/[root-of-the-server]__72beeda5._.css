@@ -2620,6 +2620,10 @@ h1, h2, h3, h4, h5, h6 {
   background-color: hsl(var(--accent));
 }
 
+.bg-accent\/10 {
+  background-color: hsl(var(--accent) / .1);
+}
+
 .bg-accent\/40 {
   background-color: hsl(var(--accent) / .4);
 }
@@ -3054,10 +3058,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .bg-yellow-500\/5 {
   background-color: #eab3080d;
-}
-
-.bg-accent\/10 {
-  background-color: hsl(var(--accent) / .1);
 }
 
 .bg-\[radial-gradient\(ellipse_at_top_right\,hsl\(var\(--primary\)\/0\.15\)\,transparent_60\%\)\] {

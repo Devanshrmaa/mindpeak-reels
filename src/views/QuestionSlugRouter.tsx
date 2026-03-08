@@ -7,13 +7,17 @@
 import { lazy, Suspense, type ComponentType } from 'react';
 import { usePathname } from 'next/navigation';
 import { parseNEETPYQHubSlug } from '@/data/neet-pyq/hierarchy';
+import { getChapter as getJEEPracticeChapter } from '@/data/practice';
+import { getPYQChapter } from '@/data/pyq';
 
 function lr<T extends { default: ComponentType<any> }>(fn: () => Promise<T>) {
   return lazy(() => fn().catch(() => fn()));
 }
 
 const JEEPracticeQuestion = lr(() => import('./JEEPracticeQuestion'));
+const JEEPracticeChapterHub = lr(() => import('./JEEPracticeChapterHub'));
 const JEEPYQQuestion = lr(() => import('./JEEPYQQuestion'));
+const JEEPYQChapterHub = lr(() => import('./JEEPYQChapterHub'));
 const NEETPracticeQuestion = lr(() => import('./NEETPracticeQuestion'));
 const NEETPYQQuestion = lr(() => import('./NEETPYQQuestion'));
 const NEETPYQChapterHub = lr(() => import('./NEETPYQChapterHub'));
@@ -22,6 +26,22 @@ const NEETPYQClassHub = lr(() => import('./NEETPYQClassHub'));
 const LocationPage = lr(() => import('./LocationPage'));
 const SubjectCityPage = lr(() => import('./SubjectCityPage'));
 const TopicStudyGuide = lr(() => import('./TopicStudyGuide'));
+
+// Hub slug detectors
+const JEE_PRACTICE_HUB_RE = /^jee-practice-(physics|chemistry|mathematics)-(.+)$/;
+const JEE_PYQ_HUB_RE = /^jee-pyq-(physics|chemistry|mathematics)-(.+)$/;
+
+function isJEEPracticeHub(slug: string): boolean {
+  const m = slug.match(JEE_PRACTICE_HUB_RE);
+  if (!m) return false;
+  return !!getJEEPracticeChapter(m[1], m[2]);
+}
+
+function isJEEPYQHub(slug: string): boolean {
+  const m = slug.match(JEE_PYQ_HUB_RE);
+  if (!m) return false;
+  return !!getPYQChapter(m[1], m[2]);
+}
 
 // Regex patterns
 const JEE_PRACTICE_RE = /^jee-(physics|chemistry|mathematics)-/;
@@ -65,9 +85,17 @@ export default function QuestionSlugRouter() {
     return <Suspense fallback={<LazyFallback />}><NEETPYQQuestion /></Suspense>;
   }
 
-  // JEE PYQ
-  if (slug.startsWith('jee-pyq-')) return <Suspense fallback={<LazyFallback />}><JEEPYQQuestion /></Suspense>;
-  // JEE Practice
+  // JEE PYQ — check chapter hub first, then question
+  if (slug.startsWith('jee-pyq-')) {
+    if (isJEEPYQHub(slug)) return <Suspense fallback={<LazyFallback />}><JEEPYQChapterHub /></Suspense>;
+    return <Suspense fallback={<LazyFallback />}><JEEPYQQuestion /></Suspense>;
+  }
+  // JEE Practice — check chapter hub first, then question
+  if (slug.startsWith('jee-practice-') || JEE_PRACTICE_RE.test(slug)) {
+    if (isJEEPracticeHub(slug)) return <Suspense fallback={<LazyFallback />}><JEEPracticeChapterHub /></Suspense>;
+    return <Suspense fallback={<LazyFallback />}><JEEPracticeQuestion /></Suspense>;
+  }
+  // JEE Practice (legacy pattern without "practice" prefix)
   if (JEE_PRACTICE_RE.test(slug)) return <Suspense fallback={<LazyFallback />}><JEEPracticeQuestion /></Suspense>;
   // NEET Practice
   if (NEET_PRACTICE_RE.test(slug)) return <Suspense fallback={<LazyFallback />}><NEETPracticeQuestion /></Suspense>;
