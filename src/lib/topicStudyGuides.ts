@@ -5,6 +5,7 @@
  */
 
 import { allTopics, type TopicInfo } from '@/data/chapterData';
+import { getTopicContent } from '@/data/topicContent';
 
 export interface TopicStudyGuide {
   slug: string;
