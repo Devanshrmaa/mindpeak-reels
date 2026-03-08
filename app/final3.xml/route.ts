@@ -1,7 +1,7 @@
 /**
  * Dynamic sitemap route: /final3.xml
  * Comprehensive sitemap covering ALL pages including new blog categories,
- * new competitor comparisons, and expanded city pages.
+ * new competitor comparisons, expanded city pages, and topic study guides.
  * Designed for 50,000+ URL scale.
  */
 
@@ -13,8 +13,9 @@ import { buildAllNEETPYQSlugs } from '@/data/neet-pyq/index';
 import { allCities } from '@/data/cityData';
 import { getAllSubjectCitySlugs } from '@/data/subjectCityData';
 import { getAllProgrammaticBlogSlugs } from '@/lib/programmaticBlogs';
-import { TOPIC_PATHS } from '@/data/chapterData';
+import { TOPIC_PATHS, CHAPTER_SLUGS } from '@/data/chapterData';
 import { competitors } from '@/data/comparisonData';
+import { getAllStudyGuideSlugs } from '@/lib/topicStudyGuides';
 
 const BASE = 'https://mindpeakinstitute.com';
 
@@ -69,13 +70,19 @@ export async function GET() {
   /* ═══ 4. Subject-city pages ═══ */
   const subjectCitySlugs = getAllSubjectCitySlugs().map(s => `/${s}`);
 
-  /* ═══ 5. Blog posts (expanded: 700+ posts) ═══ */
+  /* ═══ 5. Blog posts (expanded: 900+ posts) ═══ */
   const blogSlugs = getAllProgrammaticBlogSlugs().map(s => `/${s}`);
 
   /* ═══ 6. Topic pages ═══ */
   const topicPaths = TOPIC_PATHS.map(p => `/${p}`);
 
-  /* ═══ 7. Question pages ═══ */
+  /* ═══ 7. Chapter pages ═══ */
+  const chapterPaths = CHAPTER_SLUGS.map(s => `/${s}`);
+
+  /* ═══ 8. Study guide pages (~800) ═══ */
+  const studyGuideSlugs = getAllStudyGuideSlugs().map(s => `/${s}`);
+
+  /* ═══ 9. Question pages ═══ */
   const practiceSlugs = buildAllPracticeSlugs().map(s => `/${s.slug}`);
   const pyqSlugs = buildAllPYQSlugs().map(s => `/${s.slug}`);
   const neetPracticeSlugs = buildAllNEETPracticeSlugs().map(s => `/${s.slug}`);
@@ -94,6 +101,8 @@ export async function GET() {
     subjectCity: subjectCitySlugs.length,
     blogs: blogSlugs.length,
     topics: topicPaths.length,
+    chapters: chapterPaths.length,
+    studyGuides: studyGuideSlugs.length,
     jeePractice: practiceSlugs.length,
     jeePyq: pyqSlugs.length,
     neetPractice: neetPracticeSlugs.length,
@@ -101,7 +110,7 @@ export async function GET() {
   };
   const total = Object.values(counts).reduce((a, b) => a + b, 0);
 
-  lines.push(`<!-- Static: ${counts.static} | Comparisons: ${counts.comparisons} | Locations: ${counts.locations} | Subject-City: ${counts.subjectCity} | Blogs: ${counts.blogs} | Topics: ${counts.topics} | JEE Practice: ${counts.jeePractice} | JEE PYQ: ${counts.jeePyq} | NEET Practice: ${counts.neetPractice} | NEET PYQ: ${counts.neetPyq} | TOTAL: ${total} -->`);
+  lines.push(`<!-- Static: ${counts.static} | Comparisons: ${counts.comparisons} | Locations: ${counts.locations} | Subject-City: ${counts.subjectCity} | Blogs: ${counts.blogs} | Topics: ${counts.topics} | Chapters: ${counts.chapters} | Study Guides: ${counts.studyGuides} | JEE Practice: ${counts.jeePractice} | JEE PYQ: ${counts.jeePyq} | NEET Practice: ${counts.neetPractice} | NEET PYQ: ${counts.neetPyq} | TOTAL: ${total} -->`);
   lines.push('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
 
   for (const p of STATIC) lines.push(urlEntry(p, '0.80', 'weekly', TODAY));
@@ -109,7 +118,9 @@ export async function GET() {
   for (const p of locationPaths) lines.push(urlEntry(p, '0.65', 'monthly', TODAY));
   for (const p of subjectCitySlugs) lines.push(urlEntry(p, '0.60', 'monthly', TODAY));
   for (const p of blogSlugs) lines.push(urlEntry(p, '0.60', 'weekly', TODAY));
+  for (const p of chapterPaths) lines.push(urlEntry(p, '0.60', 'monthly', TODAY));
   for (const p of topicPaths) lines.push(urlEntry(p, '0.55', 'monthly', TODAY));
+  for (const p of studyGuideSlugs) lines.push(urlEntry(p, '0.55', 'monthly', TODAY));
   for (const p of practiceSlugs) lines.push(urlEntry(p, '0.50', 'monthly', TODAY));
   for (const p of pyqSlugs) lines.push(urlEntry(p, '0.50', 'monthly', TODAY));
   for (const p of neetPracticeSlugs) lines.push(urlEntry(p, '0.50', 'monthly', TODAY));

@@ -371,6 +371,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../../app/mindpeak-vs-aakash/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/mindpeak-vs-aakash">> = Specific
+  const handler = {} as typeof import("../../../app/mindpeak-vs-aakash/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../../app/mindpeak-vs-allen/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/mindpeak-vs-allen">> = Specific
@@ -398,10 +407,55 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../../app/mindpeak-vs-narayana/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/mindpeak-vs-narayana">> = Specific
+  const handler = {} as typeof import("../../../app/mindpeak-vs-narayana/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../app/mindpeak-vs-physics-wallah/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/mindpeak-vs-physics-wallah">> = Specific
+  const handler = {} as typeof import("../../../app/mindpeak-vs-physics-wallah/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../../app/mindpeak-vs-resonance/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/mindpeak-vs-resonance">> = Specific
   const handler = {} as typeof import("../../../app/mindpeak-vs-resonance/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../app/mindpeak-vs-sri-chaitanya/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/mindpeak-vs-sri-chaitanya">> = Specific
+  const handler = {} as typeof import("../../../app/mindpeak-vs-sri-chaitanya/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../app/mindpeak-vs-unacademy/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/mindpeak-vs-unacademy">> = Specific
+  const handler = {} as typeof import("../../../app/mindpeak-vs-unacademy/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../app/mindpeak-vs-vedantu/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/mindpeak-vs-vedantu">> = Specific
+  const handler = {} as typeof import("../../../app/mindpeak-vs-vedantu/page.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check

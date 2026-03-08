@@ -15,6 +15,7 @@ import { parseNEETPYQHubSlug, getUnitBySlug } from '@/data/neet-pyq/hierarchy';
 import { getSEOPage } from '@/data/seoPageData';
 import { chapters, getTopicInfo } from '@/data/chapterData';
 import { resolveOgImageMeta } from '@/lib/ogImage';
+import { parseStudyGuideSlug, buildStudyGuide } from '@/lib/topicStudyGuides';
 import type { Metadata } from 'next';
 
 const BASE = 'https://mindpeakinstitute.com';
@@ -260,6 +261,18 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
     return {
       title: `Best ${exam} Coaching in ${page.title.split('in ').pop()} ${YEAR} — 1-on-1 Online | Free Demo`,
       description: `Top-rated ${exam} coaching in ${page.title.split('in ').pop()} — online 1-on-1 with expert mentors. Book free demo class today.`.slice(0, 160),
+      alternates: { canonical },
+      openGraph: { ...og, url: canonical },
+    };
+  }
+
+  // 5b. Study guide pages
+  const studyGuideInfo = parseStudyGuideSlug(slug);
+  if (studyGuideInfo) {
+    const guide = buildStudyGuide(studyGuideInfo);
+    return {
+      title: `How to Study ${guide.topicName} for ${guide.exam} ${YEAR} — Complete Guide`,
+      description: `Learn how to study ${guide.topicName} for ${guide.exam} ${guide.subject}. Step-by-step plan, resources, PYQs & common mistakes.`.slice(0, 160),
       alternates: { canonical },
       openGraph: { ...og, url: canonical },
     };

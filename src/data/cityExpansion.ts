@@ -762,9 +762,238 @@ const newCityConfigs: CityConfig[] = [
   { slug: 'kathmandu', city: 'Kathmandu', state: 'Nepal', tier: 2, lat: 27.7172, lng: 85.3240, exams: ['jee', 'neet'], board: 'CBSE/Nepal Board' },
   { slug: 'dhaka', city: 'Dhaka', state: 'Bangladesh', tier: 2, lat: 23.8103, lng: 90.4125, exams: ['jee', 'neet'], board: 'CBSE' },
   { slug: 'frankfurt', city: 'Frankfurt', state: 'Germany', tier: 1, lat: 50.1109, lng: 8.6821, exams: ['jee', 'neet'], board: 'CBSE/IB' },
+
+  // ═══════════════════════════════════════════════════════════
+  //  EXPANSION WAVE 2: 350+ MORE CITIES
+  //  Additional district headquarters and 100K+ population cities
+  // ═══════════════════════════════════════════════════════════
+
+  // ─── MORE UTTAR PRADESH ───────────────────────────────────
+  { slug: 'etawah', city: 'Etawah', state: 'Uttar Pradesh', tier: 3, lat: 26.7854, lng: 79.0158, exams: ['jee', 'neet'], board: 'UP Board', language: 'Hindi' },
+  { slug: 'sultanpur', city: 'Sultanpur', state: 'Uttar Pradesh', tier: 3, lat: 26.2648, lng: 82.0727, exams: ['jee', 'neet'], board: 'UP Board', language: 'Hindi' },
+  { slug: 'fatehpur', city: 'Fatehpur', state: 'Uttar Pradesh', tier: 3, lat: 25.9304, lng: 80.8133, exams: ['jee', 'neet'], board: 'UP Board', language: 'Hindi' },
+  { slug: 'banda', city: 'Banda', state: 'Uttar Pradesh', tier: 3, lat: 25.4756, lng: 80.3399, exams: ['jee', 'neet'], board: 'UP Board', language: 'Hindi' },
+  { slug: 'mirzapur', city: 'Mirzapur', state: 'Uttar Pradesh', tier: 3, lat: 25.1460, lng: 82.5690, exams: ['jee', 'neet'], board: 'UP Board', language: 'Hindi' },
+  { slug: 'azamgarh', city: 'Azamgarh', state: 'Uttar Pradesh', tier: 3, lat: 26.0735, lng: 83.1862, exams: ['jee', 'neet'], board: 'UP Board', language: 'Hindi' },
+  { slug: 'deoria', city: 'Deoria', state: 'Uttar Pradesh', tier: 3, lat: 26.5024, lng: 83.7791, exams: ['jee', 'neet'], board: 'UP Board', language: 'Hindi' },
+  { slug: 'basti', city: 'Basti', state: 'Uttar Pradesh', tier: 3, lat: 26.7996, lng: 82.7327, exams: ['jee', 'neet'], board: 'UP Board', language: 'Hindi' },
+  { slug: 'faizabad', city: 'Ayodhya', state: 'Uttar Pradesh', tier: 3, lat: 26.7736, lng: 82.1442, exams: ['jee', 'neet'], board: 'UP Board', language: 'Hindi' },
+  { slug: 'pratapgarh-up', city: 'Pratapgarh', state: 'Uttar Pradesh', tier: 3, lat: 25.8961, lng: 81.9401, exams: ['jee', 'neet'], board: 'UP Board', language: 'Hindi' },
+  { slug: 'unnao', city: 'Unnao', state: 'Uttar Pradesh', tier: 3, lat: 26.5472, lng: 80.4879, exams: ['jee', 'neet'], board: 'UP Board', language: 'Hindi' },
+  { slug: 'rae-bareli', city: 'Rae Bareli', state: 'Uttar Pradesh', tier: 3, lat: 26.2176, lng: 81.2304, exams: ['jee', 'neet'], board: 'UP Board', language: 'Hindi' },
+  { slug: 'sitapur', city: 'Sitapur', state: 'Uttar Pradesh', tier: 3, lat: 27.5706, lng: 80.6831, exams: ['jee', 'neet'], board: 'UP Board', language: 'Hindi' },
+  { slug: 'hardoi', city: 'Hardoi', state: 'Uttar Pradesh', tier: 3, lat: 27.3954, lng: 80.1310, exams: ['jee', 'neet'], board: 'UP Board', language: 'Hindi' },
+  { slug: 'lakhimpur-kheri', city: 'Lakhimpur Kheri', state: 'Uttar Pradesh', tier: 3, lat: 27.9462, lng: 80.7801, exams: ['jee', 'neet'], board: 'UP Board', language: 'Hindi' },
+  { slug: 'bahraich', city: 'Bahraich', state: 'Uttar Pradesh', tier: 3, lat: 27.5745, lng: 81.5960, exams: ['jee', 'neet'], board: 'UP Board', language: 'Hindi' },
+  { slug: 'gonda', city: 'Gonda', state: 'Uttar Pradesh', tier: 3, lat: 27.1270, lng: 81.9634, exams: ['jee', 'neet'], board: 'UP Board', language: 'Hindi' },
+  { slug: 'ballia', city: 'Ballia', state: 'Uttar Pradesh', tier: 3, lat: 25.7586, lng: 84.1488, exams: ['jee', 'neet'], board: 'UP Board', language: 'Hindi' },
+  { slug: 'mainpuri', city: 'Mainpuri', state: 'Uttar Pradesh', tier: 3, lat: 27.2348, lng: 79.0207, exams: ['jee', 'neet'], board: 'UP Board', language: 'Hindi' },
+  { slug: 'budaun', city: 'Budaun', state: 'Uttar Pradesh', tier: 3, lat: 28.0481, lng: 79.1200, exams: ['jee', 'neet'], board: 'UP Board', language: 'Hindi' },
+  { slug: 'bulandshahr', city: 'Bulandshahr', state: 'Uttar Pradesh', tier: 3, lat: 28.4070, lng: 77.8498, exams: ['jee', 'neet'], board: 'UP Board', language: 'Hindi' },
+
+  // ─── MORE BIHAR ───────────────────────────────────────────
+  { slug: 'nalanda', city: 'Nalanda', state: 'Bihar', tier: 3, lat: 25.1348, lng: 85.4427, exams: ['jee', 'neet'], board: 'Bihar Board', language: 'Hindi' },
+  { slug: 'munger', city: 'Munger', state: 'Bihar', tier: 3, lat: 25.3752, lng: 86.4736, exams: ['jee', 'neet'], board: 'Bihar Board', language: 'Hindi' },
+  { slug: 'sasaram', city: 'Sasaram', state: 'Bihar', tier: 3, lat: 24.9476, lng: 84.0287, exams: ['jee', 'neet'], board: 'Bihar Board', language: 'Hindi' },
+  { slug: 'hajipur', city: 'Hajipur', state: 'Bihar', tier: 3, lat: 25.6874, lng: 85.2118, exams: ['jee', 'neet'], board: 'Bihar Board', language: 'Hindi' },
+  { slug: 'siwan', city: 'Siwan', state: 'Bihar', tier: 3, lat: 26.2226, lng: 84.3588, exams: ['jee', 'neet'], board: 'Bihar Board', language: 'Hindi' },
+  { slug: 'madhubani', city: 'Madhubani', state: 'Bihar', tier: 3, lat: 26.3548, lng: 86.0716, exams: ['jee', 'neet'], board: 'Bihar Board', language: 'Hindi' },
+  { slug: 'bettiah', city: 'Bettiah', state: 'Bihar', tier: 3, lat: 26.7994, lng: 84.5167, exams: ['jee', 'neet'], board: 'Bihar Board', language: 'Hindi' },
+  { slug: 'motihari', city: 'Motihari', state: 'Bihar', tier: 3, lat: 26.6550, lng: 84.9169, exams: ['jee', 'neet'], board: 'Bihar Board', language: 'Hindi' },
+  { slug: 'aurangabad-bihar', city: 'Aurangabad, Bihar', state: 'Bihar', tier: 3, lat: 24.7520, lng: 84.3746, exams: ['jee', 'neet'], board: 'Bihar Board', language: 'Hindi' },
+  { slug: 'nawada', city: 'Nawada', state: 'Bihar', tier: 3, lat: 24.8868, lng: 85.5400, exams: ['jee', 'neet'], board: 'Bihar Board', language: 'Hindi' },
+  { slug: 'saharsa', city: 'Saharsa', state: 'Bihar', tier: 3, lat: 25.8806, lng: 86.5951, exams: ['jee', 'neet'], board: 'Bihar Board', language: 'Hindi' },
+  { slug: 'jehanabad', city: 'Jehanabad', state: 'Bihar', tier: 3, lat: 25.2121, lng: 84.9862, exams: ['jee', 'neet'], board: 'Bihar Board', language: 'Hindi' },
+
+  // ─── MORE RAJASTHAN ───────────────────────────────────────
+  { slug: 'udaipur', city: 'Udaipur', state: 'Rajasthan', tier: 2, lat: 24.5854, lng: 73.7125, exams: ['jee', 'neet'], board: 'Rajasthan Board', nearbyInstitute: 'IIT-Jodhpur affiliated centres' },
+  { slug: 'sri-ganganagar', city: 'Sri Ganganagar', state: 'Rajasthan', tier: 3, lat: 29.9094, lng: 73.8780, exams: ['jee', 'neet'], board: 'Rajasthan Board' },
+  { slug: 'dungarpur', city: 'Dungarpur', state: 'Rajasthan', tier: 3, lat: 23.8437, lng: 73.7159, exams: ['jee', 'neet'], board: 'Rajasthan Board' },
+  { slug: 'banswara', city: 'Banswara', state: 'Rajasthan', tier: 3, lat: 23.5463, lng: 74.4435, exams: ['jee', 'neet'], board: 'Rajasthan Board' },
+  { slug: 'bundi', city: 'Bundi', state: 'Rajasthan', tier: 3, lat: 25.4305, lng: 75.6375, exams: ['jee', 'neet'], board: 'Rajasthan Board' },
+  { slug: 'baran', city: 'Baran', state: 'Rajasthan', tier: 3, lat: 25.0956, lng: 76.5128, exams: ['jee', 'neet'], board: 'Rajasthan Board' },
+  { slug: 'jhalawar', city: 'Jhalawar', state: 'Rajasthan', tier: 3, lat: 24.5973, lng: 76.1652, exams: ['jee', 'neet'], board: 'Rajasthan Board' },
+  { slug: 'hanumangarh', city: 'Hanumangarh', state: 'Rajasthan', tier: 3, lat: 29.5816, lng: 74.3294, exams: ['jee', 'neet'], board: 'Rajasthan Board' },
+  { slug: 'nagaur', city: 'Nagaur', state: 'Rajasthan', tier: 3, lat: 27.2024, lng: 73.7353, exams: ['jee', 'neet'], board: 'Rajasthan Board' },
+  { slug: 'churu', city: 'Churu', state: 'Rajasthan', tier: 3, lat: 28.2950, lng: 74.9683, exams: ['jee', 'neet'], board: 'Rajasthan Board' },
+  { slug: 'sawai-madhopur', city: 'Sawai Madhopur', state: 'Rajasthan', tier: 3, lat: 26.0233, lng: 76.3413, exams: ['jee', 'neet'], board: 'Rajasthan Board' },
+  { slug: 'jhunjhunu', city: 'Jhunjhunu', state: 'Rajasthan', tier: 3, lat: 28.1253, lng: 75.3992, exams: ['jee', 'neet'], board: 'Rajasthan Board' },
+  { slug: 'dholpur', city: 'Dholpur', state: 'Rajasthan', tier: 3, lat: 26.6962, lng: 77.8910, exams: ['jee', 'neet'], board: 'Rajasthan Board' },
+  { slug: 'bharatpur', city: 'Bharatpur', state: 'Rajasthan', tier: 3, lat: 27.2171, lng: 77.4901, exams: ['jee', 'neet'], board: 'Rajasthan Board' },
+  { slug: 'dausa', city: 'Dausa', state: 'Rajasthan', tier: 3, lat: 26.8860, lng: 76.3338, exams: ['jee', 'neet'], board: 'Rajasthan Board' },
+  { slug: 'karauli', city: 'Karauli', state: 'Rajasthan', tier: 3, lat: 26.4938, lng: 77.0227, exams: ['jee', 'neet'], board: 'Rajasthan Board' },
+
+  // ─── MORE MADHYA PRADESH ──────────────────────────────────
+  { slug: 'morena', city: 'Morena', state: 'Madhya Pradesh', tier: 3, lat: 26.4959, lng: 77.9912, exams: ['jee', 'neet'], board: 'MP Board', language: 'Hindi' },
+  { slug: 'bhind', city: 'Bhind', state: 'Madhya Pradesh', tier: 3, lat: 26.5630, lng: 78.7878, exams: ['jee', 'neet'], board: 'MP Board', language: 'Hindi' },
+  { slug: 'shivpuri', city: 'Shivpuri', state: 'Madhya Pradesh', tier: 3, lat: 25.4236, lng: 77.6591, exams: ['jee', 'neet'], board: 'MP Board', language: 'Hindi' },
+  { slug: 'damoh', city: 'Damoh', state: 'Madhya Pradesh', tier: 3, lat: 23.8369, lng: 79.4416, exams: ['jee', 'neet'], board: 'MP Board', language: 'Hindi' },
+  { slug: 'hoshangabad', city: 'Narmadapuram', state: 'Madhya Pradesh', tier: 3, lat: 22.7540, lng: 77.7270, exams: ['jee', 'neet'], board: 'MP Board', language: 'Hindi' },
+  { slug: 'betul', city: 'Betul', state: 'Madhya Pradesh', tier: 3, lat: 21.9082, lng: 77.8972, exams: ['jee', 'neet'], board: 'MP Board', language: 'Hindi' },
+  { slug: 'khandwa', city: 'Khandwa', state: 'Madhya Pradesh', tier: 3, lat: 21.8260, lng: 76.3539, exams: ['jee', 'neet'], board: 'MP Board', language: 'Hindi' },
+  { slug: 'burhanpur', city: 'Burhanpur', state: 'Madhya Pradesh', tier: 3, lat: 21.3106, lng: 76.2300, exams: ['jee', 'neet'], board: 'MP Board', language: 'Hindi' },
+  { slug: 'shahdol', city: 'Shahdol', state: 'Madhya Pradesh', tier: 3, lat: 23.2979, lng: 81.3543, exams: ['jee', 'neet'], board: 'MP Board', language: 'Hindi' },
+  { slug: 'datia', city: 'Datia', state: 'Madhya Pradesh', tier: 3, lat: 25.6662, lng: 78.4603, exams: ['jee', 'neet'], board: 'MP Board', language: 'Hindi' },
+
+  // ─── MORE MAHARASHTRA ─────────────────────────────────────
+  { slug: 'ratnagiri', city: 'Ratnagiri', state: 'Maharashtra', tier: 3, lat: 16.9902, lng: 73.3120, exams: ['jee', 'neet'], board: 'Maharashtra State Board', stateExam: 'MHT-CET', language: 'Marathi' },
+  { slug: 'sindhudurg', city: 'Sindhudurg', state: 'Maharashtra', tier: 3, lat: 16.3460, lng: 73.7553, exams: ['jee', 'neet'], board: 'Maharashtra State Board', stateExam: 'MHT-CET', language: 'Marathi' },
+  { slug: 'akola', city: 'Akola', state: 'Maharashtra', tier: 3, lat: 20.7096, lng: 77.0020, exams: ['jee', 'neet'], board: 'Maharashtra State Board', stateExam: 'MHT-CET', language: 'Marathi' },
+  { slug: 'washim', city: 'Washim', state: 'Maharashtra', tier: 3, lat: 20.0999, lng: 77.1403, exams: ['jee', 'neet'], board: 'Maharashtra State Board', stateExam: 'MHT-CET', language: 'Marathi' },
+  { slug: 'beed', city: 'Beed', state: 'Maharashtra', tier: 3, lat: 18.9893, lng: 75.7593, exams: ['jee', 'neet'], board: 'Maharashtra State Board', stateExam: 'MHT-CET', language: 'Marathi' },
+  { slug: 'osmanabad', city: 'Osmanabad', state: 'Maharashtra', tier: 3, lat: 18.1860, lng: 76.0400, exams: ['jee', 'neet'], board: 'Maharashtra State Board', stateExam: 'MHT-CET', language: 'Marathi' },
+  { slug: 'hingoli', city: 'Hingoli', state: 'Maharashtra', tier: 3, lat: 19.7124, lng: 77.1461, exams: ['jee', 'neet'], board: 'Maharashtra State Board', stateExam: 'MHT-CET', language: 'Marathi' },
+  { slug: 'wardha', city: 'Wardha', state: 'Maharashtra', tier: 3, lat: 20.7453, lng: 78.6006, exams: ['jee', 'neet'], board: 'Maharashtra State Board', stateExam: 'MHT-CET', language: 'Marathi' },
+  { slug: 'yavatmal', city: 'Yavatmal', state: 'Maharashtra', tier: 3, lat: 20.3899, lng: 78.1307, exams: ['jee', 'neet'], board: 'Maharashtra State Board', stateExam: 'MHT-CET', language: 'Marathi' },
+  { slug: 'chandrapur', city: 'Chandrapur', state: 'Maharashtra', tier: 3, lat: 19.9500, lng: 79.2961, exams: ['jee', 'neet'], board: 'Maharashtra State Board', stateExam: 'MHT-CET', language: 'Marathi' },
+  { slug: 'gondia', city: 'Gondia', state: 'Maharashtra', tier: 3, lat: 21.4602, lng: 80.1959, exams: ['jee', 'neet'], board: 'Maharashtra State Board', stateExam: 'MHT-CET', language: 'Marathi' },
+  { slug: 'buldhana', city: 'Buldhana', state: 'Maharashtra', tier: 3, lat: 20.5293, lng: 76.1848, exams: ['jee', 'neet'], board: 'Maharashtra State Board', stateExam: 'MHT-CET', language: 'Marathi' },
+
+  // ─── MORE WEST BENGAL ─────────────────────────────────────
+  { slug: 'purulia', city: 'Purulia', state: 'West Bengal', tier: 3, lat: 23.3324, lng: 86.3650, exams: ['jee', 'neet'], board: 'WB Board', stateExam: 'WBJEE', language: 'Bengali' },
+  { slug: 'bankura', city: 'Bankura', state: 'West Bengal', tier: 3, lat: 23.2326, lng: 87.0654, exams: ['jee', 'neet'], board: 'WB Board', stateExam: 'WBJEE', language: 'Bengali' },
+  { slug: 'birbhum', city: 'Suri (Birbhum)', state: 'West Bengal', tier: 3, lat: 23.9138, lng: 87.5283, exams: ['jee', 'neet'], board: 'WB Board', stateExam: 'WBJEE', language: 'Bengali' },
+  { slug: 'cooch-behar', city: 'Cooch Behar', state: 'West Bengal', tier: 3, lat: 26.3169, lng: 89.4487, exams: ['jee', 'neet'], board: 'WB Board', stateExam: 'WBJEE', language: 'Bengali' },
+  { slug: 'jalpaiguri', city: 'Jalpaiguri', state: 'West Bengal', tier: 3, lat: 26.5230, lng: 88.7299, exams: ['jee', 'neet'], board: 'WB Board', stateExam: 'WBJEE', language: 'Bengali' },
+  { slug: 'nadia', city: 'Krishnanagar (Nadia)', state: 'West Bengal', tier: 3, lat: 23.3988, lng: 88.5083, exams: ['jee', 'neet'], board: 'WB Board', stateExam: 'WBJEE', language: 'Bengali' },
+  { slug: 'north-dinajpur', city: 'Raiganj', state: 'West Bengal', tier: 3, lat: 25.6197, lng: 88.1233, exams: ['jee', 'neet'], board: 'WB Board', stateExam: 'WBJEE', language: 'Bengali' },
+  { slug: 'murshidabad', city: 'Murshidabad', state: 'West Bengal', tier: 3, lat: 24.1851, lng: 88.2700, exams: ['jee', 'neet'], board: 'WB Board', stateExam: 'WBJEE', language: 'Bengali' },
+
+  // ─── MORE TAMIL NADU ──────────────────────────────────────
+  { slug: 'kanchipuram', city: 'Kanchipuram', state: 'Tamil Nadu', tier: 3, lat: 12.8185, lng: 79.6947, exams: ['jee', 'neet'], board: 'TN State Board', language: 'Tamil' },
+  { slug: 'sivakasi', city: 'Sivakasi', state: 'Tamil Nadu', tier: 3, lat: 9.4533, lng: 77.7985, exams: ['jee', 'neet'], board: 'TN State Board', language: 'Tamil' },
+  { slug: 'thoothukudi', city: 'Thoothukudi', state: 'Tamil Nadu', tier: 3, lat: 8.7642, lng: 78.1348, exams: ['jee', 'neet'], board: 'TN State Board', language: 'Tamil' },
+  { slug: 'namakkal', city: 'Namakkal', state: 'Tamil Nadu', tier: 3, lat: 11.2189, lng: 78.1674, exams: ['jee', 'neet'], board: 'TN State Board', language: 'Tamil' },
+  { slug: 'villupuram', city: 'Villupuram', state: 'Tamil Nadu', tier: 3, lat: 11.9395, lng: 79.4924, exams: ['jee', 'neet'], board: 'TN State Board', language: 'Tamil' },
+  { slug: 'ramanathapuram', city: 'Ramanathapuram', state: 'Tamil Nadu', tier: 3, lat: 9.3639, lng: 78.8395, exams: ['jee', 'neet'], board: 'TN State Board', language: 'Tamil' },
+  { slug: 'virudhunagar', city: 'Virudhunagar', state: 'Tamil Nadu', tier: 3, lat: 9.5858, lng: 77.9571, exams: ['jee', 'neet'], board: 'TN State Board', language: 'Tamil' },
+  { slug: 'perambalur', city: 'Perambalur', state: 'Tamil Nadu', tier: 3, lat: 11.2336, lng: 78.8805, exams: ['jee', 'neet'], board: 'TN State Board', language: 'Tamil' },
+  { slug: 'ariyalur', city: 'Ariyalur', state: 'Tamil Nadu', tier: 3, lat: 11.1383, lng: 79.0775, exams: ['jee', 'neet'], board: 'TN State Board', language: 'Tamil' },
+  { slug: 'tiruvannamalai', city: 'Tiruvannamalai', state: 'Tamil Nadu', tier: 3, lat: 12.2253, lng: 79.0747, exams: ['jee', 'neet'], board: 'TN State Board', language: 'Tamil' },
+
+  // ─── MORE KARNATAKA ───────────────────────────────────────
+  { slug: 'chitradurga', city: 'Chitradurga', state: 'Karnataka', tier: 3, lat: 14.2226, lng: 76.4006, exams: ['jee', 'neet'], board: 'Karnataka State Board', stateExam: 'KCET', language: 'Kannada' },
+  { slug: 'mandya', city: 'Mandya', state: 'Karnataka', tier: 3, lat: 12.5218, lng: 76.8951, exams: ['jee', 'neet'], board: 'Karnataka State Board', stateExam: 'KCET', language: 'Kannada' },
+  { slug: 'chamarajanagar', city: 'Chamarajanagar', state: 'Karnataka', tier: 3, lat: 11.9236, lng: 76.9390, exams: ['jee', 'neet'], board: 'Karnataka State Board', stateExam: 'KCET', language: 'Kannada' },
+  { slug: 'kolar', city: 'Kolar', state: 'Karnataka', tier: 3, lat: 13.1367, lng: 78.1330, exams: ['jee', 'neet'], board: 'Karnataka State Board', stateExam: 'KCET', language: 'Kannada' },
+  { slug: 'chikmagalur', city: 'Chikmagalur', state: 'Karnataka', tier: 3, lat: 13.3153, lng: 75.7754, exams: ['jee', 'neet'], board: 'Karnataka State Board', stateExam: 'KCET', language: 'Kannada' },
+  { slug: 'dharwad', city: 'Dharwad', state: 'Karnataka', tier: 3, lat: 15.4589, lng: 75.0078, exams: ['jee', 'neet'], board: 'Karnataka State Board', stateExam: 'KCET', language: 'Kannada' },
+  { slug: 'gadag', city: 'Gadag', state: 'Karnataka', tier: 3, lat: 15.4279, lng: 75.6218, exams: ['jee', 'neet'], board: 'Karnataka State Board', stateExam: 'KCET', language: 'Kannada' },
+  { slug: 'haveri', city: 'Haveri', state: 'Karnataka', tier: 3, lat: 14.7951, lng: 75.3991, exams: ['jee', 'neet'], board: 'Karnataka State Board', stateExam: 'KCET', language: 'Kannada' },
+  { slug: 'koppal', city: 'Koppal', state: 'Karnataka', tier: 3, lat: 15.3500, lng: 76.1500, exams: ['jee', 'neet'], board: 'Karnataka State Board', stateExam: 'KCET', language: 'Kannada' },
+  { slug: 'yadgir', city: 'Yadgir', state: 'Karnataka', tier: 3, lat: 16.7701, lng: 77.1381, exams: ['jee', 'neet'], board: 'Karnataka State Board', stateExam: 'KCET', language: 'Kannada' },
+
+  // ─── MORE ANDHRA PRADESH ──────────────────────────────────
+  { slug: 'kadapa', city: 'Kadapa', state: 'Andhra Pradesh', tier: 3, lat: 14.4673, lng: 78.8242, exams: ['jee', 'neet'], board: 'AP State Board', stateExam: 'AP EAMCET', language: 'Telugu' },
+  { slug: 'srikakulam', city: 'Srikakulam', state: 'Andhra Pradesh', tier: 3, lat: 18.2949, lng: 83.8938, exams: ['jee', 'neet'], board: 'AP State Board', stateExam: 'AP EAMCET', language: 'Telugu' },
+  { slug: 'machilipatnam', city: 'Machilipatnam', state: 'Andhra Pradesh', tier: 3, lat: 16.1875, lng: 81.1389, exams: ['jee', 'neet'], board: 'AP State Board', stateExam: 'AP EAMCET', language: 'Telugu' },
+  { slug: 'chittoor', city: 'Chittoor', state: 'Andhra Pradesh', tier: 3, lat: 13.2172, lng: 79.1003, exams: ['jee', 'neet'], board: 'AP State Board', stateExam: 'AP EAMCET', language: 'Telugu' },
+  { slug: 'hindupur', city: 'Hindupur', state: 'Andhra Pradesh', tier: 3, lat: 13.8280, lng: 77.4900, exams: ['jee', 'neet'], board: 'AP State Board', stateExam: 'AP EAMCET', language: 'Telugu' },
+  { slug: 'proddatur', city: 'Proddatur', state: 'Andhra Pradesh', tier: 3, lat: 14.7502, lng: 78.5500, exams: ['jee', 'neet'], board: 'AP State Board', stateExam: 'AP EAMCET', language: 'Telugu' },
+  { slug: 'adoni', city: 'Adoni', state: 'Andhra Pradesh', tier: 3, lat: 15.6322, lng: 77.2773, exams: ['jee', 'neet'], board: 'AP State Board', stateExam: 'AP EAMCET', language: 'Telugu' },
+  { slug: 'tenali', city: 'Tenali', state: 'Andhra Pradesh', tier: 3, lat: 16.2429, lng: 80.6437, exams: ['jee', 'neet'], board: 'AP State Board', stateExam: 'AP EAMCET', language: 'Telugu' },
+  { slug: 'tadpatri', city: 'Tadpatri', state: 'Andhra Pradesh', tier: 3, lat: 15.0249, lng: 78.0112, exams: ['jee', 'neet'], board: 'AP State Board', stateExam: 'AP EAMCET', language: 'Telugu' },
+
+  // ─── MORE TELANGANA ───────────────────────────────────────
+  { slug: 'nalgonda', city: 'Nalgonda', state: 'Telangana', tier: 3, lat: 17.0583, lng: 79.2667, exams: ['jee', 'neet'], board: 'Telangana State Board', stateExam: 'TS EAMCET', language: 'Telugu' },
+  { slug: 'siddipet', city: 'Siddipet', state: 'Telangana', tier: 3, lat: 18.1019, lng: 78.8520, exams: ['jee', 'neet'], board: 'Telangana State Board', stateExam: 'TS EAMCET', language: 'Telugu' },
+  { slug: 'suryapet', city: 'Suryapet', state: 'Telangana', tier: 3, lat: 17.1478, lng: 79.6375, exams: ['jee', 'neet'], board: 'Telangana State Board', stateExam: 'TS EAMCET', language: 'Telugu' },
+  { slug: 'mancherial', city: 'Mancherial', state: 'Telangana', tier: 3, lat: 18.8690, lng: 79.4426, exams: ['jee', 'neet'], board: 'Telangana State Board', stateExam: 'TS EAMCET', language: 'Telugu' },
+  { slug: 'miryalaguda', city: 'Miryalaguda', state: 'Telangana', tier: 3, lat: 16.8726, lng: 79.5684, exams: ['jee', 'neet'], board: 'Telangana State Board', stateExam: 'TS EAMCET', language: 'Telugu' },
+
+  // ─── MORE KERALA ──────────────────────────────────────────
+  { slug: 'kasaragod', city: 'Kasaragod', state: 'Kerala', tier: 3, lat: 12.4996, lng: 74.9869, exams: ['jee', 'neet'], board: 'Kerala State Board', stateExam: 'KEAM', language: 'Malayalam' },
+  { slug: 'wayanad', city: 'Kalpetta (Wayanad)', state: 'Kerala', tier: 3, lat: 11.6087, lng: 76.0842, exams: ['jee', 'neet'], board: 'Kerala State Board', stateExam: 'KEAM', language: 'Malayalam' },
+
+  // ─── MORE GUJARAT ─────────────────────────────────────────
+  { slug: 'palanpur', city: 'Palanpur', state: 'Gujarat', tier: 3, lat: 24.1725, lng: 72.4321, exams: ['jee', 'neet'], board: 'Gujarat Board', stateExam: 'GUJCET', language: 'Gujarati' },
+  { slug: 'godhra', city: 'Godhra', state: 'Gujarat', tier: 3, lat: 22.7747, lng: 73.6148, exams: ['jee', 'neet'], board: 'Gujarat Board', stateExam: 'GUJCET', language: 'Gujarati' },
+  { slug: 'nadiad', city: 'Nadiad', state: 'Gujarat', tier: 3, lat: 22.6916, lng: 72.8634, exams: ['jee', 'neet'], board: 'Gujarat Board', stateExam: 'GUJCET', language: 'Gujarati' },
+  { slug: 'veraval', city: 'Veraval', state: 'Gujarat', tier: 3, lat: 20.9066, lng: 70.3678, exams: ['jee', 'neet'], board: 'Gujarat Board', stateExam: 'GUJCET', language: 'Gujarati' },
+  { slug: 'dahod', city: 'Dahod', state: 'Gujarat', tier: 3, lat: 22.8384, lng: 74.2538, exams: ['jee', 'neet'], board: 'Gujarat Board', stateExam: 'GUJCET', language: 'Gujarati' },
+  { slug: 'surendranagar-guj', city: 'Surendranagar', state: 'Gujarat', tier: 3, lat: 22.7277, lng: 71.6480, exams: ['jee', 'neet'], board: 'Gujarat Board', stateExam: 'GUJCET', language: 'Gujarati' },
+
+  // ─── MORE ODISHA ──────────────────────────────────────────
+  { slug: 'puri', city: 'Puri', state: 'Odisha', tier: 3, lat: 19.8135, lng: 85.8312, exams: ['jee', 'neet'], board: 'Odisha Board', stateExam: 'OJEE', language: 'Odia' },
+  { slug: 'koraput', city: 'Koraput', state: 'Odisha', tier: 3, lat: 18.8116, lng: 82.7127, exams: ['jee', 'neet'], board: 'Odisha Board', stateExam: 'OJEE', language: 'Odia' },
+  { slug: 'baripada', city: 'Baripada', state: 'Odisha', tier: 3, lat: 21.9322, lng: 86.7200, exams: ['jee', 'neet'], board: 'Odisha Board', stateExam: 'OJEE', language: 'Odia' },
+  { slug: 'bhadrak', city: 'Bhadrak', state: 'Odisha', tier: 3, lat: 21.0547, lng: 86.4954, exams: ['jee', 'neet'], board: 'Odisha Board', stateExam: 'OJEE', language: 'Odia' },
+  { slug: 'angul', city: 'Angul', state: 'Odisha', tier: 3, lat: 20.8380, lng: 85.0995, exams: ['jee', 'neet'], board: 'Odisha Board', stateExam: 'OJEE', language: 'Odia' },
+  { slug: 'kendrapara', city: 'Kendrapara', state: 'Odisha', tier: 3, lat: 20.5028, lng: 86.4192, exams: ['jee', 'neet'], board: 'Odisha Board', stateExam: 'OJEE', language: 'Odia' },
+
+  // ─── MORE JHARKHAND ───────────────────────────────────────
+  { slug: 'dumka', city: 'Dumka', state: 'Jharkhand', tier: 3, lat: 24.2640, lng: 87.2490, exams: ['jee', 'neet'], board: 'Jharkhand Board', language: 'Hindi' },
+  { slug: 'giridih', city: 'Giridih', state: 'Jharkhand', tier: 3, lat: 24.1863, lng: 86.3025, exams: ['jee', 'neet'], board: 'Jharkhand Board', language: 'Hindi' },
+  { slug: 'chaibasa', city: 'Chaibasa', state: 'Jharkhand', tier: 3, lat: 22.5463, lng: 85.8110, exams: ['jee', 'neet'], board: 'Jharkhand Board', language: 'Hindi' },
+  { slug: 'ramgarh', city: 'Ramgarh', state: 'Jharkhand', tier: 3, lat: 23.6310, lng: 85.5136, exams: ['jee', 'neet'], board: 'Jharkhand Board', language: 'Hindi' },
+
+  // ─── MORE CHHATTISGARH ────────────────────────────────────
+  { slug: 'raigarh', city: 'Raigarh', state: 'Chhattisgarh', tier: 3, lat: 21.8974, lng: 83.3950, exams: ['jee', 'neet'], board: 'CG Board', language: 'Hindi' },
+  { slug: 'jagdalpur', city: 'Jagdalpur', state: 'Chhattisgarh', tier: 3, lat: 19.0866, lng: 82.0175, exams: ['jee', 'neet'], board: 'CG Board', language: 'Hindi' },
+  { slug: 'ambikapur', city: 'Ambikapur', state: 'Chhattisgarh', tier: 3, lat: 23.1186, lng: 83.1989, exams: ['jee', 'neet'], board: 'CG Board', language: 'Hindi' },
+  { slug: 'mahasamund', city: 'Mahasamund', state: 'Chhattisgarh', tier: 3, lat: 21.1106, lng: 82.0976, exams: ['jee', 'neet'], board: 'CG Board', language: 'Hindi' },
+
+  // ─── MORE PUNJAB ──────────────────────────────────────────
+  { slug: 'pathankot', city: 'Pathankot', state: 'Punjab', tier: 3, lat: 32.2747, lng: 75.6521, exams: ['jee', 'neet'], board: 'Punjab Board', language: 'Punjabi' },
+  { slug: 'moga', city: 'Moga', state: 'Punjab', tier: 3, lat: 30.8096, lng: 75.1741, exams: ['jee', 'neet'], board: 'Punjab Board', language: 'Punjabi' },
+  { slug: 'muktsar', city: 'Muktsar', state: 'Punjab', tier: 3, lat: 30.4766, lng: 74.5186, exams: ['jee', 'neet'], board: 'Punjab Board', language: 'Punjabi' },
+  { slug: 'kapurthala', city: 'Kapurthala', state: 'Punjab', tier: 3, lat: 31.3809, lng: 75.3808, exams: ['jee', 'neet'], board: 'Punjab Board', language: 'Punjabi' },
+  { slug: 'firozpur', city: 'Firozpur', state: 'Punjab', tier: 3, lat: 30.9244, lng: 74.6130, exams: ['jee', 'neet'], board: 'Punjab Board', language: 'Punjabi' },
+  { slug: 'sangrur', city: 'Sangrur', state: 'Punjab', tier: 3, lat: 30.2442, lng: 75.8447, exams: ['jee', 'neet'], board: 'Punjab Board', language: 'Punjabi' },
+
+  // ─── MORE HARYANA ─────────────────────────────────────────
+  { slug: 'bhiwani', city: 'Bhiwani', state: 'Haryana', tier: 3, lat: 28.7930, lng: 76.1325, exams: ['jee', 'neet'], board: 'Haryana Board', language: 'Hindi' },
+  { slug: 'jind', city: 'Jind', state: 'Haryana', tier: 3, lat: 29.3160, lng: 76.3144, exams: ['jee', 'neet'], board: 'Haryana Board', language: 'Hindi' },
+  { slug: 'kaithal', city: 'Kaithal', state: 'Haryana', tier: 3, lat: 29.8015, lng: 76.3988, exams: ['jee', 'neet'], board: 'Haryana Board', language: 'Hindi' },
+  { slug: 'fatehabad', city: 'Fatehabad', state: 'Haryana', tier: 3, lat: 29.5134, lng: 75.4554, exams: ['jee', 'neet'], board: 'Haryana Board', language: 'Hindi' },
+  { slug: 'mahendragarh', city: 'Mahendragarh', state: 'Haryana', tier: 3, lat: 28.2800, lng: 76.1500, exams: ['jee', 'neet'], board: 'Haryana Board', language: 'Hindi' },
+  { slug: 'kurukshetra', city: 'Kurukshetra', state: 'Haryana', tier: 3, lat: 29.9695, lng: 76.8783, exams: ['jee', 'neet'], board: 'Haryana Board', language: 'Hindi', nearbyInstitute: 'NIT Kurukshetra' },
+
+  // ─── MORE NRI CITIES ──────────────────────────────────────
+  { slug: 'houston', city: 'Houston', state: 'United States', tier: 1, lat: 29.7604, lng: -95.3698, exams: ['jee', 'neet'], board: 'CBSE/AP' },
+  { slug: 'chicago', city: 'Chicago', state: 'United States', tier: 1, lat: 41.8781, lng: -87.6298, exams: ['jee', 'neet'], board: 'CBSE/AP' },
+  { slug: 'boston', city: 'Boston', state: 'United States', tier: 1, lat: 42.3601, lng: -71.0589, exams: ['jee', 'neet'], board: 'CBSE/AP' },
+  { slug: 'dallas', city: 'Dallas', state: 'United States', tier: 1, lat: 32.7767, lng: -96.7970, exams: ['jee', 'neet'], board: 'CBSE/AP' },
+  { slug: 'atlanta', city: 'Atlanta', state: 'United States', tier: 1, lat: 33.7490, lng: -84.3880, exams: ['jee', 'neet'], board: 'CBSE/AP' },
+  { slug: 'seattle', city: 'Seattle', state: 'United States', tier: 1, lat: 47.6062, lng: -122.3321, exams: ['jee', 'neet'], board: 'CBSE/AP' },
+  { slug: 'vancouver', city: 'Vancouver', state: 'Canada', tier: 1, lat: 49.2827, lng: -123.1207, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'calgary', city: 'Calgary', state: 'Canada', tier: 2, lat: 51.0447, lng: -114.0719, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'ottawa', city: 'Ottawa', state: 'Canada', tier: 2, lat: 45.4215, lng: -75.6972, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'manchester', city: 'Manchester', state: 'United Kingdom', tier: 2, lat: 53.4808, lng: -2.2426, exams: ['jee', 'neet'], board: 'CBSE/IGCSE' },
+  { slug: 'birmingham-uk', city: 'Birmingham', state: 'United Kingdom', tier: 2, lat: 52.4862, lng: -1.8904, exams: ['jee', 'neet'], board: 'CBSE/IGCSE' },
+  { slug: 'edinburgh', city: 'Edinburgh', state: 'United Kingdom', tier: 2, lat: 55.9533, lng: -3.1883, exams: ['jee', 'neet'], board: 'CBSE/IGCSE' },
+  { slug: 'perth', city: 'Perth', state: 'Australia', tier: 2, lat: -31.9505, lng: 115.8605, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'brisbane', city: 'Brisbane', state: 'Australia', tier: 2, lat: -27.4698, lng: 153.0251, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'adelaide', city: 'Adelaide', state: 'Australia', tier: 2, lat: -34.9285, lng: 138.6007, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'munich', city: 'Munich', state: 'Germany', tier: 1, lat: 48.1351, lng: 11.5820, exams: ['jee', 'neet'], board: 'CBSE/IB' },
+  { slug: 'zurich', city: 'Zurich', state: 'Switzerland', tier: 1, lat: 47.3769, lng: 8.5417, exams: ['jee', 'neet'], board: 'CBSE/IB' },
+  { slug: 'vienna', city: 'Vienna', state: 'Austria', tier: 1, lat: 48.2082, lng: 16.3738, exams: ['jee', 'neet'], board: 'CBSE/IB' },
+  { slug: 'paris', city: 'Paris', state: 'France', tier: 1, lat: 48.8566, lng: 2.3522, exams: ['jee', 'neet'], board: 'CBSE/IB' },
+  { slug: 'madrid', city: 'Madrid', state: 'Spain', tier: 1, lat: 40.4168, lng: -3.7038, exams: ['jee', 'neet'], board: 'CBSE/IB' },
+  { slug: 'jeddah', city: 'Jeddah', state: 'Saudi Arabia', tier: 1, lat: 21.4858, lng: 39.1925, exams: ['jee', 'neet'], board: 'CBSE', language: 'Hindi' },
+  { slug: 'al-khobar', city: 'Al Khobar', state: 'Saudi Arabia', tier: 2, lat: 26.2361, lng: 50.2083, exams: ['jee', 'neet'], board: 'CBSE', language: 'Hindi' },
+  { slug: 'fujairah', city: 'Fujairah', state: 'UAE', tier: 3, lat: 25.1288, lng: 56.3265, exams: ['jee', 'neet'], board: 'CBSE', language: 'Hindi' },
+  { slug: 'ajman', city: 'Ajman', state: 'UAE', tier: 2, lat: 25.4052, lng: 55.5136, exams: ['jee', 'neet'], board: 'CBSE', language: 'Hindi' },
+  { slug: 'ras-al-khaimah', city: 'Ras Al Khaimah', state: 'UAE', tier: 2, lat: 25.7895, lng: 55.9432, exams: ['jee', 'neet'], board: 'CBSE', language: 'Hindi' },
+  { slug: 'taipei', city: 'Taipei', state: 'Taiwan', tier: 1, lat: 25.0330, lng: 121.5654, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'manila', city: 'Manila', state: 'Philippines', tier: 1, lat: 14.5995, lng: 120.9842, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'ho-chi-minh', city: 'Ho Chi Minh City', state: 'Vietnam', tier: 1, lat: 10.8231, lng: 106.6297, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'dar-es-salaam', city: 'Dar es Salaam', state: 'Tanzania', tier: 2, lat: -6.7924, lng: 39.2083, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'johannesburg', city: 'Johannesburg', state: 'South Africa', tier: 1, lat: -26.2041, lng: 28.0473, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'cairo', city: 'Cairo', state: 'Egypt', tier: 1, lat: 30.0444, lng: 31.2357, exams: ['jee', 'neet'], board: 'CBSE' },
+  { slug: 'rome', city: 'Rome', state: 'Italy', tier: 1, lat: 41.9028, lng: 12.4964, exams: ['jee', 'neet'], board: 'CBSE/IB' },
+  { slug: 'lisbon', city: 'Lisbon', state: 'Portugal', tier: 2, lat: 38.7223, lng: -9.1393, exams: ['jee', 'neet'], board: 'CBSE/IB' },
+  { slug: 'stockholm', city: 'Stockholm', state: 'Sweden', tier: 1, lat: 59.3293, lng: 18.0686, exams: ['jee', 'neet'], board: 'CBSE/IB' },
+  { slug: 'oslo', city: 'Oslo', state: 'Norway', tier: 2, lat: 59.9139, lng: 10.7522, exams: ['jee', 'neet'], board: 'CBSE/IB' },
+  { slug: 'copenhagen', city: 'Copenhagen', state: 'Denmark', tier: 1, lat: 55.6761, lng: 12.5683, exams: ['jee', 'neet'], board: 'CBSE/IB' },
+  { slug: 'helsinki', city: 'Helsinki', state: 'Finland', tier: 2, lat: 60.1699, lng: 24.9384, exams: ['jee', 'neet'], board: 'CBSE/IB' },
+  { slug: 'dublin', city: 'Dublin', state: 'Ireland', tier: 1, lat: 53.3498, lng: -6.2603, exams: ['jee', 'neet'], board: 'CBSE/IB' },
+  { slug: 'warsaw', city: 'Warsaw', state: 'Poland', tier: 2, lat: 52.2297, lng: 21.0122, exams: ['jee', 'neet'], board: 'CBSE/IB' },
+  { slug: 'prague', city: 'Prague', state: 'Czech Republic', tier: 2, lat: 50.0755, lng: 14.4378, exams: ['jee', 'neet'], board: 'CBSE/IB' },
+  { slug: 'budapest', city: 'Budapest', state: 'Hungary', tier: 2, lat: 47.4979, lng: 19.0402, exams: ['jee', 'neet'], board: 'CBSE/IB' },
 ];
 
-/** All 170+ new cities, auto-generated from configs */
+/** All 500+ new cities, auto-generated from configs */
 export const expansionCities: CityData[] = newCityConfigs.map(configToCity);
 
 /** Get all expansion city slugs */

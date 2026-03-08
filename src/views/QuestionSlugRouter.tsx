@@ -2,7 +2,7 @@
 
 /**
  * QuestionSlugRouter — prefix-based lazy router for question pages.
- * Handles: questions, location pages, subject-city pages.
+ * Handles: questions, location pages, subject-city pages, study guides.
  */
 import { lazy, Suspense, type ComponentType } from 'react';
 import { usePathname } from 'next/navigation';
@@ -21,11 +21,13 @@ const NEETPYQUnitHub = lr(() => import('./NEETPYQUnitHub'));
 const NEETPYQClassHub = lr(() => import('./NEETPYQClassHub'));
 const LocationPage = lr(() => import('./LocationPage'));
 const SubjectCityPage = lr(() => import('./SubjectCityPage'));
+const TopicStudyGuide = lr(() => import('./TopicStudyGuide'));
 
 // Regex patterns
 const JEE_PRACTICE_RE = /^jee-(physics|chemistry|mathematics)-/;
 const NEET_PRACTICE_RE = /^neet-(biology|physics|chemistry)-/;
 const SUBJECT_CITY_RE = /^(jee|neet)-(physics|chemistry|mathematics|biology)-coaching-in-/;
+const STUDY_GUIDE_RE = /^how-to-study-.+-for-(jee|neet)$/;
 
 const LazyFallback = () => (
   <div className="min-h-screen bg-[hsl(225,43%,7%)] flex items-center justify-center">
@@ -36,6 +38,11 @@ const LazyFallback = () => (
 export default function QuestionSlugRouter() {
   const pathname = usePathname();
   const slug = pathname.replace(/^\//, '') || '';
+
+  // Study guide pages: how-to-study-{topic}-for-{exam}
+  if (STUDY_GUIDE_RE.test(slug)) {
+    return <Suspense fallback={<LazyFallback />}><TopicStudyGuide /></Suspense>;
+  }
 
   // Subject-city pages: jee-physics-coaching-in-delhi
   if (SUBJECT_CITY_RE.test(slug)) {
