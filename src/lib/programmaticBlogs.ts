@@ -1614,7 +1614,7 @@ function generateChapterImportantQuestions(): BlogPost[] {
     category: ch.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [ch.exam, ch.subject, ch.chapter, 'Important Questions'],
     author: 'MindPeak Team',
-    publishDate: '2026-03-01',
+    publishDate: dynamicPublishDate(i + 800),
     readTime: '11 min read',
     icon: pickIcon(i + 2),
     content: `# Important Questions for ${ch.chapter} — ${ch.exam} ${year}
