@@ -32,7 +32,6 @@ export async function generateStaticParams() {
 
   const EXAM_INFO_SLUGS = getAllExamInfoSlugs();
   const DIFFERENCE_SLUGS = getAllDifferenceSlugs();
-  const { IMPORTANT_Q_SLUGS } = await import("@/views/ImportantQuestionsHub");
 
   const staticSlugs: string[] = [
     // Core coaching pages
