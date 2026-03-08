@@ -69,6 +69,8 @@ const allMathsChapters: ChapterData[] = [
   ...coordTrigChapters,    // Straight Lines, Circles, Conics, Trigonometry, Vectors & 3D, Probability
   ...algebraExpansionChapters,  // Determinants, Statistics
   ...calculusExpansionChapters, // Application of Derivatives, Area Under Curves
+  ...coordChapters,            // Coordinate Geometry
+  ...trigVectorsChapters,      // Trigonometry, Vectors & 3D
 ];
 
 export const mathsBank: SubjectBank = {
