@@ -61,7 +61,9 @@ function resolveKind(slug: string): 'subject' | 'chapter' | 'topic' | 'formula' 
 /* ── Main export ── */
 export function resolveSlugMetadata(slugSegments: string[]): Metadata {
   try {
-    return _resolve(slugSegments);
+    const meta = _resolve(slugSegments);
+    const canonical = `${BASE}/${slugSegments.join('/')}`;
+    return withHreflang(meta, canonical);
   } catch (err) {
     console.error('[resolveSlugMetadata] Error for slug:', slugSegments.join('/'), err);
     const fallbackSlug = slugSegments.join('/');
