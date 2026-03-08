@@ -41,7 +41,7 @@ export const neetChemistryBank: NEETSubjectBank = {
   subject: 'Chemistry',
   slug: 'chemistry',
   icon: '🧪',
-  chapters: [...neetChemistryChapters, ...neetChemistryExpansionChapters],
+  chapters: [...neetChemistryChapters, ...neetChemistryExpansionChapters, ...neetChemistryExpansion3Chapters],
 };
 
 /* ─── All NEET practice subject banks ─── */

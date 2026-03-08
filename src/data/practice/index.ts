@@ -63,6 +63,8 @@ const allMathsChapters: ChapterData[] = [
   ...algebraChapters,      // Sets, Complex Numbers, Quadratics, P&C, Binomial, Matrices, Sequences
   ...calculusChapters,     // Limits, Differentiation, Integration, Differential Equations
   ...coordTrigChapters,    // Straight Lines, Circles, Conics, Trigonometry, Vectors & 3D, Probability
+  ...algebraExpansionChapters,  // Determinants, Statistics
+  ...calculusExpansionChapters, // Application of Derivatives, Area Under Curves
 ];
 
 export const mathsBank: SubjectBank = {

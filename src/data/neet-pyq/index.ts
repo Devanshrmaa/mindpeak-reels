@@ -45,7 +45,7 @@ export const neetBiologyPYQBank: NEETPYQSubjectBank = {
   chapters: allBiologyPYQ,
 };
 
-const allPhysicsPYQ: NEETPYQChapter[] = mergeChapters([...neetPhysicsPyq, ...neetPhysicsPyq2]);
+const allPhysicsPYQ: NEETPYQChapter[] = mergeChapters([...neetPhysicsPyq, ...neetPhysicsPyq2, ...neetPhysicsPyq3]);
 
 export const neetPhysicsPYQBank: NEETPYQSubjectBank = {
   subject: 'Physics',
