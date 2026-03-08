@@ -14,6 +14,8 @@ import { subjectBanks } from '@/data/practice';
 import { buildFAQSchemaFromQA } from '@/components/PageFAQ';
 import { getSEOPage } from '@/data/seoPageData';
 import type { SEOPageData, SEOPageSection } from '@/data/seoPageData';
+import { FreshnessBadge } from '@/components/FreshnessBadge';
+import { getLastUpdated, getCurrentExamYear } from '@/lib/contentFreshness';
 
 /* ── Section renderer ── */
 const ContentSection = ({ section, index }: { section: SEOPageSection; index: number }) => (
@@ -129,6 +131,7 @@ const SEOLandingPage = () => {
         {/* Hero */}
         <section className="max-w-4xl mx-auto px-6 pb-12">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <FreshnessBadge lastUpdated={getLastUpdated(slug)} verifiedFor={`${getCurrentExamYear()}`} />
             <h1 className="font-display font-black text-foreground mb-6" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
               {page.h1} <span className="text-gradient-gold">{page.h1Highlight}</span>
             </h1>
