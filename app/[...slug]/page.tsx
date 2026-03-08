@@ -26,8 +26,12 @@ export async function generateStaticParams() {
   const { CHAPTER_SLUGS } = await import("@/data/chapterData");
   const { SUBJECT_SLUGS } = await import("@/views/SubjectPage");
   const { FORMULA_SLUGS } = await import("@/views/FormulaSheet");
-  const { EXAM_INFO_SLUGS } = await import("@/data/examInfoData");
-  const { DIFFERENCE_SLUGS } = await import("@/data/differenceBetweenData");
+  const { getAllExamInfoSlugs } = await import("@/data/examInfoData");
+  const { getAllDifferenceSlugs } = await import("@/data/differenceBetweenData");
+  const { IMPORTANT_Q_SLUGS } = await import("@/views/ImportantQuestionsHub");
+
+  const EXAM_INFO_SLUGS = getAllExamInfoSlugs();
+  const DIFFERENCE_SLUGS = getAllDifferenceSlugs();
   const { IMPORTANT_Q_SLUGS } = await import("@/views/ImportantQuestionsHub");
 
   const staticSlugs: string[] = [
