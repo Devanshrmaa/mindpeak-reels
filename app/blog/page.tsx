@@ -12,9 +12,12 @@ export const metadata: Metadata = {
 export default async function BlogPage() {
   // Dynamic import to prevent 20MB programmatic blog content from being in the fallback
   const { getAllPostsSummary } = await import("@/lib/blogResolver");
-  const posts = getAllPostsSummary();
+  const allSummaries = getAllPostsSummary();
 
-  // Only send summaries (no content) to the client
+  // Only send first 200 posts to client to keep page size reasonable
+  // (7000+ post summaries would be ~5MB of serialized props)
+  const posts = allSummaries.slice(0, 200).map(({ icon, ...rest }) => rest);
+
   const { default: BlogClient } = await import("./BlogClient");
   return <BlogClient posts={posts} />;
 }
