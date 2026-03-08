@@ -20,6 +20,9 @@ import { thermoElectrochemChapters } from './chemistry-physical-2';
 import { organicExpansionChapters } from './chemistry-organic-2';
 import { algebraExpansionChapters } from './maths-algebra-2';
 import { calculusExpansionChapters } from './maths-calculus-2';
+import { gravPropChapters } from './physics-grav-prop';
+import { coordChapters } from './maths-coordinate';
+import { trigVectorsChapters } from './maths-trig-vectors';
 
 /* ─── Combine all physics chapters ─── */
 const allPhysicsChapters: ChapterData[] = [
