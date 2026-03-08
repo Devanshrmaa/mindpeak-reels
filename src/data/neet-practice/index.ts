@@ -34,7 +34,7 @@ export const neetPhysicsBank: NEETSubjectBank = {
   subject: 'Physics',
   slug: 'physics',
   icon: '⚡',
-  chapters: [...physicsChapters, ...physicsExpansionChapters],
+  chapters: [...physicsChapters, ...physicsExpansionChapters, ...physicsExpansion3Chapters],
 };
 
 export const neetChemistryBank: NEETSubjectBank = {
