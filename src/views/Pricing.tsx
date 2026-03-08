@@ -167,12 +167,27 @@ const Pricing = () => {
 
   const lastUpdated = getLastUpdated('pricing');
 
+  const courseSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: 'Personalized JEE & NEET Coaching',
+    description: 'Live 1-on-1 coaching for JEE Main, JEE Advanced & NEET UG with dedicated mentors, adaptive curriculum, and recorded sessions.',
+    provider: { '@type': 'Organization', name: 'MindPeak Institute', url: 'https://mindpeakinstitute.com' },
+    offers: [
+      { '@type': 'Offer', name: 'Foundation Plan', price: '100000', priceCurrency: 'INR', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: '1-Year Intensive', price: '130000', priceCurrency: 'INR', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: '2-Year Complete', price: '230000', priceCurrency: 'INR', availability: 'https://schema.org/InStock' },
+    ],
+    hasCourseInstance: { '@type': 'CourseInstance', courseMode: 'online', instructor: { '@type': 'Organization', name: 'MindPeak Institute' } },
+  };
+
   const jsonLd = [
+    courseSchema,
     {
       '@context': 'https://schema.org',
       '@type': 'WebPage',
       name: 'Pricing — MindPeak Institute',
-      description: 'Transparent pricing for personalized 1-on-1 JEE & NEET coaching. Foundation, 1-year, 2-year plans and crash courses.',
+      description: 'Transparent pricing for personalized 1-on-1 JEE & NEET coaching.',
       url: 'https://mindpeakinstitute.com/pricing',
     },
     buildFAQSchema(faqs),
@@ -181,8 +196,8 @@ const Pricing = () => {
   return (
     <>
       <SEOHead
-        title="Pricing — Personalized JEE & NEET Coaching Plans | MindPeak Institute"
-        description="Transparent pricing for 1-on-1 JEE & NEET coaching. Foundation ₹1L, 1-Year ₹1.3L, 2-Year ₹2.3L. Free trial, no hidden fees, payment plans available."
+        title="JEE & NEET Coaching Fees — Plans from ₹8,333/mo [Free Trial]"
+        description="Transparent JEE/NEET coaching pricing. Foundation ₹1L, 1-Year ₹1.3L, 2-Year ₹2.3L. EMI available, no hidden fees. Try a free demo class first."
         jsonLd={jsonLd}
       />
       <Navbar />
