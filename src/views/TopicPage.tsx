@@ -22,6 +22,7 @@ import {
 import { getTopicInfo, topicToSlug, TOPIC_PATHS } from '@/data/chapterData';
 import { getLastUpdated } from '@/lib/contentFreshness';
 import type { TopicInfo } from '@/data/chapterData';
+import { getTopicContent } from '@/data/topicContent';
 
 export { TOPIC_PATHS };
 
