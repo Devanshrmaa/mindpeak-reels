@@ -45,7 +45,7 @@ export async function GET() {
     '/kota-coaching-alternative', '/online-vs-offline-jee-coaching',
     '/jee-rank-predictor', '/neet-rank-predictor',
     '/jee-physics-formulas', '/jee-chemistry-formulas', '/jee-maths-formulas',
-    '/neet-biology-formulas', '/neet-physics-formulas',
+    '/neet-biology-formulas', '/neet-physics-formulas', '/neet-chemistry-formulas',
     '/jee-physics-preparation', '/jee-chemistry-preparation', '/jee-mathematics-preparation',
     '/neet-biology-preparation', '/neet-physics-preparation', '/neet-chemistry-preparation',
     '/jee-mock-test-strategy', '/neet-mock-test-strategy',

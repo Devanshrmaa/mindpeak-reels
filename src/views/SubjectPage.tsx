@@ -484,8 +484,69 @@ const SUBJECTS: Record<string, SubjectData> = {
       { label: 'All Courses & Pricing', to: '/pricing' },
     ],
   },
-};
 
+  'neet-mock-test-strategy': {
+    exam: 'NEET',
+    subject: 'Mock Tests',
+    slug: 'neet-mock-test-strategy',
+    icon: Target,
+    title: `NEET Mock Test Strategy ${CURRENT_EXAM_YEAR} — How to Analyze & Score 650+ | MindPeak`,
+    description: `Master NEET mock test strategy. Learn to analyze mistakes, manage time across Physics, Chemistry & Biology, and boost your score by 80-120 marks. Expert tips from AIIMS alumni.`,
+    heroHeading: 'NEET Mock Test Strategy —',
+    heroHighlight: `Score 650+ with Smart Mock Analysis`,
+    heroParagraph: 'Mock tests are the most powerful tool in NEET preparation — but only when followed by deep analysis. Most students take 50+ mocks and repeat the same errors because nobody teaches them HOW to analyze. At MindPeak, your mentor reviews every mock test with you 1-on-1 — identifying Biology memory gaps, Physics calculation errors, and Chemistry conceptual confusion. This analysis-driven approach typically improves scores by 80-120 marks within 2-3 months.',
+    snippetQ: 'How to improve NEET mock test scores?',
+    snippetA: 'Improving NEET mock test scores requires systematic post-test analysis: classify every wrong answer as conceptual error, silly mistake, or time-management issue. Spend 3 hours analyzing each 3-hour mock. Focus on Biology accuracy (easiest to fix), reduce Physics negative marking, and master Chemistry calculations. Personalized mentor analysis accelerates improvement significantly.',
+    snippetBullets: [
+      'Take full-length mocks in exam conditions (3 hours 20 minutes, OMR sheet)',
+      'Analyze every mock for 2-3 hours — categorize each mistake by type',
+      'Track Biology accuracy chapter-wise — it carries 50% of NEET marks',
+      'Monitor Physics negative marking pattern — develop a skip strategy',
+      'Practice OMR sheet filling — bubbling errors cost easy marks',
+      'Take at least 25 full-length mocks before the actual NEET exam',
+    ],
+    chapters: [
+      { name: 'Before the Mock', topics: ['Set NEET-like conditions: 3 hours 20 minutes, OMR sheet, no breaks', 'Schedule at the same time as actual NEET (2 PM - 5:20 PM)', 'Complete all 200 questions — simulate real exam pressure', 'Use printed OMR sheet for offline practice (NEET is pen-and-paper)', 'No phone, no breaks, no looking at books during the mock'] },
+      { name: 'During the Mock — Subject Strategy', topics: ['Start with your strongest subject to build confidence (typically Biology)', 'Biology first: attempt all 100 questions (50 Botany + 50 Zoology) in 50-55 minutes', 'Chemistry next: Physical → Inorganic → Organic, 45-50 minutes total', 'Physics last: easy numericals first → medium → difficult, 50-55 minutes', 'Reserve 10-15 minutes for OMR transfer and review flagged questions', 'Never spend more than 2 minutes on any single question — mark and move'] },
+      { name: 'After the Mock — Analysis Protocol', topics: ['Categorize mistakes: conceptual / silly / time-crunch / NCERT gap', 'Calculate subject-wise accuracy: Biology %, Physics %, Chemistry %', 'Biology: identify exact NCERT paragraph you missed — re-read it immediately', 'Physics: separate formula errors from concept errors — different fixes needed', 'Chemistry: track which branch (Physical/Organic/Inorganic) is weakest', 'Create a "Mistake Journal" with chapter-wise patterns across 10+ mocks'] },
+      { name: 'Score Improvement Cycle', topics: ['Focus next week on your 3 weakest chapters from mock analysis', 'Re-attempt wrong questions after 3 days without looking at solutions', 'Set specific mock goals: "reduce Biology silly mistakes by 50%"', 'Track 10-mock moving average — not individual scores', 'Biology: re-read specific NCERT pages for every wrong answer', 'Physics: solve 20 extra numericals from chapters where you lost marks', 'Chemistry: create flashcards for Inorganic facts you forgot'] },
+    ],
+    mistakes: [
+      { title: 'Taking mocks without post-test analysis', desc: 'The biggest mistake. Students take 50 mocks but never analyze properly. Without identifying WHY you got a question wrong, you\'ll repeat the same error indefinitely. Analysis is where learning happens — not during the mock itself.' },
+      { title: 'Starting mocks too early or too late', desc: 'Starting full-length mocks before completing 75% of syllabus leads to discouraging scores. Starting too late (last month only) doesn\'t give enough data to identify patterns. Ideal: begin 4-5 months before NEET with topic tests, then shift to full mocks 3 months out.' },
+      { title: 'Ignoring the Biology-first strategy', desc: 'Many students start with Physics — their weakest subject — and waste time on hard questions, leaving Biology (their scoring subject) rushed. Always start with your strongest subject to lock in easy marks first.' },
+      { title: 'Not practicing OMR sheet filling', desc: 'NEET is pen-and-paper with OMR sheets. Students who practice only on-screen mock apps fumble with bubble-filling on exam day. Practice on printed OMR sheets at least 5 times before NEET.' },
+      { title: 'Changing subject order every mock', desc: 'Consistency is crucial. Use the same subject order for 5+ mocks before evaluating if it works. Switching order every test prevents any strategy from taking hold and adds unnecessary decision fatigue.' },
+    ],
+    tips: [
+      'Maintain a "Mock Test Journal" — log score, time per subject, and top 3 learnings after every mock',
+      'Target 25-30 full-length mocks before NEET — quality with analysis beats quantity without',
+      'Biology should be your fastest section — finish 100 questions in under 55 minutes',
+      'For Physics, develop a "skip list" of question types that consistently trap you',
+      'Practice OMR bubbling — allocate 10 minutes for clean transfer',
+      'Track negative marking: if you\'re losing 15+ marks to wrong attempts, tighten your skip strategy',
+    ],
+    paa: [
+      { question: 'How many mock tests should I take for NEET?', answer: 'Aim for 25-30 full-length mocks before NEET. Each mock should be followed by 2-3 hours of analysis. Quality > quantity — 15 well-analyzed mocks beat 40 unanalyzed ones. MindPeak students take weekly mocks with 1-on-1 mentor analysis sessions.' },
+      { question: 'When should I start taking NEET mock tests?', answer: 'Start topic-wise tests from day 1. Part-tests (50 questions, 1 subject) from month 3. Full-length 200-question mocks when you\'ve covered 75%+ of syllabus (typically 4-5 months before NEET). MindPeak provides a structured mock calendar aligned to your preparation timeline.' },
+      { question: 'What is a good NEET mock test score?', answer: 'For 650+ in NEET, target 600+ in mocks consistently (mocks are usually harder). For government medical college (620-640 cutoff), target 580+ in mocks. Track your 10-mock moving average — individual mock scores fluctuate but the average reveals your true level.' },
+      { question: 'Should I attempt all 200 questions in NEET?', answer: 'Not necessarily. NEET has negative marking (-1 for wrong). If you\'re randomly guessing on 20+ questions, you\'re likely losing net marks. Aim to attempt 180-190 questions with high confidence. Skip questions where you\'re completely unsure — leaving blank is better than -1.' },
+    ],
+    faqs: [
+      { question: 'Does MindPeak provide NEET mock tests?', answer: 'Yes! MindPeak provides weekly full-length mocks in NEET format (200 questions, 3 hrs 20 min, OMR-based). Every mock is followed by a dedicated 1-on-1 analysis session where your mentor reviews your performance, identifies chapter-wise weak areas, and adjusts your study plan.' },
+      { question: 'How is MindPeak\'s mock analysis different?', answer: 'Your mentor identifies patterns invisible to self-study — like consistently losing marks in Plant Physiology (Biology), making sign errors in Electrostatics (Physics), or confusing similar Organic reactions. This personalized diagnosis accelerates improvement by 3-4× compared to self-analysis.' },
+      { question: 'Can NEET mock analysis really improve my score by 100+ marks?', answer: 'Absolutely. Most students have 80-120 marks "trapped" in silly mistakes, time-management errors, and overlooked NCERT details. Systematic mock analysis unlocks these marks. MindPeak students following our analysis protocol typically improve by 80-120 marks over 2-3 months.' },
+      { question: 'What mock test series do you recommend for NEET?', answer: 'Use Allen or Aakash mock test series alongside MindPeak\'s own mocks. What matters more than the source is the analysis quality. Our mentors can analyze any external mock test during your 1-on-1 sessions — bring your scorecard and we\'ll do a detailed breakdown.' },
+    ],
+    links: [
+      { label: 'NEET Biology Preparation', to: '/neet-biology-preparation' },
+      { label: 'NEET Physics Preparation', to: '/neet-physics-preparation' },
+      { label: 'NEET Chemistry Preparation', to: '/neet-chemistry-preparation' },
+      { label: 'Complete NEET Coaching', to: '/neet-coaching' },
+      { label: 'Free Trial Class', to: '/free-trial' },
+    ],
+  },
+};
 /* ═══════════════════════════════════════════════════════════
    Reusable subject-cluster page component
    ═══════════════════════════════════════════════════════════ */
