@@ -547,6 +547,7 @@ const SUBJECTS: Record<string, SubjectData> = {
     ],
   },
 };
+/* ═══════════════════════════════════════════════════════════
    Reusable subject-cluster page component
    ═══════════════════════════════════════════════════════════ */
 
