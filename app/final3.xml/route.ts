@@ -153,6 +153,11 @@ export async function GET() {
   for (const p of pyqSlugs) lines.push(urlEntry(p, '0.50', 'monthly', TODAY));
   for (const p of neetPracticeSlugs) lines.push(urlEntry(p, '0.50', 'monthly', TODAY));
   for (const p of neetPyqSlugs) lines.push(urlEntry(p, '0.50', 'monthly', TODAY));
+  for (const p of examInfoSlugs) lines.push(urlEntry(p, '0.75', 'weekly', TODAY));
+  for (const p of differenceSlugs) lines.push(urlEntry(p, '0.60', 'monthly', TODAY));
+  for (const p of importantQSlugs) lines.push(urlEntry(p, '0.65', 'weekly', TODAY));
+  for (const p of counsellingSlugs) lines.push(urlEntry(p, '0.65', 'monthly', TODAY));
+  for (const p of notesSlugs) lines.push(urlEntry(p, '0.55', 'monthly', TODAY));
 
   lines.push('</urlset>');
 

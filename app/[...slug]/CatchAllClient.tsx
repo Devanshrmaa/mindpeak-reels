@@ -35,15 +35,24 @@ const Spinner = () => (
   </div>
 );
 
-function resolve(slug: string): "subject" | "chapter" | "topic" | "formula" | "seo-landing" | "question" {
-  // Two-segment paths → TopicPage
+type PageKind = "subject" | "chapter" | "topic" | "formula" | "seo-landing" | "exam-info" | "difference" | "notes" | "important-q" | "counselling" | "question";
+
+function resolve(slug: string): PageKind {
+  // Two-segment paths
   if (slug.includes("/")) {
-    return TOPIC_PATHS.includes(slug) ? "topic" : "question";
+    // Revision notes: {chapter-slug}/notes
+    if (slug.endsWith("/notes") && CHAPTER_SLUGS.includes(slug.replace(/\/notes$/, ""))) return "notes";
+    if (TOPIC_PATHS.includes(slug)) return "topic";
+    return "question";
   }
   // One-segment — check static arrays first
   if (SUBJECT_SLUGS.includes(slug)) return "subject";
   if (FORMULA_SLUGS.includes(slug)) return "formula";
   if (CHAPTER_SLUGS.includes(slug)) return "chapter";
+  if (getExamInfoPage(slug)) return "exam-info";
+  if (getDifferencePair(slug)) return "difference";
+  if (IMPORTANT_Q_SLUGS.includes(slug)) return "important-q";
+  if (getCounsellingPage(slug)) return "counselling";
   if (getSEOPage(slug)) return "seo-landing";
   return "question";
 }
@@ -64,6 +73,16 @@ export default function CatchAllClient() {
       return <FormulaSheet />;
     case "seo-landing":
       return <SEOLandingPage />;
+    case "exam-info":
+      return <ExamInfoPage />;
+    case "difference":
+      return <DifferenceBetweenPage />;
+    case "notes":
+      return <RevisionNotesPage />;
+    case "important-q":
+      return <ImportantQuestionsHub />;
+    case "counselling":
+      return <CounsellingGuidePage />;
     case "question":
       return <QuestionSlugRouter />;
   }
