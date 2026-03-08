@@ -68,7 +68,8 @@ const ContentSection = ({ section, index }: { section: SEOPageSection; index: nu
       </div>
     )}
   </motion.section>
-);
+  );
+};
 
 /* ── Page component ── */
 const SEOLandingPage = () => {
