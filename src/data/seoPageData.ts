@@ -2,7 +2,7 @@ import { CURRENT_EXAM_YEAR, ONE_YEAR_TARGET, TWO_YEAR_TARGET } from '@/lib/examY
 
 export interface SEOPageSection {
   heading: string;
-  content: string;
+  content?: string;
   /** Optional bullet points under the section */
   bullets?: string[];
   /** Optional comparison table */
@@ -2172,6 +2172,185 @@ const jeeChapterCategoryPages: SEOPageData[] = [
 ];
 
 // ─────────────────────────────────────────────────
+// OTHER EXAM PAGES
+// ─────────────────────────────────────────────────
+
+const otherExamPages: SEOPageData[] = [
+  {
+    slug: 'bitsat-coaching',
+    title: 'BITSAT Coaching Online — Score 300+ with 1-on-1 Mentoring | MindPeak',
+    description: 'Expert BITSAT coaching with personalized 1-on-1 mentoring. Cover Physics, Chemistry, Maths, English & Logical Reasoning. Score 300+ and secure BITS Pilani admission.',
+    h1: 'BITSAT Coaching',
+    h1Highlight: 'Score 300+',
+    heroSubtitle: 'BITSAT demands speed and accuracy across 5 sections in 3 hours. MindPeak\'s 1-on-1 mentors help you master the unique English & Logical Reasoning sections alongside PCM — giving you an edge over pure JEE aspirants.',
+    sections: [
+      { heading: 'Why BITSAT Coaching Matters', content: 'BITSAT is one of the most competitive engineering entrance exams in India. With a computer-based format and negative marking, it requires a different strategy from JEE. MindPeak\'s personalized approach ensures you\'re prepared for every section.', bullets: ['Computer-based test with 150 questions in 180 minutes', 'Covers Physics, Chemistry, Maths + English Proficiency + Logical Reasoning', 'Negative marking: –1 for wrong answers', 'Bonus questions if you finish early — unique to BITSAT', 'MindPeak covers all 5 sections with subject-expert mentors'] },
+      { heading: 'BITSAT Exam Pattern', table: { headers: ['Section', 'Questions', 'Marks', 'Time Strategy'], rows: [['Physics', '40', '120', '35 min'], ['Chemistry', '40', '120', '35 min'], ['Mathematics', '45', '135', '45 min'], ['English Proficiency', '15', '45', '10 min'], ['Logical Reasoning', '10', '30', '10 min']] } },
+      { heading: 'MindPeak\'s BITSAT Strategy', content: 'Our mentors design a customized study plan that balances JEE preparation with BITSAT-specific topics:', bullets: ['English & Logical Reasoning covered in dedicated sessions', 'Speed-building drills for the computer-based format', 'Previous year paper analysis and mock test series', 'Focus on NCERT for Chemistry — 60% questions are NCERT-based', 'Time management strategies for attempting all 150 questions'] },
+    ],
+    faqs: [
+      { q: 'Can I prepare for BITSAT alongside JEE?', a: 'Absolutely. 80% of BITSAT syllabus overlaps with JEE. MindPeak adds targeted English & Logical Reasoning sessions to your JEE prep plan — typically 2-3 extra hours per week.' },
+      { q: 'What score is needed for BITS Pilani?', a: 'For CS at BITS Pilani, you typically need 330+. For other branches at Pilani campus, 280-310 is competitive. MindPeak\'s mock tests help you track your progress toward your target score.' },
+    ],
+    relatedPages: [
+      { label: 'JEE Coaching', href: '/jee-coaching' },
+      { label: 'JEE Practice Questions', href: '/jee-practice' },
+      { label: 'Free Trial Class', href: '/free-trial' },
+    ],
+    schemaType: 'WebPage',
+  },
+  {
+    slug: 'cuet-coaching',
+    title: 'CUET Coaching Online — Crack Central Universities with 1-on-1 Mentoring | MindPeak',
+    description: 'Personalized CUET coaching covering Domain Subjects, General Test, and Language sections. Get into DU, JNU, BHU and 200+ central universities with MindPeak.',
+    h1: 'CUET Coaching',
+    h1Highlight: 'Central Universities',
+    heroSubtitle: 'CUET is the gateway to 200+ central universities including Delhi University, JNU, and BHU. MindPeak\'s 1-on-1 coaching covers your chosen domain subjects, General Test, and Language sections with NCERT-focused preparation.',
+    sections: [
+      { heading: 'Why CUET Coaching with MindPeak?', content: 'CUET (Common University Entrance Test) has transformed undergraduate admissions in India. With 12 lakh+ applicants, personalized coaching gives you a significant edge.', bullets: ['Gateway to 200+ central universities across India', 'NCERT-based syllabus — but application-level questions', 'Multiple domain subjects available — choose based on your target university', 'General Test covers General Knowledge, Quantitative Reasoning, and Logical Reasoning', 'MindPeak\'s mentors customize prep based on your target universities'] },
+      { heading: 'CUET Exam Structure', table: { headers: ['Section', 'Content', 'Questions', 'Duration'], rows: [['Section IA', 'Language (13 options)', '40/50', '45 min'], ['Section IB', 'Language (20 options)', '40/50', '45 min'], ['Section II', 'Domain Subjects (27 options)', '35-40/45-50', '45 min each'], ['Section III', 'General Test', '50/60', '60 min']] } },
+      { heading: 'MindPeak\'s CUET Strategy', content: 'Our approach ensures comprehensive preparation:', bullets: ['NCERT mastery — 90% of questions are NCERT-derived', 'Domain-specific deep dives based on your chosen subjects', 'General Test preparation with current affairs updates', 'University-specific cutoff analysis and target setting', 'Weekly mock tests mimicking the actual CUET pattern'] },
+    ],
+    faqs: [
+      { q: 'Is CUET difficult?', a: 'CUET is NCERT-based, so the content isn\'t extremely difficult. However, competition is fierce with 12 lakh+ applicants. MindPeak\'s 1-on-1 coaching helps you achieve the 750+ scores needed for top DU colleges.' },
+      { q: 'Can I prepare for CUET and JEE together?', a: 'If you\'re targeting science subjects in CUET, there\'s significant overlap with JEE prep. MindPeak can create a combined study plan that covers both effectively.' },
+    ],
+    relatedPages: [
+      { label: 'Free Trial Class', href: '/free-trial' },
+      { label: 'Courses', href: '/courses' },
+      { label: 'Pricing', href: '/pricing' },
+    ],
+    schemaType: 'WebPage',
+  },
+  {
+    slug: 'wbjee-coaching',
+    title: 'WBJEE Coaching Online — Top Engineering Colleges in West Bengal | MindPeak',
+    description: 'Personalized WBJEE coaching with 1-on-1 mentoring. Master Physics, Chemistry & Mathematics for Jadavpur University, IIEST Shibpur and top West Bengal engineering colleges.',
+    h1: 'WBJEE Coaching',
+    h1Highlight: 'West Bengal Engineering',
+    heroSubtitle: 'WBJEE is the gateway to Jadavpur University, IIEST Shibpur, and 100+ engineering colleges in West Bengal. MindPeak\'s 1-on-1 coaching focuses on the unique WBJEE pattern with its Class 11-heavy syllabus.',
+    sections: [
+      { heading: 'Why WBJEE Coaching?', content: 'WBJEE tests Physics, Chemistry, and Mathematics at a level between board exams and JEE Main. Understanding this sweet spot is key to scoring well.', bullets: ['Gateway to Jadavpur, IIEST Shibpur, and 100+ WB colleges', 'Class 11 syllabus carries 55-60% weightage — unlike JEE', 'No negative marking in Category 1 questions', 'Multiple correct answer format in Category 2 & 3', 'MindPeak\'s mentors know the WBJEE pattern inside out'] },
+      { heading: 'WBJEE Exam Pattern', table: { headers: ['Subject', 'Category 1', 'Category 2', 'Category 3', 'Total Marks'], rows: [['Mathematics', '30 Q', '10 Q', '10 Q', '100'], ['Physics', '25 Q', '5 Q', '5 Q', '75'], ['Chemistry', '25 Q', '5 Q', '5 Q', '75']] } },
+    ],
+    faqs: [
+      { q: 'Is WBJEE easier than JEE Main?', a: 'WBJEE is generally considered slightly easier than JEE Main, but the competition is intense for top colleges like Jadavpur. MindPeak ensures you\'re prepared for both — JEE prep covers WBJEE syllabus completely.' },
+    ],
+    relatedPages: [
+      { label: 'JEE Coaching', href: '/jee-coaching' },
+      { label: 'JEE Practice Questions', href: '/jee-practice' },
+      { label: 'Free Trial', href: '/free-trial' },
+    ],
+    schemaType: 'WebPage',
+  },
+  {
+    slug: 'mht-cet-coaching',
+    title: 'MHT-CET Coaching Online — Top Maharashtra Engineering & Medical Colleges | MindPeak',
+    description: 'Expert MHT-CET coaching with personalized 1-on-1 mentoring. Prepare for COEP, VJTI, and top Maharashtra colleges with MindPeak\'s proven methodology.',
+    h1: 'MHT-CET Coaching',
+    h1Highlight: 'Maharashtra Colleges',
+    heroSubtitle: 'MHT-CET is Maharashtra\'s largest entrance exam for Engineering and Pharmacy admissions. With 80% weightage on Class 12 syllabus, MindPeak\'s focused approach helps you score 150+ percentile.',
+    sections: [
+      { heading: 'Why MHT-CET Coaching?', content: 'MHT-CET is the gateway to COEP Pune, VJTI Mumbai, and 400+ colleges across Maharashtra.', bullets: ['80% questions from Class 12, 20% from Class 11', 'No negative marking — attempt every question', 'PCM for Engineering, PCB for Pharmacy', 'Syllabus aligned with Maharashtra State Board + NCERT', 'MindPeak covers both board and CET prep simultaneously'] },
+      { heading: 'MHT-CET Exam Pattern', table: { headers: ['Subject', 'Questions', 'Marks', 'Duration'], rows: [['Physics', '50', '100', '90 min'], ['Chemistry', '50', '100', '90 min'], ['Mathematics', '50', '100', '90 min']] } },
+    ],
+    faqs: [
+      { q: 'Can I prepare for MHT-CET and JEE together?', a: 'Yes! JEE preparation automatically covers MHT-CET syllabus. MindPeak adds CET-specific practice focusing on the no-negative-marking strategy and Class 12 heavy weightage.' },
+    ],
+    relatedPages: [
+      { label: 'JEE Coaching', href: '/jee-coaching' },
+      { label: 'NEET Coaching', href: '/neet-coaching' },
+      { label: 'Free Trial', href: '/free-trial' },
+    ],
+    schemaType: 'WebPage',
+  },
+  {
+    slug: 'kvpy-coaching',
+    title: 'KVPY Coaching Online — Win the Kishore Vaigyanik Protsahan Yojana Fellowship | MindPeak',
+    description: 'Personalized KVPY coaching for SA, SX, and SB streams. Prepare for the aptitude test and interview with MindPeak\'s 1-on-1 IIT-alumni mentors.',
+    h1: 'KVPY Coaching',
+    h1Highlight: 'Research Fellowship',
+    heroSubtitle: 'KVPY (now integrated with INSPIRE) is India\'s most prestigious science fellowship for school students. MindPeak\'s 1-on-1 coaching prepares you for both the aptitude test and interview round with IIT-alumni mentors.',
+    sections: [
+      { heading: 'Why KVPY Coaching?', content: 'KVPY identifies and nurtures scientific talent early. The fellowship provides monthly stipends and research opportunities at top Indian institutions.', bullets: ['Monthly fellowship stipend throughout undergraduate + postgraduate', 'Priority admission to IISc Bangalore and top research institutions', 'Two-stage selection: Aptitude Test + Interview', 'Tests conceptual understanding, not rote memorization', 'MindPeak mentors are IIT/IISc alumni who\'ve cleared KVPY themselves'] },
+      { heading: 'KVPY Streams', table: { headers: ['Stream', 'Eligibility', 'Subjects Tested', 'Marks Split'], rows: [['SA', 'Class 11 students', 'PCM + Biology', 'Science: 80, Maths: 20'], ['SX', 'Class 12 students', 'PCM + Biology', 'Science: 80, Maths: 20'], ['SB', '1st year UG', 'PCM + Biology', 'Science: 80, Maths: 20']] } },
+    ],
+    faqs: [
+      { q: 'Is KVPY still conducted?', a: 'KVPY has been merged with the INSPIRE program. MindPeak prepares students for INSPIRE and similar research fellowship exams with the same rigorous approach.' },
+    ],
+    relatedPages: [
+      { label: 'JEE Coaching', href: '/jee-coaching' },
+      { label: 'Foundation Coaching', href: '/foundation-coaching' },
+      { label: 'Free Trial', href: '/free-trial' },
+    ],
+    schemaType: 'WebPage',
+  },
+  {
+    slug: 'isi-entrance-coaching',
+    title: 'ISI Entrance Coaching Online — Crack Indian Statistical Institute Admission | MindPeak',
+    description: 'Expert ISI entrance exam coaching with 1-on-1 mentoring. Prepare for B.Stat, B.Math admissions at Indian Statistical Institute with MindPeak\'s Olympiad-trained mentors.',
+    h1: 'ISI Entrance Coaching',
+    h1Highlight: 'B.Stat & B.Math',
+    heroSubtitle: 'ISI (Indian Statistical Institute) is among the world\'s top institutions for Statistics and Mathematics. The entrance exam tests deep mathematical thinking — MindPeak\'s Olympiad-trained mentors prepare you for subjective proof-based questions.',
+    sections: [
+      { heading: 'Why ISI Entrance Coaching?', content: 'ISI entrance is one of India\'s toughest exams, testing mathematical maturity rather than speed. MindPeak\'s 1-on-1 format is ideal for developing proof-writing skills.', bullets: ['B.Stat and B.Math at ISI Kolkata — world-class Statistics education', 'Objective (MCQ) + Subjective (proof-based) format', 'Syllabus includes Olympiad-level combinatorics and number theory', 'MindPeak mentors include ISI alumni and Olympiad medalists', 'Focus on mathematical reasoning and elegant proof techniques'] },
+      { heading: 'ISI Exam Pattern', table: { headers: ['Paper', 'Type', 'Questions', 'Duration'], rows: [['Paper 1 (UGA)', 'Objective MCQ', '30', '2 hours'], ['Paper 2 (UGB)', 'Subjective', '8', '2 hours']] } },
+    ],
+    faqs: [
+      { q: 'Is ISI harder than JEE Advanced?', a: 'ISI tests different skills — deep mathematical reasoning and proof writing rather than speed. Many students find ISI subjective papers more challenging than JEE. MindPeak\'s approach builds both skill sets.' },
+    ],
+    relatedPages: [
+      { label: 'JEE Mathematics Coaching', href: '/jee-mathematics-coaching' },
+      { label: 'JEE Advanced Coaching', href: '/jee-advanced-coaching' },
+      { label: 'Free Trial', href: '/free-trial' },
+    ],
+    schemaType: 'WebPage',
+  },
+  {
+    slug: 'comedk-coaching',
+    title: 'COMEDK Coaching Online — Top Karnataka Engineering Colleges | MindPeak',
+    description: 'Personalized COMEDK UGET coaching for admission to RV College, BMS, PES and 190+ Karnataka engineering colleges. 1-on-1 mentoring by MindPeak.',
+    h1: 'COMEDK Coaching',
+    h1Highlight: 'Karnataka Engineering',
+    heroSubtitle: 'COMEDK UGET is Karnataka\'s premier private engineering entrance exam. With 190+ member colleges including RV College, BMS, and PES University, MindPeak helps you crack the exam with focused 1-on-1 coaching.',
+    sections: [
+      { heading: 'Why COMEDK Coaching?', content: 'COMEDK UGET is your pathway to Karnataka\'s best private engineering colleges, many of which are highly ranked nationally.', bullets: ['190+ member engineering colleges in Karnataka', 'Top colleges: RV College, BMS College, PES University, MS Ramaiah', 'PCM-based exam at JEE Main difficulty level', 'No negative marking — strategic advantage for prepared students', 'MindPeak\'s JEE prep covers COMEDK syllabus completely'] },
+      { heading: 'COMEDK Exam Pattern', table: { headers: ['Subject', 'Questions', 'Marks', 'Total Duration'], rows: [['Physics', '60', '60', '—'], ['Chemistry', '60', '60', '—'], ['Mathematics', '60', '60', '—'], ['Total', '180', '180', '3 hours']] } },
+    ],
+    faqs: [
+      { q: 'Is COMEDK easier than JEE?', a: 'COMEDK difficulty is between board exams and JEE Main. If you\'re preparing for JEE with MindPeak, you\'re already over-prepared for COMEDK — we add pattern-specific practice closer to the exam.' },
+    ],
+    relatedPages: [
+      { label: 'JEE Coaching', href: '/jee-coaching' },
+      { label: 'JEE Practice Questions', href: '/jee-practice' },
+      { label: 'Free Trial', href: '/free-trial' },
+    ],
+    schemaType: 'WebPage',
+  },
+  {
+    slug: 'viteee-coaching',
+    title: 'VITEEE Coaching Online — Get into VIT Vellore with 1-on-1 Mentoring | MindPeak',
+    description: 'Expert VITEEE coaching with personalized mentoring. Prepare for VIT Vellore, Chennai, AP & Bhopal campuses. Covers PCM + English + Aptitude sections.',
+    h1: 'VITEEE Coaching',
+    h1Highlight: 'VIT Vellore',
+    heroSubtitle: 'VITEEE is the gateway to VIT — India\'s top private university. With unique sections on English and Aptitude alongside PCM, MindPeak ensures holistic preparation with 1-on-1 expert mentoring.',
+    sections: [
+      { heading: 'Why VITEEE Coaching?', content: 'VIT Vellore consistently ranks among India\'s top 15 engineering colleges. VITEEE is your path to all VIT campuses.', bullets: ['Admission to VIT Vellore, Chennai, AP, and Bhopal campuses', 'Computer-based test with 125 questions in 150 minutes', 'Covers Physics, Chemistry, Mathematics/Biology + English + Aptitude', 'No negative marking — attempt all questions', 'MindPeak covers the English & Aptitude sections that JEE prep misses'] },
+      { heading: 'VITEEE Exam Pattern', table: { headers: ['Section', 'Questions', 'Marks'], rows: [['Mathematics/Biology', '40', '40'], ['Physics', '35', '35'], ['Chemistry', '35', '35'], ['English', '5', '5'], ['Aptitude', '10', '10']] } },
+    ],
+    faqs: [
+      { q: 'What score is needed for VIT Vellore CSE?', a: 'For Computer Science at VIT Vellore main campus, you typically need a rank under 5,000. MindPeak\'s mock tests and rank predictor help you track progress toward your target.' },
+    ],
+    relatedPages: [
+      { label: 'JEE Coaching', href: '/jee-coaching' },
+      { label: 'BITSAT Coaching', href: '/bitsat-coaching' },
+      { label: 'Free Trial', href: '/free-trial' },
+    ],
+    schemaType: 'WebPage',
+  },
+];
+
+// ─────────────────────────────────────────────────
 // EXPORT ALL PAGES
 // ─────────────────────────────────────────────────
 
@@ -2196,6 +2375,7 @@ export const allSEOPages: SEOPageData[] = [
   ...subjectPages,
   ...comparisonPages,
   ...jeeChapterCategoryPages,
+  ...otherExamPages,
 ];
 
 /** Lookup a page by slug */

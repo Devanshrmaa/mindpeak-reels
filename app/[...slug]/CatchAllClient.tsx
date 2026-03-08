@@ -11,11 +11,13 @@ import dynamic from "next/dynamic";
 import { CHAPTER_SLUGS, TOPIC_PATHS } from "@/data/chapterData";
 import { SUBJECT_SLUGS } from "@/views/SubjectPage";
 import { FORMULA_SLUGS } from "@/views/FormulaSheet";
+import { getSEOPage } from "@/data/seoPageData";
 
 const SubjectPage = dynamic(() => import("@/views/SubjectPage"), { loading: () => <Spinner /> });
 const ChapterPage = dynamic(() => import("@/views/ChapterPage"), { loading: () => <Spinner /> });
 const TopicPage = dynamic(() => import("@/views/TopicPage"), { loading: () => <Spinner /> });
 const FormulaSheet = dynamic(() => import("@/views/FormulaSheet"), { loading: () => <Spinner /> });
+const SEOLandingPage = dynamic(() => import("@/views/SEOLandingPage"), { loading: () => <Spinner /> });
 const QuestionSlugRouter = dynamic(() => import("@/views/QuestionSlugRouter"), { loading: () => <Spinner /> });
 
 const Spinner = () => (
@@ -24,7 +26,7 @@ const Spinner = () => (
   </div>
 );
 
-function resolve(slug: string): "subject" | "chapter" | "topic" | "formula" | "question" {
+function resolve(slug: string): "subject" | "chapter" | "topic" | "formula" | "seo-landing" | "question" {
   // Two-segment paths → TopicPage
   if (slug.includes("/")) {
     return TOPIC_PATHS.includes(slug) ? "topic" : "question";
@@ -33,6 +35,7 @@ function resolve(slug: string): "subject" | "chapter" | "topic" | "formula" | "q
   if (SUBJECT_SLUGS.includes(slug)) return "subject";
   if (FORMULA_SLUGS.includes(slug)) return "formula";
   if (CHAPTER_SLUGS.includes(slug)) return "chapter";
+  if (getSEOPage(slug)) return "seo-landing";
   return "question";
 }
 
@@ -50,6 +53,8 @@ export default function CatchAllClient() {
       return <TopicPage />;
     case "formula":
       return <FormulaSheet />;
+    case "seo-landing":
+      return <SEOLandingPage />;
     case "question":
       return <QuestionSlugRouter />;
   }
