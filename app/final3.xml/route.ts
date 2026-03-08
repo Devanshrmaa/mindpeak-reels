@@ -16,6 +16,7 @@ import { getAllProgrammaticBlogSlugs } from '@/lib/programmaticBlogs';
 import { TOPIC_PATHS, CHAPTER_SLUGS } from '@/data/chapterData';
 import { competitors } from '@/data/comparisonData';
 import { getAllStudyGuideSlugs } from '@/lib/topicStudyGuides';
+import { examRegistry } from '@/data/examRegistry';
 
 const BASE = 'https://mindpeakinstitute.com';
 
