@@ -17,6 +17,7 @@ import { TableOfContents, toAnchorId, type TocItem } from '@/components/TableOfC
 import { getExamEntities } from '@/lib/seoEntities';
 import { getChapterBySlug, topicToSlug } from '@/data/chapterData';
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
+import { getTopicContent } from '@/data/topicContent';
 
 const RevisionNotesPage = () => {
   const pathname = usePathname();
