@@ -159,11 +159,13 @@ const CourseDetail = () => {
           </div>
         </section>
 
-        {/* ───── DYNAMIC STUDY PLAN ───── */}
-        <StudyPlanSection
-          examType={course.category === 'neet' ? 'NEET' : 'JEE'}
-          themed
-        />
+        {/* ───── DYNAMIC STUDY PLAN (only for JEE/NEET courses) ───── */}
+        {(course.category === 'jee' || course.category === 'neet') && (
+          <StudyPlanSection
+            examType={course.category === 'neet' ? 'NEET' : 'JEE'}
+            themed
+          />
+        )}
 
         {/* Description */}
         <section className="px-6 pb-6">
