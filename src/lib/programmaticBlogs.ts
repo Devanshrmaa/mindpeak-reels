@@ -1133,7 +1133,7 @@ function generateBestCoachingInCityPosts(): BlogPost[] {
         category: exam,
         tags: [exam, city, 'Best Coaching', 'Comparison'],
         author: 'MindPeak Team',
-        publishDate: '2026-02-18',
+        publishDate: dynamicPublishDate(i + 500),
         readTime: '12 min read',
         icon: pickIcon(topCities.indexOf(city) + 3),
         content: `# Best ${exam} Coaching in ${city} ${year}
