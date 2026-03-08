@@ -1272,7 +1272,7 @@ function generateScoreStrategyPosts(): BlogPost[] {
     category: s.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [s.exam, s.subject, '99 Percentile', 'Strategy'],
     author: 'MindPeak Team',
-    publishDate: '2026-02-22',
+    publishDate: dynamicPublishDate(i + 600),
     readTime: '14 min read',
     icon: pickIcon(i),
     content: `# How to Score 99 Percentile in ${s.exam} ${s.subject}
