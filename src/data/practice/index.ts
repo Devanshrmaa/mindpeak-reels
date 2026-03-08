@@ -47,6 +47,8 @@ const allChemistryChapters: ChapterData[] = [
   ...physicalChemChapters,   // Mole Concept, Atomic Structure, etc.
   ...organicChemChapters,    // GOC, Hydrocarbons, etc.
   ...inorganicChemChapters,  // Periodic Table, Chemical Bonding, etc.
+  ...thermoElectrochemChapters, // Chemical Thermodynamics, Electrochemistry
+  ...organicExpansionChapters,  // Aldehydes/Ketones, Amines, Polymers
 ];
 
 export const chemistryBank: SubjectBank = {
