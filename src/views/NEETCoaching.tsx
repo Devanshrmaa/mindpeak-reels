@@ -124,9 +124,15 @@ const NEETCoaching = () => {
     description: 'Comprehensive 1-on-1 personalized NEET coaching with Biology-first approach, dedicated mentors, and 95% success rate.',
     provider: { '@type': 'EducationalOrganization', name: 'MindPeak Institute', url: 'https://mindpeakinstitute.com' },
     offers: { '@type': 'Offer', price: '100000', priceCurrency: 'INR', availability: 'https://schema.org/InStock' },
-    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: String(getLiveStat('studentsEnrolled')), bestRating: '5' },
     dateModified: lastUpdated,
     hasCourseInstance: { '@type': 'CourseInstance', courseMode: 'online', courseWorkload: 'P1Y' },
+    about: [
+      { '@type': 'Thing', name: 'NEET-UG', sameAs: 'https://en.wikipedia.org/wiki/National_Eligibility_cum_Entrance_Test_(Undergraduate)' },
+      { '@type': 'Thing', name: 'National Testing Agency', sameAs: 'https://en.wikipedia.org/wiki/National_Testing_Agency' },
+    ],
+    mentions: [
+      { '@type': 'Thing', name: 'NCERT', sameAs: 'https://en.wikipedia.org/wiki/National_Council_of_Educational_Research_and_Training' },
+    ],
   };
 
   const breadcrumbSchema = {

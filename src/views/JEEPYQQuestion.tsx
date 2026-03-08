@@ -469,6 +469,28 @@ const JEEPYQQuestion = () => {
             </div>
           </div>
 
+          {/* Related chapters in same subject — sibling cross-links */}
+          {bank.chapters.length > 1 && (
+            <div>
+              <h3 className="font-display font-bold text-lg text-foreground mb-4">More {subj} PYQ Chapters</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {bank.chapters
+                  .filter(ch => ch.slug !== params.chapter)
+                  .slice(0, 6)
+                  .map((ch) => {
+                    const linkSlug = getPYQSlugByParams(bank.slug, ch.slug, 1);
+                    if (!linkSlug) return null;
+                    return (
+                      <Link key={ch.slug} to={`/${linkSlug}`} className="rounded-lg border border-border bg-card/50 p-4 hover:border-orange-500/50 transition-colors">
+                        <p className="text-sm font-medium text-foreground">{ch.name}</p>
+                        <p className="text-xs text-muted-foreground mt-1">{getPYQChapterCount(ch)} previous year questions</p>
+                      </Link>
+                    );
+                  })}
+              </div>
+            </div>
+          )}
+
           {/* Quick Links */}
           <div>
             <h3 className="font-display font-bold text-lg text-foreground mb-4">JEE {subj} Resources</h3>
