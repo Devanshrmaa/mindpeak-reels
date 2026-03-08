@@ -1005,7 +1005,7 @@ export const courses: Course[] = [
     mode: '1-on-1',
     fee: '₹1,30,000 + GST',
     icon: Target,
-    logo: jeeLogo,
+    logo: undefined,
     category: 'other',
     description:
       'A focused BITSAT preparation program with 1-on-1 mentoring. Covers PCM at JEE Main level plus dedicated English Proficiency and Logical Reasoning sessions. Designed to help you score 300+ and secure admission to BITS Pilani, Goa, or Hyderabad.',
