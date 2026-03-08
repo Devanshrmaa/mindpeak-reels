@@ -15,6 +15,7 @@ import { parseNEETPYQHubSlug, getUnitBySlug } from '@/data/neet-pyq/hierarchy';
 import { getSEOPage } from '@/data/seoPageData';
 import { chapters, getTopicInfo } from '@/data/chapterData';
 import { resolveOgImageMeta } from '@/lib/ogImage';
+import { parseStudyGuideSlug, buildStudyGuide } from '@/lib/topicStudyGuides';
 import type { Metadata } from 'next';
 
 const BASE = 'https://mindpeakinstitute.com';
