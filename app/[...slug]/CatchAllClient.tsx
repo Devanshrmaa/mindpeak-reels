@@ -12,6 +12,10 @@ import { CHAPTER_SLUGS, TOPIC_PATHS } from "@/data/chapterData";
 import { SUBJECT_SLUGS } from "@/views/SubjectPage";
 import { FORMULA_SLUGS } from "@/views/FormulaSheet";
 import { getSEOPage } from "@/data/seoPageData";
+import { getExamInfoPage } from "@/data/examInfoData";
+import { getDifferencePair } from "@/data/differenceBetweenData";
+import { IMPORTANT_Q_SLUGS } from "@/views/ImportantQuestionsHub";
+import { getCounsellingPage } from "@/data/counsellingData";
 
 const SubjectPage = dynamic(() => import("@/views/SubjectPage"), { loading: () => <Spinner /> });
 const ChapterPage = dynamic(() => import("@/views/ChapterPage"), { loading: () => <Spinner /> });
@@ -19,6 +23,11 @@ const TopicPage = dynamic(() => import("@/views/TopicPage"), { loading: () => <S
 const FormulaSheet = dynamic(() => import("@/views/FormulaSheet"), { loading: () => <Spinner /> });
 const SEOLandingPage = dynamic(() => import("@/views/SEOLandingPage"), { loading: () => <Spinner /> });
 const QuestionSlugRouter = dynamic(() => import("@/views/QuestionSlugRouter"), { loading: () => <Spinner /> });
+const ExamInfoPage = dynamic(() => import("@/views/ExamInfoPage"), { loading: () => <Spinner /> });
+const DifferenceBetweenPage = dynamic(() => import("@/views/DifferenceBetweenPage"), { loading: () => <Spinner /> });
+const RevisionNotesPage = dynamic(() => import("@/views/RevisionNotesPage"), { loading: () => <Spinner /> });
+const ImportantQuestionsHub = dynamic(() => import("@/views/ImportantQuestionsHub"), { loading: () => <Spinner /> });
+const CounsellingGuidePage = dynamic(() => import("@/views/CounsellingGuidePage"), { loading: () => <Spinner /> });
 
 const Spinner = () => (
   <div className="min-h-screen bg-[hsl(225,43%,7%)] flex items-center justify-center">
