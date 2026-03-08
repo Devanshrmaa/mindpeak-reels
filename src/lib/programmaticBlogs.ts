@@ -1469,7 +1469,7 @@ function generateKotaWorthItPosts(): BlogPost[] {
       category: 'General' as const,
       tags: ['Kota', city, 'Coaching Comparison', 'Parent Guide'],
       author: 'MindPeak Team',
-      publishDate: '2026-02-15',
+      publishDate: dynamicPublishDate(i + 700),
       readTime: '12 min read',
       icon: pickIcon(i + 7),
       content: `# Is Kota Coaching Worth It from ${city}? — Honest ${year} Analysis
