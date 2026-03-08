@@ -1712,7 +1712,7 @@ function generateRevisionChecklistPosts(): BlogPost[] {
     category: ch.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [ch.exam, ch.subject, ch.chapter, 'Revision', 'Checklist'],
     author: 'MindPeak Team',
-    publishDate: '2026-03-01',
+    publishDate: dynamicPublishDate(i + 900),
     readTime: '10 min read',
     icon: pickIcon(i + 8),
     content: `# ${ch.chapter} Revision Checklist for ${ch.exam} ${year}
