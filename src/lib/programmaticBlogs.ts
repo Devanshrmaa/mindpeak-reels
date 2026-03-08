@@ -3645,5 +3645,10 @@ export function getAllProgrammaticBlogSlugs(): string[] {
     slugs.push(`blog/${exam.slug}-syllabus-complete-guide-${year}`);
   }
 
+  // 23. Complete exam guides (~14)
+  for (const exam of examRegistry) {
+    slugs.push(`blog/${exam.slug}-complete-guide-${year}`);
+  }
+
   return slugs;
 }
