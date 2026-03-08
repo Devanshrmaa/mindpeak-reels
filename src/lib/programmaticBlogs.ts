@@ -57,7 +57,7 @@ function generateChapterPrepPosts(): BlogPost[] {
       category: exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
       tags: [exam, ch.subject, ch.chapter, 'Preparation Guide', 'Study Tips'],
       author: 'MindPeak Team',
-      publishDate: '2026-02-20',
+      publishDate: dynamicPublishDate(i),
       readTime: '12 min read',
       icon: pickIcon(i),
       content: `# How to Prepare ${ch.chapter} for ${exam} ${year}
