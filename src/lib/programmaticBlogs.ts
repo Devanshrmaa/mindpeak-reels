@@ -2411,7 +2411,7 @@ function generateCutoffPosts(): BlogPost[] {
     category: t.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [t.exam, 'Cutoff', 'College', year.toString()],
     author: 'MindPeak Team',
-    publishDate: '2026-03-01',
+    publishDate: dynamicPublishDate(i + 1400),
     readTime: '13 min read',
     icon: pickIcon(i + 3),
     content: `# ${t.title}
