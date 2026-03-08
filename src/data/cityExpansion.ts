@@ -1,11 +1,13 @@
 /* ═══════════════════════════════════════════════════════════════════
    CITY EXPANSION — Programmatic SEO: 200+ cities
-   Uses state-level educational data to make each city page unique
-   based on real colleges, cutoffs, board specifics, and competition stats.
+   Uses state-level educational data AND per-city unique content
+   to make each city page genuinely unique with real facts, schools,
+   challenges, and educational context.
    ═══════════════════════════════════════════════════════════════════ */
 
 import type { CityData, QuickStat, CourseTile, LocalValueProp, CityFAQ, CityTestimonial, CityEvent, TabbedContent } from './cityData';
 import { getStateEducation } from './stateEducationData';
+import { cityUniqueContent, type CityUniqueData } from './cityUniqueContent';
 
 interface CityConfig {
   slug: string;
@@ -34,7 +36,10 @@ function generateEducationLandscape(c: CityConfig): string {
   const aspirantStr = stateData ? ` ${c.state} produces ${stateData.aspirantCount} annually, making it one of India's most competitive states for entrance exams.` : '';
   const collegeStr = stateData?.topEnggColleges?.[0] ? ` Top targets for engineering aspirants include ${stateData.topEnggColleges.slice(0, 3).map(col => col.name).join(', ')}, while medical aspirants aim for ${stateData.topMedColleges.slice(0, 2).map(col => col.name).join(' and ')}.` : '';
   const boardChallengeStr = stateData?.boardTransitionChallenges ? ` ${stateData.boardTransitionChallenges.split('.').slice(0, 2).join('.')}.` : '';
-  return `${c.city} is a growing educational hub in ${c.state} with increasing numbers of ${examList} aspirants every year. Students from ${boardStr} backgrounds face intense competition for seats in top engineering and medical colleges.${hubStr}${instStr}${aspirantStr}${collegeStr}${boardChallengeStr} The one-size-fits-all approach of large batch coaching often leaves students without the personalised attention needed to crack highly competitive exams. Many ${c.city} families are now seeking smarter, technology-driven alternatives that provide individual focus.`;
+  const u = cityUniqueContent[c.slug];
+  const uniqueStr = u ? ` ${u.knownFor} ${u.educationFact}` : '';
+  const challengeStr2 = u ? ` ${u.localChallenge}` : '';
+  return `${c.city} (population ${u?.population || 'growing'}) is a significant educational hub in ${c.state} with increasing numbers of ${examList} aspirants every year.${uniqueStr} Students from ${boardStr} backgrounds face intense competition for seats in top engineering and medical colleges.${hubStr}${instStr}${aspirantStr}${collegeStr}${boardChallengeStr}${challengeStr2} The one-size-fits-all approach of large batch coaching often leaves students without the personalised attention needed to crack highly competitive exams. Many ${c.city} families are now seeking smarter, technology-driven alternatives that provide individual focus.`;
 }
 
 function generateWhyMindPeak(c: CityConfig): string {
@@ -152,13 +157,17 @@ function generateCallToAction(c: CityConfig): string {
 /* ─── INTERACTIVE SECTION GENERATORS ────────────────────────── */
 
 function generateHeroHeadline(c: CityConfig): string {
+  const u = cityUniqueContent[c.slug];
+  if (u?.heroVariant) return u.heroVariant;
   const examList = c.exams.map(e => e.toUpperCase()).join(' & ');
   return `Crack ${examList} from ${c.city} — 1-on-1 mentors, real results.`;
 }
 
 function generateHeroSublead(c: CityConfig): string {
   const examFull = c.exams.map(e => e === 'jee' ? 'JEE Main & Advanced' : 'NEET UG').join(' and ');
-  return `MindPeak Institute in ${c.city} runs personalised 1-on-1 coaching for ${examFull}, designed to get you exam-ready with daily live sessions, adaptive curriculum, and dedicated mentor support from home.`;
+  const u = cityUniqueContent[c.slug];
+  const nearStr = u?.nearestPremierInstitute ? ` ${u.nearestPremierInstitute}` : '';
+  return `MindPeak Institute in ${c.city} runs personalised 1-on-1 coaching for ${examFull}, designed to get you exam-ready with daily live sessions, adaptive curriculum, and dedicated mentor support from home.${nearStr}`;
 }
 
 function generateSocialProofLine(_c: CityConfig): string {
