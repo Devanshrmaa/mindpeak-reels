@@ -26,6 +26,21 @@ import type { Metadata } from 'next';
 const BASE = 'https://mindpeakinstitute.com';
 const YEAR = CURRENT_EXAM_YEAR;
 
+/* ── hreflang helper — adds en-IN + x-default to every page ── */
+function withHreflang(meta: Metadata, canonical: string): Metadata {
+  return {
+    ...meta,
+    alternates: {
+      ...meta.alternates,
+      canonical,
+      languages: {
+        'en-IN': canonical,
+        'x-default': canonical,
+      },
+    },
+  };
+}
+
 /* ── helpers ── */
 const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 const diffLabel = (d: string) => d === 'easy' ? 'Easy' : d === 'medium' ? 'Medium' : 'Hard';
