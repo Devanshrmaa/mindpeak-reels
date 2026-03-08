@@ -2794,7 +2794,7 @@ function generateExamComparisonPosts(): BlogPost[] {
         category: base.slug.includes('neet') ? 'NEET' as const : 'JEE' as const,
         tags: [exam.name, base.name, 'Comparison', 'Strategy'],
         author: 'MindPeak Team',
-        publishDate: '2026-03-01',
+        publishDate: dynamicPublishDate(i + 1700),
         readTime: '14 min read',
         icon: examIcons[i % examIcons.length],
         content: `# ${exam.name} vs ${base.name} ${year} — Which Is Harder and How to Prepare for Both
