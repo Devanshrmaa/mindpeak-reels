@@ -1804,7 +1804,7 @@ function generateMistakesToAvoidPosts(): BlogPost[] {
     category: ch.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [ch.exam, ch.subject, ch.chapter, 'Mistakes', 'Error Analysis'],
     author: 'MindPeak Team',
-    publishDate: '2026-03-01',
+    publishDate: dynamicPublishDate(i + 1000),
     readTime: '10 min read',
     icon: pickIcon(i + 12),
     content: `# ${ch.chapter} Mistakes That Cost Marks in ${ch.exam}
