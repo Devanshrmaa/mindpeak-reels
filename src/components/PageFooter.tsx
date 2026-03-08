@@ -38,6 +38,19 @@ const STATIC_SECTIONS: FooterSectionData[] = [
     ],
   },
   {
+    title: 'Other Exams',
+    links: [
+      { label: 'BITSAT Coaching', to: '/bitsat-coaching' },
+      { label: 'CUET Coaching', to: '/cuet-coaching' },
+      { label: 'WBJEE Coaching', to: '/wbjee-coaching' },
+      { label: 'MHT-CET Coaching', to: '/mht-cet-coaching' },
+      { label: 'KVPY Coaching', to: '/kvpy-coaching' },
+      { label: 'ISI Entrance Coaching', to: '/isi-entrance-coaching' },
+      { label: 'COMEDK Coaching', to: '/comedk-coaching' },
+      { label: 'VITEEE Coaching', to: '/viteee-coaching' },
+    ],
+  },
+  {
     title: 'Practice & PYQs',
     links: [
       { label: 'JEE Practice Questions', to: '/jee-practice' },
