@@ -96,6 +96,21 @@ export async function GET() {
   const neetPracticeSlugs = buildAllNEETPracticeSlugs().map(s => `/${s.slug}`);
   const neetPyqSlugs = buildAllNEETPYQSlugs().map(s => `/${s.slug}`);
 
+  /* ═══ 10. Exam info hub pages ═══ */
+  const examInfoSlugs = getAllExamInfoSlugs().map(s => `/${s}`);
+
+  /* ═══ 11. Difference Between pages ═══ */
+  const differenceSlugs = getAllDifferenceSlugs().map(s => `/${s}`);
+
+  /* ═══ 12. Important Questions hubs ═══ */
+  const importantQSlugs = IMPORTANT_Q_SLUGS.map(s => `/${s}`);
+
+  /* ═══ 13. Counselling & college pages ═══ */
+  const counsellingSlugs = getAllCounsellingSlugs().map(s => `/${s}`);
+
+  /* ═══ 14. Revision notes pages ═══ */
+  const notesSlugs = CHAPTER_SLUGS.map(s => `/${s}/notes`);
+
   /* ═══ Build XML ═══ */
   const lines: string[] = [
     '<?xml version="1.0" encoding="UTF-8"?>',
