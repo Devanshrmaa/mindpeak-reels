@@ -130,6 +130,11 @@ export async function GET() {
     jeePyq: pyqSlugs.length,
     neetPractice: neetPracticeSlugs.length,
     neetPyq: neetPyqSlugs.length,
+    examInfo: examInfoSlugs.length,
+    difference: differenceSlugs.length,
+    importantQ: importantQSlugs.length,
+    counselling: counsellingSlugs.length,
+    notes: notesSlugs.length,
   };
   const total = Object.values(counts).reduce((a, b) => a + b, 0);
 
