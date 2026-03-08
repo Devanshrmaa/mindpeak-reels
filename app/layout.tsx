@@ -143,7 +143,7 @@ const jsonLdGraph = {
         target: {
           "@type": "EntryPoint",
           urlTemplate:
-            "https://mindpeakinstitute.com/courses?q={search_term_string}",
+            "https://mindpeakinstitute.com/blog?q={search_term_string}",
         },
         "query-input": "required name=search_term_string",
       },

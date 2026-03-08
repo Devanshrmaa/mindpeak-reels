@@ -156,8 +156,8 @@ const JEECoaching = () => {
   return (
     <>
       <SEOHead
-        title="JEE Online Coaching — Personalized 1-on-1 Mentorship | 95% Success Rate | MindPeak"
-        description="Achieve AIR <5K with personalized JEE coaching. Dedicated mentors, adaptive curriculum, 95% success rate. 500+ students trust MindPeak. Start free trial today!"
+        title={`Best JEE Coaching Online ${CURRENT_EXAM_YEAR} — AIR <5K | 95% Success [Free Trial]`}
+        description={`Crack JEE ${CURRENT_EXAM_YEAR} with 1-on-1 mentors from IIT/NIT. Adaptive curriculum, daily doubt sessions, 95% success rate. 500+ students trust MindPeak.`}
         jsonLd={[courseSchema, breadcrumbSchema, buildFAQSchema([...faqs, ...paaQuestions])]}
       />
 

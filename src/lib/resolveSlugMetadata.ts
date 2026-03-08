@@ -16,10 +16,11 @@ import { getSEOPage } from '@/data/seoPageData';
 import { chapters, getTopicInfo } from '@/data/chapterData';
 import { resolveOgImageMeta } from '@/lib/ogImage';
 import { parseStudyGuideSlug, buildStudyGuide } from '@/lib/topicStudyGuides';
+import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 import type { Metadata } from 'next';
 
 const BASE = 'https://mindpeakinstitute.com';
-const YEAR = new Date().getFullYear();
+const YEAR = CURRENT_EXAM_YEAR;
 
 /* ── helpers ── */
 const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
