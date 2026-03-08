@@ -974,7 +974,7 @@ A: MindPeak offers merit-based fee concessions for exceptional students. Discuss
       category: guide.exam === 'JEE' ? 'JEE' as const : guide.exam === 'NEET' ? 'NEET' as const : 'General' as const,
       tags: ['Parent Guide', guide.exam, 'Coaching', 'Tips'],
       author: 'MindPeak Team',
-      publishDate: dynamicPublishDate(i + 400),
+      publishDate: dynamicPublishDate(posts.length + 400),
       readTime: '12 min read',
       icon: Heart,
       content: `# ${guide.title}
