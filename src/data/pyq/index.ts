@@ -13,6 +13,9 @@ import { mathsPyq2 } from './maths-pyq-2';
 import { mathsPyq3 } from './maths-pyq-3';
 import { physicsPyq5 } from './physics-pyq-5';
 import { mathsPyq4 } from './maths-pyq-4';
+import { physicsPyq6 } from './physics-pyq-6';
+import { chemistryPyq5 } from './chemistry-pyq-5';
+import { mathsPyq5 } from './maths-pyq-5';
 
 /* ─── Helper: merge chapters with duplicate slugs ─── */
 function mergeChapters(chapters: PYQChapter[]): PYQChapter[] {
