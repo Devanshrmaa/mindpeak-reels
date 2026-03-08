@@ -356,6 +356,44 @@ const TopicPage = () => {
                   )}
                 </div>
               </div>
+              {/* ── Worked Example Box ── */}
+              {topicContent?.workedExample && (
+                <div className="rounded-xl border-2 border-primary/30 bg-primary/5 p-5 sm:p-6 mb-5">
+                  <div className="flex items-center gap-2 mb-3">
+                    <GraduationCap className="w-5 h-5 text-primary" />
+                    <h3 className="font-display font-bold text-foreground text-sm sm:text-base">Solved Example</h3>
+                  </div>
+                  <p className="text-foreground text-sm font-medium leading-relaxed mb-3">
+                    <strong>Problem:</strong> {topicContent.workedExample.problem}
+                  </p>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-2 font-mono bg-card/60 rounded-lg p-3 border border-border">
+                    <strong className="text-foreground font-sans">Solution:</strong> {topicContent.workedExample.solution}
+                  </p>
+                  <p className="text-primary font-bold text-sm">
+                    Answer: {topicContent.workedExample.answer}
+                  </p>
+                </div>
+              )}
+
+              {/* ── Key Fact & Real World Application ── */}
+              {topicContent && (
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 p-5">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Star className="w-5 h-5 text-amber-400" />
+                      <h3 className="font-display font-bold text-foreground text-sm">Key Fact</h3>
+                    </div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{topicContent.keyFact}</p>
+                  </div>
+                  <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-5">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Eye className="w-5 h-5 text-emerald-400" />
+                      <h3 className="font-display font-bold text-foreground text-sm">Real-World Application</h3>
+                    </div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{topicContent.realWorldApp}</p>
+                  </div>
+                </div>
+              )}
             </motion.div>
           </div>
         </section>

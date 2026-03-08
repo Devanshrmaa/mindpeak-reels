@@ -17,6 +17,7 @@ import { TableOfContents, toAnchorId, type TocItem } from '@/components/TableOfC
 import { getExamEntities } from '@/lib/seoEntities';
 import { getChapterBySlug, topicToSlug } from '@/data/chapterData';
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
+import { getTopicContent } from '@/data/topicContent';
 
 const RevisionNotesPage = () => {
   const pathname = usePathname();
@@ -118,17 +119,29 @@ const RevisionNotesPage = () => {
               <BookOpen className="w-5 h-5 text-primary" /> Key Concepts & Topics
             </h2>
             <div className="grid gap-3 sm:grid-cols-2">
-              {chapter.topics.map((topic, i) => (
-                <Link
-                  key={i}
-                  to={`/${chapterSlug}/${topicToSlug(topic)}`}
-                  className="flex items-center gap-3 p-4 rounded-xl border border-border bg-card/30 hover:border-primary/40 transition-colors group"
-                >
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xs font-bold flex-shrink-0">{i + 1}</div>
-                  <span className="text-foreground text-sm group-hover:text-primary transition-colors">{topic}</span>
-                  <ArrowRight className="w-4 h-4 text-muted-foreground ml-auto group-hover:text-primary transition-colors" />
-                </Link>
-              ))}
+              {chapter.topics.map((topic, i) => {
+                const tc = getTopicContent(chapterSlug, topic);
+                return (
+                  <div key={i} className="rounded-xl border border-border bg-card/30 hover:border-primary/40 transition-colors">
+                    <Link
+                      to={`/${chapterSlug}/${topicToSlug(topic)}`}
+                      className="flex items-center gap-3 p-4 group"
+                    >
+                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xs font-bold flex-shrink-0">{i + 1}</div>
+                      <span className="text-foreground text-sm group-hover:text-primary transition-colors font-medium">{topic}</span>
+                      <ArrowRight className="w-4 h-4 text-muted-foreground ml-auto group-hover:text-primary transition-colors flex-shrink-0" />
+                    </Link>
+                    {tc && (
+                      <div className="px-4 pb-4 pt-0 border-t border-border/50 mt-0">
+                        <p className="text-muted-foreground text-xs leading-relaxed mt-3">{tc.definition}</p>
+                        {tc.workedExample && (
+                          <p className="text-xs text-primary/80 mt-2 font-mono">💡 {tc.workedExample.problem} → <strong>{tc.workedExample.answer}</strong></p>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </section>
 
