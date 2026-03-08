@@ -822,7 +822,7 @@ function generateParentPosts(): BlogPost[] {
         category: 'General' as const,
         tags: [exam, city, 'Coaching Fees', 'Parent Guide'],
         author: 'MindPeak Team',
-        publishDate: '2026-02-15',
+        publishDate: dynamicPublishDate(i + 300),
         readTime: '12 min read',
         icon: pickIcon(topCities.indexOf(city)),
         content: `# Cost of ${exam} Preparation in ${city} ${year}
