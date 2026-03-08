@@ -1005,7 +1005,7 @@ export const courses: Course[] = [
     mode: '1-on-1',
     fee: '₹1,30,000 + GST',
     icon: Target,
-    logo: jeeLogo,
+    logo: undefined,
     category: 'other',
     description:
       'A focused BITSAT preparation program with 1-on-1 mentoring. Covers PCM at JEE Main level plus dedicated English Proficiency and Logical Reasoning sessions. Designed to help you score 300+ and secure admission to BITS Pilani, Goa, or Hyderabad.',
@@ -1052,7 +1052,7 @@ export const courses: Course[] = [
     mode: '1-on-1',
     fee: '₹1,30,000 + GST',
     icon: Brain,
-    logo: jeeLogo,
+    logo: undefined,
     category: 'other',
     description:
       'An intensive ISI entrance preparation program with Olympiad-trained mentors. Covers both UGA (objective) and UGB (subjective proof-based) papers. Designed for students with a passion for mathematics who want to enter India\'s most prestigious statistics and mathematics institution.',
