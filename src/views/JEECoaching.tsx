@@ -130,18 +130,20 @@ const JEECoaching = () => {
       priceCurrency: 'INR',
       availability: 'https://schema.org/InStock',
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: String(getLiveStat('studentsEnrolled')),
-      bestRating: '5',
-    },
     dateModified: lastUpdated,
     hasCourseInstance: {
       '@type': 'CourseInstance',
       courseMode: 'online',
       courseWorkload: 'P1Y',
     },
+    about: [
+      { '@type': 'Thing', name: 'JEE Main', sameAs: 'https://en.wikipedia.org/wiki/Joint_Entrance_Examination_%E2%80%93_Main' },
+      { '@type': 'Thing', name: 'JEE Advanced', sameAs: 'https://en.wikipedia.org/wiki/Joint_Entrance_Examination_%E2%80%93_Advanced' },
+      { '@type': 'Thing', name: 'National Testing Agency', sameAs: 'https://en.wikipedia.org/wiki/National_Testing_Agency' },
+    ],
+    mentions: [
+      { '@type': 'Thing', name: 'Indian Institutes of Technology', sameAs: 'https://en.wikipedia.org/wiki/Indian_Institutes_of_Technology' },
+    ],
   };
 
   const breadcrumbSchema = {

@@ -54,6 +54,39 @@ const BlogPost = () => {
       <SEOHead
         title={`${post.title} — Mindpeak Blog`}
         description={post.excerpt}
+        jsonLd={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            headline: post.title,
+            description: post.excerpt,
+            author: { '@type': 'Person', name: post.author },
+            publisher: {
+              '@type': 'Organization',
+              name: 'MindPeak Institute',
+              logo: { '@type': 'ImageObject', url: 'https://mindpeakinstitute.com/images/logo.jpeg' },
+            },
+            datePublished: post.publishDate,
+            dateModified: post.publishDate,
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': `https://mindpeakinstitute.com/blog/${post.slug}`,
+            },
+            image: 'https://mindpeakinstitute.com/hero-bg.jpg',
+            wordCount: post.content ? post.content.split(/\s+/).length : 500,
+            articleSection: post.category,
+            keywords: post.tags.join(', '),
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://mindpeakinstitute.com' },
+              { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://mindpeakinstitute.com/blog' },
+              { '@type': 'ListItem', position: 3, name: post.title, item: `https://mindpeakinstitute.com/blog/${post.slug}` },
+            ],
+          },
+        ]}
       />
 
       <Navbar />

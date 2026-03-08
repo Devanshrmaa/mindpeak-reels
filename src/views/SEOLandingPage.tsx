@@ -16,15 +16,20 @@ import { getSEOPage } from '@/data/seoPageData';
 import type { SEOPageData, SEOPageSection } from '@/data/seoPageData';
 import { FreshnessBadge } from '@/components/FreshnessBadge';
 import { getLastUpdated, getCurrentExamYear } from '@/lib/contentFreshness';
+import { TableOfContents, toAnchorId, type TocItem } from '@/components/TableOfContents';
+import { getExamEntities } from '@/lib/seoEntities';
 
 /* ── Section renderer ── */
-const ContentSection = ({ section, index }: { section: SEOPageSection; index: number }) => (
+const ContentSection = ({ section, index }: { section: SEOPageSection; index: number }) => {
+  const anchorId = toAnchorId(section.heading);
+  return (
   <motion.section
+    id={anchorId}
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ delay: index * 0.05 }}
-    className="mb-12"
+    className="mb-12 scroll-mt-24"
   >
     <h2 className="font-display font-bold text-foreground text-xl sm:text-2xl mb-4">{section.heading}</h2>
     {section.content && (
@@ -63,7 +68,8 @@ const ContentSection = ({ section, index }: { section: SEOPageSection; index: nu
       </div>
     )}
   </motion.section>
-);
+  );
+};
 
 /* ── Page component ── */
 const SEOLandingPage = () => {
@@ -104,6 +110,25 @@ const SEOLandingPage = () => {
   if (page.faqs.length > 0) {
     jsonLd.push(buildFAQSchemaFromQA(page.faqs));
   }
+
+  // Article schema with freshness signals
+  const lastUpdated = getLastUpdated(slug);
+  jsonLd.push({
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: `${page.h1} ${page.h1Highlight}`,
+    description: page.description,
+    author: { '@type': 'Organization', name: 'MindPeak Institute' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'MindPeak Institute',
+      logo: { '@type': 'ImageObject', url: 'https://mindpeakinstitute.com/images/logo.jpeg' },
+    },
+    datePublished: '2025-01-01',
+    dateModified: lastUpdated,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://mindpeakinstitute.com/${page.slug}` },
+    about: getExamEntities(slug.includes('neet') ? 'NEET' : 'JEE'),
+  });
 
   jsonLd.push({
     '@context': 'https://schema.org',
@@ -155,6 +180,13 @@ const SEOLandingPage = () => {
 
         {/* Section divider */}
         <div className="section-divider max-w-4xl mx-auto" />
+
+        {/* Table of Contents */}
+        <div className="max-w-4xl mx-auto px-6 pt-8">
+          <TableOfContents
+            items={page.sections.map((s): TocItem => ({ id: toAnchorId(s.heading), label: s.heading }))}
+          />
+        </div>
 
         {/* Content Sections */}
         <div className="max-w-4xl mx-auto px-6 py-12">
