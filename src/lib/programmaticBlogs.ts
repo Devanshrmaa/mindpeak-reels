@@ -3325,7 +3325,207 @@ export function getAllProgrammaticBlogPosts(): BlogPost[] {
   ];
 }
 
-/** Get all programmatic blog slugs (for sitemap) */
+/**
+ * Get all programmatic blog slugs (for sitemap).
+ * IMPORTANT: This generates ONLY slug strings — no content.
+ * This keeps memory usage minimal for serverless sitemap generation.
+ */
 export function getAllProgrammaticBlogSlugs(): string[] {
-  return getAllProgrammaticBlogPosts().map(p => `blog/${p.slug}`);
+  const slugs: string[] = [];
+
+  // 1. Chapter prep guides (~148)
+  for (const ch of chapters) {
+    slugs.push(`blog/how-to-prepare-${slugify(ch.chapter)}-for-${ch.exam.toLowerCase()}`);
+  }
+
+  // 2. Chapter tips (~74)
+  const uniqueChapters = chapters.filter((ch, i, arr) =>
+    arr.findIndex(c => c.chapter === ch.chapter) === i
+  );
+  for (const ch of uniqueChapters.slice(0, 74)) {
+    slugs.push(`blog/${slugify(ch.chapter)}-tips-and-tricks-${ch.exam.toLowerCase()}`);
+  }
+
+  // 3. Subject strategy (~14)
+  const combos = [
+    { exam: 'jee', subject: 'Physics', days: [7, 15, 30] },
+    { exam: 'jee', subject: 'Chemistry', days: [7, 15, 30] },
+    { exam: 'jee', subject: 'Mathematics', days: [7, 15, 30] },
+    { exam: 'neet', subject: 'Biology', days: [7, 15, 30] },
+    { exam: 'neet', subject: 'Physics', days: [7, 15] },
+    { exam: 'neet', subject: 'Chemistry', days: [7, 15] },
+  ];
+  for (const c of combos) {
+    for (const d of c.days) {
+      slugs.push(`blog/${c.exam}-${slugify(c.subject)}-revision-in-${d}-days`);
+    }
+  }
+
+  // 4. Best books (6)
+  const bookSubjects = [
+    { exam: 'jee', subject: 'Physics' }, { exam: 'jee', subject: 'Chemistry' },
+    { exam: 'jee', subject: 'Mathematics' }, { exam: 'neet', subject: 'Biology' },
+    { exam: 'neet', subject: 'Physics' }, { exam: 'neet', subject: 'Chemistry' },
+  ];
+  for (const s of bookSubjects) {
+    slugs.push(`blog/best-books-for-${s.exam}-${slugify(s.subject)}-${year}`);
+  }
+
+  // 5. Paper analysis (20)
+  const years = [year - 1, year - 2, year - 3, year - 4, year - 5, year - 6, year - 7, year - 8, year - 9, year - 10];
+  for (const y of years) {
+    slugs.push(`blog/jee-${y}-paper-analysis`);
+    slugs.push(`blog/neet-${y}-paper-analysis`);
+  }
+
+  // 6. Parent posts — cost of preparation (~75)
+  const parentCities = [
+    'Delhi', 'Mumbai', 'Bangalore', 'Hyderabad', 'Chennai', 'Kolkata',
+    'Pune', 'Jaipur', 'Kota', 'Lucknow', 'Patna', 'Ahmedabad',
+    'Chandigarh', 'Bhopal', 'Indore', 'Nagpur', 'Surat', 'Dehradun',
+    'Ranchi', 'Guwahati', 'Thiruvananthapuram', 'Bhubaneswar',
+    'Varanasi', 'Kanpur', 'Agra', 'Jodhpur', 'Kochi', 'Mysore',
+    'Coimbatore', 'Visakhapatnam', 'Allahabad', 'Noida', 'Gurgaon',
+    'Faridabad', 'Ghaziabad', 'Thane', 'Navi Mumbai',
+  ];
+  for (const city of parentCities) {
+    for (const exam of ['jee', 'neet']) {
+      slugs.push(`blog/cost-of-${exam}-preparation-in-${slugify(city)}-${year}`);
+    }
+  }
+
+  // 7. Best coaching in city (~50)
+  const coachingCities = [
+    'Delhi', 'Mumbai', 'Bangalore', 'Hyderabad', 'Chennai', 'Kolkata',
+    'Pune', 'Jaipur', 'Kota', 'Lucknow', 'Patna', 'Ahmedabad',
+    'Chandigarh', 'Bhopal', 'Indore', 'Nagpur', 'Surat', 'Dehradun',
+    'Ranchi', 'Guwahati', 'Thiruvananthapuram', 'Bhubaneswar',
+    'Varanasi', 'Kanpur', 'Coimbatore',
+  ];
+  for (const city of coachingCities) {
+    for (const exam of ['jee', 'neet']) {
+      slugs.push(`blog/best-${exam}-coaching-in-${slugify(city)}-${year}`);
+    }
+  }
+
+  // 8. Score strategy (6)
+  for (const s of bookSubjects) {
+    slugs.push(`blog/how-to-score-99-percentile-in-${s.exam}-${slugify(s.subject)}`);
+  }
+
+  // 9. Kota worth it (~20)
+  const kotaCities = [
+    'Delhi', 'Mumbai', 'Bangalore', 'Hyderabad', 'Chennai', 'Kolkata',
+    'Pune', 'Lucknow', 'Patna', 'Ahmedabad', 'Jaipur', 'Chandigarh',
+    'Bhopal', 'Indore', 'Ranchi', 'Guwahati', 'Dehradun', 'Varanasi',
+    'Bhubaneswar', 'Thiruvananthapuram',
+  ];
+  for (const city of kotaCities) {
+    slugs.push(`blog/is-kota-coaching-worth-it-from-${slugify(city)}`);
+  }
+
+  // 10. Important questions (~148)
+  for (const ch of chapters) {
+    slugs.push(`blog/important-questions-${slugify(ch.chapter)}-${ch.exam.toLowerCase()}-${year}`);
+  }
+
+  // 11. Revision checklists (~148)
+  for (const ch of chapters) {
+    slugs.push(`blog/${slugify(ch.chapter)}-revision-checklist-${ch.exam.toLowerCase()}`);
+  }
+
+  // 12. Mistakes to avoid (~74)
+  for (const ch of uniqueChapters.slice(0, 74)) {
+    slugs.push(`blog/${slugify(ch.chapter)}-mistakes-to-avoid-${ch.exam.toLowerCase()}`);
+  }
+
+  // 13. Dropper strategy (~6)
+  const dropperSubjects = [
+    { exam: 'jee', subject: 'Physics' }, { exam: 'jee', subject: 'Chemistry' },
+    { exam: 'jee', subject: 'Mathematics' }, { exam: 'neet', subject: 'Physics' },
+    { exam: 'neet', subject: 'Chemistry' }, { exam: 'neet', subject: 'Biology' },
+  ];
+  for (const s of dropperSubjects) {
+    slugs.push(`blog/dropper-strategy-${s.exam}-${slugify(s.subject)}-${year}`);
+  }
+
+  // 14. Career guidance (~15)
+  const careerSlugs = [
+    'top-engineering-branches-after-jee', 'iit-vs-nit-vs-iiit-comparison',
+    `mbbs-vs-bds-after-neet-${year}`, `top-50-engineering-colleges-india-${year}`,
+    `top-50-medical-colleges-india-${year}`, 'computer-science-vs-electronics-engineering',
+    'mechanical-vs-civil-engineering-career', `neet-pg-after-mbbs-guide-${year}`,
+    `jee-advanced-iit-seat-allocation-${year}`, `private-vs-government-medical-college-${year}`,
+    'data-science-after-engineering', 'abroad-mbbs-vs-india-mbbs',
+    `jee-main-percentile-to-rank-${year}`, `neet-score-vs-rank-${year}`,
+    'aiims-vs-private-medical-college',
+  ];
+  for (const s of careerSlugs) slugs.push(`blog/${s}`);
+
+  // 15. Monthly study plans (~24)
+  const months = ['january','february','march','april','may','june','july','august','september','october','november','december'];
+  for (const m of months) {
+    slugs.push(`blog/${m}-${year}-study-plan-jee`);
+    slugs.push(`blog/${m}-${year}-study-plan-neet`);
+  }
+
+  // 16. Cutoff posts (~15)
+  const cutoffSlugs = [
+    `jee-main-expected-cutoff-${year}`, `jee-advanced-cutoff-trends-${year}`,
+    `neet-expected-cutoff-${year}`, `neet-cutoff-aiims-delhi-${year}`,
+    `neet-cutoff-top-government-medical-${year}`, `jee-main-nit-cutoff-${year}`,
+    `jee-advanced-iit-cutoff-${year}`, `neet-state-quota-cutoff-${year}`,
+    `jee-main-state-counselling-cutoff-${year}`, `neet-private-medical-college-cutoff-${year}`,
+    `josaa-seat-allotment-analysis-${year}`, `neet-counselling-complete-guide-${year}`,
+    `jee-main-marks-vs-percentile-${year}`, `neet-marks-vs-rank-${year}`,
+    `bits-pilani-cutoff-${year}`,
+  ];
+  for (const s of cutoffSlugs) slugs.push(`blog/${s}`);
+
+  // 17. NCERT analysis (~60)
+  const neetCh = chapters.filter(ch => ch.exam === 'NEET').slice(0, 30);
+  const jeeCh = chapters.filter(ch => ch.exam === 'JEE').slice(0, 30);
+  for (const ch of [...neetCh, ...jeeCh]) {
+    slugs.push(`blog/ncert-${slugify(ch.chapter)}-analysis-${ch.exam.toLowerCase()}`);
+  }
+
+  // 18. Exam prep guides (~72)
+  for (const exam of examRegistry) {
+    for (const subj of exam.subjects) {
+      slugs.push(`blog/how-to-prepare-${slugify(subj.name)}-for-${exam.slug}-${year}`);
+    }
+  }
+
+  // 19. Exam comparison posts (~66)
+  const baseExamSlugs = ['jee-main', 'jee-advanced', 'neet'];
+  for (const exam of examRegistry) {
+    for (const base of baseExamSlugs) {
+      if (exam.overlapsWith === 'neet' && base === 'jee-advanced') continue;
+      if (exam.overlapsWith === 'jee' && base === 'neet') continue;
+      if (exam.category === 'olympiad' && base !== 'jee-advanced') continue;
+      slugs.push(`blog/${exam.slug}-vs-${base}-comparison-${year}`);
+    }
+  }
+
+  // 20. Exam strategy posts (~48)
+  for (const exam of examRegistry) {
+    for (const subj of exam.subjects) {
+      slugs.push(`blog/${exam.slug}-${slugify(subj.name)}-strategy-score-high-${year}`);
+    }
+  }
+
+  // 21. Exam city posts (~6,000)
+  const citySubset = allCities.slice(0, 500);
+  for (const exam of examRegistry) {
+    for (const city of citySubset) {
+      slugs.push(`blog/best-${exam.slug}-coaching-in-${city.slug}-${year}`);
+    }
+  }
+
+  // 22. Exam syllabus posts (~12)
+  for (const exam of examRegistry) {
+    slugs.push(`blog/${exam.slug}-syllabus-complete-guide-${year}`);
+  }
+
+  return slugs;
 }
