@@ -19,8 +19,16 @@ import { getAllStudyGuideSlugs } from '@/lib/topicStudyGuides';
 import { examRegistry } from '@/data/examRegistry';
 import { getAllExamInfoSlugs } from '@/data/examInfoData';
 import { getAllDifferenceSlugs } from '@/data/differenceBetweenData';
-import { IMPORTANT_Q_SLUGS } from '@/views/ImportantQuestionsHub';
 import { getAllCounsellingSlugs } from '@/data/counsellingData';
+
+const IMPORTANT_Q_SLUGS = [
+  'jee-physics-important-questions',
+  'jee-chemistry-important-questions',
+  'jee-mathematics-important-questions',
+  'neet-physics-important-questions',
+  'neet-chemistry-important-questions',
+  'neet-biology-important-questions',
+];
 
 const BASE = 'https://mindpeakinstitute.com';
 
