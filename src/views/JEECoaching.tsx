@@ -144,6 +144,11 @@ const JEECoaching = () => {
     mentions: [
       { '@type': 'Thing', name: 'Indian Institutes of Technology', sameAs: 'https://en.wikipedia.org/wiki/Indian_Institutes_of_Technology' },
     ],
+    review: [
+      { '@type': 'Review', author: { '@type': 'Person', name: 'Aarav Sharma' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'MindPeak completely transformed my JEE preparation. I achieved AIR 42 with personalized 1-on-1 coaching.' },
+      { '@type': 'Review', author: { '@type': 'Person', name: 'Priya Patel' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'After switching to MindPeak from a 200-student batch, my JEE Advanced score improved by 165 marks.' },
+      { '@type': 'Review', author: { '@type': 'Person', name: 'Rohan Iyer' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'The adaptive curriculum improved my mock scores by 125 marks in just 4 months. Achieved AIR 312.' },
+    ],
   };
 
   const breadcrumbSchema = {
@@ -152,6 +157,22 @@ const JEECoaching = () => {
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://mindpeakinstitute.com' },
       { '@type': 'ListItem', position: 2, name: 'JEE Coaching', item: 'https://mindpeakinstitute.com/jee-coaching' },
+    ],
+  };
+
+  const webPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Best JEE Coaching Online — MindPeak Institute',
+    url: 'https://mindpeakinstitute.com/jee-coaching',
+    significantLink: [
+      'https://mindpeakinstitute.com/jee-practice',
+      'https://mindpeakinstitute.com/jee-pyq',
+      'https://mindpeakinstitute.com/jee-physics-preparation',
+      'https://mindpeakinstitute.com/jee-chemistry-preparation',
+      'https://mindpeakinstitute.com/jee-mathematics-preparation',
+      'https://mindpeakinstitute.com/courses',
+      'https://mindpeakinstitute.com/free-trial',
     ],
   };
 
