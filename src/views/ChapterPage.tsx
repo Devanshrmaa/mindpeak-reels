@@ -110,6 +110,8 @@ const ChapterPage = () => {
   const pageTitle = `${chapter.chapter} for ${chapter.exam} — Complete Guide & 1-on-1 Coaching | MindPeak`;
   const pageDesc = chapter.description;
 
+  const prepSubjectSlug = `${chapter.exam.toLowerCase()}-${chapter.subject.toLowerCase()}-preparation`;
+
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
