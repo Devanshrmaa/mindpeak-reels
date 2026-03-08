@@ -22,6 +22,7 @@ import {
 import { getTopicInfo, topicToSlug, TOPIC_PATHS } from '@/data/chapterData';
 import { getLastUpdated } from '@/lib/contentFreshness';
 import type { TopicInfo } from '@/data/chapterData';
+import { getTopicContent } from '@/data/topicContent';
 
 export { TOPIC_PATHS };
 
@@ -57,6 +58,7 @@ const TopicPage = () => {
   const { topicName, topicIndex, chapter } = info;
   const Icon = chapter.icon;
   const examFull = chapter.exam === 'JEE' ? 'JEE Main & Advanced' : 'NEET UG';
+  const topicContent = getTopicContent(chapterSlug, topicName);
 
   // Prev/next topics in same chapter
   const prevTopic = topicIndex > 0 ? chapter.topics[topicIndex - 1] : null;
@@ -291,15 +293,31 @@ const TopicPage = () => {
                     <BookOpen className="w-5 h-5 text-primary" />
                     <h3 className="font-display font-bold text-foreground text-sm sm:text-base">Concept Overview</h3>
                   </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-3">
-                    {topicName} is a fundamental sub-topic within {chapter.chapter} for {examFull}. 
-                    It forms part of the {chapter.subject} syllabus that carries {chapter.weightage} overall weightage.
-                  </p>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {chapter.exam === 'JEE'
-                      ? `In JEE, ${topicName} questions range from direct formula application in JEE Main to multi-concept analytical problems in JEE Advanced. A solid understanding of this topic is essential before tackling advanced problems in ${chapter.chapter}.`
-                      : `In NEET, ${topicName} is typically tested through direct conceptual MCQs and numerical problems based on NCERT content. Questions are straightforward when concepts are clear, making this a reliable scoring area.`}
-                  </p>
+                  {topicContent ? (
+                    <>
+                      <p className="text-muted-foreground text-sm leading-relaxed mb-3 font-medium text-foreground/90">
+                        {topicContent.definition}
+                      </p>
+                      <p className="text-muted-foreground text-sm leading-relaxed mb-3">
+                        {topicContent.explanation}
+                      </p>
+                      {topicContent.ncertRef && (
+                        <p className="text-xs text-primary/70 mt-2">📖 NCERT Reference: {topicContent.ncertRef}</p>
+                      )}
+                    </>
+                  ) : (
+                    <>
+                      <p className="text-muted-foreground text-sm leading-relaxed mb-3">
+                        {topicName} is a fundamental sub-topic within {chapter.chapter} for {examFull}. 
+                        It forms part of the {chapter.subject} syllabus that carries {chapter.weightage} overall weightage.
+                      </p>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {chapter.exam === 'JEE'
+                          ? `In JEE, ${topicName} questions range from direct formula application in JEE Main to multi-concept analytical problems in JEE Advanced.`
+                          : `In NEET, ${topicName} is typically tested through direct conceptual MCQs and numerical problems based on NCERT content.`}
+                      </p>
+                    </>
+                  )}
                 </div>
 
                 <div className="rounded-xl border border-border bg-card p-5 sm:p-6">
