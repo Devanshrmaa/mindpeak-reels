@@ -133,6 +133,11 @@ const NEETCoaching = () => {
     mentions: [
       { '@type': 'Thing', name: 'NCERT', sameAs: 'https://en.wikipedia.org/wiki/National_Council_of_Educational_Research_and_Training' },
     ],
+    review: [
+      { '@type': 'Review', author: { '@type': 'Person', name: 'Ananya Reddy' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'My NEET score jumped from 420 to 680 with MindPeak\'s Biology-first 1-on-1 coaching approach.' },
+      { '@type': 'Review', author: { '@type': 'Person', name: 'Sneha Gupta' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'Coming from a tier-3 city, MindPeak gave me AIIMS-level mentorship. Score improved by 270 marks.' },
+      { '@type': 'Review', author: { '@type': 'Person', name: 'Karthik Nair' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'My Physics score went from 80 to 155 in 6 months with targeted 1-on-1 sessions.' },
+    ],
   };
 
   const breadcrumbSchema = {
@@ -141,6 +146,22 @@ const NEETCoaching = () => {
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://mindpeakinstitute.com' },
       { '@type': 'ListItem', position: 2, name: 'NEET Coaching', item: 'https://mindpeakinstitute.com/neet-coaching' },
+    ],
+  };
+
+  const webPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Best NEET Coaching Online — MindPeak Institute',
+    url: 'https://mindpeakinstitute.com/neet-coaching',
+    significantLink: [
+      'https://mindpeakinstitute.com/neet-practice',
+      'https://mindpeakinstitute.com/neet-pyq',
+      'https://mindpeakinstitute.com/neet-biology-preparation',
+      'https://mindpeakinstitute.com/neet-chemistry-preparation',
+      'https://mindpeakinstitute.com/neet-physics-preparation',
+      'https://mindpeakinstitute.com/courses',
+      'https://mindpeakinstitute.com/free-trial',
     ],
   };
 
