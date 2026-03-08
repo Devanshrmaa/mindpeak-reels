@@ -43,6 +43,18 @@ const NEETPYQHub = () => {
         { '@type': 'ListItem', position: 2, name: 'NEET PYQ', item: 'https://mindpeakinstitute.com/neet-pyq' },
       ],
     },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: 'NEET PYQ — Subject-wise Previous Year Questions',
+      numberOfItems: neetPyqSubjectBanks.length,
+      itemListElement: neetPyqSubjectBanks.map((bank, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: `NEET ${bank.subject} Previous Year Questions`,
+        url: `https://mindpeakinstitute.com/neet-pyq`,
+      })),
+    },
   ];
 
   return (

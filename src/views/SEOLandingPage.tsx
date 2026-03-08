@@ -132,6 +132,10 @@ const SEOLandingPage = () => {
     dateModified: lastUpdated,
     mainEntityOfPage: { '@type': 'WebPage', '@id': `https://mindpeakinstitute.com/${page.slug}` },
     about: getExamEntities(slug.includes('neet') ? 'NEET' : 'JEE'),
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', 'p.text-lg'],
+    },
   });
 
   jsonLd.push({

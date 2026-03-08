@@ -42,6 +42,18 @@ const JEEPYQHub = () => {
         { '@type': 'ListItem', position: 2, name: 'JEE PYQ', item: 'https://mindpeakinstitute.com/jee-pyq' },
       ],
     },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: 'JEE PYQ — Subject-wise Previous Year Questions',
+      numberOfItems: pyqSubjectBanks.length,
+      itemListElement: pyqSubjectBanks.map((bank, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: `JEE ${bank.subject} Previous Year Questions`,
+        url: `https://mindpeakinstitute.com/jee-pyq`,
+      })),
+    },
   ];
 
   return (

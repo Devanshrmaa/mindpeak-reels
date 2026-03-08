@@ -126,6 +126,15 @@ const ChapterPage = () => {
     about: [
       { '@type': 'Thing', name: chapter.exam === 'JEE' ? 'JEE Main' : 'NEET-UG', sameAs: chapter.exam === 'JEE' ? 'https://en.wikipedia.org/wiki/Joint_Entrance_Examination_%E2%80%93_Main' : 'https://en.wikipedia.org/wiki/National_Eligibility_cum_Entrance_Test_(Undergraduate)' },
     ],
+    isPartOf: {
+      '@type': 'WebPage',
+      '@id': `https://mindpeakinstitute.com/${prepSubjectSlug}`,
+      name: `${chapter.exam} ${chapter.subject} Preparation`,
+    },
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', '.hero-description'],
+    },
   };
 
   // Related chapters same subject
