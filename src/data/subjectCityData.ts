@@ -6,6 +6,7 @@
 
 import { allCities, type CityData } from './cityData';
 import { chapters, type ChapterData } from './chapterData';
+import { getStateEducation } from './stateEducationData';
 
 /* ═══ Types ═══ */
 
