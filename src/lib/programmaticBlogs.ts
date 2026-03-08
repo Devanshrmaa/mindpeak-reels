@@ -2953,7 +2953,7 @@ function generateExamStrategyPosts(): BlogPost[] {
         category: exam.overlapsWith === 'neet' ? 'NEET' as const : 'JEE' as const,
         tags: [exam.name, subj.name, 'Strategy', 'Score High'],
         author: 'MindPeak Team',
-        publishDate: '2026-03-01',
+        publishDate: dynamicPublishDate(i + 1800),
         readTime: '16 min read',
         icon: examIcons[i % examIcons.length],
         content: `# ${exam.name} ${subj.name} Strategy ${year} — Score ${seededInt(i, 90, 99)}+ Percentile
