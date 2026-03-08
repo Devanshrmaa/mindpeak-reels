@@ -139,7 +139,9 @@ function generateCareerOpportunities(c: CityConfig): string {
 function generateWhyStandsOut(c: CityConfig): string {
   const stateExamStr = c.stateExam ? `, integrated ${c.stateExam} preparation` : '';
   const langStr = c.language ? `, ${c.language}-medium concept support` : '';
-  return `MindPeak Institute stands out in ${c.city} because of an unwavering commitment to personalised excellence. While batch coaching centres in ${c.city} and across ${c.state} treat students as numbers in a classroom, MindPeak pairs every student with a dedicated mentor who becomes their academic partner for the entire preparation journey. Our transparent weekly reporting system gives ${c.city} parents complete visibility into their child's progress — something no local batch centre offers. The combination of IIT/AIIMS alumni mentors, adaptive AI-driven curriculum${stateExamStr}${langStr}, and data-backed performance tracking creates a coaching experience that is genuinely unmatched in ${c.city}. Students who switch from batch coaching to MindPeak consistently report 100-150+ marks improvement within the first three months, validating that personalised attention is the single most important factor in competitive exam success.`;
+  const stateData = getStateEducation(c.state);
+  const premierStr = stateData?.nearbyPremierInstitutes ? ` Our mentors include alumni from ${stateData.nearbyPremierInstitutes.slice(0, 3).join(', ')} who understand ${c.state}'s academic ecosystem deeply.` : '';
+  return `MindPeak stands out in ${c.city} through dedicated 1-on-1 mentoring, transparent weekly reports, and adaptive AI-driven curriculum${stateExamStr}${langStr}.${premierStr} While batch centres in ${c.city} treat students as numbers, MindPeak pairs every student with a dedicated mentor who becomes their academic partner. Students switching from batch coaching consistently report 100-150+ marks improvement within 3 months. Our data-backed performance tracking gives ${c.city} parents complete visibility into their child's progress — something no local batch centre offers.`;
 }
 
 function generateCallToAction(c: CityConfig): string {
