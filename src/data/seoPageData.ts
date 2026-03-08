@@ -2,7 +2,7 @@ import { CURRENT_EXAM_YEAR, ONE_YEAR_TARGET, TWO_YEAR_TARGET } from '@/lib/examY
 
 export interface SEOPageSection {
   heading: string;
-  content: string;
+  content?: string;
   /** Optional bullet points under the section */
   bullets?: string[];
   /** Optional comparison table */
