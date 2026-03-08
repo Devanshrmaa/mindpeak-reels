@@ -3215,7 +3215,7 @@ function generateExamSyllabusPosts(): BlogPost[] {
       category: exam.overlapsWith === 'neet' ? 'NEET' as const : 'JEE' as const,
       tags: [exam.name, 'Syllabus', year.toString(), 'Preparation'],
       author: 'MindPeak Team',
-      publishDate: '2026-03-01',
+      publishDate: dynamicPublishDate(i + 2000),
       readTime: '18 min read',
       icon: examIcons[i % examIcons.length],
       content: `# ${exam.name} Syllabus ${year} — Complete Topic-Wise Breakdown
