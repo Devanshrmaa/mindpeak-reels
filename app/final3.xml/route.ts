@@ -54,6 +54,7 @@ export async function GET() {
     '/course/subject-crash-course', '/course/1-on-1-crash-program',
     '/course/6th-foundation', '/course/7th-foundation', '/course/8th-foundation',
     '/course/9th-foundation', '/course/10th-foundation',
+    '/course/bitsat-target', '/course/isi-entrance-target', '/course/olympiad-coaching',
     '/terms-and-conditions', '/refund-policy',
     // Exam landing pages
     ...examRegistry.map(e => `/${e.slug}-coaching`),
