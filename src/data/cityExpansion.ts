@@ -30,7 +30,11 @@ function generateEducationLandscape(c: CityConfig): string {
   const boardStr = c.board ? `${c.board} board` : 'various board';
   const hubStr = c.coachingHub ? ` Coaching centres in ${c.coachingHub} follow the traditional batch-based model with 60-100+ students per class.` : ' Most local coaching centres follow the traditional batch-based model with large class sizes.';
   const instStr = c.nearbyInstitute ? ` Proximity to ${c.nearbyInstitute} drives strong competitive exam aspirations among students.` : '';
-  return `${c.city} is a growing educational hub in ${c.state} with increasing numbers of ${examList} aspirants every year. Students from ${boardStr} backgrounds face intense competition for seats in top engineering and medical colleges.${hubStr}${instStr} The one-size-fits-all approach of large batch coaching often leaves students without the personalised attention needed to crack highly competitive exams. Many ${c.city} families are now seeking smarter, technology-driven alternatives that provide individual focus.`;
+  const stateData = getStateEducation(c.state);
+  const aspirantStr = stateData ? ` ${c.state} produces ${stateData.aspirantCount} annually, making it one of India's most competitive states for entrance exams.` : '';
+  const collegeStr = stateData?.topEnggColleges?.[0] ? ` Top targets for engineering aspirants include ${stateData.topEnggColleges.slice(0, 3).map(col => col.name).join(', ')}, while medical aspirants aim for ${stateData.topMedColleges.slice(0, 2).map(col => col.name).join(' and ')}.` : '';
+  const boardChallengeStr = stateData?.boardTransitionChallenges ? ` ${stateData.boardTransitionChallenges.split('.').slice(0, 2).join('.')}.` : '';
+  return `${c.city} is a growing educational hub in ${c.state} with increasing numbers of ${examList} aspirants every year. Students from ${boardStr} backgrounds face intense competition for seats in top engineering and medical colleges.${hubStr}${instStr}${aspirantStr}${collegeStr}${boardChallengeStr} The one-size-fits-all approach of large batch coaching often leaves students without the personalised attention needed to crack highly competitive exams. Many ${c.city} families are now seeking smarter, technology-driven alternatives that provide individual focus.`;
 }
 
 function generateWhyMindPeak(c: CityConfig): string {
