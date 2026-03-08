@@ -58,6 +58,7 @@ const TopicPage = () => {
   const { topicName, topicIndex, chapter } = info;
   const Icon = chapter.icon;
   const examFull = chapter.exam === 'JEE' ? 'JEE Main & Advanced' : 'NEET UG';
+  const topicContent = getTopicContent(chapterSlug, topicName);
 
   // Prev/next topics in same chapter
   const prevTopic = topicIndex > 0 ? chapter.topics[topicIndex - 1] : null;
