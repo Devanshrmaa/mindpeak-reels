@@ -2274,7 +2274,7 @@ function generateMonthlyStudyPlanPosts(): BlogPost[] {
         category: exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
         tags: [exam, 'Study Plan', month, year.toString()],
         author: 'MindPeak Team',
-        publishDate: '2026-02-28',
+        publishDate: dynamicPublishDate(mi + 1300),
         readTime: '12 min read',
         icon: pickIcon(mi),
         content: `# ${month} ${year} Study Plan for ${exam}
