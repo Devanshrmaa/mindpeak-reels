@@ -115,6 +115,7 @@ export const neetRelatedLinks: RelatedLink[] = [
   { href: '/neet-biology-preparation', label: 'NEET Biology Strategy', tag: 'Guide' },
   { href: '/neet-chemistry-organic-basics', label: 'NEET Chemistry: Organic', tag: 'Chapter' },
   { href: '/neet-biology-formulas', label: 'NEET Biology Formula Sheet', tag: 'Formulas' },
+  { href: '/neet-chemistry-formulas', label: 'NEET Chemistry Formula Sheet', tag: 'Formulas' },
   { href: '/neet-practice', label: 'NEET Practice Questions', tag: 'Practice' },
   { href: '/neet-pyq', label: 'NEET Previous Year Questions', tag: 'PYQ' },
   { href: '/online-vs-offline-jee-coaching', label: 'Online vs Offline Coaching', tag: 'Compare' },

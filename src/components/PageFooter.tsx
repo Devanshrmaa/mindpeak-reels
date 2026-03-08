@@ -66,6 +66,8 @@ const STATIC_SECTIONS: FooterSectionData[] = [
       { label: 'JEE Chemistry Formulas', to: '/jee-chemistry-formulas' },
       { label: 'JEE Maths Formulas', to: '/jee-maths-formulas' },
       { label: 'NEET Biology Formulas', to: '/neet-biology-formulas' },
+      { label: 'NEET Physics Formulas', to: '/neet-physics-formulas' },
+      { label: 'NEET Chemistry Formulas', to: '/neet-chemistry-formulas' },
     ],
   },
   {
