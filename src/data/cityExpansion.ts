@@ -1,10 +1,11 @@
 /* ═══════════════════════════════════════════════════════════════════
    CITY EXPANSION — Programmatic SEO: 200+ cities
-   Template-generated content from minimal city configs.
-   Imported into cityData.ts to extend the cities array.
+   Uses state-level educational data to make each city page unique
+   based on real colleges, cutoffs, board specifics, and competition stats.
    ═══════════════════════════════════════════════════════════════════ */
 
 import type { CityData, QuickStat, CourseTile, LocalValueProp, CityFAQ, CityTestimonial, CityEvent, TabbedContent } from './cityData';
+import { getStateEducation } from './stateEducationData';
 
 interface CityConfig {
   slug: string;
