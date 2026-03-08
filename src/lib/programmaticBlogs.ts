@@ -27,6 +27,18 @@ function seededInt(seed: number, min: number, max: number): number {
   return min + Math.floor(seededRand(seed) * (max - min + 1));
 }
 
+/**
+ * Dynamic publish date — returns a recent date (0-6 days ago) based on a seed.
+ * Ensures blog dates are NEVER in the future and auto-refresh daily.
+ */
+function dynamicPublishDate(seed: number): string {
+  const now = new Date();
+  const daysAgo = Math.abs(seed) % 7; // 0 to 6 days ago
+  const date = new Date(now);
+  date.setDate(date.getDate() - daysAgo);
+  return date.toISOString().split('T')[0];
+}
+
 /* ═══════════════════════════════════════════════════
    1. Chapter Preparation Guides (~148 posts)
    "How to Prepare [Chapter] for JEE/NEET"
