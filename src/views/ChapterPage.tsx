@@ -118,10 +118,13 @@ const ChapterPage = () => {
     publisher: {
       '@type': 'Organization',
       name: 'MindPeak Institute',
-      logo: { '@type': 'ImageObject', url: 'https://mindpeakinstitute.com/logo.jpeg' },
+      logo: { '@type': 'ImageObject', url: 'https://mindpeakinstitute.com/images/logo.jpeg' },
     },
     datePublished: '2025-01-01',
-    dateModified: new Date().toISOString().split('T')[0],
+    dateModified: getLastUpdated(slug),
+    about: [
+      { '@type': 'Thing', name: chapter.exam === 'JEE' ? 'JEE Main' : 'NEET-UG', sameAs: chapter.exam === 'JEE' ? 'https://en.wikipedia.org/wiki/Joint_Entrance_Examination_%E2%80%93_Main' : 'https://en.wikipedia.org/wiki/National_Eligibility_cum_Entrance_Test_(Undergraduate)' },
+    ],
   };
 
   // Related chapters same subject

@@ -181,6 +181,13 @@ const SEOLandingPage = () => {
         {/* Section divider */}
         <div className="section-divider max-w-4xl mx-auto" />
 
+        {/* Table of Contents */}
+        <div className="max-w-4xl mx-auto px-6 pt-8">
+          <TableOfContents
+            items={page.sections.map((s): TocItem => ({ id: toAnchorId(s.heading), label: s.heading }))}
+          />
+        </div>
+
         {/* Content Sections */}
         <div className="max-w-4xl mx-auto px-6 py-12">
           {page.sections.map((section, i) => (
