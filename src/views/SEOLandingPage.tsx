@@ -16,6 +16,8 @@ import { getSEOPage } from '@/data/seoPageData';
 import type { SEOPageData, SEOPageSection } from '@/data/seoPageData';
 import { FreshnessBadge } from '@/components/FreshnessBadge';
 import { getLastUpdated, getCurrentExamYear } from '@/lib/contentFreshness';
+import { TableOfContents, toAnchorId, type TocItem } from '@/components/TableOfContents';
+import { getExamEntities } from '@/lib/seoEntities';
 
 /* ── Section renderer ── */
 const ContentSection = ({ section, index }: { section: SEOPageSection; index: number }) => (
