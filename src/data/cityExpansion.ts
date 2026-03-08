@@ -1,11 +1,13 @@
 /* ═══════════════════════════════════════════════════════════════════
    CITY EXPANSION — Programmatic SEO: 200+ cities
-   Uses state-level educational data to make each city page unique
-   based on real colleges, cutoffs, board specifics, and competition stats.
+   Uses state-level educational data AND per-city unique content
+   to make each city page genuinely unique with real facts, schools,
+   challenges, and educational context.
    ═══════════════════════════════════════════════════════════════════ */
 
 import type { CityData, QuickStat, CourseTile, LocalValueProp, CityFAQ, CityTestimonial, CityEvent, TabbedContent } from './cityData';
 import { getStateEducation } from './stateEducationData';
+import { cityUniqueContent, type CityUniqueData } from './cityUniqueContent';
 
 interface CityConfig {
   slug: string;
