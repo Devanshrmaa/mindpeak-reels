@@ -176,6 +176,8 @@ const importantLinks = [
   { label: 'Home', to: '/' },
   { label: 'JEE Coaching', to: '/jee-coaching' },
   { label: 'NEET Coaching', to: '/neet-coaching' },
+  { label: 'BITSAT Coaching', to: '/bitsat-coaching' },
+  { label: 'CUET Coaching', to: '/cuet-coaching' },
   { label: 'Courses', to: '/courses' },
   { label: 'Pricing', to: '/pricing' },
   { label: 'Free Trial', to: '/free-trial' },
