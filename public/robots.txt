@@ -16,3 +16,4 @@ Disallow: /*?*
 Sitemap: https://mindpeakinstitute.com/sitemap.xml
 Sitemap: https://mindpeakinstitute.com/final.xml
 Sitemap: https://mindpeakinstitute.com/final2.xml
+Sitemap: https://mindpeakinstitute.com/final3.xml
