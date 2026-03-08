@@ -20,13 +20,16 @@ import { TableOfContents, toAnchorId, type TocItem } from '@/components/TableOfC
 import { getExamEntities } from '@/lib/seoEntities';
 
 /* ── Section renderer ── */
-const ContentSection = ({ section, index }: { section: SEOPageSection; index: number }) => (
+const ContentSection = ({ section, index }: { section: SEOPageSection; index: number }) => {
+  const anchorId = toAnchorId(section.heading);
+  return (
   <motion.section
+    id={anchorId}
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ delay: index * 0.05 }}
-    className="mb-12"
+    className="mb-12 scroll-mt-24"
   >
     <h2 className="font-display font-bold text-foreground text-xl sm:text-2xl mb-4">{section.heading}</h2>
     {section.content && (
