@@ -14,6 +14,12 @@ import { inorganicChemChapters } from './chemistry-inorganic';
 import { algebraChapters } from './maths-algebra';
 import { calculusChapters } from './maths-calculus';
 import { coordTrigChapters } from './maths-coord-trig';
+import { fluidElasticityChapters } from './physics-mechanics-5';
+import { satelliteKeplerChapters } from './physics-mechanics-6';
+import { thermoElectrochemChapters } from './chemistry-physical-2';
+import { organicExpansionChapters } from './chemistry-organic-2';
+import { algebraExpansionChapters } from './maths-algebra-2';
+import { calculusExpansionChapters } from './maths-calculus-2';
 
 /* ─── Combine all physics chapters ─── */
 const allPhysicsChapters: ChapterData[] = [
@@ -25,6 +31,8 @@ const allPhysicsChapters: ChapterData[] = [
   ...electroChapters,      // Electrostatics, Current Electricity
   ...magnetismChapters,    // Magnetism, EMI & AC
   ...opticsModernChapters, // Optics, Modern Physics
+  ...fluidElasticityChapters,  // Fluid Mechanics, Elasticity
+  ...satelliteKeplerChapters,  // Satellite Motion, Kepler's Laws
 ];
 
 export const physicsBank: SubjectBank = {
@@ -39,6 +47,8 @@ const allChemistryChapters: ChapterData[] = [
   ...physicalChemChapters,   // Mole Concept, Atomic Structure, etc.
   ...organicChemChapters,    // GOC, Hydrocarbons, etc.
   ...inorganicChemChapters,  // Periodic Table, Chemical Bonding, etc.
+  ...thermoElectrochemChapters, // Chemical Thermodynamics, Electrochemistry
+  ...organicExpansionChapters,  // Aldehydes/Ketones, Amines, Polymers
 ];
 
 export const chemistryBank: SubjectBank = {
@@ -53,6 +63,8 @@ const allMathsChapters: ChapterData[] = [
   ...algebraChapters,      // Sets, Complex Numbers, Quadratics, P&C, Binomial, Matrices, Sequences
   ...calculusChapters,     // Limits, Differentiation, Integration, Differential Equations
   ...coordTrigChapters,    // Straight Lines, Circles, Conics, Trigonometry, Vectors & 3D, Probability
+  ...algebraExpansionChapters,  // Determinants, Statistics
+  ...calculusExpansionChapters, // Application of Derivatives, Area Under Curves
 ];
 
 export const mathsBank: SubjectBank = {
