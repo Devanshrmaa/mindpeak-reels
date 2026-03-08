@@ -197,7 +197,7 @@ function generateChapterTipsPosts(): BlogPost[] {
     category: ch.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [ch.exam, ch.subject, ch.chapter, 'Tips & Tricks'],
     author: 'MindPeak Team',
-    publishDate: '2026-02-22',
+    publishDate: dynamicPublishDate(i + 100),
     readTime: '10 min read',
     icon: pickIcon(i + 5),
     content: `# ${ch.chapter} Tips & Tricks for ${ch.exam} ${year}
