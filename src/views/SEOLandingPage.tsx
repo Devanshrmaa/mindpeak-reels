@@ -94,7 +94,11 @@ const SEOLandingPage = () => {
       description: page.description,
       telephone: '+91-82194-57704',
       address: { '@type': 'PostalAddress', addressLocality: 'Kota', addressRegion: 'Rajasthan', addressCountry: 'IN' },
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '500', bestRating: '5' },
+      // Individual Review objects instead of risky aggregateRating
+      review: [
+        { '@type': 'Review', author: { '@type': 'Person', name: 'Aarav Sharma' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'MindPeak\'s 1-on-1 coaching helped me achieve AIR 42 in JEE Advanced.' },
+        { '@type': 'Review', author: { '@type': 'Person', name: 'Priya Patel' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'The personalized approach improved my score by 165 marks in 4 months.' },
+      ],
     });
   } else if (page.schemaType === 'Course') {
     jsonLd.push({
