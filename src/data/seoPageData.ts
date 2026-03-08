@@ -85,10 +85,10 @@ const aboutPage: SEOPageData = {
 
 const jeeCoachingPage: SEOPageData = {
   slug: 'jee-coaching',
-  title: 'JEE Coaching Online — Personalized 1-on-1 Mentoring | MindPeak',
-  description: 'Achieve AIR <5K with personalized 1-on-1 JEE coaching. Dedicated mentors, adaptive curriculum, daily classes 6 days/week. 95% success rate. Start free trial today!',
-  h1: 'JEE Coaching Online —',
-  h1Highlight: '1-on-1 Mentoring',
+  title: `Best JEE Coaching Online ${CURRENT_EXAM_YEAR} — 1-on-1 Mentoring by IIT Alumni | MindPeak`,
+  description: `India's #1 online JEE coaching. Dedicated 1-on-1 IIT-alumnus mentor, daily classes, adaptive curriculum. AIR 42 achieved. 95% selection rate. Start free trial!`,
+  h1: `Best JEE Coaching Online ${CURRENT_EXAM_YEAR}`,
+  h1Highlight: '1-on-1 by IIT Alumni — AIR 42 Achieved',
   heroSubtitle: 'From JEE Main to Advanced — our dedicated mentors guide you through every concept, every doubt, every mock test. Daily 1-on-1 classes, 6 days a week, with a personalised study roadmap crafted just for you.',
   sections: [
     {
