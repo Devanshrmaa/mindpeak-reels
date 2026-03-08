@@ -1,169 +1,143 @@
 
 
-# Plan: Scale to 20,000+ Real, Indexed Pages
+## Competitor SEO Analysis & Strategy to Build Missing Page Types
 
-## Current Inventory (~8,500 pages)
+### Competitor Crawl Summary
 
-| Category | Count |
+| Competitor | Key Page Types We're Missing |
 |---|---|
-| Static/core/SEO landing | ~110 |
-| Location pages (300 cities × 2 exams) | ~600 |
-| Chapter topic pages | ~149 |
-| JEE Practice questions | ~2,500 |
-| JEE PYQ questions | ~2,000 |
-| NEET Practice questions | ~2,000 |
-| NEET PYQ questions | ~1,000 |
-| NEET PYQ hub pages | ~100 |
-| Blog posts | ~13 |
-| Formula sheets | ~5 |
-| **Current total** | **~8,500** |
+| **Allen** (allen.ac.in) | City-specific course/fee pages (`/delhi/iit-jee-main-Advanced-coaching.asp`), Syllabus pages, Exam overview hubs (dates/eligibility/pattern/cutoff), Answer key pages, Sample papers, Results/achievements pages |
+| **PW** (pw.live) | PYQ chapter-wise blog posts (`/blogs/jee-exams/jee-main-chapter-wise-pyq`), Study strategy blogs (`/vp-blogs/exams/...`), Exam info hubs (`/iit-jee/exams/jee-main-previous-year-question-papers`), Score strategy guides ("How to score 650+ in NEET") |
+| **Vedantu** (vedantu.com) | City + exam coaching pages (`/offline-centres/delhi/coaching/jee`), Subject-wise important questions hubs, Chapter-wise revision notes, Subject-wise formulas hub, "Difference Between" pages, Preparation tips pages |
+| **Aakash** (aakash.ac.in) | City hub pages (`/hyderabad-city`, `/kota-city/neet-ug-coaching`), Blog-style study material guides, NEET/JEE counselling guides, College predictor tools |
+| **Byjus** (byjus.com) | Chapter-level formula pages, JEE notes per chapter, Important questions per chapter, Subject-wise concept pages |
 
-**Critical bug:** `gen-final-sitemap.ts` only includes 20 city slugs, not the 300+ from `allCities`. Fixing this alone adds ~560 URLs.
+### Gap Analysis: Page Types MindPeak Is Missing
 
-## Gap: ~11,500 pages needed
+MindPeak has strong practice/PYQ question pages and city coaching pages. But competitors dominate with **exam info hub pages** and **study material pages** that capture high-volume informational queries.
 
----
+**Missing page categories (sorted by search volume impact):**
 
-## Vector 1: Subject-City Pages (~3,600 pages) -- NEW PAGE TYPE
+1. **Exam Info Hub Pages** — `/jee-main-syllabus-2026`, `/jee-main-exam-pattern`, `/jee-main-cutoff-2026`, `/neet-eligibility-2026`, `/jee-main-admit-card-2026`, `/neet-answer-key-2026`, `/jee-counselling-2026` (Allen, PW, Aakash, Vedantu ALL have these)
+2. **Chapter-wise Revision Notes** — `/jee-physics-notes`, `/neet-biology-notes/cell-biology` (Vedantu, Byjus dominate)
+3. **"Difference Between" Pages** — `/difference-between-jee-main-and-advanced`, `/difference-between-speed-and-velocity` (Vedantu has hundreds)
+4. **Subject-wise Important Questions Hub** — `/jee-physics-important-questions`, `/neet-chemistry-important-questions` (Vedantu, Byjus)
+5. **Exam Results & Answer Key Pages** — Annual pages updated each year (Allen, Aakash)
+6. **College Predictor / Counselling Guide** — `/jee-main-college-predictor`, `/neet-counselling-guide-2026` (Allen, Aakash)
 
-Route pattern: `/{exam}-{subject}-coaching-in-{city}`
-Example: `/jee-physics-coaching-in-jaipur`, `/neet-biology-coaching-in-patna`
+### Plan: 6 New Page Type Vectors (~2,000+ pages)
 
-- 300 cities × 6 subject combos (JEE: physics, chemistry, maths; NEET: physics, chemistry, biology) = **3,600 pages**
-- Each page: subject weightage table, chapter-wise prep plan, local context, internal links to practice/PYQ/formula sheets, FAQs, testimonials
-- Template-generated from city config + subject data (similar to `cityExpansion.ts` pattern)
-- Eye-catching: animated stats, gradient cards, subject-specific icons, progress bars, chapter difficulty heatmaps
+#### Vector 1: Exam Info Hub Pages (~30 pages) — HIGH PRIORITY
+These capture massive search volume ("JEE Main syllabus 2026" = 100K+ monthly searches).
 
-**Files:**
-- `src/data/subjectCityData.ts` -- template generators for subject-city content (weightage tables, chapter plans, local context)
-- `src/views/SubjectCityPage.tsx` -- new view component with rich interactive sections
-- Update `QuestionSlugRouter.tsx` to detect `{exam}-{subject}-coaching-in-{city}` pattern
-- Update `resolveSlugMetadata.ts` for SEO
-
-**Internal links per page (contextual backlinks):**
-- Link to city's main coaching page (`/jee-coaching-in-{city}`)
-- Link to subject coaching page (`/jee-physics-coaching`)
-- Link to relevant practice hub (`/jee-practice`)
-- Link to relevant PYQ hub (`/jee-pyq`)
-- Link to formula sheet (`/jee-physics-formulas`)
-- Link to chapter pages (top 5 chapters for that subject)
-
----
-
-## Vector 2: NRI City Pages (~200 pages) -- NEW
-
-Route: `/{exam}-coaching-in-{nri-city}` and `/{exam}-{subject}-coaching-in-{nri-city}`
-
-30 NRI hubs (Dubai, Singapore, London, New York, San Francisco, Toronto, Sydney, Melbourne, Kuala Lumpur, Doha, Abu Dhabi, Riyadh, Muscat, Bahrain, Hong Kong, Bangkok, Jakarta, Nairobi, Lagos, Berlin, Frankfurt, Amsterdam, Tokyo, Seoul, Auckland, Sharjah, Kuwait, Colombo, Kathmandu, Dhaka)
-
-- 30 cities × 2 exams = 60 base pages
-- 30 cities × 6 subjects = 180 subject-city pages
-- **Total: ~240 pages**
-- NRI-specific content: timezone scheduling, CBSE-aligned curriculum, IST class timings, NRI exam registration guidance
-- Add to `cityExpansion.ts` with `isNRI: true` flag
-
----
-
-## Vector 3: Programmatic Blog Posts (~1,000 pages) -- MASSIVE EXPANSION
-
-**Student-perspective high-search topics (~500):**
-- "How to prepare [chapter] for JEE/NEET" × 74 chapters = 148 posts
-- "Best books for [subject] JEE/NEET" × 6 = 6
-- "[Chapter] important questions" × 74 = 74
-- "[Chapter] tips and tricks" × 74 = 74
-- "JEE/NEET [year] paper analysis" × 10 years × 2 exams = 20
-- "[Subject] revision in [N] days" × 12 combos = 12
-- "Class 11 vs Class 12 weightage [exam]" × 2 = 2
-- State-wise: "[State] JEE/NEET topper strategy" × 28 states = 28
-- Monthly: "[Month] study plan for JEE/NEET" × 12 × 2 = 24 (auto-generated)
-- Comparison: "[Institute A] vs [Institute B]" × 20 = 20
-- "How to score 99 percentile in [subject]" × 6 = 6
-- Subject-chapter deep dives × ~100
-
-**Parent-perspective high-search topics (~200):**
-- "Is online coaching good for [exam]?" × 2 = 2
-- "How to choose JEE/NEET coaching for my child" × 2 = 2
-- "Signs your child needs a mentor" × 1
-- "Cost of JEE/NEET preparation [city]" × 30 top cities = 30
-- "Parent guide to [exam] preparation" × 2 = 2
-- "How to support JEE/NEET child at home" × 2 = 2
-- "Is Kota coaching worth it from [city]?" × 20 = 20
-- "Best coaching institute in [city] for [exam]" × 50 = 100
-- "JEE/NEET coaching fees comparison [year]" × 2 = 2
-- "How to track child's JEE/NEET progress" × 2 = 2
-- General parent guides × ~30
+**New pages:**
+- `/jee-main-syllabus-2026`, `/jee-advanced-syllabus-2026`, `/neet-syllabus-2026`
+- `/jee-main-exam-pattern-2026`, `/jee-advanced-exam-pattern`, `/neet-exam-pattern`
+- `/jee-main-cutoff-2026`, `/jee-advanced-cutoff-2026`, `/neet-cutoff-2026`
+- `/jee-main-eligibility-2026`, `/neet-eligibility-2026`
+- `/jee-main-admit-card-2026`, `/neet-admit-card-2026`
+- `/jee-main-answer-key-2026`, `/neet-answer-key-2026`
+- `/jee-main-result-2026`, `/neet-result-2026`
+- `/jee-counselling-2026`, `/neet-counselling-2026`
+- `/jee-main-registration-2026`, `/neet-registration-2026`
+- `/jee-main-important-dates-2026`, `/neet-important-dates-2026`
 
 **Implementation:**
-- `src/lib/programmaticBlogs.ts` -- generators for each blog category
-- Each post: 800-1200 words, markdown with tables, chapter data, internal links, FAQ schema
-- Content includes: study tables, chapter weightage charts, do's/don'ts, weekly planners, comparison tables
-- Update `blogResolver.ts` to merge programmatic posts
-- Update routing to handle all blog slugs
+- `src/data/examInfoData.ts` — Structured data for each exam info page (dates, tables, step-by-step guides)
+- `src/views/ExamInfoPage.tsx` — Template view with info tables, timeline, FAQ, internal links
+- Add to `seoPageData.ts` or create new routing in `QuestionSlugRouter.tsx`
+- Year auto-updates via `CURRENT_EXAM_YEAR`
 
----
+#### Vector 2: Chapter-wise Revision Notes (~150 pages)
+Every chapter already exists in `chapterData.ts`. Add a `/notes/` sub-route.
 
-## Vector 4: More Indian Cities (~400 more location pages)
+**Route:** `/{chapter-slug}/notes` (e.g., `/jee-mechanics-kinematics/notes`)
 
-Expand from ~300 to ~500 cities by adding:
-- District headquarters from UP, Bihar, Rajasthan, MP, Maharashtra, Tamil Nadu, Karnataka, West Bengal, Gujarat, Kerala
-- ~100 additional Tier 3 cities × 2 exams = ~200 base + ~200 subject-city = **~400 pages**
+**Implementation:**
+- `src/views/RevisionNotesPage.tsx` — Template with key concepts, formulas summary, common mistakes, mind maps (text-based), mnemonics
+- Content generated from existing `chapterData` (formulas, key topics) + programmatic expansion
+- Links back to chapter page, practice questions, PYQs, formula sheet
 
-Add to `cityExpansion.ts` with the same template generator pattern.
+#### Vector 3: "Difference Between" Pages (~200 pages)
+Extremely high search volume for informational queries.
 
----
+**Examples:** "difference between speed and velocity", "difference between atom and molecule", "difference between JEE Main and Advanced", "difference between mitosis and meiosis"
 
-## Vector 5: Fix Sitemap to Include Everything
+**Implementation:**
+- `src/data/differenceBetweenData.ts` — Array of ~200 comparison pairs with structured content (comparison table, key points, FAQ)
+- `src/views/DifferenceBetweenPage.tsx` — Template with comparison table, visual differences, exam relevance, related chapters
+- Route: `/difference-between-{term1}-and-{term2}`
 
-Update `scripts/gen-final-sitemap.ts` (or create `gen-final2-sitemap.ts`) to:
-- Import `allCities` and generate ALL city routes (not just 20 hardcoded slugs)
-- Include subject-city pages
-- Include NRI city pages
-- Include all programmatic blog slugs
-- Include NEET PYQ hub pages (chapter/unit/class)
-- Output to `public/final2.xml`
+#### Vector 4: Subject-wise Important Questions Hub (~12 pages)
+Hub pages linking to existing practice questions, organized by importance.
 
----
+**Pages:** `/jee-physics-important-questions`, `/jee-chemistry-important-questions`, `/jee-mathematics-important-questions`, `/neet-physics-important-questions`, `/neet-chemistry-important-questions`, `/neet-biology-important-questions` + per-chapter variants
 
-## Content Quality Standards (Every Page)
+**Implementation:**
+- `src/views/ImportantQuestionsHub.tsx` — Curated list pulling from existing practice banks, sorted by "most frequently asked" tag
+- Links to individual question pages (distributes authority to existing 20K+ pages)
 
-Every page will have:
-1. **Animated hero section** with gradient backgrounds and exam-specific icons
-2. **Interactive elements**: collapsible FAQs, tabbed content, stat counters
-3. **Data tables**: chapter weightage, year-wise analysis, fee comparison
-4. **Contextual internal links** (not just footer links -- inline within content)
-5. **FAQ schema** for Google rich results
-6. **Breadcrumbs** linking to parent pages
-7. **Related content widget** with 4-6 contextual links
-8. **CTA sections** with demo booking
+#### Vector 5: Counselling & College Predictor Guides (~20 pages)
+Captures post-exam search traffic (massive volume after results).
 
----
+**Pages:**
+- `/jee-main-counselling-2026`, `/jee-advanced-counselling-2026`, `/neet-counselling-2026`
+- `/jee-main-college-predictor`, `/neet-college-predictor` (interactive tool)
+- `/top-engineering-colleges-india`, `/top-medical-colleges-india`
+- `/jee-main-rank-vs-college`, `/neet-rank-vs-college`
+- State-wise counselling: `/jee-counselling-maharashtra`, etc.
 
-## Final Page Count
+**Implementation:**
+- `src/data/counsellingData.ts` — Structured data (cutoff ranks, college lists, dates)
+- `src/views/CounsellingGuidePage.tsx` — Step-by-step guide with timeline, choice filling tips
+- Enhance existing `RankPredictor` with college mapping
 
-| Category | Pages |
+#### Vector 6: Exam Results & Answer Key Pages (~10 pages)
+Annual pages that capture massive traffic spikes around exam dates.
+
+**Pages:** `/jee-main-result-2026`, `/neet-result-2026`, `/jee-main-answer-key-2026`, `/neet-answer-key-2026`
+
+**Implementation:**
+- `src/data/examResultsData.ts` — Template with expected dates, how to check, direct links
+- Auto-generates for `CURRENT_EXAM_YEAR` and `CURRENT_EXAM_YEAR - 1`
+- CTA: "While you wait for results, start your next-year prep with a free demo"
+
+### Files to Create/Modify
+
+| File | Action |
 |---|---|
-| Existing (static, questions, chapters, hubs) | ~8,500 |
-| Subject-city pages (300 cities × 6 subjects × 2 exams) | +3,600 |
-| NRI cities (base + subject) | +240 |
-| Programmatic blogs | +1,000 |
-| Additional Tier 3 cities (base + subject) | +400 |
-| Fix sitemap (already-existing pages not in sitemap) | +560 |
-| **Remaining gap covered by additional question expansion** | +5,700 |
-| **Total** | **~20,000** |
+| `src/data/examInfoData.ts` | **New** — 30 exam info page definitions |
+| `src/views/ExamInfoPage.tsx` | **New** — Template for syllabus/pattern/cutoff/dates |
+| `src/data/differenceBetweenData.ts` | **New** — 200 comparison pairs |
+| `src/views/DifferenceBetweenPage.tsx` | **New** — Comparison template |
+| `src/views/RevisionNotesPage.tsx` | **New** — Chapter notes template |
+| `src/views/ImportantQuestionsHub.tsx` | **New** — Curated question hub |
+| `src/data/counsellingData.ts` | **New** — Counselling/college data |
+| `src/views/CounsellingGuidePage.tsx` | **New** — Counselling guide template |
+| `src/data/examResultsData.ts` | **New** — Result/answer key data |
+| `app/[...slug]/CatchAllClient.tsx` | **Modify** — Add routing for new page types |
+| `src/lib/resolveSlugMetadata.ts` | **Modify** — Add metadata for new page types |
+| `app/final3.xml/route.ts` | **Modify** — Include all new URLs in sitemap |
 
-Note: The remaining ~5,700 gap can be filled by expanding JEE/NEET practice and PYQ question banks (adding more questions per chapter across all subjects -- each question = 1 page).
+### Page Count Impact
 
----
+| Vector | Pages |
+|---|---|
+| Exam info hubs | +30 |
+| Chapter revision notes | +150 |
+| Difference Between pages | +200 |
+| Important questions hubs | +12 |
+| Counselling & college guides | +20 |
+| Exam results/answer keys | +10 |
+| **Total new pages** | **~420** |
 
-## Implementation Order
+These are **high-authority informational pages** that capture the top-of-funnel traffic competitors currently own. Each page funnels users to MindPeak's coaching via contextual CTAs.
 
-1. Create `src/data/subjectCityData.ts` (template generators for subject-city content)
-2. Create `src/views/SubjectCityPage.tsx` (rich interactive view)
-3. Add NRI cities to `src/data/cityExpansion.ts`
-4. Add ~100 more Tier 3 Indian cities to `cityExpansion.ts`
-5. Create `src/lib/programmaticBlogs.ts` (500+ student + 200+ parent blog generators)
-6. Update `blogResolver.ts` to merge programmatic blogs
-7. Update routing (`QuestionSlugRouter.tsx`, `resolveSlugMetadata.ts`) for new patterns
-8. Create `scripts/gen-final2-sitemap.ts` importing ALL page sources
-9. Expand question banks if needed to hit 20K target
+### Priority Order
+1. Exam Info Hub Pages (highest search volume, fastest ROI)
+2. Difference Between Pages (easy to generate, massive long-tail volume)
+3. Chapter Revision Notes (leverages existing chapter data)
+4. Important Questions Hubs (strengthens existing question page authority)
+5. Counselling Guides (seasonal but massive traffic spikes)
+6. Results/Answer Key Pages (seasonal, low effort)
 
