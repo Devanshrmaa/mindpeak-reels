@@ -272,7 +272,7 @@ This structured approach prevents panic and wasted time on questions you should 
 
 ### 10. Last-Week Revision Hack
 
-In the final week before ${exam}:
+In the final week before ${ch.exam}:
 1. Revise only your error log (not the entire chapter)
 2. Solve 10 PYQs daily from ${ch.chapter}
 3. Time yourself — simulate exam pressure
