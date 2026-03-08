@@ -33,6 +33,7 @@ function mergeChapters(chapters: NEETPYQChapter[]): NEETPYQChapter[] {
 const allBiologyPYQ: NEETPYQChapter[] = mergeChapters([
   ...botanyPyq,
   ...botanyPyq2,
+  ...botanyPyq3,
   ...zoologyPyq,
   ...zoologyPyq2,
 ]);
