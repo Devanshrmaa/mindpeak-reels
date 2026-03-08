@@ -8,6 +8,8 @@ import { neetPhysicsPyq } from './physics-pyq';
 import { neetPhysicsPyq2 } from './physics-pyq-2';
 import { neetChemistryPyq } from './chemistry-pyq';
 import { neetChemistryPyq2 } from './chemistry-pyq-2';
+import { neetPhysicsPyq3 } from './physics-pyq-3';
+import { botanyPyq3 } from './biology-botany-pyq-3';
 
 /* ─── Helper: merge chapters with duplicate slugs ─── */
 function mergeChapters(chapters: NEETPYQChapter[]): NEETPYQChapter[] {
