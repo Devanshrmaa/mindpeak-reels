@@ -77,6 +77,15 @@ export function generateStudyGuideContent(guide: TopicStudyGuide): string {
   const studyHours = seededInt(seed + 1, 8, 20);
   const pyqFreq = seededInt(seed + 2, 3, 8);
 
+  // Pull real educational content if available
+  const tc = getTopicContent(guide.chapterSlug, guide.topicName);
+  const definitionBlock = tc
+    ? `\n\n### What is ${guide.topicName}?\n\n${tc.definition}\n\n${tc.explanation}\n\n**Key Fact:** ${tc.keyFact}\n\n**Real-World Application:** ${tc.realWorldApp}${tc.ncertRef ? `\n\n**NCERT Reference:** ${tc.ncertRef}` : ''}`
+    : '';
+  const workedExampleBlock = tc?.workedExample
+    ? `\n\n### Solved Example\n\n**Problem:** ${tc.workedExample.problem}\n\n**Solution:** ${tc.workedExample.solution}\n\n**Answer:** ${tc.workedExample.answer}`
+    : '';
+
   return `# How to Study ${guide.topicName} for ${guide.exam} ${new Date().getFullYear()}
 
 ## Why ${guide.topicName} Matters in ${guide.exam}
