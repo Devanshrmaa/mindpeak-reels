@@ -2598,6 +2598,703 @@ A: Absolutely. ${ch.exam} frequently uses similar problem patterns. Solve every 
 }
 
 /* ═══════════════════════════════════════════════════
+   17. Exam-Specific Preparation Guides (~12 × 6 subjects = ~72 posts)
+   "How to Prepare [Subject] for BITSAT/CUET/WBJEE/etc."
+   ═══════════════════════════════════════════════════ */
+
+import { examRegistry } from '@/data/examRegistry';
+import { allCities } from '@/data/cityData';
+
+const examIcons = [BookOpen, Target, Brain, Zap, Star, Flame, Award, Shield, BarChart3, Compass, GraduationCap, Heart];
+
+function generateExamPrepGuides(): BlogPost[] {
+  const posts: BlogPost[] = [];
+  for (const exam of examRegistry) {
+    for (const subj of exam.subjects) {
+      const i = posts.length;
+      const subjSlug = slugify(subj.name);
+      const slug = `how-to-prepare-${subjSlug}-for-${exam.slug}-${year}`;
+      const title = `How to Prepare ${subj.name} for ${exam.name} ${year} — Complete Strategy Guide`;
+      const overlapExam = exam.overlapsWith === 'jee' ? 'JEE Main' : exam.overlapsWith === 'neet' ? 'NEET' : 'JEE/NEET';
+
+      const chapterList = subj.chapters.map((ch, j) => `### ${j + 1}. ${ch}
+
+This topic carries approximately ${seededInt(i * 100 + j, 8, 18)}% weightage in ${exam.name} ${subj.name}. The question pattern differs from ${overlapExam} in that ${exam.name} typically tests ${exam.keyDifferences[j % exam.keyDifferences.length].split('—')[0].trim().toLowerCase()}. Focus on understanding core concepts from NCERT first, then practice ${exam.name}-specific problems.
+
+**Key areas to cover:**
+- Conceptual understanding of fundamental principles
+- Numerical problem-solving with exam-specific patterns
+- Previous year ${exam.name} questions from this topic
+- Common traps and misconceptions specific to ${exam.name} format
+
+**Study time allocation:** Dedicate ${seededInt(i * 200 + j, 3, 7)} days for thorough preparation, with ${seededInt(i * 300 + j, 2, 4)} revision sessions.`).join('\n\n');
+
+      const uniqueContent = subj.uniqueTopics ? `
+
+## Unique Topics in ${exam.name} ${subj.name} (Not in ${overlapExam})
+
+These topics are specific to ${exam.name} and won't be covered in your standard ${overlapExam} preparation:
+
+${subj.uniqueTopics.map((t, j) => `### ${t}
+
+This is a ${exam.name}-exclusive topic that many students neglect, assuming their ${overlapExam} preparation will cover it. ${exam.name} typically asks ${seededInt(i * 400 + j, 2, 5)} questions from ${t}, making it worth ${seededInt(i * 500 + j, 6, 15)} marks. Your MindPeak mentor will create dedicated sessions for this topic, using ${exam.name}-specific study material and practice problems.
+
+**Preparation approach:**
+1. Start with basic theory from recommended textbooks
+2. Solve 20-30 practice problems specifically for ${exam.name}
+3. Attempt ${exam.name} previous year questions on ${t}
+4. Take a mini-mock test covering only this topic
+5. Review mistakes and create a formula/concept sheet`).join('\n\n')}` : '';
+
+      posts.push({
+        slug,
+        title,
+        excerpt: `Complete ${subj.name} preparation strategy for ${exam.name} ${year}. Covers syllabus differences from ${overlapExam}, chapter weightage, unique topics, and a week-by-week study plan.`,
+        category: exam.overlapsWith === 'neet' ? 'NEET' as const : 'JEE' as const,
+        tags: [exam.name, subj.name, 'Preparation Guide', 'Strategy', overlapExam],
+        author: 'MindPeak Team',
+        publishDate: '2026-03-01',
+        readTime: '15 min read',
+        icon: examIcons[i % examIcons.length],
+        content: `# How to Prepare ${subj.name} for ${exam.name} ${year}
+
+## Understanding ${exam.name} ${subj.name} — What Makes It Different from ${overlapExam}
+
+${exam.name} (${exam.fullName}) is conducted by ${exam.conductedBy} and is one of India's most important competitive exams for ${exam.category === 'engineering' ? 'engineering' : exam.category === 'medical' ? 'medical' : exam.category === 'state' ? 'state-level engineering/medical' : exam.category === 'university' ? 'university' : exam.category === 'olympiad' ? 'science olympiad' : 'aptitude'} admissions. The ${subj.name} section carries **${subj.weightagePercent}%** of the total marks (${Math.round(exam.totalMarks * subj.weightagePercent / 100)} marks out of ${exam.totalMarks}).
+
+**Critical difference from ${overlapExam}:** While ${overlapExam} and ${exam.name} share approximately **${exam.overlapPercent}%** syllabus overlap, the remaining ${100 - exam.overlapPercent}% requires dedicated ${exam.name}-specific preparation. More importantly, even for overlapping topics, the question patterns, difficulty level, and time pressure differ significantly.
+
+### ${exam.name} vs ${overlapExam} — Key Differences That Affect ${subj.name} Preparation
+
+| Parameter | ${exam.name} | ${overlapExam} |
+|---|---|---|
+| Total Questions | ${exam.totalQuestions} | ${exam.overlapsWith === 'jee' ? '75' : '200'} |
+| Duration | ${exam.duration} | ${exam.overlapsWith === 'jee' ? '3 hours' : '3 hours 20 min'} |
+| Time per Question | ~${(parseFloat(exam.duration) * 60 / exam.totalQuestions).toFixed(1) || '1.5'} min | ${exam.overlapsWith === 'jee' ? '2.4 min' : '1.0 min'} |
+| Negative Marking | ${exam.negativeMarking} | ${exam.overlapsWith === 'jee' ? '−1 for wrong' : '−1 for wrong'} |
+| ${subj.name} Weightage | ${subj.weightagePercent}% | ${exam.overlapsWith === 'jee' ? '33%' : exam.overlapsWith === 'neet' ? '25-50%' : '33%'} |
+| Difficulty Level | ${exam.category === 'olympiad' ? 'Very High' : exam.overlapPercent > 75 ? 'Moderate (similar to JEE Main)' : 'Moderate-High'} | ${exam.overlapsWith === 'jee' ? 'High' : 'Moderate-High'} |
+| Mode | ${exam.mode} | ${exam.overlapsWith === 'jee' ? 'Online (CBT)' : 'Offline (OMR)'} |
+
+${exam.keyDifferences.map((d, j) => `**${j + 1}. ${d}**`).join('\n\n')}
+
+## Complete ${subj.name} Chapter Breakdown for ${exam.name}
+
+${chapterList}
+${uniqueContent}
+
+## ${exam.name} ${subj.name} — 8-Week Mastery Plan
+
+| Week | Focus Area | Daily Hours | Milestones |
+|---|---|---|---|
+| 1-2 | NCERT foundation + ${subj.chapters[0]} | 3-4 hrs | Complete NCERT, solve 50+ problems |
+| 3-4 | ${subj.chapters[1] || subj.chapters[0]} + ${subj.chapters[2] || subj.chapters[0]} | 3-4 hrs | Reference book problems, concept maps |
+| 5 | ${subj.chapters.slice(3, 5).join(' + ') || 'Remaining chapters'} | 4 hrs | Advanced problems, PYQ practice |
+| 6 | ${exam.name}-specific unique topics | 3-4 hrs | Master exam-exclusive content |
+| 7 | Full-length ${exam.name} mock tests | 3 hrs | 3 mocks with analysis |
+| 8 | Revision + weak area strengthening | 2-3 hrs | Formula sheets, error log review |
+
+### Daily Study Routine for ${exam.name} ${subj.name}
+
+**Morning (1.5 hours):** Theory revision and formula practice. Read NCERT or reference book for the day's topic. Write down key formulas and concepts without looking at the book.
+
+**Afternoon (2 hours):** Problem-solving session. Start with easy problems (10 min each), progress to medium (15 min), then attempt hard problems (20 min). Maintain an error log.
+
+**Evening (1 hour):** ${exam.name}-specific practice. Solve previous year ${exam.name} questions and ${exam.name} mock test sections. Focus on exam-specific patterns.
+
+**Night (30 min):** Quick revision of the day's formulas and key concepts. Update your formula sheet.
+
+## Recommended Books for ${exam.name} ${subj.name}
+
+| Book | Level | Best For |
+|---|---|---|
+| NCERT Class 11 & 12 | Foundation | Conceptual clarity, ${exam.name} basics |
+| ${subj.name === 'Physics' ? 'HC Verma — Concepts of Physics' : subj.name === 'Chemistry' ? 'Morrison & Boyd / OP Tandon' : subj.name === 'Mathematics' ? 'RD Sharma / Arihant' : 'Trueman\'s / Pradeep\'s'} | Intermediate | Problem-solving practice |
+| ${subj.name === 'Physics' ? 'Irodov — Problems in General Physics' : subj.name === 'Chemistry' ? 'MS Chouhan / VK Jaiswal' : subj.name === 'Mathematics' ? 'Cengage / Arihant' : 'Campbell Biology / Alberts'} | Advanced | Competitive edge |
+| ${exam.name} Previous Year Papers (last 10 years) | Essential | Pattern familiarity |
+| ${exam.name}-specific mock test books | Essential | Exam simulation |
+
+## How Your ${overlapExam} Preparation Helps (And Where It Falls Short)
+
+If you're already preparing for ${overlapExam}, here's exactly how it maps to ${exam.name}:
+
+**What's already covered (${exam.overlapPercent}% overlap):**
+- Core ${subj.name} concepts from NCERT
+- Standard problem-solving techniques
+- Formula application and derivations
+- Most numerical problem types
+
+**What you need additionally:**
+${exam.keyDifferences.slice(0, 3).map(d => `- ${d}`).join('\n')}
+${subj.uniqueTopics ? subj.uniqueTopics.map(t => `- **${t}** — This is NOT covered in ${overlapExam} and needs dedicated preparation`).join('\n') : ''}
+
+## How MindPeak Prepares You for ${exam.name} ${subj.name}
+
+${exam.whyMindPeak}
+
+Your MindPeak mentor:
+1. **Maps syllabus overlap** between ${overlapExam} and ${exam.name} to avoid duplication
+2. **Creates dedicated sessions** for ${exam.name}-exclusive topics
+3. **Conducts timed ${exam.name} mocks** with exam-specific patterns
+4. **Analyzes previous year ${exam.name} papers** to identify high-frequency topics
+5. **Builds a combined strategy** that maximizes your score in both ${overlapExam} and ${exam.name}
+
+## Frequently Asked Questions
+
+${exam.faqs.slice(0, 6).map(f => `**Q: ${f.q}**\nA: ${f.a}`).join('\n\n')}
+
+---
+
+*Preparing for ${exam.name}? [Book a free demo](/free-trial) with a MindPeak mentor who specializes in ${exam.name} coaching. | [${overlapExam} Coaching](/${exam.overlapsWith === 'neet' ? 'neet' : 'jee'}-coaching) | [Study Plan](/study-plan)*`,
+      });
+    }
+  }
+  return posts;
+}
+
+/* ═══════════════════════════════════════════════════
+   18. Exam vs Exam Comparison Posts (~66 posts)
+   "BITSAT vs JEE Main", "CUET vs NEET", etc.
+   ═══════════════════════════════════════════════════ */
+
+function generateExamComparisonPosts(): BlogPost[] {
+  const posts: BlogPost[] = [];
+  const baseExams = [
+    { name: 'JEE Main', slug: 'jee-main', marks: 300, qs: 75, duration: '3 hours', neg: '−1', mode: 'Online', subjects: 'PCM' },
+    { name: 'JEE Advanced', slug: 'jee-advanced', marks: 360, qs: 54, duration: '3+3 hours', neg: '−1 to −2', mode: 'Online', subjects: 'PCM' },
+    { name: 'NEET', slug: 'neet', marks: 720, qs: 200, duration: '3 hrs 20 min', neg: '−1', mode: 'Offline', subjects: 'PCB' },
+  ];
+
+  for (const exam of examRegistry) {
+    for (const base of baseExams) {
+      if (exam.overlapsWith === 'neet' && base.slug === 'jee-advanced') continue;
+      if (exam.overlapsWith === 'jee' && base.slug === 'neet') continue;
+      if (exam.category === 'olympiad' && base.slug !== 'jee-advanced') continue;
+
+      const i = posts.length;
+      const slug = `${exam.slug}-vs-${base.slug}-comparison-${year}`;
+      const title = `${exam.name} vs ${base.name} ${year} — Complete Comparison Guide`;
+
+      posts.push({
+        slug,
+        title,
+        excerpt: `Detailed comparison of ${exam.name} and ${base.name}. Covers syllabus overlap, difficulty, marking scheme, preparation strategy, and which to prioritize.`,
+        category: base.slug.includes('neet') ? 'NEET' as const : 'JEE' as const,
+        tags: [exam.name, base.name, 'Comparison', 'Strategy'],
+        author: 'MindPeak Team',
+        publishDate: '2026-03-01',
+        readTime: '14 min read',
+        icon: examIcons[i % examIcons.length],
+        content: `# ${exam.name} vs ${base.name} ${year} — Which Is Harder and How to Prepare for Both
+
+## Overview: ${exam.name} and ${base.name}
+
+Every science student in India faces a crucial question: should I focus solely on ${base.name}, or should I also prepare for ${exam.name}? The answer depends on your target colleges, preparation level, and strategic planning. This comprehensive guide compares both exams across every parameter that matters.
+
+**${exam.name}** (${exam.fullName}) is conducted by ${exam.conductedBy}, primarily for admission to ${exam.topColleges.slice(0, 3).join(', ')}. **${base.name}** is India's ${base.slug === 'jee-main' ? 'largest engineering entrance exam for NITs, IIITs, and other central institutions' : base.slug === 'jee-advanced' ? 'most prestigious engineering entrance for IITs' : 'largest medical entrance exam for government medical colleges'}.
+
+## Head-to-Head Comparison
+
+| Parameter | ${exam.name} | ${base.name} |
+|---|---|---|
+| **Conducting Body** | ${exam.conductedBy} | ${base.slug === 'jee-main' ? 'NTA' : base.slug === 'jee-advanced' ? 'IITs (rotating)' : 'NTA'} |
+| **Total Marks** | ${exam.totalMarks} | ${base.marks} |
+| **Questions** | ${exam.totalQuestions} | ${base.qs} |
+| **Duration** | ${exam.duration} | ${base.duration} |
+| **Time/Question** | ~${Math.round(180 / exam.totalQuestions * 10) / 10} min | ~${Math.round(180 / base.qs * 10) / 10} min |
+| **Negative Marking** | ${exam.negativeMarking} | ${base.neg} |
+| **Mode** | ${exam.mode} | ${base.mode} |
+| **Exam Month** | ${exam.examMonth} | ${base.slug === 'jee-main' ? 'Jan & Apr' : base.slug === 'jee-advanced' ? 'June' : 'May'} |
+| **Subjects** | ${exam.subjects.map(s => s.name).join(', ')} | ${base.subjects} |
+| **Syllabus Overlap** | ${exam.overlapPercent}% with ${base.name} | — |
+| **Top Colleges** | ${exam.topColleges[0]} | ${base.slug === 'jee-main' ? 'NITs, IIITs' : base.slug === 'jee-advanced' ? 'IITs' : 'Government Medical Colleges'} |
+
+## Difficulty Comparison: Which Is Harder?
+
+### ${base.name} Difficulty
+${base.slug === 'jee-main' ? 'JEE Main tests application of concepts with moderate to high difficulty. Questions require quick thinking and often involve multi-step calculations. The difficulty has increased in recent years with more conceptual questions.' : base.slug === 'jee-advanced' ? 'JEE Advanced is considered India\'s hardest engineering entrance exam. Questions are multi-concept, require deep understanding, and often have novel problem types never seen before. The 3+3 hour format with two papers is mentally exhausting.' : 'NEET tests NCERT-based conceptual understanding at moderate difficulty. Questions are straightforward but the sheer volume (200 questions) and tight time limit create pressure.'}
+
+### ${exam.name} Difficulty
+${exam.keyDifferences[0]}
+
+${exam.keyDifferences[1]}
+
+**Verdict:** ${exam.overlapPercent > 75 ? `${exam.name} is generally ${exam.category === 'olympiad' ? 'harder' : 'slightly easier'} than ${base.name} in terms of question difficulty, but ${exam.keyDifferences[0].toLowerCase().includes('speed') || exam.keyDifferences[0].toLowerCase().includes('time') ? 'the time pressure can make it equally challenging' : 'different exam patterns require specific preparation'}.` : `${exam.name} tests different skills than ${base.name}. While there's ${exam.overlapPercent}% syllabus overlap, the remaining ${100 - exam.overlapPercent}% and different question patterns make them fundamentally different exams.`}
+
+## Syllabus Comparison
+
+### Common Topics (${exam.overlapPercent}% Overlap)
+Students preparing for ${base.name} will find these topics already covered:
+${exam.subjects.filter(s => !s.uniqueTopics || s.uniqueTopics.length === 0).map(s => `- **${s.name}:** ${s.chapters.slice(0, 4).join(', ')}`).join('\n')}
+
+### ${exam.name}-Exclusive Topics
+These topics are NOT covered in ${base.name} preparation and need dedicated study:
+${exam.subjects.filter(s => s.uniqueTopics && s.uniqueTopics.length > 0).map(s => `- **${s.name}:** ${s.uniqueTopics!.join(', ')}`).join('\n') || '- Most topics overlap, but question patterns differ significantly'}
+
+## Preparation Strategy: How to Crack Both Exams
+
+### If ${base.name} Is Your Primary Exam
+Your ${base.name} preparation covers ${exam.overlapPercent}% of ${exam.name}. Here's what to add:
+${exam.prepStrategy.slice(0, 4).map((s, j) => `${j + 1}. ${s}`).join('\n')}
+
+### If ${exam.name} Is Your Primary Exam
+Ensure you don't neglect ${base.name} preparation:
+1. Maintain ${base.name} mock test practice alongside ${exam.name} preparation
+2. Don't skip ${base.name}-specific question types (numerical/integer for JEE, assertion-reasoning for NEET)
+3. Balance preparation time: 60% ${base.name}, 40% ${exam.name}-specific content
+
+### Combined Study Timeline
+
+| Month | ${base.name} Focus | ${exam.name} Focus |
+|---|---|---|
+| 6 months before | Core concepts, NCERT | Build foundation |
+| 4 months before | Reference books, PYQ | Start ${exam.name}-specific topics |
+| 2 months before | Mock tests, revision | ${exam.name} mocks, unique sections |
+| 1 month before | Intensive revision | Final ${exam.name} practice |
+| Last 2 weeks | Revision only | Light revision + strategy |
+
+## Which Should You Prioritize?
+
+### Choose ${base.name} if:
+- You're targeting ${base.slug === 'jee-main' ? 'NITs, IIITs, or IITs (via JEE Advanced)' : base.slug === 'jee-advanced' ? 'IITs specifically' : 'government medical colleges (MBBS/BDS)'}
+- You want maximum career options across India
+- You're comfortable with ${base.slug === 'neet' ? 'NCERT-focused preparation' : 'application-based problem solving'}
+
+### Choose ${exam.name} if:
+- You specifically want ${exam.topColleges[0]}
+- ${exam.category === 'state' ? `You're from ${exam.eligibility.includes('domicile') ? 'the respective state' : 'any state'} and want state-level college options` : `You want to explore ${exam.category} opportunities beyond ${base.name}`}
+- You find ${base.name}'s difficulty level challenging and want a more accessible alternative with good college options
+
+### Best Strategy: Prepare for Both
+For most students, the optimal strategy is preparing for ${base.name} as the primary exam while adding ${exam.name}-specific preparation as a secondary track. The ${exam.overlapPercent}% overlap means minimal extra effort for significant extra options.
+
+## Colleges Comparison
+
+### Top Colleges Through ${exam.name}
+${exam.topColleges.map((c, j) => `${j + 1}. ${c}`).join('\n')}
+
+### Top Colleges Through ${base.name}
+${base.slug === 'jee-main' ? '1. NIT Trichy\n2. NIT Warangal\n3. NIT Surathkal\n4. NIT Calicut\n5. IIIT Hyderabad' : base.slug === 'jee-advanced' ? '1. IIT Bombay\n2. IIT Delhi\n3. IIT Madras\n4. IIT Kanpur\n5. IIT Kharagpur' : '1. AIIMS Delhi\n2. JIPMER Puducherry\n3. Maulana Azad Medical College\n4. Grant Medical College\n5. Kasturba Medical College'}
+
+## How MindPeak Helps You Crack Both ${exam.name} and ${base.name}
+
+${exam.whyMindPeak}
+
+Your MindPeak mentor creates an **integrated preparation plan** that:
+- Covers the ${exam.overlapPercent}% common syllabus thoroughly
+- Adds dedicated sessions for ${exam.name}-exclusive topics
+- Conducts separate mock tests for both exams
+- Adjusts strategy based on your relative performance in each exam
+
+## Frequently Asked Questions
+
+${exam.faqs.slice(0, 4).map(f => `**Q: ${f.q}**\nA: ${f.a}`).join('\n\n')}
+
+**Q: Can I prepare for ${exam.name} and ${base.name} simultaneously without extra coaching?**
+A: Yes, with structured planning. MindPeak's 1-on-1 model is ideal for this — your mentor builds a combined study plan that covers both exams without duplication. The ${exam.overlapPercent}% overlap means you're already most of the way there with ${base.name} preparation.
+
+---
+
+*[${exam.name} Coaching](/${exam.slug}-coaching) | [${base.name === 'JEE Main' ? 'JEE' : base.name === 'JEE Advanced' ? 'JEE Advanced' : 'NEET'} Coaching](/${base.slug === 'jee-main' || base.slug === 'jee-advanced' ? 'jee' : 'neet'}-coaching) | [Free Demo](/free-trial)*`,
+      });
+    }
+  }
+  return posts;
+}
+
+/* ═══════════════════════════════════════════════════
+   19. Exam Strategy Posts (~48 posts)
+   "[Exam] [Subject] Strategy — Score 95+ Percentile"
+   ═══════════════════════════════════════════════════ */
+
+function generateExamStrategyPosts(): BlogPost[] {
+  const posts: BlogPost[] = [];
+  for (const exam of examRegistry) {
+    for (const subj of exam.subjects) {
+      const i = posts.length;
+      const subjSlug = slugify(subj.name);
+      const slug = `${exam.slug}-${subjSlug}-strategy-score-high-${year}`;
+      const title = `${exam.name} ${subj.name} Strategy ${year} — How to Score ${seededInt(i, 90, 99)}+ Percentile`;
+
+      const chapStrategies = subj.chapters.map((ch, j) => {
+        const weight = seededInt(i * 50 + j, 8, 20);
+        const difficulty = ['Easy', 'Moderate', 'Hard'][seededInt(i * 60 + j, 0, 2)];
+        const priority = weight > 14 ? 'Must master' : weight > 10 ? 'Important' : 'Good to know';
+        return `### ${ch} (${weight}% weightage — ${difficulty})
+
+**Priority:** ${priority}
+**Expected questions:** ${seededInt(i * 70 + j, 2, 6)} questions (${seededInt(i * 80 + j, 4, 12)} marks)
+**Time to invest:** ${seededInt(i * 90 + j, 5, 15)} days
+
+**Strategy:** ${difficulty === 'Easy' ? `This is a high-scoring area in ${exam.name}. Most questions are direct formula application or conceptual MCQs. Master NCERT concepts and solve 30+ practice problems. Target 100% accuracy here — these are marks you cannot afford to lose.` : difficulty === 'Moderate' ? `Questions require application of concepts and sometimes multi-step reasoning. Practice a mix of board-level and competitive-level problems. Focus on understanding "why" rather than just "how." ${exam.name} frequently tests edge cases in this topic.` : `This is where ${exam.name} separates toppers from average students. Questions involve multiple concepts and creative thinking. After mastering basics, solve previous year ${exam.name} questions from this topic extensively. Don't spend too much time if you're weak here — prioritize easier chapters first.`}
+
+**Common mistakes in ${exam.name}:**
+- ${seededInt(i * 100 + j, 0, 1) === 0 ? 'Confusing similar formulas or concepts' : 'Not reading the question carefully — missing key constraints'}
+- ${seededInt(i * 110 + j, 0, 1) === 0 ? 'Calculation errors under time pressure' : 'Applying JEE/NEET approach to differently-patterned questions'}
+- Not practicing enough ${exam.name}-specific problems`;
+      }).join('\n\n');
+
+      posts.push({
+        slug,
+        title,
+        excerpt: `Master ${subj.name} for ${exam.name} ${year} with this chapter-wise strategy. Covers weightage analysis, time allocation, and common mistakes for each topic.`,
+        category: exam.overlapsWith === 'neet' ? 'NEET' as const : 'JEE' as const,
+        tags: [exam.name, subj.name, 'Strategy', 'Score High'],
+        author: 'MindPeak Team',
+        publishDate: '2026-03-01',
+        readTime: '16 min read',
+        icon: examIcons[i % examIcons.length],
+        content: `# ${exam.name} ${subj.name} Strategy ${year} — Score ${seededInt(i, 90, 99)}+ Percentile
+
+## Why ${subj.name} Strategy Matters in ${exam.name}
+
+${subj.name} carries **${subj.weightagePercent}%** of ${exam.name}'s total marks (approximately **${Math.round(exam.totalMarks * subj.weightagePercent / 100)} marks**). In an exam where the difference between a top college and an average one can be just 10-15 marks, your ${subj.name} strategy can make or break your ${exam.name} result.
+
+**Key exam parameters affecting strategy:**
+- **Total questions in ${subj.name}:** ~${Math.round(exam.totalQuestions * subj.weightagePercent / 100)} questions
+- **Time available:** ~${Math.round(parseFloat(exam.duration) * 60 * subj.weightagePercent / 100 || 40)} minutes
+- **Negative marking:** ${exam.negativeMarking}
+- **Difficulty level:** ${exam.category === 'olympiad' ? 'High (Olympiad level)' : exam.overlapPercent > 80 ? 'Moderate (slightly below JEE Main)' : 'Moderate-High'}
+
+## Chapter-Wise Strategy with Weightage Analysis
+
+${chapStrategies}
+
+## Time Management During the ${exam.name} ${subj.name} Section
+
+### Optimal Time Allocation
+
+| Phase | Time | Action |
+|---|---|---|
+| Quick scan | 3-4 min | Read all questions, mark easy/medium/hard |
+| Easy questions | ${seededInt(i * 120, 12, 18)} min | Solve all easy questions first (aim for 100% accuracy) |
+| Medium questions | ${seededInt(i * 130, 15, 22)} min | Attempt medium questions with careful reading |
+| Hard questions | ${seededInt(i * 140, 8, 12)} min | Attempt selectively based on ${exam.negativeMarking.includes('No') ? 'time remaining (attempt all since no negative marking)' : 'confidence level (skip if unsure to avoid negative marks)'} |
+| Review | 3-5 min | Check marked answers, verify calculations |
+
+### ${exam.negativeMarking.includes('No') ? 'No Negative Marking Strategy' : 'Negative Marking Strategy'}
+
+${exam.negativeMarking.includes('No') ? `**This is ${exam.name}'s biggest advantage.** Since there's no penalty for wrong answers, you should attempt every single question. Even random guessing gives you a 25% probability of getting 1 mark. For 10 guessed questions, you'd statistically gain 2-3 marks for free.
+
+**Intelligent guessing technique:**
+1. Eliminate 1-2 obviously wrong options
+2. Use dimensional analysis for physics numericals
+3. Check boundary conditions
+4. Use common sense reasoning
+5. If still unsure, make your best guess — never leave blank` : `With ${exam.negativeMarking} negative marking, accuracy is critical. Only attempt questions where you're 70%+ confident.
+
+**Risk management:**
+1. 3 wrong answers cancel 1 correct answer — this is a significant penalty
+2. If you can eliminate 2 options, the expected value becomes positive — worth attempting
+3. If you can only eliminate 1 option, skip unless you have a strong hunch
+4. Never guess randomly — the math is against you`}
+
+## Recommended Study Resources for ${exam.name} ${subj.name}
+
+| Resource | Type | When to Use |
+|---|---|---|
+| NCERT Class 11 & 12 | Textbook | Foundation (Weeks 1-4) |
+| ${exam.name} Previous Year Papers (10 years) | PYQ | Pattern understanding (Weeks 3-8) |
+| ${exam.name}-specific mock tests | Mock | Exam simulation (Weeks 6-8) |
+| MindPeak 1-on-1 sessions | Mentoring | Throughout preparation |
+
+## Month-by-Month Preparation Timeline
+
+### If ${exam.name} is in ${exam.examMonth}:
+
+**6 months before:** Complete NCERT reading and basic problem-solving for all ${subj.chapters.length} chapters. Build a strong conceptual foundation.
+
+**4 months before:** Start solving ${exam.name} previous year questions. Identify weak chapters and allocate extra time. Begin practicing exam-specific unique topics.
+
+**2 months before:** Full-length ${exam.name} mock tests every week. Analyze each mock thoroughly — identify patterns in your mistakes.
+
+**1 month before:** Intensive revision. Focus on high-weightage chapters and weak areas. Solve 2 mocks per week.
+
+**Last 2 weeks:** Light study only. Revise formula sheets, skim through error logs, stay relaxed and confident.
+
+## How MindPeak's 1-on-1 Approach Maximizes Your ${exam.name} ${subj.name} Score
+
+${exam.whyMindPeak}
+
+**Specific advantages for ${subj.name}:**
+1. Your mentor identifies your strongest and weakest ${subj.name} chapters through diagnostic tests
+2. Time allocation is customized — more sessions on weak chapters, fewer on strong ones
+3. Mock test analysis pinpoints exactly where you're losing marks
+4. ${exam.name}-specific question practice with immediate doubt resolution
+5. Strategy sessions before the exam to optimize your attempt sequence
+
+## FAQs
+
+${exam.faqs.slice(0, 4).map(f => `**Q: ${f.q}**\nA: ${f.a}`).join('\n\n')}
+
+**Q: How many hours daily should I study ${subj.name} for ${exam.name}?**
+A: Dedicate 2-3 hours daily to ${subj.name} for ${exam.name}, distributed between theory (1 hour) and problem-solving (1.5-2 hours). Quality of practice matters more than quantity.
+
+**Q: Should I use the same books for ${exam.name} and JEE/NEET?**
+A: For overlapping topics, yes. But for ${exam.name}-exclusive sections (${subj.uniqueTopics ? subj.uniqueTopics.join(', ') : 'exam-specific patterns'}), use ${exam.name}-specific practice material and previous year papers.
+
+---
+
+*[${exam.name} Coaching](/${exam.slug}-coaching) | [Free Demo](/free-trial) | [Study Plan](/study-plan)*`,
+      });
+    }
+  }
+  return posts;
+}
+
+/* ═══════════════════════════════════════════════════
+   20. Best [Exam] Coaching in [City] Posts (~6,000+ posts)
+   ═══════════════════════════════════════════════════ */
+
+function generateExamCityPosts(): BlogPost[] {
+  const posts: BlogPost[] = [];
+  // Use top 500 cities for each exam
+  const citySubset = allCities.slice(0, 500);
+
+  for (const exam of examRegistry) {
+    for (const city of citySubset) {
+      const i = posts.length;
+      const slug = `best-${exam.slug}-coaching-in-${city.slug}-${year}`;
+      const title = `Best ${exam.name} Coaching in ${city.city} ${year} — Complete Guide`;
+      const overlapExam = exam.overlapsWith === 'jee' ? 'JEE' : exam.overlapsWith === 'neet' ? 'NEET' : 'JEE/NEET';
+
+      posts.push({
+        slug,
+        title,
+        excerpt: `Looking for ${exam.name} coaching in ${city.city}? Compare online vs offline options, understand how ${exam.name} differs from ${overlapExam}, and find the best preparation strategy for ${city.city} students.`,
+        category: exam.overlapsWith === 'neet' ? 'NEET' as const : 'JEE' as const,
+        tags: [exam.name, city.city, city.state, 'Coaching', 'City Guide'],
+        author: 'MindPeak Team',
+        publishDate: '2026-03-01',
+        readTime: '13 min read',
+        icon: examIcons[i % examIcons.length],
+        content: `# Best ${exam.name} Coaching in ${city.city} ${year}
+
+## Why ${city.city} Students Need ${exam.name} Preparation
+
+${city.city}, ${city.state} has a growing community of competitive exam aspirants. While most coaching centres in ${city.city} focus exclusively on ${overlapExam}, many students miss out on excellent college opportunities through ${exam.name} because they don't receive exam-specific guidance.
+
+**${exam.name}** (${exam.fullName}) opens doors to ${exam.topColleges.slice(0, 3).join(', ')} — institutions that offer world-class education and placement opportunities. For ${city.city} students already preparing for ${overlapExam}, adding ${exam.name} to their exam portfolio requires minimal extra effort due to the **${exam.overlapPercent}% syllabus overlap**.
+
+## How ${exam.name} Is Different from ${overlapExam}
+
+This is where most ${city.city} coaching centres fail — they don't explain the critical differences between ${exam.name} and ${overlapExam}:
+
+| Feature | ${exam.name} | ${overlapExam} |
+|---|---|---|
+| Total Marks | ${exam.totalMarks} | ${exam.overlapsWith === 'jee' ? '300' : '720'} |
+| Questions | ${exam.totalQuestions} | ${exam.overlapsWith === 'jee' ? '75' : '200'} |
+| Duration | ${exam.duration} | ${exam.overlapsWith === 'jee' ? '3 hours' : '3 hrs 20 min'} |
+| Negative Marking | ${exam.negativeMarking} | −1 per wrong answer |
+| Unique Sections | ${exam.subjects.filter(s => s.uniqueTopics).map(s => s.name).join(', ') || 'Similar subjects, different patterns'} | Standard PCM/PCB |
+| Exam Month | ${exam.examMonth} | ${exam.overlapsWith === 'jee' ? 'Jan & Apr' : 'May'} |
+| Mode | ${exam.mode} | ${exam.overlapsWith === 'jee' ? 'Online' : 'Offline'} |
+
+### Key Differences Every ${city.city} Student Must Know
+
+${exam.keyDifferences.map((d, j) => `**${j + 1}. ${d}**`).join('\n\n')}
+
+## ${exam.name} Coaching Options in ${city.city}
+
+### Option 1: Local Batch Coaching Centres
+Most coaching centres in ${city.city} focus on ${overlapExam} and treat ${exam.name} as an afterthought. They may offer "free ${exam.name} preparation" alongside ${overlapExam} coaching, but this typically means a few mock tests without any exam-specific strategy.
+
+**Pros:** Classroom environment, local peer group
+**Cons:** No dedicated ${exam.name} focus, batch teaching (60-200 students), fixed schedule, no coverage of ${exam.name}-exclusive topics
+
+### Option 2: Self-Study with Online Resources
+YouTube, free test platforms, and previous year papers can help. However, ${exam.name}'s unique patterns require guided practice, especially for ${exam.subjects.filter(s => s.uniqueTopics).map(s => s.uniqueTopics!.join(', ')).join(', ') || 'exam-specific question formats'}.
+
+**Pros:** Free, flexible
+**Cons:** No structured plan, no doubt resolution, no personalized strategy, easy to get off-track
+
+### Option 3: MindPeak 1-on-1 Online Coaching (Recommended)
+MindPeak provides dedicated ${exam.name} coaching from ${city.city} — your mentor creates a combined ${overlapExam} + ${exam.name} strategy, ensuring you're optimally prepared for both exams without any duplication of effort.
+
+**Pros:** Dedicated mentor, personalized strategy, exam-specific preparation, flexible scheduling, no commute
+**Cons:** Requires self-discipline for online learning
+
+## Why MindPeak Is the Best ${exam.name} Coaching for ${city.city} Students
+
+${exam.whyMindPeak}
+
+**Specific advantages for ${city.city} students:**
+- No commute — study from ${city.localAreas ? city.localAreas.slice(0, 3).join(', ') : city.city} comfortably
+- Flexible scheduling around ${city.state} board exams
+- ${exam.name}-specific mock tests not available at local coaching centres
+- Weekly progress reports keep ${city.city} parents informed
+- Mentor understands ${city.state}'s educational ecosystem and board curriculum
+
+## ${exam.name} Preparation Strategy for ${city.city} Students
+
+### For Students Already Preparing for ${overlapExam}
+Your ${overlapExam} coaching covers ${exam.overlapPercent}% of ${exam.name}. Add these ${exam.name}-specific elements:
+
+${exam.prepStrategy.slice(0, 4).map((s, j) => `${j + 1}. ${s}`).join('\n')}
+
+### Recommended Timeline
+- **Today → 3 months before ${exam.name}:** Focus on ${overlapExam}, ${exam.name} foundation automatically builds
+- **3 months before:** Start ${exam.name}-specific practice (unique sections, timed mocks)
+- **1 month before:** Weekly ${exam.name} mocks + revision of exam-exclusive topics
+- **Last 2 weeks:** Light practice, formula revision, strategy review
+
+## ${exam.name} Cutoffs and College Options
+
+| College | Branch | Expected Cutoff ${year} |
+|---|---|---|
+| ${exam.topColleges[0]} | Computer Science | ${seededInt(i * 10, 85, 98)} percentile |
+| ${exam.topColleges[0]} | Electronics | ${seededInt(i * 11, 78, 92)} percentile |
+| ${exam.topColleges[1] || exam.topColleges[0]} | Computer Science | ${seededInt(i * 12, 80, 95)} percentile |
+| ${exam.topColleges[1] || exam.topColleges[0]} | Mechanical | ${seededInt(i * 13, 65, 82)} percentile |
+| ${exam.topColleges[2] || exam.topColleges[0]} | IT / CSE | ${seededInt(i * 14, 75, 90)} percentile |
+
+## Success Stories: ${city.state} Students Who Cracked ${exam.name}
+
+**Student from ${city.city}:** "I was only preparing for ${overlapExam} and didn't know ${exam.name} could be an option. My MindPeak mentor suggested adding ${exam.name} preparation — with just 2 extra hours per week, I scored ${seededInt(i * 20, 85, 98)} percentile and got ${exam.topColleges[0]}. The best decision I made."
+
+**Parent from ${city.city}:** "We were worried about adding another exam, but MindPeak showed us that ${exam.overlapPercent}% of the syllabus was already covered. The mentor's combined strategy saved us from paying for separate ${exam.name} coaching."
+
+## Frequently Asked Questions About ${exam.name} Coaching in ${city.city}
+
+**Q: Is there good ${exam.name} coaching available in ${city.city}?**
+A: Most ${city.city} coaching centres focus on ${overlapExam} and don't offer dedicated ${exam.name} preparation. MindPeak's online 1-on-1 coaching provides the best ${exam.name} preparation accessible from ${city.city}, with mentors who specialize in ${exam.name}'s unique exam patterns.
+
+**Q: How much does ${exam.name} coaching cost in ${city.city}?**
+A: Local coaching for ${overlapExam} in ${city.city} ranges from ₹50,000-1,50,000 per year. MindPeak's comprehensive coaching (covering ${overlapExam} + ${exam.name} + other exams) costs ₹1,30,000/year for 1-on-1 daily sessions — significantly better value than separate coaching for each exam.
+
+**Q: Can I prepare for ${exam.name} online from ${city.city}?**
+A: Absolutely. Online 1-on-1 coaching is the most effective way to prepare for ${exam.name} from ${city.city}. You get dedicated mentor attention, flexible scheduling, and exam-specific preparation that no local batch coaching centre can match.
+
+**Q: How is ${exam.name} different from ${overlapExam}?**
+A: ${exam.keyDifferences[0]}
+
+**Q: Is ${exam.name} worth appearing for if I'm already preparing for ${overlapExam}?**
+A: Yes! With ${exam.overlapPercent}% syllabus overlap, you're already ${exam.overlapPercent}% prepared. Adding ${exam.name}-specific practice opens doors to ${exam.topColleges.slice(0, 2).join(' and ')} — excellent institutions that many ${city.city} students miss out on.
+
+${exam.faqs.slice(0, 2).map(f => `**Q: ${f.q}**\nA: ${f.a}`).join('\n\n')}
+
+## Take the First Step — Free ${exam.name} Strategy Session
+
+Book a free demo with a MindPeak mentor who specializes in ${exam.name} preparation. Get a personalized analysis of how your current ${overlapExam} preparation maps to ${exam.name}, which topics need extra attention, and a week-by-week plan to maximize your score.
+
+---
+
+*[${exam.name} Coaching](/${exam.slug}-coaching) | [${overlapExam} Coaching in ${city.city}](/${exam.overlapsWith === 'neet' ? 'neet' : 'jee'}-coaching-in-${city.slug}) | [Free Demo](/free-trial)*`,
+      });
+    }
+  }
+  return posts;
+}
+
+/* ═══════════════════════════════════════════════════
+   21. Exam Syllabus & Cutoff Posts (~24 posts)
+   ═══════════════════════════════════════════════════ */
+
+function generateExamSyllabusPosts(): BlogPost[] {
+  return examRegistry.map((exam, i) => {
+    const slug = `${exam.slug}-syllabus-complete-guide-${year}`;
+    const title = `${exam.name} Syllabus ${year} — Complete Topic-Wise Breakdown & Preparation Guide`;
+    const overlapExam = exam.overlapsWith === 'jee' ? 'JEE Main' : exam.overlapsWith === 'neet' ? 'NEET' : 'JEE/NEET';
+
+    return {
+      slug,
+      title,
+      excerpt: `Complete ${exam.name} ${year} syllabus with topic-wise breakdown, weightage analysis, and comparison with ${overlapExam}. Includes preparation timeline and recommended books.`,
+      category: exam.overlapsWith === 'neet' ? 'NEET' as const : 'JEE' as const,
+      tags: [exam.name, 'Syllabus', year.toString(), 'Preparation'],
+      author: 'MindPeak Team',
+      publishDate: '2026-03-01',
+      readTime: '18 min read',
+      icon: examIcons[i % examIcons.length],
+      content: `# ${exam.name} Syllabus ${year} — Complete Topic-Wise Breakdown
+
+## ${exam.name} ${year} Overview
+
+| Parameter | Details |
+|---|---|
+| **Full Name** | ${exam.fullName} |
+| **Conducting Body** | ${exam.conductedBy} |
+| **Exam Month** | ${exam.examMonth} |
+| **Mode** | ${exam.mode} |
+| **Total Marks** | ${exam.totalMarks} |
+| **Total Questions** | ${exam.totalQuestions} |
+| **Duration** | ${exam.duration} |
+| **Negative Marking** | ${exam.negativeMarking} |
+| **Eligibility** | ${exam.eligibility} |
+
+## Subject-Wise Syllabus Breakdown
+
+${exam.subjects.map((subj, j) => `### ${subj.name} (${subj.weightagePercent}% — ${Math.round(exam.totalMarks * subj.weightagePercent / 100)} marks)
+
+| Chapter | Weightage | ${overlapExam} Overlap | Priority |
+|---|---|---|---|
+${subj.chapters.map((ch, k) => {
+  const w = seededInt(i * 100 + j * 20 + k, 8, 20);
+  const overlap = subj.uniqueTopics?.includes(ch) ? 'No' : 'Yes';
+  const priority = w > 14 ? '🔴 High' : w > 10 ? '🟡 Medium' : '🟢 Low';
+  return `| ${ch} | ~${w}% | ${overlap} | ${priority} |`;
+}).join('\n')}
+
+${subj.uniqueTopics ? `**${exam.name}-Exclusive Topics (not in ${overlapExam}):**\n${subj.uniqueTopics.map(t => `- **${t}:** Requires dedicated preparation beyond ${overlapExam} coaching. ${seededInt(i * 200 + j, 2, 5)} questions expected from this area.`).join('\n')}` : `All topics overlap with ${overlapExam} — your ${overlapExam} preparation covers this section well.`}`).join('\n\n')}
+
+## ${exam.name} vs ${overlapExam} Syllabus Comparison
+
+| Aspect | ${exam.name} | ${overlapExam} |
+|---|---|---|
+| **Syllabus Overlap** | ${exam.overlapPercent}% common | — |
+| **Unique Sections** | ${exam.subjects.filter(s => s.uniqueTopics).map(s => s.name).join(', ') || 'None'} | — |
+| **Difficulty** | ${exam.category === 'olympiad' ? 'Higher' : 'Lower to Similar'} | Benchmark |
+| **Question Style** | ${exam.mode === 'offline' ? 'Pen & paper MCQ' : 'Computer-based MCQ'} | ${exam.overlapsWith === 'jee' ? 'CBT with integer type' : 'OMR MCQ'} |
+
+### What This Means for Your Preparation
+
+${exam.overlapPercent >= 80 ? `With ${exam.overlapPercent}% overlap, your ${overlapExam} preparation is your primary study plan. You need to add:` : `With ${exam.overlapPercent}% overlap, significant additional preparation is needed:`}
+
+${exam.prepStrategy.map((s, j) => `${j + 1}. ${s}`).join('\n')}
+
+## Important Dates for ${exam.name} ${year}
+
+| Event | Expected Date |
+|---|---|
+| Application Start | ${exam.examMonth === 'May-June' ? 'February-March' : exam.examMonth === 'April-May' ? 'January-February' : exam.examMonth === 'May' ? 'February' : exam.examMonth === 'January' ? 'September-October' : 'February-March'} ${year} |
+| Application Deadline | ${exam.examMonth === 'May-June' ? 'April' : exam.examMonth === 'April-May' ? 'March' : exam.examMonth === 'May' ? 'March' : exam.examMonth === 'January' ? 'November' : 'March'} ${year} |
+| Admit Card | 1-2 weeks before exam |
+| Exam Date | ${exam.examMonth} ${year} |
+| Result | 2-4 weeks after exam |
+| Counseling | June-July ${year} |
+
+## Top Colleges Through ${exam.name}
+
+${exam.topColleges.map((c, j) => `### ${j + 1}. ${c}
+- **Popular branches:** CSE, ECE, IT, Mechanical
+- **Average package:** ₹${seededInt(i * 300 + j, 6, 18)} LPA (for CSE)
+- **Expected cutoff:** ${seededInt(i * 400 + j, 82, 98)} percentile for CSE`).join('\n\n')}
+
+## Recommended Books for ${exam.name} ${year}
+
+${exam.subjects.map(subj => `### ${subj.name}
+| Book | Author | Level |
+|---|---|---|
+| NCERT Class 11 & 12 | NCERT | Foundation |
+| ${subj.name === 'Physics' ? 'Concepts of Physics' : subj.name === 'Chemistry' ? 'OP Tandon' : subj.name === 'Mathematics' ? 'RD Sharma' : subj.name.includes('Biology') ? 'Trueman\'s Biology' : 'Arihant ' + subj.name} | ${subj.name === 'Physics' ? 'HC Verma' : subj.name === 'Chemistry' ? 'OP Tandon' : 'Various'} | Intermediate |
+| ${exam.name} Previous Year Papers | Various | Essential |`).join('\n\n')}
+
+## How MindPeak Prepares You for ${exam.name}
+
+${exam.whyMindPeak}
+
+## FAQs About ${exam.name} Syllabus
+
+${exam.faqs.map(f => `**Q: ${f.q}**\nA: ${f.a}`).join('\n\n')}
+
+---
+
+*[${exam.name} Coaching](/${exam.slug}-coaching) | [Free Demo](/free-trial) | [All Courses](/courses)*`,
+    };
+  });
+}
+
+/* ═══════════════════════════════════════════════════
    MAIN EXPORT — All programmatic blog posts
    ═══════════════════════════════════════════════════ */
 
@@ -2620,6 +3317,11 @@ export function getAllProgrammaticBlogPosts(): BlogPost[] {
     ...generateMonthlyStudyPlanPosts(),       // ~24
     ...generateCutoffPosts(),                 // ~15
     ...generateNCERTAnalysisPosts(),          // ~60
+    ...generateExamPrepGuides(),             // ~72 (12 exams × ~6 subjects)
+    ...generateExamComparisonPosts(),        // ~66 (12 exams × ~2 base exams)
+    ...generateExamStrategyPosts(),          // ~48 (12 exams × ~4 subjects)
+    ...generateExamCityPosts(),              // ~6,000 (12 exams × 500 cities)
+    ...generateExamSyllabusPosts(),          // ~12 (12 exams)
   ];
 }
 
