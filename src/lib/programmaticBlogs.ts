@@ -2126,7 +2126,7 @@ function generateCareerGuidancePosts(): BlogPost[] {
     category: t.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [t.exam, 'Career Guidance', 'College', year.toString()],
     author: 'MindPeak Team',
-    publishDate: '2026-02-25',
+    publishDate: dynamicPublishDate(i + 1200),
     readTime: '14 min read',
     icon: pickIcon(i + 5),
     content: `# ${t.title}
