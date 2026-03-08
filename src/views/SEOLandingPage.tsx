@@ -14,6 +14,8 @@ import { subjectBanks } from '@/data/practice';
 import { buildFAQSchemaFromQA } from '@/components/PageFAQ';
 import { getSEOPage } from '@/data/seoPageData';
 import type { SEOPageData, SEOPageSection } from '@/data/seoPageData';
+import { FreshnessBadge } from '@/components/FreshnessBadge';
+import { getLastUpdated, getCurrentExamYear } from '@/lib/contentFreshness';
 
 /* ── Section renderer ── */
 const ContentSection = ({ section, index }: { section: SEOPageSection; index: number }) => (
