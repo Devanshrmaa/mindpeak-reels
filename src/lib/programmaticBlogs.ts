@@ -27,6 +27,18 @@ function seededInt(seed: number, min: number, max: number): number {
   return min + Math.floor(seededRand(seed) * (max - min + 1));
 }
 
+/**
+ * Dynamic publish date — returns a recent date (0-6 days ago) based on a seed.
+ * Ensures blog dates are NEVER in the future and auto-refresh daily.
+ */
+function dynamicPublishDate(seed: number): string {
+  const now = new Date();
+  const daysAgo = Math.abs(seed) % 7; // 0 to 6 days ago
+  const date = new Date(now);
+  date.setDate(date.getDate() - daysAgo);
+  return date.toISOString().split('T')[0];
+}
+
 /* ═══════════════════════════════════════════════════
    1. Chapter Preparation Guides (~148 posts)
    "How to Prepare [Chapter] for JEE/NEET"
@@ -45,7 +57,7 @@ function generateChapterPrepPosts(): BlogPost[] {
       category: exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
       tags: [exam, ch.subject, ch.chapter, 'Preparation Guide', 'Study Tips'],
       author: 'MindPeak Team',
-      publishDate: '2026-02-20',
+      publishDate: dynamicPublishDate(i),
       readTime: '12 min read',
       icon: pickIcon(i),
       content: `# How to Prepare ${ch.chapter} for ${exam} ${year}
@@ -185,7 +197,7 @@ function generateChapterTipsPosts(): BlogPost[] {
     category: ch.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [ch.exam, ch.subject, ch.chapter, 'Tips & Tricks'],
     author: 'MindPeak Team',
-    publishDate: '2026-02-22',
+    publishDate: dynamicPublishDate(i + 100),
     readTime: '10 min read',
     icon: pickIcon(i + 5),
     content: `# ${ch.chapter} Tips & Tricks for ${ch.exam} ${year}
@@ -352,7 +364,7 @@ function generateSubjectStrategyPosts(): BlogPost[] {
         category: c.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
         tags: [c.exam, c.subject, 'Revision', `${d}-Day Plan`],
         author: 'MindPeak Team',
-        publishDate: '2026-02-25',
+        publishDate: dynamicPublishDate(ci * 3 + di),
         readTime: '12 min read',
         icon: pickIcon(ci * 3 + di),
         content: `# ${c.exam} ${c.subject} Revision in ${d} Days — Complete Strategy
@@ -522,7 +534,7 @@ function generateBestBooksPosts(): BlogPost[] {
     category: s.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [s.exam, s.subject, 'Best Books', 'Recommended'],
     author: 'MindPeak Team',
-    publishDate: '2026-02-18',
+    publishDate: dynamicPublishDate(i + 200),
     readTime: '12 min read',
     icon: pickIcon(i + 10),
     content: `# Best Books for ${s.exam} ${s.subject} ${year}
@@ -652,7 +664,7 @@ function generatePaperAnalysisPosts(): BlogPost[] {
         category: exam,
         tags: [exam, `${y}`, 'Paper Analysis', 'Exam Review'],
         author: 'MindPeak Team',
-        publishDate: '2026-02-20',
+        publishDate: dynamicPublishDate(yi * 2 + (exam === 'JEE' ? 0 : 1)),
         readTime: '12 min read',
         icon: pickIcon(y % 16),
         content: `# ${exam} ${y} Paper Analysis — Complete Breakdown
@@ -810,7 +822,7 @@ function generateParentPosts(): BlogPost[] {
         category: 'General' as const,
         tags: [exam, city, 'Coaching Fees', 'Parent Guide'],
         author: 'MindPeak Team',
-        publishDate: '2026-02-15',
+        publishDate: dynamicPublishDate(posts.length + 300),
         readTime: '12 min read',
         icon: pickIcon(topCities.indexOf(city)),
         content: `# Cost of ${exam} Preparation in ${city} ${year}
@@ -962,7 +974,7 @@ A: MindPeak offers merit-based fee concessions for exceptional students. Discuss
       category: guide.exam === 'JEE' ? 'JEE' as const : guide.exam === 'NEET' ? 'NEET' as const : 'General' as const,
       tags: ['Parent Guide', guide.exam, 'Coaching', 'Tips'],
       author: 'MindPeak Team',
-      publishDate: '2026-02-20',
+      publishDate: dynamicPublishDate(posts.length + 400),
       readTime: '12 min read',
       icon: Heart,
       content: `# ${guide.title}
@@ -1121,7 +1133,7 @@ function generateBestCoachingInCityPosts(): BlogPost[] {
         category: exam,
         tags: [exam, city, 'Best Coaching', 'Comparison'],
         author: 'MindPeak Team',
-        publishDate: '2026-02-18',
+        publishDate: dynamicPublishDate(seed + 500),
         readTime: '12 min read',
         icon: pickIcon(topCities.indexOf(city) + 3),
         content: `# Best ${exam} Coaching in ${city} ${year}
@@ -1260,7 +1272,7 @@ function generateScoreStrategyPosts(): BlogPost[] {
     category: s.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [s.exam, s.subject, '99 Percentile', 'Strategy'],
     author: 'MindPeak Team',
-    publishDate: '2026-02-22',
+    publishDate: dynamicPublishDate(i + 600),
     readTime: '14 min read',
     icon: pickIcon(i),
     content: `# How to Score 99 Percentile in ${s.exam} ${s.subject}
@@ -1457,7 +1469,7 @@ function generateKotaWorthItPosts(): BlogPost[] {
       category: 'General' as const,
       tags: ['Kota', city, 'Coaching Comparison', 'Parent Guide'],
       author: 'MindPeak Team',
-      publishDate: '2026-02-15',
+      publishDate: dynamicPublishDate(i + 700),
       readTime: '12 min read',
       icon: pickIcon(i + 7),
       content: `# Is Kota Coaching Worth It from ${city}? — Honest ${year} Analysis
@@ -1602,7 +1614,7 @@ function generateChapterImportantQuestions(): BlogPost[] {
     category: ch.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [ch.exam, ch.subject, ch.chapter, 'Important Questions'],
     author: 'MindPeak Team',
-    publishDate: '2026-03-01',
+    publishDate: dynamicPublishDate(i + 800),
     readTime: '11 min read',
     icon: pickIcon(i + 2),
     content: `# Important Questions for ${ch.chapter} — ${ch.exam} ${year}
@@ -1700,7 +1712,7 @@ function generateRevisionChecklistPosts(): BlogPost[] {
     category: ch.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [ch.exam, ch.subject, ch.chapter, 'Revision', 'Checklist'],
     author: 'MindPeak Team',
-    publishDate: '2026-03-01',
+    publishDate: dynamicPublishDate(i + 900),
     readTime: '10 min read',
     icon: pickIcon(i + 8),
     content: `# ${ch.chapter} Revision Checklist for ${ch.exam} ${year}
@@ -1792,7 +1804,7 @@ function generateMistakesToAvoidPosts(): BlogPost[] {
     category: ch.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [ch.exam, ch.subject, ch.chapter, 'Mistakes', 'Error Analysis'],
     author: 'MindPeak Team',
-    publishDate: '2026-03-01',
+    publishDate: dynamicPublishDate(i + 1000),
     readTime: '10 min read',
     icon: pickIcon(i + 12),
     content: `# ${ch.chapter} Mistakes That Cost Marks in ${ch.exam}
@@ -1950,7 +1962,7 @@ function generateDropperStrategyPosts(): BlogPost[] {
     category: s.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [s.exam, s.subject, 'Dropper', 'Strategy', year.toString()],
     author: 'MindPeak Team',
-    publishDate: '2026-03-01',
+    publishDate: dynamicPublishDate(i + 1100),
     readTime: '15 min read',
     icon: pickIcon(i),
     content: `# ${s.exam} Dropper Strategy for ${s.subject} ${year}
@@ -2114,7 +2126,7 @@ function generateCareerGuidancePosts(): BlogPost[] {
     category: t.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [t.exam, 'Career Guidance', 'College', year.toString()],
     author: 'MindPeak Team',
-    publishDate: '2026-02-25',
+    publishDate: dynamicPublishDate(i + 1200),
     readTime: '14 min read',
     icon: pickIcon(i + 5),
     content: `# ${t.title}
@@ -2262,7 +2274,7 @@ function generateMonthlyStudyPlanPosts(): BlogPost[] {
         category: exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
         tags: [exam, 'Study Plan', month, year.toString()],
         author: 'MindPeak Team',
-        publishDate: '2026-02-28',
+        publishDate: dynamicPublishDate(mi + 1300),
         readTime: '12 min read',
         icon: pickIcon(mi),
         content: `# ${month} ${year} Study Plan for ${exam}
@@ -2399,7 +2411,7 @@ function generateCutoffPosts(): BlogPost[] {
     category: t.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [t.exam, 'Cutoff', 'College', year.toString()],
     author: 'MindPeak Team',
-    publishDate: '2026-03-01',
+    publishDate: dynamicPublishDate(i + 1400),
     readTime: '13 min read',
     icon: pickIcon(i + 3),
     content: `# ${t.title}
@@ -2513,7 +2525,7 @@ function generateNCERTAnalysisPosts(): BlogPost[] {
     category: ch.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [ch.exam, 'NCERT', ch.subject, ch.chapter],
     author: 'MindPeak Team',
-    publishDate: '2026-02-22',
+    publishDate: dynamicPublishDate(i + 1500),
     readTime: '15 min read',
     icon: pickIcon(i + 2),
     content: `# NCERT ${ch.chapter} Analysis for ${ch.exam} ${year}
@@ -2653,7 +2665,7 @@ This is a ${exam.name}-exclusive topic that many students neglect, assuming thei
         category: exam.overlapsWith === 'neet' ? 'NEET' as const : 'JEE' as const,
         tags: [exam.name, subj.name, 'Preparation Guide', 'Strategy', overlapExam],
         author: 'MindPeak Team',
-        publishDate: '2026-03-01',
+        publishDate: dynamicPublishDate(i + 1600),
         readTime: '15 min read',
         icon: examIcons[i % examIcons.length],
         content: `# How to Prepare ${subj.name} for ${exam.name} ${year}
@@ -2782,7 +2794,7 @@ function generateExamComparisonPosts(): BlogPost[] {
         category: base.slug.includes('neet') ? 'NEET' as const : 'JEE' as const,
         tags: [exam.name, base.name, 'Comparison', 'Strategy'],
         author: 'MindPeak Team',
-        publishDate: '2026-03-01',
+        publishDate: dynamicPublishDate(i + 1700),
         readTime: '14 min read',
         icon: examIcons[i % examIcons.length],
         content: `# ${exam.name} vs ${base.name} ${year} — Which Is Harder and How to Prepare for Both
@@ -2941,7 +2953,7 @@ function generateExamStrategyPosts(): BlogPost[] {
         category: exam.overlapsWith === 'neet' ? 'NEET' as const : 'JEE' as const,
         tags: [exam.name, subj.name, 'Strategy', 'Score High'],
         author: 'MindPeak Team',
-        publishDate: '2026-03-01',
+        publishDate: dynamicPublishDate(i + 1800),
         readTime: '16 min read',
         icon: examIcons[i % examIcons.length],
         content: `# ${exam.name} ${subj.name} Strategy ${year} — Score ${seededInt(i, 90, 99)}+ Percentile
@@ -3065,7 +3077,7 @@ function generateExamCityPosts(): BlogPost[] {
         category: exam.overlapsWith === 'neet' ? 'NEET' as const : 'JEE' as const,
         tags: [exam.name, city.city, city.state, 'Coaching', 'City Guide'],
         author: 'MindPeak Team',
-        publishDate: '2026-03-01',
+        publishDate: dynamicPublishDate(i + 1900),
         readTime: '13 min read',
         icon: examIcons[i % examIcons.length],
         content: `# Best ${exam.name} Coaching in ${city.city} ${year}
@@ -3203,7 +3215,7 @@ function generateExamSyllabusPosts(): BlogPost[] {
       category: exam.overlapsWith === 'neet' ? 'NEET' as const : 'JEE' as const,
       tags: [exam.name, 'Syllabus', year.toString(), 'Preparation'],
       author: 'MindPeak Team',
-      publishDate: '2026-03-01',
+      publishDate: dynamicPublishDate(i + 2000),
       readTime: '18 min read',
       icon: examIcons[i % examIcons.length],
       content: `# ${exam.name} Syllabus ${year} — Complete Topic-Wise Breakdown

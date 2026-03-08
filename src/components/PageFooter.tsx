@@ -38,6 +38,19 @@ const STATIC_SECTIONS: FooterSectionData[] = [
     ],
   },
   {
+    title: 'Other Exams',
+    links: [
+      { label: 'BITSAT Coaching', to: '/bitsat-coaching' },
+      { label: 'CUET Coaching', to: '/cuet-coaching' },
+      { label: 'WBJEE Coaching', to: '/wbjee-coaching' },
+      { label: 'MHT-CET Coaching', to: '/mht-cet-coaching' },
+      { label: 'KVPY Coaching', to: '/kvpy-coaching' },
+      { label: 'ISI Entrance Coaching', to: '/isi-entrance-coaching' },
+      { label: 'COMEDK Coaching', to: '/comedk-coaching' },
+      { label: 'VITEEE Coaching', to: '/viteee-coaching' },
+    ],
+  },
+  {
     title: 'Practice & PYQs',
     links: [
       { label: 'JEE Practice Questions', to: '/jee-practice' },
@@ -149,12 +162,16 @@ function buildQuestionSections(
       ],
     },
     {
+      title: 'Other Exams',
+      links: STATIC_SECTIONS[2].links,
+    },
+    {
       title: 'Formula Sheets',
-      links: STATIC_SECTIONS[3].links,
+      links: STATIC_SECTIONS[4].links,
     },
     {
       title: 'Quick Links',
-      links: STATIC_SECTIONS[4].links,
+      links: STATIC_SECTIONS[5].links,
     },
   ];
 }
@@ -163,6 +180,8 @@ const importantLinks = [
   { label: 'Home', to: '/' },
   { label: 'JEE Coaching', to: '/jee-coaching' },
   { label: 'NEET Coaching', to: '/neet-coaching' },
+  { label: 'BITSAT Coaching', to: '/bitsat-coaching' },
+  { label: 'CUET Coaching', to: '/cuet-coaching' },
   { label: 'Courses', to: '/courses' },
   { label: 'Pricing', to: '/pricing' },
   { label: 'Free Trial', to: '/free-trial' },

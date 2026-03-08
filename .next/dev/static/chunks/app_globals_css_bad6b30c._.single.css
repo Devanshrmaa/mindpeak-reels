@@ -3184,6 +3184,10 @@ h1, h2, h3, h4, h5, h6 {
   --tw-gradient-to: hsl(var(--primary) / .6) var(--tw-gradient-to-position);
 }
 
+.to-primary\/70 {
+  --tw-gradient-to: hsl(var(--primary) / .7) var(--tw-gradient-to-position);
+}
+
 .to-primary\/80 {
   --tw-gradient-to: hsl(var(--primary) / .8) var(--tw-gradient-to-position);
 }
@@ -3226,10 +3230,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .to-white\/\[0\.02\] {
   --tw-gradient-to: #ffffff05 var(--tw-gradient-to-position);
-}
-
-.to-primary\/70 {
-  --tw-gradient-to: hsl(var(--primary) / .7) var(--tw-gradient-to-position);
 }
 
 .bg-clip-text {
