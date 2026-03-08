@@ -1,10 +1,14 @@
 import NEETCoaching from "@/views/NEETCoaching";
 import type { Metadata } from "next";
+import { CURRENT_EXAM_YEAR } from "@/lib/examYears";
+
+const title = `Best NEET Coaching Online ${CURRENT_EXAM_YEAR} — Top Medical Colleges | 95% Success [Free Trial]`;
+const description = `Crack NEET ${CURRENT_EXAM_YEAR} with 1-on-1 Biology-first coaching. NCERT mastery, dedicated mentors, 95% success rate. 500+ students. Book free demo class now.`;
 
 export const metadata: Metadata = {
-  title: "NEET Online Coaching — Personalized 1-on-1 Mentorship | Top Medical Colleges",
-  description: "Crack NEET with personalized 1-on-1 coaching. Biology-first approach, NCERT mastery, dedicated mentors. 95% success rate, 500+ students. Start free trial today!",
+  title,
+  description,
   alternates: { canonical: "https://mindpeakinstitute.com/neet-coaching" },
-  openGraph: { title: "NEET Online Coaching — Personalized 1-on-1 Mentorship", description: "Crack NEET with personalized 1-on-1 coaching. Biology-first approach, NCERT mastery, dedicated mentors.", url: "https://mindpeakinstitute.com/neet-coaching", siteName: "MindPeak Institute", type: "website" },
+  openGraph: { title, description, url: "https://mindpeakinstitute.com/neet-coaching", siteName: "MindPeak Institute", type: "website" },
 };
 export default function NEETCoachingPage() { return <NEETCoaching />; }

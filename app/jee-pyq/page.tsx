@@ -1,9 +1,10 @@
 import JEEPYQHub from "@/views/JEEPYQHub";
 import type { Metadata } from "next";
+import { CURRENT_EXAM_YEAR } from "@/lib/examYears";
 
 export const metadata: Metadata = {
-  title: "JEE Previous Year Questions (PYQ) — 2015–2024",
-  description: "Solve real JEE Main & Advanced previous year questions from 2015 to 2024. Chapter-wise PYQs with year, shift info, and detailed solutions. Free JEE PYQ practice by MindPeak.",
+  title: `JEE PYQ ${CURRENT_EXAM_YEAR} — 10 Years Previous Year Questions [Free Solutions]`,
+  description: `Solve real JEE Main & Advanced PYQs (2015–2025). Chapter-wise with year, shift info & detailed solutions. 100% free JEE PYQ practice by MindPeak.`,
   alternates: { canonical: "https://mindpeakinstitute.com/jee-pyq" },
 };
 export default function Page() { return <JEEPYQHub />; }
