@@ -71,6 +71,7 @@ const allMathsPYQ: PYQChapter[] = mergeChapters([
   ...mathsPyq2,
   ...mathsPyq3,
   ...mathsPyq4,
+  ...mathsPyq5,
 ]);
 
 export const mathsPYQBank: PYQSubjectBank = {
