@@ -92,7 +92,7 @@ export function generateStudyGuideContent(guide: TopicStudyGuide): string {
 
 ${guide.topicName} is part of the **${guide.chapter}** chapter in ${guide.exam} ${guide.subject}, which carries **${guide.weightage}** weightage. This topic has appeared in **${pyqFreq} out of the last 10** ${guide.exam} papers, making it a high-priority area for focused preparation.
 
-Difficulty level: **${guide.difficulty}**. Students who master this topic typically see a ${seededInt(seed+3, 10, 25)}% improvement in their ${guide.subject} mock scores.
+Difficulty level: **${guide.difficulty}**.${definitionBlock}${workedExampleBlock}
 
 ## Prerequisites Before You Start
 

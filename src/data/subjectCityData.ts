@@ -253,6 +253,16 @@ export function buildSubjectCityPage(config: SubjectCityConfig): SubjectCityPage
   const langStr = cityAny.language ? ` ${cityAny.language}-medium concept explanations available.` : '';
   const slug = `${exam}-${subject}-coaching-in-${city.slug}`;
 
+  // State-specific unique data
+  const stateData = getStateEducation(city.state);
+  const collegeTargets = exam === 'jee'
+    ? stateData?.topEnggColleges?.slice(0, 3).map(c => `${c.name} (${c.cutoff})`).join(', ') || 'IITs, NITs'
+    : stateData?.topMedColleges?.slice(0, 3).map(c => `${c.name} (${c.cutoff})`).join(', ') || 'top medical colleges';
+  const boardChallenge = stateData?.boardTransitionChallenges?.split('.').slice(0, 2).join('.') || '';
+  const competitionFact = stateData?.competitionContext?.split('.').slice(0, 2).join('.') || '';
+  const careerInfo = stateData?.careerEcosystem?.split('.').slice(0, 2).join('.') || '';
+  const stateExamDetail = stateData?.stateExamDetails ? ` ${stateData.stateExamDetails.name} offers ${stateData.stateExamDetails.seats} with ${stateData.stateExamDetails.overlapWithNational}.` : '';
+
   return {
     slug,
     exam,
@@ -260,10 +270,10 @@ export function buildSubjectCityPage(config: SubjectCityConfig): SubjectCityPage
     subjectLabel,
     city,
     title: `Best ${examLabel} ${subjectLabel} Coaching in ${city.city} — 1-on-1 | MindPeak`,
-    description: `Top ${examLabel} ${subjectLabel} coaching in ${city.city} with expert 1-on-1 mentors. Chapter-wise preparation, weightage analysis & personalised study plans. 95% success rate.`,
+    description: `Top ${examLabel} ${subjectLabel} coaching in ${city.city} with expert 1-on-1 mentors. Chapter-wise preparation, weightage analysis & personalised study plans. Target colleges: ${collegeTargets}.`,
     heroHeadline: `Master ${examLabel} ${subjectLabel} from ${city.city} — Expert 1-on-1 Mentors`,
-    heroSubtext: `Personalised ${examFull} ${subjectLabel} coaching with chapter-wise strategy, daily practice sessions, and dedicated mentor support for ${city.city} students.`,
-    introText: `MindPeak Institute offers ${city.city} students specialised 1-on-1 ${subjectLabel} coaching for ${examFull}. ${subjectLabel} is one of the most critical subjects in ${examLabel}, carrying significant weightage and requiring both conceptual clarity and problem-solving speed. Our expert ${subjectLabel} mentors — IIT and AIIMS alumni — understand ${city.state}'s academic ecosystem and create personalised chapter-wise preparation roadmaps for every ${city.city} student.${stateExamStr}${langStr} Unlike batch coaching centres in ${city.city} where ${subjectLabel} is taught in 60-100 student classrooms, MindPeak's dedicated mentors focus exclusively on your child's learning gaps, building from foundational concepts to advanced problem-solving at the student's own pace. Every session is live, interactive, and recorded for revision — ensuring ${city.city} students never miss a concept. Our adaptive curriculum uses diagnostic assessments to identify weak chapters and allocates more time where it's needed most, resulting in a 95% success rate across cohorts.`,
+    heroSubtext: `Personalised ${examFull} ${subjectLabel} coaching for ${city.city} students targeting ${collegeTargets}. Daily practice sessions and dedicated mentor support.`,
+    introText: `MindPeak Institute offers ${city.city} students specialised 1-on-1 ${subjectLabel} coaching for ${examFull}. ${subjectLabel} carries significant weightage and requires both conceptual clarity and problem-solving speed. ${boardChallenge ? boardChallenge + '.' : ''} ${competitionFact ? competitionFact + '.' : ''} Our expert ${subjectLabel} mentors understand ${city.state}'s academic ecosystem and create personalised chapter-wise preparation roadmaps.${stateExamStr}${stateExamDetail}${langStr} Unlike batch coaching centres where ${subjectLabel} is taught in 60-100 student classrooms, MindPeak's dedicated mentors focus exclusively on your learning gaps, building from foundational concepts to advanced problem-solving at your pace. ${careerInfo ? 'Career targets for ' + city.city + ' students: ' + careerInfo + '.' : ''}`,
     weightageTable: SUBJECT_WEIGHTAGE[exam]?.[subject] || [],
     chapterPlan: buildChapterPlan(exam, subject, city),
     whyThisSubject: `${subjectLabel} in ${examLabel} demands a unique combination of conceptual understanding, mathematical application, and problem-solving intuition. ${city.city} students preparing for ${examLabel} ${subjectLabel} need structured chapter-wise preparation that traditional batch coaching rarely provides. At MindPeak, your dedicated ${subjectLabel} mentor creates a personalised preparation calendar — allocating more time to high-weightage chapters like ${SUBJECT_WEIGHTAGE[exam]?.[subject]?.slice(0, 2).map(w => w.chapter).join(' and ') || 'core topics'}, while ensuring comprehensive coverage. Daily 1-on-1 sessions allow real-time doubt resolution, concept reinforcement through worked examples, and progressive difficulty building that matches your comprehension pace. ${city.city} families choosing MindPeak for ${subjectLabel} coaching consistently report that their children develop genuine subject mastery — not just exam-cracking techniques.`,
