@@ -460,7 +460,14 @@ const LocationPage = () => {
                 Courses for Students in <span className="text-gradient-gold">{city.city}</span>
               </h2>
             </div>
-            <p className="text-muted-foreground text-base leading-relaxed mb-8 max-w-4xl">{coursesText}</p>
+            <ul className="grid sm:grid-cols-2 gap-2 mb-8 max-w-4xl">
+              {(coursesText || '').split(/\.\s+/).filter(s => s.trim().length > 10).map((sentence, i) => (
+                <li key={i} className="flex items-start gap-2 p-2.5 rounded-lg bg-card/50 border border-border/50">
+                  <CheckCircle className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-muted-foreground text-sm">{sentence.trim().replace(/\.$/, '')}.</span>
+                </li>
+              ))}
+            </ul>
             <div className="grid sm:grid-cols-2 gap-6">
               {courseTiles.map((tile, i) => (
                 <div key={i} className="p-6 rounded-2xl bg-card border border-border hover:border-primary/40 transition-all group">
