@@ -886,7 +886,14 @@ const LocationPage = () => {
                   </tbody>
                 </table>
               </div>
-              <p className="text-muted-foreground text-sm leading-relaxed mt-6 max-w-4xl">{standsOutText}</p>
+              <div className="grid sm:grid-cols-2 gap-3 mt-6 max-w-4xl">
+                {(standsOutText || '').split(/\.\s+/).filter(s => s.trim().length > 10).map((sentence, i) => (
+                  <div key={i} className="flex items-start gap-2 p-3 rounded-lg bg-primary/5 border border-primary/10">
+                    <CheckCircle className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground text-sm">{sentence.trim().replace(/\.$/, '')}.</span>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           </div>
         </section>
