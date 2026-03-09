@@ -679,31 +679,89 @@ const LocationPage = () => {
           </div>
         </section>
 
-        {/* ═══ CAREER OPPORTUNITIES ═══ */}
-        <section className="max-w-5xl mx-auto px-6 py-14" aria-label="Career opportunities">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <div className="flex items-center gap-3 mb-4">
-              <Briefcase className="w-8 h-8 text-primary" />
-              <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl">
-                Career Paths After {examLabel} from <span className="text-gradient-gold">{city.city}</span>
-              </h2>
-            </div>
-            <p className="text-muted-foreground text-base leading-relaxed mb-8 max-w-4xl">{careerText}</p>
-            <div className="grid sm:grid-cols-3 gap-4">
-              {[
-                { title: 'Engineering (via JEE)', paths: 'Software Dev • Data Science • AI/ML • Robotics • Aerospace', salary: '₹10-50+ LPA' },
-                { title: 'Medical (via NEET)', paths: 'MBBS • Surgery • Healthcare • Research • Public Health', salary: '₹8-40+ LPA' },
-                { title: 'Research & Academia', paths: 'PhD • IISc/TIFR • Global Unis • R&D Labs', salary: 'Prestigious & Impactful' },
-              ].map((item, i) => (
-                <div key={i} className="p-6 rounded-xl bg-card border border-border">
-                  <h3 className="text-foreground font-display font-bold text-lg mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-3">{item.paths}</p>
-                  <div className="text-primary text-xs font-semibold uppercase tracking-wider">{item.salary}</div>
+        {/* ═══ COLLEGE TARGET TABLE ═══ */}
+        {(() => {
+          const stateData = getStateEducation(city.state);
+          if (!stateData) return null;
+          const enggColleges = stateData.topEnggColleges.slice(0, 4);
+          const medColleges = stateData.topMedColleges.slice(0, 3);
+          return (
+            <section className="max-w-5xl mx-auto px-6 py-14" aria-label="College targets">
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                <div className="flex items-center gap-3 mb-4">
+                  <Building2 className="w-8 h-8 text-primary" />
+                  <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl">
+                    Top Colleges {city.city} Students Target
+                  </h2>
                 </div>
-              ))}
-            </div>
-          </motion.div>
-        </section>
+                <p className="text-muted-foreground text-sm mb-6">Real cutoff data to help {city.city} students set concrete targets.</p>
+
+                {/* Engineering Colleges */}
+                <h3 className="text-foreground font-display font-bold text-lg mb-3 flex items-center gap-2">
+                  <TrendingUp className="w-5 h-5 text-primary" /> Engineering Colleges (via JEE)
+                </h3>
+                <div className="overflow-hidden rounded-xl border border-border mb-8">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="bg-secondary/50">
+                        <th className="text-left px-5 py-3 text-foreground font-display">College</th>
+                        <th className="text-left px-5 py-3 text-foreground font-display">Cutoff</th>
+                        {enggColleges[0]?.branch && <th className="text-left px-5 py-3 text-foreground font-display">Branch</th>}
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-border">
+                      {enggColleges.map((col, i) => (
+                        <tr key={i} className="bg-background">
+                          <td className="px-5 py-3 text-foreground font-medium">{col.name}</td>
+                          <td className="px-5 py-3 text-primary text-xs font-semibold">{col.cutoff}</td>
+                          {col.branch && <td className="px-5 py-3 text-muted-foreground text-xs">{col.branch}</td>}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* Medical Colleges */}
+                <h3 className="text-foreground font-display font-bold text-lg mb-3 flex items-center gap-2">
+                  <TrendingUp className="w-5 h-5 text-primary" /> Medical Colleges (via NEET)
+                </h3>
+                <div className="overflow-hidden rounded-xl border border-border mb-6">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="bg-secondary/50">
+                        <th className="text-left px-5 py-3 text-foreground font-display">College</th>
+                        <th className="text-left px-5 py-3 text-foreground font-display">Cutoff</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-border">
+                      {medColleges.map((col, i) => (
+                        <tr key={i} className="bg-background">
+                          <td className="px-5 py-3 text-foreground font-medium">{col.name}</td>
+                          <td className="px-5 py-3 text-primary text-xs font-semibold">{col.cutoff}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* Career paths — condensed from old paragraph */}
+                <div className="grid sm:grid-cols-3 gap-4 mt-6">
+                  {[
+                    { title: 'Engineering (via JEE)', paths: 'Software Dev • Data Science • AI/ML • Robotics • Aerospace', salary: '₹10-50+ LPA' },
+                    { title: 'Medical (via NEET)', paths: 'MBBS • Surgery • Healthcare • Research • Public Health', salary: '₹8-40+ LPA' },
+                    { title: 'Research & Academia', paths: 'PhD • IISc/TIFR • Global Unis • R&D Labs', salary: 'Prestigious & Impactful' },
+                  ].map((item, i) => (
+                    <div key={i} className="p-5 rounded-xl bg-card border border-border">
+                      <h3 className="text-foreground font-display font-bold text-sm mb-2">{item.title}</h3>
+                      <p className="text-muted-foreground text-xs leading-relaxed mb-2">{item.paths}</p>
+                      <div className="text-primary text-xs font-semibold uppercase tracking-wider">{item.salary}</div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </section>
+          );
+        })()}
 
         {/* ═══ EVENTS & WORKSHOPS ═══ */}
         <section className="bg-card/30 border-y border-border py-14 px-6" aria-label="Events">
