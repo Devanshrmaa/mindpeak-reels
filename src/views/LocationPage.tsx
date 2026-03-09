@@ -620,7 +620,14 @@ const LocationPage = () => {
                 1-on-1 Mentoring vs Batch Coaching
               </h2>
             </div>
-            <p className="text-muted-foreground text-base leading-relaxed mb-8 max-w-4xl">{city.mentoringAdvantage}</p>
+            <div className="grid sm:grid-cols-2 gap-3 mb-8 max-w-4xl">
+              {(city.mentoringAdvantage || '').split(/\.\s+/).filter(s => s.trim().length > 10).map((sentence, i) => (
+                <div key={i} className="flex items-start gap-2.5 p-3 rounded-lg bg-card/50 border border-border/50">
+                  <Star className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-muted-foreground text-sm leading-relaxed">{sentence.trim().replace(/\.$/, '')}.</span>
+                </div>
+              ))}
+            </div>
             <div className="overflow-hidden rounded-xl border border-border">
               <table className="w-full text-sm">
                 <thead>
