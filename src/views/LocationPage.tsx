@@ -7,7 +7,8 @@ import { Link } from '@/components/RouterLink';
 import {
   ChevronDown, Phone, ArrowRight, CheckCircle, Users, BarChart3,
   GraduationCap, MapPin, Building2, Quote, Star, BookOpen, Briefcase,
-  Target, Lightbulb, Rocket, Calendar, Shield, Send, Clock, Award
+  Target, Lightbulb, Rocket, Calendar, Shield, Send, Clock, Award,
+  School, AlertTriangle, TrendingUp
 } from 'lucide-react';
 import { useState, useCallback, FormEvent } from 'react';
 import { AnimatePresence } from 'framer-motion';
@@ -17,6 +18,8 @@ import { useDemoModal } from '@/components/DemoBookingModal';
 import { buildFAQSchemaFromQA } from '@/components/PageFAQ';
 import { cities, allCities, getLocationTitle, getLocationDescription } from '@/data/cityData';
 import type { CityData, QuickStat, CourseTile, LocalValueProp, CityFAQ, CityTestimonial, CityEvent, TabbedContent } from '@/data/cityData';
+import { cityUniqueContent } from '@/data/cityUniqueContent';
+import { getStateEducation } from '@/data/stateEducationData';
 const logo = '/images/logo.jpeg';
 
 /* ─── FALLBACK GENERATORS ─── */
@@ -322,15 +325,100 @@ const LocationPage = () => {
           </div>
         </section>
 
-        {/* ═══ INTRODUCTION ═══ */}
-        <section className="max-w-5xl mx-auto px-6 py-14">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <p className="text-muted-foreground text-base leading-relaxed max-w-4xl">{introText}</p>
-            {city.educationLandscape && (
-              <p className="text-muted-foreground text-base leading-relaxed max-w-4xl mt-4">{city.educationLandscape}</p>
-            )}
-          </motion.div>
-        </section>
+        {/* ═══ CITY SNAPSHOT CARD ═══ */}
+        {(() => {
+          const uniqueData = cityUniqueContent[city.slug];
+          const stateData = getStateEducation(city.state);
+          return (
+            <section className="max-w-5xl mx-auto px-6 py-14">
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                {/* Snapshot Card */}
+                <div className="rounded-2xl border border-primary/30 bg-card p-6 md:p-8 mb-8">
+                  <div className="flex items-center gap-2 mb-5">
+                    <MapPin className="w-5 h-5 text-primary" />
+                    <h2 className="font-display font-bold text-foreground text-xl md:text-2xl uppercase tracking-wide">
+                      {city.city}, {city.state}
+                    </h2>
+                  </div>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    {uniqueData?.population && (
+                      <div className="p-3 rounded-xl bg-background border border-border">
+                        <div className="text-muted-foreground text-[10px] uppercase tracking-wider mb-1">Population</div>
+                        <div className="text-foreground font-display font-bold text-sm">{uniqueData.population}</div>
+                      </div>
+                    )}
+                    {uniqueData?.knownFor && (
+                      <div className="p-3 rounded-xl bg-background border border-border">
+                        <div className="text-muted-foreground text-[10px] uppercase tracking-wider mb-1">Known For</div>
+                        <div className="text-foreground text-sm leading-snug">{uniqueData.knownFor.split('.')[0]}.</div>
+                      </div>
+                    )}
+                    <div className="p-3 rounded-xl bg-background border border-border">
+                      <div className="text-muted-foreground text-[10px] uppercase tracking-wider mb-1">Board</div>
+                      <div className="text-foreground font-display font-bold text-sm">{uniqueData?.boardType || 'CBSE / State Board'}</div>
+                    </div>
+                    {stateData?.stateExamDetails && (
+                      <div className="p-3 rounded-xl bg-background border border-border">
+                        <div className="text-muted-foreground text-[10px] uppercase tracking-wider mb-1">State Exam</div>
+                        <div className="text-foreground font-display font-bold text-sm">{stateData.stateExamDetails.name}</div>
+                        <div className="text-primary text-[10px] mt-0.5">{stateData.stateExamDetails.seats}</div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Notable Schools */}
+                  {uniqueData?.notableSchools && uniqueData.notableSchools.length > 0 && (
+                    <div className="mb-5">
+                      <div className="flex items-center gap-2 mb-2">
+                        <School className="w-4 h-4 text-primary" />
+                        <span className="text-foreground text-sm font-semibold">Schools We Serve in {city.city}</span>
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {uniqueData.notableSchools.map((school, i) => (
+                          <span key={i} className="px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-medium">
+                            {school}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Nearest Premier Institute */}
+                  {uniqueData?.nearestPremierInstitute && (
+                    <div className="flex items-start gap-3 p-4 rounded-xl bg-primary/5 border border-primary/20">
+                      <Target className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <div>
+                        <div className="text-foreground text-sm font-semibold mb-0.5">Nearest Premier Institute</div>
+                        <div className="text-muted-foreground text-sm">{uniqueData.nearestPremierInstitute}</div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Student Challenge Callout */}
+                {uniqueData?.localChallenge && (
+                  <div className="rounded-2xl border border-destructive/30 bg-destructive/5 p-6 mb-8">
+                    <div className="flex items-start gap-3">
+                      <AlertTriangle className="w-6 h-6 text-destructive flex-shrink-0 mt-0.5" />
+                      <div>
+                        <h3 className="text-foreground font-display font-bold text-lg mb-2">The {city.city} Student Challenge</h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed">{uniqueData.localChallenge}</p>
+                        {uniqueData.localCoachingGap && (
+                          <p className="text-muted-foreground text-sm leading-relaxed mt-2 italic">{uniqueData.localCoachingGap}</p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Education Landscape — now a brief contextual paragraph */}
+                {city.educationLandscape && (
+                  <p className="text-muted-foreground text-base leading-relaxed max-w-4xl">{city.educationLandscape}</p>
+                )}
+              </motion.div>
+            </section>
+          );
+        })()}
 
         {/* ═══ WHY STUDENTS CHOOSE MINDPEAK ═══ */}
         <section className="bg-card/30 border-y border-border py-14 px-6">
@@ -591,31 +679,89 @@ const LocationPage = () => {
           </div>
         </section>
 
-        {/* ═══ CAREER OPPORTUNITIES ═══ */}
-        <section className="max-w-5xl mx-auto px-6 py-14" aria-label="Career opportunities">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <div className="flex items-center gap-3 mb-4">
-              <Briefcase className="w-8 h-8 text-primary" />
-              <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl">
-                Career Paths After {examLabel} from <span className="text-gradient-gold">{city.city}</span>
-              </h2>
-            </div>
-            <p className="text-muted-foreground text-base leading-relaxed mb-8 max-w-4xl">{careerText}</p>
-            <div className="grid sm:grid-cols-3 gap-4">
-              {[
-                { title: 'Engineering (via JEE)', paths: 'Software Dev • Data Science • AI/ML • Robotics • Aerospace', salary: '₹10-50+ LPA' },
-                { title: 'Medical (via NEET)', paths: 'MBBS • Surgery • Healthcare • Research • Public Health', salary: '₹8-40+ LPA' },
-                { title: 'Research & Academia', paths: 'PhD • IISc/TIFR • Global Unis • R&D Labs', salary: 'Prestigious & Impactful' },
-              ].map((item, i) => (
-                <div key={i} className="p-6 rounded-xl bg-card border border-border">
-                  <h3 className="text-foreground font-display font-bold text-lg mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-3">{item.paths}</p>
-                  <div className="text-primary text-xs font-semibold uppercase tracking-wider">{item.salary}</div>
+        {/* ═══ COLLEGE TARGET TABLE ═══ */}
+        {(() => {
+          const stateData = getStateEducation(city.state);
+          if (!stateData) return null;
+          const enggColleges = stateData.topEnggColleges.slice(0, 4);
+          const medColleges = stateData.topMedColleges.slice(0, 3);
+          return (
+            <section className="max-w-5xl mx-auto px-6 py-14" aria-label="College targets">
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                <div className="flex items-center gap-3 mb-4">
+                  <Building2 className="w-8 h-8 text-primary" />
+                  <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl">
+                    Top Colleges {city.city} Students Target
+                  </h2>
                 </div>
-              ))}
-            </div>
-          </motion.div>
-        </section>
+                <p className="text-muted-foreground text-sm mb-6">Real cutoff data to help {city.city} students set concrete targets.</p>
+
+                {/* Engineering Colleges */}
+                <h3 className="text-foreground font-display font-bold text-lg mb-3 flex items-center gap-2">
+                  <TrendingUp className="w-5 h-5 text-primary" /> Engineering Colleges (via JEE)
+                </h3>
+                <div className="overflow-hidden rounded-xl border border-border mb-8">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="bg-secondary/50">
+                        <th className="text-left px-5 py-3 text-foreground font-display">College</th>
+                        <th className="text-left px-5 py-3 text-foreground font-display">Cutoff</th>
+                        {enggColleges[0]?.branch && <th className="text-left px-5 py-3 text-foreground font-display">Branch</th>}
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-border">
+                      {enggColleges.map((col, i) => (
+                        <tr key={i} className="bg-background">
+                          <td className="px-5 py-3 text-foreground font-medium">{col.name}</td>
+                          <td className="px-5 py-3 text-primary text-xs font-semibold">{col.cutoff}</td>
+                          {col.branch && <td className="px-5 py-3 text-muted-foreground text-xs">{col.branch}</td>}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* Medical Colleges */}
+                <h3 className="text-foreground font-display font-bold text-lg mb-3 flex items-center gap-2">
+                  <TrendingUp className="w-5 h-5 text-primary" /> Medical Colleges (via NEET)
+                </h3>
+                <div className="overflow-hidden rounded-xl border border-border mb-6">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="bg-secondary/50">
+                        <th className="text-left px-5 py-3 text-foreground font-display">College</th>
+                        <th className="text-left px-5 py-3 text-foreground font-display">Cutoff</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-border">
+                      {medColleges.map((col, i) => (
+                        <tr key={i} className="bg-background">
+                          <td className="px-5 py-3 text-foreground font-medium">{col.name}</td>
+                          <td className="px-5 py-3 text-primary text-xs font-semibold">{col.cutoff}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* Career paths — condensed from old paragraph */}
+                <div className="grid sm:grid-cols-3 gap-4 mt-6">
+                  {[
+                    { title: 'Engineering (via JEE)', paths: 'Software Dev • Data Science • AI/ML • Robotics • Aerospace', salary: '₹10-50+ LPA' },
+                    { title: 'Medical (via NEET)', paths: 'MBBS • Surgery • Healthcare • Research • Public Health', salary: '₹8-40+ LPA' },
+                    { title: 'Research & Academia', paths: 'PhD • IISc/TIFR • Global Unis • R&D Labs', salary: 'Prestigious & Impactful' },
+                  ].map((item, i) => (
+                    <div key={i} className="p-5 rounded-xl bg-card border border-border">
+                      <h3 className="text-foreground font-display font-bold text-sm mb-2">{item.title}</h3>
+                      <p className="text-muted-foreground text-xs leading-relaxed mb-2">{item.paths}</p>
+                      <div className="text-primary text-xs font-semibold uppercase tracking-wider">{item.salary}</div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </section>
+          );
+        })()}
 
         {/* ═══ EVENTS & WORKSHOPS ═══ */}
         <section className="bg-card/30 border-y border-border py-14 px-6" aria-label="Events">
@@ -666,17 +812,45 @@ const LocationPage = () => {
           </motion.div>
         </section>
 
-        {/* ═══ WHY STANDS OUT ═══ */}
+        {/* ═══ MINDPEAK VS LOCAL COACHING ═══ */}
         <section className="bg-card/30 border-y border-border py-14 px-6">
           <div className="max-w-5xl mx-auto">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
               <div className="flex items-center gap-3 mb-4">
                 <Target className="w-8 h-8 text-primary" />
                 <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl">
-                  Why MindPeak Stands Out in <span className="text-gradient-gold">{city.city}</span>
+                  MindPeak vs Local Coaching in <span className="text-gradient-gold">{city.city}</span>
                 </h2>
               </div>
-              <p className="text-muted-foreground text-base leading-relaxed max-w-4xl">{standsOutText}</p>
+              <div className="overflow-hidden rounded-xl border border-border mt-6">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="bg-secondary/50">
+                      <th className="text-left px-5 py-3 text-foreground font-display">Aspect</th>
+                      <th className="text-center px-5 py-3 text-primary font-display">MindPeak 1-on-1</th>
+                      <th className="text-center px-5 py-3 text-muted-foreground font-display">Local Coaching in {city.city}</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-border">
+                    {[
+                      ['Faculty', 'IIT/AIIMS alumni mentors', 'Mostly regional college graduates'],
+                      ['Batch Size', '1 student (dedicated mentor)', '60-100+ students per batch'],
+                      ['Curriculum', 'Adaptive, based on diagnostics', 'Fixed syllabus for all'],
+                      ['Doubt Resolution', 'Instant, during 1-on-1 sessions', 'Post-class, crowded doubt queues'],
+                      ['Progress Tracking', 'Weekly analytics + parent dashboard', 'Periodic tests, no parent visibility'],
+                      ['Commute', 'Zero — study from home', `30-90 min each way in ${city.city}`],
+                      ['Schedule', 'Flexible, at student\'s convenience', 'Fixed batch timings'],
+                    ].map(([aspect, mp, local], i) => (
+                      <tr key={i} className="bg-background">
+                        <td className="px-5 py-3 text-foreground font-medium text-xs">{aspect}</td>
+                        <td className="px-5 py-3 text-center text-primary text-xs">✓ {mp}</td>
+                        <td className="px-5 py-3 text-center text-muted-foreground text-xs">✗ {local}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="text-muted-foreground text-sm leading-relaxed mt-6 max-w-4xl">{standsOutText}</p>
             </motion.div>
           </div>
         </section>

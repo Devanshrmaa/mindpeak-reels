@@ -22,6 +22,10 @@ export interface CityUniqueData {
   notableSchools: string[];
   heroVariant: string;
   uniqueFAQ: { q: string; a: string };
+  boardType?: string;
+  localCoachingGap?: string;
+  distanceToMetro?: string;
+  examCenters?: string[];
 }
 
 export const cityUniqueContent: Record<string, CityUniqueData> = {
@@ -35,6 +39,9 @@ export const cityUniqueContent: Record<string, CityUniqueData> = {
     notableSchools: ['Smt. Sulochanadevi Singhania School', 'DAV Public School Thane', 'CP Goenka International School'],
     heroVariant: 'From Thane\'s lakeside homes to IIT Bombay — your 1-on-1 mentor bridge.',
     uniqueFAQ: { q: 'Can Thane students avoid the Mumbai commute for quality JEE/NEET coaching?', a: 'Yes. MindPeak\'s online 1-on-1 format means Thane students get Mumbai-quality coaching without the 2-hour train commute. Students from Ghodbunder Road, Majiwada, and Wagle Estate study from home with dedicated IIT/AIIMS alumni mentors.' },
+    boardType: 'Maharashtra State Board / CBSE',
+    localCoachingGap: 'Only 3 of 50+ coaching centres in Thane have IIT alumni faculty — the rest rely on local graduates with limited competitive exam depth.',
+    distanceToMetro: '25 km to IIT Bombay campus',
   },
   'navi-mumbai': {
     population: '~18 lakh',
