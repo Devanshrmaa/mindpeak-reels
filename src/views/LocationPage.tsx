@@ -430,7 +430,15 @@ const LocationPage = () => {
                   Why Students in <span className="text-gradient-gold">{city.city}</span> Choose MindPeak
                 </h2>
               </div>
-              <p className="text-muted-foreground text-base leading-relaxed mb-8 max-w-4xl">{city.whyMindPeak}</p>
+              {/* Split paragraph into scannable bullet cards */}
+              <div className="grid sm:grid-cols-2 gap-3 mb-8">
+                {(city.whyMindPeak || '').split(/\.\s+/).filter(s => s.trim().length > 10).map((sentence, i) => (
+                  <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-background border border-border">
+                    <Lightbulb className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground text-sm leading-relaxed">{sentence.trim().replace(/\.$/, '')}.</span>
+                  </div>
+                ))}
+              </div>
               <div className="grid sm:grid-cols-2 gap-4">
                 {city.highlights.map((h, i) => (
                   <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-background border border-border">
