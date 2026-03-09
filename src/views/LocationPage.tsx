@@ -413,7 +413,14 @@ const LocationPage = () => {
 
                 {/* Education Landscape — now a brief contextual paragraph */}
                 {city.educationLandscape && (
-                  <p className="text-muted-foreground text-base leading-relaxed max-w-4xl">{city.educationLandscape}</p>
+                  <div className="space-y-2 max-w-4xl">
+                    {city.educationLandscape.split(/\.\s+/).filter(s => s.trim().length > 10).map((sentence, i) => (
+                      <div key={i} className="flex items-start gap-2.5 p-2.5 rounded-lg bg-background/50 border border-border/30">
+                        <GraduationCap className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                        <span className="text-muted-foreground text-sm leading-relaxed">{sentence.trim().replace(/\.$/, '')}.</span>
+                      </div>
+                    ))}
+                  </div>
                 )}
               </motion.div>
             </section>
