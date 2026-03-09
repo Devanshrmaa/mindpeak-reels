@@ -584,7 +584,14 @@ const LocationPage = () => {
                   Our Learning Approach in <span className="text-gradient-gold">{city.city}</span>
                 </h2>
               </div>
-              <p className="text-muted-foreground text-base leading-relaxed mb-8 max-w-4xl">{learningText}</p>
+              <ul className="space-y-2 mb-8 max-w-4xl">
+                {(learningText || '').split(/\.\s+/).filter(s => s.trim().length > 10).map((sentence, i) => (
+                  <li key={i} className="flex items-start gap-3 p-3 rounded-lg border border-border/40 bg-background/50">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold flex items-center justify-center">{i + 1}</span>
+                    <span className="text-muted-foreground text-sm leading-relaxed">{sentence.trim().replace(/\.$/, '')}.</span>
+                  </li>
+                ))}
+              </ul>
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {[
                   { step: '01', title: 'Diagnostic Assessment', desc: 'Map strengths & gaps across all subjects', icon: Target },
