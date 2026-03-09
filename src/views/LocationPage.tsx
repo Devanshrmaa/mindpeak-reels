@@ -325,15 +325,100 @@ const LocationPage = () => {
           </div>
         </section>
 
-        {/* ═══ INTRODUCTION ═══ */}
-        <section className="max-w-5xl mx-auto px-6 py-14">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <p className="text-muted-foreground text-base leading-relaxed max-w-4xl">{introText}</p>
-            {city.educationLandscape && (
-              <p className="text-muted-foreground text-base leading-relaxed max-w-4xl mt-4">{city.educationLandscape}</p>
-            )}
-          </motion.div>
-        </section>
+        {/* ═══ CITY SNAPSHOT CARD ═══ */}
+        {(() => {
+          const uniqueData = cityUniqueContent[city.slug];
+          const stateData = getStateEducation(city.state);
+          return (
+            <section className="max-w-5xl mx-auto px-6 py-14">
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                {/* Snapshot Card */}
+                <div className="rounded-2xl border border-primary/30 bg-card p-6 md:p-8 mb-8">
+                  <div className="flex items-center gap-2 mb-5">
+                    <MapPin className="w-5 h-5 text-primary" />
+                    <h2 className="font-display font-bold text-foreground text-xl md:text-2xl uppercase tracking-wide">
+                      {city.city}, {city.state}
+                    </h2>
+                  </div>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    {uniqueData?.population && (
+                      <div className="p-3 rounded-xl bg-background border border-border">
+                        <div className="text-muted-foreground text-[10px] uppercase tracking-wider mb-1">Population</div>
+                        <div className="text-foreground font-display font-bold text-sm">{uniqueData.population}</div>
+                      </div>
+                    )}
+                    {uniqueData?.knownFor && (
+                      <div className="p-3 rounded-xl bg-background border border-border">
+                        <div className="text-muted-foreground text-[10px] uppercase tracking-wider mb-1">Known For</div>
+                        <div className="text-foreground text-sm leading-snug">{uniqueData.knownFor.split('.')[0]}.</div>
+                      </div>
+                    )}
+                    <div className="p-3 rounded-xl bg-background border border-border">
+                      <div className="text-muted-foreground text-[10px] uppercase tracking-wider mb-1">Board</div>
+                      <div className="text-foreground font-display font-bold text-sm">{uniqueData?.boardType || 'CBSE / State Board'}</div>
+                    </div>
+                    {stateData?.stateExamDetails && (
+                      <div className="p-3 rounded-xl bg-background border border-border">
+                        <div className="text-muted-foreground text-[10px] uppercase tracking-wider mb-1">State Exam</div>
+                        <div className="text-foreground font-display font-bold text-sm">{stateData.stateExamDetails.name}</div>
+                        <div className="text-primary text-[10px] mt-0.5">{stateData.stateExamDetails.seats}</div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Notable Schools */}
+                  {uniqueData?.notableSchools && uniqueData.notableSchools.length > 0 && (
+                    <div className="mb-5">
+                      <div className="flex items-center gap-2 mb-2">
+                        <School className="w-4 h-4 text-primary" />
+                        <span className="text-foreground text-sm font-semibold">Schools We Serve in {city.city}</span>
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {uniqueData.notableSchools.map((school, i) => (
+                          <span key={i} className="px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-medium">
+                            {school}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Nearest Premier Institute */}
+                  {uniqueData?.nearestPremierInstitute && (
+                    <div className="flex items-start gap-3 p-4 rounded-xl bg-primary/5 border border-primary/20">
+                      <Target className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <div>
+                        <div className="text-foreground text-sm font-semibold mb-0.5">Nearest Premier Institute</div>
+                        <div className="text-muted-foreground text-sm">{uniqueData.nearestPremierInstitute}</div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Student Challenge Callout */}
+                {uniqueData?.localChallenge && (
+                  <div className="rounded-2xl border border-destructive/30 bg-destructive/5 p-6 mb-8">
+                    <div className="flex items-start gap-3">
+                      <AlertTriangle className="w-6 h-6 text-destructive flex-shrink-0 mt-0.5" />
+                      <div>
+                        <h3 className="text-foreground font-display font-bold text-lg mb-2">The {city.city} Student Challenge</h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed">{uniqueData.localChallenge}</p>
+                        {uniqueData.localCoachingGap && (
+                          <p className="text-muted-foreground text-sm leading-relaxed mt-2 italic">{uniqueData.localCoachingGap}</p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Education Landscape — now a brief contextual paragraph */}
+                {city.educationLandscape && (
+                  <p className="text-muted-foreground text-base leading-relaxed max-w-4xl">{city.educationLandscape}</p>
+                )}
+              </motion.div>
+            </section>
+          );
+        })()}
 
         {/* ═══ WHY STUDENTS CHOOSE MINDPEAK ═══ */}
         <section className="bg-card/30 border-y border-border py-14 px-6">
