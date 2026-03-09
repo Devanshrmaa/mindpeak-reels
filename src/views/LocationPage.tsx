@@ -566,16 +566,20 @@ const LocationPage = () => {
                 transition={{ duration: 0.2 }}
                 className="p-6 rounded-2xl bg-card border border-border"
               >
-                <p className="text-foreground text-sm leading-relaxed">
-                  {activeTab === 'curriculum' && tabbed.curriculum}
-                  {activeTab === 'schedule' && tabbed.schedule}
-                  {activeTab === 'fees' && (
-                    <>
-                      {tabbed.fees}
-                      <span className="block mt-4 text-primary text-xs font-medium">{tabbed.paymentNote}</span>
-                    </>
-                  )}
-                </p>
+                <ul className="space-y-2">
+                  {((activeTab === 'curriculum' ? tabbed.curriculum : activeTab === 'schedule' ? tabbed.schedule : tabbed.fees) || '')
+                    .split(/\.\s+/).filter(s => s.trim().length > 10).map((sentence, i) => (
+                    <li key={i} className="flex items-start gap-2.5">
+                      <CheckCircle className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-foreground text-sm leading-relaxed">{sentence.trim().replace(/\.$/, '')}.</span>
+                    </li>
+                  ))}
+                </ul>
+                {activeTab === 'fees' && tabbed.paymentNote && (
+                  <div className="mt-4 p-3 rounded-lg bg-primary/5 border border-primary/10">
+                    <span className="text-primary text-xs font-medium">{tabbed.paymentNote}</span>
+                  </div>
+                )}
               </motion.div>
             </AnimatePresence>
           </motion.div>
