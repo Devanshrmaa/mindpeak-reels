@@ -974,7 +974,14 @@ const LocationPage = () => {
               <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl mb-4">
                 Ready to Start Your {examLabel} Journey in <span className="text-gradient-gold">{city.city}</span>?
               </h2>
-              <p className="text-muted-foreground text-base leading-relaxed mb-6">{ctaText}</p>
+              <ul className="space-y-2 mb-6">
+                {(ctaText || '').split(/\.\s+/).filter(s => s.trim().length > 10).map((sentence, i) => (
+                  <li key={i} className="flex items-start gap-2 text-muted-foreground text-sm">
+                    <Rocket className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
+                    <span>{sentence.trim().replace(/\.$/, '')}.</span>
+                  </li>
+                ))}
+              </ul>
               <div className="flex flex-wrap gap-4">
                 <button onClick={openDemoModal} className="px-10 py-4 bg-primary text-primary-foreground font-display font-bold text-sm uppercase tracking-[0.15em] shadow-gold-glow hover:scale-105 transition-transform">
                   Book Free Demo — {city.city}
