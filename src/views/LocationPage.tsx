@@ -825,7 +825,14 @@ const LocationPage = () => {
               <BarChart3 className="w-8 h-8 text-primary" />
               <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl">Parent-Focused Performance Tracking</h2>
             </div>
-            <p className="text-muted-foreground text-base leading-relaxed mb-8 max-w-4xl">{city.parentTracking}</p>
+            <ul className="space-y-2 mb-8 max-w-4xl">
+              {(city.parentTracking || '').split(/\.\s+/).filter(s => s.trim().length > 10).map((sentence, i) => (
+                <li key={i} className="flex items-start gap-2.5 p-2.5 rounded-lg border border-border/40">
+                  <BarChart3 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-muted-foreground text-sm">{sentence.trim().replace(/\.$/, '')}.</span>
+                </li>
+              ))}
+            </ul>
             <div className="grid sm:grid-cols-3 gap-5">
               {[
                 { title: 'Weekly Reports', desc: 'Topic-wise accuracy, speed, mock percentiles, and mentor observations.' },
