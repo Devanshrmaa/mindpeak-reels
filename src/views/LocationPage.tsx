@@ -812,17 +812,45 @@ const LocationPage = () => {
           </motion.div>
         </section>
 
-        {/* ═══ WHY STANDS OUT ═══ */}
+        {/* ═══ MINDPEAK VS LOCAL COACHING ═══ */}
         <section className="bg-card/30 border-y border-border py-14 px-6">
           <div className="max-w-5xl mx-auto">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
               <div className="flex items-center gap-3 mb-4">
                 <Target className="w-8 h-8 text-primary" />
                 <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl">
-                  Why MindPeak Stands Out in <span className="text-gradient-gold">{city.city}</span>
+                  MindPeak vs Local Coaching in <span className="text-gradient-gold">{city.city}</span>
                 </h2>
               </div>
-              <p className="text-muted-foreground text-base leading-relaxed max-w-4xl">{standsOutText}</p>
+              <div className="overflow-hidden rounded-xl border border-border mt-6">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="bg-secondary/50">
+                      <th className="text-left px-5 py-3 text-foreground font-display">Aspect</th>
+                      <th className="text-center px-5 py-3 text-primary font-display">MindPeak 1-on-1</th>
+                      <th className="text-center px-5 py-3 text-muted-foreground font-display">Local Coaching in {city.city}</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-border">
+                    {[
+                      ['Faculty', 'IIT/AIIMS alumni mentors', 'Mostly regional college graduates'],
+                      ['Batch Size', '1 student (dedicated mentor)', '60-100+ students per batch'],
+                      ['Curriculum', 'Adaptive, based on diagnostics', 'Fixed syllabus for all'],
+                      ['Doubt Resolution', 'Instant, during 1-on-1 sessions', 'Post-class, crowded doubt queues'],
+                      ['Progress Tracking', 'Weekly analytics + parent dashboard', 'Periodic tests, no parent visibility'],
+                      ['Commute', 'Zero — study from home', `30-90 min each way in ${city.city}`],
+                      ['Schedule', 'Flexible, at student\'s convenience', 'Fixed batch timings'],
+                    ].map(([aspect, mp, local], i) => (
+                      <tr key={i} className="bg-background">
+                        <td className="px-5 py-3 text-foreground font-medium text-xs">{aspect}</td>
+                        <td className="px-5 py-3 text-center text-primary text-xs">✓ {mp}</td>
+                        <td className="px-5 py-3 text-center text-muted-foreground text-xs">✗ {local}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="text-muted-foreground text-sm leading-relaxed mt-6 max-w-4xl">{standsOutText}</p>
             </motion.div>
           </div>
         </section>
