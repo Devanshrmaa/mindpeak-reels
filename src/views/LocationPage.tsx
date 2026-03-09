@@ -413,7 +413,14 @@ const LocationPage = () => {
 
                 {/* Education Landscape — now a brief contextual paragraph */}
                 {city.educationLandscape && (
-                  <p className="text-muted-foreground text-base leading-relaxed max-w-4xl">{city.educationLandscape}</p>
+                  <div className="space-y-2 max-w-4xl">
+                    {city.educationLandscape.split(/\.\s+/).filter(s => s.trim().length > 10).map((sentence, i) => (
+                      <div key={i} className="flex items-start gap-2.5 p-2.5 rounded-lg bg-background/50 border border-border/30">
+                        <GraduationCap className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                        <span className="text-muted-foreground text-sm leading-relaxed">{sentence.trim().replace(/\.$/, '')}.</span>
+                      </div>
+                    ))}
+                  </div>
                 )}
               </motion.div>
             </section>
@@ -430,7 +437,15 @@ const LocationPage = () => {
                   Why Students in <span className="text-gradient-gold">{city.city}</span> Choose MindPeak
                 </h2>
               </div>
-              <p className="text-muted-foreground text-base leading-relaxed mb-8 max-w-4xl">{city.whyMindPeak}</p>
+              {/* Split paragraph into scannable bullet cards */}
+              <div className="grid sm:grid-cols-2 gap-3 mb-8">
+                {(city.whyMindPeak || '').split(/\.\s+/).filter(s => s.trim().length > 10).map((sentence, i) => (
+                  <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-background border border-border">
+                    <Lightbulb className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground text-sm leading-relaxed">{sentence.trim().replace(/\.$/, '')}.</span>
+                  </div>
+                ))}
+              </div>
               <div className="grid sm:grid-cols-2 gap-4">
                 {city.highlights.map((h, i) => (
                   <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-background border border-border">
@@ -452,7 +467,14 @@ const LocationPage = () => {
                 Courses for Students in <span className="text-gradient-gold">{city.city}</span>
               </h2>
             </div>
-            <p className="text-muted-foreground text-base leading-relaxed mb-8 max-w-4xl">{coursesText}</p>
+            <ul className="grid sm:grid-cols-2 gap-2 mb-8 max-w-4xl">
+              {(coursesText || '').split(/\.\s+/).filter(s => s.trim().length > 10).map((sentence, i) => (
+                <li key={i} className="flex items-start gap-2 p-2.5 rounded-lg bg-card/50 border border-border/50">
+                  <CheckCircle className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-muted-foreground text-sm">{sentence.trim().replace(/\.$/, '')}.</span>
+                </li>
+              ))}
+            </ul>
             <div className="grid sm:grid-cols-2 gap-6">
               {courseTiles.map((tile, i) => (
                 <div key={i} className="p-6 rounded-2xl bg-card border border-border hover:border-primary/40 transition-all group">
@@ -544,16 +566,20 @@ const LocationPage = () => {
                 transition={{ duration: 0.2 }}
                 className="p-6 rounded-2xl bg-card border border-border"
               >
-                <p className="text-foreground text-sm leading-relaxed">
-                  {activeTab === 'curriculum' && tabbed.curriculum}
-                  {activeTab === 'schedule' && tabbed.schedule}
-                  {activeTab === 'fees' && (
-                    <>
-                      {tabbed.fees}
-                      <span className="block mt-4 text-primary text-xs font-medium">{tabbed.paymentNote}</span>
-                    </>
-                  )}
-                </p>
+                <ul className="space-y-2">
+                  {((activeTab === 'curriculum' ? tabbed.curriculum : activeTab === 'schedule' ? tabbed.schedule : tabbed.fees) || '')
+                    .split(/\.\s+/).filter(s => s.trim().length > 10).map((sentence, i) => (
+                    <li key={i} className="flex items-start gap-2.5">
+                      <CheckCircle className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-foreground text-sm leading-relaxed">{sentence.trim().replace(/\.$/, '')}.</span>
+                    </li>
+                  ))}
+                </ul>
+                {activeTab === 'fees' && tabbed.paymentNote && (
+                  <div className="mt-4 p-3 rounded-lg bg-primary/5 border border-primary/10">
+                    <span className="text-primary text-xs font-medium">{tabbed.paymentNote}</span>
+                  </div>
+                )}
               </motion.div>
             </AnimatePresence>
           </motion.div>
@@ -569,7 +595,14 @@ const LocationPage = () => {
                   Our Learning Approach in <span className="text-gradient-gold">{city.city}</span>
                 </h2>
               </div>
-              <p className="text-muted-foreground text-base leading-relaxed mb-8 max-w-4xl">{learningText}</p>
+              <ul className="space-y-2 mb-8 max-w-4xl">
+                {(learningText || '').split(/\.\s+/).filter(s => s.trim().length > 10).map((sentence, i) => (
+                  <li key={i} className="flex items-start gap-3 p-3 rounded-lg border border-border/40 bg-background/50">
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold flex items-center justify-center">{i + 1}</span>
+                    <span className="text-muted-foreground text-sm leading-relaxed">{sentence.trim().replace(/\.$/, '')}.</span>
+                  </li>
+                ))}
+              </ul>
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {[
                   { step: '01', title: 'Diagnostic Assessment', desc: 'Map strengths & gaps across all subjects', icon: Target },
@@ -598,7 +631,14 @@ const LocationPage = () => {
                 1-on-1 Mentoring vs Batch Coaching
               </h2>
             </div>
-            <p className="text-muted-foreground text-base leading-relaxed mb-8 max-w-4xl">{city.mentoringAdvantage}</p>
+            <div className="grid sm:grid-cols-2 gap-3 mb-8 max-w-4xl">
+              {(city.mentoringAdvantage || '').split(/\.\s+/).filter(s => s.trim().length > 10).map((sentence, i) => (
+                <div key={i} className="flex items-start gap-2.5 p-3 rounded-lg bg-card/50 border border-border/50">
+                  <Star className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-muted-foreground text-sm leading-relaxed">{sentence.trim().replace(/\.$/, '')}.</span>
+                </div>
+              ))}
+            </div>
             <div className="overflow-hidden rounded-xl border border-border">
               <table className="w-full text-sm">
                 <thead>
@@ -796,7 +836,14 @@ const LocationPage = () => {
               <BarChart3 className="w-8 h-8 text-primary" />
               <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl">Parent-Focused Performance Tracking</h2>
             </div>
-            <p className="text-muted-foreground text-base leading-relaxed mb-8 max-w-4xl">{city.parentTracking}</p>
+            <ul className="space-y-2 mb-8 max-w-4xl">
+              {(city.parentTracking || '').split(/\.\s+/).filter(s => s.trim().length > 10).map((sentence, i) => (
+                <li key={i} className="flex items-start gap-2.5 p-2.5 rounded-lg border border-border/40">
+                  <BarChart3 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-muted-foreground text-sm">{sentence.trim().replace(/\.$/, '')}.</span>
+                </li>
+              ))}
+            </ul>
             <div className="grid sm:grid-cols-3 gap-5">
               {[
                 { title: 'Weekly Reports', desc: 'Topic-wise accuracy, speed, mock percentiles, and mentor observations.' },
@@ -850,7 +897,14 @@ const LocationPage = () => {
                   </tbody>
                 </table>
               </div>
-              <p className="text-muted-foreground text-sm leading-relaxed mt-6 max-w-4xl">{standsOutText}</p>
+              <div className="grid sm:grid-cols-2 gap-3 mt-6 max-w-4xl">
+                {(standsOutText || '').split(/\.\s+/).filter(s => s.trim().length > 10).map((sentence, i) => (
+                  <div key={i} className="flex items-start gap-2 p-3 rounded-lg bg-primary/5 border border-primary/10">
+                    <CheckCircle className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground text-sm">{sentence.trim().replace(/\.$/, '')}.</span>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           </div>
         </section>
@@ -924,7 +978,14 @@ const LocationPage = () => {
               <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl mb-4">
                 Ready to Start Your {examLabel} Journey in <span className="text-gradient-gold">{city.city}</span>?
               </h2>
-              <p className="text-muted-foreground text-base leading-relaxed mb-6">{ctaText}</p>
+              <ul className="space-y-2 mb-6">
+                {(ctaText || '').split(/\.\s+/).filter(s => s.trim().length > 10).map((sentence, i) => (
+                  <li key={i} className="flex items-start gap-2 text-muted-foreground text-sm">
+                    <Rocket className="w-3.5 h-3.5 text-primary flex-shrink-0 mt-0.5" />
+                    <span>{sentence.trim().replace(/\.$/, '')}.</span>
+                  </li>
+                ))}
+              </ul>
               <div className="flex flex-wrap gap-4">
                 <button onClick={openDemoModal} className="px-10 py-4 bg-primary text-primary-foreground font-display font-bold text-sm uppercase tracking-[0.15em] shadow-gold-glow hover:scale-105 transition-transform">
                   Book Free Demo — {city.city}

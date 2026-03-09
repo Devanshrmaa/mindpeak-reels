@@ -2252,6 +2252,10 @@ h1, h2, h3, h4, h5, h6 {
   border-color: #eab3084d;
 }
 
+.border-border\/30 {
+  border-color: hsl(var(--border) / .3);
+}
+
 .border-l-amber-500 {
   --tw-border-opacity: 1;
   border-left-color: rgb(245 158 11 / var(--tw-border-opacity, 1));
