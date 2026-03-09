@@ -22,6 +22,10 @@ export interface CityUniqueData {
   notableSchools: string[];
   heroVariant: string;
   uniqueFAQ: { q: string; a: string };
+  boardType?: string;
+  localCoachingGap?: string;
+  distanceToMetro?: string;
+  examCenters?: string[];
 }
 
 export const cityUniqueContent: Record<string, CityUniqueData> = {
