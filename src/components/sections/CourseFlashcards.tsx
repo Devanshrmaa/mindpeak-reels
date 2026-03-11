@@ -114,11 +114,12 @@ export const CourseFlashcards = () => {
                 {/* CTA */}
                 <Link
                   to="/courses"
+                  aria-label={`View ${card.title} details`}
                   className={`inline-flex items-center gap-2 text-[12px] font-medium tracking-[0.15em] uppercase transition-all duration-500 ${
                     isHovered ? 'text-primary gap-3' : 'text-muted-foreground/60'
                   }`}
                 >
-                  Learn More
+                  View {card.title} Details
                   <ArrowRight className={`w-3.5 h-3.5 transition-transform duration-500 ${isHovered ? 'translate-x-1' : ''}`} />
                 </Link>
               </motion.div>
@@ -135,9 +136,10 @@ export const CourseFlashcards = () => {
         >
           <Link
             to="/courses"
+            aria-label="View all JEE and NEET courses"
             className="group relative inline-flex items-center gap-3 px-10 py-4 border border-foreground/15 text-foreground text-[13px] uppercase tracking-[0.2em] btn-outline-fill rounded-full"
           >
-            <span className="relative z-10">View All Courses</span>
+            <span className="relative z-10">View All JEE &amp; NEET Courses</span>
             <span className="relative z-10 w-5 h-5 rounded-full border border-current grid place-items-center transition-transform duration-500 group-hover:rotate-45">
               <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 9L9 1M9 1H2M9 1V8" stroke="currentColor" strokeWidth="1.2" />

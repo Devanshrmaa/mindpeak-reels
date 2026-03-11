@@ -329,8 +329,9 @@ const Pricing = () => {
                     ))}
                   </ul>
                   <button onClick={openDemoModal}
+                    aria-label={`View ${tier.name} details`}
                     className="w-full py-2.5 border border-primary text-primary font-display font-bold text-xs uppercase tracking-wider rounded-lg hover:bg-primary/10 transition-colors">
-                    Learn More
+                    View {tier.name} Details
                   </button>
                 </motion.div>
               ))}
