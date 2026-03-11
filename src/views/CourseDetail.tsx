@@ -5,13 +5,103 @@ import { useParams, useRouter } from 'next/navigation';
 import { Link } from '@/components/RouterLink';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Users, Clock, BookOpen, Download, Calendar } from 'lucide-react';
-import { getCourseBySlug } from '@/data/coursesData';
+import { getCourseBySlug, courses, type Course } from '@/data/coursesData';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import { NCERTDownloadModal } from '@/components/NCERTDownloadModal';
 import { StudyPlanSection } from '@/components/StudyPlanSection';
+import { SEOHead } from '@/components/SEOHead';
 const logo = '/images/logo.jpeg';
 
 const ease = [0.16, 1, 0.3, 1] as const;
+
+/* ── JSON-LD builder ── */
+function buildCourseJsonLd(course: Course) {
+  const BASE = 'https://mindpeakinstitute.com';
+  const url = `${BASE}/course/${course.slug}`;
+
+  const courseSchema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: course.name,
+    description: course.description,
+    url,
+    provider: {
+      '@type': 'Organization',
+      name: 'MindPeak Institute',
+      url: BASE,
+      logo: `${BASE}/images/logo.jpeg`,
+      sameAs: [BASE],
+    },
+    hasCourseInstance: {
+      '@type': 'CourseInstance',
+      courseMode: 'online',
+      courseWorkload: course.duration,
+      instructor: {
+        '@type': 'Organization',
+        name: 'MindPeak Institute',
+      },
+    },
+    offers: {
+      '@type': 'Offer',
+      price: course.fee.replace(/[^0-9]/g, '').slice(0, -2) || '0',
+      priceCurrency: 'INR',
+      availability: 'https://schema.org/InStock',
+      url,
+    },
+    educationalLevel: course.category === 'foundation' ? 'Secondary' : 'Higher Secondary',
+    inLanguage: 'en',
+    about: course.targetExam,
+  };
+
+  if (course.syllabus?.length) {
+    courseSchema.syllabusSections = course.syllabus.map(s => ({
+      '@type': 'Syllabus',
+      name: s.subject,
+      description: s.modules.join(', '),
+    }));
+  }
+
+  const schemas: object[] = [courseSchema];
+
+  // BreadcrumbList
+  schemas.push({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
+      { '@type': 'ListItem', position: 2, name: 'Courses', item: `${BASE}/courses` },
+      { '@type': 'ListItem', position: 3, name: course.name, item: url },
+    ],
+  });
+
+  // FAQPage
+  if (course.faqs?.length) {
+    schemas.push({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: course.faqs.map(f => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    });
+  }
+
+  return schemas;
+}
+
+/* ── Related courses helper ── */
+function getRelatedCourses(current: Course): Course[] {
+  return courses
+    .filter(c => c.slug !== current.slug)
+    .sort((a, b) => {
+      // Same category first, then same exam
+      const aScore = (a.category === current.category ? 2 : 0) + (a.targetExam === current.targetExam ? 1 : 0);
+      const bScore = (b.category === current.category ? 2 : 0) + (b.targetExam === current.targetExam ? 1 : 0);
+      return bScore - aScore;
+    })
+    .slice(0, 4);
+}
 
 const CourseDetail = () => {
   const params = useParams();
@@ -57,8 +147,16 @@ const CourseDetail = () => {
     other: course.targetExam + ' Program',
   }[course.category];
 
+  const jsonLd = buildCourseJsonLd(course);
+
   return (
     <>
+      <SEOHead
+        title={`${course.name} — MindPeak Institute`}
+        description={course.description.slice(0, 160)}
+        canonical={`https://mindpeakinstitute.com/course/${course.slug}`}
+        jsonLd={jsonLd}
+      />
       <NCERTDownloadModal isOpen={brochureModalOpen} onClose={() => setBrochureModalOpen(false)} book={brochureBook} />
 
       <div className="min-h-screen bg-background">
@@ -454,6 +552,85 @@ const CourseDetail = () => {
             </div>
           </section>
         )}
+
+        {/* ───── Related Courses ───── */}
+        <section className="px-6 pb-8">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease }}
+              className="p-8 md:p-10 rounded-2xl border border-foreground/[0.06] bg-foreground/[0.02]"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <span className="h-px w-6 bg-primary/30" />
+                <span className="text-[11px] uppercase tracking-[0.3em] text-primary/60 font-medium">Explore More</span>
+              </div>
+              <h2 className="font-display font-semibold text-foreground text-lg mb-7 tracking-[-0.01em]">Related Courses</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {getRelatedCourses(course).map((rc) => (
+                  <Link
+                    key={rc.slug}
+                    to={`/course/${rc.slug}`}
+                    className="flex items-start gap-3 p-4 rounded-xl bg-foreground/[0.02] border border-foreground/[0.04] hover:border-primary/20 transition-colors duration-300"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary/40 mt-1.5 shrink-0" />
+                    <div>
+                      <span className="text-foreground/80 text-sm font-medium block">{rc.name}</span>
+                      <span className="text-muted-foreground/50 text-xs">{rc.duration} · {rc.mode} · {rc.fee}</span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ───── Internal Links ───── */}
+        <section className="px-6 pb-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="p-8 md:p-10 rounded-2xl border border-foreground/[0.04] bg-foreground/[0.01]">
+              <h2 className="font-display font-semibold text-foreground text-base mb-5 tracking-[-0.01em]">Useful Resources</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+                {course.category === 'jee' || course.category === 'crash' ? (
+                  <>
+                    <Link to="/jee-coaching" className="text-primary/70 hover:text-primary text-sm transition-colors">JEE Coaching Overview →</Link>
+                    <Link to="/jee-practice" className="text-primary/70 hover:text-primary text-sm transition-colors">JEE Practice MCQs →</Link>
+                    <Link to="/jee-pyq" className="text-primary/70 hover:text-primary text-sm transition-colors">JEE Previous Year Papers →</Link>
+                    <Link to="/jee-rank-predictor" className="text-primary/70 hover:text-primary text-sm transition-colors">JEE Rank Predictor →</Link>
+                    <Link to="/study-plan" className="text-primary/70 hover:text-primary text-sm transition-colors">Free Study Plan →</Link>
+                    <Link to="/pricing" className="text-primary/70 hover:text-primary text-sm transition-colors">Pricing & Plans →</Link>
+                    <Link to="/jee-crash-course" className="text-primary/70 hover:text-primary text-sm transition-colors">JEE Crash Course →</Link>
+                    <Link to="/methodology" className="text-primary/70 hover:text-primary text-sm transition-colors">Our Methodology →</Link>
+                    <Link to="/success-stories" className="text-primary/70 hover:text-primary text-sm transition-colors">Success Stories →</Link>
+                  </>
+                ) : course.category === 'neet' ? (
+                  <>
+                    <Link to="/neet-coaching" className="text-primary/70 hover:text-primary text-sm transition-colors">NEET Coaching Overview →</Link>
+                    <Link to="/neet-practice" className="text-primary/70 hover:text-primary text-sm transition-colors">NEET Practice MCQs →</Link>
+                    <Link to="/neet-pyq" className="text-primary/70 hover:text-primary text-sm transition-colors">NEET Previous Year Papers →</Link>
+                    <Link to="/neet-rank-predictor" className="text-primary/70 hover:text-primary text-sm transition-colors">NEET Rank Predictor →</Link>
+                    <Link to="/study-plan" className="text-primary/70 hover:text-primary text-sm transition-colors">Free Study Plan →</Link>
+                    <Link to="/pricing" className="text-primary/70 hover:text-primary text-sm transition-colors">Pricing & Plans →</Link>
+                    <Link to="/neet-crash-course" className="text-primary/70 hover:text-primary text-sm transition-colors">NEET Crash Course →</Link>
+                    <Link to="/methodology" className="text-primary/70 hover:text-primary text-sm transition-colors">Our Methodology →</Link>
+                    <Link to="/success-stories" className="text-primary/70 hover:text-primary text-sm transition-colors">Success Stories →</Link>
+                  </>
+                ) : (
+                  <>
+                    <Link to="/courses" className="text-primary/70 hover:text-primary text-sm transition-colors">All Courses →</Link>
+                    <Link to="/jee-coaching" className="text-primary/70 hover:text-primary text-sm transition-colors">JEE Coaching →</Link>
+                    <Link to="/neet-coaching" className="text-primary/70 hover:text-primary text-sm transition-colors">NEET Coaching →</Link>
+                    <Link to="/pricing" className="text-primary/70 hover:text-primary text-sm transition-colors">Pricing & Plans →</Link>
+                    <Link to="/methodology" className="text-primary/70 hover:text-primary text-sm transition-colors">Our Methodology →</Link>
+                    <Link to="/success-stories" className="text-primary/70 hover:text-primary text-sm transition-colors">Success Stories →</Link>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Bottom CTA */}
         <section className="px-6 py-20 md:py-28">
