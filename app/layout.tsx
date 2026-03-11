@@ -165,13 +165,10 @@ export default function RootLayout({
     >
       <head>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        {/* DNS-prefetch for deferred analytics */}
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
         {/* Preload hero LCP image for fastest paint */}
         <link rel="preload" as="image" href="/images/hero-bg.jpg" type="image/jpeg" fetchPriority="high" />
-        {/* Preconnect to Google Fonts CDN */}
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}

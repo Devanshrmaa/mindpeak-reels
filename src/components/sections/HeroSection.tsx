@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion';
 import { useRef, useEffect, useState, useCallback } from 'react';
 import Image from 'next/image';
 
@@ -15,36 +15,17 @@ const lineVariants = {
 export const HeroSection = ({ onReady }: { onReady?: () => void }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
-  const smoothY = useSpring(scrollY, { stiffness: 100, damping: 30, mass: 0.5 });
-  const opacity = useTransform(smoothY, [0, 500], [1, 0]);
-  const contentY = useTransform(smoothY, [0, 500], [0, 150]);
-  const bgScale = useTransform(smoothY, [0, 600], [1, 1.2]);
-  const bgY = useTransform(smoothY, [0, 600], [0, 80]);
 
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const smoothMouseX = useSpring(mouseX, { stiffness: 50, damping: 20 });
-  const smoothMouseY = useSpring(mouseY, { stiffness: 50, damping: 20 });
-  const bgMoveX = useTransform(smoothMouseX, [-0.5, 0.5], [10, -10]);
-  const bgMoveY = useTransform(smoothMouseY, [-0.5, 0.5], [5, -5]);
+  /* Parallax — only two transforms, no mouse-follow on mobile to reduce main-thread work */
+  const opacity = useTransform(scrollY, [0, 500], [1, 0]);
+  const bgScale = useTransform(scrollY, [0, 600], [1, 1.1]);
 
   const [showScrollHint, setShowScrollHint] = useState(true);
-  const [heroReady, setHeroReady] = useState(false);
 
   /** Signal that hero text is done animating — navbar can appear */
   const onHeroAnimComplete = useCallback(() => {
-    setHeroReady(true);
     onReady?.();
   }, [onReady]);
-
-  useEffect(() => {
-    const handleMouse = (e: MouseEvent) => {
-      mouseX.set((e.clientX / window.innerWidth) - 0.5);
-      mouseY.set((e.clientY / window.innerHeight) - 0.5);
-    };
-    window.addEventListener('mousemove', handleMouse);
-    return () => window.removeEventListener('mousemove', handleMouse);
-  }, [mouseX, mouseY]);
 
   useEffect(() => {
     const unsub = scrollY.on('change', v => { if (v > 60) setShowScrollHint(false); });
@@ -64,8 +45,8 @@ export const HeroSection = ({ onReady }: { onReady?: () => void }) => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       role="banner"
     >
-      {/* Parallax background with mouse-follow */}
-      <motion.div style={{ scale: bgScale, y: bgY, x: bgMoveX }} className="absolute inset-[-20px]">
+      {/* Parallax background — simplified transforms for lower main-thread cost */}
+      <motion.div style={{ scale: bgScale }} className="absolute inset-[-20px]">
         <Image
           src="/images/hero-bg.jpg"
           alt="MindPeak Institute hero background"
@@ -74,7 +55,6 @@ export const HeroSection = ({ onReady }: { onReady?: () => void }) => {
           sizes="100vw"
           quality={75}
           className="object-cover"
-          style={{ y: bgMoveY } as any}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/80" />
         <div className="absolute inset-0 vignette" />
@@ -90,14 +70,14 @@ export const HeroSection = ({ onReady }: { onReady?: () => void }) => {
 
       {/* Content */}
       <motion.div
-        style={{ opacity, y: contentY }}
+        style={{ opacity }}
         className="relative z-10 w-full max-w-[92vw] lg:max-w-[1200px] mx-auto text-center px-4"
       >
         {/* Pre-headline label */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 0, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="mb-6 flex items-center justify-center gap-3"
         >
           <span className="h-px w-8 bg-primary/40" />
@@ -130,7 +110,7 @@ export const HeroSection = ({ onReady }: { onReady?: () => void }) => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 0.4, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
           <a
             href="#success-stories"
@@ -153,7 +133,7 @@ export const HeroSection = ({ onReady }: { onReady?: () => void }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ delay: 1.0, duration: 0.8 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
             className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
           >
             <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground/60">Scroll</span>

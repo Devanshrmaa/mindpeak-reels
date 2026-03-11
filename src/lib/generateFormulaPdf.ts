@@ -26,8 +26,9 @@ function loadImage(src: string): Promise<HTMLImageElement> {
 }
 
 export async function generateFormulaPdf(data: FormulaSheetData): Promise<void> {
-  // Load font + logo in parallel
-  const [fontBase64, logoImg] = await Promise.all([
+  // Load jsPDF dynamically + font + logo in parallel
+  const [{ jsPDF }, fontBase64, logoImg] = await Promise.all([
+    import('jspdf'),
     fetchFontBase64('/fonts/NotoSans-Regular.ttf'),
     loadImage('/images/mindpeak-logo-pdf.jpeg').catch(() => null),
   ]);
