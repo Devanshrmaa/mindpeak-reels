@@ -1676,6 +1676,10 @@ h1, h2, h3, h4, h5, h6 {
   min-width: 500px;
 }
 
+.min-w-\[50px\] {
+  min-width: 50px;
+}
+
 .min-w-\[550px\] {
   min-width: 550px;
 }
@@ -2585,6 +2589,10 @@ h1, h2, h3, h4, h5, h6 {
 .border-yellow-500 {
   --tw-border-opacity: 1;
   border-color: rgb(234 179 8 / var(--tw-border-opacity, 1));
+}
+
+.border-yellow-500\/20 {
+  border-color: #eab30833;
 }
 
 .border-yellow-500\/30 {
@@ -4507,6 +4515,11 @@ h1, h2, h3, h4, h5, h6 {
 .text-yellow-400 {
   --tw-text-opacity: 1;
   color: rgb(250 204 21 / var(--tw-text-opacity, 1));
+}
+
+.text-yellow-500 {
+  --tw-text-opacity: 1;
+  color: rgb(234 179 8 / var(--tw-text-opacity, 1));
 }
 
 .text-yellow-600 {
@@ -6445,6 +6458,10 @@ h1, h2, h3, h4, h5, h6 {
 
   .sm\:mt-8 {
     margin-top: 2rem;
+  }
+
+  .sm\:block {
+    display: block;
   }
 
   .sm\:flex {
