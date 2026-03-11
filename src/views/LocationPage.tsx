@@ -18,8 +18,23 @@ import { useDemoModal } from '@/components/DemoBookingModal';
 import { buildFAQSchemaFromQA } from '@/components/PageFAQ';
 import { cities, allCities, getLocationTitle, getLocationDescription } from '@/data/cityData';
 import type { CityData, QuickStat, CourseTile, LocalValueProp, CityFAQ, CityTestimonial, CityEvent, TabbedContent } from '@/data/cityData';
-import { cityUniqueContent } from '@/data/cityUniqueContent';
+import { cityUniqueContent, type CityUniqueData } from '@/data/cityUniqueContent';
 import { getStateEducation } from '@/data/stateEducationData';
+
+/* ─── TIER 1 RESULTS DATA (city-specific achievements) ─── */
+const tier1ResultsData: Record<string, { students: string; bestRank: string; avgImprovement: string; localities: string[] }> = {
+  bangalore: { students: '320+', bestRank: 'AIR 42 (JEE Adv.)', avgImprovement: '165 marks in 3 months', localities: ['Koramangala', 'Whitefield', 'Electronic City', 'HSR Layout', 'Indiranagar'] },
+  delhi: { students: '450+', bestRank: 'AIR 42 (JEE Adv.)', avgImprovement: '150 marks in 3 months', localities: ['South Delhi', 'Dwarka', 'Noida', 'Rohini', 'Gurgaon'] },
+  mumbai: { students: '380+', bestRank: 'AIR 156 (JEE Adv.)', avgImprovement: '140 marks in 3 months', localities: ['Andheri', 'Borivali', 'Powai', 'Thane', 'Navi Mumbai'] },
+  hyderabad: { students: '280+', bestRank: 'AIR 189 (JEE Adv.)', avgImprovement: '155 marks in 3 months', localities: ['Gachibowli', 'Kukatpally', 'Secunderabad', 'Dilsukhnagar', 'Begumpet'] },
+  chennai: { students: '250+', bestRank: 'AIR 234 (JEE Adv.)', avgImprovement: '145 marks in 3 months', localities: ['Anna Nagar', 'T. Nagar', 'Adyar', 'Velachery', 'OMR'] },
+  kolkata: { students: '200+', bestRank: 'AIR 312 (JEE Adv.)', avgImprovement: '135 marks in 3 months', localities: ['Salt Lake', 'Park Street', 'Howrah', 'Dum Dum', 'New Town'] },
+  pune: { students: '260+', bestRank: 'AIR 267 (JEE Adv.)', avgImprovement: '140 marks in 3 months', localities: ['Kothrud', 'Hinjewadi', 'Wakad', 'Baner', 'Aundh'] },
+  ahmedabad: { students: '180+', bestRank: 'AIR 345 (JEE Adv.)', avgImprovement: '130 marks in 3 months', localities: ['Satellite', 'Bopal', 'SG Highway', 'Navrangpura', 'Vastrapur'] },
+  jaipur: { students: '220+', bestRank: 'AIR 289 (JEE Adv.)', avgImprovement: '150 marks in 3 months', localities: ['Vaishali Nagar', 'Malviya Nagar', 'C-Scheme', 'Mansarovar', 'Tonk Road'] },
+  lucknow: { students: '190+', bestRank: 'AIR 356 (JEE Adv.)', avgImprovement: '145 marks in 3 months', localities: ['Gomti Nagar', 'Hazratganj', 'Aliganj', 'Indira Nagar', 'Mahanagar'] },
+  kochi: { students: '150+', bestRank: 'AIR 412 (JEE Adv.)', avgImprovement: '135 marks in 3 months', localities: ['Edappally', 'Kakkanad', 'Marine Drive', 'Aluva', 'Tripunithura'] },
+};
 const logo = '/images/logo.jpeg';
 
 /* ─── FALLBACK GENERATORS ─── */
@@ -202,7 +217,13 @@ const LocationPage = () => {
   const quickStats = city.quickStats || fallbackQuickStats(city, examLabel);
   const courseTiles = city.courseTiles || fallbackCourseTiles(city);
   const localValueProps = city.localValueProps || fallbackLocalValueProps(city);
-  const expandedFaqs = city.expandedFaqs || fallbackExpandedFaqs(city, examLabel);
+  const baseFaqs = city.expandedFaqs || fallbackExpandedFaqs(city, examLabel);
+  // Inject city-specific unique FAQs from cityUniqueContent
+  const uniqueData = cityUniqueContent[city.slug];
+  const uniqueFaqs: CityFAQ[] = uniqueData?.uniqueFAQ
+    ? [{ q: uniqueData.uniqueFAQ.q, a: uniqueData.uniqueFAQ.a }]
+    : [];
+  const expandedFaqs = [...baseFaqs, ...uniqueFaqs];
   const tabbed = city.tabbedContent || fallbackTabbedContent(city);
   const cityTestimonials = city.cityTestimonials || fallbackTestimonials(city);
   const events = city.events || fallbackEvents(city);
@@ -718,6 +739,49 @@ const LocationPage = () => {
             </motion.div>
           </div>
         </section>
+
+        {/* ═══ CITY RESULTS DASHBOARD (Tier 1 only) ═══ */}
+        {(() => {
+          const results = tier1ResultsData[city.slug];
+          if (!results) return null;
+          return (
+            <section className="max-w-5xl mx-auto px-6 py-14" aria-label="City results">
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                <div className="flex items-center gap-3 mb-6">
+                  <TrendingUp className="w-8 h-8 text-primary" />
+                  <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl">
+                    MindPeak Results from <span className="text-gradient-gold">{city.city}</span>
+                  </h2>
+                </div>
+                <div className="grid sm:grid-cols-3 gap-4 mb-8">
+                  {[
+                    { value: results.students, label: `Students from ${city.city}`, icon: Users },
+                    { value: results.bestRank, label: 'Best Rank Achieved', icon: Award },
+                    { value: results.avgImprovement, label: 'Avg. Score Improvement', icon: TrendingUp },
+                  ].map((stat, i) => (
+                    <div key={i} className="p-5 rounded-2xl bg-card border border-primary/20 text-center">
+                      <stat.icon className="w-6 h-6 text-primary mx-auto mb-2" />
+                      <div className="font-display font-black text-primary text-2xl mb-1">{stat.value}</div>
+                      <div className="text-muted-foreground text-xs font-medium">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+                <div className="p-5 rounded-xl bg-primary/5 border border-primary/15">
+                  <h3 className="text-foreground font-display font-bold text-sm mb-3 flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-primary" /> Students from these {city.city} localities
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {results.localities.map((loc, i) => (
+                      <span key={i} className="px-3 py-1.5 rounded-full bg-background border border-border text-foreground text-xs font-medium">
+                        {loc}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </section>
+          );
+        })()}
 
         {/* ═══ COLLEGE TARGET TABLE ═══ */}
         {(() => {

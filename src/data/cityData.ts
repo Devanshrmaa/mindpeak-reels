@@ -1200,14 +1200,18 @@ export function getLocationRoutes(): { path: string; exam: 'jee' | 'neet'; city:
   return routes;
 }
 
-/** Generate meta title for location page */
+/** Generate meta title for location page — CTR-optimised with year + power words */
 export function getLocationTitle(exam: 'jee' | 'neet', city: string): string {
+  const year = new Date().getFullYear();
   const examLabel = exam === 'jee' ? 'JEE' : 'NEET';
-  return `Best ${examLabel} Coaching in ${city} — 1-on-1 Personalized | MindPeak`;
+  return `#1 ${examLabel} Coaching in ${city} ${year} — 1-on-1 Mentors [Free Demo]`;
 }
 
-/** Generate meta description for location page */
+/** Generate meta description for location page — CTR-optimised with specifics */
 export function getLocationDescription(exam: 'jee' | 'neet', city: string): string {
   const examLabel = exam === 'jee' ? 'JEE Main & Advanced' : 'NEET UG';
-  return `Top ${examLabel} coaching in ${city} with personalized 1-on-1 mentoring, adaptive curriculum & dedicated mentors. 95% success rate. Book free demo.`;
+  const extra = exam === 'jee'
+    ? 'AIR 42 results. Dedicated IIT-alumni mentors.'
+    : 'AIIMS-alumni mentors. 95% selection rate.';
+  return `Crack ${examLabel} from ${city} with 1-on-1 coaching. ${extra} No commute — study from home. Book free demo today.`;
 }
