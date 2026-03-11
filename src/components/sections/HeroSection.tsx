@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
 import { useRef, useEffect, useState, useCallback } from 'react';
-const heroBg = '/images/hero-bg.jpg';
+import Image from 'next/image';
 
 /** Lightweight per-line reveal instead of per-character */
 const lineVariants = {
