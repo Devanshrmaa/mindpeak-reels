@@ -66,14 +66,15 @@ export const HeroSection = ({ onReady }: { onReady?: () => void }) => {
     >
       {/* Parallax background with mouse-follow */}
       <motion.div style={{ scale: bgScale, y: bgY, x: bgMoveX }} className="absolute inset-[-20px]">
-        <motion.img
-          src={heroBg}
-          alt=""
-          width={1920}
-          height={1080}
-          className="absolute inset-0 w-full h-full object-cover"
-          fetchPriority="high"
-          style={{ y: bgMoveY }}
+        <Image
+          src="/images/hero-bg.jpg"
+          alt="MindPeak Institute hero background"
+          fill
+          priority
+          sizes="100vw"
+          quality={75}
+          className="object-cover"
+          style={{ y: bgMoveY } as any}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/80" />
         <div className="absolute inset-0 vignette" />
