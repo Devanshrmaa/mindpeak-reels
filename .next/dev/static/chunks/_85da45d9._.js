@@ -331,14 +331,15 @@ const MethodologySection = ()=>{
                         className: "text-center mt-14",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                             href: "#contact",
+                            "aria-label": "Contact us about our teaching methodology",
                             className: "group relative inline-flex items-center gap-3 px-10 py-4 border border-foreground/15 text-foreground text-[13px] uppercase tracking-[0.2em] btn-outline-fill rounded-full",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     className: "relative z-10",
-                                    children: "Learn More"
+                                    children: "Get in Touch"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/sections/MethodologySection.tsx",
-                                    lineNumber: 140,
+                                    lineNumber: 141,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -355,17 +356,17 @@ const MethodologySection = ()=>{
                                             strokeWidth: "1.2"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/sections/MethodologySection.tsx",
-                                            lineNumber: 143,
+                                            lineNumber: 144,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/sections/MethodologySection.tsx",
-                                        lineNumber: 142,
+                                        lineNumber: 143,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/sections/MethodologySection.tsx",
-                                    lineNumber: 141,
+                                    lineNumber: 142,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
@@ -389,7 +390,7 @@ const MethodologySection = ()=>{
                 className: "absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-foreground/[0.06] to-transparent"
             }, void 0, false, {
                 fileName: "[project]/src/components/sections/MethodologySection.tsx",
-                lineNumber: 151,
+                lineNumber: 152,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
