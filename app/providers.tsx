@@ -2,14 +2,15 @@
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
 import { DemoModalProvider } from "@/components/DemoBookingModal";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { useState, useEffect, Suspense } from "react";
 import dynamic from "next/dynamic";
 
+/* Defer overlays and toast containers — they are never needed at first paint */
 const DeferredOverlays = dynamic(() => import("@/components/DeferredOverlays"), { ssr: false });
+const Toaster = dynamic(() => import("@/components/ui/toaster").then(m => ({ default: m.Toaster })), { ssr: false });
+const Sonner = dynamic(() => import("@/components/ui/sonner").then(m => ({ default: m.Toaster })), { ssr: false });
 
 const IdleOverlays = () => {
   const [ready, setReady] = useState(false);

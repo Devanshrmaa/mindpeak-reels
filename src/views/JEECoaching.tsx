@@ -2,20 +2,17 @@
 
 import { useEffect } from 'react';
 import { Link } from '@/components/RouterLink';
-import { motion } from 'framer-motion';
+import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
 import { PageFooter } from '@/components/PageFooter';
-import { StudyPlanSection } from '@/components/StudyPlanSection';
 import { PageFAQ, buildFAQSchema } from '@/components/PageFAQ';
 import type { FAQItem } from '@/components/PageFAQ';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
 import { FreshnessBadge } from '@/components/FreshnessBadge';
-import { ExamCountdown } from '@/components/ExamCountdown';
-import { MonthlySuccessStory } from '@/components/MonthlySuccessStory';
-import { WeeklyTip } from '@/components/WeeklyTip';
-import { SeasonalBanner } from '@/components/SeasonalBanner';
+import { FadeInView } from '@/components/FadeInView';
 import { getLastUpdated, getCurrentExamYear } from '@/lib/contentFreshness';
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 import { getLiveStat, formatStat } from '@/lib/liveStats';
@@ -25,7 +22,13 @@ import {
   GraduationCap, Users, BarChart3, Target, CheckCircle, ArrowRight, BookOpen,
   Clock, Brain, Zap, TrendingUp, ShieldCheck, Star, Phone,
 } from 'lucide-react';
-const logo = '/images/logo.jpeg';
+
+/* Lazy-load below-fold heavy components */
+const ExamCountdown = dynamic(() => import('@/components/ExamCountdown').then(m => ({ default: m.ExamCountdown })), { ssr: false });
+const SeasonalBanner = dynamic(() => import('@/components/SeasonalBanner').then(m => ({ default: m.SeasonalBanner })), { ssr: false });
+const StudyPlanSection = dynamic(() => import('@/components/StudyPlanSection').then(m => ({ default: m.StudyPlanSection })), { ssr: false });
+const MonthlySuccessStory = dynamic(() => import('@/components/MonthlySuccessStory').then(m => ({ default: m.MonthlySuccessStory })), { ssr: false });
+const WeeklyTip = dynamic(() => import('@/components/WeeklyTip').then(m => ({ default: m.WeeklyTip })), { ssr: false });
 
 /* ─── data ───────────────────────────────────────────────── */
 
@@ -198,11 +201,11 @@ const JEECoaching = () => {
 
         {/* ───── HERO ───── */}
         <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-12 sm:pb-20">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}>
+          <FadeInView>
             <FreshnessBadge lastUpdated={lastUpdated} verifiedFor={examYear} />
 
             <div className="flex items-center gap-3 mb-6 sm:mb-8">
-              <img src={logo} alt="MindPeak Institute" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full ring-1 ring-foreground/[0.08] flex-shrink-0" width={48} height={48} />
+              <Image src="/images/logo.jpeg" alt="MindPeak Institute" width={48} height={48} className="w-10 h-10 sm:w-12 sm:h-12 rounded-full ring-1 ring-foreground/[0.08] flex-shrink-0" />
               <div className="min-w-0">
                 <p className="text-primary/70 text-[10px] sm:text-[11px] uppercase tracking-[0.25em] font-medium">MindPeak Institute</p>
                 <p className="text-muted-foreground/60 text-xs truncate">Personalized 1-on-1 JEE Main &amp; Advanced Coaching</p>
@@ -236,7 +239,7 @@ const JEECoaching = () => {
                 <Phone className="w-3.5 h-3.5" strokeWidth={1.5} /> +91 82194 57704
               </a>
             </div>
-          </motion.div>
+          </FadeInView>
         </section>
 
         {/* ───── EXAM COUNTDOWN + SEASONAL BANNER ───── */}
@@ -267,10 +270,10 @@ const JEECoaching = () => {
           <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-foreground/[0.06] to-transparent" />
           <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
             {stats.map((s, i) => (
-              <motion.div key={s.label} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}>
+              <FadeInView key={s.label} delay={i * 60}>
                 <div className="font-display font-bold text-primary text-2xl md:text-3xl mb-1 tracking-tight">{s.value}</div>
                 <div className="text-muted-foreground/60 text-[10px] uppercase tracking-[0.2em]">{s.label}</div>
-              </motion.div>
+              </FadeInView>
             ))}
           </div>
         </section>
@@ -280,7 +283,7 @@ const JEECoaching = () => {
 
         {/* ───── WHY BATCH COACHING FAILS ───── */}
         <section className="max-w-4xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}>
+          <FadeInView>
             <div className="flex items-center gap-3 mb-4">
               <span className="h-px w-8 bg-destructive/20" />
               <span className="text-[11px] uppercase tracking-[0.3em] text-destructive/60 font-medium">The Problem</span>
@@ -293,28 +296,22 @@ const JEECoaching = () => {
             </p>
             <div className="grid md:grid-cols-3 gap-4">
               {batchProblems.map((p, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="rounded-2xl border border-destructive/10 bg-destructive/[0.03] p-7 hover:border-destructive/20 transition-all duration-500"
-                >
+                <FadeInView key={i} delay={i * 80}
+                  className="rounded-2xl border border-destructive/10 bg-destructive/[0.03] p-7 hover:border-destructive/20 transition-all duration-500">
                   <p.icon className="w-5 h-5 text-destructive/60 mb-5" strokeWidth={1.5} />
                   <h3 className="font-display font-semibold text-foreground text-base mb-2 tracking-[-0.01em]">{p.title}</h3>
                   <p className="text-muted-foreground/70 text-sm leading-[1.7]">{p.desc}</p>
-                </motion.div>
+                </FadeInView>
               ))}
             </div>
-          </motion.div>
+          </FadeInView>
         </section>
 
         {/* ───── THE MINDPEAK METHODOLOGY ───── */}
         <section className="py-20 sm:py-28 px-4 sm:px-6 relative">
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-foreground/[0.06] to-transparent" />
           <div className="max-w-4xl mx-auto">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}>
+            <FadeInView>
               <div className="flex items-center gap-3 mb-4">
                 <span className="h-px w-8 bg-primary/20" />
                 <span className="text-[11px] uppercase tracking-[0.3em] text-primary/60 font-medium">Our Methodology</span>
@@ -327,28 +324,22 @@ const JEECoaching = () => {
               </p>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {methodology.map((m, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.06, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                    className="group rounded-2xl border border-foreground/[0.06] bg-foreground/[0.02] p-7 hover:border-primary/15 hover:bg-foreground/[0.04] transition-all duration-500"
-                  >
+                  <FadeInView key={i} delay={i * 60}
+                    className="group rounded-2xl border border-foreground/[0.06] bg-foreground/[0.02] p-7 hover:border-primary/15 hover:bg-foreground/[0.04] transition-all duration-500">
                     <span className="text-[11px] tracking-[0.15em] text-muted-foreground/30 font-medium">{String(i + 1).padStart(2, '0')}</span>
                     <m.icon className="w-5 h-5 text-primary/60 mt-4 mb-4" strokeWidth={1.5} />
                     <h3 className="font-display font-semibold text-foreground text-sm mb-2 tracking-[-0.01em]">{m.title}</h3>
                     <p className="text-muted-foreground/70 text-sm leading-[1.7]">{m.desc}</p>
-                  </motion.div>
+                  </FadeInView>
                 ))}
               </div>
-            </motion.div>
+            </FadeInView>
           </div>
         </section>
 
         {/* ───── SUCCESS STORIES ───── */}
         <section className="max-w-4xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}>
+          <FadeInView>
             <div className="flex items-center gap-3 mb-4">
               <span className="h-px w-8 bg-foreground/10" />
               <span className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground/60 font-medium">Stories</span>
@@ -358,14 +349,8 @@ const JEECoaching = () => {
             </h2>
             <div className="grid md:grid-cols-3 gap-4">
               {testimonials.map((t, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="rounded-2xl border border-foreground/[0.06] bg-foreground/[0.02] p-7"
-                >
+                <FadeInView key={i} delay={i * 80}
+                  className="rounded-2xl border border-foreground/[0.06] bg-foreground/[0.02] p-7">
                   <div className="flex items-center justify-between mb-5">
                     <div>
                       <h3 className="font-display font-semibold text-foreground text-sm">{t.name}</h3>
@@ -385,17 +370,17 @@ const JEECoaching = () => {
                     </div>
                   </div>
                   <p className="text-muted-foreground/70 text-sm leading-[1.7] italic">&ldquo;{t.quote}&rdquo;</p>
-                </motion.div>
+                </FadeInView>
               ))}
             </div>
-          </motion.div>
+          </FadeInView>
         </section>
 
         {/* ───── SYLLABUS COVERAGE ───── */}
         <section className="py-20 sm:py-28 px-4 sm:px-6 relative">
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-foreground/[0.06] to-transparent" />
           <div className="max-w-4xl mx-auto">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}>
+            <FadeInView>
               <div className="flex items-center gap-3 mb-4">
                 <BookOpen className="w-4 h-4 text-primary/60" strokeWidth={1.5} />
                 <span className="text-[11px] uppercase tracking-[0.3em] text-primary/60 font-medium">Syllabus</span>
@@ -408,7 +393,7 @@ const JEECoaching = () => {
               </p>
               <div className="grid md:grid-cols-3 gap-4">
                 {syllabus.map((s, i) => (
-                  <motion.div key={i} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  <FadeInView key={i} delay={i * 60}
                     className="rounded-2xl border border-foreground/[0.06] bg-foreground/[0.02] p-7">
                     <div className="flex items-center justify-between mb-4">
                       <h3 className="font-display font-semibold text-foreground text-base tracking-[-0.01em]">{s.subject}</h3>
@@ -422,16 +407,16 @@ const JEECoaching = () => {
                         </li>
                       ))}
                     </ul>
-                  </motion.div>
+                  </FadeInView>
                 ))}
               </div>
-            </motion.div>
+            </FadeInView>
           </div>
         </section>
 
         {/* ───── PRICING COMPARISON ───── */}
         <section className="max-w-4xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}>
+          <FadeInView>
             <div className="flex items-center gap-3 mb-4">
               <span className="h-px w-8 bg-foreground/10" />
               <span className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground/60 font-medium">Compare</span>
@@ -466,7 +451,7 @@ const JEECoaching = () => {
                 </tbody>
               </table>
             </div>
-          </motion.div>
+          </FadeInView>
         </section>
 
         {/* ───── INTERNAL LINKS ───── */}
@@ -523,7 +508,7 @@ const JEECoaching = () => {
         {/* ───── FINAL CTA ───── */}
         <section className="py-20 sm:py-28 px-4 sm:px-6 text-center relative">
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-foreground/[0.06] to-transparent" />
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}>
+          <FadeInView>
             <h2 className="font-display font-bold text-foreground text-xl sm:text-2xl md:text-3xl mb-4 tracking-[-0.02em]">
               Start Your JEE Transformation <span className="text-gradient-gold">Today</span>
             </h2>
@@ -539,7 +524,7 @@ const JEECoaching = () => {
                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H2M9 1V8" stroke="currentColor" strokeWidth="1.2" /></svg>
               </span>
             </button>
-          </motion.div>
+          </FadeInView>
         </section>
 
         {/* Footer */}

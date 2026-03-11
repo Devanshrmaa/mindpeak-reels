@@ -9,22 +9,22 @@
   "[project]/src/components/ScrollIndicator.tsx [app-client] (ecmascript, next/dynamic entry)": {
     "id": "[project]/src/components/ScrollIndicator.tsx [app-client] (ecmascript, next/dynamic entry)",
     "files": [
-      "static/chunks/src_components_ScrollIndicator_tsx_6a9bea11._.js",
-      "static/chunks/src_components_ScrollIndicator_tsx_0329cc8e._.js"
+      "static/chunks/_73b2158f._.js",
+      "static/chunks/src_components_ScrollIndicator_tsx_675835bb._.js"
     ]
   },
   "[project]/src/components/storytelling/ProblemSection.tsx [app-client] (ecmascript, next/dynamic entry)": {
     "id": "[project]/src/components/storytelling/ProblemSection.tsx [app-client] (ecmascript, next/dynamic entry)",
     "files": [
       "static/chunks/_ccc223fa._.js",
-      "static/chunks/src_components_storytelling_ProblemSection_tsx_0329cc8e._.js"
+      "static/chunks/src_components_storytelling_ProblemSection_tsx_675835bb._.js"
     ]
   },
   "[project]/src/components/storytelling/DiscoverySection.tsx [app-client] (ecmascript, next/dynamic entry)": {
     "id": "[project]/src/components/storytelling/DiscoverySection.tsx [app-client] (ecmascript, next/dynamic entry)",
     "files": [
       "static/chunks/src_components_storytelling_DiscoverySection_tsx_11a831e9._.js",
-      "static/chunks/src_components_storytelling_DiscoverySection_tsx_0329cc8e._.js"
+      "static/chunks/src_components_storytelling_DiscoverySection_tsx_675835bb._.js"
     ]
   },
   "[project]/src/components/storytelling/TransformationTimeline.tsx [app-client] (ecmascript, next/dynamic entry)": {
@@ -34,56 +34,56 @@
       "static/chunks/node_modules_recharts_es6_7f2e9e75._.js",
       "static/chunks/node_modules_9614fdad._.js",
       "static/chunks/src_components_storytelling_TransformationTimeline_tsx_691be216._.js",
-      "static/chunks/src_components_storytelling_TransformationTimeline_tsx_0329cc8e._.js"
+      "static/chunks/src_components_storytelling_TransformationTimeline_tsx_675835bb._.js"
     ]
   },
   "[project]/src/components/storytelling/BeforeAfterSection.tsx [app-client] (ecmascript, next/dynamic entry)": {
     "id": "[project]/src/components/storytelling/BeforeAfterSection.tsx [app-client] (ecmascript, next/dynamic entry)",
     "files": [
       "static/chunks/src_components_storytelling_BeforeAfterSection_tsx_9e43814c._.js",
-      "static/chunks/src_components_storytelling_BeforeAfterSection_tsx_0329cc8e._.js"
+      "static/chunks/src_components_storytelling_BeforeAfterSection_tsx_675835bb._.js"
     ]
   },
   "[project]/src/components/storytelling/ResultSection.tsx [app-client] (ecmascript, next/dynamic entry)": {
     "id": "[project]/src/components/storytelling/ResultSection.tsx [app-client] (ecmascript, next/dynamic entry)",
     "files": [
       "static/chunks/src_components_storytelling_ResultSection_tsx_204cd40f._.js",
-      "static/chunks/src_components_storytelling_ResultSection_tsx_0329cc8e._.js"
+      "static/chunks/src_components_storytelling_ResultSection_tsx_675835bb._.js"
     ]
   },
   "[project]/src/components/sections/SuccessGrid.tsx [app-client] (ecmascript, next/dynamic entry)": {
     "id": "[project]/src/components/sections/SuccessGrid.tsx [app-client] (ecmascript, next/dynamic entry)",
     "files": [
       "static/chunks/src_components_sections_SuccessGrid_tsx_eb0199c4._.js",
-      "static/chunks/src_components_sections_SuccessGrid_tsx_0329cc8e._.js"
+      "static/chunks/src_components_sections_SuccessGrid_tsx_675835bb._.js"
     ]
   },
   "[project]/src/components/sections/CourseFlashcards.tsx [app-client] (ecmascript, next/dynamic entry)": {
     "id": "[project]/src/components/sections/CourseFlashcards.tsx [app-client] (ecmascript, next/dynamic entry)",
     "files": [
       "static/chunks/_94a4d85e._.js",
-      "static/chunks/src_components_sections_CourseFlashcards_tsx_0329cc8e._.js"
+      "static/chunks/src_components_sections_CourseFlashcards_tsx_675835bb._.js"
     ]
   },
   "[project]/src/components/sections/MethodologySection.tsx [app-client] (ecmascript, next/dynamic entry)": {
     "id": "[project]/src/components/sections/MethodologySection.tsx [app-client] (ecmascript, next/dynamic entry)",
     "files": [
       "static/chunks/_85da45d9._.js",
-      "static/chunks/src_components_sections_MethodologySection_tsx_0329cc8e._.js"
+      "static/chunks/src_components_sections_MethodologySection_tsx_675835bb._.js"
     ]
   },
   "[project]/src/components/sections/FAQSection.tsx [app-client] (ecmascript, next/dynamic entry)": {
     "id": "[project]/src/components/sections/FAQSection.tsx [app-client] (ecmascript, next/dynamic entry)",
     "files": [
       "static/chunks/_9ae6f13d._.js",
-      "static/chunks/src_components_sections_FAQSection_tsx_0329cc8e._.js"
+      "static/chunks/src_components_sections_FAQSection_tsx_675835bb._.js"
     ]
   },
   "[project]/src/components/sections/ContactSection.tsx [app-client] (ecmascript, next/dynamic entry)": {
     "id": "[project]/src/components/sections/ContactSection.tsx [app-client] (ecmascript, next/dynamic entry)",
     "files": [
       "static/chunks/_cb92f238._.js",
-      "static/chunks/src_components_sections_ContactSection_tsx_0329cc8e._.js"
+      "static/chunks/src_components_sections_ContactSection_tsx_675835bb._.js"
     ]
   }
 }
