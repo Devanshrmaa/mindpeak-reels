@@ -775,7 +775,8 @@ const LocationPage = () => {
               </motion.div>
             </section>
           );
-        })()
+        })()}
+
         {/* ═══ COLLEGE TARGET TABLE ═══ */}
         {(() => {
           const stateData = getStateEducation(city.state);
