@@ -734,6 +734,48 @@ const LocationPage = () => {
           </div>
         </section>
 
+        {/* ═══ CITY RESULTS DASHBOARD (Tier 1 only) ═══ */}
+        {(() => {
+          const results = tier1ResultsData[city.slug];
+          if (!results) return null;
+          return (
+            <section className="max-w-5xl mx-auto px-6 py-14" aria-label="City results">
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                <div className="flex items-center gap-3 mb-6">
+                  <TrendingUp className="w-8 h-8 text-primary" />
+                  <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl">
+                    MindPeak Results from <span className="text-gradient-gold">{city.city}</span>
+                  </h2>
+                </div>
+                <div className="grid sm:grid-cols-3 gap-4 mb-8">
+                  {[
+                    { value: results.students, label: `Students from ${city.city}`, icon: Users },
+                    { value: results.bestRank, label: 'Best Rank Achieved', icon: Award },
+                    { value: results.avgImprovement, label: 'Avg. Score Improvement', icon: TrendingUp },
+                  ].map((stat, i) => (
+                    <div key={i} className="p-5 rounded-2xl bg-card border border-primary/20 text-center">
+                      <stat.icon className="w-6 h-6 text-primary mx-auto mb-2" />
+                      <div className="font-display font-black text-primary text-2xl mb-1">{stat.value}</div>
+                      <div className="text-muted-foreground text-xs font-medium">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+                <div className="p-5 rounded-xl bg-primary/5 border border-primary/15">
+                  <h3 className="text-foreground font-display font-bold text-sm mb-3 flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-primary" /> Students from these {city.city} localities
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {results.localities.map((loc, i) => (
+                      <span key={i} className="px-3 py-1.5 rounded-full bg-background border border-border text-foreground text-xs font-medium">
+                        {loc}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </section>
+          );
+        })()
         {/* ═══ COLLEGE TARGET TABLE ═══ */}
         {(() => {
           const stateData = getStateEducation(city.state);
