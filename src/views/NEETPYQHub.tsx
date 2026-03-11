@@ -46,14 +46,19 @@ const NEETPYQHub = () => {
     {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
-      name: 'NEET PYQ — Subject-wise Previous Year Questions',
-      numberOfItems: neetPyqSubjectBanks.length,
-      itemListElement: neetPyqSubjectBanks.map((bank, i) => ({
-        '@type': 'ListItem',
-        position: i + 1,
-        name: `NEET ${bank.subject} Previous Year Questions`,
-        url: `https://mindpeakinstitute.com/neet-pyq`,
-      })),
+      name: 'NEET PYQ — Chapter-wise Previous Year Questions',
+      numberOfItems: neetPyqSubjectBanks.reduce((s, b) => s + b.chapters.length, 0),
+      itemListElement: neetPyqSubjectBanks.flatMap((bank, si) =>
+        bank.chapters.map((ch, ci) => {
+          const firstSlug = getNEETPYQSlugByParams(bank.slug, ch.slug, 1);
+          return {
+            '@type': 'ListItem',
+            position: si * 100 + ci + 1,
+            name: `NEET ${bank.subject} PYQ — ${ch.name}`,
+            url: firstSlug ? `https://mindpeakinstitute.com/${firstSlug}` : `https://mindpeakinstitute.com/neet-pyq`,
+          };
+        }),
+      ),
     },
   ];
 

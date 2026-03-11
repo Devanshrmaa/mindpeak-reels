@@ -51,14 +51,20 @@ const NEETPracticeHub = () => {
     {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
-      name: 'NEET Practice — Subject-wise Question Banks',
-      numberOfItems: neetSubjectBanks.length,
-      itemListElement: neetSubjectBanks.map((bank, i) => ({
-        '@type': 'ListItem',
-        position: i + 1,
-        name: `NEET ${bank.subject} Practice Questions`,
-        url: `https://mindpeakinstitute.com/neet-practice`,
-      })),
+      name: 'NEET Practice — Chapter-wise Question Banks',
+      numberOfItems: neetSubjectBanks.reduce((s, b) => s + b.chapters.length, 0),
+      itemListElement: neetSubjectBanks.flatMap((bank, si) =>
+        bank.chapters.map((ch, ci) => {
+          const firstTopic = ch.topics[0];
+          const firstSlug = firstTopic ? getNEETPracticeSlugByParams(bank.slug, ch.slug, firstTopic.slug, 'easy', 1) : null;
+          return {
+            '@type': 'ListItem',
+            position: si * 100 + ci + 1,
+            name: `NEET ${bank.subject} — ${ch.name}`,
+            url: firstSlug ? `https://mindpeakinstitute.com/${firstSlug}` : `https://mindpeakinstitute.com/neet-practice`,
+          };
+        }),
+      ),
     },
   ];
 

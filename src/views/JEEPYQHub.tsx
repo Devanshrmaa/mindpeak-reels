@@ -45,14 +45,19 @@ const JEEPYQHub = () => {
     {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
-      name: 'JEE PYQ — Subject-wise Previous Year Questions',
-      numberOfItems: pyqSubjectBanks.length,
-      itemListElement: pyqSubjectBanks.map((bank, i) => ({
-        '@type': 'ListItem',
-        position: i + 1,
-        name: `JEE ${bank.subject} Previous Year Questions`,
-        url: `https://mindpeakinstitute.com/jee-pyq`,
-      })),
+      name: 'JEE PYQ — Chapter-wise Previous Year Questions',
+      numberOfItems: pyqSubjectBanks.reduce((s, b) => s + b.chapters.length, 0),
+      itemListElement: pyqSubjectBanks.flatMap((bank, si) =>
+        bank.chapters.map((ch, ci) => {
+          const firstSlug = getPYQSlugByParams(bank.slug, ch.slug, 1);
+          return {
+            '@type': 'ListItem',
+            position: si * 100 + ci + 1,
+            name: `JEE ${bank.subject} PYQ — ${ch.name}`,
+            url: firstSlug ? `https://mindpeakinstitute.com/${firstSlug}` : `https://mindpeakinstitute.com/jee-pyq`,
+          };
+        }),
+      ),
     },
   ];
 
