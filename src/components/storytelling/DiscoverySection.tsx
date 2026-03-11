@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-const logo = '/images/logo.jpeg';
+import Image from 'next/image';
 const mentoringIcon = '/images/icons/mentoring-icon.png';
 const analyticsDashboard = '/images/icons/analytics-dashboard.png';
 const targetPrecision = '/images/icons/target-precision.png';
