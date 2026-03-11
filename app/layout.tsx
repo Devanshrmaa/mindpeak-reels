@@ -184,12 +184,12 @@ export default function RootLayout({
         <ScrollToTop />
         <Providers>{children}</Providers>
 
-        {/* Google Analytics 4 — deferred */}
+        {/* Google Analytics 4 — lazy loaded after page is fully interactive */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-MM0L1F7JJ6"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="ga-init" strategy="afterInteractive">
+        <Script id="ga-init" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}

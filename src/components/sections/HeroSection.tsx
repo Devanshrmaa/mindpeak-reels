@@ -153,7 +153,7 @@ export const HeroSection = ({ onReady }: { onReady?: () => void }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ delay: 2.2, duration: 0.8 }}
+            transition={{ delay: 1.0, duration: 0.8 }}
             className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
           >
             <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground/60">Scroll</span>
