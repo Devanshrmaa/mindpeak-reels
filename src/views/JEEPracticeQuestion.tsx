@@ -27,6 +27,7 @@ import { PageFAQ, buildFAQSchema, type FAQItem } from '@/components/PageFAQ';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
 import { buildJEEPracticeFAQs, buildTopicOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema, buildCommonMistakes, buildKeyFormulas, buildWhyItMatters, buildStudyStrategy } from '@/lib/questionPageSEO';
 import { CommonMistakesBlock, KeyFormulasBlock, WhyItMattersBlock, StudyStrategyBlock, InternalLinkingMesh, buildJEEPracticeCrossLinks } from '@/components/QuestionContentBlocks';
+import { RelatedQuestions, buildJEEPracticeRelated } from '@/components/RelatedQuestions';
 
 /* ── label helpers ── */
 const difficultyLabel: Record<Difficulty, string> = {
