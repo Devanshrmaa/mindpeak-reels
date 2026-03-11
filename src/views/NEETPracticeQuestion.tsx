@@ -158,9 +158,11 @@ const NEETPracticeQuestion = () => {
       provider: { '@type': 'Organization', name: 'MindPeak Institute', url: 'https://mindpeakinstitute.com' },
       hasPart: [{
         '@type': 'Question',
+        name: `NEET ${subj}: ${topicName} (${diff}) Q${params.questionIndex}`,
         eduQuestionType: 'Multiple choice',
         text: question.q,
         acceptedAnswer: { '@type': 'Answer', text: question.o[question.a] },
+        suggestedAnswer: { '@type': 'Answer', text: question.s || question.o[question.a] },
       }],
     },
     {
