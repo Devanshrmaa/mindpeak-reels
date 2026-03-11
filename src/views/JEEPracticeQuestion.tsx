@@ -117,7 +117,7 @@ const JEEPracticeQuestion = () => {
   }, [slug, question]);
 
   const bank = params ? subjectBanks.find((b) => b.slug === params.subject) : undefined;
-  if (!params || !question || !bank) return <Navigate to="/" replace />;
+  if (!params || !question || !bank) return <NotFoundFallback slug={slug} hub="/jee-practice" hubLabel="JEE Practice" />;
 
   const chapter = getChapter(params.subject, params.chapter);
   const topicObj = chapter?.topics.find((t) => t.slug === params.topic);
