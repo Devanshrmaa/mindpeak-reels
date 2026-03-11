@@ -1,3 +1,4 @@
 {
-  "/neet-coaching/page": "app/neet-coaching/page.js"
+  "/neet-coaching/page": "app/neet-coaching/page.js",
+  "/page": "app/page.js"
 }
