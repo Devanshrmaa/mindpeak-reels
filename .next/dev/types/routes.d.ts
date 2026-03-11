@@ -5,7 +5,7 @@ type AppRoutes = "/" | "/[...slug]" | "/about" | "/batch-vs-personal-coaching" |
 type AppRouteHandlerRoutes = "/final2.xml" | "/final3.xml"
 type PageRoutes = never
 type LayoutRoutes = "/"
-type RedirectRoutes = "/[[...path]]"
+type RedirectRoutes = "/[[...path]]" | "/blog-post1" | "/blog-post2" | "/blog/best-books-for-jee-preparation-2026" | "/blog/complete-neet-2026-preparation-guide" | "/blog/how-to-crack-jee-advanced-2026-complete-guide" | "/blog/jee-main-vs-jee-advanced-complete-difference" | "/blog/kota-vs-online-coaching-which-is-better-2026" | "/blog/mock-test-strategy-for-jee-neet-toppers" | "/blog/neet-biology-chapter-wise-strategy" | "/blog/organic-chemistry-made-easy-jee-neet" | "/blog/time-management-tips-for-jee-aspirants" | "/blog/why-batch-coaching-fails-jee-neet-students" | "/book-your-session" | "/book-your-session-1" | "/book-your-session-2" | "/booking" | "/disclaimer" | "/free-mock-test-jee" | "/free-mock-test-neet" | "/hi" | "/hi/" | "/hi/[[...path]]" | "/jee-physics-units-dimensions-si-units-easy-which-of-the-following-is-not-a-fundamental-si-unit" | "/jee-physics-units-dimensions-si-units-hard-in-a-new-system-of-units-the-unit-of-mass-is-alpha-kg-length-is-beta-m-and-time-is-gamma-s-the-value-of-1-j-in-this-new-system-is" | "/jee-previous-year-papers" | "/jee-pyq-physics-electrostatics-the-dimensional-formula-of-torque-is" | "/neet-biology-cell-biology-biomolecules-cell-organelles-easy-which-of-the-following-is-not-a-fundamental-si-unit" | "/privacy-policy" | "/study-material" | "/success-stories/[[...path]]"
 type RewriteRoutes = never
 type Routes = AppRoutes | PageRoutes | LayoutRoutes | RedirectRoutes | RewriteRoutes | AppRouteHandlerRoutes
 
@@ -17,14 +17,36 @@ interface ParamMap {
   "/about": {}
   "/batch-vs-personal-coaching": {}
   "/blog": {}
+  "/blog-post1": {}
+  "/blog-post2": {}
   "/blog/[slug]": { "slug": string; }
+  "/blog/best-books-for-jee-preparation-2026": {}
+  "/blog/complete-neet-2026-preparation-guide": {}
+  "/blog/how-to-crack-jee-advanced-2026-complete-guide": {}
+  "/blog/jee-main-vs-jee-advanced-complete-difference": {}
+  "/blog/kota-vs-online-coaching-which-is-better-2026": {}
+  "/blog/mock-test-strategy-for-jee-neet-toppers": {}
+  "/blog/neet-biology-chapter-wise-strategy": {}
+  "/blog/organic-chemistry-made-easy-jee-neet": {}
+  "/blog/time-management-tips-for-jee-aspirants": {}
+  "/blog/why-batch-coaching-fails-jee-neet-students": {}
+  "/book-your-session": {}
+  "/book-your-session-1": {}
+  "/book-your-session-2": {}
+  "/booking": {}
   "/contact": {}
   "/course/[slug]": { "slug": string; }
   "/courses": {}
+  "/disclaimer": {}
   "/final2.xml": {}
   "/final3.xml": {}
   "/foundation-coaching": {}
+  "/free-mock-test-jee": {}
+  "/free-mock-test-neet": {}
   "/free-trial": {}
+  "/hi": {}
+  "/hi/": {}
+  "/hi/[[...path]]": { "path"?: string[]; }
   "/jee-advanced-coaching": {}
   "/jee-chemistry-coaching": {}
   "/jee-chemistry-inorganic": {}
@@ -44,9 +66,13 @@ interface ParamMap {
   "/jee-physics-mechanics": {}
   "/jee-physics-optics": {}
   "/jee-physics-thermodynamics": {}
+  "/jee-physics-units-dimensions-si-units-easy-which-of-the-following-is-not-a-fundamental-si-unit": {}
+  "/jee-physics-units-dimensions-si-units-hard-in-a-new-system-of-units-the-unit-of-mass-is-alpha-kg-length-is-beta-m-and-time-is-gamma-s-the-value-of-1-j-in-this-new-system-is": {}
   "/jee-physics-waves": {}
   "/jee-practice": {}
+  "/jee-previous-year-papers": {}
   "/jee-pyq": {}
+  "/jee-pyq-physics-electrostatics-the-dimensional-formula-of-torque-is": {}
   "/jee-rank-predictor": {}
   "/kota-coaching-alternative": {}
   "/mentors": {}
@@ -61,6 +87,7 @@ interface ParamMap {
   "/mindpeak-vs-sri-chaitanya": {}
   "/mindpeak-vs-unacademy": {}
   "/mindpeak-vs-vedantu": {}
+  "/neet-biology-cell-biology-biomolecules-cell-organelles-easy-which-of-the-following-is-not-a-fundamental-si-unit": {}
   "/neet-biology-coaching": {}
   "/neet-chemistry-coaching": {}
   "/neet-coaching": {}
@@ -73,9 +100,12 @@ interface ParamMap {
   "/neet-ug-coaching": {}
   "/online-vs-offline-jee-coaching": {}
   "/pricing": {}
+  "/privacy-policy": {}
   "/refund-policy": {}
+  "/study-material": {}
   "/study-plan": {}
   "/success-stories": {}
+  "/success-stories/[[...path]]": { "path"?: string[]; }
   "/terms-and-conditions": {}
 }
 

@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { Navigate } from '@/components/Navigate';
+import { NotFoundFallback } from '@/components/NotFoundFallback';
 import { Link } from '@/components/RouterLink';
 import { useEffect, useState, useRef, useMemo } from 'react';
 import { motion } from 'framer-motion';
@@ -86,7 +87,7 @@ const JEEPYQQuestion = () => {
   }, [slug, question]);
 
   const bank = params ? pyqSubjectBanks.find((b) => b.slug === params.subject) : undefined;
-  if (!params || !question || !bank) return <Navigate to="/" replace />;
+  if (!params || !question || !bank) return <NotFoundFallback slug={slug} hub="/jee-pyq" hubLabel="JEE PYQ" />;
 
   const chapter = getPYQChapter(params.subject, params.chapter);
   const chapterName = chapter?.name ?? params.chapter;
