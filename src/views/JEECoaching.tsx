@@ -2,20 +2,17 @@
 
 import { useEffect } from 'react';
 import { Link } from '@/components/RouterLink';
-import { motion } from 'framer-motion';
+import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
 import { PageFooter } from '@/components/PageFooter';
-import { StudyPlanSection } from '@/components/StudyPlanSection';
 import { PageFAQ, buildFAQSchema } from '@/components/PageFAQ';
 import type { FAQItem } from '@/components/PageFAQ';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
 import { FreshnessBadge } from '@/components/FreshnessBadge';
-import { ExamCountdown } from '@/components/ExamCountdown';
-import { MonthlySuccessStory } from '@/components/MonthlySuccessStory';
-import { WeeklyTip } from '@/components/WeeklyTip';
-import { SeasonalBanner } from '@/components/SeasonalBanner';
+import { FadeInView } from '@/components/FadeInView';
 import { getLastUpdated, getCurrentExamYear } from '@/lib/contentFreshness';
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 import { getLiveStat, formatStat } from '@/lib/liveStats';
@@ -25,7 +22,13 @@ import {
   GraduationCap, Users, BarChart3, Target, CheckCircle, ArrowRight, BookOpen,
   Clock, Brain, Zap, TrendingUp, ShieldCheck, Star, Phone,
 } from 'lucide-react';
-const logo = '/images/logo.jpeg';
+
+/* Lazy-load below-fold heavy components */
+const ExamCountdown = dynamic(() => import('@/components/ExamCountdown').then(m => ({ default: m.ExamCountdown })), { ssr: false });
+const SeasonalBanner = dynamic(() => import('@/components/SeasonalBanner').then(m => ({ default: m.SeasonalBanner })), { ssr: false });
+const StudyPlanSection = dynamic(() => import('@/components/StudyPlanSection').then(m => ({ default: m.StudyPlanSection })), { ssr: false });
+const MonthlySuccessStory = dynamic(() => import('@/components/MonthlySuccessStory').then(m => ({ default: m.MonthlySuccessStory })), { ssr: false });
+const WeeklyTip = dynamic(() => import('@/components/WeeklyTip').then(m => ({ default: m.WeeklyTip })), { ssr: false });
 
 /* ─── data ───────────────────────────────────────────────── */
 
