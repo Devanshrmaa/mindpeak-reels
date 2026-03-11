@@ -136,6 +136,7 @@ export const CourseFlashcards = () => {
         >
           <Link
             to="/courses"
+            aria-label="View all JEE and NEET courses"
             className="group relative inline-flex items-center gap-3 px-10 py-4 border border-foreground/15 text-foreground text-[13px] uppercase tracking-[0.2em] btn-outline-fill rounded-full"
           >
             <span className="relative z-10">View All JEE &amp; NEET Courses</span>
