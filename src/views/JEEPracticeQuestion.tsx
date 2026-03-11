@@ -192,6 +192,11 @@ const JEEPracticeQuestion = () => {
   /* sibling topics in same chapter for related links */
   const siblingTopics = chapter?.topics.filter((t) => t.slug !== params.topic).slice(0, 4) ?? [];
 
+  /* Related questions from same topic for internal linking */
+  const relatedQuestions = buildJEEPracticeRelated(
+    topicQuestions, params.questionIndex, params.subject, params.chapter, params.topic, params.difficulty, getPracticeSlugByParams,
+  );
+
   return (
     <>
       <SEOHead title={title} description={description} jsonLd={jsonLd} />
