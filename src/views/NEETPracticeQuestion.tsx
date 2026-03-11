@@ -185,6 +185,11 @@ const NEETPracticeQuestion = () => {
   const isCorrect = selectedOption === shuffledAnswer;
   const siblingTopics = chapter?.topics.filter((t) => t.slug !== params.topic).slice(0, 4) ?? [];
 
+  /* Related questions from same topic */
+  const relatedQuestions = buildJEEPracticeRelated(
+    topicQuestions, params.questionIndex, params.subject, params.chapter, params.topic, params.difficulty, getNEETPracticeSlugByParams,
+  );
+
   return (
     <>
       <SEOHead title={title} description={description} jsonLd={jsonLd} />
