@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { Navigate } from '@/components/Navigate';
+import { NotFoundFallback } from '@/components/NotFoundFallback';
 import { Link } from '@/components/RouterLink';
 import { useEffect, useState, useRef, useMemo } from 'react';
 import { motion } from 'framer-motion';
