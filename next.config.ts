@@ -101,8 +101,15 @@ const nextConfig: NextConfig = {
       /* ── Non-existent success stories → homepage ── */
       { source: '/success-stories/:path*', destination: '/', permanent: true },
 
-      /* ── Legacy comparison page ── */
-      { source: '/mindpeak-vs-resonance', destination: '/mindpeak-vs-resonance', permanent: false },
+      /* ── Stale JEE PYQ question URLs (chapter changed) ── */
+      { source: '/jee-pyq-physics-electrostatics-the-dimensional-formula-of-torque-is', destination: '/jee-pyq', permanent: true },
+
+      /* ── Stale NEET practice question URLs (questions removed/moved) ── */
+      { source: '/neet-biology-cell-biology-biomolecules-cell-organelles-easy-which-of-the-following-is-not-a-fundamental-si-unit', destination: '/neet-practice', permanent: true },
+
+      /* ── Stale JEE practice question URLs ── */
+      { source: '/jee-physics-units-dimensions-si-units-easy-which-of-the-following-is-not-a-fundamental-si-unit', destination: '/jee-practice', permanent: true },
+      { source: '/jee-physics-units-dimensions-si-units-hard-in-a-new-system-of-units-the-unit-of-mass-is-alpha-kg-length-is-beta-m-and-time-is-gamma-s-the-value-of-1-j-in-this-new-system-is', destination: '/jee-practice', permanent: true },
     ];
   },
 
