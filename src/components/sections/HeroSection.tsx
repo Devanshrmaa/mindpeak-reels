@@ -2,13 +2,13 @@ import { motion, useScroll, useTransform, useMotionValue, useSpring, AnimatePres
 import { useRef, useEffect, useState, useCallback } from 'react';
 import Image from 'next/image';
 
-/** Lightweight per-line reveal — minimal delay for fast LCP */
+/** Lightweight per-line reveal — near-zero delay for fastest LCP */
 const lineVariants = {
   hidden: { y: '100%', opacity: 0 },
   visible: (i: number) => ({
     y: '0%',
     opacity: 1,
-    transition: { delay: 0.1 + i * 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+    transition: { delay: i * 0.08, duration: 0.4, ease: [0.16, 1, 0.3, 1] },
   }),
 };
 
@@ -97,7 +97,7 @@ export const HeroSection = ({ onReady }: { onReady?: () => void }) => {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 0, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="mb-6 flex items-center justify-center gap-3"
         >
           <span className="h-px w-8 bg-primary/40" />
@@ -130,7 +130,7 @@ export const HeroSection = ({ onReady }: { onReady?: () => void }) => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.8, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 0.5, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
           <a
             href="#success-stories"
@@ -153,7 +153,7 @@ export const HeroSection = ({ onReady }: { onReady?: () => void }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ delay: 2.2, duration: 0.8 }}
+            transition={{ delay: 1.0, duration: 0.8 }}
             className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
           >
             <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground/60">Scroll</span>

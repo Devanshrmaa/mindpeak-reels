@@ -5,7 +5,12 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Navbar } from '@/components/sections/Navbar';
 import { HeroSection } from '@/components/sections/HeroSection';
-import { ScrollIndicator } from '@/components/ScrollIndicator';
+
+/* ScrollIndicator is a heavy framer-motion component — defer to idle */
+const ScrollIndicator = dynamic(
+  () => import('@/components/ScrollIndicator').then(m => ({ default: m.ScrollIndicator })),
+  { ssr: false }
+);
 
 const ProblemSection = dynamic(() => import('@/components/storytelling/ProblemSection').then(m => ({ default: m.ProblemSection })), { ssr: false });
 const DiscoverySection = dynamic(() => import('@/components/storytelling/DiscoverySection').then(m => ({ default: m.DiscoverySection })), { ssr: false });
