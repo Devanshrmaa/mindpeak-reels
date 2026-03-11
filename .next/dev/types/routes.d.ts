@@ -5,7 +5,7 @@ type AppRoutes = "/" | "/[...slug]" | "/about" | "/batch-vs-personal-coaching" |
 type AppRouteHandlerRoutes = "/final2.xml" | "/final3.xml"
 type PageRoutes = never
 type LayoutRoutes = "/"
-type RedirectRoutes = "/[[...path]]"
+type RedirectRoutes = "/[[...path]]" | "/blog-post1" | "/blog-post2" | "/blog/best-books-for-jee-preparation-2026" | "/blog/complete-neet-2026-preparation-guide" | "/blog/how-to-crack-jee-advanced-2026-complete-guide" | "/blog/jee-main-vs-jee-advanced-complete-difference" | "/blog/kota-vs-online-coaching-which-is-better-2026" | "/blog/mock-test-strategy-for-jee-neet-toppers" | "/blog/neet-biology-chapter-wise-strategy" | "/blog/organic-chemistry-made-easy-jee-neet" | "/blog/time-management-tips-for-jee-aspirants" | "/blog/why-batch-coaching-fails-jee-neet-students" | "/book-your-session" | "/book-your-session-1" | "/book-your-session-2" | "/booking" | "/disclaimer" | "/free-mock-test-jee" | "/free-mock-test-neet" | "/hi" | "/hi/" | "/hi/[[...path]]" | "/jee-previous-year-papers" | "/mindpeak-vs-resonance" | "/privacy-policy" | "/study-material" | "/success-stories/[[...path]]"
 type RewriteRoutes = never
 type Routes = AppRoutes | PageRoutes | LayoutRoutes | RedirectRoutes | RewriteRoutes | AppRouteHandlerRoutes
 
@@ -17,14 +17,36 @@ interface ParamMap {
   "/about": {}
   "/batch-vs-personal-coaching": {}
   "/blog": {}
+  "/blog-post1": {}
+  "/blog-post2": {}
   "/blog/[slug]": { "slug": string; }
+  "/blog/best-books-for-jee-preparation-2026": {}
+  "/blog/complete-neet-2026-preparation-guide": {}
+  "/blog/how-to-crack-jee-advanced-2026-complete-guide": {}
+  "/blog/jee-main-vs-jee-advanced-complete-difference": {}
+  "/blog/kota-vs-online-coaching-which-is-better-2026": {}
+  "/blog/mock-test-strategy-for-jee-neet-toppers": {}
+  "/blog/neet-biology-chapter-wise-strategy": {}
+  "/blog/organic-chemistry-made-easy-jee-neet": {}
+  "/blog/time-management-tips-for-jee-aspirants": {}
+  "/blog/why-batch-coaching-fails-jee-neet-students": {}
+  "/book-your-session": {}
+  "/book-your-session-1": {}
+  "/book-your-session-2": {}
+  "/booking": {}
   "/contact": {}
   "/course/[slug]": { "slug": string; }
   "/courses": {}
+  "/disclaimer": {}
   "/final2.xml": {}
   "/final3.xml": {}
   "/foundation-coaching": {}
+  "/free-mock-test-jee": {}
+  "/free-mock-test-neet": {}
   "/free-trial": {}
+  "/hi": {}
+  "/hi/": {}
+  "/hi/[[...path]]": { "path"?: string[]; }
   "/jee-advanced-coaching": {}
   "/jee-chemistry-coaching": {}
   "/jee-chemistry-inorganic": {}
@@ -46,6 +68,7 @@ interface ParamMap {
   "/jee-physics-thermodynamics": {}
   "/jee-physics-waves": {}
   "/jee-practice": {}
+  "/jee-previous-year-papers": {}
   "/jee-pyq": {}
   "/jee-rank-predictor": {}
   "/kota-coaching-alternative": {}
@@ -73,9 +96,12 @@ interface ParamMap {
   "/neet-ug-coaching": {}
   "/online-vs-offline-jee-coaching": {}
   "/pricing": {}
+  "/privacy-policy": {}
   "/refund-policy": {}
+  "/study-material": {}
   "/study-plan": {}
   "/success-stories": {}
+  "/success-stories/[[...path]]": { "path"?: string[]; }
   "/terms-and-conditions": {}
 }
 
