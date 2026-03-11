@@ -1,14 +1,14 @@
 import { motion, useScroll, useTransform, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
 import { useRef, useEffect, useState, useCallback } from 'react';
-const heroBg = '/images/hero-bg.jpg';
+import Image from 'next/image';
 
-/** Lightweight per-line reveal instead of per-character */
+/** Lightweight per-line reveal — minimal delay for fast LCP */
 const lineVariants = {
   hidden: { y: '100%', opacity: 0 },
   visible: (i: number) => ({
     y: '0%',
     opacity: 1,
-    transition: { delay: 0.4 + i * 0.15, duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+    transition: { delay: 0.1 + i * 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] },
   }),
 };
 
@@ -66,14 +66,15 @@ export const HeroSection = ({ onReady }: { onReady?: () => void }) => {
     >
       {/* Parallax background with mouse-follow */}
       <motion.div style={{ scale: bgScale, y: bgY, x: bgMoveX }} className="absolute inset-[-20px]">
-        <motion.img
-          src={heroBg}
-          alt=""
-          width={1920}
-          height={1080}
-          className="absolute inset-0 w-full h-full object-cover"
-          fetchPriority="high"
-          style={{ y: bgMoveY }}
+        <Image
+          src="/images/hero-bg.jpg"
+          alt="MindPeak Institute hero background"
+          fill
+          priority
+          sizes="100vw"
+          quality={75}
+          className="object-cover"
+          style={{ y: bgMoveY } as any}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/80" />
         <div className="absolute inset-0 vignette" />

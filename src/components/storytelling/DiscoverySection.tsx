@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-const logo = '/images/logo.jpeg';
+import Image from 'next/image';
 const mentoringIcon = '/images/icons/mentoring-icon.png';
 const analyticsDashboard = '/images/icons/analytics-dashboard.png';
 const targetPrecision = '/images/icons/target-precision.png';
@@ -101,8 +101,8 @@ function LogoRings() {
       <div className="absolute -inset-3 md:-inset-4 rounded-full border border-primary/10 animate-[spin_30s_linear_infinite_reverse]" />
       <div className="absolute inset-3 rounded-full bg-primary/[0.06] blur-xl group-hover:bg-primary/[0.12] transition-all duration-700" />
       {/* Logo image */}
-      <img
-        src={logo}
+      <Image
+        src="/images/logo.jpeg"
         alt="MindPeak Institute"
         width={160}
         height={160}
