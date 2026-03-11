@@ -217,7 +217,13 @@ const LocationPage = () => {
   const quickStats = city.quickStats || fallbackQuickStats(city, examLabel);
   const courseTiles = city.courseTiles || fallbackCourseTiles(city);
   const localValueProps = city.localValueProps || fallbackLocalValueProps(city);
-  const expandedFaqs = city.expandedFaqs || fallbackExpandedFaqs(city, examLabel);
+  const baseFaqs = city.expandedFaqs || fallbackExpandedFaqs(city, examLabel);
+  // Inject city-specific unique FAQs from cityUniqueContent
+  const uniqueData = cityUniqueContent[city.slug];
+  const uniqueFaqs: CityFAQ[] = uniqueData?.uniqueFAQ
+    ? [{ q: uniqueData.uniqueFAQ.q, a: uniqueData.uniqueFAQ.a }]
+    : [];
+  const expandedFaqs = [...baseFaqs, ...uniqueFaqs];
   const tabbed = city.tabbedContent || fallbackTabbedContent(city);
   const cityTestimonials = city.cityTestimonials || fallbackTestimonials(city);
   const events = city.events || fallbackEvents(city);
