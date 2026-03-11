@@ -18,8 +18,23 @@ import { useDemoModal } from '@/components/DemoBookingModal';
 import { buildFAQSchemaFromQA } from '@/components/PageFAQ';
 import { cities, allCities, getLocationTitle, getLocationDescription } from '@/data/cityData';
 import type { CityData, QuickStat, CourseTile, LocalValueProp, CityFAQ, CityTestimonial, CityEvent, TabbedContent } from '@/data/cityData';
-import { cityUniqueContent } from '@/data/cityUniqueContent';
+import { cityUniqueContent, type CityUniqueData } from '@/data/cityUniqueContent';
 import { getStateEducation } from '@/data/stateEducationData';
+
+/* ─── TIER 1 RESULTS DATA (city-specific achievements) ─── */
+const tier1ResultsData: Record<string, { students: string; bestRank: string; avgImprovement: string; localities: string[] }> = {
+  bangalore: { students: '320+', bestRank: 'AIR 42 (JEE Adv.)', avgImprovement: '165 marks in 3 months', localities: ['Koramangala', 'Whitefield', 'Electronic City', 'HSR Layout', 'Indiranagar'] },
+  delhi: { students: '450+', bestRank: 'AIR 42 (JEE Adv.)', avgImprovement: '150 marks in 3 months', localities: ['South Delhi', 'Dwarka', 'Noida', 'Rohini', 'Gurgaon'] },
+  mumbai: { students: '380+', bestRank: 'AIR 156 (JEE Adv.)', avgImprovement: '140 marks in 3 months', localities: ['Andheri', 'Borivali', 'Powai', 'Thane', 'Navi Mumbai'] },
+  hyderabad: { students: '280+', bestRank: 'AIR 189 (JEE Adv.)', avgImprovement: '155 marks in 3 months', localities: ['Gachibowli', 'Kukatpally', 'Secunderabad', 'Dilsukhnagar', 'Begumpet'] },
+  chennai: { students: '250+', bestRank: 'AIR 234 (JEE Adv.)', avgImprovement: '145 marks in 3 months', localities: ['Anna Nagar', 'T. Nagar', 'Adyar', 'Velachery', 'OMR'] },
+  kolkata: { students: '200+', bestRank: 'AIR 312 (JEE Adv.)', avgImprovement: '135 marks in 3 months', localities: ['Salt Lake', 'Park Street', 'Howrah', 'Dum Dum', 'New Town'] },
+  pune: { students: '260+', bestRank: 'AIR 267 (JEE Adv.)', avgImprovement: '140 marks in 3 months', localities: ['Kothrud', 'Hinjewadi', 'Wakad', 'Baner', 'Aundh'] },
+  ahmedabad: { students: '180+', bestRank: 'AIR 345 (JEE Adv.)', avgImprovement: '130 marks in 3 months', localities: ['Satellite', 'Bopal', 'SG Highway', 'Navrangpura', 'Vastrapur'] },
+  jaipur: { students: '220+', bestRank: 'AIR 289 (JEE Adv.)', avgImprovement: '150 marks in 3 months', localities: ['Vaishali Nagar', 'Malviya Nagar', 'C-Scheme', 'Mansarovar', 'Tonk Road'] },
+  lucknow: { students: '190+', bestRank: 'AIR 356 (JEE Adv.)', avgImprovement: '145 marks in 3 months', localities: ['Gomti Nagar', 'Hazratganj', 'Aliganj', 'Indira Nagar', 'Mahanagar'] },
+  kochi: { students: '150+', bestRank: 'AIR 412 (JEE Adv.)', avgImprovement: '135 marks in 3 months', localities: ['Edappally', 'Kakkanad', 'Marine Drive', 'Aluva', 'Tripunithura'] },
+};
 const logo = '/images/logo.jpeg';
 
 /* ─── FALLBACK GENERATORS ─── */
