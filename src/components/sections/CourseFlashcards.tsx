@@ -114,11 +114,12 @@ export const CourseFlashcards = () => {
                 {/* CTA */}
                 <Link
                   to="/courses"
+                  aria-label={`View ${card.title} details`}
                   className={`inline-flex items-center gap-2 text-[12px] font-medium tracking-[0.15em] uppercase transition-all duration-500 ${
                     isHovered ? 'text-primary gap-3' : 'text-muted-foreground/60'
                   }`}
                 >
-                  Learn More
+                  View {card.title} Details
                   <ArrowRight className={`w-3.5 h-3.5 transition-transform duration-500 ${isHovered ? 'translate-x-1' : ''}`} />
                 </Link>
               </motion.div>
