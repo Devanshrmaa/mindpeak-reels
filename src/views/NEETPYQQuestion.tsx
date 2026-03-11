@@ -30,6 +30,7 @@ import { getUnitForChapter } from '@/data/neet-pyq/hierarchy';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
 import { buildNEETPYQFAQs, buildPYQOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema, buildCommonMistakes, buildKeyFormulas, buildWhyItMatters, buildStudyStrategy } from '@/lib/questionPageSEO';
 import { CommonMistakesBlock, KeyFormulasBlock, WhyItMattersBlock, StudyStrategyBlock, InternalLinkingMesh, buildNEETPYQCrossLinks } from '@/components/QuestionContentBlocks';
+import { RelatedQuestions, buildPYQRelated } from '@/components/RelatedQuestions';
 
 function seededShuffle(seed: string): number[] {
   let h = 0;
