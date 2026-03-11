@@ -1,4 +1,4 @@
-import { jsPDF } from 'jspdf';
+// jsPDF is dynamically imported to keep it out of the main bundle (~300KB)
 import type { FormulaSheetData, FrequencyTag } from '@/data/formulaSheetData';
 
 /**
