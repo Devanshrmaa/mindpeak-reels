@@ -155,6 +155,11 @@ const JEEPYQQuestion = () => {
   const isAnswered = selectedOption !== null;
   const isCorrect = selectedOption === shuffledAnswer;
 
+  /* Related PYQs from same chapter */
+  const relatedQuestions = buildPYQRelated(
+    chapter?.questions ?? [], params.questionIndex, params.subject, params.chapter, getPYQSlugByParams,
+  );
+
   return (
     <>
       <SEOHead title={title} description={description} jsonLd={jsonLd} />
