@@ -29,6 +29,7 @@ import { PageFAQ, buildFAQSchema, type FAQItem } from '@/components/PageFAQ';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
 import { buildJEEPYQFAQs, buildPYQOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema, buildCommonMistakes, buildKeyFormulas, buildWhyItMatters, buildStudyStrategy } from '@/lib/questionPageSEO';
 import { CommonMistakesBlock, KeyFormulasBlock, WhyItMattersBlock, StudyStrategyBlock, InternalLinkingMesh, buildJEEPYQCrossLinks } from '@/components/QuestionContentBlocks';
+import { RelatedQuestions, buildPYQRelated } from '@/components/RelatedQuestions';
 
 /* ── Deterministic option shuffle (same as practice page) ── */
 function seededShuffle(seed: string): number[] {
