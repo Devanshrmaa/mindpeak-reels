@@ -27,6 +27,7 @@ import { PageFAQ, buildFAQSchema, type FAQItem } from '@/components/PageFAQ';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
 import { buildNEETPracticeFAQs, buildTopicOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema, buildCommonMistakes, buildKeyFormulas, buildWhyItMatters, buildStudyStrategy } from '@/lib/questionPageSEO';
 import { CommonMistakesBlock, KeyFormulasBlock, WhyItMattersBlock, StudyStrategyBlock, InternalLinkingMesh, buildNEETPracticeCrossLinks } from '@/components/QuestionContentBlocks';
+import { RelatedQuestions, buildJEEPracticeRelated } from '@/components/RelatedQuestions';
 
 /* ── label helpers ── */
 const difficultyLabel: Record<Difficulty, string> = {
@@ -183,6 +184,11 @@ const NEETPracticeQuestion = () => {
   const isAnswered = selectedOption !== null;
   const isCorrect = selectedOption === shuffledAnswer;
   const siblingTopics = chapter?.topics.filter((t) => t.slug !== params.topic).slice(0, 4) ?? [];
+
+  /* Related questions from same topic */
+  const relatedQuestions = buildJEEPracticeRelated(
+    topicQuestions, params.questionIndex, params.subject, params.chapter, params.topic, params.difficulty, getNEETPracticeSlugByParams,
+  );
 
   return (
     <>
@@ -439,6 +445,13 @@ const NEETPracticeQuestion = () => {
 
           {/* ── Why It Matters ── */}
           <WhyItMattersBlock topicName={topicName} paragraphs={whyItMatters} />
+
+          {/* ── Related Questions from Same Topic ── */}
+          <RelatedQuestions
+            questions={relatedQuestions}
+            heading={`More ${topicName} Questions (${diff})`}
+            accentClass="text-green-500"
+          />
 
           {/* ── Cross-type Internal Links ── */}
           <InternalLinkingMesh links={crossLinks} heading={`Related ${subj} Resources`} />

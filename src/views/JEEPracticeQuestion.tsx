@@ -27,6 +27,7 @@ import { PageFAQ, buildFAQSchema, type FAQItem } from '@/components/PageFAQ';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
 import { buildJEEPracticeFAQs, buildTopicOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema, buildCommonMistakes, buildKeyFormulas, buildWhyItMatters, buildStudyStrategy } from '@/lib/questionPageSEO';
 import { CommonMistakesBlock, KeyFormulasBlock, WhyItMattersBlock, StudyStrategyBlock, InternalLinkingMesh, buildJEEPracticeCrossLinks } from '@/components/QuestionContentBlocks';
+import { RelatedQuestions, buildJEEPracticeRelated } from '@/components/RelatedQuestions';
 
 /* ── label helpers ── */
 const difficultyLabel: Record<Difficulty, string> = {
@@ -190,6 +191,11 @@ const JEEPracticeQuestion = () => {
 
   /* sibling topics in same chapter for related links */
   const siblingTopics = chapter?.topics.filter((t) => t.slug !== params.topic).slice(0, 4) ?? [];
+
+  /* Related questions from same topic for internal linking */
+  const relatedQuestions = buildJEEPracticeRelated(
+    topicQuestions, params.questionIndex, params.subject, params.chapter, params.topic, params.difficulty, getPracticeSlugByParams,
+  );
 
   return (
     <>
@@ -489,6 +495,12 @@ const JEEPracticeQuestion = () => {
 
           {/* ── Why It Matters ── */}
           <WhyItMattersBlock topicName={topicName} paragraphs={whyItMatters} />
+
+          {/* ── Related Questions from Same Topic ── */}
+          <RelatedQuestions
+            questions={relatedQuestions}
+            heading={`More ${topicName} Questions (${diff})`}
+          />
 
           {/* ── Cross-type Internal Links ── */}
           <InternalLinkingMesh links={crossLinks} heading={`Related ${subj} Resources`} />

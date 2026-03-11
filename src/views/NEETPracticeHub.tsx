@@ -51,14 +51,20 @@ const NEETPracticeHub = () => {
     {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
-      name: 'NEET Practice — Subject-wise Question Banks',
-      numberOfItems: neetSubjectBanks.length,
-      itemListElement: neetSubjectBanks.map((bank, i) => ({
-        '@type': 'ListItem',
-        position: i + 1,
-        name: `NEET ${bank.subject} Practice Questions`,
-        url: `https://mindpeakinstitute.com/neet-practice`,
-      })),
+      name: 'NEET Practice — Chapter-wise Question Banks',
+      numberOfItems: neetSubjectBanks.reduce((s, b) => s + b.chapters.length, 0),
+      itemListElement: neetSubjectBanks.flatMap((bank, si) =>
+        bank.chapters.map((ch, ci) => {
+          const firstTopic = ch.topics[0];
+          const firstSlug = firstTopic ? getNEETPracticeSlugByParams(bank.slug, ch.slug, firstTopic.slug, 'easy', 1) : null;
+          return {
+            '@type': 'ListItem',
+            position: si * 100 + ci + 1,
+            name: `NEET ${bank.subject} — ${ch.name}`,
+            url: firstSlug ? `https://mindpeakinstitute.com/${firstSlug}` : `https://mindpeakinstitute.com/neet-practice`,
+          };
+        }),
+      ),
     },
   ];
 
@@ -210,6 +216,38 @@ const NEETPracticeHub = () => {
               );
             })}
           </div>
+        </section>
+
+        {/* Always-visible chapter links for crawlers */}
+        <section className="mx-auto max-w-6xl px-4 py-12 border-t border-border">
+          <h2 className="font-display font-bold text-xl text-foreground mb-6">All NEET Practice Chapters</h2>
+          {neetSubjectBanks.map((bank) => (
+            <div key={bank.slug} className="mb-8">
+              <h3 className="font-display font-semibold text-foreground text-base mb-3 flex items-center gap-2">
+                <span>{bank.icon}</span> {bank.subject}
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                {bank.chapters.map((ch) => {
+                  const firstTopic = ch.topics[0];
+                  if (!firstTopic) return null;
+                  const qCount = getNEETChapterQuestionCount(ch);
+                  return (
+                    <a
+                      key={ch.slug}
+                      href={`/${getNEETPracticeSlugByParams(bank.slug, ch.slug, firstTopic.slug, 'easy', 1) ?? ''}`}
+                      className="flex items-center gap-3 rounded-lg border border-border bg-card/50 px-4 py-3 hover:border-green-500/40 transition-colors"
+                    >
+                      <BookOpen className="w-4 h-4 text-green-500 flex-shrink-0" />
+                      <div className="min-w-0">
+                        <p className="text-sm font-medium text-foreground truncate">{ch.name}</p>
+                        <p className="text-xs text-muted-foreground">{qCount} questions</p>
+                      </div>
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
         </section>
 
         {/* CTA */}

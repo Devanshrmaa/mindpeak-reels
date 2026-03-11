@@ -46,14 +46,19 @@ const NEETPYQHub = () => {
     {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
-      name: 'NEET PYQ — Subject-wise Previous Year Questions',
-      numberOfItems: neetPyqSubjectBanks.length,
-      itemListElement: neetPyqSubjectBanks.map((bank, i) => ({
-        '@type': 'ListItem',
-        position: i + 1,
-        name: `NEET ${bank.subject} Previous Year Questions`,
-        url: `https://mindpeakinstitute.com/neet-pyq`,
-      })),
+      name: 'NEET PYQ — Chapter-wise Previous Year Questions',
+      numberOfItems: neetPyqSubjectBanks.reduce((s, b) => s + b.chapters.length, 0),
+      itemListElement: neetPyqSubjectBanks.flatMap((bank, si) =>
+        bank.chapters.map((ch, ci) => {
+          const firstSlug = getNEETPYQSlugByParams(bank.slug, ch.slug, 1);
+          return {
+            '@type': 'ListItem',
+            position: si * 100 + ci + 1,
+            name: `NEET ${bank.subject} PYQ — ${ch.name}`,
+            url: firstSlug ? `https://mindpeakinstitute.com/${firstSlug}` : `https://mindpeakinstitute.com/neet-pyq`,
+          };
+        }),
+      ),
     },
   ];
 
@@ -198,6 +203,37 @@ const NEETPYQHub = () => {
               );
             })}
           </div>
+        </section>
+
+        {/* Always-visible chapter links for crawlers */}
+        <section className="mx-auto max-w-6xl px-4 py-12 border-t border-border">
+          <h2 className="font-display font-bold text-xl text-foreground mb-6">All NEET PYQ Chapters</h2>
+          {neetPyqSubjectBanks.map((bank) => (
+            <div key={bank.slug} className="mb-8">
+              <h3 className="font-display font-semibold text-foreground text-base mb-3 flex items-center gap-2">
+                <span>{bank.icon}</span> {bank.subject}
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                {bank.chapters.map((ch) => {
+                  const firstSlug = getNEETPYQSlugByParams(bank.slug, ch.slug, 1);
+                  const qCount = getNEETPYQChapterCount(ch);
+                  return (
+                    <a
+                      key={ch.slug}
+                      href={`/${firstSlug ?? ''}`}
+                      className="flex items-center gap-3 rounded-lg border border-border bg-card/50 px-4 py-3 hover:border-green-500/40 transition-colors"
+                    >
+                      <BookOpen className="w-4 h-4 text-green-400 flex-shrink-0" />
+                      <div className="min-w-0">
+                        <p className="text-sm font-medium text-foreground truncate">{ch.name}</p>
+                        <p className="text-xs text-muted-foreground">{qCount} PYQs</p>
+                      </div>
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
         </section>
 
         {/* CTA */}

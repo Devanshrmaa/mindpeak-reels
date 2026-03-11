@@ -29,6 +29,7 @@ import { PageFAQ, buildFAQSchema, type FAQItem } from '@/components/PageFAQ';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
 import { buildJEEPYQFAQs, buildPYQOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema, buildCommonMistakes, buildKeyFormulas, buildWhyItMatters, buildStudyStrategy } from '@/lib/questionPageSEO';
 import { CommonMistakesBlock, KeyFormulasBlock, WhyItMattersBlock, StudyStrategyBlock, InternalLinkingMesh, buildJEEPYQCrossLinks } from '@/components/QuestionContentBlocks';
+import { RelatedQuestions, buildPYQRelated } from '@/components/RelatedQuestions';
 
 /* ── Deterministic option shuffle (same as practice page) ── */
 function seededShuffle(seed: string): number[] {
@@ -153,6 +154,11 @@ const JEEPYQQuestion = () => {
 
   const isAnswered = selectedOption !== null;
   const isCorrect = selectedOption === shuffledAnswer;
+
+  /* Related PYQs from same chapter */
+  const relatedQuestions = buildPYQRelated(
+    chapter?.questions ?? [], params.questionIndex, params.subject, params.chapter, getPYQSlugByParams,
+  );
 
   return (
     <>
@@ -354,6 +360,13 @@ const JEEPYQQuestion = () => {
 
           {/* ── Why It Matters ── */}
           <WhyItMattersBlock topicName={chapterName} paragraphs={whyItMatters} />
+
+          {/* ── Related PYQs from Same Chapter ── */}
+          <RelatedQuestions
+            questions={relatedQuestions}
+            heading={`More ${chapterName} PYQs`}
+            accentClass="text-orange-400"
+          />
 
           {/* ── Cross-type Internal Links ── */}
           <InternalLinkingMesh links={crossLinks} heading={`Related ${subj} Resources`} />

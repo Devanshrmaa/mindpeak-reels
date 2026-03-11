@@ -30,6 +30,7 @@ import { getUnitForChapter } from '@/data/neet-pyq/hierarchy';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
 import { buildNEETPYQFAQs, buildPYQOverview, buildExamTips, buildConceptSummary, buildLearningResourceSchema, buildCommonMistakes, buildKeyFormulas, buildWhyItMatters, buildStudyStrategy } from '@/lib/questionPageSEO';
 import { CommonMistakesBlock, KeyFormulasBlock, WhyItMattersBlock, StudyStrategyBlock, InternalLinkingMesh, buildNEETPYQCrossLinks } from '@/components/QuestionContentBlocks';
+import { RelatedQuestions, buildPYQRelated } from '@/components/RelatedQuestions';
 
 function seededShuffle(seed: string): number[] {
   let h = 0;
@@ -123,6 +124,11 @@ const NEETPYQQuestion = () => {
 
   const isAnswered = selectedOption !== null;
   const isCorrect = selectedOption === shuffledAnswer;
+
+  /* Related PYQs from same chapter */
+  const relatedQuestions = buildPYQRelated(
+    chapter?.questions ?? [], params.questionIndex, params.subject, params.chapter, getNEETPYQSlugByParams,
+  );
 
   return (
     <>
@@ -267,6 +273,13 @@ const NEETPYQQuestion = () => {
 
           {/* ── Why It Matters ── */}
           <WhyItMattersBlock topicName={chapterName} paragraphs={whyItMatters} />
+
+          {/* ── Related PYQs from Same Chapter ── */}
+          <RelatedQuestions
+            questions={relatedQuestions}
+            heading={`More ${chapterName} PYQs`}
+            accentClass="text-green-400"
+          />
 
           {/* ── Cross-type Internal Links ── */}
           <InternalLinkingMesh links={crossLinks} heading={`Related ${subj} Resources`} />
