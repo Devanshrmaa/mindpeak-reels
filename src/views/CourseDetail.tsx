@@ -545,6 +545,85 @@ const CourseDetail = () => {
           </section>
         )}
 
+        {/* ───── Related Courses ───── */}
+        <section className="px-6 pb-8">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease }}
+              className="p-8 md:p-10 rounded-2xl border border-foreground/[0.06] bg-foreground/[0.02]"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <span className="h-px w-6 bg-primary/30" />
+                <span className="text-[11px] uppercase tracking-[0.3em] text-primary/60 font-medium">Explore More</span>
+              </div>
+              <h2 className="font-display font-semibold text-foreground text-lg mb-7 tracking-[-0.01em]">Related Courses</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {getRelatedCourses(course).map((rc) => (
+                  <Link
+                    key={rc.slug}
+                    to={`/course/${rc.slug}`}
+                    className="flex items-start gap-3 p-4 rounded-xl bg-foreground/[0.02] border border-foreground/[0.04] hover:border-primary/20 transition-colors duration-300"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary/40 mt-1.5 shrink-0" />
+                    <div>
+                      <span className="text-foreground/80 text-sm font-medium block">{rc.name}</span>
+                      <span className="text-muted-foreground/50 text-xs">{rc.duration} · {rc.mode} · {rc.fee}</span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ───── Internal Links ───── */}
+        <section className="px-6 pb-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="p-8 md:p-10 rounded-2xl border border-foreground/[0.04] bg-foreground/[0.01]">
+              <h2 className="font-display font-semibold text-foreground text-base mb-5 tracking-[-0.01em]">Useful Resources</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+                {course.category === 'jee' || course.category === 'crash' ? (
+                  <>
+                    <Link to="/jee-coaching" className="text-primary/70 hover:text-primary text-sm transition-colors">JEE Coaching Overview →</Link>
+                    <Link to="/jee-practice" className="text-primary/70 hover:text-primary text-sm transition-colors">JEE Practice MCQs →</Link>
+                    <Link to="/jee-pyq" className="text-primary/70 hover:text-primary text-sm transition-colors">JEE Previous Year Papers →</Link>
+                    <Link to="/jee-rank-predictor" className="text-primary/70 hover:text-primary text-sm transition-colors">JEE Rank Predictor →</Link>
+                    <Link to="/study-plan" className="text-primary/70 hover:text-primary text-sm transition-colors">Free Study Plan →</Link>
+                    <Link to="/pricing" className="text-primary/70 hover:text-primary text-sm transition-colors">Pricing & Plans →</Link>
+                    <Link to="/jee-crash-course" className="text-primary/70 hover:text-primary text-sm transition-colors">JEE Crash Course →</Link>
+                    <Link to="/methodology" className="text-primary/70 hover:text-primary text-sm transition-colors">Our Methodology →</Link>
+                    <Link to="/success-stories" className="text-primary/70 hover:text-primary text-sm transition-colors">Success Stories →</Link>
+                  </>
+                ) : course.category === 'neet' ? (
+                  <>
+                    <Link to="/neet-coaching" className="text-primary/70 hover:text-primary text-sm transition-colors">NEET Coaching Overview →</Link>
+                    <Link to="/neet-practice" className="text-primary/70 hover:text-primary text-sm transition-colors">NEET Practice MCQs →</Link>
+                    <Link to="/neet-pyq" className="text-primary/70 hover:text-primary text-sm transition-colors">NEET Previous Year Papers →</Link>
+                    <Link to="/neet-rank-predictor" className="text-primary/70 hover:text-primary text-sm transition-colors">NEET Rank Predictor →</Link>
+                    <Link to="/study-plan" className="text-primary/70 hover:text-primary text-sm transition-colors">Free Study Plan →</Link>
+                    <Link to="/pricing" className="text-primary/70 hover:text-primary text-sm transition-colors">Pricing & Plans →</Link>
+                    <Link to="/neet-crash-course" className="text-primary/70 hover:text-primary text-sm transition-colors">NEET Crash Course →</Link>
+                    <Link to="/methodology" className="text-primary/70 hover:text-primary text-sm transition-colors">Our Methodology →</Link>
+                    <Link to="/success-stories" className="text-primary/70 hover:text-primary text-sm transition-colors">Success Stories →</Link>
+                  </>
+                ) : (
+                  <>
+                    <Link to="/courses" className="text-primary/70 hover:text-primary text-sm transition-colors">All Courses →</Link>
+                    <Link to="/jee-coaching" className="text-primary/70 hover:text-primary text-sm transition-colors">JEE Coaching →</Link>
+                    <Link to="/neet-coaching" className="text-primary/70 hover:text-primary text-sm transition-colors">NEET Coaching →</Link>
+                    <Link to="/pricing" className="text-primary/70 hover:text-primary text-sm transition-colors">Pricing & Plans →</Link>
+                    <Link to="/methodology" className="text-primary/70 hover:text-primary text-sm transition-colors">Our Methodology →</Link>
+                    <Link to="/success-stories" className="text-primary/70 hover:text-primary text-sm transition-colors">Success Stories →</Link>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Bottom CTA */}
         <section className="px-6 py-20 md:py-28">
           <div className="max-w-3xl mx-auto text-center">
