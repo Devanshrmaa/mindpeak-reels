@@ -361,6 +361,13 @@ const JEEPYQQuestion = () => {
           {/* ── Why It Matters ── */}
           <WhyItMattersBlock topicName={chapterName} paragraphs={whyItMatters} />
 
+          {/* ── Related PYQs from Same Chapter ── */}
+          <RelatedQuestions
+            questions={relatedQuestions}
+            heading={`More ${chapterName} PYQs`}
+            accentClass="text-orange-400"
+          />
+
           {/* ── Cross-type Internal Links ── */}
           <InternalLinkingMesh links={crossLinks} heading={`Related ${subj} Resources`} />
 

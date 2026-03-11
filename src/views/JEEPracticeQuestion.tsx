@@ -496,6 +496,12 @@ const JEEPracticeQuestion = () => {
           {/* ── Why It Matters ── */}
           <WhyItMattersBlock topicName={topicName} paragraphs={whyItMatters} />
 
+          {/* ── Related Questions from Same Topic ── */}
+          <RelatedQuestions
+            questions={relatedQuestions}
+            heading={`More ${topicName} Questions (${diff})`}
+          />
+
           {/* ── Cross-type Internal Links ── */}
           <InternalLinkingMesh links={crossLinks} heading={`Related ${subj} Resources`} />
 
