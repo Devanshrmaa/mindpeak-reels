@@ -130,9 +130,11 @@ const JEEPYQQuestion = () => {
       provider: { '@type': 'Organization', name: 'MindPeak Institute', url: 'https://mindpeakinstitute.com' },
       hasPart: [{
         '@type': 'Question',
+        name: `JEE ${examType} ${question.year} ${subj}: ${chapterName} Q${params.questionIndex}`,
         eduQuestionType: 'Multiple choice',
         text: question.q,
         acceptedAnswer: { '@type': 'Answer', text: question.o[question.a] },
+        suggestedAnswer: { '@type': 'Answer', text: question.s || question.o[question.a] },
       }],
     },
     {

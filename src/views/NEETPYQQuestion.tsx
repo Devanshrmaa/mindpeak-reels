@@ -110,7 +110,7 @@ const NEETPYQQuestion = () => {
   const description = `Solve NEET ${question.year} ${subj} question on ${chapterName}. Instant answer + NCERT-based solution. Practice 10+ years of NEET PYQs free.`;
 
   const jsonLd = [
-    { '@context': 'https://schema.org', '@type': 'Quiz', name: `NEET ${question.year} ${subj} PYQ: ${chapterName} Q${params.questionIndex}`, educationalLevel: 'Intermediate', about: { '@type': 'Thing', name: `NEET ${subj} — ${chapterName}` }, provider: { '@type': 'Organization', name: 'MindPeak Institute', url: 'https://mindpeakinstitute.com' }, hasPart: [{ '@type': 'Question', eduQuestionType: 'Multiple choice', text: question.q, acceptedAnswer: { '@type': 'Answer', text: question.o[question.a] } }] },
+    { '@context': 'https://schema.org', '@type': 'Quiz', name: `NEET ${question.year} ${subj} PYQ: ${chapterName} Q${params.questionIndex}`, educationalLevel: 'Intermediate', about: { '@type': 'Thing', name: `NEET ${subj} — ${chapterName}` }, provider: { '@type': 'Organization', name: 'MindPeak Institute', url: 'https://mindpeakinstitute.com' }, hasPart: [{ '@type': 'Question', name: `NEET ${question.year} ${subj}: ${chapterName} Q${params.questionIndex}`, eduQuestionType: 'Multiple choice', text: question.q, acceptedAnswer: { '@type': 'Answer', text: question.o[question.a] }, suggestedAnswer: { '@type': 'Answer', text: question.s || question.o[question.a] } }] },
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://mindpeakinstitute.com' },
       { '@type': 'ListItem', position: 2, name: 'NEET PYQ', item: 'https://mindpeakinstitute.com/neet-pyq' },
