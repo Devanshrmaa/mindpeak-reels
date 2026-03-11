@@ -5,13 +5,103 @@ import { useParams, useRouter } from 'next/navigation';
 import { Link } from '@/components/RouterLink';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Users, Clock, BookOpen, Download, Calendar } from 'lucide-react';
-import { getCourseBySlug } from '@/data/coursesData';
+import { getCourseBySlug, courses, type Course } from '@/data/coursesData';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import { NCERTDownloadModal } from '@/components/NCERTDownloadModal';
 import { StudyPlanSection } from '@/components/StudyPlanSection';
+import { SEOHead } from '@/components/SEOHead';
 const logo = '/images/logo.jpeg';
 
 const ease = [0.16, 1, 0.3, 1] as const;
+
+/* ── JSON-LD builder ── */
+function buildCourseJsonLd(course: Course) {
+  const BASE = 'https://mindpeakinstitute.com';
+  const url = `${BASE}/course/${course.slug}`;
+
+  const courseSchema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: course.name,
+    description: course.description,
+    url,
+    provider: {
+      '@type': 'Organization',
+      name: 'MindPeak Institute',
+      url: BASE,
+      logo: `${BASE}/images/logo.jpeg`,
+      sameAs: [BASE],
+    },
+    hasCourseInstance: {
+      '@type': 'CourseInstance',
+      courseMode: 'online',
+      courseWorkload: course.duration,
+      instructor: {
+        '@type': 'Organization',
+        name: 'MindPeak Institute',
+      },
+    },
+    offers: {
+      '@type': 'Offer',
+      price: course.fee.replace(/[^0-9]/g, '').slice(0, -2) || '0',
+      priceCurrency: 'INR',
+      availability: 'https://schema.org/InStock',
+      url,
+    },
+    educationalLevel: course.category === 'foundation' ? 'Secondary' : 'Higher Secondary',
+    inLanguage: 'en',
+    about: course.targetExam,
+  };
+
+  if (course.syllabus?.length) {
+    courseSchema.syllabusSections = course.syllabus.map(s => ({
+      '@type': 'Syllabus',
+      name: s.subject,
+      description: s.modules.join(', '),
+    }));
+  }
+
+  const schemas: object[] = [courseSchema];
+
+  // BreadcrumbList
+  schemas.push({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
+      { '@type': 'ListItem', position: 2, name: 'Courses', item: `${BASE}/courses` },
+      { '@type': 'ListItem', position: 3, name: course.name, item: url },
+    ],
+  });
+
+  // FAQPage
+  if (course.faqs?.length) {
+    schemas.push({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: course.faqs.map(f => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    });
+  }
+
+  return schemas;
+}
+
+/* ── Related courses helper ── */
+function getRelatedCourses(current: Course): Course[] {
+  return courses
+    .filter(c => c.slug !== current.slug)
+    .sort((a, b) => {
+      // Same category first, then same exam
+      const aScore = (a.category === current.category ? 2 : 0) + (a.targetExam === current.targetExam ? 1 : 0);
+      const bScore = (b.category === current.category ? 2 : 0) + (b.targetExam === current.targetExam ? 1 : 0);
+      return bScore - aScore;
+    })
+    .slice(0, 4);
+}
 
 const CourseDetail = () => {
   const params = useParams();
