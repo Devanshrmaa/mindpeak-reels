@@ -2,13 +2,13 @@ import { motion, useScroll, useTransform, useMotionValue, useSpring, AnimatePres
 import { useRef, useEffect, useState, useCallback } from 'react';
 import Image from 'next/image';
 
-/** Lightweight per-line reveal instead of per-character */
+/** Lightweight per-line reveal — minimal delay for fast LCP */
 const lineVariants = {
   hidden: { y: '100%', opacity: 0 },
   visible: (i: number) => ({
     y: '0%',
     opacity: 1,
-    transition: { delay: 0.4 + i * 0.15, duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+    transition: { delay: 0.1 + i * 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] },
   }),
 };
 
