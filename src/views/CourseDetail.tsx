@@ -147,8 +147,16 @@ const CourseDetail = () => {
     other: course.targetExam + ' Program',
   }[course.category];
 
+  const jsonLd = buildCourseJsonLd(course);
+
   return (
     <>
+      <SEOHead
+        title={`${course.name} — MindPeak Institute`}
+        description={course.description.slice(0, 160)}
+        canonical={`https://mindpeakinstitute.com/course/${course.slug}`}
+        jsonLd={jsonLd}
+      />
       <NCERTDownloadModal isOpen={brochureModalOpen} onClose={() => setBrochureModalOpen(false)} book={brochureBook} />
 
       <div className="min-h-screen bg-background">
