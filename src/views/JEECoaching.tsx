@@ -201,11 +201,11 @@ const JEECoaching = () => {
 
         {/* ───── HERO ───── */}
         <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-12 sm:pb-20">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}>
+          <FadeInView>
             <FreshnessBadge lastUpdated={lastUpdated} verifiedFor={examYear} />
 
             <div className="flex items-center gap-3 mb-6 sm:mb-8">
-              <img src={logo} alt="MindPeak Institute" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full ring-1 ring-foreground/[0.08] flex-shrink-0" width={48} height={48} />
+              <Image src="/images/logo.jpeg" alt="MindPeak Institute" width={48} height={48} className="w-10 h-10 sm:w-12 sm:h-12 rounded-full ring-1 ring-foreground/[0.08] flex-shrink-0" />
               <div className="min-w-0">
                 <p className="text-primary/70 text-[10px] sm:text-[11px] uppercase tracking-[0.25em] font-medium">MindPeak Institute</p>
                 <p className="text-muted-foreground/60 text-xs truncate">Personalized 1-on-1 JEE Main &amp; Advanced Coaching</p>
@@ -239,7 +239,7 @@ const JEECoaching = () => {
                 <Phone className="w-3.5 h-3.5" strokeWidth={1.5} /> +91 82194 57704
               </a>
             </div>
-          </motion.div>
+          </FadeInView>
         </section>
 
         {/* ───── EXAM COUNTDOWN + SEASONAL BANNER ───── */}
