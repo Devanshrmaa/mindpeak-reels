@@ -2376,25 +2376,60 @@ ${exam === 'JEE' ? 'JEE Main is typically held in January and April sessions. JE
 **Total productive hours: 9-10 hours**
 
 ### Week 2 (${month} 8-14)
-Focus shift: ${exam === 'JEE' ? 'Heavy Mathematics + Physics integration problems' : 'Biology chapter completion + Chemistry organic revision'}
+
+**Focus shift:** ${exam === 'JEE' ? 'Heavy Mathematics + Physics integration problems' : 'Biology chapter completion + Chemistry organic revision'}
+
+| Day | Morning Focus | Afternoon Focus | Evening Focus |
+|---|---|---|---|
+| ${month} 8 (Mon) | ${exam === 'JEE' ? 'Calculus revision' : 'Human Physiology'} | PYQ practice (Physics) | Error analysis |
+| ${month} 9 (Tue) | ${exam === 'JEE' ? 'Coordinate Geometry' : 'Plant Physiology'} | Chemistry numericals | Formula revision |
+| ${month} 10 (Wed) | ${exam === 'JEE' ? 'Electrostatics problems' : 'Genetics problems'} | ${exam === 'JEE' ? 'Organic Chemistry' : 'Organic Chemistry'} | Mock test (subject) |
+| ${month} 11 (Thu) | Mock analysis + weak areas | Reference book practice | Revision notes |
+| ${month} 12 (Fri) | ${exam === 'JEE' ? 'Optics + Modern Physics' : 'Ecology + Environment'} | PYQ solving (timed) | Concept maps |
+| ${month} 13 (Sat) | Full-length mock test | - | Mock analysis |
+| ${month} 14 (Sun) | Light revision + rest | Weak area review | Planning |
 
 ### Week 3 (${month} 15-21)
-Focus shift: Mock test week — take 2 full-length mocks + detailed post-test analysis
+
+**Focus shift:** Mock test week — take 2 full-length mocks + detailed post-test analysis
+
+This is the most critical week of ${month}. Your mock test performance this week sets the benchmark for improvement targets. After each mock:
+1. Calculate subject-wise accuracy and time distribution
+2. Identify your top 5 error patterns
+3. Create a "never-again" list of silly mistakes
+4. Compare with your Week 1 baseline performance
 
 ### Week 4 (${month} 22-${month === 'February' ? '28' : '30'})
-Focus shift: Revision + weak area consolidation + 1 more full-length mock
+
+**Focus shift:** Revision + weak area consolidation + 1 more full-length mock
+
+**Critical activities:**
+- Complete any remaining chapter targets from the monthly plan
+- Intensive formula revision (all subjects, twice daily)
+- PYQ marathon: solve 50+ questions per day from weak chapters
+- Final mock test with full exam simulation (no interruptions)
 
 ## ${month} Chapter Targets for ${exam}
 
-${exam === 'JEE' ? `| Subject | Chapters to Complete | Chapters to Revise |
-|---|---|---|
-| Physics | ${seededInt(mi*7, 2, 4)} new chapters | ${seededInt(mi*11, 3, 5)} previously covered |
-| Chemistry | ${seededInt(mi*13, 2, 4)} new chapters | ${seededInt(mi*17, 3, 5)} previously covered |
-| Mathematics | ${seededInt(mi*19, 1, 3)} new chapters | ${seededInt(mi*23, 2, 4)} previously covered |` : `| Subject | Chapters to Complete | Chapters to Revise |
-|---|---|---|
-| Biology | ${seededInt(mi*7, 3, 5)} new chapters | ${seededInt(mi*11, 4, 6)} previously covered |
-| Physics | ${seededInt(mi*13, 2, 3)} new chapters | ${seededInt(mi*17, 2, 4)} previously covered |
-| Chemistry | ${seededInt(mi*19, 2, 3)} new chapters | ${seededInt(mi*23, 2, 4)} previously covered |`}
+${exam === 'JEE' ? `| Subject | Chapters to Complete | Chapters to Revise | PYQs to Solve |
+|---|---|---|---|
+| Physics | ${seededInt(mi*7, 2, 4)} new chapters | ${seededInt(mi*11, 3, 5)} previously covered | ${seededInt(mi*7, 40, 80)} PYQs |
+| Chemistry | ${seededInt(mi*13, 2, 4)} new chapters | ${seededInt(mi*17, 3, 5)} previously covered | ${seededInt(mi*13, 40, 80)} PYQs |
+| Mathematics | ${seededInt(mi*19, 1, 3)} new chapters | ${seededInt(mi*23, 2, 4)} previously covered | ${seededInt(mi*19, 30, 60)} PYQs |` : `| Subject | Chapters to Complete | Chapters to Revise | PYQs to Solve |
+|---|---|---|---|
+| Biology | ${seededInt(mi*7, 3, 5)} new chapters | ${seededInt(mi*11, 4, 6)} previously covered | ${seededInt(mi*7, 60, 100)} PYQs |
+| Physics | ${seededInt(mi*13, 2, 3)} new chapters | ${seededInt(mi*17, 2, 4)} previously covered | ${seededInt(mi*13, 30, 60)} PYQs |
+| Chemistry | ${seededInt(mi*19, 2, 3)} new chapters | ${seededInt(mi*23, 2, 4)} previously covered | ${seededInt(mi*19, 30, 60)} PYQs |`}
+
+### How to Prioritise If You're Behind Schedule
+
+If you haven't completed previous months' targets, use this ${month} recovery protocol:
+
+1. **Identify the 10 highest-weightage chapters** you haven't covered
+2. **Allocate 2 days per chapter** (NCERT + 30 PYQs each)
+3. **Skip optional/low-weightage chapters** temporarily
+4. **Take chapter-wise mini-mocks** to verify understanding before moving on
+5. **Document what you've skipped** and revisit in the next month
 
 ## Mock Test Schedule for ${month}
 
@@ -2405,6 +2440,27 @@ ${exam === 'JEE' ? `| Subject | Chapters to Complete | Chapters to Revise |
 | ${month} ${seededInt(mi+2, 18, 22)} | Full-length Mock #1 | ${exam === 'JEE' ? '3 hours' : '3 hours 20 min'} | Next day full analysis |
 | ${month} ${seededInt(mi+3, 25, 28)} | Full-length Mock #2 | ${exam === 'JEE' ? '3 hours' : '3 hours 20 min'} | Next day full analysis |
 
+### Post-Mock Analysis Template
+
+After every mock test, fill in this analysis framework:
+
+| Parameter | Physics | Chemistry | ${exam === 'JEE' ? 'Maths' : 'Biology'} |
+|---|---|---|---|
+| Questions attempted | ___ / ___ | ___ / ___ | ___ / ___ |
+| Correct answers | | | |
+| Wrong answers | | | |
+| Marks obtained | | | |
+| Time spent | ___ min | ___ min | ___ min |
+| Silly mistakes | | | |
+| Conceptual errors | | | |
+| Questions not attempted | | | |
+
+**Key metrics to track month-over-month:**
+- Total score trend (should increase by 10-15% monthly)
+- Accuracy percentage (target: 75%+ by exam month)
+- Time management (finishing with 15-20 minutes to spare)
+- Silly mistake rate (target: below 5% of total attempts)
+
 ## Key Mental Health Tips for ${month}
 
 1. **Sleep 7-8 hours** — sleep deprivation destroys retention
@@ -2412,6 +2468,10 @@ ${exam === 'JEE' ? `| Subject | Chapters to Complete | Chapters to Revise |
 3. **Social connection** — 30 min daily with family/friends prevents isolation
 4. **Reward system** — celebrate weekly targets met
 5. **Mindfulness** — 10 min morning meditation improves concentration
+
+### ${month}-Specific Stress Management
+
+${mi < 3 ? 'Early months: The marathon has just begun. Don\'t compare yourself with others who started earlier. Focus on your own pace and build consistent study habits.' : mi < 6 ? 'Mid-preparation: This is where motivation dips. Remember why you started. Visualise your target college daily. Celebrate small wins — completing a chapter, improving mock scores by even 5 marks.' : mi < 9 ? 'Approaching exam season: Anxiety is normal. Channel it into productive study. If stress becomes overwhelming, talk to your mentor or a counselor. Your mental health is as important as your preparation.' : 'Final months: Peak stress period. Trust your preparation. Don\'t start new topics. Revise what you know. Sleep well. Your brain consolidates learning during sleep.'}
 
 ## ${month} Targets Checklist
 
@@ -2421,6 +2481,8 @@ ${exam === 'JEE' ? `| Subject | Chapters to Complete | Chapters to Revise |
 - [ ] Solve ${seededInt(mi*41, 300, 500)} practice problems
 - [ ] Maintain error log (daily entries)
 - [ ] Complete NCERT revision for ${seededInt(mi*43, 2, 4)} subjects
+- [ ] Achieve 5%+ improvement in mock scores vs last month
+- [ ] Zero repeated mistakes from error log
 
 ## How MindPeak Makes ${month} More Productive
 
@@ -2431,16 +2493,31 @@ Your MindPeak mentor creates a personalised ${month} plan based on:
 4. Your board exam schedule (if applicable)
 5. Your mental health and stress levels
 
+### Weekly Mentor Check-in for ${month}
+
+Every week in ${month}, your MindPeak mentor:
+- Reviews your error log and identifies recurring patterns
+- Adjusts chapter allocation based on your mock performance
+- Provides targeted problem sets for your weakest areas
+- Discusses time management improvements from mock analysis
+- Checks in on your mental well-being and adjusts study intensity
+
 ## FAQs
 
 **Q: How many hours should I study in ${month}?**
-A: Aim for 8-10 focused hours on weekdays, 10-12 on weekends. Quality matters more than quantity.
+A: Aim for 8-10 focused hours on weekdays, 10-12 on weekends. Quality matters more than quantity. If you're consistently focused for 8 hours, that beats 14 distracted hours.
 
 **Q: Should I focus on new chapters or revision in ${month}?**
-A: Ideally 60% new learning + 40% revision. Never let revision lag — forgetting is natural and must be countered.
+A: Ideally 60% new learning + 40% revision. Never let revision lag — forgetting is natural and must be countered with spaced repetition.
 
 **Q: How many mock tests should I take in ${month}?**
 A: Minimum 2 full-length + 4 subject-wise mocks. Always analyse thoroughly — an un-analysed mock is a wasted mock.
+
+**Q: What if I'm significantly behind my ${month} targets?**
+A: Don't panic. Prioritise high-weightage chapters, reduce the number of reference book problems, and focus on NCERT + PYQs only for lower-priority chapters. Discuss with your mentor for a recovery plan.
+
+**Q: Can I take a day off in ${month}?**
+A: Yes! One rest day per week is recommended. Continuous study without breaks leads to diminishing returns. Use rest days for light physical activity and socialising.
 
 ---
 
