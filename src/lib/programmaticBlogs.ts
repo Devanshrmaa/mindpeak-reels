@@ -3297,6 +3297,37 @@ ${exam.prepStrategy.slice(0, 4).map((s, j) => `${j + 1}. ${s}`).join('\n')}
 - **1 month before:** Weekly ${exam.name} mocks + revision of exam-exclusive topics
 - **Last 2 weeks:** Light practice, formula revision, strategy review
 
+### Subject-Wise Focus Areas for ${city.city} Students
+
+${exam.subjects.map((subj, j) => `#### ${subj.name} (${subj.weightagePercent}% of ${exam.name})
+Focus on ${subj.chapters.slice(0, 3).join(', ')} — these carry the highest weightage. ${subj.uniqueTopics ? `**${exam.name}-exclusive topics:** ${subj.uniqueTopics.join(', ')} — not covered in ${overlapExam} coaching.` : `All topics overlap with ${overlapExam}.`} Allocate ${seededInt(i * 40 + j, 6, 12)} hours per week.`).join('\n\n')}
+
+### Recommended Daily Schedule
+
+| Time | Activity | Subject |
+|---|---|---|
+| 6:00-8:00 AM | ${overlapExam} preparation | Core subjects |
+| 9:00-11:00 AM | ${overlapExam} problem practice | Weakest subject |
+| 2:00-4:00 PM | ${exam.name}-specific topics | Unique sections |
+| 5:00-6:30 PM | PYQ solving (${exam.name} papers) | All subjects |
+| 8:00-9:00 PM | Formula revision + error log | All subjects |
+
+## ${exam.name} Exam Day Strategy
+
+### Before the Exam
+- Get familiar with ${exam.mode === 'online' ? 'the computer-based interface' : 'OMR sheet filling'}
+- Reach the centre ${exam.mode === 'offline' ? '1 hour' : '45 minutes'} early
+- Carry admit card, ID proof, and required stationery
+
+### During the Exam
+1. **First 10 minutes:** Scan the paper. Mark easy questions.
+2. **Next 60% of time:** Solve easy + medium questions.
+3. **Remaining time:** Attempt hard questions selectively.
+4. **Last 10 minutes:** Review marked answers.
+
+### Negative Marking Strategy
+${exam.negativeMarking}. Only attempt questions where you can eliminate at least 2 options confidently.
+
 ## ${exam.name} Cutoffs and College Options
 
 | College | Branch | Expected Cutoff ${year} |
@@ -3306,6 +3337,14 @@ ${exam.prepStrategy.slice(0, 4).map((s, j) => `${j + 1}. ${s}`).join('\n')}
 | ${exam.topColleges[1] || exam.topColleges[0]} | Computer Science | ${seededInt(i * 12, 80, 95)} percentile |
 | ${exam.topColleges[1] || exam.topColleges[0]} | Mechanical | ${seededInt(i * 13, 65, 82)} percentile |
 | ${exam.topColleges[2] || exam.topColleges[0]} | IT / CSE | ${seededInt(i * 14, 75, 90)} percentile |
+
+## For ${city.city} Parents: What You Need to Know
+
+1. **${exam.name} is separate from ${overlapExam}** — your child can appear for both
+2. **Application deadlines** are 2-3 months before the exam in ${exam.examMonth}
+3. **MindPeak covers both** ${overlapExam} + ${exam.name} in one program — no extra coaching fees
+4. **College options increase by ${seededInt(i * 25, 30, 60)}%** when your child adds ${exam.name}
+5. **Top colleges** like ${exam.topColleges[0]} offer ₹8-20 LPA average placements
 
 ## Success Stories: ${city.state} Students Who Cracked ${exam.name}
 
@@ -3329,6 +3368,12 @@ A: ${exam.keyDifferences[0]}
 
 **Q: Is ${exam.name} worth appearing for if I'm already preparing for ${overlapExam}?**
 A: Yes! With ${exam.overlapPercent}% syllabus overlap, you're already ${exam.overlapPercent}% prepared. Adding ${exam.name}-specific practice opens doors to ${exam.topColleges.slice(0, 2).join(' and ')} — excellent institutions that many ${city.city} students miss out on.
+
+**Q: When should I start ${exam.name} preparation alongside ${overlapExam}?**
+A: Start ${exam.name}-specific practice 3-4 months before the exam date. Your ${overlapExam} preparation builds the foundation automatically.
+
+**Q: How many extra hours per week does ${exam.name} need?**
+A: With ${exam.overlapPercent}% overlap, only ${Math.round((100 - exam.overlapPercent) / 10) + 2} extra hours per week for ${exam.name}-specific topics and mock tests.
 
 ${exam.faqs.slice(0, 2).map(f => `**Q: ${f.q}**\nA: ${f.a}`).join('\n\n')}
 
