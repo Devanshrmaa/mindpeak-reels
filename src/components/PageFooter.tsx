@@ -196,6 +196,32 @@ const importantLinks = [
   { label: 'Refund Policy', to: '/refund-policy' },
 ];
 
+/* ── City hub links for internal linking depth ── */
+const cityHubLinks = [
+  { label: 'JEE Coaching in Delhi', to: '/jee-coaching-in-delhi' },
+  { label: 'JEE Coaching in Mumbai', to: '/jee-coaching-in-mumbai' },
+  { label: 'JEE Coaching in Bangalore', to: '/jee-coaching-in-bangalore' },
+  { label: 'NEET Coaching in Delhi', to: '/neet-coaching-in-delhi' },
+  { label: 'NEET Coaching in Mumbai', to: '/neet-coaching-in-mumbai' },
+  { label: 'NEET Coaching in Bangalore', to: '/neet-coaching-in-bangalore' },
+  { label: 'JEE Coaching in Hyderabad', to: '/jee-coaching-in-hyderabad' },
+  { label: 'NEET Coaching in Chennai', to: '/neet-coaching-in-chennai' },
+  { label: 'JEE Coaching in Pune', to: '/jee-coaching-in-pune' },
+  { label: 'NEET Coaching in Kolkata', to: '/neet-coaching-in-kolkata' },
+];
+
+/* ── Competitor comparison links ── */
+const comparisonLinks = [
+  { label: 'MindPeak vs Allen', to: '/mindpeak-vs-allen' },
+  { label: 'MindPeak vs FIITJEE', to: '/mindpeak-vs-fiitjee' },
+  { label: 'MindPeak vs Physics Wallah', to: '/mindpeak-vs-physics-wallah' },
+  { label: 'MindPeak vs Unacademy', to: '/mindpeak-vs-unacademy' },
+  { label: 'MindPeak vs Vedantu', to: '/mindpeak-vs-vedantu' },
+  { label: 'MindPeak vs Aakash', to: '/mindpeak-vs-aakash' },
+  { label: 'Online vs Offline Coaching', to: '/online-vs-offline-jee-coaching' },
+  { label: 'Batch vs Personal Coaching', to: '/batch-vs-personal-coaching' },
+];
+
 const FooterSection = ({ title, links }: { title: string; links: { label: string; to: string }[] }) => (
   <div>
     <h3 className="font-display font-bold text-foreground text-xs uppercase tracking-[0.15em] mb-3">{title}</h3>
@@ -250,6 +276,8 @@ export const PageFooter = ({ extra }: { extra?: string }) => {
         {footerSections.map((section) => (
           <FooterSection key={section.title} title={section.title} links={section.links} />
         ))}
+        <FooterSection title="Coaching by City" links={cityHubLinks} />
+        <FooterSection title="Compare Coaching" links={comparisonLinks} />
         <div>
           <h3 className="font-display font-bold text-foreground text-xs uppercase tracking-[0.15em] mb-3">Important Links</h3>
           <ul className="space-y-2">

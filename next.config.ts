@@ -37,6 +37,8 @@ const nextConfig: NextConfig = {
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
           { key: 'Last-Modified', value: new Date().toUTCString() },
+          /* Ensure no accidental noindex on HTML pages */
+          { key: 'X-Robots-Tag', value: 'index, follow' },
         ],
       },
       {
