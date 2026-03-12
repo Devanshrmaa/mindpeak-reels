@@ -1,7 +1,7 @@
 /**
  * Dynamic sitemap route: /final3.xml
- * Comprehensive sitemap covering ALL pages including new blog categories,
- * new competitor comparisons, expanded city pages, and topic study guides.
+ * Single comprehensive sitemap — the ONLY one referenced in robots.txt.
+ * Uses staggered lastmod dates (slug-hash based) instead of identical dates.
  * Designed for 50,000+ URL scale.
  */
 
@@ -32,17 +32,34 @@ const IMPORTANT_Q_SLUGS = [
 
 const BASE = 'https://mindpeakinstitute.com';
 
-function urlEntry(path: string, priority: string, changefreq: string, today: string): string {
-  return `  <url>\n    <loc>${BASE}${path}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+/**
+ * Deterministic lastmod based on slug hash.
+ * Spreads dates over the last 14 days to avoid Google's "all same lastmod" penalty.
+ * Static/high-priority pages always get TODAY.
+ */
+function staggeredLastmod(slug: string, today: Date): string {
+  let hash = 0;
+  for (let i = 0; i < slug.length; i++) {
+    hash = ((hash << 5) - hash + slug.charCodeAt(i)) | 0;
+  }
+  const daysAgo = Math.abs(hash) % 14; // 0–13 days ago
+  const d = new Date(today);
+  d.setDate(d.getDate() - daysAgo);
+  return d.toISOString().slice(0, 10);
+}
+
+function urlEntry(path: string, priority: string, changefreq: string, lastmod: string): string {
+  return `  <url>\n    <loc>${BASE}${path}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
 }
 
 export async function GET() {
-  const TODAY = new Date().toISOString().slice(0, 10);
+  const now = new Date();
+  const TODAY = now.toISOString().slice(0, 10);
 
-  /* ═══ 1. Static pages ═══ */
+  /* ═══ 1. Static pages (always get TODAY lastmod) ═══ */
   const STATIC = [
     '/', '/jee-coaching', '/neet-coaching', '/courses', '/pricing', '/free-trial',
-    '/study-plan', '/contact', '/blog', '/about', '/success-stories', '/methodology', '/mentors',
+    '/study-plan', '/contact', '/blog', '/about', '/methodology', '/mentors',
     '/jee-main-coaching', '/jee-advanced-coaching', '/neet-ug-coaching',
     '/jee-dropper-coaching', '/neet-dropper-coaching', '/foundation-coaching',
     '/jee-crash-course', '/neet-crash-course',
@@ -68,7 +85,7 @@ export async function GET() {
     '/course/9th-foundation', '/course/10th-foundation',
     '/course/bitsat-target', '/course/isi-entrance-target', '/course/olympiad-coaching',
     '/terms-and-conditions', '/refund-policy',
-    // Exam landing pages
+    // Exam landing pages from registry
     ...examRegistry.map(e => `/${e.slug}-coaching`),
   ];
 
@@ -86,7 +103,7 @@ export async function GET() {
   /* ═══ 4. Subject-city pages ═══ */
   const subjectCitySlugs = getAllSubjectCitySlugs().map(s => `/${s}`);
 
-  /* ═══ 5. Blog posts (expanded: 900+ posts) ═══ */
+  /* ═══ 5. Blog posts ═══ */
   const blogSlugs = getAllProgrammaticBlogSlugs().map(s => `/${s}`);
 
   /* ═══ 6. Topic pages ═══ */
@@ -95,7 +112,7 @@ export async function GET() {
   /* ═══ 7. Chapter pages ═══ */
   const chapterPaths = CHAPTER_SLUGS.map(s => `/${s}`);
 
-  /* ═══ 8. Study guide pages (~800) ═══ */
+  /* ═══ 8. Study guide pages ═══ */
   const studyGuideSlugs = getAllStudyGuideSlugs().map(s => `/${s}`);
 
   /* ═══ 9. Question pages ═══ */
@@ -122,7 +139,7 @@ export async function GET() {
   /* ═══ Build XML ═══ */
   const lines: string[] = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    `<!-- MindPeak Institute — Comprehensive Sitemap v3 — Generated ${TODAY} -->`,
+    `<!-- MindPeak Institute — Comprehensive Sitemap v4 — Generated ${TODAY} -->`,
   ];
 
   const counts = {
@@ -146,26 +163,29 @@ export async function GET() {
   };
   const total = Object.values(counts).reduce((a, b) => a + b, 0);
 
-  lines.push(`<!-- Static: ${counts.static} | Comparisons: ${counts.comparisons} | Locations: ${counts.locations} | Subject-City: ${counts.subjectCity} | Blogs: ${counts.blogs} | Topics: ${counts.topics} | Chapters: ${counts.chapters} | Study Guides: ${counts.studyGuides} | JEE Practice: ${counts.jeePractice} | JEE PYQ: ${counts.jeePyq} | NEET Practice: ${counts.neetPractice} | NEET PYQ: ${counts.neetPyq} | TOTAL: ${total} -->`);
+  lines.push(`<!-- Total URLs: ${total} | Static: ${counts.static} | Locations: ${counts.locations} | Subject-City: ${counts.subjectCity} | Blogs: ${counts.blogs} | Topics: ${counts.topics} | Chapters: ${counts.chapters} | JEE Practice: ${counts.jeePractice} | JEE PYQ: ${counts.jeePyq} | NEET Practice: ${counts.neetPractice} | NEET PYQ: ${counts.neetPyq} -->`);
   lines.push('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
 
+  // Static pages → always TODAY (high-priority, frequently updated)
   for (const p of STATIC) lines.push(urlEntry(p, '0.80', 'weekly', TODAY));
   for (const p of comparisonPaths) lines.push(urlEntry(p, '0.75', 'monthly', TODAY));
-  for (const p of locationPaths) lines.push(urlEntry(p, '0.65', 'monthly', TODAY));
-  for (const p of subjectCitySlugs) lines.push(urlEntry(p, '0.60', 'monthly', TODAY));
-  for (const p of blogSlugs) lines.push(urlEntry(p, '0.60', 'weekly', TODAY));
-  for (const p of chapterPaths) lines.push(urlEntry(p, '0.60', 'monthly', TODAY));
-  for (const p of topicPaths) lines.push(urlEntry(p, '0.55', 'monthly', TODAY));
-  for (const p of studyGuideSlugs) lines.push(urlEntry(p, '0.55', 'monthly', TODAY));
-  for (const p of practiceSlugs) lines.push(urlEntry(p, '0.50', 'monthly', TODAY));
-  for (const p of pyqSlugs) lines.push(urlEntry(p, '0.50', 'monthly', TODAY));
-  for (const p of neetPracticeSlugs) lines.push(urlEntry(p, '0.50', 'monthly', TODAY));
-  for (const p of neetPyqSlugs) lines.push(urlEntry(p, '0.50', 'monthly', TODAY));
-  for (const p of examInfoSlugs) lines.push(urlEntry(p, '0.75', 'weekly', TODAY));
-  for (const p of differenceSlugs) lines.push(urlEntry(p, '0.60', 'monthly', TODAY));
+
+  // Location, blog, chapter pages → staggered lastmod
+  for (const p of locationPaths) lines.push(urlEntry(p, '0.65', 'monthly', staggeredLastmod(p, now)));
+  for (const p of subjectCitySlugs) lines.push(urlEntry(p, '0.60', 'monthly', staggeredLastmod(p, now)));
+  for (const p of blogSlugs) lines.push(urlEntry(p, '0.60', 'weekly', staggeredLastmod(p, now)));
+  for (const p of chapterPaths) lines.push(urlEntry(p, '0.60', 'monthly', staggeredLastmod(p, now)));
+  for (const p of topicPaths) lines.push(urlEntry(p, '0.55', 'monthly', staggeredLastmod(p, now)));
+  for (const p of studyGuideSlugs) lines.push(urlEntry(p, '0.55', 'monthly', staggeredLastmod(p, now)));
+  for (const p of practiceSlugs) lines.push(urlEntry(p, '0.50', 'monthly', staggeredLastmod(p, now)));
+  for (const p of pyqSlugs) lines.push(urlEntry(p, '0.50', 'monthly', staggeredLastmod(p, now)));
+  for (const p of neetPracticeSlugs) lines.push(urlEntry(p, '0.50', 'monthly', staggeredLastmod(p, now)));
+  for (const p of neetPyqSlugs) lines.push(urlEntry(p, '0.50', 'monthly', staggeredLastmod(p, now)));
+  for (const p of examInfoSlugs) lines.push(urlEntry(p, '0.75', 'weekly', staggeredLastmod(p, now)));
+  for (const p of differenceSlugs) lines.push(urlEntry(p, '0.60', 'monthly', staggeredLastmod(p, now)));
   for (const p of importantQSlugs) lines.push(urlEntry(p, '0.65', 'weekly', TODAY));
-  for (const p of counsellingSlugs) lines.push(urlEntry(p, '0.65', 'monthly', TODAY));
-  for (const p of notesSlugs) lines.push(urlEntry(p, '0.55', 'monthly', TODAY));
+  for (const p of counsellingSlugs) lines.push(urlEntry(p, '0.65', 'monthly', staggeredLastmod(p, now)));
+  for (const p of notesSlugs) lines.push(urlEntry(p, '0.55', 'monthly', staggeredLastmod(p, now)));
 
   lines.push('</urlset>');
 

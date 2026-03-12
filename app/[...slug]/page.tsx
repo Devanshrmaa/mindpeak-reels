@@ -4,6 +4,10 @@
  * Exports generateMetadata so Next.js renders <title>, <meta>, canonical,
  * and OG tags at SSR time — critical for Google indexing.
  *
+ * Renders a server-side content shell (noscript + hidden text) so Googlebot
+ * sees meaningful content even without JS execution, improving indexation
+ * for the 50,000+ dynamic pages.
+ *
  * generateStaticParams pre-renders the top ~500 high-value pages as static HTML.
  */
 
@@ -20,7 +24,6 @@ export const dynamicParams = true;
 
 /**
  * Pre-render the highest-priority pages for faster TTFB and crawl speed.
- * Chapters, subjects, coaching, exam info, comparisons — ~500 pages.
  */
 export async function generateStaticParams() {
   const { CHAPTER_SLUGS } = await import("@/data/chapterData");
@@ -31,7 +34,6 @@ export async function generateStaticParams() {
   const EXAM_INFO_SLUGS = getAllExamInfoSlugs();
   const DIFFERENCE_SLUGS = getAllDifferenceSlugs();
 
-  /* Inline slugs from "use client" view files to avoid SSG import errors */
   const SUBJECT_SLUGS = [
     'jee-physics-preparation', 'jee-chemistry-preparation', 'jee-mathematics-preparation',
     'neet-physics-preparation', 'neet-chemistry-preparation', 'neet-biology-preparation',
@@ -43,46 +45,32 @@ export async function generateStaticParams() {
   ];
 
   const staticSlugs: string[] = [
-    // Core coaching pages
     'jee-coaching', 'neet-coaching', 'jee-advanced-coaching', 'jee-main-coaching',
     'neet-ug-coaching', 'jee-dropper-coaching', 'neet-dropper-coaching',
     'jee-crash-course', 'neet-crash-course', 'foundation-coaching',
     'batch-vs-personal-coaching', 'online-vs-offline-jee-coaching',
     'kota-coaching-alternative',
-    // Comparisons
     'mindpeak-vs-allen', 'mindpeak-vs-fiitjee', 'mindpeak-vs-resonance',
     'mindpeak-vs-physics-wallah', 'mindpeak-vs-unacademy', 'mindpeak-vs-vedantu',
     'mindpeak-vs-byjus', 'mindpeak-vs-aakash', 'mindpeak-vs-narayana',
     'mindpeak-vs-sri-chaitanya',
-    // Practice & PYQ hubs
     'jee-practice', 'neet-practice', 'jee-pyq', 'neet-pyq',
-    // Tools
     'jee-rank-predictor', 'neet-rank-predictor', 'study-plan',
-    // Subject coaching pages
     'jee-physics-coaching', 'jee-chemistry-coaching', 'jee-mathematics-coaching',
     'neet-physics-coaching', 'neet-chemistry-coaching', 'neet-biology-coaching',
-    // Subject topic pages
     'jee-physics-mechanics', 'jee-physics-electrodynamics', 'jee-physics-optics',
     'jee-physics-thermodynamics', 'jee-physics-waves',
     'jee-chemistry-organic', 'jee-chemistry-inorganic', 'jee-chemistry-physical',
     'jee-math-algebra', 'jee-math-calculus', 'jee-math-geometry', 'jee-math-trigonometry',
-    // All chapter slugs
     ...CHAPTER_SLUGS,
-    // All subject preparation pages
     ...SUBJECT_SLUGS,
-    // Formula sheets
     ...FORMULA_SLUGS,
-    // Exam info pages
     ...EXAM_INFO_SLUGS,
-    // Difference-between pages
     ...DIFFERENCE_SLUGS,
-    // Important questions hubs
     ...IMPORTANT_Q_SLUGS,
   ];
 
-  // Deduplicate
   const unique = [...new Set(staticSlugs)];
-
   return unique.map((s) => ({ slug: s.split("/") }));
 }
 
@@ -99,7 +87,84 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
+/**
+ * Server-side content shell for crawlers.
+ * Generates a readable summary from the slug so Googlebot sees real text
+ * content in the initial HTML without needing JS execution.
+ */
+function buildServerContent(slug: string[]): { heading: string; description: string } {
+  const full = slug.join('/');
+  const prettyName = full.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+
+  // Question pages
+  if (full.startsWith('jee-physics-') || full.startsWith('jee-chemistry-') ||
+      full.startsWith('jee-mathematics-') || full.startsWith('neet-biology-') ||
+      full.startsWith('neet-physics-') || full.startsWith('neet-chemistry-')) {
+    const exam = full.startsWith('neet') ? 'NEET' : 'JEE';
+    if (full.includes('-pyq-')) {
+      return {
+        heading: `${exam} Previous Year Question`,
+        description: `Solve this ${exam} previous year question with detailed step-by-step solution and explanation. Practice 10+ years of ${exam} PYQs for free at MindPeak Institute.`,
+      };
+    }
+    return {
+      heading: `${exam} Practice Question`,
+      description: `Solve this ${exam} practice MCQ with instant answer reveal and step-by-step solution. 500+ free practice questions available at MindPeak Institute.`,
+    };
+  }
+
+  // Location pages
+  if (full.includes('coaching-in-')) {
+    const city = full.split('-in-').pop()?.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) ?? '';
+    const exam = full.startsWith('neet') ? 'NEET' : 'JEE';
+    return {
+      heading: `Best ${exam} Coaching in ${city}`,
+      description: `Top-rated ${exam} coaching in ${city} by MindPeak Institute. Personalized 1-on-1 online coaching with expert mentors, adaptive curriculum, and 95% success rate. Book a free demo class today.`,
+    };
+  }
+
+  // Chapter/topic pages
+  if (slug.length === 2 && slug[1] === 'notes') {
+    return {
+      heading: `${slug[0].replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())} — Revision Notes`,
+      description: `Complete revision notes with key concepts, formulas, and exam tips. Free study material by MindPeak Institute.`,
+    };
+  }
+
+  return {
+    heading: prettyName,
+    description: `${prettyName} — Personalized JEE & NEET coaching by MindPeak Institute. Expert mentors, adaptive curriculum, 95% success rate.`,
+  };
+}
+
 export default async function CatchAllPage({ params }: Props) {
-  await params;
-  return <CatchAllClient />;
+  const { slug } = await params;
+  const content = buildServerContent(slug);
+
+  return (
+    <>
+      {/* Server-rendered content for crawlers — visible to Googlebot in initial HTML */}
+      <div
+        data-nosnippet={undefined}
+        className="sr-only"
+        aria-hidden="true"
+        suppressHydrationWarning
+      >
+        <h1>{content.heading}</h1>
+        <p>{content.description}</p>
+        <p>MindPeak Institute offers personalized 1-on-1 JEE and NEET coaching with a 95% success rate. Our adaptive curriculum and dedicated mentors help students achieve their dream ranks.</p>
+        <nav>
+          <a href="/jee-coaching">JEE Coaching</a>
+          <a href="/neet-coaching">NEET Coaching</a>
+          <a href="/courses">All Courses</a>
+          <a href="/jee-practice">JEE Practice Questions</a>
+          <a href="/neet-practice">NEET Practice Questions</a>
+          <a href="/jee-pyq">JEE Previous Year Questions</a>
+          <a href="/neet-pyq">NEET Previous Year Questions</a>
+          <a href="/free-trial">Free Trial Class</a>
+        </nav>
+      </div>
+      <CatchAllClient />
+    </>
+  );
 }
