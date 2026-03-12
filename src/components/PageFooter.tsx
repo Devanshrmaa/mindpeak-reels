@@ -276,6 +276,8 @@ export const PageFooter = ({ extra }: { extra?: string }) => {
         {footerSections.map((section) => (
           <FooterSection key={section.title} title={section.title} links={section.links} />
         ))}
+        <FooterSection title="Coaching by City" links={cityHubLinks} />
+        <FooterSection title="Compare Coaching" links={comparisonLinks} />
         <div>
           <h3 className="font-display font-bold text-foreground text-xs uppercase tracking-[0.15em] mb-3">Important Links</h3>
           <ul className="space-y-2">
