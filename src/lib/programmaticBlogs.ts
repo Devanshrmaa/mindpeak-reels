@@ -1721,14 +1721,36 @@ function generateRevisionChecklistPosts(): BlogPost[] {
 
 Print or save this checklist. Go through each item systematically. Check off items you can confidently complete. Items you can't check off → those are your priority revision areas. Target: 28/30 checked before exam day.
 
+**Why checklists work:** Research in cognitive science shows that structured self-assessment improves exam performance by 15-25%. By explicitly identifying what you know vs don't know, you eliminate the dangerous "illusion of knowledge" that causes students to skip weak areas.
+
 ## Section A: Concept Checks (10 Points)
 
 ${ch.topics.slice(0, 5).map((t, j) => `- ☐ **${j + 1}. ${t}** — Can explain the core concept without notes\n- ☐ **${j + 6}. ${t} application** — Can solve a medium-difficulty problem using this concept`).join('\n')}
+
+### How to Fix Unchecked Items in Section A
+
+For each unchecked item, use this 3-step recovery protocol:
+1. **Re-read NCERT section** for that concept (20 minutes)
+2. **Solve 5 easy + 5 medium problems** on that specific concept (40 minutes)
+3. **Teach the concept out loud** to yourself or a study partner (10 minutes)
+
+If you still can't check the item after this protocol, you have a deeper conceptual gap. Schedule a focused session with your MindPeak mentor to address it before the exam.
 
 ## Section B: Formula Mastery (10 Points)
 
 ${ch.keyFormulas.map((f, j) => `- ☐ **${j + 11}. ${f}** — Can write from memory and explain when to use it`).join('\n')}
 ${Array.from({ length: Math.max(0, 10 - ch.keyFormulas.length) }, (_, j) => `- ☐ **${ch.keyFormulas.length + j + 11}. Related formula ${j + 1}** — Can derive or state the formula accurately`).join('\n')}
+
+### Formula Memorisation Techniques That Actually Work
+
+**Technique 1: Spaced Repetition**
+Write each formula on a flashcard. Review all cards on Day 1. On Day 2, only review cards you got wrong. On Day 4, review all again. This scientifically-proven technique improves long-term retention by 200-300%.
+
+**Technique 2: Formula Stories**
+Connect formulas to real-world scenarios. For example, link ${ch.keyFormulas[0] || 'key formulas'} to a practical situation you encounter daily. The emotional connection strengthens memory encoding.
+
+**Technique 3: Morning Write-Out**
+Every morning for 2 weeks before the exam, write all ${ch.chapter} formulas from memory. Time yourself. Target: all formulas written correctly in under 5 minutes.
 
 ## Section C: Problem-Solving Readiness (10 Points)
 
@@ -1743,6 +1765,15 @@ ${Array.from({ length: Math.max(0, 10 - ch.keyFormulas.length) }, (_, j) => `- �
 - ☐ **29.** Chapter-wise mock test score: 80%+ accuracy
 - ☐ **30.** All NCERT examples and exercises completed
 
+### Interpreting Your Score
+
+| Score | Readiness Level | Action Required |
+|---|---|---|
+| 27-30 | 🟢 Exam Ready | Light revision, maintain confidence |
+| 22-26 | 🟡 Almost Ready | Focus on unchecked items for 3-4 days |
+| 17-21 | 🟠 Needs Work | Dedicate 1 week to ${ch.chapter} revision |
+| Below 17 | 🔴 Significant Gaps | Seek mentor help immediately |
+
 ## Quick Formula Reference
 
 | Formula | When to Use | Common Mistake |
@@ -1756,6 +1787,20 @@ ${ch.topics.slice(0, 4).map((t, j) => `${j + 1}. ${t} — standard diagram from 
 
 Practice drawing these from memory. In NEET, diagram-based questions are common. In JEE, graph interpretation is tested frequently.
 
+## ${ch.chapter} Weightage Analysis for ${ch.exam} ${year}
+
+Understanding how this chapter is tested helps you prioritise:
+
+| Question Type | Expected Questions | Marks | Your Preparation Status |
+|---|---|---|---|
+| Direct formula MCQ | ${seededInt(i * 7, 2, 4)} | ${seededInt(i * 7, 2, 4) * 4} | ☐ Ready |
+| Conceptual/Theory | ${seededInt(i * 11, 1, 3)} | ${seededInt(i * 11, 1, 3) * 4} | ☐ Ready |
+| Numerical | ${seededInt(i * 13, 1, 3)} | ${seededInt(i * 13, 1, 3) * 4} | ☐ Ready |
+| Diagram/Graph | ${seededInt(i * 17, 1, 2)} | ${seededInt(i * 17, 1, 2) * 4} | ☐ Ready |
+| Multi-concept | ${seededInt(i * 19, 0, 2)} | ${seededInt(i * 19, 0, 2) * 4} | ☐ Ready |
+
+**Total expected marks from ${ch.chapter}: ${ch.weightage}** — This is too significant to leave any checklist item unchecked.
+
 ## Last-Day Quick Revision Strategy
 
 1. **Morning:** Read through this checklist, marking unchecked items
@@ -1763,11 +1808,33 @@ Practice drawing these from memory. In NEET, diagram-based questions are common.
 3. **Evening:** Solve 5 PYQs from ${ch.chapter} under timed conditions
 4. **Night:** Review error log one final time, then sleep early
 
+### The 60-Minute ${ch.chapter} Speed Revision
+
+If you have only 1 hour before the exam for ${ch.chapter}:
+- **0-15 min:** Write all formulas from memory, check against your sheet
+- **15-30 min:** Skim through error log — remind yourself what NOT to do
+- **30-45 min:** Solve 3 PYQs mentally (don't write full solutions, just identify approach)
+- **45-60 min:** Close books. Breathe. Visualise solving ${ch.chapter} questions correctly.
+
 ## Common Mistakes Summary
 
 ${ch.commonMistakes.map((m, j) => `${j + 1}. ${m}`).join('\n')}
 
 **Pro tip:** Write these on a separate card and read them 5 minutes before the exam starts.
+
+## How MindPeak Mentors Use This Checklist
+
+Your MindPeak mentor reviews your checklist completion every week:
+- Unchecked items become the focus of your next 1-on-1 session
+- Pattern analysis across chapters reveals systematic weaknesses
+- Weekly progress tracking ensures you reach 28+/30 before exam day
+- Personalised mini-tests target your specific unchecked items
+
+## Downloadable Resources
+
+- [${ch.exam} ${ch.subject} Formula Sheet](/${ch.exam.toLowerCase()}-${slugify(ch.subject === 'Mathematics' ? 'maths' : ch.subject)}-formulas)
+- [${ch.chapter} Practice Questions](/${ch.exam.toLowerCase()}-practice)
+- [${ch.chapter} Previous Year Questions](/${ch.exam.toLowerCase()}-pyq)
 
 ## FAQs
 
@@ -1782,6 +1849,9 @@ A: Yes. MindPeak provides chapter-specific checklists for all ${ch.exam === 'JEE
 
 **Q: Can my MindPeak mentor help with unchecked items?**
 A: Absolutely. Share your checklist status with your mentor. They'll create a targeted revision session focusing specifically on your gaps.
+
+**Q: How often should I go through this checklist?**
+A: First time: when you complete the chapter. Second time: 1 month before exam. Third time: 1 week before exam. Each pass should show improvement.
 
 ---
 
@@ -2306,25 +2376,60 @@ ${exam === 'JEE' ? 'JEE Main is typically held in January and April sessions. JE
 **Total productive hours: 9-10 hours**
 
 ### Week 2 (${month} 8-14)
-Focus shift: ${exam === 'JEE' ? 'Heavy Mathematics + Physics integration problems' : 'Biology chapter completion + Chemistry organic revision'}
+
+**Focus shift:** ${exam === 'JEE' ? 'Heavy Mathematics + Physics integration problems' : 'Biology chapter completion + Chemistry organic revision'}
+
+| Day | Morning Focus | Afternoon Focus | Evening Focus |
+|---|---|---|---|
+| ${month} 8 (Mon) | ${exam === 'JEE' ? 'Calculus revision' : 'Human Physiology'} | PYQ practice (Physics) | Error analysis |
+| ${month} 9 (Tue) | ${exam === 'JEE' ? 'Coordinate Geometry' : 'Plant Physiology'} | Chemistry numericals | Formula revision |
+| ${month} 10 (Wed) | ${exam === 'JEE' ? 'Electrostatics problems' : 'Genetics problems'} | ${exam === 'JEE' ? 'Organic Chemistry' : 'Organic Chemistry'} | Mock test (subject) |
+| ${month} 11 (Thu) | Mock analysis + weak areas | Reference book practice | Revision notes |
+| ${month} 12 (Fri) | ${exam === 'JEE' ? 'Optics + Modern Physics' : 'Ecology + Environment'} | PYQ solving (timed) | Concept maps |
+| ${month} 13 (Sat) | Full-length mock test | - | Mock analysis |
+| ${month} 14 (Sun) | Light revision + rest | Weak area review | Planning |
 
 ### Week 3 (${month} 15-21)
-Focus shift: Mock test week — take 2 full-length mocks + detailed post-test analysis
+
+**Focus shift:** Mock test week — take 2 full-length mocks + detailed post-test analysis
+
+This is the most critical week of ${month}. Your mock test performance this week sets the benchmark for improvement targets. After each mock:
+1. Calculate subject-wise accuracy and time distribution
+2. Identify your top 5 error patterns
+3. Create a "never-again" list of silly mistakes
+4. Compare with your Week 1 baseline performance
 
 ### Week 4 (${month} 22-${month === 'February' ? '28' : '30'})
-Focus shift: Revision + weak area consolidation + 1 more full-length mock
+
+**Focus shift:** Revision + weak area consolidation + 1 more full-length mock
+
+**Critical activities:**
+- Complete any remaining chapter targets from the monthly plan
+- Intensive formula revision (all subjects, twice daily)
+- PYQ marathon: solve 50+ questions per day from weak chapters
+- Final mock test with full exam simulation (no interruptions)
 
 ## ${month} Chapter Targets for ${exam}
 
-${exam === 'JEE' ? `| Subject | Chapters to Complete | Chapters to Revise |
-|---|---|---|
-| Physics | ${seededInt(mi*7, 2, 4)} new chapters | ${seededInt(mi*11, 3, 5)} previously covered |
-| Chemistry | ${seededInt(mi*13, 2, 4)} new chapters | ${seededInt(mi*17, 3, 5)} previously covered |
-| Mathematics | ${seededInt(mi*19, 1, 3)} new chapters | ${seededInt(mi*23, 2, 4)} previously covered |` : `| Subject | Chapters to Complete | Chapters to Revise |
-|---|---|---|
-| Biology | ${seededInt(mi*7, 3, 5)} new chapters | ${seededInt(mi*11, 4, 6)} previously covered |
-| Physics | ${seededInt(mi*13, 2, 3)} new chapters | ${seededInt(mi*17, 2, 4)} previously covered |
-| Chemistry | ${seededInt(mi*19, 2, 3)} new chapters | ${seededInt(mi*23, 2, 4)} previously covered |`}
+${exam === 'JEE' ? `| Subject | Chapters to Complete | Chapters to Revise | PYQs to Solve |
+|---|---|---|---|
+| Physics | ${seededInt(mi*7, 2, 4)} new chapters | ${seededInt(mi*11, 3, 5)} previously covered | ${seededInt(mi*7, 40, 80)} PYQs |
+| Chemistry | ${seededInt(mi*13, 2, 4)} new chapters | ${seededInt(mi*17, 3, 5)} previously covered | ${seededInt(mi*13, 40, 80)} PYQs |
+| Mathematics | ${seededInt(mi*19, 1, 3)} new chapters | ${seededInt(mi*23, 2, 4)} previously covered | ${seededInt(mi*19, 30, 60)} PYQs |` : `| Subject | Chapters to Complete | Chapters to Revise | PYQs to Solve |
+|---|---|---|---|
+| Biology | ${seededInt(mi*7, 3, 5)} new chapters | ${seededInt(mi*11, 4, 6)} previously covered | ${seededInt(mi*7, 60, 100)} PYQs |
+| Physics | ${seededInt(mi*13, 2, 3)} new chapters | ${seededInt(mi*17, 2, 4)} previously covered | ${seededInt(mi*13, 30, 60)} PYQs |
+| Chemistry | ${seededInt(mi*19, 2, 3)} new chapters | ${seededInt(mi*23, 2, 4)} previously covered | ${seededInt(mi*19, 30, 60)} PYQs |`}
+
+### How to Prioritise If You're Behind Schedule
+
+If you haven't completed previous months' targets, use this ${month} recovery protocol:
+
+1. **Identify the 10 highest-weightage chapters** you haven't covered
+2. **Allocate 2 days per chapter** (NCERT + 30 PYQs each)
+3. **Skip optional/low-weightage chapters** temporarily
+4. **Take chapter-wise mini-mocks** to verify understanding before moving on
+5. **Document what you've skipped** and revisit in the next month
 
 ## Mock Test Schedule for ${month}
 
@@ -2335,6 +2440,27 @@ ${exam === 'JEE' ? `| Subject | Chapters to Complete | Chapters to Revise |
 | ${month} ${seededInt(mi+2, 18, 22)} | Full-length Mock #1 | ${exam === 'JEE' ? '3 hours' : '3 hours 20 min'} | Next day full analysis |
 | ${month} ${seededInt(mi+3, 25, 28)} | Full-length Mock #2 | ${exam === 'JEE' ? '3 hours' : '3 hours 20 min'} | Next day full analysis |
 
+### Post-Mock Analysis Template
+
+After every mock test, fill in this analysis framework:
+
+| Parameter | Physics | Chemistry | ${exam === 'JEE' ? 'Maths' : 'Biology'} |
+|---|---|---|---|
+| Questions attempted | ___ / ___ | ___ / ___ | ___ / ___ |
+| Correct answers | | | |
+| Wrong answers | | | |
+| Marks obtained | | | |
+| Time spent | ___ min | ___ min | ___ min |
+| Silly mistakes | | | |
+| Conceptual errors | | | |
+| Questions not attempted | | | |
+
+**Key metrics to track month-over-month:**
+- Total score trend (should increase by 10-15% monthly)
+- Accuracy percentage (target: 75%+ by exam month)
+- Time management (finishing with 15-20 minutes to spare)
+- Silly mistake rate (target: below 5% of total attempts)
+
 ## Key Mental Health Tips for ${month}
 
 1. **Sleep 7-8 hours** — sleep deprivation destroys retention
@@ -2342,6 +2468,10 @@ ${exam === 'JEE' ? `| Subject | Chapters to Complete | Chapters to Revise |
 3. **Social connection** — 30 min daily with family/friends prevents isolation
 4. **Reward system** — celebrate weekly targets met
 5. **Mindfulness** — 10 min morning meditation improves concentration
+
+### ${month}-Specific Stress Management
+
+${mi < 3 ? 'Early months: The marathon has just begun. Don\'t compare yourself with others who started earlier. Focus on your own pace and build consistent study habits.' : mi < 6 ? 'Mid-preparation: This is where motivation dips. Remember why you started. Visualise your target college daily. Celebrate small wins — completing a chapter, improving mock scores by even 5 marks.' : mi < 9 ? 'Approaching exam season: Anxiety is normal. Channel it into productive study. If stress becomes overwhelming, talk to your mentor or a counselor. Your mental health is as important as your preparation.' : 'Final months: Peak stress period. Trust your preparation. Don\'t start new topics. Revise what you know. Sleep well. Your brain consolidates learning during sleep.'}
 
 ## ${month} Targets Checklist
 
@@ -2351,6 +2481,8 @@ ${exam === 'JEE' ? `| Subject | Chapters to Complete | Chapters to Revise |
 - [ ] Solve ${seededInt(mi*41, 300, 500)} practice problems
 - [ ] Maintain error log (daily entries)
 - [ ] Complete NCERT revision for ${seededInt(mi*43, 2, 4)} subjects
+- [ ] Achieve 5%+ improvement in mock scores vs last month
+- [ ] Zero repeated mistakes from error log
 
 ## How MindPeak Makes ${month} More Productive
 
@@ -2361,16 +2493,31 @@ Your MindPeak mentor creates a personalised ${month} plan based on:
 4. Your board exam schedule (if applicable)
 5. Your mental health and stress levels
 
+### Weekly Mentor Check-in for ${month}
+
+Every week in ${month}, your MindPeak mentor:
+- Reviews your error log and identifies recurring patterns
+- Adjusts chapter allocation based on your mock performance
+- Provides targeted problem sets for your weakest areas
+- Discusses time management improvements from mock analysis
+- Checks in on your mental well-being and adjusts study intensity
+
 ## FAQs
 
 **Q: How many hours should I study in ${month}?**
-A: Aim for 8-10 focused hours on weekdays, 10-12 on weekends. Quality matters more than quantity.
+A: Aim for 8-10 focused hours on weekdays, 10-12 on weekends. Quality matters more than quantity. If you're consistently focused for 8 hours, that beats 14 distracted hours.
 
 **Q: Should I focus on new chapters or revision in ${month}?**
-A: Ideally 60% new learning + 40% revision. Never let revision lag — forgetting is natural and must be countered.
+A: Ideally 60% new learning + 40% revision. Never let revision lag — forgetting is natural and must be countered with spaced repetition.
 
 **Q: How many mock tests should I take in ${month}?**
 A: Minimum 2 full-length + 4 subject-wise mocks. Always analyse thoroughly — an un-analysed mock is a wasted mock.
+
+**Q: What if I'm significantly behind my ${month} targets?**
+A: Don't panic. Prioritise high-weightage chapters, reduce the number of reference book problems, and focus on NCERT + PYQs only for lower-priority chapters. Discuss with your mentor for a recovery plan.
+
+**Q: Can I take a day off in ${month}?**
+A: Yes! One rest day per week is recommended. Continuous study without breaks leads to diminishing returns. Use rest days for light physical activity and socialising.
 
 ---
 
@@ -3150,6 +3297,37 @@ ${exam.prepStrategy.slice(0, 4).map((s, j) => `${j + 1}. ${s}`).join('\n')}
 - **1 month before:** Weekly ${exam.name} mocks + revision of exam-exclusive topics
 - **Last 2 weeks:** Light practice, formula revision, strategy review
 
+### Subject-Wise Focus Areas for ${city.city} Students
+
+${exam.subjects.map((subj, j) => `#### ${subj.name} (${subj.weightagePercent}% of ${exam.name})
+Focus on ${subj.chapters.slice(0, 3).join(', ')} — these carry the highest weightage. ${subj.uniqueTopics ? `**${exam.name}-exclusive topics:** ${subj.uniqueTopics.join(', ')} — not covered in ${overlapExam} coaching.` : `All topics overlap with ${overlapExam}.`} Allocate ${seededInt(i * 40 + j, 6, 12)} hours per week.`).join('\n\n')}
+
+### Recommended Daily Schedule
+
+| Time | Activity | Subject |
+|---|---|---|
+| 6:00-8:00 AM | ${overlapExam} preparation | Core subjects |
+| 9:00-11:00 AM | ${overlapExam} problem practice | Weakest subject |
+| 2:00-4:00 PM | ${exam.name}-specific topics | Unique sections |
+| 5:00-6:30 PM | PYQ solving (${exam.name} papers) | All subjects |
+| 8:00-9:00 PM | Formula revision + error log | All subjects |
+
+## ${exam.name} Exam Day Strategy
+
+### Before the Exam
+- Get familiar with ${exam.mode === 'online' ? 'the computer-based interface' : 'OMR sheet filling'}
+- Reach the centre ${exam.mode === 'offline' ? '1 hour' : '45 minutes'} early
+- Carry admit card, ID proof, and required stationery
+
+### During the Exam
+1. **First 10 minutes:** Scan the paper. Mark easy questions.
+2. **Next 60% of time:** Solve easy + medium questions.
+3. **Remaining time:** Attempt hard questions selectively.
+4. **Last 10 minutes:** Review marked answers.
+
+### Negative Marking Strategy
+${exam.negativeMarking}. Only attempt questions where you can eliminate at least 2 options confidently.
+
 ## ${exam.name} Cutoffs and College Options
 
 | College | Branch | Expected Cutoff ${year} |
@@ -3159,6 +3337,14 @@ ${exam.prepStrategy.slice(0, 4).map((s, j) => `${j + 1}. ${s}`).join('\n')}
 | ${exam.topColleges[1] || exam.topColleges[0]} | Computer Science | ${seededInt(i * 12, 80, 95)} percentile |
 | ${exam.topColleges[1] || exam.topColleges[0]} | Mechanical | ${seededInt(i * 13, 65, 82)} percentile |
 | ${exam.topColleges[2] || exam.topColleges[0]} | IT / CSE | ${seededInt(i * 14, 75, 90)} percentile |
+
+## For ${city.city} Parents: What You Need to Know
+
+1. **${exam.name} is separate from ${overlapExam}** — your child can appear for both
+2. **Application deadlines** are 2-3 months before the exam in ${exam.examMonth}
+3. **MindPeak covers both** ${overlapExam} + ${exam.name} in one program — no extra coaching fees
+4. **College options increase by ${seededInt(i * 25, 30, 60)}%** when your child adds ${exam.name}
+5. **Top colleges** like ${exam.topColleges[0]} offer ₹8-20 LPA average placements
 
 ## Success Stories: ${city.state} Students Who Cracked ${exam.name}
 
@@ -3182,6 +3368,12 @@ A: ${exam.keyDifferences[0]}
 
 **Q: Is ${exam.name} worth appearing for if I'm already preparing for ${overlapExam}?**
 A: Yes! With ${exam.overlapPercent}% syllabus overlap, you're already ${exam.overlapPercent}% prepared. Adding ${exam.name}-specific practice opens doors to ${exam.topColleges.slice(0, 2).join(' and ')} — excellent institutions that many ${city.city} students miss out on.
+
+**Q: When should I start ${exam.name} preparation alongside ${overlapExam}?**
+A: Start ${exam.name}-specific practice 3-4 months before the exam date. Your ${overlapExam} preparation builds the foundation automatically.
+
+**Q: How many extra hours per week does ${exam.name} need?**
+A: With ${exam.overlapPercent}% overlap, only ${Math.round((100 - exam.overlapPercent) / 10) + 2} extra hours per week for ${exam.name}-specific topics and mock tests.
 
 ${exam.faqs.slice(0, 2).map(f => `**Q: ${f.q}**\nA: ${f.a}`).join('\n\n')}
 
