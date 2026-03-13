@@ -20,6 +20,7 @@ import { cities, allCities, getLocationTitle, getLocationDescription } from '@/d
 import type { CityData, QuickStat, CourseTile, LocalValueProp, CityFAQ, CityTestimonial, CityEvent, TabbedContent } from '@/data/cityData';
 import { cityUniqueContent, type CityUniqueData } from '@/data/cityUniqueContent';
 import { getStateEducation } from '@/data/stateEducationData';
+import Image from 'next/image';
 
 /* ─── TIER 1 RESULTS DATA (city-specific achievements) ─── */
 const tier1ResultsData: Record<string, { students: string; bestRank: string; avgImprovement: string; localities: string[] }> = {
@@ -300,9 +301,9 @@ const LocationPage = () => {
 
         {/* ═══ HERO ═══ */}
         <section className="max-w-5xl mx-auto px-6 pb-12">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <motion.div animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <div className="flex items-center gap-4 mb-6">
-              <img src={logo} alt="MindPeak Institute" className="w-14 h-14 rounded-full" width={56} height={56} />
+              <Image src={logo} alt="MindPeak Institute" className="w-14 h-14 rounded-full" width={56} height={56} priority />
               <div>
                 <p className="text-primary text-xs uppercase tracking-[0.2em] font-semibold">MindPeak Institute</p>
                 <p className="text-muted-foreground text-sm">Personalized 1-on-1 {examFull} Coaching</p>

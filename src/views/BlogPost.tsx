@@ -13,6 +13,7 @@ import { Calendar, Clock, ArrowLeft, Share2, ArrowRight, Copy, CheckCircle } fro
 import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import Image from 'next/image';
 const logo = '/images/logo.jpeg';
 
 const BlogPost = () => {
@@ -106,7 +107,6 @@ const BlogPost = () => {
         {/* Article */}
         <article className="max-w-4xl mx-auto px-6 pb-20">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
@@ -236,7 +236,7 @@ const BlogPost = () => {
             {/* CTA Band */}
             <div className="rounded-2xl bg-primary/10 border border-primary/20 p-8 sm:p-12 text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-4">
-                <img src={logo} alt="MindPeak" className="w-10 h-10 rounded-full" />
+                <Image src={logo} alt="MindPeak" className="w-10 h-10 rounded-full" width={40} height={40} priority />
               </div>
               <h3 className="font-display font-bold text-foreground text-2xl md:text-3xl mb-4">
                 Ready to Excel in Your Preparation?

@@ -11,6 +11,7 @@ import { PageFooter } from '@/components/PageFooter';
 import { PageFAQ, buildFAQSchema } from '@/components/PageFAQ';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import { CheckCircle, XCircle, ArrowRight, Phone, Award, Target, TrendingUp, Users } from 'lucide-react';
+import Image from 'next/image';
 const logo = '/images/logo.jpeg';
 import { competitors } from '@/data/comparisonData';
 import type { CompetitorData } from '@/data/comparisonData';
@@ -159,9 +160,9 @@ const ComparisonPage = () => {
 
         {/* Hero */}
         <section className="max-w-5xl mx-auto px-6 pb-16">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <motion.div animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <div className="flex items-center gap-4 mb-6">
-              <img src={logo} alt="MindPeak Institute" className="w-14 h-14 rounded-full" width={56} height={56} />
+              <Image src={logo} alt="MindPeak Institute" className="w-14 h-14 rounded-full" width={56} height={56} priority />
               <div>
                 <p className="text-primary text-xs uppercase tracking-[0.2em] font-semibold">Honest Comparison</p>
                 <p className="text-muted-foreground text-sm">{data.title} — Which One Is Right for You?</p>

@@ -149,7 +149,7 @@ const NEETPYQQuestion = () => {
               <Link to={`/neet-pyq-${params.subject}-${params.chapter}`} className="hover:text-primary transition-colors">{chapterName}</Link><span>/</span>
               <span className="text-foreground">Q{params.questionIndex}</span>
             </nav>
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+            <motion.div animate={{ opacity: 1, y: 0 }}>
               <div className="flex items-center gap-3 mb-4 flex-wrap">
                 <span className="text-3xl">{bank.icon}</span>
                 <span className="px-3 py-1 rounded-full text-xs font-semibold border border-green-500/30 bg-green-500/10 text-green-400">{question.shift}</span>

@@ -64,7 +64,7 @@ const NEETPYQClassHub = () => {
               <ChevronRight className="w-3 h-3" />
               <span className="text-foreground font-medium">{subj} Class {classLevel}</span>
             </nav>
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+            <motion.div animate={{ opacity: 1, y: 0 }}>
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-3xl">{bank.icon}</span>
                 <span className="px-3 py-1 rounded-full text-xs font-semibold border border-green-500/30 bg-green-500/10 text-green-400">Class {classLevel}</span>

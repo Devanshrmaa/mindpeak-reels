@@ -91,7 +91,7 @@ const RevisionNotesPage = () => {
         </nav>
 
         <section className="max-w-4xl mx-auto px-6 pb-12">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
+          <motion.div animate={{ opacity: 1, y: 0 }}>
             <FreshnessBadge lastUpdated={lastUpdated} verifiedFor={getCurrentExamYear()} />
             <div className="flex items-center gap-3 mb-4">
               <span className="px-3 py-1 rounded-full bg-primary/15 text-primary text-xs font-bold">{chapter.subject}</span>

@@ -1,5 +1,6 @@
 import { BookOpen, Target, Brain, Clock, Lightbulb, TrendingUp, Calendar, Zap, GraduationCap, Award, Heart, Shield, Users, BarChart3, Compass, Flame, Star } from 'lucide-react';
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
+import { improveBlogContent } from '@/lib/blogQuality';
 
 export interface BlogPost {
   slug: string;
@@ -1648,17 +1649,18 @@ Confused about your path? Our career counseling includes:
 
 // Helper function to get featured posts
 export const getFeaturedPosts = (): BlogPost[] => {
-  return blogPosts.filter(post => post.featured);
+  return blogPosts.filter(post => post.featured).map(improveBlogContent);
 };
 
 // Helper function to get posts by category
 export const getPostsByCategory = (category: BlogPost['category']): BlogPost[] => {
-  return blogPosts.filter(post => post.category === category);
+  return blogPosts.filter(post => post.category === category).map(improveBlogContent);
 };
 
 // Helper function to get post by slug (static posts only — use blogResolver for all posts)
 export const getPostBySlug = (slug: string): BlogPost | undefined => {
-  return blogPosts.find(post => post.slug === slug);
+  const post = blogPosts.find(item => item.slug === slug);
+  return post ? improveBlogContent(post) : undefined;
 };
 
 // Helper function to get related posts (static posts only — use blogResolver for all posts)
@@ -1669,5 +1671,6 @@ export const getRelatedPosts = (currentPost: BlogPost, limit: number = 3): BlogP
       (post.category === currentPost.category || 
        post.tags.some(tag => currentPost.tags.includes(tag)))
     )
-    .slice(0, limit);
+    .slice(0, limit)
+    .map(improveBlogContent);
 };

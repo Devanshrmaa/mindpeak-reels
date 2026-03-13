@@ -8,6 +8,7 @@ import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import { Search, Clock, Calendar, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 const logo = '/images/logo.jpeg';
 
 const categories = ['All', 'JEE', 'NEET', 'Study Tips', 'Exam Strategy', 'General'] as const;
@@ -55,12 +56,11 @@ const Blog = () => {
         {/* Hero */}
         <section className="max-w-5xl mx-auto px-6 pb-16">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
             <div className="flex items-center gap-4 mb-6">
-              <img src={logo} alt="MindPeak Institute" className="w-14 h-14 rounded-full" width={56} height={56} />
+              <Image src={logo} alt="MindPeak Institute" className="w-14 h-14 rounded-full" width={56} height={56} priority />
               <div>
                 <p className="text-primary text-xs uppercase tracking-[0.2em] font-semibold">MindPeak Institute</p>
                 <p className="text-muted-foreground text-sm">Expert Guides for JEE &amp; NEET Aspirants</p>

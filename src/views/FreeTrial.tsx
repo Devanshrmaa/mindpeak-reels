@@ -10,6 +10,7 @@ import {
   CheckCircle, Star, Users, Clock, BarChart3, ShieldCheck, Phone, Mail, User, BookOpen,
 } from 'lucide-react';
 import { toast } from 'sonner';
+import Image from 'next/image';
 const logo = '/images/logo.jpeg';
 
 const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbynDEbMQqfStBwK-sJa5UoLuZtBDNvSPZ4HLvcpuZxTSe6lUy7nuIbxWbQ3QOPovG6N/exec';
@@ -134,9 +135,9 @@ const FreeTrial = () => {
         <section className="max-w-5xl mx-auto px-6 pb-16">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Left — messaging */}
-            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <motion.div animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <div className="flex items-center gap-4 mb-6">
-                <img src={logo} alt="MindPeak Institute" className="w-14 h-14 rounded-full" width={56} height={56} />
+                <Image src={logo} alt="MindPeak Institute" className="w-14 h-14 rounded-full" width={56} height={56} priority />
                 <div>
                   <p className="text-primary text-xs uppercase tracking-[0.2em] font-semibold">MindPeak Institute</p>
                   <p className="text-muted-foreground text-sm">Your Free Trial Awaits</p>
@@ -177,7 +178,7 @@ const FreeTrial = () => {
             </motion.div>
 
             {/* Right — Form */}
-            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
+            <motion.div animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
               <div className="rounded-2xl border border-primary/20 bg-card p-8 shadow-gold-glow">
                 {submitted ? (
                   <div className="text-center py-12">

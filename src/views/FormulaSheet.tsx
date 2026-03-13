@@ -100,7 +100,7 @@ const FormulaSheet = () => {
 
         {/* Hero */}
         <section className="max-w-4xl mx-auto px-4 sm:px-6 text-center mb-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+          <motion.div animate={{ opacity: 1, y: 0 }}>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
               <FileText className="w-4 h-4 text-primary" />
               <span className="text-primary text-xs font-semibold uppercase tracking-widest">Free Download</span>

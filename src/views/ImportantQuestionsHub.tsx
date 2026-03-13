@@ -92,7 +92,7 @@ const ImportantQuestionsHub = () => {
         </nav>
 
         <section className="max-w-4xl mx-auto px-6 pb-12">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
+          <motion.div animate={{ opacity: 1, y: 0 }}>
             <FreshnessBadge lastUpdated={lastUpdated} verifiedFor={getCurrentExamYear()} />
             <h1 className="font-display font-black text-foreground mb-6" style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)' }}>
               {icon} {exam} {subject} <span className="text-gradient-gold">Important Questions</span> {CURRENT_EXAM_YEAR}

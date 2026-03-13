@@ -203,7 +203,7 @@ const TopicPage = () => {
         {/* ═══════════ HERO ═══════════ */}
         <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-primary/3 py-12 md:py-16">
           <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
-            <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+            <motion.div animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
               {/* Breadcrumb */}
               <nav className="flex items-center gap-1.5 text-xs text-muted-foreground mb-6 flex-wrap">
                 <Link to="/" className="hover:text-primary transition-colors">Home</Link>

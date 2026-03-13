@@ -75,7 +75,7 @@ const JEEPYQChapterHub = () => {
               <ChevronRight className="w-3 h-3" />
               <span className="text-foreground font-medium">{chapter.name}</span>
             </nav>
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+            <motion.div animate={{ opacity: 1, y: 0 }}>
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-3xl">{bank.icon}</span>
                 <span className="px-3 py-1 rounded-full text-xs font-semibold border border-amber-500/30 bg-amber-500/10 text-amber-400">Chapter PYQ</span>

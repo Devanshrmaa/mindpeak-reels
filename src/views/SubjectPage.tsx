@@ -21,6 +21,7 @@ import {
   Atom, FlaskConical, Calculator, Microscope, Heart,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
+import Image from 'next/image';
 const logo = '/images/logo.jpeg';
 
 /* ═══════════════════════════════════════════════════════════
@@ -607,11 +608,11 @@ const SubjectPage = () => {
 
         {/* ───── HERO ───── */}
         <section className="max-w-5xl mx-auto px-4 sm:px-6 pb-8 sm:pb-12">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <motion.div animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <FreshnessBadge lastUpdated="2026-02-18" verifiedFor={`${data.exam} ${CURRENT_EXAM_YEAR}`} />
 
             <div className="flex items-center gap-3 mb-4 sm:mb-6">
-              <img src={logo} alt="MindPeak Institute" className="w-10 h-10 sm:w-14 sm:h-14 rounded-full flex-shrink-0" width={56} height={56} />
+              <Image src={logo} alt="MindPeak Institute" className="w-10 h-10 sm:w-14 sm:h-14 rounded-full flex-shrink-0" width={56} height={56} priority />
               <div className="min-w-0">
                 <p className="text-primary text-[10px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] font-semibold">MindPeak Institute</p>
                 <p className="text-muted-foreground text-xs sm:text-sm truncate">{data.exam} {data.subject} — 1-on-1 Coaching</p>

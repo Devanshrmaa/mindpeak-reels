@@ -341,7 +341,6 @@ const StudyPlan = () => {
             />
 
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight"
             >
@@ -352,7 +351,6 @@ const StudyPlan = () => {
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
               className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10"
@@ -383,8 +381,7 @@ const StudyPlan = () => {
                   {e === 'JEE' ? 'JEE Main & Advanced' : 'NEET UG'}
                 </button>
               ))}
-            </motion.div>
-
+            <motion.div
             {/* ── Month selector ── */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}

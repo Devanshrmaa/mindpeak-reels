@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, ChevronRight, ArrowLeft } from 'lucide-react';
 import { Link } from '@/components/RouterLink';
 import { usePathname } from 'next/navigation';
@@ -144,10 +143,7 @@ export const Navbar = () => {
   const mobActiveSubject = mobActiveExam?.subjects.find((s) => s.slug === (mobSubject ?? ''));
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
         !isHome || scrolled
           ? 'bg-background/80 backdrop-blur-2xl backdrop-saturate-[180%] border-b border-foreground/[0.06]'
@@ -186,15 +182,8 @@ export const Navbar = () => {
                 </button>
 
                 {/* ── Desktop Dropdown ── */}
-                <AnimatePresence>
-                  {desktopDropdown && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 8 }}
-                      transition={{ duration: 0.15 }}
-                      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[340px] rounded-xl border border-border bg-background/95 backdrop-blur-xl shadow-2xl overflow-hidden"
-                    >
+                {desktopDropdown && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[340px] rounded-xl border border-border bg-background/95 backdrop-blur-xl shadow-2xl overflow-hidden">
                       {/* Level 1: JEE / NEET */}
                       {!deskExam && (
                         <div className="p-3 space-y-1">
@@ -268,9 +257,8 @@ export const Navbar = () => {
                           </div>
                         </div>
                       )}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                  </div>
+                )}
               </div>
             ) : link.isRoute ? (
               <Link
@@ -317,14 +305,8 @@ export const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden"
-          >
+      {mobileOpen && (
+        <div className="lg:hidden bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden">
             <div className="px-6 py-6 flex flex-col gap-4">
               {/* ── Mobile Practice drill-down ── */}
               {mobileLevel === 'root' && (
@@ -461,9 +443,8 @@ export const Navbar = () => {
                 </div>
               )}
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+          </div>
+      )}
+    </nav>
   );
 };

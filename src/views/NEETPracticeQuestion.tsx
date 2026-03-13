@@ -198,7 +198,7 @@ const NEETPracticeQuestion = () => {
         {/* Hero */}
         <section className="relative overflow-hidden bg-gradient-to-b from-green-500/5 via-background to-background py-16 sm:py-24">
           <div className="mx-auto max-w-4xl px-4">
-            <nav className="mb-6 text-sm text-muted-foreground flex items-center gap-1 flex-wrap">
+            <motion.div animate={{ opacity: 1, y: 0 }}>
               <Link to="/" className="hover:text-green-500 transition-colors">Home</Link>
               <span>/</span>
               <Link to="/neet-practice" className="hover:text-green-500 transition-colors">NEET Practice</Link>
@@ -208,7 +208,7 @@ const NEETPracticeQuestion = () => {
               <span className="text-foreground">{topicName} ({diff} Q{params.questionIndex})</span>
             </nav>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+            <motion.div animate={{ opacity: 1, y: 0 }}>
               <div className="flex items-center gap-3 mb-5">
                 <span className="text-3xl">{bank.icon}</span>
                 <div className="flex items-center gap-2 p-1 bg-secondary/30 rounded-xl border border-border">

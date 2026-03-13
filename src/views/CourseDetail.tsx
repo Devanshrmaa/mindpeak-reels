@@ -10,6 +10,7 @@ import { useDemoModal } from '@/components/DemoBookingModal';
 import { NCERTDownloadModal } from '@/components/NCERTDownloadModal';
 import { StudyPlanSection } from '@/components/StudyPlanSection';
 import { SEOHead } from '@/components/SEOHead';
+import Image from 'next/image';
 const logo = '/images/logo.jpeg';
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -164,7 +165,7 @@ const CourseDetail = () => {
         <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-2xl backdrop-saturate-[180%] border-b border-foreground/[0.06]">
           <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
             <Link to="/" className="flex items-center gap-3 group">
-              <img src={logo} alt="MindPeak Institute" className="w-9 h-9 rounded-full ring-1 ring-foreground/[0.08] group-hover:ring-primary/30 transition-all duration-500" />
+              <Image src={logo} alt="MindPeak Institute" className="w-9 h-9 rounded-full ring-1 ring-foreground/[0.08] group-hover:ring-primary/30 transition-all duration-500" width={36} height={36} priority />
               <span className="font-display font-semibold text-foreground text-sm tracking-[0.1em]">MINDPEAK</span>
             </Link>
             <div className="hidden md:flex items-center gap-8">

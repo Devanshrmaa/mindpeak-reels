@@ -218,7 +218,7 @@ const JEEPracticeQuestion = () => {
               <span className="text-foreground">{topicName} ({diff} Q{params.questionIndex})</span>
             </nav>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+            <motion.div animate={{ opacity: 1, y: 0 }}>
               <div className="flex items-center gap-3 mb-5">
                 <span className="text-3xl">{bank.icon}</span>
                 <div className="flex items-center gap-2 p-1 bg-secondary/30 rounded-xl border border-border">

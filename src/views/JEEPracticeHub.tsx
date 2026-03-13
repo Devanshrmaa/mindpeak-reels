@@ -76,7 +76,7 @@ const JEEPracticeHub = () => {
         {/* Hero */}
         <section className="relative overflow-hidden bg-gradient-to-b from-primary/5 via-background to-background py-16 sm:py-24">
           <div className="mx-auto max-w-6xl px-4 text-center">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+            <motion.div animate={{ opacity: 1, y: 0 }}>
               <nav className="mb-6 text-sm text-muted-foreground flex items-center justify-center gap-1">
                 <Link to="/" className="hover:text-primary transition-colors">Home</Link>
                 <ChevronRight className="w-3 h-3" />

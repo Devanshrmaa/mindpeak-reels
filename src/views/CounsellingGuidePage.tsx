@@ -58,7 +58,7 @@ const CounsellingGuidePage = () => {
         </nav>
 
         <section className="max-w-4xl mx-auto px-6 pb-12">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
+          <motion.div animate={{ opacity: 1, y: 0 }}>
             <FreshnessBadge lastUpdated={lastUpdated} verifiedFor={getCurrentExamYear()} />
             <h1 className="font-display font-black text-foreground mb-6" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
               {page.h1} <span className="text-gradient-gold">{page.highlight}</span>
