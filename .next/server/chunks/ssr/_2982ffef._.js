@@ -1,3 +1,0 @@
-module.exports=[38783,(a,b,c)=>{"use strict";b.exports=a.r(42602).vendored["react-ssr"].ReactServerDOMTurbopackClient},60717,a=>{a.v(b=>Promise.all(["server/chunks/ssr/src_lib_slugify_ts_23cf6783._.js","server/chunks/ssr/src_data_practice_index_ts_ba480a41._.js"].map(b=>a.l(b))).then(()=>b(26158)))},99927,a=>{a.v(b=>Promise.all(["server/chunks/ssr/src_lib_slugify_ts_23cf6783._.js","server/chunks/ssr/src_data_neet-practice_index_ts_7529408d._.js"].map(b=>a.l(b))).then(()=>b(16203)))}];
-
-//# sourceMappingURL=_2982ffef._.js.map
