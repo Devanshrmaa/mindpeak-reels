@@ -1,8 +1,17 @@
 "use client";
 
 import dynamic from 'next/dynamic';
-import { Navbar } from '@/components/sections/Navbar';
 import { HeroSection } from '@/components/sections/HeroSection';
+
+/*
+ * Navbar imports framer-motion at module level.  Lazy-loading it keeps
+ * framer-motion OUT of the initial JS bundle, reducing main-thread parse
+ * time on mobile and improving TBT / LCP.
+ */
+const Navbar = dynamic(
+  () => import('@/components/sections/Navbar').then(m => ({ default: m.Navbar })),
+  { ssr: true }
+);
 
 /* ScrollIndicator is a heavy framer-motion component — defer to idle */
 const ScrollIndicator = dynamic(

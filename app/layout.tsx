@@ -167,9 +167,18 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         {/* DNS-prefetch for deferred analytics */}
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
-        {/* next/image with priority={true} injects its own <link rel="preload"> for the
-            optimised /_next/image URL. A separate raw-file preload here would cause
-            the browser to download two different resources for the same hero image. */}
+        {/*
+          Hero background preload — the hero now uses CSS background-image (not
+          next/image), so we preload the raw JPEG here.  This is the only consumer
+          of this URL so there is no duplicate-download risk.
+        */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/hero-bg.jpg"
+          // @ts-expect-error fetchpriority is valid HTML but not yet in TS types
+          fetchpriority="high"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
