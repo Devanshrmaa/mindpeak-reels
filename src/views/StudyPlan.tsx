@@ -381,7 +381,8 @@ const StudyPlan = () => {
                   {e === 'JEE' ? 'JEE Main & Advanced' : 'NEET UG'}
                 </button>
               ))}
-            <motion.div
+            </motion.div>
+
             {/* ── Month selector ── */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
