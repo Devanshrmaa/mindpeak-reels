@@ -167,8 +167,9 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         {/* DNS-prefetch for deferred analytics */}
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
-        {/* Preload hero LCP image for fastest paint */}
-        <link rel="preload" as="image" href="/images/hero-bg.jpg" type="image/jpeg" fetchPriority="high" />
+        {/* next/image with priority={true} injects its own <link rel="preload"> for the
+            optimised /_next/image URL. A separate raw-file preload here would cause
+            the browser to download two different resources for the same hero image. */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}

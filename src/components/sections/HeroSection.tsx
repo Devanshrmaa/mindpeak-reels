@@ -45,8 +45,10 @@ export const HeroSection = ({ onReady }: { onReady?: () => void }) => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       role="banner"
     >
-      {/* Parallax background — simplified transforms for lower main-thread cost */}
-      <motion.div style={{ scale: bgScale }} className="absolute inset-[-20px]">
+      {/* Background wrapper — image is NOT inside a motion element so it paints
+          immediately without waiting for framer-motion hydration (critical for LCP).
+          The parallax scale is applied only to the overlay divs which are not LCP. */}
+      <div className="absolute inset-[-20px]">
         <Image
           src="/images/hero-bg.jpg"
           alt="MindPeak Institute hero background"
@@ -56,9 +58,11 @@ export const HeroSection = ({ onReady }: { onReady?: () => void }) => {
           quality={75}
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/80" />
-        <div className="absolute inset-0 vignette" />
-      </motion.div>
+        <motion.div style={{ scale: bgScale }} className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/80" />
+          <div className="absolute inset-0 vignette" />
+        </motion.div>
+      </div>
 
       {/* Noise grain overlay */}
       <div className="absolute inset-0 noise pointer-events-none z-[1]" />
