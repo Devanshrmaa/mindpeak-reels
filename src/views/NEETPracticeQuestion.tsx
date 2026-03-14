@@ -198,7 +198,7 @@ const NEETPracticeQuestion = () => {
         {/* Hero */}
         <section className="relative overflow-hidden bg-gradient-to-b from-green-500/5 via-background to-background py-16 sm:py-24">
           <div className="mx-auto max-w-4xl px-4">
-            <motion.div animate={{ opacity: 1, y: 0 }}>
+            <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
               <Link to="/" className="hover:text-green-500 transition-colors">Home</Link>
               <span>/</span>
               <Link to="/neet-practice" className="hover:text-green-500 transition-colors">NEET Practice</Link>

@@ -1,5 +1,7 @@
 import type { NextConfig } from 'next';
 
+const emptyNextPolyfillModulePath = `${process.cwd()}/src/polyfills/empty-next-polyfill-module.js`;
+
 const nextConfig: NextConfig = {
   /* ── General ── */
   reactStrictMode: true,
@@ -169,7 +171,26 @@ const nextConfig: NextConfig = {
   },
 
   /* ── Turbopack (Next 16 default) ── */
-  turbopack: {},
+  turbopack: {
+    resolveAlias: {
+      'next/dist/build/polyfills/polyfill-module': './src/polyfills/empty-next-polyfill-module.js',
+      'next/dist/build/polyfills/polyfill-module.js': './src/polyfills/empty-next-polyfill-module.js',
+    },
+  },
+
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        'next/dist/build/polyfills/polyfill-module': emptyNextPolyfillModulePath,
+        'next/dist/build/polyfills/polyfill-module.js': emptyNextPolyfillModulePath,
+        'next/dist/esm/build/polyfills/polyfill-module': emptyNextPolyfillModulePath,
+        'next/dist/esm/build/polyfills/polyfill-module.js': emptyNextPolyfillModulePath,
+      };
+    }
+
+    return config;
+  },
 };
 
 export default nextConfig;

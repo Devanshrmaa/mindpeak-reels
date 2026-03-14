@@ -8,12 +8,14 @@ import "./globals.css";
 /* ── Fonts ── */
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
+  weight: ["700"],
   variable: "--font-space-grotesk",
   display: "swap",
 });
 
 const inter = Inter({
   subsets: ["latin"],
+  weight: ["400", "500"],
   variable: "--font-inter",
   display: "swap",
 });
@@ -189,18 +191,47 @@ export default function RootLayout({
         <ScrollToTop />
         <Providers>{children}</Providers>
 
-        {/* Google Analytics 4 — lazy loaded after page is fully interactive */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-MM0L1F7JJ6"
-          strategy="lazyOnload"
-        />
-        <Script id="ga-init" strategy="lazyOnload">
+        <Script id="ga-init" strategy="afterInteractive">
           {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-MM0L1F7JJ6', { send_page_view: true });
-            gtag('config', 'AW-17962731707');
+            (function () {
+              var started = false;
+              function bootAnalytics() {
+                if (started) return;
+                started = true;
+
+                window.dataLayer = window.dataLayer || [];
+                window.gtag = function(){window.dataLayer.push(arguments);};
+                window.gtag('js', new Date());
+                window.gtag('config', 'G-MM0L1F7JJ6', { send_page_view: true });
+                window.gtag('config', 'AW-17962731707');
+
+                var script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-MM0L1F7JJ6';
+                document.head.appendChild(script);
+              }
+
+              var events = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
+              var cleanup = function () {
+                events.forEach(function (name) {
+                  window.removeEventListener(name, onFirstInput, { passive: true });
+                });
+              };
+              var onFirstInput = function () {
+                cleanup();
+                bootAnalytics();
+              };
+
+              events.forEach(function (name) {
+                window.addEventListener(name, onFirstInput, { passive: true, once: true });
+              });
+
+              if ('requestIdleCallback' in window) {
+                requestIdleCallback(bootAnalytics, { timeout: 6000 });
+              } else {
+                setTimeout(bootAnalytics, 6000);
+              }
+            })();
           `}
         </Script>
       </body>

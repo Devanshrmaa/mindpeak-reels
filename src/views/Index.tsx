@@ -1,8 +1,7 @@
 "use client";
 
 import dynamic from 'next/dynamic';
-import { useEffect, useState } from 'react';
-import { HeroSection } from '@/components/sections/HeroSection';
+import { useEffect, useState, type ReactNode } from 'react';
 
 /*
  * Navbar imports framer-motion at module level.  Lazy-loading it keeps
@@ -31,7 +30,7 @@ const MethodologySection = dynamic(() => import('@/components/sections/Methodolo
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => ({ default: m.FAQSection })), { ssr: false });
 const ContactSection = dynamic(() => import('@/components/sections/ContactSection').then(m => ({ default: m.ContactSection })), { ssr: false });
 
-const Index = () => {
+const Index = ({ children }: { children?: ReactNode }) => {
   const [showDeferredSections, setShowDeferredSections] = useState(false);
 
   useEffect(() => {
@@ -52,12 +51,13 @@ const Index = () => {
 
       <ScrollIndicator />
       <main id="main-content" className="bg-background">
-        <HeroSection />
+        {children}
         {showDeferredSections ? (
           <div
             style={{
               contentVisibility: 'auto',
               containIntrinsicSize: '3000px',
+              contain: 'layout style paint',
             }}
           >
             <ProblemSection />

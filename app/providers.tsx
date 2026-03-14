@@ -1,7 +1,5 @@
 "use client";
 
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { DemoModalProvider } from "@/components/DemoBookingModal";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { useState, useEffect, Suspense } from "react";
@@ -30,21 +28,15 @@ const IdleOverlays = () => {
   );
 };
 
-const queryClient = new QueryClient();
-
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ErrorBoundary>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <DemoModalProvider>
-            <IdleOverlays />
-            {children}
-          </DemoModalProvider>
-        </TooltipProvider>
-      </QueryClientProvider>
+      <Toaster />
+      <Sonner />
+      <DemoModalProvider>
+        <IdleOverlays />
+        {children}
+      </DemoModalProvider>
     </ErrorBoundary>
   );
 }

@@ -226,8 +226,6 @@ function enforceHardMinimumWordCount(post: BlogPost, content: string): string {
 }
 
 function buildCreativeSection(post: BlogPost): string {
-
-function buildCreativeSection(post: BlogPost): string {
   const seed = hashString(post.slug + post.title);
   const exam = post.category === 'NEET' ? 'NEET' : 'JEE';
 

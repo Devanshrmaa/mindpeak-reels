@@ -1,4 +1,5 @@
 import Index from "@/views/Index";
+import { HeroSection } from "@/components/sections/HeroSection";
 import type { Metadata } from "next";
 import { CURRENT_EXAM_YEAR } from "@/lib/examYears";
 
@@ -57,7 +58,9 @@ export default function HomePage() {
         <meta itemProp="url" content="https://mindpeakinstitute.com" />
       </section>
 
-      <Index />
+      <Index>
+        <HeroSection />
+      </Index>
     </>
   );
 }
