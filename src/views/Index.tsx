@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from 'next/dynamic';
+import { useEffect, useState } from 'react';
 import { HeroSection } from '@/components/sections/HeroSection';
 
 /*
@@ -31,6 +32,20 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then
 const ContactSection = dynamic(() => import('@/components/sections/ContactSection').then(m => ({ default: m.ContactSection })), { ssr: false });
 
 const Index = () => {
+  const [showDeferredSections, setShowDeferredSections] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    if ('requestIdleCallback' in window) {
+      const idleId = requestIdleCallback(() => setShowDeferredSections(true), { timeout: 1800 });
+      return () => cancelIdleCallback(idleId);
+    }
+
+    const timeoutId = window.setTimeout(() => setShowDeferredSections(true), 1200);
+    return () => window.clearTimeout(timeoutId);
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -38,16 +53,25 @@ const Index = () => {
       <ScrollIndicator />
       <main id="main-content" className="bg-background">
         <HeroSection />
-        <ProblemSection />
-        <DiscoverySection />
-        <TransformationTimeline />
-        <BeforeAfterSection />
-        <ResultSection />
-        <SuccessGrid />
-        <CourseFlashcards />
-        <MethodologySection />
-        <FAQSection />
-        <ContactSection />
+        {showDeferredSections ? (
+          <div
+            style={{
+              contentVisibility: 'auto',
+              containIntrinsicSize: '3000px',
+            }}
+          >
+            <ProblemSection />
+            <DiscoverySection />
+            <TransformationTimeline />
+            <BeforeAfterSection />
+            <ResultSection />
+            <SuccessGrid />
+            <CourseFlashcards />
+            <MethodologySection />
+            <FAQSection />
+            <ContactSection />
+          </div>
+        ) : null}
       </main>
     </>
   );

@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,53710,(t,e,o)=>{let c=Error("Could not parse module '[project]/src/views/NEETPracticeQuestion.tsx'\n\nExpected '</', got 'jsx text'");throw c.code="MODULE_UNPARSABLE",c}]);

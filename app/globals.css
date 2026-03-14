@@ -367,4 +367,26 @@ html::-webkit-scrollbar {
     pointer-events: none;
     border-radius: inherit;
   }
+
+  @media (max-width: 768px) {
+    .glass-card {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+
+    .glass-card:hover {
+      transform: none;
+    }
+
+    .grain::before,
+    .noise::after {
+      display: none;
+    }
+
+    .shimmer::after,
+    .animate-pulse-glow,
+    .text-gradient-animated {
+      animation: none !important;
+    }
+  }
 }
