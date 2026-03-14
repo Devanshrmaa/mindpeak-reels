@@ -168,6 +168,34 @@ export default function RootLayout({
         {/* DNS-prefetch for deferred analytics */}
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
         {/*
+          Critical CSS — inlined so the browser can paint the hero H1 (LCP element)
+          without waiting for external CSS chunks to download.
+        */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html: [
+              ':root{--background:225 43% 7%;--foreground:210 40% 98%;--primary:43 72% 52%;--muted-foreground:215 20% 65%;--gradient-gold:linear-gradient(135deg,hsl(43 80% 65%),hsl(43 72% 52%),hsl(43 65% 42%));--font-display:"Space Grotesk",sans-serif;--font-body:"Inter",system-ui,sans-serif}',
+              'body{background:hsl(225,43%,7%);color:hsl(210,40%,98%);margin:0;font-family:var(--font-body);-webkit-font-smoothing:antialiased}',
+              'h1,h2,h3{font-family:var(--font-display);letter-spacing:-0.02em}',
+              '#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background-image:url(/images/hero-bg.jpg);background-size:cover;background-position:center top}',
+              '.relative{position:relative}.absolute{position:absolute}.inset-0{inset:0}',
+              '.z-10{z-index:10}.z-\\[3\\]{z-index:3}',
+              '.flex{display:flex}.items-center{align-items:center}.justify-center{justify-content:center}',
+              '.w-full{width:100%}.text-center{text-align:center}.mx-auto{margin-left:auto;margin-right:auto}',
+              '.block{display:block}.overflow-hidden{overflow:hidden}',
+              '.font-display{font-family:var(--font-display)}.font-black{font-weight:900}.uppercase{text-transform:uppercase}',
+              '.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}',
+              '.text-gradient-gold{background:var(--gradient-gold);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}',
+              '.bg-gradient-to-b{background:linear-gradient(to bottom,var(--tw-gradient-stops))}',
+              '.from-black\\/70{--tw-gradient-from:rgba(0,0,0,.7);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to,transparent)}',
+              '.via-black\\/30{--tw-gradient-stops:var(--tw-gradient-from),rgba(0,0,0,.3),var(--tw-gradient-to,transparent)}',
+              '.to-black\\/80{--tw-gradient-to:rgba(0,0,0,.8)}',
+              '.vignette{background:radial-gradient(ellipse at center,transparent 0%,hsl(225 43% 7%/.8) 100%)}',
+              '.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}',
+            ].join(''),
+          }}
+        />
+        {/*
           Hero background preload — the hero now uses CSS background-image (not
           next/image), so we preload the raw JPEG here.  This is the only consumer
           of this URL so there is no duplicate-download risk.

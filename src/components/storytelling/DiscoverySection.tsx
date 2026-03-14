@@ -106,6 +106,7 @@ function LogoRings() {
         alt="MindPeak Institute"
         width={160}
         height={160}
+        sizes="(max-width: 768px) 75px, 150px"
         loading="lazy"
         className="relative w-[75%] h-[75%] rounded-full object-contain border-2 border-primary/30 shadow-[0_0_40px_hsl(var(--primary)/0.2)] group-hover:shadow-[0_0_60px_hsl(var(--primary)/0.35)] transition-shadow duration-700 bg-background"
       />

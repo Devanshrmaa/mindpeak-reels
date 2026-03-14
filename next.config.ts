@@ -60,7 +60,7 @@ const nextConfig: NextConfig = {
       },
       /* Long cache for images optimised by Next.js */
       {
-        source: '/_next/image/:path*',
+        source: '/_next/image',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
         ],
@@ -88,6 +88,34 @@ const nextConfig: NextConfig = {
         source: '/ncert/:path*',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
+      /* Sitemaps and robots */
+      {
+        source: '/sitemap.xml',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=86400' },
+          { key: 'Content-Type', value: 'application/xml' },
+        ],
+      },
+      {
+        source: '/sitemap-topics.xml',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=86400' },
+          { key: 'Content-Type', value: 'application/xml' },
+        ],
+      },
+      {
+        source: '/sitemaps/:path*',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=86400' },
+          { key: 'Content-Type', value: 'application/xml' },
+        ],
+      },
+      {
+        source: '/robots.txt',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=86400' },
         ],
       },
     ];
