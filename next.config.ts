@@ -99,20 +99,6 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/sitemap-topics.xml',
-        headers: [
-          { key: 'Cache-Control', value: 'public, max-age=86400' },
-          { key: 'Content-Type', value: 'application/xml' },
-        ],
-      },
-      {
-        source: '/sitemaps/:path*',
-        headers: [
-          { key: 'Cache-Control', value: 'public, max-age=86400' },
-          { key: 'Content-Type', value: 'application/xml' },
-        ],
-      },
-      {
         source: '/robots.txt',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=86400' },
@@ -181,6 +167,11 @@ const nextConfig: NextConfig = {
       /* ── Stale JEE practice question URLs ── */
       { source: '/jee-physics-units-dimensions-si-units-easy-which-of-the-following-is-not-a-fundamental-si-unit', destination: '/jee-practice', permanent: true },
       { source: '/jee-physics-units-dimensions-si-units-hard-in-a-new-system-of-units-the-unit-of-mass-is-alpha-kg-length-is-beta-m-and-time-is-gamma-s-the-value-of-1-j-in-this-new-system-is', destination: '/jee-practice', permanent: true },
+
+      /* ── Legacy sitemap URLs → canonical /sitemap.xml ── */
+      { source: '/sitemap-topics.xml', destination: '/sitemap.xml', permanent: true },
+      { source: '/final.xml', destination: '/sitemap.xml', permanent: true },
+      { source: '/sitemaps/:path*', destination: '/sitemap.xml', permanent: true },
     ];
   },
 

@@ -12,5 +12,5 @@ Disallow: /*.woff2$
 # Block duplicate content (query strings create duplicates)
 Disallow: /*?*
 
-# Single comprehensive sitemap (50,000+ URLs, dynamically generated)
-Sitemap: https://mindpeakinstitute.com/final3.xml
+# Single comprehensive sitemap (22,000+ URLs, dynamically generated)
+Sitemap: https://mindpeakinstitute.com/sitemap.xml

@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<!-- DEPRECATED: This static file is superseded by the dynamic route at app/sitemap.xml/route.ts -->
+<!-- DELETE THIS FILE — it may shadow the dynamic sitemap handler in some deployments -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+</urlset>
 <!--
-================================================================
-  MINDPEAK INSTITUTE — PRODUCTION SITEMAP v4.0
-  Total URLs: 231+ (main) + 1,184 (topic pages in sitemap-topics.xml)
-  
-  v3: 147 chapter pages added
-  v4: 1,184 topic-level pages (auto-generated sitemap-topics.xml)
-  
   Run: node scripts/generate-topic-sitemap.mjs
 ================================================================
 -->

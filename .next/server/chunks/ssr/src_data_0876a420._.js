@@ -1,3 +1,0 @@
-module.exports=[60717,a=>{a.v(a=>Promise.resolve().then(()=>a(26158)))},99927,a=>{a.v(b=>Promise.all(["server/chunks/ssr/src_data_neet-practice_index_ts_7529408d._.js"].map(b=>a.l(b))).then(()=>b(16203)))},81521,a=>{a.v(b=>Promise.all(["server/chunks/ssr/src_data_pyq_index_ts_a5c3fee8._.js"].map(b=>a.l(b))).then(()=>b(59732)))},43367,a=>{a.v(b=>Promise.all(["server/chunks/ssr/src_data_neet-pyq_index_ts_e98c944b._.js"].map(b=>a.l(b))).then(()=>b(15938)))}];
-
-//# sourceMappingURL=src_data_0876a420._.js.map

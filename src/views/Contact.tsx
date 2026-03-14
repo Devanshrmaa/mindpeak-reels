@@ -144,7 +144,7 @@ const Contact = () => {
           </div>
         </section>
 
-        {/* Contact Cards */}}
+        {/* Contact Cards */}
         <section className="bg-secondary/30 border-y border-border py-12 px-6">
           <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {contactInfo.map((c, i) => (
