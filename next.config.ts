@@ -196,6 +196,8 @@ const nextConfig: NextConfig = {
       '@radix-ui/react-icons',
       'date-fns',
     ],
+    /* Inline CSS into the HTML response — eliminates render-blocking <link> sheets */
+    inlineCss: true,
   },
 
   /* ── Turbopack (Next 16 default) ── */
@@ -206,15 +208,22 @@ const nextConfig: NextConfig = {
     },
   },
 
-  webpack: (config, { isServer }) => {
+  webpack: (config, { isServer, webpack }) => {
     if (!isServer) {
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        'next/dist/build/polyfills/polyfill-module': emptyNextPolyfillModulePath,
-        'next/dist/build/polyfills/polyfill-module.js': emptyNextPolyfillModulePath,
-        'next/dist/esm/build/polyfills/polyfill-module': emptyNextPolyfillModulePath,
-        'next/dist/esm/build/polyfills/polyfill-module.js': emptyNextPolyfillModulePath,
-      };
+      /*
+       * Replace the built-in polyfill-module chunk with an empty shim.
+       * The polyfill is imported via a RELATIVE path inside
+       * next/dist/client/app-globals.ts (import '../build/polyfills/polyfill-module')
+       * so resolve.alias with module-specifier keys never intercepts it.
+       * NormalModuleReplacementPlugin matches the RESOLVED absolute path,
+       * which works for both relative and absolute imports.
+       */
+      config.plugins.push(
+        new webpack.NormalModuleReplacementPlugin(
+          /[\\/]next[\\/]dist[\\/]build[\\/]polyfills[\\/]polyfill-module\.js$/,
+          emptyNextPolyfillModulePath,
+        ),
+      );
     }
 
     return config;
