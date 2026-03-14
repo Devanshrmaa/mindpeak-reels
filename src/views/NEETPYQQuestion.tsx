@@ -149,14 +149,14 @@ const NEETPYQQuestion = () => {
               <Link to={`/neet-pyq-${params.subject}-${params.chapter}`} className="hover:text-primary transition-colors">{chapterName}</Link><span>/</span>
               <span className="text-foreground">Q{params.questionIndex}</span>
             </nav>
-            <motion.div animate={{ opacity: 1, y: 0 }}>
+            <div>
               <div className="flex items-center gap-3 mb-4 flex-wrap">
                 <span className="text-3xl">{bank.icon}</span>
                 <span className="px-3 py-1 rounded-full text-xs font-semibold border border-green-500/30 bg-green-500/10 text-green-400">{question.shift}</span>
               </div>
               <h1 className="font-display font-bold text-3xl sm:text-4xl text-foreground mb-3">{chapterName} — <span className="text-green-400">PYQ</span></h1>
               <p className="text-lg text-muted-foreground">NEET {subj} · Previous Year Question {params.questionIndex} of {totalInChapter}</p>
-            </motion.div>
+            </div>
           </div>
         </section>
 

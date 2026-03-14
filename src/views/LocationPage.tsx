@@ -301,7 +301,7 @@ const LocationPage = () => {
 
         {/* ═══ HERO ═══ */}
         <section className="max-w-5xl mx-auto px-6 pb-12">
-          <motion.div animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <div>
             <div className="flex items-center gap-4 mb-6">
               <Image src={logo} alt="MindPeak Institute" className="w-14 h-14 rounded-full" width={56} height={56} priority />
               <div>
@@ -331,7 +331,7 @@ const LocationPage = () => {
                 View Courses ↓
               </a>
             </div>
-          </motion.div>
+          </div>
         </section>
 
         {/* ═══ QUICK STATS ═══ */}
@@ -724,7 +724,7 @@ const LocationPage = () => {
                         <p className="text-foreground font-display font-bold text-sm">{current.name}</p>
                         <p className="text-primary text-xs font-medium">{current.role}</p>
                         {current.result && <p className="text-muted-foreground text-xs mt-1">{current.result}</p>}
-                        {current.isSample && <p className="text-muted-foreground/50 text-[10px] mt-2 uppercase tracking-wider">Sample testimonial</p>}
+                        {current.isSample && <p className="text-muted-foreground/80 text-[10px] mt-2 uppercase tracking-wider">Sample testimonial</p>}
                       </motion.div>
                     </AnimatePresence>
                     <div className="flex justify-center gap-3 mt-6">

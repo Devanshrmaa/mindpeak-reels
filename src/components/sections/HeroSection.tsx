@@ -78,7 +78,7 @@ export const HeroSection = () => {
 
       {/* Scroll hint */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 pointer-events-none">
-        <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground/60">Scroll</span>
+        <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Scroll</span>
         <span className="w-[1px] h-8 bg-gradient-to-b from-foreground/30 to-transparent origin-top animate-pulse" />
       </div>
 

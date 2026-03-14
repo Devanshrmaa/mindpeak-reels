@@ -54,7 +54,7 @@ export const CourseFlashcards = () => {
           <h2 className="font-display font-bold text-foreground tracking-[-0.02em]" style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}>
             EXPLORE <span className="text-gradient-gold">COURSES</span>
           </h2>
-          <p className="text-muted-foreground/60 text-base mt-3">Find the perfect program for your goals</p>
+          <p className="text-muted-foreground text-base mt-3">Find the perfect program for your goals</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
@@ -75,7 +75,7 @@ export const CourseFlashcards = () => {
                 }`}
               >
                 {/* Number label */}
-                <span className="absolute top-5 right-6 text-[11px] tracking-[0.15em] text-muted-foreground/25 font-medium">{card.num}</span>
+                <span className="absolute top-5 right-6 text-[11px] tracking-[0.15em] text-muted-foreground/40 font-medium">{card.num}</span>
 
                 {/* Top accent line */}
                 <div className={`absolute top-0 left-8 right-8 h-px bg-gradient-to-r ${card.accent} transition-opacity duration-500 ${
@@ -116,7 +116,7 @@ export const CourseFlashcards = () => {
                   to="/courses"
                   aria-label={`View ${card.title} details`}
                   className={`inline-flex items-center gap-2 text-[12px] font-medium tracking-[0.15em] uppercase transition-all duration-500 ${
-                    isHovered ? 'text-primary gap-3' : 'text-muted-foreground/60'
+                    isHovered ? 'text-primary gap-3' : 'text-muted-foreground'
                   }`}
                 >
                   View {card.title} Details

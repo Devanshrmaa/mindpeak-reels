@@ -13,6 +13,7 @@ import { PageFooter } from '@/components/PageFooter';
 import { buildFAQSchemaFromQA } from '@/components/PageFAQ';
 import { FreshnessBadge } from '@/components/FreshnessBadge';
 import { getLastUpdated, getCurrentExamYear } from '@/lib/contentFreshness';
+import { FadeInView } from '@/components/FadeInView';
 import { TableOfContents, toAnchorId, type TocItem } from '@/components/TableOfContents';
 import { getExamEntities } from '@/lib/seoEntities';
 import { getExamInfoPage, type ExamInfoSection } from '@/data/examInfoData';
@@ -20,14 +21,8 @@ import { getExamInfoPage, type ExamInfoSection } from '@/data/examInfoData';
 const SectionRenderer = ({ section, index }: { section: ExamInfoSection; index: number }) => {
   const anchorId = toAnchorId(section.heading);
   return (
-    <motion.section
-      id={anchorId}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.05 }}
-      className="mb-12 scroll-mt-24"
-    >
+    <section id={anchorId} className="mb-12 scroll-mt-24">
+    <FadeInView delay={index * 50}>
       <h2 className="font-display font-bold text-foreground text-xl sm:text-2xl mb-4">{section.heading}</h2>
 
       {section.content && (
@@ -83,7 +78,8 @@ const SectionRenderer = ({ section, index }: { section: ExamInfoSection; index: 
           ))}
         </div>
       )}
-    </motion.section>
+    </FadeInView>
+    </section>
   );
 };
 
@@ -142,7 +138,7 @@ const ExamInfoPage = () => {
         </nav>
 
         <section className="max-w-4xl mx-auto px-6 pb-12">
-          <motion.div animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <div>
             <FreshnessBadge lastUpdated={lastUpdated} verifiedFor={getCurrentExamYear()} />
             <h1 className="font-display font-black text-foreground mb-6" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
               {page.h1} <span className="text-gradient-gold">{page.highlight}</span>
@@ -156,7 +152,7 @@ const ExamInfoPage = () => {
                 <Phone className="w-4 h-4" /> Call +91 82194 57704
               </a>
             </div>
-          </motion.div>
+          </div>
         </section>
 
         <div className="section-divider max-w-4xl mx-auto" />

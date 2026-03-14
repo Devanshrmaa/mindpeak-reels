@@ -108,7 +108,7 @@ export const ProblemSection = () => {
               <div className="font-display font-bold text-destructive text-3xl md:text-4xl leading-none mb-1 tracking-tight">
                 {p.stat}
               </div>
-              <div className="text-muted-foreground/60 text-[10px] uppercase tracking-[0.15em] mb-4">
+              <div className="text-muted-foreground text-[10px] uppercase tracking-[0.15em] mb-4">
                 {p.label}
               </div>
               <h3 className="font-display font-semibold text-foreground text-sm mb-2">

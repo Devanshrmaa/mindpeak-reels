@@ -91,7 +91,7 @@ const RevisionNotesPage = () => {
         </nav>
 
         <section className="max-w-4xl mx-auto px-6 pb-12">
-          <motion.div animate={{ opacity: 1, y: 0 }}>
+          <div>
             <FreshnessBadge lastUpdated={lastUpdated} verifiedFor={getCurrentExamYear()} />
             <div className="flex items-center gap-3 mb-4">
               <span className="px-3 py-1 rounded-full bg-primary/15 text-primary text-xs font-bold">{chapter.subject}</span>
@@ -104,7 +104,7 @@ const RevisionNotesPage = () => {
             <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl">
               Complete revision notes for {chapter.chapter} ({chapter.exam} {chapter.subject}). Covers all {chapter.topics.length} topics with key formulas, common mistakes, and exam tips.
             </p>
-          </motion.div>
+          </div>
         </section>
 
         <div className="section-divider max-w-4xl mx-auto" />

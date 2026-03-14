@@ -131,7 +131,7 @@ export const ContactSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className="text-muted-foreground/60 hover:text-primary transition-colors duration-300"
+                className="text-muted-foreground hover:text-primary transition-colors duration-300"
               >
                 <s.icon className="w-4 h-4" strokeWidth={1.5} />
               </a>
@@ -142,21 +142,21 @@ export const ContactSection = () => {
           <div className="flex items-center gap-4 text-[11px] tracking-[0.1em]">
             <Link
               to="/terms-and-conditions"
-              className="text-muted-foreground/60 hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Terms
             </Link>
             <span className="text-foreground/10">|</span>
             <Link
               to="/refund-policy"
-              className="text-muted-foreground/60 hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Refund Policy
             </Link>
           </div>
         </div>
 
-        <p className="text-muted-foreground/50 text-[11px] tracking-[0.1em] text-center">
+        <p className="text-muted-foreground/80 text-[11px] tracking-[0.1em] text-center">
           © 2026 MindPeak Institute. All rights reserved.
         </p>
       </footer>

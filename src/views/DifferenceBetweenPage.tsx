@@ -72,7 +72,7 @@ const DifferenceBetweenPage = () => {
 
         {/* Hero */}
         <section className="max-w-4xl mx-auto px-6 pb-12">
-          <motion.div animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <div>
             <FreshnessBadge lastUpdated={lastUpdated} verifiedFor={getCurrentExamYear()} />
             <div className="flex items-center gap-3 mb-4">
               <span className="px-3 py-1 rounded-full bg-primary/15 text-primary text-xs font-bold">{pair.subject}</span>
@@ -82,7 +82,7 @@ const DifferenceBetweenPage = () => {
               Difference Between <span className="text-gradient-gold">{pair.term1}</span> and <span className="text-gradient-gold">{pair.term2}</span>
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl">{pair.intro}</p>
-          </motion.div>
+          </div>
         </section>
 
         <div className="section-divider max-w-4xl mx-auto" />

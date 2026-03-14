@@ -37,7 +37,7 @@ export const DiscoverySection = () => {
         >
           <div className="flex items-center justify-center gap-3 mb-5">
             <span className="h-px w-8 bg-primary/30" />
-            <span className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground/60 font-medium">
+            <span className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground font-medium">
               The Solution
             </span>
             <span className="h-px w-8 bg-primary/30" />
@@ -74,7 +74,7 @@ export const DiscoverySection = () => {
               className="group relative p-7 md:p-8 rounded-2xl border border-foreground/[0.06] bg-foreground/[0.02] hover:border-primary/20 hover:bg-foreground/[0.04] transition-all duration-600 overflow-hidden"
             >
               {/* Number */}
-              <span className="absolute top-4 right-5 text-[11px] tracking-[0.15em] text-muted-foreground/30 font-medium">{pillar.num}</span>
+              <span className="absolute top-4 right-5 text-[11px] tracking-[0.15em] text-muted-foreground/40 font-medium">{pillar.num}</span>
 
               <div className="w-14 h-14 md:w-16 md:h-16 mx-auto mb-5 rounded-xl overflow-hidden ring-1 ring-primary/15 transition-all duration-500 group-hover:ring-primary/30 group-hover:shadow-[0_0_30px_-8px_hsl(var(--primary)/0.2)]">
                 <img src={pillar.image} alt={pillar.title} className="w-full h-full object-cover" width={84} height={84} loading="lazy" />

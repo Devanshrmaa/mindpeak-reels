@@ -192,7 +192,7 @@ const JEECoaching = () => {
       <main className="bg-background min-h-screen pt-20 sm:pt-24 overflow-x-hidden">
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="max-w-4xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
-          <ol className="flex items-center gap-2 text-[11px] tracking-[0.05em] text-muted-foreground/60">
+          <ol className="flex items-center gap-2 text-[11px] tracking-[0.05em] text-muted-foreground">
             <li><Link to="/" className="hover:text-foreground/70 transition-colors duration-300">Home</Link></li>
             <span className="text-foreground/15">/</span>
             <li className="text-foreground/80">JEE Coaching</li>
@@ -208,7 +208,7 @@ const JEECoaching = () => {
               <Image src="/images/logo.jpeg" alt="MindPeak Institute" width={48} height={48} className="w-10 h-10 sm:w-12 sm:h-12 rounded-full ring-1 ring-foreground/[0.08] flex-shrink-0" />
               <div className="min-w-0">
                 <p className="text-primary/70 text-[10px] sm:text-[11px] uppercase tracking-[0.25em] font-medium">MindPeak Institute</p>
-                <p className="text-muted-foreground/60 text-xs truncate">Personalized 1-on-1 JEE Main &amp; Advanced Coaching</p>
+                <p className="text-muted-foreground text-xs truncate">Personalized 1-on-1 JEE Main &amp; Advanced Coaching</p>
               </div>
             </div>
 
@@ -272,7 +272,7 @@ const JEECoaching = () => {
             {stats.map((s, i) => (
               <FadeInView key={s.label} delay={i * 60}>
                 <div className="font-display font-bold text-primary text-2xl md:text-3xl mb-1 tracking-tight">{s.value}</div>
-                <div className="text-muted-foreground/60 text-[10px] uppercase tracking-[0.2em]">{s.label}</div>
+                <div className="text-muted-foreground text-[10px] uppercase tracking-[0.2em]">{s.label}</div>
               </FadeInView>
             ))}
           </div>
@@ -326,7 +326,7 @@ const JEECoaching = () => {
                 {methodology.map((m, i) => (
                   <FadeInView key={i} delay={i * 60}
                     className="group rounded-2xl border border-foreground/[0.06] bg-foreground/[0.02] p-7 hover:border-primary/15 hover:bg-foreground/[0.04] transition-all duration-500">
-                    <span className="text-[11px] tracking-[0.15em] text-muted-foreground/30 font-medium">{String(i + 1).padStart(2, '0')}</span>
+                    <span className="text-[11px] tracking-[0.15em] text-muted-foreground/40 font-medium">{String(i + 1).padStart(2, '0')}</span>
                     <m.icon className="w-5 h-5 text-primary/60 mt-4 mb-4" strokeWidth={1.5} />
                     <h3 className="font-display font-semibold text-foreground text-sm mb-2 tracking-[-0.01em]">{m.title}</h3>
                     <p className="text-muted-foreground/70 text-sm leading-[1.7]">{m.desc}</p>
@@ -342,7 +342,7 @@ const JEECoaching = () => {
           <FadeInView>
             <div className="flex items-center gap-3 mb-4">
               <span className="h-px w-8 bg-foreground/10" />
-              <span className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground/60 font-medium">Stories</span>
+              <span className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground font-medium">Stories</span>
             </div>
             <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl mb-10 tracking-[-0.02em]">
               JEE <span className="text-gradient-gold">Success Stories</span>
@@ -354,19 +354,19 @@ const JEECoaching = () => {
                   <div className="flex items-center justify-between mb-5">
                     <div>
                       <h3 className="font-display font-semibold text-foreground text-sm">{t.name}</h3>
-                      <p className="text-muted-foreground/60 text-[11px] tracking-[0.05em]">{t.city}</p>
+                      <p className="text-muted-foreground text-[11px] tracking-[0.05em]">{t.city}</p>
                     </div>
                     <span className="text-primary/70 text-[11px] tracking-[0.1em] font-medium">{t.rank}</span>
                   </div>
                   <div className="flex items-center gap-3 mb-5">
                     <div className="flex-1 text-center p-3 rounded-xl bg-foreground/[0.02] border border-foreground/[0.04]">
                       <div className="text-destructive/70 font-display font-bold text-lg">{t.before}</div>
-                      <div className="text-muted-foreground/50 text-[10px] uppercase tracking-[0.1em]">Before</div>
+                      <div className="text-muted-foreground/80 text-[10px] uppercase tracking-[0.1em]">Before</div>
                     </div>
                     <ArrowRight className="w-3.5 h-3.5 text-primary/50 flex-shrink-0" />
                     <div className="flex-1 text-center p-3 rounded-xl bg-foreground/[0.02] border border-foreground/[0.04]">
                       <div className="text-primary/80 font-display font-bold text-lg">{t.after}</div>
-                      <div className="text-muted-foreground/50 text-[10px] uppercase tracking-[0.1em]">After</div>
+                      <div className="text-muted-foreground/80 text-[10px] uppercase tracking-[0.1em]">After</div>
                     </div>
                   </div>
                   <p className="text-muted-foreground/70 text-sm leading-[1.7] italic">&ldquo;{t.quote}&rdquo;</p>
@@ -419,7 +419,7 @@ const JEECoaching = () => {
           <FadeInView>
             <div className="flex items-center gap-3 mb-4">
               <span className="h-px w-8 bg-foreground/10" />
-              <span className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground/60 font-medium">Compare</span>
+              <span className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground font-medium">Compare</span>
             </div>
             <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl mb-4 tracking-[-0.02em]">
               Transparent <span className="text-gradient-gold">Pricing Comparison</span>
@@ -431,11 +431,11 @@ const JEECoaching = () => {
               <table className="w-full text-sm min-w-[600px]">
                 <thead>
                   <tr className="bg-foreground/[0.03]">
-                    <th className="text-left px-5 py-4 text-muted-foreground/60 text-[11px] uppercase tracking-[0.15em] font-medium">Feature</th>
+                    <th className="text-left px-5 py-4 text-muted-foreground text-[11px] uppercase tracking-[0.15em] font-medium">Feature</th>
                     <th className="text-center px-5 py-4 text-primary/70 text-[11px] uppercase tracking-[0.15em] font-medium">MindPeak</th>
-                    <th className="text-center px-5 py-4 text-muted-foreground/50 text-[11px] uppercase tracking-[0.15em] font-medium">Allen</th>
-                    <th className="text-center px-5 py-4 text-muted-foreground/50 text-[11px] uppercase tracking-[0.15em] font-medium">Resonance</th>
-                    <th className="text-center px-5 py-4 text-muted-foreground/50 text-[11px] uppercase tracking-[0.15em] font-medium">FIITJEE</th>
+                    <th className="text-center px-5 py-4 text-muted-foreground text-[11px] uppercase tracking-[0.15em] font-medium">Allen</th>
+                    <th className="text-center px-5 py-4 text-muted-foreground text-[11px] uppercase tracking-[0.15em] font-medium">Resonance</th>
+                    <th className="text-center px-5 py-4 text-muted-foreground text-[11px] uppercase tracking-[0.15em] font-medium">FIITJEE</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -443,9 +443,9 @@ const JEECoaching = () => {
                     <tr key={i} className="border-t border-foreground/[0.04] hover:bg-foreground/[0.02] transition-colors duration-300">
                       <td className="px-5 py-3.5 text-foreground/80 font-medium text-xs sm:text-sm">{row.feature}</td>
                       <td className="px-5 py-3.5 text-center text-primary/80 font-medium text-xs sm:text-sm">{row.mindpeak}</td>
-                      <td className="px-5 py-3.5 text-center text-muted-foreground/60 text-xs sm:text-sm">{row.allen}</td>
-                      <td className="px-5 py-3.5 text-center text-muted-foreground/60 text-xs sm:text-sm">{row.resonance}</td>
-                      <td className="px-5 py-3.5 text-center text-muted-foreground/60 text-xs sm:text-sm">{row.fiitjee}</td>
+                      <td className="px-5 py-3.5 text-center text-muted-foreground text-xs sm:text-sm">{row.allen}</td>
+                      <td className="px-5 py-3.5 text-center text-muted-foreground text-xs sm:text-sm">{row.resonance}</td>
+                      <td className="px-5 py-3.5 text-center text-muted-foreground text-xs sm:text-sm">{row.fiitjee}</td>
                     </tr>
                   ))}
                 </tbody>

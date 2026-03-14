@@ -608,7 +608,7 @@ const SubjectPage = () => {
 
         {/* ───── HERO ───── */}
         <section className="max-w-5xl mx-auto px-4 sm:px-6 pb-8 sm:pb-12">
-          <motion.div animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <div>
             <FreshnessBadge lastUpdated="2026-02-18" verifiedFor={`${data.exam} ${CURRENT_EXAM_YEAR}`} />
 
             <div className="flex items-center gap-3 mb-4 sm:mb-6">
@@ -634,7 +634,7 @@ const SubjectPage = () => {
                 <Phone className="w-4 h-4" /> Call +91 82194 57704
               </a>
             </div>
-          </motion.div>
+          </div>
         </section>
 
         {/* ───── FEATURED SNIPPET ───── */}

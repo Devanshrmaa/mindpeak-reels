@@ -125,7 +125,7 @@ const Contact = () => {
 
         {/* Hero */}
         <section className="max-w-5xl mx-auto px-6 pb-16">
-          <motion.div animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <div>
             <div className="flex items-center gap-4 mb-6">
               <Image src={logo} alt="MindPeak Institute" className="w-14 h-14 rounded-full" width={56} height={56} priority />
               <div>
@@ -141,10 +141,10 @@ const Contact = () => {
             <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl">
               Have questions about our JEE or NEET coaching programs? Want to know if MindPeak is right for your child? Reach out — our counselors are available Monday to Saturday, 9 AM – 8 PM IST.
             </p>
-          </motion.div>
+          </div>
         </section>
 
-        {/* Contact Cards */}
+        {/* Contact Cards */}}
         <section className="bg-secondary/30 border-y border-border py-12 px-6">
           <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {contactInfo.map((c, i) => (

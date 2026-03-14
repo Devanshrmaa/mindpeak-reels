@@ -24,6 +24,8 @@ const IdleOverlays = () => {
   return (
     <Suspense fallback={null}>
       <DeferredOverlays />
+      <Toaster />
+      <Sonner />
     </Suspense>
   );
 };
@@ -31,8 +33,6 @@ const IdleOverlays = () => {
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ErrorBoundary>
-      <Toaster />
-      <Sonner />
       <DemoModalProvider>
         <IdleOverlays />
         {children}

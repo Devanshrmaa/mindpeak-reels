@@ -32,7 +32,7 @@ export const BeforeAfterSection = () => {
         >
           <div className="flex items-center justify-center gap-3 mb-5">
             <span className="h-px w-8 bg-foreground/10" />
-            <span className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground/60 font-medium">Compare</span>
+            <span className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground font-medium">Compare</span>
             <span className="h-px w-8 bg-foreground/10" />
           </div>
           <h2
@@ -58,7 +58,7 @@ export const BeforeAfterSection = () => {
             />
             <button
               onClick={() => setShowAfter(false)}
-              className={`relative z-10 flex-1 py-2.5 text-[11px] font-medium uppercase tracking-[0.15em] rounded-full transition-colors duration-300 ${
+              className={`relative z-10 flex-1 py-2.5 text-xs font-medium uppercase tracking-[0.15em] rounded-full transition-colors duration-300 ${
                 !showAfter ? 'text-white' : 'text-muted-foreground'
               }`}
             >
@@ -66,7 +66,7 @@ export const BeforeAfterSection = () => {
             </button>
             <button
               onClick={() => setShowAfter(true)}
-              className={`relative z-10 flex-1 py-2.5 text-[11px] font-medium uppercase tracking-[0.15em] rounded-full transition-colors duration-300 ${
+              className={`relative z-10 flex-1 py-2.5 text-xs font-medium uppercase tracking-[0.15em] rounded-full transition-colors duration-300 ${
                 showAfter ? 'text-white' : 'text-muted-foreground'
               }`}
             >

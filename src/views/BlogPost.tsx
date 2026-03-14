@@ -106,10 +106,7 @@ const BlogPost = () => {
 
         {/* Article */}
         <article className="max-w-4xl mx-auto px-6 pb-20">
-          <motion.div
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+            <div>
             {/* Back link */}
             <Link to="/blog" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm mb-8">
               <ArrowLeft className="w-4 h-4" /> Back to Blog
@@ -259,7 +256,7 @@ const BlogPost = () => {
                 </Link>
               </div>
             </div>
-          </motion.div>
+          </div>
         </article>
 
         {/* Related Posts */}

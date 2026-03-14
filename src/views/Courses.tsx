@@ -34,7 +34,7 @@ const CourseCard = ({ course, index, onBookDemo, onDownloadBrochure }: { course:
     >
       <div className="w-full text-left p-7 sm:p-8 flex flex-col gap-5">
         {/* Number tag */}
-        <span className="absolute top-5 right-6 text-[11px] tracking-[0.15em] text-muted-foreground/30 font-medium">{num}</span>
+        <span className="absolute top-5 right-6 text-[11px] tracking-[0.15em] text-muted-foreground/40 font-medium">{num}</span>
 
         {/* Header row */}
         <div className="flex items-start justify-between gap-4">
@@ -50,7 +50,7 @@ const CourseCard = ({ course, index, onBookDemo, onDownloadBrochure }: { course:
             )}
             <div>
               <h3 className="font-display font-semibold text-foreground text-lg tracking-[-0.01em]">{course.name}</h3>
-              <p className="text-muted-foreground/60 text-xs mt-1">{course.targetExam} · {course.duration}</p>
+              <p className="text-muted-foreground text-xs mt-1">{course.targetExam} · {course.duration}</p>
             </div>
           </div>
           <span className="w-8 h-8 rounded-full border border-foreground/[0.08] grid place-items-center mt-0.5 opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:rotate-[-45deg]">
@@ -59,7 +59,7 @@ const CourseCard = ({ course, index, onBookDemo, onDownloadBrochure }: { course:
         </div>
 
         {/* Meta line */}
-        <div className="flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.15em] text-muted-foreground/60">
+        <div className="flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.15em] text-muted-foreground">
           <span className="flex items-center gap-1.5"><Users className="w-3 h-3" strokeWidth={1.5} /> {course.mode}</span>
           <span className="w-px h-3 bg-foreground/[0.06]" />
           <span className="flex items-center gap-1.5"><Clock className="w-3 h-3" strokeWidth={1.5} /> {course.duration}</span>
@@ -118,7 +118,7 @@ const Courses = () => {
             <span className="font-display font-semibold text-foreground text-sm tracking-[0.1em]">MINDPEAK</span>
           </Link>
           <div className="hidden md:flex items-center gap-8">
-            <Link to="/" className="text-muted-foreground/60 hover:text-foreground transition-colors duration-300 text-[12px] font-medium tracking-[0.15em] uppercase">Home</Link>
+            <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-[12px] font-medium tracking-[0.15em] uppercase">Home</Link>
             <Link to="/courses" className="text-foreground text-[12px] font-medium tracking-[0.15em] uppercase">Courses</Link>
             <button onClick={openDemoModal} className="px-6 py-2 bg-primary text-primary-foreground text-[11px] uppercase tracking-[0.15em] font-medium rounded-full hover:shadow-[0_0_30px_-8px_hsl(var(--primary)/0.4)] transition-all duration-500">Book Demo</button>
           </div>
@@ -128,28 +128,22 @@ const Courses = () => {
       {/* Hero */}
       <section className="pt-36 pb-20 md:pb-28 px-6 relative">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease }}
-          >
+          <div>
             <div className="flex items-center justify-center gap-3 mb-6">
               <span className="h-px w-8 bg-foreground/10" />
-              <span className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground/60 font-medium">Programs</span>
+              <span className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground font-medium">Programs</span>
               <span className="h-px w-8 bg-foreground/10" />
             </div>
             <h1 className="font-display font-bold text-foreground tracking-[-0.03em] mb-5" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}>
               Our <span className="text-gradient-gold">Courses</span>
             </h1>
-          </motion.div>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.15, duration: 0.8, ease }}
+          </div>
+          <p
             className="text-muted-foreground/70 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed"
           >
             From early foundation building to intensive crash programs — every course includes
             daily 1-on-1 classes, 6 days a week, with a dedicated mentor.
-          </motion.p>
+          </p>
         </div>
       </section>
 
@@ -184,7 +178,7 @@ const Courses = () => {
               transition={{ delay: i * 0.08, duration: 0.7, ease }}
               className="group relative p-7 rounded-2xl border border-foreground/[0.06] bg-foreground/[0.02] text-center hover:border-primary/15 hover:bg-foreground/[0.04] transition-all duration-500"
             >
-              <span className="absolute top-4 right-5 text-[11px] tracking-[0.15em] text-muted-foreground/30 font-medium">{item.num}</span>
+              <span className="absolute top-4 right-5 text-[11px] tracking-[0.15em] text-muted-foreground/40 font-medium">{item.num}</span>
               <div className="w-14 h-14 rounded-xl overflow-hidden mx-auto mb-5 ring-1 ring-foreground/[0.08] bg-white/5">
                 <img src={item.logo} alt={item.title} className="w-full h-full object-contain" loading="lazy" />
               </div>
@@ -207,7 +201,7 @@ const Courses = () => {
           >
             <div className="flex items-center gap-3 mb-4">
               <span className="h-px w-8 bg-foreground/10" />
-              <span className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground/60 font-medium">Catalog</span>
+              <span className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground font-medium">Catalog</span>
             </div>
             <h2 className="font-display font-bold text-foreground text-2xl sm:text-3xl tracking-[-0.02em]">
               All <span className="text-gradient-gold">Courses</span>
@@ -220,7 +214,7 @@ const Courses = () => {
             ))}
           </div>
 
-          <p className="text-muted-foreground/40 text-xs tracking-[0.05em] mt-6">
+          <p className="text-muted-foreground/70 text-xs tracking-[0.05em] mt-6">
             Scholarship available — Terms & Conditions apply. GST extra where applicable.
           </p>
         </div>
@@ -238,7 +232,7 @@ const Courses = () => {
           >
             <div className="flex items-center gap-3 mb-4">
               <span className="h-px w-8 bg-foreground/10" />
-              <span className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground/60 font-medium">Practice</span>
+              <span className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground font-medium">Practice</span>
             </div>
             <h2 className="font-display font-bold text-foreground text-2xl sm:text-3xl tracking-[-0.02em] mb-3">
               Test <span className="text-gradient-gold">Series</span>
@@ -250,7 +244,7 @@ const Courses = () => {
 
           <div className="rounded-2xl border border-foreground/[0.06] overflow-hidden">
             {/* Header */}
-            <div className="grid grid-cols-4 bg-foreground/[0.03] text-[11px] font-medium uppercase tracking-[0.15em] text-muted-foreground/60">
+            <div className="grid grid-cols-4 bg-foreground/[0.03] text-[11px] font-medium uppercase tracking-[0.15em] text-muted-foreground">
               <div className="p-4 sm:p-5">Test Series</div>
               <div className="p-4 sm:p-5">Exam</div>
               <div className="p-4 sm:p-5">Duration</div>
@@ -274,7 +268,7 @@ const Courses = () => {
             ))}
           </div>
 
-          <div className="mt-4 flex flex-wrap gap-3 text-[10px] uppercase tracking-[0.1em] text-muted-foreground/40">
+          <div className="mt-4 flex flex-wrap gap-3 text-[10px] uppercase tracking-[0.1em] text-muted-foreground/70">
             <span className="flex items-center gap-1"><Monitor className="w-3 h-3" strokeWidth={1.5} /> CBT-based</span>
             <span>· Full syllabus</span>
             <span>· Chapter-wise</span>
@@ -302,10 +296,10 @@ const Courses = () => {
       {/* Footer */}
       <footer className="py-10 px-6 text-center">
         <div className="h-px bg-gradient-to-r from-transparent via-foreground/[0.06] to-transparent mb-8 max-w-4xl mx-auto" />
-          <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground/40 hover:text-foreground/60 transition-colors duration-300 text-[11px] tracking-[0.15em] uppercase mb-4">
+          <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground/70 hover:text-foreground/80 transition-colors duration-300 text-[11px] tracking-[0.15em] uppercase mb-4">
           <ArrowLeft className="w-3 h-3" /> Back to Home
         </Link>
-        <p className="text-muted-foreground/35 text-[11px] tracking-[0.1em]">
+        <p className="text-muted-foreground/70 text-[11px] tracking-[0.1em]">
           © {new Date().getFullYear()} MindPeak Institute. All rights reserved.
         </p>
       </footer>

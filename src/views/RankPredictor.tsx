@@ -401,7 +401,7 @@ const RankPredictor = () => {
 
         {/* Hero */}
         <section className="max-w-4xl mx-auto px-4 sm:px-6 text-center mb-12">
-          <motion.div animate={{ opacity: 1, y: 0 }}>
+          <div>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
               <Calculator className="w-4 h-4 text-primary" />
               <span className="text-primary text-xs font-semibold uppercase tracking-widest">Free Tool</span>
@@ -418,7 +418,7 @@ const RankPredictor = () => {
                 Note: IITs admit only through JEE Advanced. JEE Main is for NITs, IIITs & GFTIs.
               </p>
             )}
-          </motion.div>
+          </div>
         </section>
 
         {/* Calculator Card */}

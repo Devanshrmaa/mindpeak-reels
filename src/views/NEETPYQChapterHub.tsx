@@ -74,7 +74,7 @@ const NEETPYQChapterHub = () => {
               )}
               <span className="text-foreground font-medium">{chapterName}</span>
             </nav>
-            <motion.div animate={{ opacity: 1, y: 0 }}>
+            <div>
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-3xl">{bank.icon}</span>
                 <span className="px-3 py-1 rounded-full text-xs font-semibold border border-green-500/30 bg-green-500/10 text-green-400">Chapter PYQ</span>
@@ -85,7 +85,7 @@ const NEETPYQChapterHub = () => {
               <p className="text-lg text-muted-foreground max-w-2xl mb-4">
                 {chapter.questions.length} previous year questions on {chapterName} for NEET {subj}. Filter by year, solve each MCQ, and review detailed solutions.
               </p>
-            </motion.div>
+            </div>
           </div>
         </section>
 

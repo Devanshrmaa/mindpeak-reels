@@ -49,7 +49,6 @@ const Index = ({ children }: { children?: ReactNode }) => {
     <>
       <Navbar />
 
-      <ScrollIndicator />
       <main id="main-content" className="bg-background">
         {children}
         {showDeferredSections ? (
@@ -73,6 +72,9 @@ const Index = ({ children }: { children?: ReactNode }) => {
           </div>
         ) : null}
       </main>
+      {/* ScrollIndicator uses framer-motion (useScroll/useSpring/motion) —
+          defer until idle to keep framer-motion out of the initial JS bundle */}
+      {showDeferredSections && <ScrollIndicator />}
     </>
   );
 };

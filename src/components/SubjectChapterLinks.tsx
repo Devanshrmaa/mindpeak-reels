@@ -145,7 +145,7 @@ export const ChapterFooterGrid = ({ exam, subject, showRelated = true }: FooterP
               >
                 <ArrowRight className="w-3 h-3 text-primary/50 group-hover:text-primary flex-shrink-0" />
                 <span className="truncate">{ch.chapter}</span>
-                <span className="text-[10px] text-muted-foreground/60 ml-auto flex-shrink-0">{ch.weightage}</span>
+                <span className="text-[10px] text-muted-foreground ml-auto flex-shrink-0">{ch.weightage}</span>
               </Link>
             ))}
           </div>
@@ -158,7 +158,7 @@ export const ChapterFooterGrid = ({ exam, subject, showRelated = true }: FooterP
               >
                 <ArrowRight className="w-3 h-3 text-primary/50 group-hover:text-primary flex-shrink-0" />
                 <span className="truncate">{ch.chapter}</span>
-                <span className="text-[10px] text-muted-foreground/60 ml-auto flex-shrink-0">{ch.weightage}</span>
+                <span className="text-[10px] text-muted-foreground ml-auto flex-shrink-0">{ch.weightage}</span>
               </Link>
             ))}
           </div>

@@ -24,7 +24,11 @@ export const DemoModalProvider = ({ children }: { children: ReactNode }) => {
   return (
     <DemoModalContext.Provider value={{ openDemoModal: () => setIsOpen(true) }}>
       {children}
-      <DemoBookingModalContent isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      {/* Only mount the heavy modal chunk when actually opened — keeps
+          framer-motion + sonner + lucide out of the initial JS evaluation */}
+      {isOpen && (
+        <DemoBookingModalContent isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      )}
     </DemoModalContext.Provider>
   );
 };

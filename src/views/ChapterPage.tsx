@@ -222,7 +222,7 @@ const ChapterPage = () => {
         {/* ═══════════ HERO ═══════════ */}
         <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-primary/3 py-14 md:py-20">
           <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
-            <motion.div animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+            <div>
               {/* Breadcrumb */}
               <nav className="flex items-center gap-1.5 text-xs text-muted-foreground mb-6 flex-wrap">
                 <Link to="/" className="hover:text-primary transition-colors">Home</Link>
@@ -288,7 +288,7 @@ const ChapterPage = () => {
                   <Phone className="w-4 h-4" /> Call +91 82194 57704
                 </a>
               </div>
-            </motion.div>
+            </div>
           </div>
         </section>
 
@@ -540,7 +540,7 @@ const ChapterPage = () => {
                         <span className="text-foreground font-medium text-sm group-hover:text-primary transition-colors">{topic}</span>
                         <span className="block text-[10px] text-muted-foreground mt-1 group-hover:text-primary/70">View detailed guide →</span>
                       </div>
-                      <ArrowRight className="w-4 h-4 text-muted-foreground/40 group-hover:text-primary flex-shrink-0 mt-1 transition-colors" />
+                      <ArrowRight className="w-4 h-4 text-muted-foreground/70 group-hover:text-primary flex-shrink-0 mt-1 transition-colors" />
                     </Link>
                   </motion.div>
                 ))}

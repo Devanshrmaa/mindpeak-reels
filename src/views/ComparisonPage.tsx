@@ -160,7 +160,7 @@ const ComparisonPage = () => {
 
         {/* Hero */}
         <section className="max-w-5xl mx-auto px-6 pb-16">
-          <motion.div animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <div>
             <div className="flex items-center gap-4 mb-6">
               <Image src={logo} alt="MindPeak Institute" className="w-14 h-14 rounded-full" width={56} height={56} priority />
               <div>
@@ -183,7 +183,7 @@ const ComparisonPage = () => {
                 <Phone className="w-4 h-4" /> Call Us
               </a>
             </div>
-          </motion.div>
+          </div>
         </section>
 
         {/* Quick Comparison Table */}

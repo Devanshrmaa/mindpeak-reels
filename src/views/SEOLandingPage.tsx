@@ -16,6 +16,7 @@ import { getSEOPage } from '@/data/seoPageData';
 import type { SEOPageData, SEOPageSection } from '@/data/seoPageData';
 import { FreshnessBadge } from '@/components/FreshnessBadge';
 import { getLastUpdated, getCurrentExamYear } from '@/lib/contentFreshness';
+import { FadeInView } from '@/components/FadeInView';
 import { TableOfContents, toAnchorId, type TocItem } from '@/components/TableOfContents';
 import { getExamEntities } from '@/lib/seoEntities';
 
@@ -23,14 +24,8 @@ import { getExamEntities } from '@/lib/seoEntities';
 const ContentSection = ({ section, index }: { section: SEOPageSection; index: number }) => {
   const anchorId = toAnchorId(section.heading);
   return (
-  <motion.section
-    id={anchorId}
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ delay: index * 0.05 }}
-    className="mb-12 scroll-mt-24"
-  >
+  <section id={anchorId} className="mb-12 scroll-mt-24">
+  <FadeInView delay={index * 50}>
     <h2 className="font-display font-bold text-foreground text-xl sm:text-2xl mb-4">{section.heading}</h2>
     {section.content && (
       <p className="text-muted-foreground leading-relaxed mb-4">{section.content}</p>
@@ -67,7 +62,8 @@ const ContentSection = ({ section, index }: { section: SEOPageSection; index: nu
         </table>
       </div>
     )}
-  </motion.section>
+  </FadeInView>
+  </section>
   );
 };
 
@@ -163,7 +159,7 @@ const SEOLandingPage = () => {
 
         {/* Hero */}
         <section className="max-w-4xl mx-auto px-6 pb-12">
-          <motion.div animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <div>
             <FreshnessBadge lastUpdated={getLastUpdated(slug)} verifiedFor={`${getCurrentExamYear()}`} />
             <h1 className="font-display font-black text-foreground mb-6" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
               {page.h1} <span className="text-gradient-gold">{page.h1Highlight}</span>
@@ -183,7 +179,7 @@ const SEOLandingPage = () => {
                 <Phone className="w-4 h-4" /> Call +91 82194 57704
               </a>
             </div>
-          </motion.div>
+          </div>
         </section>
 
         {/* Section divider */}

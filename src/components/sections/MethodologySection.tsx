@@ -93,7 +93,7 @@ export const MethodologySection = () => {
               }`}
             >
               {/* Number */}
-              <span className="absolute top-5 right-6 text-[11px] tracking-[0.15em] text-muted-foreground/25 font-medium">{pillar.num}</span>
+              <span className="absolute top-5 right-6 text-[11px] tracking-[0.15em] text-muted-foreground/40 font-medium">{pillar.num}</span>
 
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-xl bg-primary/[0.08] flex items-center justify-center shrink-0 mt-0.5">

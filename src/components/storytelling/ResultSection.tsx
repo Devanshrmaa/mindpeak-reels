@@ -45,7 +45,7 @@ export const ResultSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground/50 mb-4">JEE Advanced Result</p>
+          <p className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground mb-4">JEE Advanced Result</p>
           <h2
             className="font-display text-foreground font-bold tracking-[-0.04em]"
             style={{ fontSize: 'clamp(4rem, 12vw, 10rem)', lineHeight: 0.9 }}
@@ -79,7 +79,7 @@ export const ResultSection = () => {
                 <img src={stat.image} alt={stat.label} className="w-full h-full object-cover" width={56} height={56} loading="lazy" />
               </div>
               <div className="text-2xl md:text-3xl font-display font-bold text-primary mb-1 tracking-tight">{stat.value}</div>
-              <div className="text-[10px] md:text-[11px] text-muted-foreground/60 uppercase tracking-[0.15em]">{stat.label}</div>
+              <div className="text-[10px] md:text-[11px] text-muted-foreground uppercase tracking-[0.15em]">{stat.label}</div>
             </motion.div>
           ))}
         </div>
@@ -109,7 +109,7 @@ export const ResultSection = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 0.4 }}
-          className="text-muted-foreground/40 text-[12px] mt-6 tracking-wide"
+          className="text-muted-foreground/70 text-[12px] mt-6 tracking-wide"
         >
           Join 500+ students who achieved their dream ranks
         </motion.p>

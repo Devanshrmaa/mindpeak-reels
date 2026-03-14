@@ -169,8 +169,8 @@ const CourseDetail = () => {
               <span className="font-display font-semibold text-foreground text-sm tracking-[0.1em]">MINDPEAK</span>
             </Link>
             <div className="hidden md:flex items-center gap-8">
-              <Link to="/" className="text-muted-foreground/60 hover:text-foreground transition-colors duration-300 text-[12px] font-medium tracking-[0.15em] uppercase">Home</Link>
-              <Link to="/courses" className="text-muted-foreground/60 hover:text-foreground transition-colors duration-300 text-[12px] font-medium tracking-[0.15em] uppercase">Courses</Link>
+              <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-[12px] font-medium tracking-[0.15em] uppercase">Home</Link>
+              <Link to="/courses" className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-[12px] font-medium tracking-[0.15em] uppercase">Courses</Link>
               <button onClick={openDemoModal} className="px-6 py-2 bg-primary text-primary-foreground text-[11px] uppercase tracking-[0.15em] font-medium rounded-full hover:shadow-[0_0_30px_-8px_hsl(var(--primary)/0.4)] transition-all duration-500">Book Demo</button>
             </div>
           </div>
@@ -181,7 +181,7 @@ const CourseDetail = () => {
           <div className="max-w-4xl mx-auto">
             <button
               onClick={() => router.push('/courses')}
-              className="flex items-center gap-2 text-muted-foreground/60 hover:text-foreground/70 transition-colors duration-300 text-[12px] tracking-[0.1em] uppercase"
+              className="flex items-center gap-2 text-muted-foreground hover:text-foreground/70 transition-colors duration-300 text-[12px] tracking-[0.1em] uppercase"
             >
               <ArrowLeft className="w-3.5 h-3.5" strokeWidth={1.5} />
               All Courses
@@ -192,10 +192,7 @@ const CourseDetail = () => {
         {/* Hero Section */}
         <section className="pt-10 pb-16 md:pb-20 px-6">
           <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease }}
+            <div
               className="flex flex-col md:flex-row gap-8 items-start"
             >
               {/* Course Icon/Logo */}
@@ -222,7 +219,7 @@ const CourseDetail = () => {
                 </h1>
 
                 {/* Meta line */}
-                <div className="flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.15em] text-muted-foreground/60 mb-8">
+                <div className="flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.15em] text-muted-foreground mb-8">
                   <span className="flex items-center gap-1.5"><Users className="w-3.5 h-3.5" strokeWidth={1.5} /> {course.mode}</span>
                   <span className="w-px h-3 bg-foreground/[0.08]" />
                   <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" strokeWidth={1.5} /> {course.duration}</span>
@@ -254,7 +251,7 @@ const CourseDetail = () => {
                   )}
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </section>
 
@@ -327,7 +324,7 @@ const CourseDetail = () => {
                 className="p-8 md:p-10 rounded-2xl border border-foreground/[0.04] bg-foreground/[0.01]"
               >
                 <div className="flex items-start gap-4">
-                  <span className="text-[11px] tracking-[0.15em] text-muted-foreground/30 font-medium mt-1 shrink-0">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="text-[11px] tracking-[0.15em] text-muted-foreground/40 font-medium mt-1 shrink-0">{String(i + 1).padStart(2, '0')}</span>
                   <div>
                     <h3 className="font-display font-semibold text-foreground text-base mb-3 tracking-[-0.01em]">{section.title}</h3>
                     <p className="text-muted-foreground/70 leading-[1.8] text-sm">{section.content}</p>
@@ -365,7 +362,7 @@ const CourseDetail = () => {
                       className="text-center p-5 rounded-xl bg-foreground/[0.02] border border-foreground/[0.04]"
                     >
                       <div className="text-2xl sm:text-3xl font-bold text-primary text-center tracking-tight">{r.value}</div>
-                      <div className="text-muted-foreground/60 text-xs">{r.label}</div>
+                      <div className="text-muted-foreground text-xs">{r.label}</div>
                     </motion.div>
                   ))}
                 </div>
@@ -504,7 +501,7 @@ const CourseDetail = () => {
               >
                 <div className="flex items-center gap-3 mb-7">
                   <span className="h-px w-8 bg-foreground/10" />
-                  <span className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground/60 font-medium">FAQ</span>
+                  <span className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground font-medium">FAQ</span>
                   <span className="h-px w-8 bg-foreground/10" />
                 </div>
                 <h2 className="font-display font-semibold text-foreground text-lg mb-8 tracking-[-0.01em] text-center">Frequently Asked Questions</h2>
@@ -527,7 +524,7 @@ const CourseDetail = () => {
                         {/* Plus/Cross icon */}
                         <span className={`w-6 h-6 rounded-full border border-foreground/[0.08] grid place-items-center shrink-0 transition-transform duration-300 ${openFaq === i ? 'rotate-45' : ''}`}>
                           <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5 0V10M0 5H10" stroke="currentColor" strokeWidth="1" className="text-muted-foreground/50" />
+                            <path d="M5 0V10M0 5H10" stroke="currentColor" strokeWidth="1" className="text-muted-foreground/80" />
                           </svg>
                         </span>
                       </button>
@@ -579,7 +576,7 @@ const CourseDetail = () => {
                     <span className="w-1.5 h-1.5 rounded-full bg-primary/40 mt-1.5 shrink-0" />
                     <div>
                       <span className="text-foreground/80 text-sm font-medium block">{rc.name}</span>
-                      <span className="text-muted-foreground/50 text-xs">{rc.duration} · {rc.mode} · {rc.fee}</span>
+                      <span className="text-muted-foreground/80 text-xs">{rc.duration} · {rc.mode} · {rc.fee}</span>
                     </div>
                   </Link>
                 ))}
@@ -666,10 +663,10 @@ const CourseDetail = () => {
         {/* Footer */}
         <footer className="py-10 px-6 text-center">
           <div className="h-px bg-gradient-to-r from-transparent via-foreground/[0.06] to-transparent mb-8 max-w-4xl mx-auto" />
-          <Link to="/courses" className="inline-flex items-center gap-2 text-muted-foreground/40 hover:text-foreground/60 transition-colors duration-300 text-[11px] tracking-[0.15em] uppercase mb-4">
+          <Link to="/courses" className="inline-flex items-center gap-2 text-muted-foreground/70 hover:text-foreground/80 transition-colors duration-300 text-[11px] tracking-[0.15em] uppercase mb-4">
             <ArrowLeft className="w-3 h-3" /> All Courses
           </Link>
-          <p className="text-muted-foreground/35 text-[11px] tracking-[0.1em]">
+          <p className="text-muted-foreground/70 text-[11px] tracking-[0.1em]">
             © {new Date().getFullYear()} MindPeak Institute. All rights reserved.
           </p>
         </footer>

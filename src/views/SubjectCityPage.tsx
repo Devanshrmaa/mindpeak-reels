@@ -60,7 +60,7 @@ export default function SubjectCityPage() {
       <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-gradient-to-br from-background via-background to-primary/10">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--primary)/0.15),transparent_60%)]" />
         <div className="container mx-auto px-4 py-20 relative z-10">
-          <motion.div animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-4xl">
+          <div className="max-w-4xl">
             {/* Breadcrumbs */}
             <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6 flex-wrap">
               <Link href="/" className="hover:text-primary transition-colors">Home</Link>
@@ -83,7 +83,7 @@ export default function SubjectCityPage() {
                 View All {examLabel} Courses <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 

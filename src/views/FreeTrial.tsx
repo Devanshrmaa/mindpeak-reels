@@ -135,7 +135,7 @@ const FreeTrial = () => {
         <section className="max-w-5xl mx-auto px-6 pb-16">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Left — messaging */}
-            <motion.div animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <div>
               <div className="flex items-center gap-4 mb-6">
                 <Image src={logo} alt="MindPeak Institute" className="w-14 h-14 rounded-full" width={56} height={56} priority />
                 <div>
@@ -175,10 +175,10 @@ const FreeTrial = () => {
                   </motion.div>
                 ))}
               </div>
-            </motion.div>
+            </div>
 
             {/* Right — Form */}
-            <motion.div animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
+            <div>
               <div className="rounded-2xl border border-primary/20 bg-card p-8 shadow-gold-glow">
                 {submitted ? (
                   <div className="text-center py-12">
@@ -255,7 +255,7 @@ const FreeTrial = () => {
                   </>
                 )}
               </div>
-            </motion.div>
+            </div>
           </div>
         </section>
 

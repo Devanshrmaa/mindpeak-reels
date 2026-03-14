@@ -74,13 +74,13 @@ export const TransformationTimeline = () => {
                     <h3 className="text-foreground font-display text-[11px] md:text-sm leading-tight font-semibold truncate">{m.title}</h3>
                   </div>
                 </div>
-                <p className="text-muted-foreground/60 text-[9px] md:text-[11px] mb-2 line-clamp-2 leading-relaxed">{m.description}</p>
+                <p className="text-muted-foreground text-[9px] md:text-[11px] mb-2 line-clamp-2 leading-relaxed">{m.description}</p>
 
                 {/* Score badge */}
                 <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] bg-primary/[0.06] border border-primary/10 text-foreground">
-                  <span className="text-muted-foreground/50 text-[9px]">Score:</span>
+                  <span className="text-muted-foreground/80 text-[9px]">Score:</span>
                   <span className="font-semibold text-primary">{m.score}</span>
-                  <span className="text-muted-foreground/50 text-[9px]">/300</span>
+                  <span className="text-muted-foreground/80 text-[9px]">/300</span>
                 </div>
               </div>
             </motion.div>
@@ -115,11 +115,11 @@ export const TransformationTimeline = () => {
           <div className="flex justify-center gap-6 mt-3 relative z-10">
             <div className="flex items-center gap-2">
               <div className="w-2.5 h-2.5 rounded-full bg-primary" />
-              <span className="text-muted-foreground/60 text-[11px]">Actual Score</span>
+              <span className="text-muted-foreground text-[11px]">Actual Score</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-3.5 h-px bg-destructive/50" />
-              <span className="text-muted-foreground/60 text-[11px]">Target (280)</span>
+              <span className="text-muted-foreground text-[11px]">Target (280)</span>
             </div>
           </div>
         </motion.div>

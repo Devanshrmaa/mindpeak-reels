@@ -177,7 +177,7 @@ const JEEPYQQuestion = () => {
               <span className="text-foreground">{chapterName} · Q{params.questionIndex}</span>
             </nav>
 
-            <motion.div animate={{ opacity: 1, y: 0 }}>
+            <div>
               <div className="flex items-center gap-3 mb-4 flex-wrap">
                 <span className="text-3xl">{bank.icon}</span>
                 <span className="px-3 py-1 rounded-full text-xs font-semibold border border-orange-500/30 bg-orange-500/10 text-orange-400">
@@ -193,7 +193,7 @@ const JEEPYQQuestion = () => {
               <p className="text-lg text-muted-foreground">
                 JEE {subj} · Previous Year Question {params.questionIndex} of {totalInChapter}
               </p>
-            </motion.div>
+            </div>
           </div>
         </section>
 

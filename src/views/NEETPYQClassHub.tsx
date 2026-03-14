@@ -64,7 +64,7 @@ const NEETPYQClassHub = () => {
               <ChevronRight className="w-3 h-3" />
               <span className="text-foreground font-medium">{subj} Class {classLevel}</span>
             </nav>
-            <motion.div animate={{ opacity: 1, y: 0 }}>
+            <div>
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-3xl">{bank.icon}</span>
                 <span className="px-3 py-1 rounded-full text-xs font-semibold border border-green-500/30 bg-green-500/10 text-green-400">Class {classLevel}</span>
@@ -75,7 +75,7 @@ const NEETPYQClassHub = () => {
               <p className="text-lg text-muted-foreground max-w-2xl mb-2">
                 {grandTotal} previous year questions across {unitsWithData.length} units and {unitsWithData.reduce((s, u) => s + u.chapters.length, 0)} chapters.
               </p>
-            </motion.div>
+            </div>
           </div>
         </section>
 

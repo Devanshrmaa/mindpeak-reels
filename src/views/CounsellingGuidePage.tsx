@@ -58,7 +58,7 @@ const CounsellingGuidePage = () => {
         </nav>
 
         <section className="max-w-4xl mx-auto px-6 pb-12">
-          <motion.div animate={{ opacity: 1, y: 0 }}>
+          <div>
             <FreshnessBadge lastUpdated={lastUpdated} verifiedFor={getCurrentExamYear()} />
             <h1 className="font-display font-black text-foreground mb-6" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
               {page.h1} <span className="text-gradient-gold">{page.highlight}</span>
@@ -67,7 +67,7 @@ const CounsellingGuidePage = () => {
             <button onClick={openDemoModal} className="px-8 py-4 bg-primary text-primary-foreground font-display font-bold text-sm uppercase tracking-[0.15em] shadow-gold-glow hover:scale-105 transition-transform">
               Book Free Demo Class
             </button>
-          </motion.div>
+          </div>
         </section>
 
         <div className="section-divider max-w-4xl mx-auto" />

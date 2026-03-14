@@ -55,10 +55,7 @@ const Blog = () => {
 
         {/* Hero */}
         <section className="max-w-5xl mx-auto px-6 pb-16">
-          <motion.div
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <div>
             <div className="flex items-center gap-4 mb-6">
               <Image src={logo} alt="MindPeak Institute" className="w-14 h-14 rounded-full" width={56} height={56} priority />
               <div>
@@ -86,7 +83,7 @@ const Blog = () => {
                 className="w-full pl-12 pr-4 py-4 bg-card/40 border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors"
               />
             </div>
-          </motion.div>
+          </div>
         </section>
 
         {/* Featured Articles */}

@@ -61,7 +61,7 @@ export const SuccessGrid = () => {
             <br />
             <span className="text-gradient-gold">STORIES</span>
           </h2>
-          <p className="text-muted-foreground/60 text-sm tracking-[0.15em] uppercase mt-4">
+          <p className="text-muted-foreground text-sm tracking-[0.15em] uppercase mt-4">
             Real Students. Real Results.
           </p>
         </motion.div>

@@ -194,7 +194,9 @@ const nextConfig: NextConfig = {
       'recharts',
       'framer-motion',
       '@radix-ui/react-icons',
+      '@radix-ui/react-toast',
       'date-fns',
+      'sonner',
     ],
     /* Inline CSS into the HTML response — eliminates render-blocking <link> sheets */
     inlineCss: true,

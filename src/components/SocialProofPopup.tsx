@@ -84,7 +84,7 @@ export const SocialProofPopup = () => {
             <p className="text-muted-foreground text-[11px] mt-0.5 leading-snug">
               enrolled in <span className="text-primary font-medium">{data.course}</span>
             </p>
-            <p className="text-muted-foreground/50 text-[9px] mt-0.5">{data.mins} min ago</p>
+            <p className="text-muted-foreground/80 text-[9px] mt-0.5">{data.mins} min ago</p>
           </div>
         </motion.div>
       )}
