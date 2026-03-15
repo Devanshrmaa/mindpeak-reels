@@ -6,7 +6,7 @@ const statConfigs: { key: StatName; label: string; fallback: string }[] = [
   { key: 'studentsEnrolled', label: 'Students Mentored', fallback: '500+' },
   { key: 'successRate', label: 'Selection Rate', fallback: '95%' },
   { key: 'airToppers', label: 'AIR <5K Achievers', fallback: '50+' },
-  { key: 'yearsOfExcellence', label: 'Years of Excellence', fallback: '8+' },
+  { key: 'mockTestsTaken', label: 'Mock Tests Taken', fallback: '10,000+' },
 ];
 
 export const StatsSection = () => {
