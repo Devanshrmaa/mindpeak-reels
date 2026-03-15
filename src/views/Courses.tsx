@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { Users, Clock, Monitor, Download, ArrowRight, ArrowLeft } from 'lucide-react';
+import { Users, Clock, Monitor, Download, ArrowRight, ArrowLeft, CheckCircle2, GraduationCap, Zap, Target, BookOpen } from 'lucide-react';
 import { Link } from '@/components/RouterLink';
 import { useRouter } from 'next/navigation';
 import { useDemoModal } from '@/components/DemoBookingModal';
@@ -13,6 +13,16 @@ const logo = '/images/logo.jpeg';
 const jeeLogo = '/images/jee-logo.jpeg';
 const neetLogo = '/images/neet-logo.jpeg';
 const foundationLogo = '/images/foundation-logo.png';
+
+const CATEGORY_TABS = [
+  { key: 'all', label: 'All Programs' },
+  { key: 'jee', label: 'JEE' },
+  { key: 'neet', label: 'NEET' },
+  { key: 'foundation', label: 'Foundation' },
+  { key: 'crash', label: 'Crash Courses' },
+  { key: 'other', label: 'Specialized' },
+] as const;
+type CategoryKey = (typeof CATEGORY_TABS)[number]['key'];
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -70,6 +80,18 @@ const CourseCard = ({ course, index, onBookDemo, onDownloadBrochure }: { course:
         {/* Short description */}
         <p className="text-muted-foreground/70 text-sm leading-relaxed line-clamp-2">{course.description}</p>
 
+        {/* Key result badge */}
+        {course.results && course.results.length > 0 && (
+          <div className="flex flex-wrap gap-3">
+            {course.results.slice(0, 3).map((r) => (
+              <span key={r.label} className="inline-flex items-center gap-1.5 text-[10px] text-muted-foreground/70">
+                <CheckCircle2 className="w-3 h-3 text-primary/50" strokeWidth={1.5} />
+                <span className="font-medium text-foreground/70">{r.value}</span> {r.label}
+              </span>
+            ))}
+          </div>
+        )}
+
         {/* Action buttons */}
         <div className="flex flex-wrap gap-3 pt-1" onClick={e => e.stopPropagation()}>
           <button
@@ -99,7 +121,13 @@ const Courses = () => {
   const { openDemoModal } = useDemoModal();
   const [brochureBook, setBrochureBook] = useState<{ title: string; file: string } | null>(null);
   const [brochureModalOpen, setBrochureModalOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState<CategoryKey>('all');
   useEffect(() => { window.scrollTo(0, 0); }, []);
+
+  const filteredCourses = useMemo(
+    () => activeCategory === 'all' ? courses : courses.filter(c => c.category === activeCategory),
+    [activeCategory]
+  );
 
   const handleDownloadBrochure = (brochure: { title: string; file: string }) => {
     setBrochureBook(brochure);
@@ -138,12 +166,24 @@ const Courses = () => {
               Our <span className="text-gradient-gold">Courses</span>
             </h1>
           </div>
-          <p
-            className="text-muted-foreground/70 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed"
-          >
+          <p className="text-muted-foreground/70 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-10">
             From early foundation building to intensive crash programs — every course includes
             daily 1-on-1 classes, 6 days a week, with a dedicated mentor.
           </p>
+          {/* Trust stats */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
+            {[
+              { value: '12+', label: 'Programs' },
+              { value: '95%', label: 'Success Rate' },
+              { value: 'AIR 42', label: 'Best JEE Result' },
+              { value: '695/720', label: 'Best NEET Score' },
+            ].map((s) => (
+              <div key={s.label} className="text-center px-3 py-4 rounded-xl border border-foreground/[0.06] bg-foreground/[0.02]">
+                <div className="font-display font-bold text-foreground text-xl tracking-[-0.02em]">{s.value}</div>
+                <div className="text-muted-foreground/60 text-[10px] uppercase tracking-[0.15em] mt-1">{s.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -155,19 +195,28 @@ const Courses = () => {
               logo: jeeLogo,
               title: 'JEE Programs',
               num: '01',
-              desc: 'Comprehensive JEE Main + Advanced preparation with 1-on-1 mentoring, covering Physics, Chemistry & Mathematics.',
+              classes: 'Class 11–12 & Droppers',
+              stat: '98.2+ avg percentile',
+              desc: 'Comprehensive JEE Main + Advanced preparation with daily 1-on-1 mentoring. Complete PCM coverage, 15+ years PYQ analysis, and weekly mock tests. Available in 1-year and 2-year formats.',
+              filterKey: 'jee' as CategoryKey,
             },
             {
               logo: neetLogo,
               title: 'NEET Programs',
               num: '02',
-              desc: 'Complete NEET UG preparation with NCERT-first approach, dedicated Biology focus, and 1-on-1 daily sessions.',
+              classes: 'Class 11–12 & Droppers',
+              stat: '92% in top 5,000 AIR',
+              desc: 'Complete NEET UG preparation with NCERT-first approach, dedicated Biology focus (360/720 marks), and daily 1-on-1 sessions. CBT mock tests replicate the exact NEET interface.',
+              filterKey: 'neet' as CategoryKey,
             },
             {
               logo: foundationLogo,
               title: 'Foundation',
               num: '03',
-              desc: 'Class 6th–10th. Build competitive-exam-ready thinking early with integrated board + competitive syllabus.',
+              classes: 'Class 6th–10th',
+              stat: '93% avg school score',
+              desc: 'Build competitive-exam-ready thinking early with integrated board + competitive syllabus. Includes Olympiad & NTSE prep. Students who start early perform 40% better in JEE/NEET.',
+              filterKey: 'foundation' as CategoryKey,
             },
           ].map((item, i) => (
             <motion.div
@@ -176,16 +225,50 @@ const Courses = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.7, ease }}
-              className="group relative p-7 rounded-2xl border border-foreground/[0.06] bg-foreground/[0.02] text-center hover:border-primary/15 hover:bg-foreground/[0.04] transition-all duration-500"
+              className="group relative p-7 rounded-2xl border border-foreground/[0.06] bg-foreground/[0.02] text-center hover:border-primary/15 hover:bg-foreground/[0.04] transition-all duration-500 cursor-pointer"
+              onClick={() => setActiveCategory(item.filterKey)}
             >
               <span className="absolute top-4 right-5 text-[11px] tracking-[0.15em] text-muted-foreground/40 font-medium">{item.num}</span>
-              <div className="w-14 h-14 rounded-xl overflow-hidden mx-auto mb-5 ring-1 ring-foreground/[0.08] bg-white/5">
+              <div className="w-14 h-14 rounded-xl overflow-hidden mx-auto mb-4 ring-1 ring-foreground/[0.08] bg-white/5">
                 <img src={item.logo} alt={item.title} className="w-full h-full object-contain" loading="lazy" />
               </div>
-              <h3 className="font-display font-semibold text-foreground text-lg mb-2 tracking-[-0.01em]">{item.title}</h3>
-              <p className="text-muted-foreground/70 text-sm leading-relaxed">{item.desc}</p>
+              <h3 className="font-display font-semibold text-foreground text-lg mb-1 tracking-[-0.01em]">{item.title}</h3>
+              <p className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground/50 mb-2">{item.classes}</p>
+              <p className="text-muted-foreground/70 text-sm leading-relaxed mb-3">{item.desc}</p>
+              <span className="inline-block text-[11px] text-primary/80 font-medium tracking-[0.05em]">{item.stat}</span>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      {/* Course Selection Guide */}
+      <section className="px-6 pb-20 md:pb-24">
+        <div className="max-w-4xl mx-auto">
+          <div className="rounded-2xl border border-foreground/[0.06] bg-foreground/[0.02] p-7 sm:p-10">
+            <h2 className="font-display font-bold text-foreground text-xl sm:text-2xl tracking-[-0.02em] mb-6">
+              Not sure which <span className="text-gradient-gold">course</span> to pick?
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                { icon: GraduationCap, label: 'Class 6–8', path: 'Foundation program that builds Olympiad-level thinking and early competitive habits.', action: 'foundation' as CategoryKey },
+                { icon: BookOpen, label: 'Class 9–10', path: 'Integrated board + competitive prep with NTSE focus. Smooth 11th transition.', action: 'foundation' as CategoryKey },
+                { icon: Target, label: 'Class 11 (2 years left)', path: '2-year JEE or NEET program — the most comprehensive path with phased curriculum.', action: 'all' as CategoryKey },
+                { icon: Zap, label: 'Class 12 / Dropper', path: '1-year accelerated program or crash course. Skip what you know, focus on gaps.', action: 'crash' as CategoryKey },
+              ].map((g) => (
+                <button
+                  key={g.label}
+                  onClick={() => setActiveCategory(g.action)}
+                  className="flex items-start gap-3 p-4 rounded-xl border border-foreground/[0.04] hover:border-primary/15 hover:bg-foreground/[0.02] text-left transition-all duration-300"
+                >
+                  <g.icon className="w-5 h-5 text-primary/60 mt-0.5 shrink-0" strokeWidth={1.5} />
+                  <div>
+                    <span className="font-medium text-foreground text-sm">{g.label}</span>
+                    <p className="text-muted-foreground/60 text-xs leading-relaxed mt-0.5">{g.path}</p>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -197,22 +280,47 @@ const Courses = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease }}
-            className="mb-10"
+            className="mb-8"
           >
             <div className="flex items-center gap-3 mb-4">
               <span className="h-px w-8 bg-foreground/10" />
               <span className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground font-medium">Catalog</span>
             </div>
-            <h2 className="font-display font-bold text-foreground text-2xl sm:text-3xl tracking-[-0.02em]">
+            <h2 className="font-display font-bold text-foreground text-2xl sm:text-3xl tracking-[-0.02em] mb-1">
               All <span className="text-gradient-gold">Courses</span>
             </h2>
+            <p className="text-muted-foreground/60 text-sm">Click any course to see full syllabus, schedule, results & FAQs.</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 gap-4">
-            {courses.map((course, i) => (
-              <CourseCard key={course.name} course={course} index={i} onBookDemo={openDemoModal} onDownloadBrochure={handleDownloadBrochure} />
+          {/* Category Filter Tabs */}
+          <div className="flex flex-wrap gap-2 mb-8">
+            {CATEGORY_TABS.map((tab) => (
+              <button
+                key={tab.key}
+                onClick={() => setActiveCategory(tab.key)}
+                className={`px-4 py-2 rounded-full text-[11px] uppercase tracking-[0.12em] font-medium border transition-all duration-300 ${
+                  activeCategory === tab.key
+                    ? 'bg-primary text-primary-foreground border-primary'
+                    : 'border-foreground/[0.08] text-muted-foreground hover:border-primary/20 hover:text-foreground'
+                }`}
+              >
+                {tab.label}
+                <span className="ml-1.5 text-[10px] opacity-60">
+                  {tab.key === 'all' ? courses.length : courses.filter(c => c.category === tab.key).length}
+                </span>
+              </button>
             ))}
           </div>
+
+          <div className="grid grid-cols-1 gap-4">
+            {filteredCourses.map((course, i) => (
+              <CourseCard key={course.slug} course={course} index={i} onBookDemo={openDemoModal} onDownloadBrochure={handleDownloadBrochure} />
+            ))}
+          </div>
+
+          {filteredCourses.length === 0 && (
+            <p className="text-muted-foreground/60 text-sm text-center py-12">No courses in this category.</p>
+          )}
 
           <p className="text-muted-foreground/70 text-xs tracking-[0.05em] mt-6">
             Scholarship available — Terms & Conditions apply. GST extra where applicable.
@@ -268,13 +376,17 @@ const Courses = () => {
             ))}
           </div>
 
-          <div className="mt-4 flex flex-wrap gap-3 text-[10px] uppercase tracking-[0.1em] text-muted-foreground/70">
-            <span className="flex items-center gap-1"><Monitor className="w-3 h-3" strokeWidth={1.5} /> CBT-based</span>
-            <span>· Full syllabus</span>
-            <span>· Chapter-wise</span>
-            <span>· Solutions</span>
-            <span>· Analytics</span>
-            <span>· Rank benchmarking</span>
+          <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {[
+              { icon: Monitor, text: 'CBT-based — replicates exact NTA exam interface' },
+              { icon: BookOpen, text: 'Full syllabus + chapter-wise tests available' },
+              { icon: Target, text: 'Detailed solutions, analytics & rank benchmarking' },
+            ].map((f) => (
+              <div key={f.text} className="flex items-start gap-2 text-[11px] text-muted-foreground/70 leading-relaxed">
+                <f.icon className="w-3 h-3 text-primary/50 mt-0.5 shrink-0" strokeWidth={1.5} />
+                <span>{f.text}</span>
+              </div>
+            ))}
           </div>
 
           <div className="mt-14 text-center">
@@ -282,13 +394,14 @@ const Courses = () => {
               onClick={openDemoModal}
               className="group relative inline-flex items-center gap-3 px-10 py-4 bg-primary text-primary-foreground text-[13px] uppercase tracking-[0.15em] font-medium rounded-full hover:shadow-[0_0_40px_-8px_hsl(var(--primary)/0.5)] transition-all duration-500"
             >
-              Book Your Free Demo
+              Book Your Free Demo — No Obligation
               <span className="w-5 h-5 rounded-full border border-current grid place-items-center transition-transform duration-500 group-hover:rotate-45">
                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M1 9L9 1M9 1H2M9 1V8" stroke="currentColor" strokeWidth="1.2" />
                 </svg>
               </span>
             </button>
+            <p className="text-muted-foreground/50 text-[11px] mt-3">Experience a live 1-on-1 session with a senior mentor before enrolling.</p>
           </div>
         </div>
       </section>

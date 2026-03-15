@@ -5,9 +5,9 @@ const analyticsDashboard = '/images/icons/analytics-dashboard.png';
 const targetPrecision = '/images/icons/target-precision.png';
 
 const pillars = [
-  { image: mentoringIcon, title: 'Dedicated Mentor', description: 'Your personal guide through JEE/NEET', num: '01' },
-  { image: analyticsDashboard, title: 'Adaptive Curriculum', description: 'Adjusts to your learning pace', num: '02' },
-  { image: targetPrecision, title: 'Individual Attention', description: 'No question goes unanswered', num: '03' },
+  { image: mentoringIcon, title: 'Dedicated Mentor', description: 'A personal IIT/NIT mentor conducts daily live 1-on-1 sessions, resolves doubts within 30 minutes, and designs a custom roadmap aligned to your target rank.', num: '01' },
+  { image: analyticsDashboard, title: 'Adaptive Curriculum', description: 'AI-powered analytics identify your weak topics after every mock test. Your study plan evolves weekly — spending more time where you need it, less where you don\'t.', num: '02' },
+  { image: targetPrecision, title: 'Individual Attention', description: 'With a 1:1 student-teacher ratio and 6-day-a-week live classes, every question is answered, every concept is clarified, and no student falls behind.', num: '03' },
 ];
 
 export const DiscoverySection = () => {
@@ -59,7 +59,7 @@ export const DiscoverySection = () => {
           transition={{ delay: 0.15, duration: 0.8 }}
           className="text-muted-foreground text-base md:text-lg mb-16 md:mb-20 max-w-xl mx-auto leading-relaxed"
         >
-          Where every student gets a dedicated mentor, adaptive curriculum, and individualized attention
+          Where every student gets a dedicated mentor from IIT, NIT, or AIIMS — an adaptive curriculum that adjusts weekly — and daily 1-on-1 live sessions that make batch coaching obsolete
         </motion.p>
 
         {/* ── Pillars ── */}

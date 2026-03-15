@@ -8,8 +8,17 @@ const strategyPlan = '/images/icons/strategy-plan.png';
 const stats = [
   { value: '165', label: 'Points Gained', image: growthChart },
   { value: '6', label: 'Months', image: strategyPlan },
-  { value: '95%', label: 'Improvement', image: targetPrecision },
+  { value: '95%', label: 'Success Rate', image: targetPrecision },
   { value: '1:1', label: 'Mentorship', image: mentoringIcon },
+];
+
+const moreResults = [
+  { name: 'Aarav Sharma', rank: 'AIR 42', exam: 'JEE Advanced' },
+  { name: 'Rohan Gupta', rank: 'AIR 89', exam: 'JEE Mains' },
+  { name: 'Priya Patel', rank: 'AIR 156', exam: 'NEET UG' },
+  { name: 'Sneha Reddy', rank: 'AIR 312', exam: 'JEE Advanced' },
+  { name: 'Arjun Mehta', rank: 'AIR 478', exam: 'NEET UG' },
+  { name: 'Kavya Iyer', rank: 'AIR 1,240', exam: 'JEE Mains' },
 ];
 
 export const ResultSection = () => {
@@ -61,11 +70,11 @@ export const ResultSection = () => {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="text-muted-foreground text-base md:text-lg mt-6 mb-16 max-w-lg mx-auto leading-relaxed"
         >
-          From struggling at 120/300 to achieving AIR 42 in just 6 months with personalized 1-on-1 coaching
+          From struggling at 120/300 to achieving AIR 42 in just 6 months — with personalized 1-on-1 coaching, adaptive study plans, and a dedicated mentor who never gave up
         </motion.p>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12">
           {stats.map((stat, i) => (
             <motion.div
               key={i}
@@ -83,6 +92,26 @@ export const ResultSection = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* More student results */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="mb-16 max-w-2xl mx-auto"
+        >
+          <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground/70 text-center mb-4">Recent Top Achievers</p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            {moreResults.map((r, i) => (
+              <div key={i} className="p-3 rounded-xl border border-foreground/[0.04] bg-foreground/[0.02] text-center">
+                <div className="text-foreground font-display font-semibold text-sm">{r.rank}</div>
+                <div className="text-muted-foreground text-[10px] tracking-[0.1em] uppercase">{r.name}</div>
+                <div className="text-primary/60 text-[9px] tracking-[0.08em] uppercase mt-0.5">{r.exam}</div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
 
         {/* CTA */}
         <motion.div

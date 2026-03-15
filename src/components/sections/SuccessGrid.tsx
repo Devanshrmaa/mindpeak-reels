@@ -15,15 +15,16 @@ interface StoryItem {
   subtitle: string;
   image: string;
   objectPos?: string;
+  detail?: string;
 }
 
 const stories: StoryItem[] = [
-  { id: '1', title: 'AARAV SHARMA', subtitle: 'AIR 42 — JEE Advanced', image: student1, objectPos: 'center 10%' },
-  { id: '2', title: 'PERSONALIZED MENTORING', subtitle: '1-on-1 Session Highlights', image: mentoring, objectPos: 'center 30%' },
-  { id: '3', title: 'PRIYA PATEL', subtitle: 'AIR 156 — NEET', image: student2, objectPos: 'center 20%' },
-  { id: '4', title: 'STUDY ROUTINE', subtitle: 'Day in the Life', image: student3, objectPos: 'center 25%' },
-  { id: '5', title: 'ROHAN GUPTA', subtitle: 'AIR 89 — JEE Mains', image: student4, objectPos: 'center 15%' },
-  { id: '6', title: 'MENTOR SESSIONS', subtitle: 'Guided Problem Solving', image: mentoringSession, objectPos: 'center 30%' },
+  { id: '1', title: 'AARAV SHARMA', subtitle: 'AIR 42 — JEE Advanced', image: student1, objectPos: 'center 10%', detail: 'Went from scoring 120/300 to AIR 42 in 6 months of 1-on-1 coaching. Struggled with Organic Chemistry and Calculus — now mentoring juniors at IIT Bombay.' },
+  { id: '2', title: 'PERSONALIZED MENTORING', subtitle: '1-on-1 Session Highlights', image: mentoring, objectPos: 'center 30%', detail: 'Every student gets daily 1-on-1 live sessions with a dedicated IIT/NIT mentor. Doubts are resolved within 30 minutes, not 30 days.' },
+  { id: '3', title: 'PRIYA PATEL', subtitle: 'AIR 156 — NEET', image: student2, objectPos: 'center 20%', detail: 'From a small town in Gujarat, Priya had limited access to quality coaching. With MindPeak\'s NCERT-first NEET program, she secured AIR 156 and admission to a top medical college.' },
+  { id: '4', title: 'STUDY ROUTINE', subtitle: 'Day in the Life', image: student3, objectPos: 'center 25%', detail: 'A structured daily plan: live class → practice set → mentor review → analytics check. Students study 6 focussed hours instead of 10 unfocused ones.' },
+  { id: '5', title: 'ROHAN GUPTA', subtitle: 'AIR 89 — JEE Mains', image: student4, objectPos: 'center 15%', detail: 'Rohan was a dropper who had lost confidence after a year of batch coaching. His MindPeak mentor rebuilt his fundamentals and he went from 78 percentile to AIR 89.' },
+  { id: '6', title: 'MENTOR SESSIONS', subtitle: 'Guided Problem Solving', image: mentoringSession, objectPos: 'center 30%', detail: 'Live problem-solving sessions where mentors trace each student\'s thought process, identify conceptual gaps, and build intuition — not just answer keys.' },
 ];
 
 const altTextMap: Record<string, string> = {
@@ -62,7 +63,7 @@ export const SuccessGrid = () => {
             <span className="text-gradient-gold">STORIES</span>
           </h2>
           <p className="text-muted-foreground text-sm tracking-[0.15em] uppercase mt-4">
-            Real Students. Real Results.
+            Real Students. Real Results. Real Transformations.
           </p>
         </motion.div>
 
@@ -101,6 +102,11 @@ export const SuccessGrid = () => {
                 <p className="text-primary/80 text-[11px] md:text-xs tracking-[0.15em] uppercase">
                   {story.subtitle}
                 </p>
+                {story.detail && (
+                  <p className="text-muted-foreground/80 text-[11px] leading-relaxed mt-2 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    {story.detail}
+                  </p>
+                )}
               </div>
 
               {/* Corner accent on hover */}
@@ -149,6 +155,9 @@ export const SuccessGrid = () => {
               <div className="text-center mt-8">
                 <h3 className="text-foreground font-display text-2xl md:text-3xl font-semibold tracking-wide mb-1">{selected.title}</h3>
                 <p className="text-primary/70 text-sm tracking-[0.15em] uppercase">{selected.subtitle}</p>
+                {selected.detail && (
+                  <p className="text-muted-foreground text-sm leading-relaxed mt-4 max-w-lg mx-auto">{selected.detail}</p>
+                )}
               </div>
             </motion.div>
           </motion.div>

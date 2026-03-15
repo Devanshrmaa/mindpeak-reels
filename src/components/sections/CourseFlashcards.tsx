@@ -11,25 +11,28 @@ const cards = [
     logo: jeeLogo,
     title: 'JEE Programs',
     tagline: 'Crack IIT with 1-on-1 Mentoring',
-    points: ['JEE Main + Advanced', '1-on-1 daily classes', 'Personalized roadmaps', 'Weekly mock tests'],
+    points: ['JEE Main + Advanced full syllabus', '1-on-1 daily live classes, 6 days/week', 'Personalized roadmaps by IIT/NIT mentors', 'Weekly mock tests in CBT format', 'Real-time doubt resolution (<30 min)'],
     accent: 'from-primary to-primary/60',
     num: '01',
+    result: 'AIR 42 in JEE Advanced',
   },
   {
     logo: neetLogo,
     title: 'NEET Programs',
     tagline: 'Your Path to MBBS Starts Here',
-    points: ['NEET UG focused', 'NCERT-first approach', 'Biology specialization', 'CBT mock tests'],
+    points: ['NEET UG complete Physics, Chemistry, Biology', 'NCERT line-by-line mastery first approach', 'Biology specialization with AIIMS mentors', 'CBT mock tests simulating NTA pattern', 'Parent progress reports every week'],
     accent: 'from-emerald-400 to-emerald-600',
     num: '02',
+    result: 'AIR 156 in NEET UG',
   },
   {
     logo: foundationLogo,
     title: 'Foundation',
     tagline: 'Class 6th–10th • Start Early',
-    points: ['IIT/NEET foundation', 'Board + competitive prep', 'Olympiad training', 'Habit building'],
+    points: ['IIT/NEET foundation + Board exam prep', 'Olympiad & NTSE/KVPY training included', 'Scientific habit & discipline building', 'Smooth transition to competitive prep', 'Age-appropriate mentoring approach'],
     accent: 'from-violet-400 to-violet-600',
     num: '03',
+    result: '95%+ board scores consistently',
   },
 ];
 
@@ -54,7 +57,7 @@ export const CourseFlashcards = () => {
           <h2 className="font-display font-bold text-foreground tracking-[-0.02em]" style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}>
             EXPLORE <span className="text-gradient-gold">COURSES</span>
           </h2>
-          <p className="text-muted-foreground text-base mt-3">Find the perfect program for your goals</p>
+          <p className="text-muted-foreground text-base mt-3">Choose from 12+ personalized programs for JEE, NEET, and Foundation — each with a dedicated mentor and custom study plan</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
@@ -92,7 +95,13 @@ export const CourseFlashcards = () => {
                 </motion.div>
 
                 <h3 className="font-display font-semibold text-foreground text-xl md:text-2xl mb-1 tracking-tight">{card.title}</h3>
-                <p className="text-primary/60 text-[11px] tracking-[0.15em] uppercase mb-6">{card.tagline}</p>
+                <p className="text-primary/60 text-[11px] tracking-[0.15em] uppercase mb-3">{card.tagline}</p>
+
+                {/* Result badge */}
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/[0.06] border border-primary/10 mb-6">
+                  <span className="text-[10px] text-muted-foreground/80 uppercase tracking-[0.1em]">Top Result:</span>
+                  <span className="text-[11px] text-primary font-semibold">{card.result}</span>
+                </div>
 
                 {/* List */}
                 <ul className="space-y-3 mb-8">

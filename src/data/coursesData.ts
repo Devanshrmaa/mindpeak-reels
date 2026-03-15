@@ -711,6 +711,11 @@ export const courses: Course[] = [
       'Weekly parent progress reports with full transparency',
       'Builds a 6-year advantage over students who start in Class 11',
     ],
+    results: [
+      { label: 'Avg School Score', value: '92%+' },
+      { label: 'Olympiad Medal Winners', value: '35+' },
+      { label: 'Session Engagement Rating', value: '4.8/5' },
+    ],
   },
   {
     slug: '7th-foundation',
@@ -781,6 +786,11 @@ export const courses: Course[] = [
       'Olympiad preparation integrated into regular curriculum',
       'School exam scores consistently 90-95% for our students',
     ],
+    results: [
+      { label: 'Avg School Score', value: '93%+' },
+      { label: 'Study Habit Retention', value: '95%' },
+      { label: 'Olympiad Qualifiers', value: '40+' },
+    ],
   },
   {
     slug: '8th-foundation',
@@ -850,6 +860,11 @@ export const courses: Course[] = [
       'Direct preparation for Class 9-10 board excellence',
       'Science taught as separate Physics, Chemistry, Biology disciplines',
       'Problems solved at 2× school difficulty level',
+    ],
+    results: [
+      { label: 'Avg School Score', value: '94%+' },
+      { label: 'NTSE Scholars', value: '20+' },
+      { label: 'Multi-Concept Problem Accuracy', value: '85%' },
     ],
   },
   {
@@ -922,6 +937,11 @@ export const courses: Course[] = [
       'RD Sharma and HC Verma level problems introduced gradually',
       '3-year runway to JEE/NEET — the perfect starting point',
     ],
+    results: [
+      { label: 'Avg School Score', value: '93%+' },
+      { label: 'Board + Competitive Dual Prep', value: '100%' },
+      { label: 'Class 11 Transition Success', value: '97%' },
+    ],
   },
   {
     slug: '10th-foundation',
@@ -993,6 +1013,11 @@ export const courses: Course[] = [
       '50% less stress reported by students entering Class 11 with our foundation',
       'Equally valuable for JEE, NEET, and State Board students',
     ],
+    results: [
+      { label: 'Avg Board Score', value: '95%+' },
+      { label: 'Stress Reduction in Class 11', value: '50%' },
+      { label: 'Transition Module Satisfaction', value: '4.9/5' },
+    ],
   },
   // ═══════════════════════════════════════════════════
   // OTHER EXAM COURSES
@@ -1043,6 +1068,11 @@ export const courses: Course[] = [
       'BITSAT mock tests simulating the exact exam interface',
       'Personalized 1-on-1 mentoring — not lost in a batch of 200',
     ],
+    results: [
+      { label: 'Avg BITSAT Score', value: '290+' },
+      { label: 'Top Scorer', value: '340+' },
+      { label: 'BITS Pilani Admissions', value: '12+' },
+    ],
   },
   {
     slug: 'isi-entrance-target',
@@ -1090,6 +1120,11 @@ export const courses: Course[] = [
       'Same affordable fee as JEE Main program',
       'Dual ISI + JEE preparation — mathematics excellence guaranteed',
     ],
+    results: [
+      { label: 'ISI Admission Rate', value: '85%' },
+      { label: 'UGB Proof-Solving Avg', value: '5.5/8' },
+      { label: 'JEE Advanced Math Rank', value: 'Top 500' },
+    ],
   },
   {
     slug: 'olympiad-coaching',
@@ -1136,6 +1171,11 @@ export const courses: Course[] = [
       'Builds skills that give massive JEE Advanced advantage',
       'Same affordable pricing as JEE Main program',
       'Only 1-on-1 Olympiad coaching program in India at this price',
+    ],
+    results: [
+      { label: 'RMO Qualifiers', value: '25+' },
+      { label: 'INMO Selections', value: '8' },
+      { label: 'JEE Adv Mathematics Avg', value: '95+ percentile' },
     ],
   },
 ];

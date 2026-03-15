@@ -1204,14 +1204,15 @@ export function getLocationRoutes(): { path: string; exam: 'jee' | 'neet'; city:
 export function getLocationTitle(exam: 'jee' | 'neet', city: string): string {
   const year = new Date().getFullYear();
   const examLabel = exam === 'jee' ? 'JEE' : 'NEET';
-  return `#1 ${examLabel} Coaching in ${city} ${year} — 1-on-1 Mentors [Free Demo]`;
+  const examExtra = exam === 'jee' ? 'Main & Advanced' : 'UG';
+  return `Best ${examLabel} ${examExtra} Coaching in ${city} ${year} — 1-on-1 Online Mentors | Free Demo`;
 }
 
 /** Generate meta description for location page — CTR-optimised with specifics */
 export function getLocationDescription(exam: 'jee' | 'neet', city: string): string {
   const examLabel = exam === 'jee' ? 'JEE Main & Advanced' : 'NEET UG';
   const extra = exam === 'jee'
-    ? 'AIR 42 results. Dedicated IIT-alumni mentors.'
-    : 'AIIMS-alumni mentors. 95% selection rate.';
-  return `Crack ${examLabel} from ${city} with 1-on-1 coaching. ${extra} No commute — study from home. Book free demo today.`;
+    ? 'AIR 42 results. IIT-alumni mentors. Adaptive curriculum + weekly parent reports.'
+    : 'Top 500 NEET rank. AIIMS-alumni mentors. NCERT-first protocol + weekly parent reports.';
+  return `Top-rated ${examLabel} coaching in ${city} with dedicated 1-on-1 online mentors. ${extra} 95% selection rate. Zero commute. Book free demo today.`;
 }

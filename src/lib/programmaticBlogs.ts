@@ -48,7 +48,7 @@ function generateChapterPrepPosts(): BlogPost[] {
   return chapters.map((ch, i) => {
     const exam = ch.exam;
     const slug = `how-to-prepare-${slugify(ch.chapter)}-for-${exam.toLowerCase()}`;
-    const title = `How to Prepare ${ch.chapter} for ${exam} ${year} — Complete Guide`;
+    const title = `How to Prepare ${ch.chapter} for ${exam} ${year} — Topics, Weightage, PYQs & Study Plan`;
 
     return {
       slug,
@@ -192,7 +192,7 @@ function generateChapterTipsPosts(): BlogPost[] {
   );
   return uniqueChapters.slice(0, 74).map((ch, i) => ({
     slug: `${slugify(ch.chapter)}-tips-and-tricks-${ch.exam.toLowerCase()}`,
-    title: `${ch.chapter} Tips & Tricks for ${ch.exam} ${year} — Score Maximizing Hacks`,
+    title: `${ch.chapter} Tips & Tricks for ${ch.exam} ${year} — 10 Expert Hacks to Boost Your Score`,
     excerpt: `Smart shortcuts and scoring tricks for ${ch.chapter} in ${ch.exam}. Common patterns, formula shortcuts, and elimination techniques.`,
     category: ch.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [ch.exam, ch.subject, ch.chapter, 'Tips & Tricks'],
@@ -359,7 +359,7 @@ function generateSubjectStrategyPosts(): BlogPost[] {
       const relChapters = chapters.filter(ch => ch.exam === c.exam && ch.subject.includes(c.subject)).slice(0, 12);
       posts.push({
         slug: `${c.exam.toLowerCase()}-${slugify(c.subject)}-revision-in-${d}-days`,
-        title: `${c.exam} ${c.subject} Revision in ${d} Days — Complete ${year} Strategy`,
+        title: `${c.exam} ${c.subject} Revision in ${d} Days — Day-by-Day Plan & Strategy ${year}`,
         excerpt: `How to revise entire ${c.subject} syllabus for ${c.exam} in ${d} days. Day-wise planner, chapter priorities, and revision hacks.`,
         category: c.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
         tags: [c.exam, c.subject, 'Revision', `${d}-Day Plan`],
@@ -529,7 +529,7 @@ function generateBestBooksPosts(): BlogPost[] {
   ];
   return subjects.map((s, i) => ({
     slug: `best-books-for-${s.exam.toLowerCase()}-${slugify(s.subject)}-${year}`,
-    title: `Best Books for ${s.exam} ${s.subject} ${year} — Expert Recommendations`,
+    title: `Best Books for ${s.exam} ${s.subject} ${year} — Expert Picks with Chapter Mapping`,
     excerpt: `Top recommended books for ${s.exam} ${s.subject} preparation. NCERT + reference book strategy for maximum marks.`,
     category: s.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [s.exam, s.subject, 'Best Books', 'Recommended'],
@@ -1609,7 +1609,7 @@ A: For some students, yes. For others, it's overwhelming and counterproductive. 
 function generateChapterImportantQuestions(): BlogPost[] {
   return chapters.map((ch, i) => ({
     slug: `important-questions-${slugify(ch.chapter)}-${ch.exam.toLowerCase()}-${year}`,
-    title: `Important Questions for ${ch.chapter} — ${ch.exam} ${year} | Top 20 Must-Solve`,
+    title: `Important Questions for ${ch.chapter} — ${ch.exam} ${year} | Year-Wise PYQ Analysis & Top 20`,
     excerpt: `Top 20 most-asked question types from ${ch.chapter} for ${ch.exam} ${year}. Year-wise frequency analysis, topic priority matrix, and exam tips.`,
     category: ch.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [ch.exam, ch.subject, ch.chapter, 'Important Questions'],
@@ -1707,7 +1707,7 @@ A: New types are always based on fundamentals. If you've mastered the 20 types a
 function generateRevisionChecklistPosts(): BlogPost[] {
   return chapters.map((ch, i) => ({
     slug: `${slugify(ch.chapter)}-revision-checklist-${ch.exam.toLowerCase()}`,
-    title: `${ch.chapter} Revision Checklist for ${ch.exam} ${year} — 30 Points`,
+    title: `${ch.chapter} Revision Checklist for ${ch.exam} ${year} — 30-Point Formula & Concept Guide`,
     excerpt: `Complete 30-point revision checklist for ${ch.chapter} (${ch.exam}). Formula summary, key diagrams, concept checks, and common mistakes.`,
     category: ch.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [ch.exam, ch.subject, ch.chapter, 'Revision', 'Checklist'],
@@ -1869,7 +1869,7 @@ function generateMistakesToAvoidPosts(): BlogPost[] {
   );
   return uniqueChapters.slice(0, 74).map((ch, i) => ({
     slug: `${slugify(ch.chapter)}-mistakes-to-avoid-${ch.exam.toLowerCase()}`,
-    title: `${ch.chapter} Mistakes That Cost Marks in ${ch.exam} — Avoid These ${year}`,
+    title: `7 ${ch.chapter} Mistakes That Cost Marks in ${ch.exam} ${year} — How to Fix Each One`,
     excerpt: `Common mistakes students make in ${ch.chapter} for ${ch.exam}. Detailed error patterns with worked examples and how to fix them.`,
     category: ch.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [ch.exam, ch.subject, ch.chapter, 'Mistakes', 'Error Analysis'],
@@ -2027,7 +2027,7 @@ function generateDropperStrategyPosts(): BlogPost[] {
 
   return subjects.map((s, i) => ({
     slug: `dropper-strategy-${s.exam.toLowerCase()}-${slugify(s.subject)}-${year}`,
-    title: `${s.exam} Dropper Strategy for ${s.subject} ${year} — 6-Month Recovery Plan`,
+    title: `${s.exam} Dropper Strategy for ${s.subject} ${year} — 6-Month Recovery Plan with Weekly Targets`,
     excerpt: `Complete 6-month dropper strategy for ${s.exam} ${s.subject}. Day-by-day plan, chapter priorities, and mock test schedule.`,
     category: s.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [s.exam, s.subject, 'Dropper', 'Strategy', year.toString()],
@@ -2339,7 +2339,7 @@ function generateMonthlyStudyPlanPosts(): BlogPost[] {
       const mi = months.indexOf(month);
       posts.push({
         slug: `${month.toLowerCase()}-${year}-study-plan-${exam.toLowerCase()}`,
-        title: `${month} ${year} Study Plan for ${exam} — Week-by-Week Schedule`,
+        title: `${month} ${year} Study Plan for ${exam} — Week-by-Week Schedule with Daily Targets`,
         excerpt: `Detailed ${month} ${year} study plan for ${exam} aspirants. Daily schedule, chapter targets, mock test plan.`,
         category: exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
         tags: [exam, 'Study Plan', month, year.toString()],
@@ -2667,7 +2667,7 @@ function generateNCERTAnalysisPosts(): BlogPost[] {
 
   return selected.map((ch, i) => ({
     slug: `ncert-${slugify(ch.chapter)}-analysis-${ch.exam.toLowerCase()}`,
-    title: `NCERT ${ch.chapter} Analysis for ${ch.exam} ${year} — Line-by-Line`,
+    title: `NCERT ${ch.chapter} Analysis for ${ch.exam} ${year} — Line-by-Line with PYQ Mapping`,
     excerpt: `Complete NCERT analysis of ${ch.chapter} for ${ch.exam}. Every important line, diagram, and exam-relevant concept mapped.`,
     category: ch.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [ch.exam, 'NCERT', ch.subject, ch.chapter],
@@ -3214,7 +3214,7 @@ function generateExamCityPosts(): BlogPost[] {
     for (const city of citySubset) {
       const i = posts.length;
       const slug = `best-${exam.slug}-coaching-in-${city.slug}-${year}`;
-      const title = `Best ${exam.name} Coaching in ${city.city} ${year} — Complete Guide`;
+      const title = `Best ${exam.name} Coaching in ${city.city} ${year} — Online vs Offline, Fees & Reviews`;
       const overlapExam = exam.overlapsWith === 'jee' ? 'JEE' : exam.overlapsWith === 'neet' ? 'NEET' : 'JEE/NEET';
 
       posts.push({
@@ -3510,7 +3510,7 @@ function generateCompleteExamGuides(): BlogPost[] {
 
     return {
       slug,
-      title: `Complete Guide to ${exam.name} ${year} — Syllabus, Pattern, Strategy & Cutoffs`,
+      title: `Complete Guide to ${exam.name} ${year} — Syllabus, Paper Pattern, Topper Strategy & Expected Cutoffs`,
       excerpt: `Everything you need to know about ${exam.name} ${year}: exam pattern, marking scheme, subject-wise weightage, preparation strategy, cutoffs, and how MindPeak coaching helps.`,
       category: exam.overlapsWith === 'neet' ? 'NEET' as const : 'JEE' as const,
       tags: [exam.name, 'Complete Guide', year.toString(), 'Preparation', 'Strategy'],

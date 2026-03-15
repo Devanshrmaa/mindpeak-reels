@@ -29,6 +29,7 @@ const CourseFlashcards = dynamic(() => import('@/components/sections/CourseFlash
 const MethodologySection = dynamic(() => import('@/components/sections/MethodologySection').then(m => ({ default: m.MethodologySection })), { ssr: false });
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => ({ default: m.FAQSection })), { ssr: false });
 const ContactSection = dynamic(() => import('@/components/sections/ContactSection').then(m => ({ default: m.ContactSection })), { ssr: false });
+const StatsSection = dynamic(() => import('@/components/sections/StatsSection').then(m => ({ default: m.StatsSection })), { ssr: false });
 
 const Index = ({ children }: { children?: ReactNode }) => {
   const [showDeferredSections, setShowDeferredSections] = useState(false);
@@ -64,6 +65,7 @@ const Index = ({ children }: { children?: ReactNode }) => {
             <TransformationTimeline />
             <BeforeAfterSection />
             <ResultSection />
+            <StatsSection />
             <SuccessGrid />
             <CourseFlashcards />
             <MethodologySection />

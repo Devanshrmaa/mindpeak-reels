@@ -35,6 +35,22 @@ const faqs = [
     q: 'How do you track student progress?',
     a: 'We use detailed performance analytics dashboards that track topic-wise strengths, weaknesses, test scores, and improvement trends. Parents and students receive regular progress reports.',
   },
+  {
+    q: 'Who are the mentors at MindPeak?',
+    a: 'Our mentors are graduates from IIT, NIT, and AIIMS with proven teaching experience. Each mentor is carefully selected for both subject expertise and the ability to connect with students. They undergo regular training to stay updated with the latest exam patterns and NTA guidelines.',
+  },
+  {
+    q: 'Do you offer any study material or do students need to buy separately?',
+    a: 'Comprehensive study material, practice problem sets, and NCERT-aligned notes are included with every program. We also provide free downloadable NCERT textbooks on our website. No need to purchase additional books — our curated resources cover the full JEE and NEET syllabus.',
+  },
+  {
+    q: 'How quickly are doubts resolved?',
+    a: 'Doubts raised during live sessions are cleared instantly. For doubts outside class hours, our average response time is under 30 minutes via our dedicated doubt-resolution channel. Unlike batch coaching where students wait days, at MindPeak no question goes unanswered.',
+  },
+  {
+    q: 'Is MindPeak suitable for dropper students?',
+    a: 'Absolutely. We have dedicated dropper programs for both JEE and NEET. Your mentor will evaluate your previous attempt, identify specific gaps, and build a focused plan to maximize your score improvement. Many of our top results — including AIR 89 — came from dropper students.',
+  },
 ];
 
 export const FAQSection = () => {

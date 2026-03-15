@@ -8,33 +8,33 @@ const problems = [
     stat: '100+',
     label: 'Students per batch',
     title: 'Lost in the Crowd',
-    desc: 'Your child is one of 100-200 students. Teachers can\'t track individual progress.',
+    desc: 'Your child is one of 100-200 students in a factory-style classroom. Teachers can\'t track individual progress, spot learning gaps, or adapt the pace for anyone.',
   },
   {
     icon: Clock,
     stat: '0',
     label: 'Personal attention',
     title: 'Zero Personalization',
-    desc: 'Same curriculum, same pace, same problems — regardless of each student\'s needs.',
+    desc: 'Same curriculum, same pace, same problem sets — regardless of whether a student needs more time on Organic Chemistry or struggles with Calculus. One-size-fits-all ignores unique potential.',
   },
   {
     icon: HelpCircle,
     stat: '72%',
     label: 'Doubts unresolved',
     title: 'Doubts Pile Up',
-    desc: 'Crowded doubt sessions mean most questions go unanswered. Gaps compound silently.',
+    desc: 'Crowded doubt sessions of 30+ students mean most questions go unanswered. Concepts build on each other — one unresolved gap snowballs into months of confusion.',
   },
   {
     icon: TrendingDown,
     stat: '60%',
     label: 'Feel lost & stuck',
     title: 'Confidence Crashes',
-    desc: 'A rigid one-size-fits-all model leaves the majority of students behind — and burned out.',
+    desc: 'A rigid model leaves the majority feeling behind and burned out. Students lose belief in themselves — not because they lack ability, but because they lack the right guidance.',
   },
 ];
 
 const highlightText =
-  'Every year, lakhs of students join batch coaching centres with dreams of cracking JEE & NEET. Most leave disappointed. The factory model treats students as numbers — not as individuals with unique strengths, weaknesses, and learning speeds.';
+  'Every year, lakhs of students join batch coaching centres with dreams of cracking JEE & NEET. Most leave disappointed. The factory model treats students as numbers — not as individuals with unique strengths, weaknesses, and learning speeds. Research shows only 5% of batch-coached students clear the cutoff, yet fees keep rising. The system is broken, and students pay the price — not just financially, but in lost confidence and wasted potential.';
 
 export const ProblemSection = () => {
   const sectionRef = useRef<HTMLElement>(null);

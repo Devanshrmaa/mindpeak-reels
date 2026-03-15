@@ -74,6 +74,21 @@ export const HeroSection = () => {
             </span>
           </a>
         </div>
+
+        {/* Trust stats strip */}
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+          {[
+            { value: '500+', label: 'Students Mentored' },
+            { value: '95%', label: 'Success Rate' },
+            { value: 'AIR 42', label: 'Best JEE Rank' },
+            { value: '50+', label: 'Under AIR 5,000' },
+          ].map((stat) => (
+            <div key={stat.label} className="flex items-center gap-2">
+              <span className="text-primary font-display font-bold text-lg sm:text-xl tracking-tight">{stat.value}</span>
+              <span className="text-muted-foreground text-[10px] sm:text-[11px] uppercase tracking-[0.12em]">{stat.label}</span>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Scroll hint */}
