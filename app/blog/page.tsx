@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { CURRENT_EXAM_YEAR } from "@/lib/examYears";
 
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
+/**
+ * Blog listing is ISR-rendered and cached for 1 hour.
+ * Shorter than individual posts because new posts may appear.
+ */
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: `JEE & NEET Preparation Tips ${CURRENT_EXAM_YEAR} — Expert Strategies & Study Guides`,

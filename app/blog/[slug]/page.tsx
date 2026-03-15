@@ -1,10 +1,13 @@
 import BlogPostClient from "./BlogPostClient";
 import { notFound } from "next/navigation";
 
-/** Prevent any static pre-rendering of blog posts */
-export const dynamic = 'force-dynamic';
+/**
+ * Blog posts are ISR-rendered on first visit, then cached for 24 hours.
+ * Dynamic imports inside the function body prevent the 20MB blogResolver
+ * from being bundled at build time — no generateStaticParams = no build-time render.
+ */
 export const dynamicParams = true;
-export const revalidate = 0;
+export const revalidate = 86400;
 
 type Props = { params: Promise<{ slug: string }> };
 

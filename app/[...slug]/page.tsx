@@ -23,6 +23,14 @@ interface Props {
 export const dynamicParams = true;
 
 /**
+ * Cache rendered pages for 24 hours before revalidating.
+ * Without this, every unique slug visit = an ISR write on Vercel.
+ * With 50,000+ slugs being crawled, this caused extreme ISR write costs.
+ * 86400s = 1 day — content only changes on deployment anyway.
+ */
+export const revalidate = 86400;
+
+/**
  * Pre-render the highest-priority pages for faster TTFB and crawl speed.
  */
 export async function generateStaticParams() {
