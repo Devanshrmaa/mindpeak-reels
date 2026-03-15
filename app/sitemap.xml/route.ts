@@ -20,6 +20,7 @@ import { examRegistry } from '@/data/examRegistry';
 import { getAllExamInfoSlugs } from '@/data/examInfoData';
 import { getAllDifferenceSlugs } from '@/data/differenceBetweenData';
 import { getAllCounsellingSlugs } from '@/data/counsellingData';
+import { getAllExamEventBlogSlugs } from '@/lib/examEventBlogs';
 
 const IMPORTANT_Q_SLUGS = [
   'jee-physics-important-questions',
@@ -106,6 +107,9 @@ export async function GET() {
   /* ═══ 5. Blog posts ═══ */
   const blogSlugs = getAllProgrammaticBlogSlugs().map(s => `/${s}`);
 
+  /* ═══ 5b. Exam event blog posts (auto-published after exams) ═══ */
+  const examEventBlogSlugs = getAllExamEventBlogSlugs().map(s => `/${s}`);
+
   /* ═══ 6. Topic pages ═══ */
   const topicPaths = TOPIC_PATHS.map(p => `/${p}`);
 
@@ -160,6 +164,7 @@ export async function GET() {
     importantQ: importantQSlugs.length,
     counselling: counsellingSlugs.length,
     notes: notesSlugs.length,
+    examEvents: examEventBlogSlugs.length,
   };
   const total = Object.values(counts).reduce((a, b) => a + b, 0);
 
@@ -174,6 +179,7 @@ export async function GET() {
   for (const p of locationPaths) lines.push(urlEntry(p, '0.65', 'monthly', staggeredLastmod(p, now)));
   for (const p of subjectCitySlugs) lines.push(urlEntry(p, '0.60', 'monthly', staggeredLastmod(p, now)));
   for (const p of blogSlugs) lines.push(urlEntry(p, '0.60', 'weekly', staggeredLastmod(p, now)));
+  for (const p of examEventBlogSlugs) lines.push(urlEntry(p, '0.80', 'daily', TODAY));
   for (const p of chapterPaths) lines.push(urlEntry(p, '0.60', 'monthly', staggeredLastmod(p, now)));
   for (const p of topicPaths) lines.push(urlEntry(p, '0.55', 'monthly', staggeredLastmod(p, now)));
   for (const p of studyGuideSlugs) lines.push(urlEntry(p, '0.55', 'monthly', staggeredLastmod(p, now)));
