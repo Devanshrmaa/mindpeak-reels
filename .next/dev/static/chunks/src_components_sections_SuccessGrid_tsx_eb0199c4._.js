@@ -28,42 +28,48 @@ const stories = [
         title: 'AARAV SHARMA',
         subtitle: 'AIR 42 — JEE Advanced',
         image: student1,
-        objectPos: 'center 10%'
+        objectPos: 'center 10%',
+        detail: 'Went from scoring 120/300 to AIR 42 in 6 months of 1-on-1 coaching. Struggled with Organic Chemistry and Calculus — now mentoring juniors at IIT Bombay.'
     },
     {
         id: '2',
         title: 'PERSONALIZED MENTORING',
         subtitle: '1-on-1 Session Highlights',
         image: mentoring,
-        objectPos: 'center 30%'
+        objectPos: 'center 30%',
+        detail: 'Every student gets daily 1-on-1 live sessions with a dedicated IIT/NIT mentor. Doubts are resolved within 30 minutes, not 30 days.'
     },
     {
         id: '3',
         title: 'PRIYA PATEL',
         subtitle: 'AIR 156 — NEET',
         image: student2,
-        objectPos: 'center 20%'
+        objectPos: 'center 20%',
+        detail: 'From a small town in Gujarat, Priya had limited access to quality coaching. With MindPeak\'s NCERT-first NEET program, she secured AIR 156 and admission to a top medical college.'
     },
     {
         id: '4',
         title: 'STUDY ROUTINE',
         subtitle: 'Day in the Life',
         image: student3,
-        objectPos: 'center 25%'
+        objectPos: 'center 25%',
+        detail: 'A structured daily plan: live class → practice set → mentor review → analytics check. Students study 6 focussed hours instead of 10 unfocused ones.'
     },
     {
         id: '5',
         title: 'ROHAN GUPTA',
         subtitle: 'AIR 89 — JEE Mains',
         image: student4,
-        objectPos: 'center 15%'
+        objectPos: 'center 15%',
+        detail: 'Rohan was a dropper who had lost confidence after a year of batch coaching. His MindPeak mentor rebuilt his fundamentals and he went from 78 percentile to AIR 89.'
     },
     {
         id: '6',
         title: 'MENTOR SESSIONS',
         subtitle: 'Guided Problem Solving',
         image: mentoringSession,
-        objectPos: 'center 30%'
+        objectPos: 'center 30%',
+        detail: 'Live problem-solving sessions where mentors trace each student\'s thought process, identify conceptual gaps, and build intuition — not just answer keys.'
     }
 ];
 const altTextMap = {
@@ -85,7 +91,7 @@ const SuccessGrid = ()=>{
                 className: "absolute top-20 right-0 w-96 h-96 rounded-full bg-primary/[0.03] blur-[120px] pointer-events-none"
             }, void 0, false, {
                 fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                lineNumber: 44,
+                lineNumber: 45,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -121,7 +127,7 @@ const SuccessGrid = ()=>{
                                         className: "h-px w-8 bg-foreground/10"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                                        lineNumber: 56,
+                                        lineNumber: 57,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -129,13 +135,13 @@ const SuccessGrid = ()=>{
                                         children: "Gallery"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                                        lineNumber: 57,
+                                        lineNumber: 58,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                                lineNumber: 55,
+                                lineNumber: 56,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -147,7 +153,7 @@ const SuccessGrid = ()=>{
                                     "SUCCESS",
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                         fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                                        lineNumber: 61,
+                                        lineNumber: 62,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -155,27 +161,27 @@ const SuccessGrid = ()=>{
                                         children: "STORIES"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                                        lineNumber: 62,
+                                        lineNumber: 63,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                                lineNumber: 59,
+                                lineNumber: 60,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-muted-foreground/60 text-sm tracking-[0.15em] uppercase mt-4",
-                                children: "Real Students. Real Results."
+                                className: "text-muted-foreground text-sm tracking-[0.15em] uppercase mt-4",
+                                children: "Real Students. Real Results. Real Transformations."
                             }, void 0, false, {
                                 fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                                lineNumber: 64,
+                                lineNumber: 65,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                        lineNumber: 48,
+                        lineNumber: 49,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -222,19 +228,19 @@ const SuccessGrid = ()=>{
                                             height: 750
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                                            lineNumber: 82,
+                                            lineNumber: 83,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                                        lineNumber: 81,
+                                        lineNumber: 82,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "absolute inset-0 bg-background/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                                        lineNumber: 94,
+                                        lineNumber: 95,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -245,7 +251,7 @@ const SuccessGrid = ()=>{
                                                 children: story.title
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                                                lineNumber: 98,
+                                                lineNumber: 99,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -253,13 +259,21 @@ const SuccessGrid = ()=>{
                                                 children: story.subtitle
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                                                lineNumber: 101,
+                                                lineNumber: 102,
                                                 columnNumber: 17
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            story.detail && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-muted-foreground/80 text-[11px] leading-relaxed mt-2 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500",
+                                                children: story.detail
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/components/sections/SuccessGrid.tsx",
+                                                lineNumber: 106,
+                                                columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                                        lineNumber: 97,
+                                        lineNumber: 98,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -275,34 +289,34 @@ const SuccessGrid = ()=>{
                                                 strokeWidth: "1.5"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                                                lineNumber: 109,
+                                                lineNumber: 115,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                                            lineNumber: 108,
+                                            lineNumber: 114,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                                        lineNumber: 107,
+                                        lineNumber: 113,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, story.id, true, {
                                 fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                                lineNumber: 72,
+                                lineNumber: 73,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)))
                     }, void 0, false, {
                         fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                        lineNumber: 70,
+                        lineNumber: 71,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                lineNumber: 46,
+                lineNumber: 47,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -330,12 +344,12 @@ const SuccessGrid = ()=>{
                                 className: "w-5 h-5 text-foreground"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                                lineNumber: 133,
+                                lineNumber: 139,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                            lineNumber: 128,
+                            lineNumber: 134,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$dom$2f$motion$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -372,7 +386,7 @@ const SuccessGrid = ()=>{
                                     className: "w-full max-h-[70vh] object-contain rounded-xl"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                                    lineNumber: 144,
+                                    lineNumber: 150,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -383,7 +397,7 @@ const SuccessGrid = ()=>{
                                             children: selected.title
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                                            lineNumber: 150,
+                                            lineNumber: 156,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -391,43 +405,51 @@ const SuccessGrid = ()=>{
                                             children: selected.subtitle
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                                            lineNumber: 151,
+                                            lineNumber: 157,
                                             columnNumber: 17
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        selected.detail && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-muted-foreground text-sm leading-relaxed mt-4 max-w-lg mx-auto",
+                                            children: selected.detail
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/sections/SuccessGrid.tsx",
+                                            lineNumber: 159,
+                                            columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                                    lineNumber: 149,
+                                    lineNumber: 155,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                            lineNumber: 136,
+                            lineNumber: 142,
                             columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                    lineNumber: 120,
+                    lineNumber: 126,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                lineNumber: 118,
+                lineNumber: 124,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-foreground/[0.06] to-transparent"
             }, void 0, false, {
                 fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-                lineNumber: 159,
+                lineNumber: 168,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/sections/SuccessGrid.tsx",
-        lineNumber: 42,
+        lineNumber: 43,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };

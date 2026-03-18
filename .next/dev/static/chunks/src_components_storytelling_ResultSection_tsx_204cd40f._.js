@@ -30,13 +30,45 @@ const stats = [
     },
     {
         value: '95%',
-        label: 'Improvement',
+        label: 'Success Rate',
         image: targetPrecision
     },
     {
         value: '1:1',
         label: 'Mentorship',
         image: mentoringIcon
+    }
+];
+const moreResults = [
+    {
+        name: 'Aarav Sharma',
+        rank: 'AIR 42',
+        exam: 'JEE Advanced'
+    },
+    {
+        name: 'Rohan Gupta',
+        rank: 'AIR 89',
+        exam: 'JEE Mains'
+    },
+    {
+        name: 'Priya Patel',
+        rank: 'AIR 156',
+        exam: 'NEET UG'
+    },
+    {
+        name: 'Sneha Reddy',
+        rank: 'AIR 312',
+        exam: 'JEE Advanced'
+    },
+    {
+        name: 'Arjun Mehta',
+        rank: 'AIR 478',
+        exam: 'NEET UG'
+    },
+    {
+        name: 'Kavya Iyer',
+        rank: 'AIR 1,240',
+        exam: 'JEE Mains'
     }
 ];
 const ResultSection = ()=>{
@@ -49,7 +81,7 @@ const ResultSection = ()=>{
                 className: "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/[0.04] blur-[180px] pointer-events-none"
             }, void 0, false, {
                 fileName: "[project]/src/components/storytelling/ResultSection.tsx",
-                lineNumber: 20,
+                lineNumber: 29,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -75,12 +107,12 @@ const ResultSection = ()=>{
                         className: "absolute w-1 h-1 rounded-full bg-primary/20"
                     }, i, false, {
                         fileName: "[project]/src/components/storytelling/ResultSection.tsx",
-                        lineNumber: 25,
+                        lineNumber: 34,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0)))
             }, void 0, false, {
                 fileName: "[project]/src/components/storytelling/ResultSection.tsx",
-                lineNumber: 23,
+                lineNumber: 32,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -109,11 +141,11 @@ const ResultSection = ()=>{
                         },
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-[11px] uppercase tracking-[0.3em] text-muted-foreground/50 mb-4",
+                                className: "text-[11px] uppercase tracking-[0.3em] text-muted-foreground mb-4",
                                 children: "JEE Advanced Result"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/storytelling/ResultSection.tsx",
-                                lineNumber: 48,
+                                lineNumber: 57,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -129,19 +161,19 @@ const ResultSection = ()=>{
                                         children: "42"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/storytelling/ResultSection.tsx",
-                                        lineNumber: 53,
+                                        lineNumber: 62,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/storytelling/ResultSection.tsx",
-                                lineNumber: 49,
+                                lineNumber: 58,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/storytelling/ResultSection.tsx",
-                        lineNumber: 42,
+                        lineNumber: 51,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$dom$2f$motion$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].p, {
@@ -159,14 +191,14 @@ const ResultSection = ()=>{
                             duration: 0.6
                         },
                         className: "text-muted-foreground text-base md:text-lg mt-6 mb-16 max-w-lg mx-auto leading-relaxed",
-                        children: "From struggling at 120/300 to achieving AIR 42 in just 6 months with personalized 1-on-1 coaching"
+                        children: "From struggling at 120/300 to achieving AIR 42 in just 6 months — with personalized 1-on-1 coaching, adaptive study plans, and a dedicated mentor who never gave up"
                     }, void 0, false, {
                         fileName: "[project]/src/components/storytelling/ResultSection.tsx",
-                        lineNumber: 57,
+                        lineNumber: 66,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-16",
+                        className: "grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12",
                         children: stats.map((stat, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$dom$2f$motion$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
                                 initial: {
                                     opacity: 0,
@@ -202,12 +234,12 @@ const ResultSection = ()=>{
                                             loading: "lazy"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/storytelling/ResultSection.tsx",
-                                            lineNumber: 79,
+                                            lineNumber: 88,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/storytelling/ResultSection.tsx",
-                                        lineNumber: 78,
+                                        lineNumber: 87,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -215,26 +247,98 @@ const ResultSection = ()=>{
                                         children: stat.value
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/storytelling/ResultSection.tsx",
-                                        lineNumber: 81,
+                                        lineNumber: 90,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "text-[10px] md:text-[11px] text-muted-foreground/60 uppercase tracking-[0.15em]",
+                                        className: "text-[10px] md:text-[11px] text-muted-foreground uppercase tracking-[0.15em]",
                                         children: stat.label
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/storytelling/ResultSection.tsx",
-                                        lineNumber: 82,
+                                        lineNumber: 91,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, i, true, {
                                 fileName: "[project]/src/components/storytelling/ResultSection.tsx",
-                                lineNumber: 70,
+                                lineNumber: 79,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)))
                     }, void 0, false, {
                         fileName: "[project]/src/components/storytelling/ResultSection.tsx",
-                        lineNumber: 68,
+                        lineNumber: 77,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$dom$2f$motion$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                        initial: {
+                            opacity: 0,
+                            y: 20
+                        },
+                        whileInView: {
+                            opacity: 1,
+                            y: 0
+                        },
+                        viewport: {
+                            once: true
+                        },
+                        transition: {
+                            delay: 0.3,
+                            duration: 0.6
+                        },
+                        className: "mb-16 max-w-2xl mx-auto",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-[11px] uppercase tracking-[0.2em] text-muted-foreground/70 text-center mb-4",
+                                children: "Recent Top Achievers"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/storytelling/ResultSection.tsx",
+                                lineNumber: 104,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "grid grid-cols-2 sm:grid-cols-3 gap-2",
+                                children: moreResults.map((r, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "p-3 rounded-xl border border-foreground/[0.04] bg-foreground/[0.02] text-center",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "text-foreground font-display font-semibold text-sm",
+                                                children: r.rank
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/components/storytelling/ResultSection.tsx",
+                                                lineNumber: 108,
+                                                columnNumber: 17
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "text-muted-foreground text-[10px] tracking-[0.1em] uppercase",
+                                                children: r.name
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/components/storytelling/ResultSection.tsx",
+                                                lineNumber: 109,
+                                                columnNumber: 17
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "text-primary/60 text-[9px] tracking-[0.08em] uppercase mt-0.5",
+                                                children: r.exam
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/components/storytelling/ResultSection.tsx",
+                                                lineNumber: 110,
+                                                columnNumber: 17
+                                            }, ("TURBOPACK compile-time value", void 0))
+                                        ]
+                                    }, i, true, {
+                                        fileName: "[project]/src/components/storytelling/ResultSection.tsx",
+                                        lineNumber: 107,
+                                        columnNumber: 15
+                                    }, ("TURBOPACK compile-time value", void 0)))
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/storytelling/ResultSection.tsx",
+                                lineNumber: 105,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/components/storytelling/ResultSection.tsx",
+                        lineNumber: 97,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$dom$2f$motion$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -272,28 +376,28 @@ const ResultSection = ()=>{
                                             strokeWidth: "1.2"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/storytelling/ResultSection.tsx",
-                                            lineNumber: 101,
+                                            lineNumber: 130,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/storytelling/ResultSection.tsx",
-                                        lineNumber: 100,
+                                        lineNumber: 129,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/storytelling/ResultSection.tsx",
-                                    lineNumber: 99,
+                                    lineNumber: 128,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/storytelling/ResultSection.tsx",
-                            lineNumber: 94,
+                            lineNumber: 123,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/src/components/storytelling/ResultSection.tsx",
-                        lineNumber: 88,
+                        lineNumber: 117,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$dom$2f$motion$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].p, {
@@ -310,30 +414,30 @@ const ResultSection = ()=>{
                             delay: 0.5,
                             duration: 0.4
                         },
-                        className: "text-muted-foreground/40 text-[12px] mt-6 tracking-wide",
+                        className: "text-muted-foreground/70 text-[12px] mt-6 tracking-wide",
                         children: "Join 500+ students who achieved their dream ranks"
                     }, void 0, false, {
                         fileName: "[project]/src/components/storytelling/ResultSection.tsx",
-                        lineNumber: 107,
+                        lineNumber: 136,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/storytelling/ResultSection.tsx",
-                lineNumber: 40,
+                lineNumber: 49,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-foreground/[0.06] to-transparent"
             }, void 0, false, {
                 fileName: "[project]/src/components/storytelling/ResultSection.tsx",
-                lineNumber: 119,
+                lineNumber: 148,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/storytelling/ResultSection.tsx",
-        lineNumber: 18,
+        lineNumber: 27,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };

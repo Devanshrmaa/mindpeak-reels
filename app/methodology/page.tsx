@@ -1,6 +1,8 @@
 import SEOLandingPage from "@/views/SEOLandingPage";
 import { buildSEOLandingMetadata } from "@/lib/seoLandingMetadata";
 import type { Metadata } from "next";
+
+export const revalidate = false;
 import { CURRENT_EXAM_YEAR } from "@/lib/examYears";
 
 export const metadata: Metadata = {

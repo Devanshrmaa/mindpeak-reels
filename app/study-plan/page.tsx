@@ -2,6 +2,8 @@ import StudyPlan from "@/views/StudyPlan";
 import type { Metadata } from "next";
 import { CURRENT_EXAM_YEAR } from "@/lib/examYears";
 
+export const revalidate = false;
+
 const howToSchema = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',

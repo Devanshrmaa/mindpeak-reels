@@ -95,7 +95,7 @@ const BeforeAfterSection = ()=>{
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "text-[11px] uppercase tracking-[0.3em] text-muted-foreground/60 font-medium",
+                                        className: "text-[11px] uppercase tracking-[0.3em] text-muted-foreground font-medium",
                                         children: "Compare"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/storytelling/BeforeAfterSection.tsx",
@@ -160,7 +160,7 @@ const BeforeAfterSection = ()=>{
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                     onClick: ()=>setShowAfter(false),
-                                    className: `relative z-10 flex-1 py-2.5 text-[11px] font-medium uppercase tracking-[0.15em] rounded-full transition-colors duration-300 ${!showAfter ? 'text-white' : 'text-muted-foreground'}`,
+                                    className: `relative z-10 flex-1 py-2.5 text-xs font-medium uppercase tracking-[0.15em] rounded-full transition-colors duration-300 ${!showAfter ? 'text-white' : 'text-muted-foreground'}`,
                                     children: "Before"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/storytelling/BeforeAfterSection.tsx",
@@ -169,7 +169,7 @@ const BeforeAfterSection = ()=>{
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                     onClick: ()=>setShowAfter(true),
-                                    className: `relative z-10 flex-1 py-2.5 text-[11px] font-medium uppercase tracking-[0.15em] rounded-full transition-colors duration-300 ${showAfter ? 'text-white' : 'text-muted-foreground'}`,
+                                    className: `relative z-10 flex-1 py-2.5 text-xs font-medium uppercase tracking-[0.15em] rounded-full transition-colors duration-300 ${showAfter ? 'text-white' : 'text-muted-foreground'}`,
                                     children: "After"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/storytelling/BeforeAfterSection.tsx",
