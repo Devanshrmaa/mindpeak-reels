@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { getCourseBySlug, courses } from "@/data/coursesData";
 import { CURRENT_EXAM_YEAR } from "@/lib/examYears";
 
+export const revalidate = false;
+
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
