@@ -19,19 +19,19 @@ const pillars = [
     {
         image: mentoringIcon,
         title: 'Dedicated Mentor',
-        description: 'Your personal guide through JEE/NEET',
+        description: 'A personal IIT/NIT mentor conducts daily live 1-on-1 sessions, resolves doubts within 30 minutes, and designs a custom roadmap aligned to your target rank.',
         num: '01'
     },
     {
         image: analyticsDashboard,
         title: 'Adaptive Curriculum',
-        description: 'Adjusts to your learning pace',
+        description: 'AI-powered analytics identify your weak topics after every mock test. Your study plan evolves weekly — spending more time where you need it, less where you don\'t.',
         num: '02'
     },
     {
         image: targetPrecision,
         title: 'Individual Attention',
-        description: 'No question goes unanswered',
+        description: 'With a 1:1 student-teacher ratio and 6-day-a-week live classes, every question is answered, every concept is clarified, and no student falls behind.',
         num: '03'
     }
 ];
@@ -116,7 +116,7 @@ const DiscoverySection = ()=>{
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "text-[11px] uppercase tracking-[0.3em] text-muted-foreground/60 font-medium",
+                                        className: "text-[11px] uppercase tracking-[0.3em] text-muted-foreground font-medium",
                                         children: "The Solution"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/storytelling/DiscoverySection.tsx",
@@ -184,7 +184,7 @@ const DiscoverySection = ()=>{
                             duration: 0.8
                         },
                         className: "text-muted-foreground text-base md:text-lg mb-16 md:mb-20 max-w-xl mx-auto leading-relaxed",
-                        children: "Where every student gets a dedicated mentor, adaptive curriculum, and individualized attention"
+                        children: "Where every student gets a dedicated mentor from IIT, NIT, or AIIMS — an adaptive curriculum that adjusts weekly — and daily 1-on-1 live sessions that make batch coaching obsolete"
                     }, void 0, false, {
                         fileName: "[project]/src/components/storytelling/DiscoverySection.tsx",
                         lineNumber: 55,
@@ -218,7 +218,7 @@ const DiscoverySection = ()=>{
                                 className: "group relative p-7 md:p-8 rounded-2xl border border-foreground/[0.06] bg-foreground/[0.02] hover:border-primary/20 hover:bg-foreground/[0.04] transition-all duration-600 overflow-hidden",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "absolute top-4 right-5 text-[11px] tracking-[0.15em] text-muted-foreground/30 font-medium",
+                                        className: "absolute top-4 right-5 text-[11px] tracking-[0.15em] text-muted-foreground/40 font-medium",
                                         children: pillar.num
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/storytelling/DiscoverySection.tsx",
@@ -326,6 +326,7 @@ _c = DiscoverySection;
                 alt: "MindPeak Institute",
                 width: 160,
                 height: 160,
+                sizes: "(max-width: 768px) 75px, 150px",
                 loading: "lazy",
                 className: "relative w-[75%] h-[75%] rounded-full object-contain border-2 border-primary/30 shadow-[0_0_40px_hsl(var(--primary)/0.2)] group-hover:shadow-[0_0_60px_hsl(var(--primary)/0.35)] transition-shadow duration-700 bg-background"
             }, void 0, false, {

@@ -14,7 +14,8 @@ __turbopack_context__.s([
     "subscribeToUpdate",
     ()=>subscribeToUpdate
 ]);
-function connect({ addMessageListener, sendMessage, onUpdateError = console.error }) {
+function connect(param) {
+    let { addMessageListener, sendMessage, onUpdateError = console.error } = param;
     addMessageListener((msg)=>{
         switch(msg.type){
             case 'turbopack-connected':
@@ -43,7 +44,8 @@ function connect({ addMessageListener, sendMessage, onUpdateError = console.erro
         throw new Error('A separate HMR handler was already registered');
     }
     globalThis.TURBOPACK_CHUNK_UPDATE_LISTENERS = {
-        push: ([chunkPath, callback])=>{
+        push: (param)=>{
+            let [chunkPath, callback] = param;
             subscribeToChunkUpdate(chunkPath, sendMessage, callback);
         }
     };

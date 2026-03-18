@@ -292,7 +292,7 @@ const TransformationTimeline = ()=>{
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "text-muted-foreground/60 text-[9px] md:text-[11px] mb-2 line-clamp-2 leading-relaxed",
+                                            className: "text-muted-foreground text-[9px] md:text-[11px] mb-2 line-clamp-2 leading-relaxed",
                                             children: m.description
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/storytelling/TransformationTimeline.tsx",
@@ -303,7 +303,7 @@ const TransformationTimeline = ()=>{
                                             className: "inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] bg-primary/[0.06] border border-primary/10 text-foreground",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "text-muted-foreground/50 text-[9px]",
+                                                    className: "text-muted-foreground/80 text-[9px]",
                                                     children: "Score:"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/storytelling/TransformationTimeline.tsx",
@@ -319,7 +319,7 @@ const TransformationTimeline = ()=>{
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "text-muted-foreground/50 text-[9px]",
+                                                    className: "text-muted-foreground/80 text-[9px]",
                                                     children: "/300"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/storytelling/TransformationTimeline.tsx",
@@ -507,7 +507,7 @@ const TransformationTimeline = ()=>{
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "text-muted-foreground/60 text-[11px]",
+                                                className: "text-muted-foreground text-[11px]",
                                                 children: "Actual Score"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/storytelling/TransformationTimeline.tsx",
@@ -531,7 +531,7 @@ const TransformationTimeline = ()=>{
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "text-muted-foreground/60 text-[11px]",
+                                                className: "text-muted-foreground text-[11px]",
                                                 children: "Target (280)"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/storytelling/TransformationTimeline.tsx",
