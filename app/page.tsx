@@ -3,11 +3,23 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import type { Metadata } from "next";
 import { CURRENT_EXAM_YEAR } from "@/lib/examYears";
 
+/** Fully static — no data fetching. Content only changes on deploy. */
+export const revalidate = false;
+
 export const metadata: Metadata = {
   title: `Best JEE & NEET Coaching ${CURRENT_EXAM_YEAR} — 1-on-1 Mentors | 95% Success [Free Demo]`,
   description: `Crack JEE/NEET ${CURRENT_EXAM_YEAR} with personal 1-on-1 mentors from IIT/NIT. Adaptive study plan, 95% success rate, 500+ students. Book your free demo class today — zero commitment.`,
   alternates: { canonical: "https://mindpeakinstitute.com/" },
 };
+
+/**
+ * Note: DO NOT add "use client" directive here.
+ *
+ * The <Index /> component lazy-loads all subcomponents with Next.js
+ * dynamic imports, so the page renders a server-side content shell
+ * for crawlers, then progressively enhances into a fully interactive
+ * experience on the client.
+ */
 
 /**
  * SSR-rendered intro content for Googlebot crawlability.
@@ -100,3 +112,4 @@ export default function HomePage() {
     </>
   );
 }
+
