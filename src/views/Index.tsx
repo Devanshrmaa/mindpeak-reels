@@ -42,8 +42,8 @@ const Index = ({ children }: { children?: ReactNode }) => {
       return () => cancelIdleCallback(idleId);
     }
 
-    const timeoutId = window.setTimeout(() => setShowDeferredSections(true), 1200);
-    return () => window.clearTimeout(timeoutId);
+    const timeoutId = setTimeout(() => setShowDeferredSections(true), 1200);
+    return () => clearTimeout(timeoutId);
   }, []);
 
   return (
