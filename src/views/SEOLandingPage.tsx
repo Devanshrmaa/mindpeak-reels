@@ -150,7 +150,7 @@ const SEOLandingPage = () => {
       <main className="bg-background pt-20">
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="max-w-4xl mx-auto px-6 py-4">
-          <ol className="flex items-center gap-2 text-xs text-muted-foreground">
+          <ol className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
             <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
             <span>/</span>
             <li className="text-foreground">{page.h1} {page.h1Highlight}</li>

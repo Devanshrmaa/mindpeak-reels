@@ -50,7 +50,7 @@ const CounsellingGuidePage = () => {
       <Navbar />
       <main className="bg-background pt-20">
         <nav aria-label="Breadcrumb" className="max-w-4xl mx-auto px-6 py-4">
-          <ol className="flex items-center gap-2 text-xs text-muted-foreground flex-wrap">
+          <ol className="flex items-center justify-center gap-2 text-xs text-muted-foreground flex-wrap">
             <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
             <span>/</span>
             <li className="text-foreground">{page.h1} {page.highlight}</li>

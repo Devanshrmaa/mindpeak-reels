@@ -281,7 +281,7 @@ const LocationPage = () => {
       <main className="bg-background pt-20 sm:pt-24">
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="max-w-5xl mx-auto px-6 py-4">
-          <ol className="flex items-center gap-2 text-xs text-muted-foreground" itemScope itemType="https://schema.org/BreadcrumbList">
+          <ol className="flex items-center justify-center gap-2 text-xs text-muted-foreground" itemScope itemType="https://schema.org/BreadcrumbList">
             <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
               <Link to="/" itemProp="item" className="hover:text-primary transition-colors"><span itemProp="name">Home</span></Link>
               <meta itemProp="position" content="1" />

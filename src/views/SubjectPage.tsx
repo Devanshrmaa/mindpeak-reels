@@ -597,7 +597,7 @@ const SubjectPage = () => {
       <main className="bg-background min-h-screen pt-20 sm:pt-24 overflow-x-hidden">
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="max-w-5xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
-          <ol className="flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-muted-foreground flex-wrap">
+          <ol className="flex items-center justify-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-muted-foreground flex-wrap">
             <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
             <span>/</span>
             <li><Link to={`/${data.exam.toLowerCase()}-coaching`} className="hover:text-primary transition-colors">{data.exam} Coaching</Link></li>
