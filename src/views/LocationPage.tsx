@@ -319,11 +319,11 @@ const LocationPage = () => {
               {heroSublead}
             </p>
             {/* Social proof microline */}
-            <div className="flex items-center gap-2 mb-8 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full w-fit">
+            <div className="flex items-center justify-center gap-2 mb-8 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full w-fit mx-auto">
               <Award className="w-4 h-4 text-primary flex-shrink-0" />
               <span className="text-primary text-sm font-medium">{socialProof}</span>
             </div>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap justify-center gap-4">
               <button onClick={openDemoModal} className="px-8 py-4 bg-primary text-primary-foreground font-display font-bold text-sm uppercase tracking-[0.15em] shadow-gold-glow hover:scale-105 transition-transform">
                 Book Free Demo — {city.city}
               </button>

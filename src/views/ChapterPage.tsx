@@ -258,7 +258,7 @@ const ChapterPage = () => {
               </p>
 
               {/* Stats */}
-              <div className="flex flex-wrap items-center gap-3 mb-8">
+              <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
                 <div className="flex items-center gap-2 bg-card/80 backdrop-blur px-4 py-2.5 rounded-lg border text-sm">
                   <BarChart3 className="w-4 h-4 text-primary" />
                   <span className="font-semibold">{chapter.weightage}</span>
@@ -277,7 +277,7 @@ const ChapterPage = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col sm:flex-row justify-center gap-3">
                 <button
                   onClick={openDemoModal}
                   className="w-full sm:w-auto px-8 py-3.5 bg-primary text-primary-foreground font-display font-bold text-xs sm:text-sm uppercase tracking-[0.1em] shadow-gold-glow hover:scale-105 transition-transform"
