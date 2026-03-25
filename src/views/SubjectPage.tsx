@@ -607,13 +607,13 @@ const SubjectPage = () => {
         </nav>
 
         {/* ───── HERO ───── */}
-        <section className="max-w-5xl mx-auto px-4 sm:px-6 pb-8 sm:pb-12">
+        <section className="max-w-5xl mx-auto px-4 sm:px-6 pb-8 sm:pb-12 text-center">
           <div>
             <FreshnessBadge lastUpdated="2026-02-18" verifiedFor={`${data.exam} ${CURRENT_EXAM_YEAR}`} />
 
-            <div className="flex items-center gap-3 mb-4 sm:mb-6">
+            <div className="flex items-center justify-center gap-3 mb-4 sm:mb-6">
               <Image src={logo} alt="MindPeak Institute" className="w-10 h-10 sm:w-14 sm:h-14 rounded-full flex-shrink-0" width={56} height={56} priority />
-              <div className="min-w-0">
+              <div className="min-w-0 text-left">
                 <p className="text-primary text-[10px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] font-semibold">MindPeak Institute</p>
                 <p className="text-muted-foreground text-xs sm:text-sm truncate">{data.exam} {data.subject} — 1-on-1 Coaching</p>
               </div>
@@ -624,9 +624,9 @@ const SubjectPage = () => {
               <span className="text-gradient-gold">{data.heroHighlight}</span>
             </h1>
 
-            <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mb-6 sm:mb-8">{data.heroParagraph}</p>
+            <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mx-auto mb-6 sm:mb-8">{data.heroParagraph}</p>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
               <button onClick={openDemoModal} className="w-full sm:w-auto px-6 sm:px-10 py-3.5 sm:py-4 bg-primary text-primary-foreground font-display font-bold text-xs sm:text-sm uppercase tracking-[0.1em] sm:tracking-[0.15em] shadow-gold-glow hover:scale-105 transition-transform text-center">
                 Start Free Trial →
               </button>

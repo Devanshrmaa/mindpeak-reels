@@ -300,11 +300,11 @@ const LocationPage = () => {
         </nav>
 
         {/* ═══ HERO ═══ */}
-        <section className="max-w-5xl mx-auto px-6 pb-12">
+        <section className="max-w-5xl mx-auto px-6 pb-12 text-center">
           <div>
-            <div className="flex items-center gap-4 mb-6">
+            <div className="flex items-center justify-center gap-4 mb-6">
               <Image src={logo} alt="MindPeak Institute" className="w-14 h-14 rounded-full" width={56} height={56} priority />
-              <div>
+              <div className="text-left">
                 <p className="text-primary text-xs uppercase tracking-[0.2em] font-semibold">MindPeak Institute</p>
                 <p className="text-muted-foreground text-sm">Personalized 1-on-1 {examFull} Coaching</p>
               </div>
@@ -315,7 +315,7 @@ const LocationPage = () => {
               <span className="text-gradient-gold">{city.city}</span>
               {heroHeadline.includes(city.city + ' —') ? ' — 1-on-1 mentors, real results.' : ''}
             </h1>
-            <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mb-4">
+            <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mx-auto mb-4">
               {heroSublead}
             </p>
             {/* Social proof microline */}

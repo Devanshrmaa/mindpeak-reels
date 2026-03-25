@@ -158,14 +158,14 @@ const SEOLandingPage = () => {
         </nav>
 
         {/* Hero */}
-        <section className="max-w-4xl mx-auto px-6 pb-12">
+        <section className="max-w-4xl mx-auto px-6 pb-12 text-center">
           <div>
             <FreshnessBadge lastUpdated={getLastUpdated(slug)} verifiedFor={`${getCurrentExamYear()}`} />
             <h1 className="font-display font-black text-foreground mb-6" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
               {page.h1} <span className="text-gradient-gold">{page.h1Highlight}</span>
             </h1>
-            <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mb-8">{page.heroSubtitle}</p>
-            <div className="flex flex-wrap gap-4">
+            <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mx-auto mb-8">{page.heroSubtitle}</p>
+            <div className="flex flex-wrap justify-center gap-4">
               <button
                 onClick={openDemoModal}
                 className="px-8 py-4 bg-primary text-primary-foreground font-display font-bold text-sm uppercase tracking-[0.15em] shadow-gold-glow hover:scale-105 transition-transform"

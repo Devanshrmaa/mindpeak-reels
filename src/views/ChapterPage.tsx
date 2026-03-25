@@ -221,10 +221,10 @@ const ChapterPage = () => {
 
         {/* ═══════════ HERO ═══════════ */}
         <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-primary/3 py-14 md:py-20">
-          <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+          <div className="container mx-auto px-4 sm:px-6 max-w-5xl text-center">
             <div>
               {/* Breadcrumb */}
-              <nav className="flex items-center gap-1.5 text-xs text-muted-foreground mb-6 flex-wrap">
+              <nav className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground mb-6 flex-wrap">
                 <Link to="/" className="hover:text-primary transition-colors">Home</Link>
                 <span>/</span>
                 <Link to={chapter.exam === 'JEE' ? '/jee-coaching' : '/neet-coaching'} className="hover:text-primary transition-colors">
@@ -238,11 +238,11 @@ const ChapterPage = () => {
                 <span className="text-foreground font-medium">{chapter.chapter}</span>
               </nav>
 
-              <div className="flex items-center gap-3 mb-5">
+              <div className="flex items-center justify-center gap-3 mb-5">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                   <Icon className="w-6 h-6 text-primary" />
                 </div>
-                <div>
+                <div className="text-left">
                   <p className="text-primary text-[10px] sm:text-xs uppercase tracking-[0.15em] font-semibold">MindPeak Institute</p>
                   <p className="text-muted-foreground text-xs">{examFull} · {chapter.subject}</p>
                 </div>
@@ -253,7 +253,7 @@ const ChapterPage = () => {
                 <span className="text-gradient-gold"> — Complete Preparation Guide</span>
               </h1>
 
-              <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mb-8">
+              <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mx-auto mb-8">
                 {chapter.description}
               </p>
 
