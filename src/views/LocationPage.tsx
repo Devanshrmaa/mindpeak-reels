@@ -281,7 +281,7 @@ const LocationPage = () => {
       <main className="bg-background pt-20 sm:pt-24">
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="max-w-5xl mx-auto px-6 py-4">
-          <ol className="flex items-center gap-2 text-xs text-muted-foreground" itemScope itemType="https://schema.org/BreadcrumbList">
+          <ol className="flex items-center justify-center gap-2 text-xs text-muted-foreground" itemScope itemType="https://schema.org/BreadcrumbList">
             <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
               <Link to="/" itemProp="item" className="hover:text-primary transition-colors"><span itemProp="name">Home</span></Link>
               <meta itemProp="position" content="1" />
@@ -300,11 +300,11 @@ const LocationPage = () => {
         </nav>
 
         {/* ═══ HERO ═══ */}
-        <section className="max-w-5xl mx-auto px-6 pb-12">
+        <section className="max-w-5xl mx-auto px-6 pb-12 text-center">
           <div>
-            <div className="flex items-center gap-4 mb-6">
+            <div className="flex items-center justify-center gap-4 mb-6">
               <Image src={logo} alt="MindPeak Institute" className="w-14 h-14 rounded-full" width={56} height={56} priority />
-              <div>
+              <div className="text-left">
                 <p className="text-primary text-xs uppercase tracking-[0.2em] font-semibold">MindPeak Institute</p>
                 <p className="text-muted-foreground text-sm">Personalized 1-on-1 {examFull} Coaching</p>
               </div>
@@ -315,15 +315,15 @@ const LocationPage = () => {
               <span className="text-gradient-gold">{city.city}</span>
               {heroHeadline.includes(city.city + ' —') ? ' — 1-on-1 mentors, real results.' : ''}
             </h1>
-            <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mb-4">
+            <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mx-auto mb-4">
               {heroSublead}
             </p>
             {/* Social proof microline */}
-            <div className="flex items-center gap-2 mb-8 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full w-fit">
+            <div className="flex items-center justify-center gap-2 mb-8 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full w-fit mx-auto">
               <Award className="w-4 h-4 text-primary flex-shrink-0" />
               <span className="text-primary text-sm font-medium">{socialProof}</span>
             </div>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap justify-center gap-4">
               <button onClick={openDemoModal} className="px-8 py-4 bg-primary text-primary-foreground font-display font-bold text-sm uppercase tracking-[0.15em] shadow-gold-glow hover:scale-105 transition-transform">
                 Book Free Demo — {city.city}
               </button>

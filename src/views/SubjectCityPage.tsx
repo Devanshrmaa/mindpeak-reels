@@ -60,22 +60,22 @@ export default function SubjectCityPage() {
       <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-gradient-to-br from-background via-background to-primary/10">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--primary)/0.15),transparent_60%)]" />
         <div className="container mx-auto px-4 py-20 relative z-10">
-          <div className="max-w-4xl">
+        <div className="max-w-4xl mx-auto text-center">
             {/* Breadcrumbs */}
-            <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6 flex-wrap">
+            <nav className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-6 flex-wrap">
               <Link href="/" className="hover:text-primary transition-colors">Home</Link>
               <span>/</span>
               <Link href={`/${exam}-coaching-in-${city.slug}`} className="hover:text-primary transition-colors">{examLabel} Coaching in {city.city}</Link>
               <span>/</span>
               <span className="text-foreground font-medium">{subjectLabel}</span>
             </nav>
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center justify-center gap-2 mb-4">
               <MapPin className="w-4 h-4 text-primary" />
               <span className="text-primary text-sm font-semibold uppercase tracking-wider">{city.city}, {city.state}</span>
             </div>
             <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-6">{page.heroHeadline}</h1>
-            <p className="text-lg text-muted-foreground max-w-3xl mb-8">{page.heroSubtext}</p>
-            <div className="flex flex-wrap gap-4">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">{page.heroSubtext}</p>
+            <div className="flex flex-wrap justify-center gap-4">
               <button onClick={openDemoModal} className="px-8 py-4 bg-primary text-primary-foreground font-display font-bold text-sm uppercase tracking-[0.15em] shadow-gold-glow hover:scale-[1.02] transition-transform flex items-center gap-2">
                 <Zap className="w-4 h-4" /> Book Free {subjectLabel} Demo
               </button>

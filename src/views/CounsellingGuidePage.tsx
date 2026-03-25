@@ -50,20 +50,20 @@ const CounsellingGuidePage = () => {
       <Navbar />
       <main className="bg-background pt-20">
         <nav aria-label="Breadcrumb" className="max-w-4xl mx-auto px-6 py-4">
-          <ol className="flex items-center gap-2 text-xs text-muted-foreground flex-wrap">
+          <ol className="flex items-center justify-center gap-2 text-xs text-muted-foreground flex-wrap">
             <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
             <span>/</span>
             <li className="text-foreground">{page.h1} {page.highlight}</li>
           </ol>
         </nav>
 
-        <section className="max-w-4xl mx-auto px-6 pb-12">
+        <section className="max-w-4xl mx-auto px-6 pb-12 text-center">
           <div>
             <FreshnessBadge lastUpdated={lastUpdated} verifiedFor={getCurrentExamYear()} />
             <h1 className="font-display font-black text-foreground mb-6" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
               {page.h1} <span className="text-gradient-gold">{page.highlight}</span>
             </h1>
-            <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mb-8">{page.heroSubtitle}</p>
+            <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mx-auto mb-8">{page.heroSubtitle}</p>
             <button onClick={openDemoModal} className="px-8 py-4 bg-primary text-primary-foreground font-display font-bold text-sm uppercase tracking-[0.15em] shadow-gold-glow hover:scale-105 transition-transform">
               Book Free Demo Class
             </button>
