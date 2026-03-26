@@ -26,6 +26,45 @@ import type { Metadata } from 'next';
 const BASE = 'https://mindpeakinstitute.com';
 const YEAR = CURRENT_EXAM_YEAR;
 
+/**
+ * Pattern-level check: does this slug match ANY known page type?
+ * Used by the server component to return 404 for truly unknown URLs.
+ * Prevents soft-404 / scaled-content-abuse signals to Google.
+ */
+export function isKnownSlug(slugSegments: string[]): boolean {
+  if (slugSegments.length === 0) return false;
+  const slug = slugSegments.join('/');
+
+  // Two-segment: notes or topic pages
+  if (slugSegments.length === 2) {
+    if (slugSegments[1] === 'notes') return true;
+    return TOPIC_PATHS.includes(slug);
+  }
+  // 3+ segments are not valid
+  if (slugSegments.length > 2) return false;
+
+  // Single segment — static data lookups (fast)
+  if (SUBJECT_SLUGS.includes(slug)) return true;
+  if (FORMULA_SLUGS.includes(slug)) return true;
+  if (CHAPTER_SLUGS.includes(slug)) return true;
+  if (IMPORTANT_Q_SLUGS.includes(slug)) return true;
+  if (getSEOPage(slug)) return true;
+  if (getExamInfoPage(slug)) return true;
+  if (getDifferencePair(slug)) return true;
+  if (getCounsellingPage(slug)) return true;
+
+  // Dynamic patterns — known URL prefixes
+  if (slug.startsWith('jee-pyq-')) return true;
+  if (slug.startsWith('neet-pyq-')) return true;
+  if (slug.startsWith('jee-practice-')) return true;
+  if (/^jee-(physics|chemistry|mathematics)-/.test(slug)) return true;
+  if (/^neet-(biology|physics|chemistry)-/.test(slug)) return true;
+  if (slug.includes('coaching-in-')) return true;
+  if (/^how-to-study-.+-for-(jee|neet)$/.test(slug)) return true;
+
+  return false;
+}
+
 /* ── hreflang helper — adds en-IN + x-default to every page ── */
 function withHreflang(meta: Metadata, canonical: string): Metadata {
   return {
@@ -310,7 +349,7 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
 
   // 6. Location pages — noindex (doorway-page risk)
   const prettyName = slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-  const isLocation = slug.includes('coaching-in-') || slug.includes('-in-');
+  const isLocation = slug.includes('coaching-in-');
   if (isLocation) {
     const city = slug.split('-in-').pop()?.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) ?? '';
     const exam = examFromSlug(slug);
@@ -325,10 +364,12 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
     };
   }
 
+  // Fallback — noindex to prevent any unknown slug from being indexed
   return {
     title: `${prettyName} ${YEAR} | MindPeak Institute`,
     description: `${prettyName} — Personalized JEE & NEET coaching. Expert mentors, adaptive curriculum, free demo class.`.slice(0, 160),
     alternates: { canonical },
     openGraph: { ...og, url: canonical },
+    robots: { index: false, follow: true },
   };
 }

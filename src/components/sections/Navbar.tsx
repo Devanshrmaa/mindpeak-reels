@@ -248,7 +248,7 @@ export const Navbar = () => {
                             {activeSubject.chapters.map((ch) => (
                               <Link
                                 key={ch.slug}
-                                to={ch.firstQuestionSlug ? `/${ch.firstQuestionSlug}` : activeExam.hubPath}
+                                to={activeExam.hubPath}
                                 className="block px-4 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/40 transition-colors"
                               >
                                 {ch.name}
@@ -430,7 +430,7 @@ export const Navbar = () => {
                         {mobActiveSubject.chapters.map((ch) => (
                           <Link
                             key={ch.slug}
-                            to={ch.firstQuestionSlug ? `/${ch.firstQuestionSlug}` : mobActiveExam.hubPath}
+                            to={mobActiveExam.hubPath}
                             onClick={() => setMobileOpen(false)}
                             className="block px-4 py-3 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/40 transition-colors border border-transparent hover:border-border"
                           >

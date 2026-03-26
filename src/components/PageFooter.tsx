@@ -1,4 +1,3 @@
-import { useState, useEffect, useRef } from 'react';
 import { Link } from '@/components/RouterLink';
 import { Instagram, Facebook, Linkedin, Twitter, MessageCircle } from 'lucide-react';
 const logo = '/images/logo.jpeg';
@@ -85,99 +84,6 @@ const STATIC_SECTIONS: FooterSectionData[] = [
   },
 ];
 
-/**
- * Build full footer sections with question-specific links from lazy-loaded data.
- * Called once data modules are dynamically imported.
- */
-function buildQuestionSections(
-  practice: any, pyq: any, neetPractice: any, neetPyq: any,
-): FooterSectionData[] {
-  const jp = (label: string, subj: string, ch: string, topic: string, diff: 'easy' | 'medium' | 'hard') => ({
-    label,
-    to: `/${practice.getPracticeSlugByParams(subj, ch, topic, diff, 1) ?? 'jee-practice'}`,
-  });
-
-  const np = (label: string, subj: string, ch: string, topic: string, diff: 'easy' | 'medium' | 'hard') => ({
-    label,
-    to: `/${neetPractice.getNEETPracticeSlugByParams(subj, ch, topic, diff, 1) ?? 'neet-practice'}`,
-  });
-
-  return [
-    {
-      title: 'JEE Preparation',
-      links: STATIC_SECTIONS[0].links,
-    },
-    {
-      title: 'NEET Preparation',
-      links: STATIC_SECTIONS[1].links,
-    },
-    {
-      title: 'JEE Practice Questions',
-      links: [
-        { label: 'All Practice Questions', to: '/jee-practice' },
-        ...practice.subjectBanks.flatMap((bank: any) => {
-          const ch = bank.chapters[0];
-          const topic = ch?.topics[0];
-          if (!ch || !topic) return [];
-          return (['easy', 'medium', 'hard'] as const).map(diff =>
-            jp(`${bank.subject} ${diff.charAt(0).toUpperCase() + diff.slice(1)} Questions`, bank.slug, ch.slug, topic.slug, diff)
-          );
-        }),
-      ],
-    },
-    {
-      title: 'JEE Previous Year Questions',
-      links: [
-        { label: 'All PYQ Questions', to: '/jee-pyq' },
-        ...pyq.pyqSubjectBanks.flatMap((bank: any) =>
-          bank.chapters.slice(0, 2).map((ch: any) => ({
-            label: `${bank.subject} PYQ — ${ch.name}`,
-            to: `/${pyq.getPYQSlugByParams(bank.slug, ch.slug, 1) ?? 'jee-pyq'}`,
-          }))
-        ),
-      ],
-    },
-    {
-      title: 'NEET Practice Questions',
-      links: [
-        { label: 'All NEET Practice', to: '/neet-practice' },
-        ...neetPractice.neetSubjectBanks.flatMap((bank: any) => {
-          const chapters = bank.chapters.slice(0, bank.slug === 'biology' ? 3 : 2);
-          return chapters
-            .filter((ch: any) => ch.topics[0])
-            .map((ch: any) =>
-              np(`${bank.subject} — ${ch.name}`, bank.slug, ch.slug, ch.topics[0].slug, 'easy')
-            );
-        }),
-      ],
-    },
-    {
-      title: 'NEET Previous Year Questions',
-      links: [
-        { label: 'All NEET PYQs', to: '/neet-pyq' },
-        ...neetPyq.neetPyqSubjectBanks.flatMap((bank: any) =>
-          bank.chapters.slice(0, bank.slug === 'biology' ? 3 : 2).map((ch: any) => ({
-            label: `${bank.subject} PYQ — ${ch.name}`,
-            to: `/${neetPyq.getNEETPYQSlugByParams(bank.slug, ch.slug, 1) ?? 'neet-pyq'}`,
-          }))
-        ),
-      ],
-    },
-    {
-      title: 'Other Exams',
-      links: STATIC_SECTIONS[2].links,
-    },
-    {
-      title: 'Formula Sheets',
-      links: STATIC_SECTIONS[4].links,
-    },
-    {
-      title: 'Quick Links',
-      links: STATIC_SECTIONS[5].links,
-    },
-  ];
-}
-
 const importantLinks = [
   { label: 'Home', to: '/' },
   { label: 'JEE Coaching', to: '/jee-coaching' },
@@ -196,18 +102,9 @@ const importantLinks = [
   { label: 'Refund Policy', to: '/refund-policy' },
 ];
 
-/* ── City hub links for internal linking depth ── */
+/* ── City hub links — point to the consolidated hub page, not individual doorway pages ── */
 const cityHubLinks = [
-  { label: 'JEE Coaching in Delhi', to: '/jee-coaching-in-delhi' },
-  { label: 'JEE Coaching in Mumbai', to: '/jee-coaching-in-mumbai' },
-  { label: 'JEE Coaching in Bangalore', to: '/jee-coaching-in-bangalore' },
-  { label: 'NEET Coaching in Delhi', to: '/neet-coaching-in-delhi' },
-  { label: 'NEET Coaching in Mumbai', to: '/neet-coaching-in-mumbai' },
-  { label: 'NEET Coaching in Bangalore', to: '/neet-coaching-in-bangalore' },
-  { label: 'JEE Coaching in Hyderabad', to: '/jee-coaching-in-hyderabad' },
-  { label: 'NEET Coaching in Chennai', to: '/neet-coaching-in-chennai' },
-  { label: 'JEE Coaching in Pune', to: '/jee-coaching-in-pune' },
-  { label: 'NEET Coaching in Kolkata', to: '/neet-coaching-in-kolkata' },
+  { label: 'Best JEE Coaching in India', to: '/best-jee-coaching-in-india' },
 ];
 
 /* ── Competitor comparison links ── */
@@ -238,24 +135,8 @@ const FooterSection = ({ title, links }: { title: string; links: { label: string
 );
 
 export const PageFooter = ({ extra }: { extra?: string }) => {
-  const [footerSections, setFooterSections] = useState<FooterSectionData[]>(STATIC_SECTIONS);
-  const loadedRef = useRef(false);
-
-  /* Lazy-load question data for enriched footer links (below the fold) */
-  useEffect(() => {
-    if (loadedRef.current) return;
-    loadedRef.current = true;
-    Promise.all([
-      import('@/data/practice'),
-      import('@/data/pyq'),
-      import('@/data/neet-practice'),
-      import('@/data/neet-pyq'),
-    ]).then(([practice, pyq, neetPractice, neetPyq]) => {
-      setFooterSections(buildQuestionSections(practice, pyq, neetPractice, neetPyq));
-    }).catch(() => {
-      loadedRef.current = false; // allow retry on next render
-    });
-  }, []);
+  /* Use static sections only — no links to noindexed individual question pages */
+  const footerSections = STATIC_SECTIONS;
 
   return (
   <footer className="bg-background border-t border-border py-10 px-6" role="contentinfo">
