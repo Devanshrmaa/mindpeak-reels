@@ -181,6 +181,7 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
         description: `Solve JEE ${examType} ${q?.year ?? ''} ${subj} PYQ on ${chName}. Instant answer + step-by-step solution. Practice 10+ years of JEE PYQs free.`.slice(0, 160),
         alternates: { canonical },
         openGraph: { ...og, url: canonical },
+        robots: { index: false, follow: true },
       };
     }
   }
@@ -233,6 +234,7 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
         description: `Solve NEET ${q?.year ?? ''} ${subj} question on ${chName}. Instant answer + NCERT-based solution. Practice 10+ years of NEET PYQs free.`.slice(0, 160),
         alternates: { canonical },
         openGraph: { ...og, url: canonical },
+        robots: { index: false, follow: true },
       };
     }
   }
@@ -252,6 +254,7 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
         description: `Solve this ${diff} JEE ${subj} MCQ on ${topicName}. Instant answer reveal + step-by-step solution. 500+ free practice questions.`.slice(0, 160),
         alternates: { canonical },
         openGraph: { ...og, url: canonical },
+        robots: { index: false, follow: true },
       };
     }
   }
@@ -271,11 +274,12 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
         description: `Solve this ${diff} NEET ${subj} MCQ on ${topicName}. Instant answer + step-by-step solution. 500+ free practice questions.`.slice(0, 160),
         alternates: { canonical },
         openGraph: { ...og, url: canonical },
+        robots: { index: false, follow: true },
       };
     }
   }
 
-  // 5. Subject-city pages
+  // 5. Subject-city pages — noindex (doorway-page risk)
   const subjectCityConfig = parseSubjectCitySlug(slug);
   if (subjectCityConfig) {
     const page = buildSubjectCityPage(subjectCityConfig);
@@ -283,12 +287,15 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
     return {
       title: `Best ${exam} Coaching in ${page.title.split('in ').pop()} ${YEAR} — 1-on-1 Online | Free Demo`,
       description: `Top-rated ${exam} coaching in ${page.title.split('in ').pop()} — online 1-on-1 with expert mentors. Book free demo class today.`.slice(0, 160),
-      alternates: { canonical },
+      alternates: {
+        canonical: `${BASE}/best-jee-coaching-in-india`,
+      },
       openGraph: { ...og, url: canonical },
+      robots: { index: false, follow: true },
     };
   }
 
-  // 5b. Study guide pages
+  // 5b. Study guide pages — noindex (308 redirects to parent chapter; belt-and-suspenders)
   const studyGuideInfo = parseStudyGuideSlug(slug);
   if (studyGuideInfo) {
     const guide = buildStudyGuide(studyGuideInfo);
@@ -297,10 +304,11 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
       description: `Learn how to study ${guide.topicName} for ${guide.exam} ${guide.subject}. Step-by-step plan, resources, PYQs & common mistakes.`.slice(0, 160),
       alternates: { canonical },
       openGraph: { ...og, url: canonical },
+      robots: { index: false, follow: true },
     };
   }
 
-  // 6. Location / unknown fallback
+  // 6. Location pages — noindex (doorway-page risk)
   const prettyName = slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
   const isLocation = slug.includes('coaching-in-') || slug.includes('-in-');
   if (isLocation) {
@@ -309,8 +317,11 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
     return {
       title: `Best ${exam} Coaching in ${city} ${YEAR} — 1-on-1 Online | Free Demo`,
       description: `Top-rated ${exam} coaching in ${city} — personal mentors, adaptive study plans. Book free demo today.`.slice(0, 160),
-      alternates: { canonical },
+      alternates: {
+        canonical: `${BASE}/best-jee-coaching-in-india`,
+      },
       openGraph: { ...og, url: canonical },
+      robots: { index: false, follow: true },
     };
   }
 

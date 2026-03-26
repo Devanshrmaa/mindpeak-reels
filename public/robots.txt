@@ -1,16 +1,31 @@
+# ─────────────────────────────────────────────────────────────
+# MindPeak Institute — robots.txt
+# ~370 indexed pages in sitemap · 15,000+ thin pages suppressed
+#
+# STRATEGY:
+# 1. Thin pages use <meta name="robots" content="noindex, follow">
+#    (individual questions, location pages, subject-city pages).
+# 2. Redundant pages 308-redirect to parent chapter
+#    (topic sub-pages, notes, study guides).
+# 3. Sitemap contains only high-quality indexed URLs.
+#
+# We ALLOW crawling of noindexed pages so Google can discover
+# the noindex directive and deindex them. Blocking with Disallow
+# would prevent Google from seeing noindex and delay removal.
+# ─────────────────────────────────────────────────────────────
+
 User-agent: *
 Allow: /
 
-# Block admin/API pages
-Disallow: /admin/
+# Technical / utility paths — zero value to crawl
 Disallow: /api/
+Disallow: /admin/
 Disallow: /dashboard/
-Disallow: /manifest.json
 Disallow: /_next/static/media/
-Disallow: /*.woff2$
+Disallow: /manifest.json
 
-# Block duplicate content (query strings create duplicates)
+# Query-string duplicates
 Disallow: /*?*
 
-# Single comprehensive sitemap (22,000+ URLs, dynamically generated)
+# Sitemap (lean — ~370 high-quality URLs only)
 Sitemap: https://mindpeakinstitute.com/sitemap.xml

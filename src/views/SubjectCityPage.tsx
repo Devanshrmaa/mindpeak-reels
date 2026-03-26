@@ -267,6 +267,18 @@ export default function SubjectCityPage() {
         </div>
       </section>
 
+      {/* Hub page link — consolidates link equity from all subject-city pages */}
+      <section className="py-10 bg-background">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="p-6 rounded-xl border border-primary/30 bg-primary/5 text-center">
+            <p className="text-muted-foreground text-sm mb-3">Want a complete guide to evaluating JEE coaching — online or offline, any city?</p>
+            <Link href="/best-jee-coaching-in-india" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-display font-bold text-sm uppercase tracking-[0.1em] hover:scale-[1.02] transition-transform">
+              <ArrowRight className="w-4 h-4" /> How to Choose the Best JEE Coaching in India
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 bg-gradient-to-br from-primary/20 to-background">
         <div className="container mx-auto px-4 text-center max-w-3xl">

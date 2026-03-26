@@ -1,21 +1,14 @@
 /**
  * Dynamic sitemap route: /sitemap.xml
- * Single comprehensive sitemap — THE canonical sitemap endpoint.
- * Uses staggered lastmod dates (slug-hash based) instead of identical dates.
- * Designed for 50,000+ URL scale.
+ * Lean sitemap — ~370 high-quality indexed URLs only.
+ * Individual question pages, topic pages, study guides, notes, location pages,
+ * and subject-city pages are excluded (noindexed or redirected).
  */
 
 import { NextResponse } from 'next/server';
-import { buildAllPracticeSlugs } from '@/data/practice/index';
-import { buildAllPYQSlugs } from '@/data/pyq/index';
-import { buildAllNEETPracticeSlugs } from '@/data/neet-practice/index';
-import { buildAllNEETPYQSlugs } from '@/data/neet-pyq/index';
-import { allCities } from '@/data/cityData';
-import { getAllSubjectCitySlugs } from '@/data/subjectCityData';
-import { getAllProgrammaticBlogSlugs } from '@/lib/programmaticBlogs';
-import { TOPIC_PATHS, CHAPTER_SLUGS } from '@/data/chapterData';
+import { getKeptBlogSlugs } from '@/lib/programmaticBlogs';
+import { CHAPTER_SLUGS } from '@/data/chapterData';
 import { competitors } from '@/data/comparisonData';
-import { getAllStudyGuideSlugs } from '@/lib/topicStudyGuides';
 import { examRegistry } from '@/data/examRegistry';
 import { getAllExamInfoSlugs } from '@/data/examInfoData';
 import { getAllDifferenceSlugs } from '@/data/differenceBetweenData';
@@ -57,7 +50,7 @@ export async function GET() {
   const now = new Date();
   const TODAY = now.toISOString().slice(0, 10);
 
-  /* ═══ 1. Static pages (always get TODAY lastmod) ═══ */
+  /* ═══ 1. Static / core commercial pages ═══ */
   const STATIC = [
     '/', '/jee-coaching', '/neet-coaching', '/courses', '/pricing', '/free-trial',
     '/study-plan', '/contact', '/blog', '/about', '/methodology', '/mentors',
@@ -73,6 +66,7 @@ export async function GET() {
     '/jee-math-algebra', '/jee-math-calculus', '/jee-math-trigonometry', '/jee-math-geometry',
     '/jee-practice', '/jee-pyq', '/neet-practice', '/neet-pyq',
     '/kota-coaching-alternative', '/online-vs-offline-jee-coaching',
+    '/best-jee-coaching-in-india',
     '/jee-rank-predictor', '/neet-rank-predictor',
     '/jee-physics-formulas', '/jee-chemistry-formulas', '/jee-maths-formulas',
     '/neet-biology-formulas', '/neet-physics-formulas', '/neet-chemistry-formulas',
@@ -93,105 +87,79 @@ export async function GET() {
   /* ═══ 2. Comparison pages ═══ */
   const comparisonPaths = competitors.map(c => `/${c.slug}`);
 
-  /* ═══ 3. Location pages ═══ */
-  const locationPaths: string[] = [];
-  for (const city of allCities) {
-    for (const exam of city.exams) {
-      locationPaths.push(`/${exam}-coaching-in-${city.slug}`);
-    }
-  }
-
-  /* ═══ 4. Subject-city pages ═══ */
-  const subjectCitySlugs = getAllSubjectCitySlugs().map(s => `/${s}`);
-
-  /* ═══ 5. Blog posts ═══ */
-  const blogSlugs = getAllProgrammaticBlogSlugs().map(s => `/${s}`);
-
-  /* ═══ 5b. Exam event blog posts (auto-published after exams) ═══ */
-  const examEventBlogSlugs = getAllExamEventBlogSlugs().map(s => `/${s}`);
-
-  /* ═══ 6. Topic pages ═══ */
-  const topicPaths = TOPIC_PATHS.map(p => `/${p}`);
-
-  /* ═══ 7. Chapter pages ═══ */
+  /* ═══ 3. Chapter hub pages (absorb topics, notes, study guides) ═══ */
   const chapterPaths = CHAPTER_SLUGS.map(s => `/${s}`);
 
-  /* ═══ 8. Study guide pages ═══ */
-  const studyGuideSlugs = getAllStudyGuideSlugs().map(s => `/${s}`);
+  /* ═══ 4. Curated blog posts (kept generators only) ═══ */
+  const blogSlugs = getKeptBlogSlugs().map(s => `/${s}`);
 
-  /* ═══ 9. Question pages ═══ */
-  const practiceSlugs = buildAllPracticeSlugs().map(s => `/${s.slug}`);
-  const pyqSlugs = buildAllPYQSlugs().map(s => `/${s.slug}`);
-  const neetPracticeSlugs = buildAllNEETPracticeSlugs().map(s => `/${s.slug}`);
-  const neetPyqSlugs = buildAllNEETPYQSlugs().map(s => `/${s.slug}`);
+  /* ═══ 5. Exam event blog posts (timely, auto-published) ═══ */
+  const examEventBlogSlugs = getAllExamEventBlogSlugs().map(s => `/${s}`);
 
-  /* ═══ 10. Exam info hub pages ═══ */
+  /* ═══ 6. Exam info pages ═══ */
   const examInfoSlugs = getAllExamInfoSlugs().map(s => `/${s}`);
 
-  /* ═══ 11. Difference Between pages ═══ */
+  /* ═══ 7. Difference Between pages ═══ */
   const differenceSlugs = getAllDifferenceSlugs().map(s => `/${s}`);
 
-  /* ═══ 12. Important Questions hubs ═══ */
+  /* ═══ 8. Important Questions hubs ═══ */
   const importantQSlugs = IMPORTANT_Q_SLUGS.map(s => `/${s}`);
 
-  /* ═══ 13. Counselling & college pages ═══ */
+  /* ═══ 9. Counselling & college pages ═══ */
   const counsellingSlugs = getAllCounsellingSlugs().map(s => `/${s}`);
 
-  /* ═══ 14. Revision notes pages ═══ */
-  const notesSlugs = CHAPTER_SLUGS.map(s => `/${s}/notes`);
+  /*
+   * REMOVED from sitemap (noindexed or redirected):
+   * - Location pages (~660) → noindexed, canonical → /best-jee-coaching-in-india
+   * - Subject-city pages (~3,600) → noindexed, canonical → /best-jee-coaching-in-india
+   * - Topic pages (~1,490) → 301 redirect to parent chapter
+   * - Study guide pages (~1,490) → 301 redirect to parent chapter
+   * - Notes pages (~149) → 301 redirect to parent chapter
+   * - Individual practice questions (~4,000+) → noindexed
+   * - Individual PYQ questions (~2,500+) → noindexed
+   * - Individual NEET practice (~3,000+) → noindexed
+   * - Individual NEET PYQ (~1,500+) → noindexed
+   * - Thin blog posts (~600+) → killed generators return []
+   */
 
   /* ═══ Build XML ═══ */
   const lines: string[] = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    `<!-- MindPeak Institute — Comprehensive Sitemap v5 — Generated ${TODAY} -->`,
+    `<!-- MindPeak Institute — Lean Sitemap v6 — Generated ${TODAY} -->`,
   ];
 
   const counts = {
     static: STATIC.length,
     comparisons: comparisonPaths.length,
-    locations: locationPaths.length,
-    subjectCity: subjectCitySlugs.length,
-    blogs: blogSlugs.length,
-    topics: topicPaths.length,
     chapters: chapterPaths.length,
-    studyGuides: studyGuideSlugs.length,
-    jeePractice: practiceSlugs.length,
-    jeePyq: pyqSlugs.length,
-    neetPractice: neetPracticeSlugs.length,
-    neetPyq: neetPyqSlugs.length,
+    blogs: blogSlugs.length,
+    examEvents: examEventBlogSlugs.length,
     examInfo: examInfoSlugs.length,
     difference: differenceSlugs.length,
     importantQ: importantQSlugs.length,
     counselling: counsellingSlugs.length,
-    notes: notesSlugs.length,
-    examEvents: examEventBlogSlugs.length,
   };
   const total = Object.values(counts).reduce((a, b) => a + b, 0);
 
-  lines.push(`<!-- Total URLs: ${total} | Static: ${counts.static} | Locations: ${counts.locations} | Subject-City: ${counts.subjectCity} | Blogs: ${counts.blogs} | Topics: ${counts.topics} | Chapters: ${counts.chapters} | JEE Practice: ${counts.jeePractice} | JEE PYQ: ${counts.jeePyq} | NEET Practice: ${counts.neetPractice} | NEET PYQ: ${counts.neetPyq} -->`);
+  lines.push(`<!-- Total URLs: ${total} | Static: ${counts.static} | Chapters: ${counts.chapters} | Blogs: ${counts.blogs} | ExamInfo: ${counts.examInfo} | Difference: ${counts.difference} -->`);
   lines.push('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
 
-  // Static pages → always TODAY (high-priority, frequently updated)
+  // Static pages → always TODAY
   for (const p of STATIC) lines.push(urlEntry(p, '0.80', 'weekly', TODAY));
   for (const p of comparisonPaths) lines.push(urlEntry(p, '0.75', 'monthly', TODAY));
 
-  // Location, blog, chapter pages → staggered lastmod
-  for (const p of locationPaths) lines.push(urlEntry(p, '0.65', 'monthly', staggeredLastmod(p, now)));
-  for (const p of subjectCitySlugs) lines.push(urlEntry(p, '0.60', 'monthly', staggeredLastmod(p, now)));
+  // Chapter hub pages → high priority (absorb topics + notes)
+  for (const p of chapterPaths) lines.push(urlEntry(p, '0.70', 'monthly', staggeredLastmod(p, now)));
+
+  // Blog posts (curated subset)
   for (const p of blogSlugs) lines.push(urlEntry(p, '0.60', 'weekly', staggeredLastmod(p, now)));
   for (const p of examEventBlogSlugs) lines.push(urlEntry(p, '0.80', 'daily', TODAY));
-  for (const p of chapterPaths) lines.push(urlEntry(p, '0.60', 'monthly', staggeredLastmod(p, now)));
-  for (const p of topicPaths) lines.push(urlEntry(p, '0.55', 'monthly', staggeredLastmod(p, now)));
-  for (const p of studyGuideSlugs) lines.push(urlEntry(p, '0.55', 'monthly', staggeredLastmod(p, now)));
-  for (const p of practiceSlugs) lines.push(urlEntry(p, '0.50', 'monthly', staggeredLastmod(p, now)));
-  for (const p of pyqSlugs) lines.push(urlEntry(p, '0.50', 'monthly', staggeredLastmod(p, now)));
-  for (const p of neetPracticeSlugs) lines.push(urlEntry(p, '0.50', 'monthly', staggeredLastmod(p, now)));
-  for (const p of neetPyqSlugs) lines.push(urlEntry(p, '0.50', 'monthly', staggeredLastmod(p, now)));
+
+  // Reference pages
   for (const p of examInfoSlugs) lines.push(urlEntry(p, '0.75', 'weekly', staggeredLastmod(p, now)));
   for (const p of differenceSlugs) lines.push(urlEntry(p, '0.60', 'monthly', staggeredLastmod(p, now)));
   for (const p of importantQSlugs) lines.push(urlEntry(p, '0.65', 'weekly', TODAY));
   for (const p of counsellingSlugs) lines.push(urlEntry(p, '0.65', 'monthly', staggeredLastmod(p, now)));
-  for (const p of notesSlugs) lines.push(urlEntry(p, '0.55', 'monthly', staggeredLastmod(p, now)));
 
   lines.push('</urlset>');
 

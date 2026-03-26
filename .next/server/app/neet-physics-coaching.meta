@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/neet-physics-coaching/layout,_N_T_/neet-physics-coaching/page,_N_T_/neet-physics-coaching"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/neet-physics-coaching/__PAGE__",
+    "/neet-physics-coaching",
+    "/_index",
+    "/_head"
+  ]
+}

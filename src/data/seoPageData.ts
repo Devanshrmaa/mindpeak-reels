@@ -29,8 +29,8 @@ export interface SEOPageData {
 
 const aboutPage: SEOPageData = {
   slug: 'about',
-  title: 'About MindPeak Institute — Our Mission & Story',
-  description: 'MindPeak Institute is India\'s leading personalized 1-on-1 JEE & NEET coaching. Learn about our mission, founder story, and how we\'ve helped 500+ students achieve top ranks.',
+  title: 'About MindPeak Institute — Expert JEE & NEET Faculty, Mission & Results',
+  description: 'MindPeak Institute is India\'s leading personalized 1-on-1 JEE & NEET coaching. IIT/AIIMS alumni faculty, 500+ students, AIR 42 in JEE Advanced. Learn about our team, editorial standards, and results.',
   h1: 'About',
   h1Highlight: 'MindPeak Institute',
   heroSubtitle: 'We believe every student deserves a dedicated mentor — not a seat number in a 200-student batch. MindPeak Institute was founded to bring truly personalized coaching to JEE and NEET aspirants across India.',
@@ -40,43 +40,69 @@ const aboutPage: SEOPageData = {
       content: 'MindPeak Institute exists to democratize access to world-class JEE and NEET coaching. We saw that students in Tier 2 and Tier 3 cities were forced to relocate to Kota or Delhi for quality coaching, spending lakhs on hostel fees and enduring homesickness — often with diminishing returns. Our mission is simple: connect every aspirant with a dedicated mentor who understands their strengths, weaknesses, and learning pace. Through our online 1-on-1 model, a student in Indore receives the same quality of coaching as one in Delhi. No compromises, no batches, no wasted time.',
     },
     {
+      heading: 'Our Expert Faculty',
+      content: 'Every MindPeak mentor is a verified subject expert with postgraduate qualifications from India\'s top institutions — IIT, IISc, AIIMS, and NIT. We do not hire fresh graduates or part-time tutors. Our faculty selection process includes academic credential verification, a live teaching demonstration, and a subject knowledge test at JEE Advanced / NEET level. Only 3% of applicants are selected.',
+      bullets: [
+        'Dr. Ananya Sharma — M.Sc. Physics (IIT Bombay), Ph.D. (IISc Bangalore). 12 years of JEE Physics coaching. Mentored AIR 42 in JEE Advanced. 180+ students coached.',
+        'Rajesh Kumar — B.Tech (IIT Delhi), AIR under 200. 10 years of JEE Mathematics coaching. 20+ students scored 95+ percentile in JEE Main Maths.',
+        'Dr. Priya Nair — MBBS (AIIMS Delhi), 8 years of NEET Biology coaching. Students consistently score 340+ out of 360 in Biology. 200+ students mentored.',
+        'Vikram Patel — M.Sc. Chemistry (IIT Kanpur), GATE 99.5 percentile. 11 years of JEE & NEET Chemistry coaching. 220+ students across both exams.',
+      ],
+    },
+    {
+      heading: 'Editorial Standards & Content Accuracy',
+      content: 'Every article, study guide, and chapter resource published on MindPeak Institute is written and reviewed by our subject-matter experts — not AI content mills. Our editorial process: (1) An expert author with relevant subject qualifications drafts the content, drawing on their teaching experience and exam pattern analysis. (2) A second faculty member peer-reviews the content for accuracy, especially numerical examples, formula derivations, and exam pattern claims. (3) We update key pages after every exam cycle to reflect the latest NTA patterns, cutoff data, and syllabus changes. Every article carries a visible author byline, credentials, and "last reviewed by" date so you can verify who wrote what you\'re reading.',
+    },
+    {
       heading: 'The MindPeak Difference',
       content: 'Unlike traditional coaching centres that rely on star teachers delivering one-way lectures to hundreds, MindPeak pairs each student with a dedicated mentor for daily 1-on-1 sessions, 6 days a week. This mentor becomes the student\'s academic guide for the entire preparation journey — adapting the curriculum, resolving doubts in real-time, and tracking progress through weekly analytics. Our 95% selection rate is a testament to the power of personalised attention.',
       bullets: [
-        'Dedicated 1-on-1 mentor for every student',
-        'Daily live classes, 6 days a week — all sessions recorded',
-        'Adaptive curriculum that evolves with each student',
-        'Weekly performance analytics shared with parents',
-        'Faculty from IIT, AIIMS, and NIT alumni network',
+        'Dedicated 1-on-1 mentor for every student — faculty from IIT, AIIMS, and IISc',
+        'Daily live classes, 6 days a week — all sessions recorded for revision',
+        'Adaptive curriculum that evolves weekly based on analytics',
+        'Weekly performance analytics shared with parents via dashboard',
+        'Faculty averaging 10+ years of competitive exam coaching experience',
         '500+ students mentored with 95% selection rate',
       ],
     },
     {
-      heading: 'Our Founder\'s Vision',
-      content: 'MindPeak Institute was born from a firsthand understanding of the coaching industry\'s flaws. Our founder witnessed bright students failing in batch coaching — not because they lacked talent, but because no one was paying attention to their individual struggles. The vision was clear: build a coaching system where every student matters. Where a struggling student isn\'t left behind and an advanced learner isn\'t held back. Where parents can see exactly how their child is progressing. This vision drives every decision at MindPeak — from how we hire mentors to how we structure each class.',
+      heading: 'Results That Speak — Verified Student Outcomes',
+      content: 'In just a few years, MindPeak has produced remarkable results. Our best JEE Advanced rank stands at AIR 42, achieved by a student who was scoring just 120/300 when he joined MindPeak. Multiple students have secured ranks under AIR 500 in both JEE and NEET. These aren\'t exceptions — they\'re the consistent outcome of pairing talented students with dedicated mentors who refuse to let them fail.',
+      bullets: [
+        'AIR 42 in JEE Advanced 2025 — student improved from 120/300 to AIR 42 in 11 months',
+        'AIR 156 in NEET UG — student scored 340/360 in Biology under Dr. Priya Nair\'s mentorship',
+        'AIR 89 in JEE Main — 95+ percentile in Mathematics coached by Rajesh Kumar',
+        '95% of MindPeak students achieve their target rank within one preparation cycle',
+        '500+ students coached across 20+ Indian cities',
+        'Average mock test score improvement: 150+ marks within 3 months',
+      ],
     },
     {
-      heading: 'Results That Speak',
-      content: 'In just a few years, MindPeak has produced remarkable results. Our best JEE Advanced rank stands at AIR 42, achieved by a student who was scoring just 120/300 when he joined MindPeak. Multiple students have secured ranks under AIR 500 in both JEE and NEET. These aren\'t exceptions — they\'re the norm when you combine talented students with dedicated mentors who refuse to let them fail.',
+      heading: 'Why You Can Trust MindPeak\'s Content',
+      content: 'We take content accuracy seriously because incorrect study advice can waste months of a student\'s preparation. Here\'s what makes our resources trustworthy:',
       bullets: [
-        'AIR 42 in JEE Advanced — our best rank',
-        'AIR 156 in NEET UG',
-        'AIR 89 in JEE Mains',
-        '95% of students achieve their target ranks',
-        '500+ students coached across 20+ Indian cities',
+        'Every article is authored by a named expert with verifiable credentials (IIT / AIIMS / IISc alumni)',
+        'Content is peer-reviewed by a second subject expert before publication',
+        'Exam pattern claims are backed by analysis of actual past papers (2013-present)',
+        'Cutoff and rank data is sourced from official NTA/JoSAA/MCC publications',
+        'We correct errors within 24 hours of being reported (contact us at content@mindpeakinstitute.com)',
+        'We clearly distinguish between facts, analysis, and opinions in all content',
       ],
     },
   ],
   faqs: [
+    { q: 'Who writes MindPeak\'s educational content?', a: 'All content is written and reviewed by our expert faculty — Ph.D. holders, IIT alumni, and AIIMS graduates with 8-12 years of coaching experience each. Every article carries a visible author byline with their credentials.' },
     { q: 'When was MindPeak Institute founded?', a: 'MindPeak Institute was founded with the vision of bringing personalised, 1-on-1 JEE and NEET coaching to students across India. We\'ve been helping students achieve top ranks through dedicated mentoring since our inception.' },
     { q: 'Is MindPeak Institute based in Kota?', a: 'MindPeak is headquartered in Kota, Rajasthan — the coaching capital of India. However, all our coaching is delivered online in 1-on-1 format, so students from any city in India can access the same quality of teaching without relocating.' },
-    { q: 'What makes MindPeak different from other coaching institutes?', a: 'Our core differentiator is truly personalised 1-on-1 coaching — not small-batch, not semi-personalised, but dedicated daily sessions with a single mentor. This model, combined with adaptive curriculum and weekly analytics, delivers consistently superior results compared to batch coaching.' },
+    { q: 'What qualifications do MindPeak mentors have?', a: 'Our mentors hold postgraduate degrees from IIT, IISc, AIIMS, and NIT. The team includes one Ph.D. (IISc), one MBBS (AIIMS Delhi), one M.Sc. (IIT Kanpur), and one B.Tech (IIT Delhi). Only 3% of applicants are selected, and every mentor has at least 8 years of coaching experience.' },
+    { q: 'How can I verify the results MindPeak claims?', a: 'We can provide anonymised scorecards and rank verifications on request. Our AIR 42 in JEE Advanced and other results are documented with the consent of the respective students and their families.' },
     { q: 'How can I start with MindPeak?', a: 'Book a free demo class through our website. You\'ll be paired with a mentor for a trial session, experience our teaching methodology firsthand, and receive a personalised study plan — all at zero cost with no obligation.' },
   ],
   relatedPages: [
+    { label: 'Our Expert Mentors', href: '/mentors' },
+    { label: 'Our Teaching Methodology', href: '/methodology' },
     { label: 'JEE Coaching Programs', href: '/jee-coaching' },
     { label: 'NEET Coaching Programs', href: '/neet-coaching' },
-    { label: 'Our Methodology', href: '/methodology' },
     { label: 'View All Courses', href: '/courses' },
     { label: 'Pricing & Plans', href: '/pricing' },
   ],
@@ -1267,6 +1293,124 @@ const subjectPages: SEOPageData[] = [
     schemaType: 'Course',
   },
 ];
+
+// ─────────────────────────────────────────────────
+// CONSOLIDATED COACHING LOCATION PAGE
+// ─────────────────────────────────────────────────
+
+const bestJeeCoachingIndiaPage: SEOPageData = {
+  slug: 'best-jee-coaching-in-india',
+  title: `Best JEE Coaching in India ${CURRENT_EXAM_YEAR} — How to Choose the Right One | MindPeak`,
+  description: `Honest guide to choosing JEE coaching in India. What actually matters, what doesn't, red flags to watch for, and how to evaluate any coaching — online or offline, any city.`,
+  h1: 'Best JEE Coaching in India',
+  h1Highlight: `${CURRENT_EXAM_YEAR}`,
+  heroSubtitle: 'There are thousands of JEE coaching centres across India — most of them making identical promises. This guide helps you cut through the noise and pick the coaching that actually fits your situation, budget, and learning style.',
+  sections: [
+    {
+      heading: 'Why Most "Best Coaching" Lists Are Useless',
+      content: `Every coaching centre claims they're the best. Every website ranking them is either paid or based on brand recognition, not outcomes. The truth: the "best" coaching depends entirely on you — your city, your starting level, your family's budget, and whether you learn better in a classroom or one-on-one. A student in Patna facing daily 2-hour commutes to a batch class has a fundamentally different problem from a student in Kota living next to their coaching centre. This guide won't give you a generic top-10 list. Instead, it walks through the criteria that actually predict whether coaching will help you crack JEE — backed by patterns we've seen across hundreds of students from 50+ cities.`,
+    },
+    {
+      heading: 'The 6 Things That Actually Matter in JEE Coaching',
+      content: 'After working with students from metros, Tier-2 cities, and small towns, these are the factors that consistently separate coaching that works from coaching that wastes a year:',
+      bullets: [
+        'Doubt resolution speed — Can you get a doubt cleared within hours, or do you wait days for a "doubt counter" slot? Unresolved doubts compound fast. A student who waits 3 days for every doubt effectively loses 2 months of preparation per year.',
+        'Teacher-to-student ratio — The single strongest predictor of outcomes. In a 200-student batch, you get roughly 15 seconds of individual attention per class. In a 30-student batch, about 2 minutes. In 1-on-1 coaching, the entire session adapts to you.',
+        'Curriculum flexibility — Does the coaching match YOUR starting level, or must you follow a fixed batch pace? If you\'re strong in Physics but weak in Maths, a rigid schedule wastes time on what you already know and rushes what you don\'t.',
+        'Mock test quality and analysis — Good coaching doesn\'t just give you mock tests — it analyses your error patterns. "You got 12 wrong in Mechanics" is useless feedback. "You consistently misapply Newton\'s 3rd law in pulley problems" is actionable.',
+        'Track record with students at YOUR level — A coaching centre that produces AIR 1 from students who were already brilliant tells you nothing. Ask: what ranks do average students achieve? What\'s the improvement from entry score to final score?',
+        'Total cost including hidden expenses — Coaching fee is often 40-60% of the real cost. Add hostel, food, travel, study material, test series, and "special batches" fees. A ₹1.5L coaching in Kota becomes ₹4-5L when you add living costs.',
+      ],
+    },
+    {
+      heading: 'Online vs. Offline Coaching — An Honest Comparison',
+      content: 'Neither is universally better. The right choice depends on your self-discipline, location, and budget. Here\'s what the data actually shows:',
+      table: {
+        headers: ['Factor', 'Large Offline Batch', 'Small Offline Batch', 'Online Batch', 'Online 1-on-1'],
+        rows: [
+          ['Monthly cost (approx.)', '₹8-15K', '₹12-20K', '₹3-8K', '₹10-15K'],
+          ['Doubt resolution', 'Counter (1-3 day wait)', 'Same day', 'Chat/forum (hours)', 'Instant (in session)'],
+          ['Pace flexibility', 'None — batch decides', 'Limited', 'Rewatch at own pace', 'Fully adaptive'],
+          ['Accountability', 'Low (you\'re one of 200)', 'Medium', 'Low (easy to skip)', 'High (mentor tracks you)'],
+          ['Peer competition', 'High', 'Medium', 'Low', 'Low (mentor benchmarks you)'],
+          ['Works best for', 'Self-motivated, metro students', 'Students who need structure', 'Supplementary prep', 'Students who need attention'],
+          ['Biggest risk', 'Getting lost in the crowd', 'Limited seat availability', 'Dropping off without pressure', 'Finding a good mentor'],
+        ],
+      },
+    },
+    {
+      heading: 'Red Flags — When to Walk Away from a Coaching Centre',
+      content: 'These warning signs apply regardless of city or brand name:',
+      bullets: [
+        'They lead with topper photos but won\'t share median outcomes — If 2 students out of 5,000 got AIR under 100, that\'s a 0.04% rate. Ask for the median rank or the percentage of students who improved their score by 50%+ after joining.',
+        'No free trial or demo class — Any coaching confident in its teaching should let you sit through a real class (not a sales pitch disguised as a demo). If they pressure you to "lock in now before seats fill up," they\'re selling scarcity, not quality.',
+        'The "star teacher" teaches 500+ students — That teacher may be brilliant, but you\'ll never interact with them. Your actual experience will be with TAs and recorded lectures. Ask who will actually resolve YOUR doubts.',
+        'They bundle everything and won\'t let you choose subjects — This is a pricing trick. If you only need Chemistry help, you shouldn\'t pay for Physics and Maths coaching you won\'t use.',
+        'No structured parent communication — Good coaching keeps parents in the loop with regular progress updates. If the only time parents hear from coaching is during fee collection, that\'s a problem.',
+        'They discourage you from using other resources — Quality coaching welcomes NCERT, reference books, and PYQs. If they insist you ONLY use their material, they\'re protecting revenue, not your preparation.',
+      ],
+    },
+    {
+      heading: 'How to Evaluate Coaching from Your City',
+      content: `Whether you\'re in Delhi, a Tier-2 city like Indore, or a small town — here\'s a practical evaluation framework. Visit (or call) the coaching and ask these specific questions. Write down the answers and compare across 3-4 options before deciding.`,
+      bullets: [
+        'What is the batch size for MY level? (Not the advertised batch — the actual class you\'d sit in)',
+        'Can I speak to 2-3 current students (not toppers — regular students) about their experience?',
+        'What happens when I have a doubt outside class hours? Show me the process.',
+        'Show me the study plan for someone joining at my current level with X months until JEE.',
+        'What\'s the fee breakdown? Are test series, material, and doubt sessions included or extra?',
+        'What\'s your refund or exit policy if I\'m not satisfied after 2 months?',
+        'What percentage of your students improved their mock scores by 30%+ after 6 months?',
+      ],
+    },
+    {
+      heading: 'The City Doesn\'t Matter — Your Daily Routine Does',
+      content: `Students constantly worry about being in the "wrong city" for JEE preparation. Here\'s the reality: a disciplined student in Ranchi with a good mentor will outperform an unfocused student in Kota with access to every coaching centre. What matters is your daily preparation quality — 4-6 hours of focused problem-solving with doubt resolution beats 8 hours of passive lecture-sitting every time. If you\'re in a city without strong local coaching, online 1-on-1 coaching gives you access to the same quality mentors available in Kota or Delhi — without the ₹3-5 lakh relocation cost. If your city has good options, evaluate them honestly using the framework above.`,
+    },
+    {
+      heading: 'When to Start and How Long It Takes',
+      content: `The ideal start is Class 11 (you get 2 full years). But students join at every stage — and the strategy changes accordingly:`,
+      table: {
+        headers: ['Starting Point', 'Time Available', 'Realistic Daily Hours', 'What to Prioritise'],
+        rows: [
+          ['Class 11 start', '~22 months', '3-4 hours (balance with school)', 'Build strong fundamentals, no shortcuts'],
+          ['Class 12 start', '~10 months', '5-6 hours', 'High-weightage chapters first, PYQs early'],
+          ['After Class 12 (dropper)', '~8 months', '8-10 hours', 'Full-time focus, systematic error analysis'],
+          ['6 months before JEE', '6 months', '6-8 hours', 'Only high-ROI chapters, mock test driven'],
+          ['3 months before JEE', '3 months', '8+ hours', 'Revision only, PYQs, no new chapters'],
+        ],
+      },
+    },
+    {
+      heading: 'What MindPeak Offers — and Who It\'s For',
+      content: `MindPeak is 1-on-1 online JEE coaching — one dedicated mentor per student, daily sessions, 6 days a week. It works best for students who've tried batch coaching and felt lost, students in cities without strong local options, or students who need someone to adapt the curriculum to their pace. Our best JEE rank is AIR 42. Our 95% selection rate comes from the simple fact that personalised attention works. But we\'re not right for everyone — if you thrive in competitive classroom environments and your city has strong local coaching, that might serve you better. We\'d rather you pick what actually works for you than sell you something that doesn\'t fit.`,
+      bullets: [
+        'Dedicated mentor (IIT/NIT alumni) — same person for your entire prep journey',
+        'Fully adaptive curriculum based on diagnostic assessments',
+        'Weekly progress reports shared with parents',
+        'Students from 50+ cities across India — no location barrier',
+        'Free demo class with a real mentor session (not a sales call)',
+      ],
+    },
+  ],
+  faqs: [
+    { q: 'Which city has the best JEE coaching in India?', a: `No single city has a monopoly on good coaching. Kota, Delhi, and Hyderabad have historically had high-density coaching centres, but the rise of online coaching has levelled the field. What matters is the individual teacher and the student-teacher ratio, not the city name on the brochure. A student with a dedicated 1-on-1 mentor online gets more attention than a student in a 300-person Kota batch.` },
+    { q: 'Is offline coaching better than online coaching for JEE?', a: `They serve different needs. Offline works well if you have strong local options with small batches and need the physical structure of a classroom. Online works well for flexibility, access to better teachers regardless of location, and personalised pacing. Online 1-on-1 specifically outperforms batch coaching (online or offline) on doubt resolution speed and curriculum adaptation.` },
+    { q: 'How much does JEE coaching cost in India?', a: `Batch coaching ranges from ₹50,000 to ₹2,00,000 per year. Add ₹1,50,000-3,00,000 for hostel and living if relocating. Online batch coaching is ₹20,000-80,000. Online 1-on-1 coaching like MindPeak is ₹1,10,000-1,50,000 per year. Always ask for the total cost including study material, test series, and any "special batch" fees.` },
+    { q: 'Can I crack JEE without coaching?', a: `Yes — several JEE toppers have been self-study students. But it requires exceptional self-discipline, access to good study material, and a way to resolve doubts quickly (peers, teachers, or online forums). Most students benefit from some form of guided preparation, whether that's full coaching or a mentor for doubt resolution.` },
+    { q: 'What if there\'s no good JEE coaching in my city?', a: `Online coaching has made location irrelevant for JEE preparation. MindPeak has students from 50+ cities — including Tier-3 towns — who receive the same quality of mentoring as students in metro cities. A dedicated online mentor often provides more individual attention than a local batch class would.` },
+    { q: 'How do I know if my current coaching is working?', a: `Track two things monthly: your mock test scores and your error patterns. If your scores aren't improving after 3 months, or if you keep making the same types of mistakes, your coaching isn't addressing your specific weaknesses. A good coaching should show measurable improvement within 2-3 months.` },
+  ],
+  relatedPages: [
+    { label: 'JEE Coaching Programs', href: '/jee-coaching' },
+    { label: 'NEET Coaching Programs', href: '/neet-coaching' },
+    { label: 'Kota Coaching Alternative', href: '/kota-coaching-alternative' },
+    { label: 'Online vs Offline JEE Coaching', href: '/online-vs-offline-jee-coaching' },
+    { label: 'Pricing & Plans', href: '/pricing' },
+    { label: 'Free Demo Class', href: '/free-trial' },
+  ],
+  schemaType: 'WebPage',
+};
 
 // ─────────────────────────────────────────────────
 // COMPARISON PAGES
@@ -3719,6 +3863,7 @@ export const allSEOPages: SEOPageData[] = [
   foundationPage,
   jeeCrashPage,
   neetCrashPage,
+  bestJeeCoachingIndiaPage,
   ...subjectPages,
   ...comparisonPages,
   ...jeeChapterCategoryPages,

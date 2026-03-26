@@ -14,7 +14,22 @@ import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import Image from 'next/image';
+import AuthorBio from '@/components/AuthorBio';
+import { getAuthorForSubject, type Author } from '@/data/authorData';
 const logo = '/images/logo.jpeg';
+
+/** Resolve the best expert author for a blog post based on tags/category */
+function resolveExpertAuthor(post: { category: string; tags: string[] }): Author {
+  const tags = post.tags.map(t => t.toLowerCase());
+  const isNEET = post.category === 'NEET' || tags.includes('neet');
+  const exam: 'JEE' | 'NEET' = isNEET ? 'NEET' : 'JEE';
+  if (tags.includes('biology')) return getAuthorForSubject(exam, 'Biology');
+  if (tags.includes('chemistry')) return getAuthorForSubject(exam, 'Chemistry');
+  if (tags.includes('mathematics') || tags.includes('maths')) return getAuthorForSubject(exam, 'Mathematics');
+  if (tags.includes('physics')) return getAuthorForSubject(exam, 'Physics');
+  // Default: Physics for JEE, Biology for NEET
+  return getAuthorForSubject(exam, isNEET ? 'Biology' : 'Physics');
+}
 
 const BlogPost = () => {
   const params = useParams();
@@ -31,6 +46,8 @@ const BlogPost = () => {
 
   const relatedPosts = resolveRelatedPosts(post, 3);
   const IconComponent = post.icon;
+  const expertAuthor = resolveExpertAuthor(post);
+  const reviewDate = new Date().toISOString().split('T')[0];
 
   const shareUrl = typeof window !== 'undefined' ? `${window.location.origin}/blog/${post.slug}` : '';
   const shareText = encodeURIComponent(`Check out: ${post.title}`);
@@ -61,14 +78,27 @@ const BlogPost = () => {
             '@type': 'BlogPosting',
             headline: post.title,
             description: post.excerpt,
-            author: { '@type': 'Person', name: post.author },
+            author: {
+              '@type': 'Person',
+              name: expertAuthor.name,
+              jobTitle: expertAuthor.credential,
+              alumniOf: expertAuthor.institution,
+              worksFor: { '@type': 'Organization', name: 'MindPeak Institute' },
+              description: expertAuthor.bio,
+            },
+            reviewedBy: {
+              '@type': 'Person',
+              name: expertAuthor.name,
+              jobTitle: expertAuthor.credential,
+              alumniOf: expertAuthor.institution,
+            },
             publisher: {
               '@type': 'Organization',
               name: 'MindPeak Institute',
               logo: { '@type': 'ImageObject', url: 'https://mindpeakinstitute.com/images/logo.jpeg' },
             },
             datePublished: post.publishDate,
-            dateModified: post.publishDate,
+            dateModified: reviewDate,
             mainEntityOfPage: {
               '@type': 'WebPage',
               '@id': `https://mindpeakinstitute.com/blog/${post.slug}`,
@@ -142,8 +172,13 @@ const BlogPost = () => {
                 <Clock className="w-4 h-4 text-primary" />
                 {post.readTime}
               </span>
-              <span className="font-medium text-foreground">By {post.author}</span>
             </div>
+            {/* Expert author byline (E-E-A-T signal) */}
+            <AuthorBio slug={expertAuthor.slug} variant="compact" />
+            <p className="text-xs text-muted-foreground mb-2">
+              Last reviewed by <strong className="text-foreground">{expertAuthor.name}</strong> ({expertAuthor.credential}) on{' '}
+              {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+            </p>
 
             {/* Tags */}
             <div className="flex flex-wrap gap-2 mb-8">
@@ -226,6 +261,9 @@ const BlogPost = () => {
                 {post.content}
               </ReactMarkdown>
             </div>
+
+            {/* Expert author bio (E-E-A-T signal) */}
+            <AuthorBio slug={expertAuthor.slug} variant="full" />
 
             {/* Divider */}
             <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mb-12" />

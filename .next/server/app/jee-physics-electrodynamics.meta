@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/jee-physics-electrodynamics/layout,_N_T_/jee-physics-electrodynamics/page,_N_T_/jee-physics-electrodynamics"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/jee-physics-electrodynamics/__PAGE__",
+    "/jee-physics-electrodynamics",
+    "/_index",
+    "/_head"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/neet-practice/layout,_N_T_/neet-practice/page,_N_T_/neet-practice"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/neet-practice/__PAGE__",
+    "/neet-practice",
+    "/_index",
+    "/_head"
+  ]
+}

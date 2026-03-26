@@ -12,6 +12,7 @@
  */
 
 import type { Metadata } from "next";
+import { permanentRedirect } from "next/navigation";
 import { resolveSlugMetadata } from "@/lib/resolveSlugMetadata";
 import CatchAllClient from "./CatchAllClient";
 
@@ -58,6 +59,7 @@ export async function generateStaticParams() {
     'jee-crash-course', 'neet-crash-course', 'foundation-coaching',
     'batch-vs-personal-coaching', 'online-vs-offline-jee-coaching',
     'kota-coaching-alternative',
+    'best-jee-coaching-in-india',
     'mindpeak-vs-allen', 'mindpeak-vs-fiitjee', 'mindpeak-vs-resonance',
     'mindpeak-vs-physics-wallah', 'mindpeak-vs-unacademy', 'mindpeak-vs-vedantu',
     'mindpeak-vs-byjus', 'mindpeak-vs-aakash', 'mindpeak-vs-narayana',
@@ -147,6 +149,29 @@ function buildServerContent(slug: string[]): { heading: string; description: str
 
 export default async function CatchAllPage({ params }: Props) {
   const { slug } = await params;
+  const full = slug.join('/');
+
+  /* ── 301 redirects: topic / notes / study-guide → parent chapter ── */
+  // Notes: {chapterSlug}/notes → /{chapterSlug}
+  if (slug.length === 2 && slug[1] === 'notes') {
+    permanentRedirect(`/${slug[0]}`);
+  }
+  // Topic paths: {chapterSlug}/{topicSlug} — check if it's a known topic path
+  if (slug.length === 2) {
+    const { TOPIC_PATHS } = await import("@/data/chapterData");
+    if (TOPIC_PATHS.includes(full)) {
+      permanentRedirect(`/${slug[0]}`);
+    }
+  }
+  // Study guides: how-to-study-{topic}-for-{exam} → /{chapterSlug}
+  if (full.startsWith('how-to-study-')) {
+    const { parseStudyGuideSlug } = await import("@/lib/topicStudyGuides");
+    const info = parseStudyGuideSlug(full);
+    if (info) {
+      permanentRedirect(`/${info.chapter.slug}`);
+    }
+  }
+
   const content = buildServerContent(slug);
 
   return (
