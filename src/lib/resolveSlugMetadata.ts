@@ -4,9 +4,22 @@
  */
 
 import { CHAPTER_SLUGS, TOPIC_PATHS } from '@/data/chapterData';
-import { SUBJECT_SLUGS } from '@/views/SubjectPage';
-import { FORMULA_SLUGS } from '@/views/FormulaSheet';
+import { FORMULA_SLUGS } from '@/data/formulaSheetData';
 import { parseSubjectCitySlug, buildSubjectCityPage } from '@/data/subjectCityData';
+
+/**
+ * Server-safe slug lists — inlined to avoid importing from "use client" modules
+ * (SubjectPage.tsx, ImportantQuestionsHub.tsx) which crash Turbopack SSR builds.
+ */
+const SUBJECT_SLUGS: string[] = [
+  'jee-physics-preparation', 'jee-chemistry-preparation', 'jee-mathematics-preparation',
+  'neet-physics-preparation', 'neet-chemistry-preparation', 'neet-biology-preparation',
+];
+const IMPORTANT_Q_SLUGS: string[] = [
+  'jee-physics-important-questions', 'jee-chemistry-important-questions',
+  'jee-mathematics-important-questions', 'neet-physics-important-questions',
+  'neet-chemistry-important-questions', 'neet-biology-important-questions',
+];
 import { parsePracticeSlug, getQuestion, subjectBanks } from '@/data/practice';
 import { parsePYQSlug, getPYQuestion, pyqSubjectBanks } from '@/data/pyq';
 import { parseNEETPracticeSlug, getNEETPracticeQuestion, neetSubjectBanks } from '@/data/neet-practice';
@@ -19,7 +32,6 @@ import { parseStudyGuideSlug, buildStudyGuide } from '@/lib/topicStudyGuides';
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 import { getExamInfoPage } from '@/data/examInfoData';
 import { getDifferencePair } from '@/data/differenceBetweenData';
-import { IMPORTANT_Q_SLUGS } from '@/views/ImportantQuestionsHub';
 import { getCounsellingPage } from '@/data/counsellingData';
 import type { Metadata } from 'next';
 
