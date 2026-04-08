@@ -28,15 +28,17 @@ function seededInt(seed: number, min: number, max: number): number {
 }
 
 /**
- * Dynamic publish date — returns a recent date (0-6 days ago) based on a seed.
- * Ensures blog dates are NEVER in the future and auto-refresh daily.
+ * Stable publish date — deterministic, never changes between crawls.
+ * Uses a fixed base date (site content launch) + seed-based offset spread
+ * over 6 months so posts have varied but consistent publish dates.
+ * Google treats changing publish dates as date manipulation; this ensures
+ * each post always shows the same date on every crawl.
  */
 function dynamicPublishDate(seed: number): string {
-  const now = new Date();
-  const daysAgo = Math.abs(seed) % 7; // 0 to 6 days ago
-  const date = new Date(now);
-  date.setDate(date.getDate() - daysAgo);
-  return date.toISOString().split('T')[0];
+  const base = new Date('2024-08-01'); // fixed base — site content launch
+  const daysOffset = Math.abs(seed) % 180; // spread over ~6 months
+  base.setDate(base.getDate() + daysOffset);
+  return base.toISOString().split('T')[0];
 }
 
 /* ═══════════════════════════════════════════════════
