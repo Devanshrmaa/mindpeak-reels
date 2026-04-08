@@ -1,5 +1,8 @@
 import BlogPostClient from "./BlogPostClient";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+
+const BASE = "https://mindpeakinstitute.com";
 
 /**
  * Blog posts are ISR-rendered on first visit, then cached for 24 hours.
@@ -10,6 +13,28 @@ export const dynamicParams = true;
 export const revalidate = 86400;
 
 type Props = { params: Promise<{ slug: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const { resolvePostBySlug } = await import("@/lib/blogResolver");
+  const post = resolvePostBySlug(slug);
+  if (!post) return { title: "Blog | MindPeak Institute" };
+  const canonical = `${BASE}/blog/${post.slug}`;
+  return {
+    title: `${post.title} | MindPeak Institute`,
+    description: post.excerpt.slice(0, 160),
+    alternates: { canonical },
+    openGraph: {
+      type: "article",
+      url: canonical,
+      title: post.title,
+      description: post.excerpt.slice(0, 160),
+      publishedTime: post.publishDate,
+      authors: [post.author],
+      siteName: "MindPeak Institute",
+    },
+  };
+}
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
