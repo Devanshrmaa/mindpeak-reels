@@ -14,6 +14,7 @@
 import type { Metadata } from "next";
 import { notFound, permanentRedirect } from "next/navigation";
 import { resolveSlugMetadata, isKnownSlug } from "@/lib/resolveSlugMetadata";
+import { buildCityJsonLd } from "@/lib/cityJsonLd";
 import CatchAllClient from "./CatchAllClient";
 
 interface Props {
@@ -126,9 +127,23 @@ export default async function CatchAllPage({ params }: Props) {
   }
 
   const content = buildServerContent(slug);
+  const cityJsonLd = buildCityJsonLd(full);
 
   return (
     <>
+      {/* JSON-LD structured data for T1 city pages — FAQ rich snippets + LocalBusiness */}
+      {cityJsonLd && (
+        <>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: cityJsonLd.faq }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: cityJsonLd.org }}
+          />
+        </>
+      )}
       {/* Server-rendered content shell for crawlers — visible to Googlebot in initial HTML */}
       <div
         className="sr-only"
