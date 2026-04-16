@@ -108,9 +108,28 @@ export async function GET() {
   /* ═══ 9. Counselling & college pages ═══ */
   const counsellingSlugs = getAllCounsellingSlugs().map(s => `/${s}`);
 
+  /* ═══ 10. T1 city coaching pages (indexed, hand-curated) ═══ */
+  const CITY_PAGES = [
+    // South India — Karnataka
+    '/jee-coaching-in-bangalore', '/neet-coaching-in-bangalore',
+    '/jee-coaching-in-mangalore', '/neet-coaching-in-mangalore',
+    // South India — Tamil Nadu
+    '/jee-coaching-in-chennai', '/neet-coaching-in-chennai',
+    '/jee-coaching-in-coimbatore', '/neet-coaching-in-coimbatore',
+    // South India — Telangana / Andhra Pradesh
+    '/jee-coaching-in-hyderabad', '/neet-coaching-in-hyderabad',
+    '/jee-coaching-in-vijayawada', '/neet-coaching-in-vijayawada',
+    '/jee-coaching-in-visakhapatnam', '/neet-coaching-in-visakhapatnam',
+    // South India — Kerala
+    '/jee-coaching-in-kochi', '/neet-coaching-in-kochi',
+    // Pan-India T1 anchors
+    '/jee-coaching-in-delhi', '/neet-coaching-in-delhi',
+    '/jee-coaching-in-mumbai', '/neet-coaching-in-mumbai',
+  ];
+
   /*
    * REMOVED from sitemap (noindexed or redirected):
-   * - Location pages (~660) → noindexed, canonical → /best-jee-coaching-in-india
+   * - Location pages (~640 remaining) → noindexed, canonical → /best-jee-coaching-in-india
    * - Subject-city pages (~3,600) → noindexed, canonical → /best-jee-coaching-in-india
    * - Topic pages (~1,490) → 301 redirect to parent chapter
    * - Study guide pages (~1,490) → 301 redirect to parent chapter
@@ -138,6 +157,7 @@ export async function GET() {
     difference: differenceSlugs.length,
     importantQ: importantQSlugs.length,
     counselling: counsellingSlugs.length,
+    cities: CITY_PAGES.length,
   };
   const total = Object.values(counts).reduce((a, b) => a + b, 0);
 
@@ -160,6 +180,9 @@ export async function GET() {
   for (const p of differenceSlugs) lines.push(urlEntry(p, '0.60', 'monthly', staggeredLastmod(p, now)));
   for (const p of importantQSlugs) lines.push(urlEntry(p, '0.65', 'weekly', TODAY));
   for (const p of counsellingSlugs) lines.push(urlEntry(p, '0.65', 'monthly', staggeredLastmod(p, now)));
+
+  // T1 city coaching pages — high commercial intent, genuinely unique content
+  for (const p of CITY_PAGES) lines.push(urlEntry(p, '0.85', 'monthly', staggeredLastmod(p, now)));
 
   lines.push('</urlset>');
 
