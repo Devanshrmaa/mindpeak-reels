@@ -102,9 +102,33 @@ const importantLinks = [
   { label: 'Refund Policy', to: '/refund-policy' },
 ];
 
-/* ── City hub links — point to the consolidated hub page, not individual doorway pages ── */
-const cityHubLinks = [
+/* ── T1 city JEE coaching links (hand-curated, indexed pages) ── */
+const jeeCoachingCityLinks = [
+  { label: 'JEE Coaching in Bangalore', to: '/jee-coaching-in-bangalore' },
+  { label: 'JEE Coaching in Chennai', to: '/jee-coaching-in-chennai' },
+  { label: 'JEE Coaching in Hyderabad', to: '/jee-coaching-in-hyderabad' },
+  { label: 'JEE Coaching in Kochi', to: '/jee-coaching-in-kochi' },
+  { label: 'JEE Coaching in Coimbatore', to: '/jee-coaching-in-coimbatore' },
+  { label: 'JEE Coaching in Visakhapatnam', to: '/jee-coaching-in-visakhapatnam' },
+  { label: 'JEE Coaching in Vijayawada', to: '/jee-coaching-in-vijayawada' },
+  { label: 'JEE Coaching in Mangalore', to: '/jee-coaching-in-mangalore' },
+  { label: 'JEE Coaching in Delhi', to: '/jee-coaching-in-delhi' },
+  { label: 'JEE Coaching in Mumbai', to: '/jee-coaching-in-mumbai' },
   { label: 'Best JEE Coaching in India', to: '/best-jee-coaching-in-india' },
+];
+
+/* ── T1 city NEET coaching links (hand-curated, indexed pages) ── */
+const neetCoachingCityLinks = [
+  { label: 'NEET Coaching in Bangalore', to: '/neet-coaching-in-bangalore' },
+  { label: 'NEET Coaching in Chennai', to: '/neet-coaching-in-chennai' },
+  { label: 'NEET Coaching in Hyderabad', to: '/neet-coaching-in-hyderabad' },
+  { label: 'NEET Coaching in Kochi', to: '/neet-coaching-in-kochi' },
+  { label: 'NEET Coaching in Coimbatore', to: '/neet-coaching-in-coimbatore' },
+  { label: 'NEET Coaching in Visakhapatnam', to: '/neet-coaching-in-visakhapatnam' },
+  { label: 'NEET Coaching in Vijayawada', to: '/neet-coaching-in-vijayawada' },
+  { label: 'NEET Coaching in Mangalore', to: '/neet-coaching-in-mangalore' },
+  { label: 'NEET Coaching in Delhi', to: '/neet-coaching-in-delhi' },
+  { label: 'NEET Coaching in Mumbai', to: '/neet-coaching-in-mumbai' },
 ];
 
 /* ── Competitor comparison links ── */
@@ -157,7 +181,8 @@ export const PageFooter = ({ extra }: { extra?: string }) => {
         {footerSections.map((section) => (
           <FooterSection key={section.title} title={section.title} links={section.links} />
         ))}
-        <FooterSection title="Coaching by City" links={cityHubLinks} />
+        <FooterSection title="JEE Coaching by City" links={jeeCoachingCityLinks} />
+        <FooterSection title="NEET Coaching by City" links={neetCoachingCityLinks} />
         <FooterSection title="Compare Coaching" links={comparisonLinks} />
         <div>
           <h3 className="font-display font-bold text-foreground text-xs uppercase tracking-[0.15em] mb-3">Important Links</h3>

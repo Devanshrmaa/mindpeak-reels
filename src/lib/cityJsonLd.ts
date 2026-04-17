@@ -292,7 +292,32 @@ export interface CityServerContent {
   faqs: { q: string; a: string }[];
   testimonials: { name: string; role: string; quote: string }[];
   breadcrumb: { label: string; href: string }[];
+  siblingCities: { label: string; href: string }[];
 }
+
+/** All 20 indexed T1 city pages — used to build sibling cross-links. */
+const ALL_T1_CITY_LINKS: { label: string; href: string; slug: string }[] = [
+  { slug: 'jee-coaching-in-bangalore',   label: 'JEE Coaching in Bangalore',   href: '/jee-coaching-in-bangalore' },
+  { slug: 'neet-coaching-in-bangalore',  label: 'NEET Coaching in Bangalore',  href: '/neet-coaching-in-bangalore' },
+  { slug: 'jee-coaching-in-mangalore',   label: 'JEE Coaching in Mangalore',   href: '/jee-coaching-in-mangalore' },
+  { slug: 'neet-coaching-in-mangalore',  label: 'NEET Coaching in Mangalore',  href: '/neet-coaching-in-mangalore' },
+  { slug: 'jee-coaching-in-chennai',     label: 'JEE Coaching in Chennai',     href: '/jee-coaching-in-chennai' },
+  { slug: 'neet-coaching-in-chennai',    label: 'NEET Coaching in Chennai',    href: '/neet-coaching-in-chennai' },
+  { slug: 'jee-coaching-in-coimbatore',  label: 'JEE Coaching in Coimbatore',  href: '/jee-coaching-in-coimbatore' },
+  { slug: 'neet-coaching-in-coimbatore', label: 'NEET Coaching in Coimbatore', href: '/neet-coaching-in-coimbatore' },
+  { slug: 'jee-coaching-in-hyderabad',   label: 'JEE Coaching in Hyderabad',   href: '/jee-coaching-in-hyderabad' },
+  { slug: 'neet-coaching-in-hyderabad',  label: 'NEET Coaching in Hyderabad',  href: '/neet-coaching-in-hyderabad' },
+  { slug: 'jee-coaching-in-vijayawada',  label: 'JEE Coaching in Vijayawada',  href: '/jee-coaching-in-vijayawada' },
+  { slug: 'neet-coaching-in-vijayawada', label: 'NEET Coaching in Vijayawada', href: '/neet-coaching-in-vijayawada' },
+  { slug: 'jee-coaching-in-visakhapatnam',  label: 'JEE Coaching in Visakhapatnam',  href: '/jee-coaching-in-visakhapatnam' },
+  { slug: 'neet-coaching-in-visakhapatnam', label: 'NEET Coaching in Visakhapatnam', href: '/neet-coaching-in-visakhapatnam' },
+  { slug: 'jee-coaching-in-kochi',       label: 'JEE Coaching in Kochi',       href: '/jee-coaching-in-kochi' },
+  { slug: 'neet-coaching-in-kochi',      label: 'NEET Coaching in Kochi',      href: '/neet-coaching-in-kochi' },
+  { slug: 'jee-coaching-in-delhi',       label: 'JEE Coaching in Delhi',       href: '/jee-coaching-in-delhi' },
+  { slug: 'neet-coaching-in-delhi',      label: 'NEET Coaching in Delhi',      href: '/neet-coaching-in-delhi' },
+  { slug: 'jee-coaching-in-mumbai',      label: 'JEE Coaching in Mumbai',      href: '/jee-coaching-in-mumbai' },
+  { slug: 'neet-coaching-in-mumbai',     label: 'NEET Coaching in Mumbai',     href: '/neet-coaching-in-mumbai' },
+];
 
 export function buildCityServerContent(pageSlug: string): CityServerContent | null {
   if (!INDEXABLE_CITY_SLUGS.has(pageSlug)) return null;
@@ -315,6 +340,11 @@ export function buildCityServerContent(pageSlug: string): CityServerContent | nu
     ...(cityData.testimonials ?? []).map((t) => ({ name: t.name, role: t.rank, quote: t.quote })),
   ].slice(0, 3);
 
+  // Sibling cities — same exam type, excluding current page, up to 6 links
+  const siblingCities = ALL_T1_CITY_LINKS.filter(
+    (l) => l.slug !== pageSlug && l.slug.startsWith(exam.toLowerCase() + '-coaching-in-'),
+  ).slice(0, 6);
+
   return {
     heading: `Best ${examLabel} Coaching in ${cityData.city}`,
     subheading: `Personalised 1-on-1 Online Coaching for ${cityData.city} Students`,
@@ -329,5 +359,6 @@ export function buildCityServerContent(pageSlug: string): CityServerContent | nu
       { label: `${exam} Coaching`, href: `/${exam.toLowerCase()}-coaching` },
       { label: `${exam} Coaching in ${cityData.city}`, href: `/${pageSlug}` },
     ],
+    siblingCities,
   };
 }

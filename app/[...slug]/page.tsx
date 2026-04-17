@@ -204,6 +204,17 @@ export default async function CatchAllPage({ params }: Props) {
                 ))}
               </section>
             )}
+            {cityContent.siblingCities.length > 0 && (
+              <section>
+                <h3>Coaching in other cities</h3>
+                <nav>
+                  {cityContent.siblingCities.map((c, i) => (
+                    <a key={i} href={c.href}>{c.label}</a>
+                  ))}
+                  <a href="/best-jee-coaching-in-india">Best JEE Coaching in India</a>
+                </nav>
+              </section>
+            )}
           </>
         ) : (
           <>
