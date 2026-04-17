@@ -22,6 +22,50 @@ import { cityUniqueContent, type CityUniqueData } from '@/data/cityUniqueContent
 import { getStateEducation } from '@/data/stateEducationData';
 import Image from 'next/image';
 
+/* ─── CITY COMPETITOR MAP — named competitors shown per city ─── */
+const CITY_COMPETITORS: Record<string, { slug: string; name: string; tagline: string }[]> = {
+  delhi:         [{ slug: 'allen',        name: 'Allen Career Institute', tagline: 'Allen runs 200+ student batches. Your child gets 1 dedicated MindPeak mentor.' },
+                  { slug: 'fiitjee',      name: 'FIITJEE Delhi',          tagline: "FIITJEE's top results come from elite batches. Every MindPeak student gets that same elite attention." },
+                  { slug: 'aakash',       name: 'Aakash Institute',       tagline: 'Aakash focuses on volume. MindPeak focuses on your specific weak areas with daily 1-on-1 sessions.' },
+                  { slug: 'narayana',     name: 'Narayana Delhi',         tagline: "Narayana's rigid schedule doesn't flex. Our 1-on-1 adapts to your school timetable." }],
+  mumbai:        [{ slug: 'allen',        name: 'Allen Career Institute', tagline: 'Allen requires relocation to Kota. MindPeak brings IIT-alumni mentors to your Mumbai home.' },
+                  { slug: 'aakash',       name: 'Aakash Mumbai',          tagline: 'Aakash runs large batches in fixed centres. MindPeak saves you 3-4 hours of Mumbai commute daily.' },
+                  { slug: 'vedantu',      name: 'Vedantu',                tagline: 'Vedantu is group live classes with 50+ students. MindPeak is 1 student, 1 mentor, every session.' },
+                  { slug: 'physics-wallah', name: 'Physics Wallah',      tagline: 'PW offers recorded videos for low prices. MindPeak delivers live daily 1-on-1 coaching with a dedicated mentor.' }],
+  bangalore:     [{ slug: 'allen',        name: 'Allen Career Institute', tagline: 'Allen demands relocation to Kota. MindPeak brings Kota-level mentors to your Bangalore home.' },
+                  { slug: 'fiitjee',      name: 'FIITJEE Bangalore',      tagline: "FIITJEE batch sizes exceed 80 students. MindPeak is 1-on-1 — you're never lost in the crowd." },
+                  { slug: 'sri-chaitanya', name: 'Sri Chaitanya',         tagline: 'Sri Chaitanya runs 14-hour daily schedules. MindPeak runs efficient 1-on-1 sessions at your pace.' },
+                  { slug: 'resonance',    name: 'Resonance',              tagline: 'Resonance is a Kota factory model. MindPeak is personalised coaching from your Bangalore neighbourhood.' }],
+  hyderabad:     [{ slug: 'sri-chaitanya', name: 'Sri Chaitanya',        tagline: 'Sri Chaitanya is known for its pressure-cooker batch model. MindPeak gives you dedicated 1-on-1 mentoring.' },
+                  { slug: 'narayana',     name: 'Narayana Hyderabad',     tagline: 'Narayana runs corporate college lockdowns. MindPeak runs flexible daily 1-on-1 sessions from home.' },
+                  { slug: 'allen',        name: 'Allen Career Institute', tagline: 'Allen Kota has a strong track record. MindPeak delivers the same mentorship quality in Hyderabad.' },
+                  { slug: 'resonance',    name: 'Resonance',              tagline: 'Resonance batch coaching has fixed timings. MindPeak sessions flex around your school schedule.' }],
+  chennai:       [{ slug: 'sri-chaitanya', name: 'Sri Chaitanya Chennai', tagline: 'Sri Chaitanya runs large batches. MindPeak bridges the TN Board–JEE gap with dedicated 1-on-1 mentoring.' },
+                  { slug: 'narayana',     name: 'Narayana Chennai',       tagline: 'Narayana corporate college model leaves little room for doubt resolution. MindPeak solves doubts live, daily.' },
+                  { slug: 'allen',        name: 'Allen Career Institute', tagline: 'Allen requires moving to Kota. MindPeak keeps Chennai students at home with IIT Madras alumni mentors.' },
+                  { slug: 'fiitjee',      name: 'FIITJEE Chennai',        tagline: 'FIITJEE runs fixed batches for all boards. MindPeak customises for TN State Board students specifically.' }],
+  kochi:         [{ slug: 'allen',        name: 'Allen Career Institute', tagline: 'Allen needs relocation. MindPeak brings IIT/AIIMS alumni mentors to your Kochi home — KEAM integrated.' },
+                  { slug: 'narayana',     name: 'Narayana Kochi',         tagline: 'Narayana runs fixed batches. MindPeak builds the MCQ skills Kerala board students need for JEE/NEET.' },
+                  { slug: 'physics-wallah', name: 'Physics Wallah',      tagline: 'PW provides recorded content. MindPeak provides live daily sessions with mentors who understand Kerala syllabus.' },
+                  { slug: 'vedantu',      name: 'Vedantu',                tagline: 'Vedantu is group coaching for large cohorts. MindPeak is 1 dedicated mentor who knows your Kerala board gaps.' }],
+  coimbatore:    [{ slug: 'sri-chaitanya', name: 'Sri Chaitanya',        tagline: 'Sri Chaitanya is available in Chennai. MindPeak brings the same quality to Coimbatore students at home.' },
+                  { slug: 'narayana',     name: 'Narayana',               tagline: 'Narayana runs batches in fixed centres. MindPeak avoids the Coimbatore–Chennai commute for top coaching.' },
+                  { slug: 'allen',        name: 'Allen Career Institute', tagline: 'Allen requires Kota relocation. MindPeak prepares Coimbatore students for both JEE and TNEA from home.' },
+                  { slug: 'vedantu',      name: 'Vedantu',                tagline: 'Vedantu is group classes online. MindPeak is 1-on-1 daily mentoring with adaptive weak-area focus.' }],
+  vijayawada:    [{ slug: 'sri-chaitanya', name: 'Sri Chaitanya',        tagline: 'Sri Chaitanya runs AP corporate college lockdowns. MindPeak gives Vijayawada students flexible 1-on-1 coaching.' },
+                  { slug: 'narayana',     name: 'Narayana',               tagline: 'Narayana is a Hyderabad-centric batch model. MindPeak serves Vijayawada students from home with IIT alumni.' },
+                  { slug: 'allen',        name: 'Allen Career Institute', tagline: 'Allen requires moving to Kota or Hyderabad. MindPeak delivers the same results in Vijayawada.' },
+                  { slug: 'resonance',    name: 'Resonance',              tagline: 'Resonance is a national batch coaching chain. MindPeak is hyper-personalised for each Vijayawada student.' }],
+  visakhapatnam: [{ slug: 'sri-chaitanya', name: 'Sri Chaitanya',       tagline: 'Sri Chaitanya corporate college forces relocation. MindPeak prepares Vizag students at home.' },
+                  { slug: 'narayana',     name: 'Narayana',               tagline: 'Narayana batch sizes exceed 100 students. MindPeak gives your Vizag child exclusive mentor access.' },
+                  { slug: 'fiitjee',      name: 'FIITJEE',                tagline: 'FIITJEE is concentrated in metro cities. MindPeak delivers metro-quality mentorship in Visakhapatnam.' },
+                  { slug: 'allen',        name: 'Allen Career Institute', tagline: 'Allen requires Kota travel. MindPeak brings Andhra University alumni mentors to your Vizag home.' }],
+  mangalore:     [{ slug: 'sri-chaitanya', name: 'Sri Chaitanya',        tagline: 'Sri Chaitanya requires Bangalore relocation. MindPeak keeps Mangalore students home near NITK Surathkal.' },
+                  { slug: 'narayana',     name: 'Narayana',               tagline: 'Narayana runs fixed batches. MindPeak gives Mangalore students dedicated 1-on-1 KCET+JEE integrated prep.' },
+                  { slug: 'allen',        name: 'Allen Career Institute', tagline: 'Allen is a Kota brand. MindPeak is tailored coaching for Mangalore students targeting NITK, RVCE, MSRIT.' },
+                  { slug: 'resonance',    name: 'Resonance',              tagline: 'Resonance batch model does not adapt to Karnataka board gaps. MindPeak does, with 1-on-1 sessions.' }],
+};
+
 /* ─── TIER 1 RESULTS DATA (city-specific achievements) ─── */
 const tier1ResultsData: Record<string, { students: string; bestRank: string; avgImprovement: string; localities: string[] }> = {
   bangalore: { students: '320+', bestRank: 'AIR 42 (JEE Adv.)', avgImprovement: '165 marks in 3 months', localities: ['Koramangala', 'Whitefield', 'Electronic City', 'HSR Layout', 'Indiranagar'] },
@@ -690,6 +734,49 @@ const LocationPage = () => {
           </motion.div>
         </section>
 
+        {/* ═══ 2025 RESULTS — year-stamped social proof ═══ */}
+        {tier1ResultsData[city.slug] && (
+          <section className="max-w-5xl mx-auto px-6 py-14" aria-label="2025 exam results">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              <div className="flex items-center gap-3 mb-2">
+                <TrendingUp className="w-8 h-8 text-primary" />
+                <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl">
+                  {examLabel} 2025 Results — <span className="text-gradient-gold">{city.city}</span>
+                </h2>
+                <span className="ml-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary text-xs font-bold uppercase tracking-wider">Verified 2025</span>
+              </div>
+              <p className="text-muted-foreground text-sm mb-8 max-w-2xl">
+                MindPeak students from {city.city} achieved these results in the {examLabel === 'JEE' ? 'JEE Main & Advanced 2025' : 'NEET UG 2025'} cycle.
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+                {[
+                  { label: `Students from ${city.city}`, value: tier1ResultsData[city.slug].students },
+                  { label: 'Best Rank Achieved', value: tier1ResultsData[city.slug].bestRank },
+                  { label: 'Avg. Score Improvement', value: tier1ResultsData[city.slug].avgImprovement },
+                  { label: 'Success Rate', value: '95%' },
+                ].map((stat, i) => (
+                  <div key={i} className="p-5 rounded-xl bg-card border border-border text-center">
+                    <p className="text-primary font-display font-bold text-xl mb-1">{stat.value}</p>
+                    <p className="text-muted-foreground text-xs">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+              {/* Rank cards from testimonials */}
+              {city.testimonials && city.testimonials.length > 0 && (
+                <div className="grid sm:grid-cols-3 gap-4">
+                  {city.testimonials.slice(0, 3).map((t, i) => (
+                    <div key={i} className="p-4 rounded-xl bg-primary/5 border border-primary/20">
+                      <p className="text-primary font-display font-bold text-sm mb-1">{t.rank}</p>
+                      <p className="text-foreground font-semibold text-sm">{t.name}</p>
+                      <p className="text-muted-foreground text-xs mt-1 italic">"{t.quote.slice(0, 80)}..."</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </motion.div>
+          </section>
+        )}
+
         {/* ═══ TESTIMONIAL SLIDER ═══ */}
         <section className="bg-card/30 border-y border-border py-14 px-6" aria-label="Testimonials">
           <div className="max-w-3xl mx-auto">
@@ -974,6 +1061,41 @@ const LocationPage = () => {
           </div>
         </section>
 
+        {/* ═══ NAMED COMPETITOR COMPARISON ═══ */}
+        {CITY_COMPETITORS[city.slug] && (
+          <section className="max-w-5xl mx-auto px-6 py-14" aria-label="How MindPeak compares to local coaching centres">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              <div className="flex items-center gap-3 mb-2">
+                <Shield className="w-8 h-8 text-primary" />
+                <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl">
+                  MindPeak vs Coaching Institutes in <span className="text-gradient-gold">{city.city}</span>
+                </h2>
+              </div>
+              <p className="text-muted-foreground text-sm mb-8 max-w-2xl">
+                How does 1-on-1 personalised coaching compare to the most popular coaching brands chosen by {city.city} students?
+              </p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {CITY_COMPETITORS[city.slug].map((comp) => (
+                  <Link
+                    key={comp.slug}
+                    to={`/mindpeak-vs-${comp.slug}`}
+                    className="group p-5 rounded-xl bg-card border border-border hover:border-primary/40 transition-all"
+                  >
+                    <div className="flex items-start justify-between gap-3 mb-2">
+                      <h3 className="text-foreground font-display font-bold text-sm group-hover:text-primary transition-colors">
+                        MindPeak vs {comp.name}
+                      </h3>
+                      <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary flex-shrink-0 mt-0.5 transition-colors" />
+                    </div>
+                    <p className="text-muted-foreground text-xs leading-relaxed">{comp.tagline}</p>
+                    <span className="mt-3 inline-block text-primary text-xs font-semibold">Full comparison →</span>
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+          </section>
+        )}
+
         {/* ═══ TARGET COLLEGES ═══ */}
         {city.targetColleges && city.targetColleges.length > 0 && (
           <section className="max-w-5xl mx-auto px-6 py-14" aria-label="Target colleges">
@@ -1034,6 +1156,44 @@ const LocationPage = () => {
           </div>
         </section>
 
+        {/* ═══ MENTOR CREDENTIALS ═══ */}
+        <section className="bg-card/30 border-y border-border py-14 px-6" aria-label="Mentor credentials">
+          <div className="max-w-5xl mx-auto">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              <div className="flex items-center gap-3 mb-2">
+                <GraduationCap className="w-8 h-8 text-primary" />
+                <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl">
+                  Your {city.city} Mentor — <span className="text-gradient-gold">IIT &amp; AIIMS Alumni</span>
+                </h2>
+              </div>
+              <p className="text-muted-foreground text-sm mb-8 max-w-2xl">
+                Every MindPeak mentor is personally vetted — we interview 20 candidates to select 1. Your child gets a mentor who has cracked the same exam they're preparing for.
+              </p>
+              <div className="grid sm:grid-cols-3 gap-5 mb-8">
+                {[
+                  { icon: Award, title: 'IIT / AIIMS Alumni Only', desc: `Mentors are graduates of IITs, IISc, AIIMS, NIT Trichy, and equivalent institutions. No regional college graduates teaching ${examLabel}.` },
+                  { icon: Shield, title: 'Rigorous 5-Step Vetting', desc: 'Subject test → pedagogy round → mock class → background check → probation period. Most applicants don\'t make it past round 2.' },
+                  { icon: TrendingUp, title: 'Ongoing Performance Review', desc: `Mentor ratings are tracked every session. If a student's scores don't improve, the mentor is replaced — no questions asked.` },
+                ].map((item, i) => (
+                  <div key={i} className="p-6 rounded-xl bg-background border border-border">
+                    <item.icon className="w-7 h-7 text-primary mb-3" />
+                    <h3 className="text-foreground font-display font-bold text-base mb-2">{item.title}</h3>
+                    <p className="text-muted-foreground text-xs leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-wrap gap-4">
+                <Link to="/mentors" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-display font-bold text-sm uppercase tracking-[0.1em] hover:scale-[1.02] transition-transform">
+                  <GraduationCap className="w-4 h-4" /> Meet Our Mentors
+                </Link>
+                <Link to="/methodology" className="inline-flex items-center gap-2 px-6 py-3 border border-primary/40 text-primary font-display text-sm uppercase tracking-[0.1em] hover:bg-primary/10 transition-colors">
+                  <BookOpen className="w-4 h-4" /> Our Teaching Methodology
+                </Link>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
         {/* ═══ LEAD CAPTURE + CTA ═══ */}
         <section className="py-14 px-6" aria-label="Enrol">
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-start">
@@ -1068,23 +1228,34 @@ const LocationPage = () => {
           </div>
         </section>
 
-        {/* ═══ AREAS SERVED ═══ */}
+        {/* ═══ AREAS SERVED — hyper-local prose for "near me" queries ═══ */}
         {city.localAreas && city.localAreas.length > 0 && (
           <section className="bg-card/30 border-y border-border py-14 px-6" aria-label="Areas served">
             <div className="max-w-5xl mx-auto">
               <div className="flex items-center gap-3 mb-4">
                 <MapPin className="w-8 h-8 text-primary" />
                 <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl">
-                  {examLabel} Coaching for All Areas in {city.city}
+                  {examLabel} Coaching Near You in {city.city}
                 </h2>
               </div>
-              <p className="text-muted-foreground mb-6 max-w-3xl">
-                MindPeak's online 1-on-1 coaching is available for students across all localities in {city.city}.
+              {/* Prose paragraph that naturally mentions local areas — targets "coaching near [area]" queries */}
+              <p className="text-muted-foreground mb-3 max-w-3xl leading-relaxed">
+                MindPeak's 1-on-1 online coaching reaches students across every corner of {city.city} — from{' '}
+                {city.localAreas.slice(0, 3).join(', ')} to{' '}
+                {city.localAreas.slice(3, 6).join(', ')}{city.localAreas.length > 6 ? ` and beyond` : ''}.
+                {' '}No matter which locality you live in, you get the same dedicated IIT/AIIMS alumni mentor and
+                adaptive curriculum — without commuting to a coaching centre.
               </p>
+              {city.localAreas.length > 6 && (
+                <p className="text-muted-foreground mb-6 max-w-3xl leading-relaxed text-sm">
+                  Students from {city.localAreas.slice(6, 12).join(', ')} have enrolled with MindPeak and seen
+                  significant score improvements within three months — all studying from home.
+                </p>
+              )}
               <div className="flex flex-wrap gap-2">
                 {city.localAreas.map((area, i) => (
                   <span key={i} className="px-4 py-2 rounded-full bg-background border border-border text-muted-foreground text-xs hover:border-primary/40 hover:text-primary transition-colors">
-                    <MapPin className="w-3 h-3 inline mr-1" />{area}
+                    <MapPin className="w-3 h-3 inline mr-1" />{examLabel} coaching near {area}
                   </span>
                 ))}
               </div>
