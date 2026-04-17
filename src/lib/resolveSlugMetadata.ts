@@ -463,14 +463,58 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
   if (isLocation) {
     const cityMeta = INDEXABLE_CITY_META[slug];
     if (cityMeta) {
-      // T1 curated city — index with unique metadata and self-canonical
+      // T1 curated city — index with unique metadata, self-canonical, hreflang
       const selfCanonical = `${BASE}/${slug}`;
+      const exam = slug.startsWith('neet') ? 'NEET' : 'JEE';
+      const cityNameRaw = slug.split('-in-').pop() ?? '';
+      const cityName = cityNameRaw.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
       return {
         title: cityMeta.title,
         description: cityMeta.description,
-        alternates: { canonical: selfCanonical },
-        openGraph: { ...og, url: selfCanonical },
-        robots: { index: true, follow: true },
+        keywords: [
+          `${exam} coaching in ${cityName}`,
+          `best ${exam} coaching ${cityName}`,
+          `online ${exam} coaching ${cityName}`,
+          `${exam} classes ${cityName}`,
+          `1-on-1 ${exam} tutor ${cityName}`,
+          `${exam} preparation ${cityName}`,
+          'MindPeak Institute',
+        ],
+        alternates: {
+          canonical: selfCanonical,
+          languages: {
+            'en-IN': selfCanonical,
+            'x-default': selfCanonical,
+          },
+        },
+        openGraph: {
+          ...og,
+          url: selfCanonical,
+          title: cityMeta.title,
+          description: cityMeta.description,
+          locale: 'en_IN',
+          type: 'website',
+        },
+        twitter: {
+          card: 'summary_large_image',
+          title: cityMeta.title,
+          description: cityMeta.description,
+        },
+        robots: {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            'max-snippet': -1,
+            'max-image-preview': 'large',
+            'max-video-preview': -1,
+          },
+        },
+        other: {
+          'geo.region': 'IN',
+          'geo.placename': cityName,
+        },
       };
     }
     // All other city pages — keep noindexed to avoid scaled-content penalty

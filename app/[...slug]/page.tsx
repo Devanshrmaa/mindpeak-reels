@@ -14,7 +14,7 @@
 import type { Metadata } from "next";
 import { notFound, permanentRedirect } from "next/navigation";
 import { resolveSlugMetadata, isKnownSlug } from "@/lib/resolveSlugMetadata";
-import { buildCityJsonLd } from "@/lib/cityJsonLd";
+import { buildCityJsonLd, buildCityServerContent } from "@/lib/cityJsonLd";
 import CatchAllClient from "./CatchAllClient";
 
 interface Props {
@@ -128,31 +128,90 @@ export default async function CatchAllPage({ params }: Props) {
 
   const content = buildServerContent(slug);
   const cityJsonLd = buildCityJsonLd(full);
+  const cityContent = buildCityServerContent(full);
 
   return (
     <>
-      {/* JSON-LD structured data for T1 city pages — FAQ rich snippets + LocalBusiness */}
-      {cityJsonLd && (
-        <>
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: cityJsonLd.faq }}
-          />
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: cityJsonLd.org }}
-          />
-        </>
-      )}
+      {/* JSON-LD structured data for T1 city pages — Breadcrumb, FAQ, LocalBusiness, Course, WebPage, Reviews */}
+      {cityJsonLd?.map((jsonLd, idx) => (
+        <script
+          key={`city-jsonld-${idx}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: jsonLd }}
+        />
+      ))}
       {/* Server-rendered content shell for crawlers — visible to Googlebot in initial HTML */}
       <div
         className="sr-only"
         aria-hidden="true"
         suppressHydrationWarning
       >
-        <h1>{content.heading}</h1>
-        <p>{content.description}</p>
-        <p>MindPeak Institute offers personalized 1-on-1 JEE and NEET coaching with a 95% success rate. Our adaptive curriculum and dedicated mentors help students achieve their dream ranks.</p>
+        {cityContent ? (
+          <>
+            <nav aria-label="Breadcrumb">
+              <ol>
+                {cityContent.breadcrumb.map((b, i) => (
+                  <li key={i}>
+                    <a href={b.href}>{b.label}</a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+            <h1>{cityContent.heading}</h1>
+            <h2>{cityContent.subheading}</h2>
+            <p>{cityContent.intro}</p>
+            {cityContent.highlights.length > 0 && (
+              <section>
+                <h3>Why MindPeak for {cityContent.heading.replace('Best ', '').split(' Coaching')[0]} students</h3>
+                <ul>
+                  {cityContent.highlights.map((h, i) => <li key={i}>{h}</li>)}
+                </ul>
+              </section>
+            )}
+            {cityContent.localAreas.length > 0 && (
+              <section>
+                <h3>Areas we serve</h3>
+                <p>{cityContent.localAreas.join(', ')}</p>
+              </section>
+            )}
+            {cityContent.targetColleges.length > 0 && (
+              <section>
+                <h3>Target colleges</h3>
+                <p>{cityContent.targetColleges.join(', ')}</p>
+              </section>
+            )}
+            {cityContent.faqs.length > 0 && (
+              <section>
+                <h3>Frequently asked questions</h3>
+                <dl>
+                  {cityContent.faqs.map((f, i) => (
+                    <div key={i}>
+                      <dt>{f.q}</dt>
+                      <dd>{f.a}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </section>
+            )}
+            {cityContent.testimonials.length > 0 && (
+              <section>
+                <h3>Student results</h3>
+                {cityContent.testimonials.map((t, i) => (
+                  <blockquote key={i}>
+                    <p>{t.quote}</p>
+                    <cite>{t.name} — {t.role}</cite>
+                  </blockquote>
+                ))}
+              </section>
+            )}
+          </>
+        ) : (
+          <>
+            <h1>{content.heading}</h1>
+            <p>{content.description}</p>
+            <p>MindPeak Institute offers personalized 1-on-1 JEE and NEET coaching with a 95% success rate. Our adaptive curriculum and dedicated mentors help students achieve their dream ranks.</p>
+          </>
+        )}
         <nav>
           <a href="/jee-coaching">JEE Coaching</a>
           <a href="/neet-coaching">NEET Coaching</a>
