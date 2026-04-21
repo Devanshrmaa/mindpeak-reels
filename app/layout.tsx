@@ -107,9 +107,9 @@ const jsonLdGraph = {
       logo: {
         "@type": "ImageObject",
         "@id": "https://mindpeakinstitute.com/#logo",
-        url: "https://mindpeakinstitute.com/favicon.ico",
-        width: 64,
-        height: 64,
+        url: "https://mindpeakinstitute.com/images/logo.jpeg",
+        width: 400,
+        height: 400,
       },
       description:
         "India's #1 personalized 1-on-1 JEE and NEET coaching with 95% success rate.",
@@ -147,7 +147,7 @@ const jsonLdGraph = {
         },
         "query-input": "required name=search_term_string",
       },
-      inLanguage: ["en-IN", "hi-IN"],
+      inLanguage: "en-IN",
     },
   ],
 };

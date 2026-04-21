@@ -1,6 +1,7 @@
 import BlogPostClient from "./BlogPostClient";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { getAuthorForSubject } from "@/data/authorData";
 
 const BASE = "https://mindpeakinstitute.com";
 
@@ -20,6 +21,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = resolvePostBySlug(slug);
   if (!post) return { title: "Blog | MindPeak Institute" };
   const canonical = `${BASE}/blog/${post.slug}`;
+
+  // Resolve expert author the same way BlogPost.tsx does
+  const tags = post.tags.map((t: string) => t.toLowerCase());
+  const isNEET = post.category === 'NEET' || tags.includes('neet');
+  const exam: 'JEE' | 'NEET' = isNEET ? 'NEET' : 'JEE';
+  const subject = tags.includes('biology') ? 'Biology'
+    : tags.includes('chemistry') ? 'Chemistry'
+    : tags.includes('mathematics') || tags.includes('maths') ? 'Mathematics'
+    : tags.includes('physics') ? 'Physics'
+    : isNEET ? 'Biology' : 'Physics';
+  const expertAuthor = getAuthorForSubject(exam, subject);
+
   return {
     title: `${post.title} | MindPeak Institute`,
     description: post.excerpt.slice(0, 160),
@@ -30,8 +43,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: post.title,
       description: post.excerpt.slice(0, 160),
       publishedTime: post.publishDate,
-      authors: [post.author],
+      modifiedTime: post.publishDate,
+      authors: [expertAuthor.name],
+      images: [{ url: `${BASE}/hero-bg.jpg`, width: 1200, height: 630 }],
       siteName: "MindPeak Institute",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt.slice(0, 155),
+      images: [`${BASE}/hero-bg.jpg`],
     },
   };
 }

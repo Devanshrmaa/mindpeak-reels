@@ -14,6 +14,7 @@ import { getAllExamInfoSlugs } from '@/data/examInfoData';
 import { getAllDifferenceSlugs } from '@/data/differenceBetweenData';
 import { getAllCounsellingSlugs } from '@/data/counsellingData';
 import { getAllExamEventBlogSlugs } from '@/lib/examEventBlogs';
+import { getAllAuthors } from '@/data/authorData';
 
 const IMPORTANT_Q_SLUGS = [
   'jee-physics-important-questions',
@@ -108,7 +109,10 @@ export async function GET() {
   /* ═══ 9. Counselling & college pages ═══ */
   const counsellingSlugs = getAllCounsellingSlugs().map(s => `/${s}`);
 
-  /* ═══ 10. T1 city coaching pages (indexed, hand-curated) ═══ */
+  /* ═══ 10. Individual author/mentor pages (E-E-A-T) ═══ */
+  const authorPages = getAllAuthors().map(a => `/mentors/${a.slug}`);
+
+  /* ═══ 11. T1 city coaching pages (indexed, hand-curated) ═══ */
   const CITY_PAGES = [
     // South India — Karnataka
     '/jee-coaching-in-bangalore', '/neet-coaching-in-bangalore',
@@ -157,6 +161,7 @@ export async function GET() {
     difference: differenceSlugs.length,
     importantQ: importantQSlugs.length,
     counselling: counsellingSlugs.length,
+    authors: authorPages.length,
     cities: CITY_PAGES.length,
   };
   const total = Object.values(counts).reduce((a, b) => a + b, 0);
@@ -180,6 +185,9 @@ export async function GET() {
   for (const p of differenceSlugs) lines.push(urlEntry(p, '0.60', 'monthly', staggeredLastmod(p, now)));
   for (const p of importantQSlugs) lines.push(urlEntry(p, '0.65', 'weekly', TODAY));
   for (const p of counsellingSlugs) lines.push(urlEntry(p, '0.65', 'monthly', staggeredLastmod(p, now)));
+
+  // Author/mentor pages — E-E-A-T trust signals
+  for (const p of authorPages) lines.push(urlEntry(p, '0.70', 'monthly', staggeredLastmod(p, now)));
 
   // T1 city coaching pages — high commercial intent, genuinely unique content
   for (const p of CITY_PAGES) lines.push(urlEntry(p, '0.85', 'monthly', staggeredLastmod(p, now)));
