@@ -169,7 +169,17 @@ export function isKnownSlug(slugSegments: string[]): boolean {
   if (slug.startsWith('jee-practice-')) return true;
   if (/^jee-(physics|chemistry|mathematics)-/.test(slug)) return true;
   if (/^neet-(biology|physics|chemistry)-/.test(slug)) return true;
-  if (slug.includes('coaching-in-')) return true;
+  // coaching-in-* slugs: validate that the city portion maps to a known city
+  // to prevent arbitrary /jee-coaching-in-[garbage] slugs returning 200+noindex
+  // instead of 404. allCities is imported lazily to keep this server-safe.
+  if (slug.includes('coaching-in-')) {
+    const citySlug = slug.split('-in-').pop() ?? '';
+    if (citySlug) {
+      const { allCities } = require('@/data/cityData') as { allCities: { slug: string }[] };
+      if (allCities.some((c) => c.slug === citySlug)) return true;
+    }
+    return false;
+  }
   if (/^how-to-study-.+-for-(jee|neet)$/.test(slug)) return true;
 
   return false;

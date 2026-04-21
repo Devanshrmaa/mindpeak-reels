@@ -39,10 +39,17 @@ const nextConfig: NextConfig = {
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
           { key: 'Last-Modified', value: new Date().toUTCString() },
-          /* Ensure no accidental noindex on HTML pages */
-          { key: 'X-Robots-Tag', value: 'index, follow' },
+          /*
+           * X-Robots-Tag is intentionally NOT set here globally.
+           * Setting "index, follow" globally would override the per-page
+           * robots: { index: false } metadata on 6,000+ noindexed pages
+           * (thin city pages, practice questions, PYQs, study guides).
+           * Per-page <meta name="robots"> tags handle indexing decisions;
+           * this header only applies to non-HTML resources below.
+           */
         ],
       },
+      /* Non-HTML resources that have no meta tags — must use HTTP header */
       {
         source: '/manifest.json',
         headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow, noarchive' }],
@@ -50,6 +57,11 @@ const nextConfig: NextConfig = {
       {
         source: '/_next/static/media/:path*',
         headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow, noarchive' }],
+      },
+      /* API routes — never index */
+      {
+        source: '/api/:path*',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
       },
       /* Long cache for hashed static assets */
       {

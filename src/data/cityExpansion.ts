@@ -936,36 +936,20 @@ const newCityConfigs: CityConfig[] = [
   //  NRI CITY PAGES (30 international cities)
   //  For Indian students studying abroad for JEE/NEET
   // ═══════════════════════════════════════════════════════════
-  { slug: 'dubai', city: 'Dubai', state: 'UAE', tier: 1, lat: 25.2048, lng: 55.2708, exams: ['jee', 'neet'], board: 'CBSE', language: 'Hindi' },
-  { slug: 'abu-dhabi', city: 'Abu Dhabi', state: 'UAE', tier: 1, lat: 24.4539, lng: 54.3773, exams: ['jee', 'neet'], board: 'CBSE', language: 'Hindi' },
-  { slug: 'sharjah', city: 'Sharjah', state: 'UAE', tier: 2, lat: 25.3463, lng: 55.4209, exams: ['jee', 'neet'], board: 'CBSE', language: 'Hindi' },
-  { slug: 'singapore', city: 'Singapore', state: 'Singapore', tier: 1, lat: 1.3521, lng: 103.8198, exams: ['jee', 'neet'], board: 'CBSE' },
-  { slug: 'london', city: 'London', state: 'United Kingdom', tier: 1, lat: 51.5074, lng: -0.1278, exams: ['jee', 'neet'], board: 'CBSE/IGCSE' },
-  { slug: 'new-york', city: 'New York', state: 'United States', tier: 1, lat: 40.7128, lng: -74.0060, exams: ['jee', 'neet'], board: 'CBSE/AP' },
-  { slug: 'san-francisco', city: 'San Francisco', state: 'United States', tier: 1, lat: 37.7749, lng: -122.4194, exams: ['jee', 'neet'], board: 'CBSE/AP' },
-  { slug: 'toronto', city: 'Toronto', state: 'Canada', tier: 1, lat: 43.6532, lng: -79.3832, exams: ['jee', 'neet'], board: 'CBSE' },
-  { slug: 'sydney', city: 'Sydney', state: 'Australia', tier: 1, lat: -33.8688, lng: 151.2093, exams: ['jee', 'neet'], board: 'CBSE' },
-  { slug: 'melbourne', city: 'Melbourne', state: 'Australia', tier: 1, lat: -37.8136, lng: 144.9631, exams: ['jee', 'neet'], board: 'CBSE' },
-  { slug: 'kuala-lumpur', city: 'Kuala Lumpur', state: 'Malaysia', tier: 1, lat: 3.1390, lng: 101.6869, exams: ['jee', 'neet'], board: 'CBSE' },
-  { slug: 'doha', city: 'Doha', state: 'Qatar', tier: 1, lat: 25.2854, lng: 51.5310, exams: ['jee', 'neet'], board: 'CBSE', language: 'Hindi' },
-  { slug: 'riyadh', city: 'Riyadh', state: 'Saudi Arabia', tier: 1, lat: 24.7136, lng: 46.6753, exams: ['jee', 'neet'], board: 'CBSE', language: 'Hindi' },
-  { slug: 'muscat', city: 'Muscat', state: 'Oman', tier: 2, lat: 23.5880, lng: 58.3829, exams: ['jee', 'neet'], board: 'CBSE', language: 'Hindi' },
-  { slug: 'bahrain', city: 'Bahrain', state: 'Bahrain', tier: 2, lat: 26.0667, lng: 50.5577, exams: ['jee', 'neet'], board: 'CBSE', language: 'Hindi' },
-  { slug: 'hong-kong', city: 'Hong Kong', state: 'Hong Kong', tier: 1, lat: 22.3193, lng: 114.1694, exams: ['jee', 'neet'], board: 'CBSE/IB' },
-  { slug: 'bangkok', city: 'Bangkok', state: 'Thailand', tier: 1, lat: 13.7563, lng: 100.5018, exams: ['jee', 'neet'], board: 'CBSE' },
-  { slug: 'jakarta', city: 'Jakarta', state: 'Indonesia', tier: 1, lat: -6.2088, lng: 106.8456, exams: ['jee', 'neet'], board: 'CBSE' },
-  { slug: 'nairobi', city: 'Nairobi', state: 'Kenya', tier: 2, lat: -1.2921, lng: 36.8219, exams: ['jee', 'neet'], board: 'CBSE' },
-  { slug: 'lagos', city: 'Lagos', state: 'Nigeria', tier: 2, lat: 6.5244, lng: 3.3792, exams: ['jee', 'neet'], board: 'CBSE' },
-  { slug: 'berlin', city: 'Berlin', state: 'Germany', tier: 1, lat: 52.5200, lng: 13.4050, exams: ['jee', 'neet'], board: 'CBSE/IB' },
-  { slug: 'amsterdam', city: 'Amsterdam', state: 'Netherlands', tier: 1, lat: 52.3676, lng: 4.9041, exams: ['jee', 'neet'], board: 'CBSE/IB' },
-  { slug: 'tokyo', city: 'Tokyo', state: 'Japan', tier: 1, lat: 35.6762, lng: 139.6503, exams: ['jee', 'neet'], board: 'CBSE' },
-  { slug: 'seoul', city: 'Seoul', state: 'South Korea', tier: 1, lat: 37.5665, lng: 126.9780, exams: ['jee', 'neet'], board: 'CBSE' },
-  { slug: 'auckland', city: 'Auckland', state: 'New Zealand', tier: 2, lat: -36.8485, lng: 174.7633, exams: ['jee', 'neet'], board: 'CBSE' },
-  { slug: 'kuwait-city', city: 'Kuwait City', state: 'Kuwait', tier: 2, lat: 29.3759, lng: 47.9774, exams: ['jee', 'neet'], board: 'CBSE', language: 'Hindi' },
-  { slug: 'colombo', city: 'Colombo', state: 'Sri Lanka', tier: 2, lat: 6.9271, lng: 79.8612, exams: ['jee', 'neet'], board: 'CBSE' },
-  { slug: 'kathmandu', city: 'Kathmandu', state: 'Nepal', tier: 2, lat: 27.7172, lng: 85.3240, exams: ['jee', 'neet'], board: 'CBSE/Nepal Board' },
-  { slug: 'dhaka', city: 'Dhaka', state: 'Bangladesh', tier: 2, lat: 23.8103, lng: 90.4125, exams: ['jee', 'neet'], board: 'CBSE' },
-  { slug: 'frankfurt', city: 'Frankfurt', state: 'Germany', tier: 1, lat: 50.1109, lng: 8.6821, exams: ['jee', 'neet'], board: 'CBSE/IB' },
+  /*
+   * REMOVED: International / NRI city pages (260+ cities across UAE, US, UK,
+   * Australia, Europe, Africa, Asia etc.) were removed because:
+   *   1. JEE & NEET are India-only exams — international city pages are
+   *      irrelevant to the business and confuse Google's topic model.
+   *   2. These pages matched Google's "scaled content abuse" pattern:
+   *      identical template content with only city name substituted.
+   *   3. Even when noindexed, 260+ near-duplicate pages dilute crawl budget
+   *      and reinforce the spam signal that triggered the algorithm penalty.
+   *
+   * If NRI market becomes a priority in future, create 2–3 genuinely unique
+   * hand-crafted pages (e.g. /jee-coaching-for-nri-students) rather than
+   * per-city doorway pages.
+   */
 
   // ═══════════════════════════════════════════════════════════
   //  EXPANSION WAVE 2: 350+ MORE CITIES
@@ -1153,48 +1137,7 @@ const newCityConfigs: CityConfig[] = [
   { slug: 'mahendragarh', city: 'Mahendragarh', state: 'Haryana', tier: 3, lat: 28.2800, lng: 76.1500, exams: ['jee', 'neet'], board: 'Haryana Board', language: 'Hindi' },
   { slug: 'kurukshetra', city: 'Kurukshetra', state: 'Haryana', tier: 3, lat: 29.9695, lng: 76.8783, exams: ['jee', 'neet'], board: 'Haryana Board', language: 'Hindi', nearbyInstitute: 'NIT Kurukshetra' },
 
-  // ─── MORE NRI CITIES ──────────────────────────────────────
-  { slug: 'houston', city: 'Houston', state: 'United States', tier: 1, lat: 29.7604, lng: -95.3698, exams: ['jee', 'neet'], board: 'CBSE/AP' },
-  { slug: 'chicago', city: 'Chicago', state: 'United States', tier: 1, lat: 41.8781, lng: -87.6298, exams: ['jee', 'neet'], board: 'CBSE/AP' },
-  { slug: 'boston', city: 'Boston', state: 'United States', tier: 1, lat: 42.3601, lng: -71.0589, exams: ['jee', 'neet'], board: 'CBSE/AP' },
-  { slug: 'dallas', city: 'Dallas', state: 'United States', tier: 1, lat: 32.7767, lng: -96.7970, exams: ['jee', 'neet'], board: 'CBSE/AP' },
-  { slug: 'atlanta', city: 'Atlanta', state: 'United States', tier: 1, lat: 33.7490, lng: -84.3880, exams: ['jee', 'neet'], board: 'CBSE/AP' },
-  { slug: 'seattle', city: 'Seattle', state: 'United States', tier: 1, lat: 47.6062, lng: -122.3321, exams: ['jee', 'neet'], board: 'CBSE/AP' },
-  { slug: 'vancouver', city: 'Vancouver', state: 'Canada', tier: 1, lat: 49.2827, lng: -123.1207, exams: ['jee', 'neet'], board: 'CBSE' },
-  { slug: 'calgary', city: 'Calgary', state: 'Canada', tier: 2, lat: 51.0447, lng: -114.0719, exams: ['jee', 'neet'], board: 'CBSE' },
-  { slug: 'ottawa', city: 'Ottawa', state: 'Canada', tier: 2, lat: 45.4215, lng: -75.6972, exams: ['jee', 'neet'], board: 'CBSE' },
-  { slug: 'manchester', city: 'Manchester', state: 'United Kingdom', tier: 2, lat: 53.4808, lng: -2.2426, exams: ['jee', 'neet'], board: 'CBSE/IGCSE' },
-  { slug: 'birmingham-uk', city: 'Birmingham', state: 'United Kingdom', tier: 2, lat: 52.4862, lng: -1.8904, exams: ['jee', 'neet'], board: 'CBSE/IGCSE' },
-  { slug: 'edinburgh', city: 'Edinburgh', state: 'United Kingdom', tier: 2, lat: 55.9533, lng: -3.1883, exams: ['jee', 'neet'], board: 'CBSE/IGCSE' },
-  { slug: 'perth', city: 'Perth', state: 'Australia', tier: 2, lat: -31.9505, lng: 115.8605, exams: ['jee', 'neet'], board: 'CBSE' },
-  { slug: 'brisbane', city: 'Brisbane', state: 'Australia', tier: 2, lat: -27.4698, lng: 153.0251, exams: ['jee', 'neet'], board: 'CBSE' },
-  { slug: 'adelaide', city: 'Adelaide', state: 'Australia', tier: 2, lat: -34.9285, lng: 138.6007, exams: ['jee', 'neet'], board: 'CBSE' },
-  { slug: 'munich', city: 'Munich', state: 'Germany', tier: 1, lat: 48.1351, lng: 11.5820, exams: ['jee', 'neet'], board: 'CBSE/IB' },
-  { slug: 'zurich', city: 'Zurich', state: 'Switzerland', tier: 1, lat: 47.3769, lng: 8.5417, exams: ['jee', 'neet'], board: 'CBSE/IB' },
-  { slug: 'vienna', city: 'Vienna', state: 'Austria', tier: 1, lat: 48.2082, lng: 16.3738, exams: ['jee', 'neet'], board: 'CBSE/IB' },
-  { slug: 'paris', city: 'Paris', state: 'France', tier: 1, lat: 48.8566, lng: 2.3522, exams: ['jee', 'neet'], board: 'CBSE/IB' },
-  { slug: 'madrid', city: 'Madrid', state: 'Spain', tier: 1, lat: 40.4168, lng: -3.7038, exams: ['jee', 'neet'], board: 'CBSE/IB' },
-  { slug: 'jeddah', city: 'Jeddah', state: 'Saudi Arabia', tier: 1, lat: 21.4858, lng: 39.1925, exams: ['jee', 'neet'], board: 'CBSE', language: 'Hindi' },
-  { slug: 'al-khobar', city: 'Al Khobar', state: 'Saudi Arabia', tier: 2, lat: 26.2361, lng: 50.2083, exams: ['jee', 'neet'], board: 'CBSE', language: 'Hindi' },
-  { slug: 'fujairah', city: 'Fujairah', state: 'UAE', tier: 3, lat: 25.1288, lng: 56.3265, exams: ['jee', 'neet'], board: 'CBSE', language: 'Hindi' },
-  { slug: 'ajman', city: 'Ajman', state: 'UAE', tier: 2, lat: 25.4052, lng: 55.5136, exams: ['jee', 'neet'], board: 'CBSE', language: 'Hindi' },
-  { slug: 'ras-al-khaimah', city: 'Ras Al Khaimah', state: 'UAE', tier: 2, lat: 25.7895, lng: 55.9432, exams: ['jee', 'neet'], board: 'CBSE', language: 'Hindi' },
-  { slug: 'taipei', city: 'Taipei', state: 'Taiwan', tier: 1, lat: 25.0330, lng: 121.5654, exams: ['jee', 'neet'], board: 'CBSE' },
-  { slug: 'manila', city: 'Manila', state: 'Philippines', tier: 1, lat: 14.5995, lng: 120.9842, exams: ['jee', 'neet'], board: 'CBSE' },
-  { slug: 'ho-chi-minh', city: 'Ho Chi Minh City', state: 'Vietnam', tier: 1, lat: 10.8231, lng: 106.6297, exams: ['jee', 'neet'], board: 'CBSE' },
-  { slug: 'dar-es-salaam', city: 'Dar es Salaam', state: 'Tanzania', tier: 2, lat: -6.7924, lng: 39.2083, exams: ['jee', 'neet'], board: 'CBSE' },
-  { slug: 'johannesburg', city: 'Johannesburg', state: 'South Africa', tier: 1, lat: -26.2041, lng: 28.0473, exams: ['jee', 'neet'], board: 'CBSE' },
-  { slug: 'cairo', city: 'Cairo', state: 'Egypt', tier: 1, lat: 30.0444, lng: 31.2357, exams: ['jee', 'neet'], board: 'CBSE' },
-  { slug: 'rome', city: 'Rome', state: 'Italy', tier: 1, lat: 41.9028, lng: 12.4964, exams: ['jee', 'neet'], board: 'CBSE/IB' },
-  { slug: 'lisbon', city: 'Lisbon', state: 'Portugal', tier: 2, lat: 38.7223, lng: -9.1393, exams: ['jee', 'neet'], board: 'CBSE/IB' },
-  { slug: 'stockholm', city: 'Stockholm', state: 'Sweden', tier: 1, lat: 59.3293, lng: 18.0686, exams: ['jee', 'neet'], board: 'CBSE/IB' },
-  { slug: 'oslo', city: 'Oslo', state: 'Norway', tier: 2, lat: 59.9139, lng: 10.7522, exams: ['jee', 'neet'], board: 'CBSE/IB' },
-  { slug: 'copenhagen', city: 'Copenhagen', state: 'Denmark', tier: 1, lat: 55.6761, lng: 12.5683, exams: ['jee', 'neet'], board: 'CBSE/IB' },
-  { slug: 'helsinki', city: 'Helsinki', state: 'Finland', tier: 2, lat: 60.1699, lng: 24.9384, exams: ['jee', 'neet'], board: 'CBSE/IB' },
-  { slug: 'dublin', city: 'Dublin', state: 'Ireland', tier: 1, lat: 53.3498, lng: -6.2603, exams: ['jee', 'neet'], board: 'CBSE/IB' },
-  { slug: 'warsaw', city: 'Warsaw', state: 'Poland', tier: 2, lat: 52.2297, lng: 21.0122, exams: ['jee', 'neet'], board: 'CBSE/IB' },
-  { slug: 'prague', city: 'Prague', state: 'Czech Republic', tier: 2, lat: 50.0755, lng: 14.4378, exams: ['jee', 'neet'], board: 'CBSE/IB' },
-  { slug: 'budapest', city: 'Budapest', state: 'Hungary', tier: 2, lat: 47.4979, lng: 19.0402, exams: ['jee', 'neet'], board: 'CBSE/IB' },
+  // NRI cities removed — see comment block above for rationale.
 ];
 
 /** All 500+ new cities, auto-generated from configs */
