@@ -8,6 +8,7 @@ import type { BlogPost } from '@/data/blogData';
 import { chapters } from '@/data/chapterData';
 import { BookOpen, Target, Brain, Users, TrendingUp, GraduationCap, Award, Heart, Lightbulb, Compass, Star, Flame, Calendar, Zap, Shield, BarChart3 } from 'lucide-react';
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
+import { getAuthorForSubject } from '@/data/authorData';
 
 const icons = [BookOpen, Target, Brain, Users, TrendingUp, GraduationCap, Award, Heart, Lightbulb, Compass, Star, Flame, Calendar, Zap, Shield, BarChart3];
 const pickIcon = (i: number) => icons[i % icons.length];
@@ -25,6 +26,13 @@ function seededRand(seed: number): number {
 }
 function seededInt(seed: number, min: number, max: number): number {
   return min + Math.floor(seededRand(seed) * (max - min + 1));
+}
+
+/** Returns the named expert author for a given exam + subject combination. */
+function expertName(exam: string, subject: string): string {
+  const examNorm: 'JEE' | 'NEET' = exam.toUpperCase().includes('NEET') ? 'NEET' : 'JEE';
+  const subjectNorm = subject.replace(/^(JEE|NEET)\s+/i, '');
+  return getAuthorForSubject(examNorm, subjectNorm).name;
 }
 
 /**
@@ -123,7 +131,7 @@ function generateChapterPrepPosts(): BlogPost[] {
       excerpt: `An honest guide to ${ch.chapter} preparation for ${exam} — topic sequence, real PYQ patterns, mistakes that cost marks, and a timeline that accounts for difficulty.`,
       category: exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
       tags: [exam, ch.subject, ch.chapter, 'Preparation'],
-      author: 'MindPeak Team',
+      author: expertName(exam, ch.subject),
       publishDate: dynamicPublishDate(i),
       readTime: `${8 + Math.min(topicCount, 6)} min read`,
       icon: pickIcon(i),
@@ -261,7 +269,7 @@ NEET tests recognition more than derivation. For ${ch.chapter}, the winning stra
       excerpt: `Honest scoring tips for ${ch.chapter}: formula shortcuts, trap recognition, and time management that changes based on whether you're facing a Main or Advanced paper.`,
       category: exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
       tags: [exam, ch.subject, ch.chapter, 'Tips'],
-      author: 'MindPeak Team',
+      author: expertName(exam, ch.subject),
       publishDate: dynamicPublishDate(i + 100),
       readTime: `${7 + Math.min(topicCount, 5)} min read`,
       icon: pickIcon(i + 5),
@@ -331,7 +339,7 @@ function generateSubjectStrategyPosts(): BlogPost[] {
         excerpt: `How to revise entire ${c.subject} syllabus for ${c.exam} in ${d} days. Day-wise planner, chapter priorities, and revision hacks.`,
         category: c.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
         tags: [c.exam, c.subject, 'Revision', `${d}-Day Plan`],
-        author: 'MindPeak Team',
+        author: expertName(c.exam, c.subject),
         publishDate: dynamicPublishDate(ci * 3 + di),
         readTime: '12 min read',
         icon: pickIcon(ci * 3 + di),
@@ -501,7 +509,7 @@ function generateBestBooksPosts(): BlogPost[] {
     excerpt: `Top recommended books for ${s.exam} ${s.subject} preparation. NCERT + reference book strategy for maximum marks.`,
     category: s.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [s.exam, s.subject, 'Best Books', 'Recommended'],
-    author: 'MindPeak Team',
+    author: expertName(s.exam, s.subject),
     publishDate: dynamicPublishDate(i + 200),
     readTime: '12 min read',
     icon: pickIcon(i + 10),
@@ -631,7 +639,7 @@ function generatePaperAnalysisPosts(): BlogPost[] {
         excerpt: `Complete analysis of ${exam} ${y} paper. Subject-wise difficulty, chapter-wise question distribution, and preparation insights for ${year}.`,
         category: exam,
         tags: [exam, `${y}`, 'Paper Analysis', 'Exam Review'],
-        author: 'MindPeak Team',
+        author: expertName(exam, exam === 'NEET' ? 'Biology' : 'Physics'),
         publishDate: dynamicPublishDate(yi * 2 + (exam === 'JEE' ? 0 : 1)),
         readTime: '12 min read',
         icon: pickIcon(y % 16),
@@ -1241,7 +1249,7 @@ function generateScoreStrategyPosts(): BlogPost[] {
     excerpt: `Step-by-step strategy to score 99+ percentile in ${s.exam} ${s.subject}. Chapter priorities, daily schedule, and expert tips.`,
     category: s.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [s.exam, s.subject, '99 Percentile', 'Strategy'],
-    author: 'MindPeak Team',
+    author: expertName(s.exam, s.subject),
     publishDate: dynamicPublishDate(i + 600),
     readTime: '14 min read',
     icon: pickIcon(i),
@@ -1613,7 +1621,7 @@ function generateChapterImportantQuestions(): BlogPost[] {
       excerpt: `An honest look at which ${ch.chapter} question types ${exam} has asked in the last decade, which topics get tested every year, and where to focus your limited time.`,
       category: exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
       tags: [exam, ch.subject, ch.chapter, 'Important Questions'],
-      author: 'MindPeak Team',
+      author: expertName(exam, ch.subject),
       publishDate: dynamicPublishDate(i + 800),
       readTime: `${8 + Math.min(topicCount, 4)} min read`,
       icon: pickIcon(i + 2),
@@ -1714,7 +1722,7 @@ function generateRevisionChecklistPosts(): BlogPost[] {
       excerpt: `A practical revision checklist for ${ch.chapter}: what to verify you know, what to skip if time is short, and how to triage gaps before exam day.`,
       category: exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
       tags: [exam, ch.subject, ch.chapter, 'Revision'],
-      author: 'MindPeak Team',
+      author: expertName(exam, ch.subject),
       publishDate: dynamicPublishDate(i + 900),
       readTime: `${6 + Math.min(topicCount, 4)} min read`,
       icon: pickIcon(i + 8),
@@ -1831,7 +1839,7 @@ function generateMistakesToAvoidPosts(): BlogPost[] {
       excerpt: `Why students keep losing marks in ${ch.chapter} despite knowing the concepts, the specific error patterns from real mock tests, and the concrete fix for each one.`,
       category: exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
       tags: [exam, ch.subject, ch.chapter, 'Mistakes'],
-      author: 'MindPeak Team',
+      author: expertName(exam, ch.subject),
       publishDate: dynamicPublishDate(i + 1000),
       readTime: `${7 + Math.min(mistakeCount, 4)} min read`,
       icon: pickIcon(i + 12),
@@ -1890,7 +1898,7 @@ function generateDropperStrategyPosts(): BlogPost[] {
     excerpt: `Complete 6-month dropper strategy for ${s.exam} ${s.subject}. Day-by-day plan, chapter priorities, and mock test schedule.`,
     category: s.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [s.exam, s.subject, 'Dropper', 'Strategy', year.toString()],
-    author: 'MindPeak Team',
+    author: expertName(s.exam, s.subject),
     publishDate: dynamicPublishDate(i + 1100),
     readTime: '15 min read',
     icon: pickIcon(i),
@@ -2054,7 +2062,7 @@ function generateCareerGuidancePosts(): BlogPost[] {
     excerpt: `Comprehensive career guidance: ${t.title}. Data-driven analysis with rankings, cutoffs, and placement statistics.`,
     category: t.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [t.exam, 'Career Guidance', 'College', year.toString()],
-    author: 'MindPeak Team',
+    author: expertName(t.exam, t.exam === 'NEET' ? 'Biology' : 'Physics'),
     publishDate: dynamicPublishDate(i + 1200),
     readTime: '14 min read',
     icon: pickIcon(i + 5),
@@ -2202,7 +2210,7 @@ function generateMonthlyStudyPlanPosts(): BlogPost[] {
         excerpt: `Detailed ${month} ${year} study plan for ${exam} aspirants. Daily schedule, chapter targets, mock test plan.`,
         category: exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
         tags: [exam, 'Study Plan', month, year.toString()],
-        author: 'MindPeak Team',
+        author: expertName(exam, exam === 'NEET' ? 'Biology' : 'Physics'),
         publishDate: dynamicPublishDate(mi + 1300),
         readTime: '12 min read',
         icon: pickIcon(mi),
@@ -2416,7 +2424,7 @@ function generateCutoffPosts(): BlogPost[] {
     excerpt: `${t.title}. Data-driven analysis with historical trends, category-wise breakdowns, and predictions.`,
     category: t.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [t.exam, 'Cutoff', 'College', year.toString()],
-    author: 'MindPeak Team',
+    author: expertName(t.exam, t.exam === 'NEET' ? 'Biology' : 'Physics'),
     publishDate: dynamicPublishDate(i + 1400),
     readTime: '13 min read',
     icon: pickIcon(i + 3),
@@ -2531,7 +2539,7 @@ function generateNCERTAnalysisPosts(): BlogPost[] {
     excerpt: `Complete NCERT analysis of ${ch.chapter} for ${ch.exam}. Every important line, diagram, and exam-relevant concept mapped.`,
     category: ch.exam === 'JEE' ? 'JEE' as const : 'NEET' as const,
     tags: [ch.exam, 'NCERT', ch.subject, ch.chapter],
-    author: 'MindPeak Team',
+    author: expertName(ch.exam, ch.subject),
     publishDate: dynamicPublishDate(i + 1500),
     readTime: '15 min read',
     icon: pickIcon(i + 2),
@@ -2670,7 +2678,7 @@ This is a ${exam.name}-exclusive topic that many students neglect, assuming thei
         excerpt: `Complete ${subj.name} preparation strategy for ${exam.name} ${year}. Covers syllabus differences from ${overlapExam}, chapter weightage, unique topics, and a week-by-week study plan.`,
         category: exam.overlapsWith === 'neet' ? 'NEET' as const : 'JEE' as const,
         tags: [exam.name, subj.name, 'Preparation Guide', 'Strategy', overlapExam],
-        author: 'MindPeak Team',
+        author: expertName(exam.name, subj.name),
         publishDate: dynamicPublishDate(i + 1600),
         readTime: '15 min read',
         icon: examIcons[i % examIcons.length],
@@ -2958,7 +2966,7 @@ function generateExamStrategyPosts(): BlogPost[] {
         excerpt: `Master ${subj.name} for ${exam.name} ${year} with this chapter-wise strategy. Covers weightage analysis, time allocation, and common mistakes for each topic.`,
         category: exam.overlapsWith === 'neet' ? 'NEET' as const : 'JEE' as const,
         tags: [exam.name, subj.name, 'Strategy', 'Score High'],
-        author: 'MindPeak Team',
+        author: expertName(exam.name, subj.name),
         publishDate: dynamicPublishDate(i + 1800),
         readTime: '16 min read',
         icon: examIcons[i % examIcons.length],
@@ -3090,7 +3098,7 @@ function generateExamSyllabusPosts(): BlogPost[] {
       excerpt: `Complete ${exam.name} ${year} syllabus with topic-wise breakdown, weightage analysis, and comparison with ${overlapExam}. Includes preparation timeline and recommended books.`,
       category: exam.overlapsWith === 'neet' ? 'NEET' as const : 'JEE' as const,
       tags: [exam.name, 'Syllabus', year.toString(), 'Preparation'],
-      author: 'MindPeak Team',
+      author: expertName(exam.name, exam.overlapsWith === 'neet' ? 'Biology' : 'Physics'),
       publishDate: dynamicPublishDate(i + 2000),
       readTime: '18 min read',
       icon: examIcons[i % examIcons.length],
@@ -3198,7 +3206,7 @@ function generateCompleteExamGuides(): BlogPost[] {
       excerpt: `Everything you need to know about ${exam.name} ${year}: exam pattern, marking scheme, subject-wise weightage, preparation strategy, cutoffs, and how MindPeak coaching helps.`,
       category: exam.overlapsWith === 'neet' ? 'NEET' as const : 'JEE' as const,
       tags: [exam.name, 'Complete Guide', year.toString(), 'Preparation', 'Strategy'],
-      author: 'MindPeak Team',
+      author: expertName(exam.name, exam.overlapsWith === 'neet' ? 'Biology' : 'Physics'),
       publishDate: dynamicPublishDate(i + 2100),
       readTime: '20 min read',
       icon: examIcons[i % examIcons.length],

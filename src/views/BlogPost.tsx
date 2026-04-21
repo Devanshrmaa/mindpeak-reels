@@ -47,7 +47,7 @@ const BlogPost = () => {
   const relatedPosts = resolveRelatedPosts(post, 3);
   const IconComponent = post.icon;
   const expertAuthor = resolveExpertAuthor(post);
-  const reviewDate = new Date().toISOString().split('T')[0];
+  const reviewDate = post.publishDate;
 
   const shareUrl = typeof window !== 'undefined' ? `${window.location.origin}/blog/${post.slug}` : '';
   const shareText = encodeURIComponent(`Check out: ${post.title}`);
@@ -177,7 +177,7 @@ const BlogPost = () => {
             <AuthorBio slug={expertAuthor.slug} variant="compact" />
             <p className="text-xs text-muted-foreground mb-2">
               Last reviewed by <strong className="text-foreground">{expertAuthor.name}</strong> ({expertAuthor.credential}) on{' '}
-              {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+              {new Date(post.publishDate + 'T00:00:00').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
             </p>
 
             {/* Tags */}
