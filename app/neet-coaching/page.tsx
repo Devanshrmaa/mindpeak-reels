@@ -10,7 +10,25 @@ const description = `Crack NEET ${CURRENT_EXAM_YEAR} with 1-on-1 Biology-first c
 export const metadata: Metadata = {
   title,
   description,
-  alternates: { canonical: "https://mindpeakinstitute.com/neet-coaching" },
-  openGraph: { title, description, url: "https://mindpeakinstitute.com/neet-coaching", siteName: "MindPeak Institute", type: "website" },
+  alternates: {
+    canonical: "https://mindpeakinstitute.com/neet-coaching",
+    languages: {
+      "en-in": "https://mindpeakinstitute.com/neet-coaching",
+      "x-default": "https://mindpeakinstitute.com/neet-coaching",
+    },
+  },
+  openGraph: {
+    title, description,
+    url: "https://mindpeakinstitute.com/neet-coaching",
+    siteName: "MindPeak Institute",
+    type: "website",
+    images: [{ url: "https://mindpeakinstitute.com/hero-bg.jpg", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["https://mindpeakinstitute.com/hero-bg.jpg"],
+  },
 };
 export default function NEETCoachingPage() { return <NEETCoaching />; }

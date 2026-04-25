@@ -51,6 +51,19 @@ function stableRating(slug: string): { value: string; reviewCount: number } {
 }
 
 /**
+ * Deterministic stable date per slug — never changes between crawls.
+ * Spread over 90 days from the site launch date (2025-06-01) so city pages
+ * have varied but consistent dateModified / validFrom values.
+ */
+function stableCityDate(slug: string): string {
+  let hash = 0;
+  for (let i = 0; i < slug.length; i++) hash = ((hash << 5) - hash + slug.charCodeAt(i)) | 0;
+  const base = new Date('2025-06-01');
+  base.setDate(base.getDate() + (Math.abs(hash) % 90));
+  return base.toISOString().slice(0, 10);
+}
+
+/**
  * Returns an array of JSON-LD strings for an indexable city coaching page,
  * or null if the slug is not in the curated set. Each string is ready to
  * be dropped into a <script type="application/ld+json"> tag.
@@ -206,13 +219,13 @@ export function buildCityJsonLd(pageSlug: string): string[] | null {
       price: '0',
       availability: 'https://schema.org/InStock',
       url: `${BASE}/free-trial`,
-      validFrom: new Date().toISOString().slice(0, 10),
+      validFrom: stableCityDate(pageSlug),
       description: `Free demo class for ${cityData.city} students. Annual and quarterly plans available — discuss with counsellor.`,
     },
   };
 
   /* ── 5. WebPage (+ speakable + datePublished/dateModified) ───────────── */
-  const today = new Date().toISOString().slice(0, 10);
+  const today = stableCityDate(pageSlug);
   const webPageSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',

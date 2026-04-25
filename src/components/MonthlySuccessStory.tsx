@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
 import { Quote, MapPin, Trophy } from 'lucide-react';
 import { getCurrentMonthStory, type MonthlyContentBlock } from '@/lib/rotatingContent';
+import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
+
+const MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
 interface MonthlySuccessStoryProps {
   exam?: 'JEE' | 'NEET';
@@ -12,11 +15,7 @@ interface MonthlySuccessStoryProps {
  */
 export const MonthlySuccessStory = ({ exam }: MonthlySuccessStoryProps) => {
   const story: MonthlyContentBlock = getCurrentMonthStory(exam);
-
-  const monthLabel = new Date().toLocaleDateString('en-IN', {
-    month: 'long',
-    year: 'numeric',
-  });
+  const monthLabel = `${MONTH_NAMES[story.month]} ${CURRENT_EXAM_YEAR}`;
 
   return (
     <motion.section

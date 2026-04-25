@@ -68,7 +68,7 @@ export default function ReviewedBySchema({
   schemaType = 'Article',
 }: ReviewedBySchemaProps) {
   const author = reviewer ?? getAuthorForSubject(exam, subject);
-  const date = reviewDate ?? new Date().toISOString().split('T')[0];
+  const date = reviewDate ?? '2025-06-01';
 
   const schema = {
     '@context': 'https://schema.org',
@@ -113,7 +113,7 @@ export function buildReviewedByJsonLd({
   schemaType = 'Article',
 }: Omit<ReviewedBySchemaProps, 'reviewer'> & { reviewer?: Author }) {
   const author = reviewer ?? getAuthorForSubject(exam, subject);
-  const date = reviewDate ?? new Date().toISOString().split('T')[0];
+  const date = reviewDate ?? '2025-06-01';
 
   return {
     '@context': 'https://schema.org',
