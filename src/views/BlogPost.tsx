@@ -279,7 +279,7 @@ const BlogPost = () => {
               <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
                 Get personalized 1-on-1 coaching and achieve your JEE/NEET goals with expert guidance.
               </p>
-              <div className="flex flex-wrap gap-4 justify-center">
+              <div className="flex flex-wrap gap-4 justify-center mb-8">
                 <button
                   onClick={openDemoModal}
                   className="px-10 py-4 bg-gradient-to-r from-gold to-gold-dark text-background font-bold text-sm rounded-full hover:scale-105 transition-transform shadow-gold-glow"
@@ -290,7 +290,25 @@ const BlogPost = () => {
                   to="/courses"
                   className="px-10 py-4 border border-primary text-primary font-display text-sm uppercase tracking-[0.15em] hover:bg-primary hover:text-primary-foreground transition-all duration-300 flex items-center"
                 >
-                  Explore Courses
+                  Explore All JEE &amp; NEET Programs
+                </Link>
+              </div>
+              {/* Contextual quick-links from blog to key service + faculty pages */}
+              <div className="flex flex-wrap gap-2 justify-center text-xs">
+                <Link to="/jee-coaching" className="px-4 py-2 rounded-full border border-border text-muted-foreground hover:border-primary/40 hover:text-primary transition-colors">
+                  JEE Coaching
+                </Link>
+                <Link to="/neet-coaching" className="px-4 py-2 rounded-full border border-border text-muted-foreground hover:border-primary/40 hover:text-primary transition-colors">
+                  NEET Coaching
+                </Link>
+                <Link to="/mentors" className="px-4 py-2 rounded-full border border-border text-muted-foreground hover:border-primary/40 hover:text-primary transition-colors">
+                  Meet Our Expert Faculty
+                </Link>
+                <Link to="/success-stories" className="px-4 py-2 rounded-full border border-border text-muted-foreground hover:border-primary/40 hover:text-primary transition-colors">
+                  Student Success Stories
+                </Link>
+                <Link to="/pricing" className="px-4 py-2 rounded-full border border-border text-muted-foreground hover:border-primary/40 hover:text-primary transition-colors">
+                  Coaching Fees &amp; Plans
                 </Link>
               </div>
             </div>

@@ -178,9 +178,19 @@ const Contact = () => {
                     <CheckCircle className="w-16 h-16 text-primary mx-auto mb-6" />
                     <h2 className="font-display font-bold text-foreground text-2xl mb-3">Message Sent!</h2>
                     <p className="text-muted-foreground mb-6">We&rsquo;ll get back to you within 24 hours.</p>
-                    <Link to="/" className="px-8 py-3 bg-primary text-primary-foreground font-display font-bold text-sm rounded-lg hover:scale-105 transition-transform inline-block">
+                    <Link to="/" className="px-8 py-3 bg-primary text-primary-foreground font-display font-bold text-sm rounded-lg hover:scale-105 transition-transform inline-block mb-6">
                       Back to Home
                     </Link>
+                    <div className="mt-6 pt-6 border-t border-border">
+                      <p className="text-muted-foreground text-xs mb-3 uppercase tracking-wider">While you wait, explore</p>
+                      <div className="flex flex-wrap gap-2 justify-center">
+                        <Link to="/jee-coaching" className="px-4 py-2 rounded-full border border-border text-muted-foreground text-xs hover:border-primary/40 hover:text-primary transition-colors">JEE Coaching Program</Link>
+                        <Link to="/neet-coaching" className="px-4 py-2 rounded-full border border-border text-muted-foreground text-xs hover:border-primary/40 hover:text-primary transition-colors">NEET Coaching Program</Link>
+                        <Link to="/courses" className="px-4 py-2 rounded-full border border-border text-muted-foreground text-xs hover:border-primary/40 hover:text-primary transition-colors">Browse All Courses</Link>
+                        <Link to="/pricing" className="px-4 py-2 rounded-full border border-border text-muted-foreground text-xs hover:border-primary/40 hover:text-primary transition-colors">View Coaching Fees &amp; EMI Plans</Link>
+                        <Link to="/mentors" className="px-4 py-2 rounded-full border border-border text-muted-foreground text-xs hover:border-primary/40 hover:text-primary transition-colors">Meet Our Expert Faculty</Link>
+                      </div>
+                    </div>
                   </div>
                 ) : (
                   <>
