@@ -97,8 +97,10 @@ export default function HomePage() {
         <meta itemProp="email" content="mindpeak@mindpeakinstitute.com" />
         <meta itemProp="url" content="https://mindpeakinstitute.com" />
         <span itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
-          <meta itemProp="addressLocality" content="Kota" />
-          <meta itemProp="addressRegion" content="Rajasthan" />
+          <meta itemProp="streetAddress" content="Nehran Pukhar, Dehra Gopipur" />
+          <meta itemProp="addressLocality" content="Dehra Gopipur" />
+          <meta itemProp="addressRegion" content="Himachal Pradesh" />
+          <meta itemProp="postalCode" content="177101" />
           <meta itemProp="addressCountry" content="IN" />
         </span>
       </section>
