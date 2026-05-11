@@ -1,91 +1,100 @@
-import { describe, it, expect, vi, afterEach } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import {
   getLastUpdated,
   getFormattedLastUpdated,
+  getSourceLastModified,
   shouldShowFreshnessSignal,
+  BUILD_BASE_DATE,
 } from '../lib/contentFreshness';
+import { SOURCE_LAST_MODIFIED } from '../lib/freshnessData.generated';
 
-afterEach(() => {
-  vi.useRealTimers();
-});
+/**
+ * These tests enforce the honest-freshness contract: dates are derived from
+ * real git commit timestamps captured at build time. They must be stable
+ * across runs (not auto-bumped), anchored to actual content sources, and
+ * never invented.
+ */
 
 describe('getLastUpdated', () => {
   it('returns a string in YYYY-MM-DD format', () => {
-    const result = getLastUpdated('jee-coaching');
-    expect(result).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(getLastUpdated('jee-coaching')).toMatch(/^\d{4}-\d{2}-\d{2}$/);
   });
 
-  it('date is never in the future', () => {
-    vi.useFakeTimers();
-    vi.setSystemTime(new Date('2026-06-15'));
-    const result = getLastUpdated('any-page-slug');
-    const date = new Date(result);
-    expect(date.getTime()).toBeLessThanOrEqual(new Date('2026-06-15').getTime());
+  it('returns a date never in the future (real git dates are always past)', () => {
+    const result = new Date(getLastUpdated('any-slug'));
+    expect(result.getTime()).toBeLessThanOrEqual(Date.now());
   });
 
-  it('date is at most 6 days in the past', () => {
-    vi.useFakeTimers();
-    const today = new Date('2026-06-15');
-    vi.setSystemTime(today);
-    const result = getLastUpdated('any-page-slug');
-    const date = new Date(result);
-    const diffMs = today.getTime() - date.getTime();
-    const diffDays = diffMs / (1000 * 60 * 60 * 24);
-    expect(diffDays).toBeGreaterThanOrEqual(0);
-    expect(diffDays).toBeLessThan(7);
-  });
-
-  it('is deterministic — same slug returns same date on same day', () => {
-    vi.useFakeTimers();
-    vi.setSystemTime(new Date('2026-06-15'));
+  it('is stable across calls — does NOT auto-bump (no fake daily freshness)', () => {
     const a = getLastUpdated('jee-physics-preparation');
     const b = getLastUpdated('jee-physics-preparation');
     expect(a).toBe(b);
   });
 
-  it('returns different dates for different slugs (natural variation)', () => {
-    vi.useFakeTimers();
-    vi.setSystemTime(new Date('2026-06-15'));
-    const results = new Set([
-      getLastUpdated('slug-a'),
-      getLastUpdated('slug-b'),
-      getLastUpdated('slug-c'),
-      getLastUpdated('slug-d'),
-      getLastUpdated('slug-e'),
-      getLastUpdated('slug-f'),
-      getLastUpdated('slug-g'),
-    ]);
-    // With 7 distinct slugs covering all offsets (0–6), we expect more than 1 unique date
-    expect(results.size).toBeGreaterThan(1);
+  it('routes chapter-pattern slugs to chapterData.ts git date', () => {
+    const result = getLastUpdated('jee-physics-mechanics');
+    expect(result).toBe(SOURCE_LAST_MODIFIED['src/data/chapterData.ts']);
   });
 
-  it('updates when the calendar day changes', () => {
-    vi.useFakeTimers();
-    vi.setSystemTime(new Date('2026-06-14'));
-    const dayOne = getLastUpdated('stable-slug');
+  it('routes city-pattern slugs to cityData.ts git date', () => {
+    const result = getLastUpdated('jee-coaching-in-bangalore');
+    expect(result).toBe(SOURCE_LAST_MODIFIED['src/data/cityData.ts']);
+  });
 
-    vi.setSystemTime(new Date('2026-06-20'));
-    const dayTwo = getLastUpdated('stable-slug');
+  it('routes /online-coaching-* slugs to stateLandingPages.ts git date', () => {
+    const result = getLastUpdated('online-coaching-karnataka');
+    expect(result).toBe(SOURCE_LAST_MODIFIED['src/data/stateLandingPages.ts']);
+  });
 
-    // Both are valid YYYY-MM-DD strings; they may differ across days
-    expect(dayOne).toMatch(/^\d{4}-\d{2}-\d{2}$/);
-    expect(dayTwo).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+  it('routes mindpeak-vs-* slugs to comparisonData.ts git date', () => {
+    const result = getLastUpdated('mindpeak-vs-allen');
+    expect(result).toBe(SOURCE_LAST_MODIFIED['src/data/comparisonData.ts']);
+  });
+
+  it('falls back to BUILD_BASE_DATE when no rule matches', () => {
+    expect(getLastUpdated('unmatched-arbitrary-slug')).toBe(BUILD_BASE_DATE);
+  });
+
+  it('strips a leading slash from the input', () => {
+    expect(getLastUpdated('/jee-physics-mechanics')).toBe(getLastUpdated('jee-physics-mechanics'));
   });
 });
 
 describe('getFormattedLastUpdated', () => {
-  it('returns a non-empty string', () => {
-    expect(getFormattedLastUpdated('test-page')).toBeTruthy();
+  it('returns a non-empty string with a 4-digit year', () => {
+    const formatted = getFormattedLastUpdated('jee-coaching');
+    expect(formatted).toBeTruthy();
+    expect(formatted).toMatch(/\d{4}/);
   });
 
-  it('includes a 4-digit year', () => {
-    expect(getFormattedLastUpdated('test-page')).toMatch(/\d{4}/);
+  it('formats the same underlying date as getLastUpdated', () => {
+    const raw = getLastUpdated('jee-physics-mechanics');
+    const formatted = getFormattedLastUpdated('jee-physics-mechanics');
+    expect(formatted).toContain(raw.slice(0, 4)); // year
+  });
+});
+
+describe('getSourceLastModified', () => {
+  it('returns the recorded git date for a tracked source', () => {
+    expect(getSourceLastModified('src/data/blogData.ts')).toBe(
+      SOURCE_LAST_MODIFIED['src/data/blogData.ts'],
+    );
   });
 
-  it('represents a date on or before today', () => {
-    const formatted = getFormattedLastUpdated('test-page');
-    const parsed = new Date(formatted);
-    expect(parsed.getTime()).toBeLessThanOrEqual(Date.now());
+  it('falls back to BUILD_BASE_DATE for an unknown source', () => {
+    expect(getSourceLastModified('src/data/does-not-exist.ts')).toBe(BUILD_BASE_DATE);
+  });
+});
+
+describe('BUILD_BASE_DATE', () => {
+  it('is a YYYY-MM-DD string', () => {
+    expect(BUILD_BASE_DATE).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+  });
+
+  it('is the most recent (or equal-to-most-recent) date across all tracked sources', () => {
+    const dates = Object.values(SOURCE_LAST_MODIFIED).sort();
+    const newest = dates[dates.length - 1];
+    expect(BUILD_BASE_DATE >= newest).toBe(true);
   });
 });
 

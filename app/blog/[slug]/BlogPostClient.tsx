@@ -20,6 +20,9 @@ interface SerializedPost {
   tags: string[];
   author: string;
   publishDate: string;
+  /** Git-derived last-modified date (from contentFreshness). Optional —
+   *  only set when the data source file's modification post-dates publishDate. */
+  dateModified?: string;
   readTime: string;
   content: string;
   color?: string;

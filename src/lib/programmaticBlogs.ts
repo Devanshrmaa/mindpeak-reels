@@ -8,6 +8,7 @@ import type { BlogPost } from '@/data/blogData';
 import { chapters } from '@/data/chapterData';
 import { BookOpen, Target, Brain, Users, TrendingUp, GraduationCap, Award, Heart, Lightbulb, Compass, Star, Flame, Calendar, Zap, Shield, BarChart3 } from 'lucide-react';
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
+import { getSourceLastModified } from '@/lib/contentFreshness';
 
 const icons = [BookOpen, Target, Brain, Users, TrendingUp, GraduationCap, Award, Heart, Lightbulb, Compass, Star, Flame, Calendar, Zap, Shield, BarChart3];
 const pickIcon = (i: number) => icons[i % icons.length];
@@ -28,16 +29,25 @@ function seededInt(seed: number, min: number, max: number): number {
 }
 
 /**
- * Stable publish date — deterministic, never changes between crawls.
- * Uses a fixed base date (site content launch) + seed-based offset spread
- * over 6 months so posts have varied but consistent publish dates.
- * Google treats changing publish dates as date manipulation; this ensures
- * each post always shows the same date on every crawl.
+ * Publish date for programmatic posts.
+ *
+ * Anchored to the actual git last-modification date of chapterData.ts —
+ * the source file these posts derive their content from. When chapterData
+ * is updated in a real commit, the base advances. Between such commits,
+ * dates are stable. Per-seed offset (0–179 days BACKWARD from base) gives
+ * each post a distinct but deterministic publish date without inventing
+ * forward freshness.
+ *
+ * History: this used to read `new Date('2024-08-01')` as the base, which
+ * surfaced misleading "Aug 2024" date pills on every blog card despite
+ * content referencing JEE 2027. Replaced with git-derived anchor in
+ * May 2026 — see scripts/gen-freshness-data.mjs for the build-time data.
  */
 function dynamicPublishDate(seed: number): string {
-  const base = new Date('2024-08-01'); // fixed base — site content launch
-  const daysOffset = Math.abs(seed) % 180; // spread over ~6 months
-  base.setDate(base.getDate() + daysOffset);
+  const baseIso = getSourceLastModified('src/data/chapterData.ts');
+  const base = new Date(baseIso);
+  const daysOffset = Math.abs(seed) % 180;
+  base.setDate(base.getDate() - daysOffset);
   return base.toISOString().split('T')[0];
 }
 
