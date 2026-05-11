@@ -199,7 +199,7 @@ const CourseDetail = () => {
               <div className="shrink-0">
                 {course.logo ? (
                   <div className="w-20 h-20 rounded-2xl overflow-hidden ring-1 ring-foreground/[0.08] bg-white/5">
-                    <img src={course.logo} alt={course.name} className="w-full h-full object-contain" />
+                    <img src={course.logo} alt={course.name} width={80} height={80} loading="lazy" className="w-full h-full object-contain" />
                   </div>
                 ) : (
                   <div className="w-20 h-20 rounded-2xl bg-foreground/[0.04] flex items-center justify-center">
