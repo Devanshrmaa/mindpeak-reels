@@ -1,4 +1,5 @@
 import { CURRENT_EXAM_YEAR, ONE_YEAR_TARGET, TWO_YEAR_TARGET } from '@/lib/examYears';
+import { stateLandingPages } from './stateLandingPages';
 
 export interface SEOPageSection {
   heading: string;
@@ -3868,6 +3869,7 @@ export const allSEOPages: SEOPageData[] = [
   ...comparisonPages,
   ...jeeChapterCategoryPages,
   ...otherExamPages,
+  ...stateLandingPages,
 ];
 
 /** Lookup a page by slug */

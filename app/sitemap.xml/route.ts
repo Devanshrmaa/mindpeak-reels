@@ -82,6 +82,9 @@ export async function GET() {
     '/terms-and-conditions', '/refund-policy',
     // Exam landing pages from registry
     ...examRegistry.map(e => `/${e.slug}-coaching`),
+    // State-level online coaching pages (target online intent, not local intent)
+    '/online-coaching-himachal-pradesh',
+    '/online-coaching-karnataka',
   ];
 
   /* ═══ 2. Comparison pages ═══ */
