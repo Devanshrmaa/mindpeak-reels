@@ -42,7 +42,7 @@ export const ContactSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <img src={logo} alt="MindPeak Institute" className="w-16 h-16 rounded-full mx-auto mb-8 ring-1 ring-foreground/[0.08]" />
+          <img src={logo} alt="MindPeak Institute" width={64} height={64} loading="lazy" className="w-16 h-16 rounded-full mx-auto mb-8 ring-1 ring-foreground/[0.08]" />
           <h2 className="font-display font-bold text-foreground text-3xl sm:text-4xl mb-4 tracking-[-0.02em]">
             Start Your <span className="text-gradient-gold">Journey</span>
           </h2>
