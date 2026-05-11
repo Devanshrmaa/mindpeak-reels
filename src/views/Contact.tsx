@@ -20,7 +20,7 @@ const contactInfo = [
   { icon: Phone, label: '+91 82194 57704', href: 'tel:+918219457704', desc: 'Mon-Sat, 9 AM – 8 PM IST' },
   { icon: Mail, label: 'mindpeak@mindpeakinstitute.com', href: 'mailto:mindpeak@mindpeakinstitute.com', desc: 'We reply within 24 hours' },
   { icon: MessageCircle, label: 'WhatsApp Chat', href: 'https://wa.me/918219457704?text=Hello!!%20MindPeak%20Institute', desc: 'Instant chat support' },
-  { icon: MapPin, label: 'Kota, Rajasthan (100% Online)', href: '#', desc: 'Serving students across India' },
+  { icon: MapPin, label: 'Dehra Gopipur, Kangra, HP (100% Online)', href: '#', desc: 'Serving students across India' },
 ];
 
 interface FormData {
@@ -94,7 +94,7 @@ const Contact = () => {
     url: 'https://mindpeakinstitute.com',
     telephone: '+91-82194-57704',
     email: 'mindpeak@mindpeakinstitute.com',
-    address: { '@type': 'PostalAddress', addressLocality: 'Kota', addressRegion: 'Rajasthan', addressCountry: 'IN' },
+    address: { '@type': 'PostalAddress', streetAddress: 'Nehran Pukhar, Dehra Gopipur', addressLocality: 'Dehra Gopipur', addressRegion: 'Himachal Pradesh', postalCode: '177101', addressCountry: 'IN' },
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: '+91-82194-57704',

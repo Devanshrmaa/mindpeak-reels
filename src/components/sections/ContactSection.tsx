@@ -55,7 +55,7 @@ export const ContactSection = () => {
           {[
             { icon: Phone, label: '+91 82194 57704', href: 'tel:+918219457704' },
             { icon: Mail, label: 'mindpeak@mindpeakinstitute.com', href: 'mailto:mindpeak@mindpeakinstitute.com' },
-            { icon: MapPin, label: 'Kota, Rajasthan', href: '#' },
+            { icon: MapPin, label: 'Dehra Gopipur, Kangra, HP', href: '#' },
           ].map((item, i) => (
             <motion.a
               key={item.label}

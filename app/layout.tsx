@@ -119,10 +119,16 @@ const jsonLdGraph = {
       areaServed: { "@type": "Country", name: "India" },
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Kota",
-        addressRegion: "Rajasthan",
-        postalCode: "324005",
+        streetAddress: "Nehran Pukhar, Dehra Gopipur",
+        addressLocality: "Dehra Gopipur",
+        addressRegion: "Himachal Pradesh",
+        postalCode: "177101",
         addressCountry: "IN",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 31.8358,
+        longitude: 76.5312,
       },
       sameAs: [
         "https://instagram.com/mindpeakinstitute",
