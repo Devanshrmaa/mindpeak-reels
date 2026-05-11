@@ -12,6 +12,7 @@
 
 import { getAuthorBySlug, type Author } from '@/data/authorData';
 import { Award, BookOpen, GraduationCap, Users } from 'lucide-react';
+import { Link } from '@/components/RouterLink';
 
 interface AuthorBioProps {
   /** Author slug from authorData */
@@ -114,6 +115,16 @@ function FullBio({ author }: { author: Author }) {
             </li>
           ))}
         </ul>
+      </div>
+
+      {/* Link to full faculty page */}
+      <div className="mt-5 pt-4 border-t border-border">
+        <Link
+          to="/mentors"
+          className="text-sm text-primary hover:underline font-medium inline-flex items-center gap-1.5"
+        >
+          Meet all our expert JEE &amp; NEET faculty →
+        </Link>
       </div>
     </aside>
   );

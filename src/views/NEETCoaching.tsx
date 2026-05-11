@@ -443,6 +443,13 @@ const NEETCoaching = () => {
             <h3 className="font-display font-semibold text-foreground text-sm mb-5 tracking-[-0.01em]">Explore More</h3>
             <div className="flex flex-wrap gap-2">
               {[
+                { label: 'NEET Biology Coaching', to: '/neet-biology-coaching' },
+                { label: 'NEET Physics Coaching', to: '/neet-physics-coaching' },
+                { label: 'NEET Chemistry Coaching', to: '/neet-chemistry-coaching' },
+                { label: 'Meet Our NEET Expert Mentors', to: '/mentors' },
+                { label: 'Student Success Stories', to: '/success-stories' },
+                { label: 'Our Teaching Methodology', to: '/methodology' },
+                { label: 'About MindPeak Institute', to: '/about' },
                 { label: 'NEET Biology Preparation', to: '/neet-biology-preparation' },
                 { label: 'NEET Chemistry Preparation', to: '/neet-chemistry-preparation' },
                 { label: 'NEET Physics Preparation', to: '/neet-physics-preparation' },
@@ -457,7 +464,7 @@ const NEETCoaching = () => {
                 { label: 'NEET Coaching in Delhi', to: '/neet-coaching-in-delhi' },
                 { label: 'NEET Coaching in Mumbai', to: '/neet-coaching-in-mumbai' },
                 { label: 'NEET Coaching in Bangalore', to: '/neet-coaching-in-bangalore' },
-                { label: 'Blog — NEET Tips', to: '/blog' },
+                { label: 'NEET Preparation Blog & Expert Guides', to: '/blog' },
               ].map((l) => (
                 <Link key={l.to} to={l.to} className="px-4 py-2.5 rounded-full border border-foreground/[0.06] bg-foreground/[0.02] text-foreground/70 text-[11px] tracking-[0.05em] hover:border-primary/15 hover:text-foreground transition-all duration-400 flex items-center gap-1.5">
                   <ArrowRight className="w-3 h-3 text-primary/50" strokeWidth={1.5} /> {l.label}

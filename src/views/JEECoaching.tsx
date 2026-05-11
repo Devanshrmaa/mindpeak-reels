@@ -461,10 +461,16 @@ const JEECoaching = () => {
             <h3 className="font-display font-semibold text-foreground text-sm mb-5 tracking-[-0.01em]">Explore More</h3>
             <div className="flex flex-wrap gap-2">
               {[
+                { label: 'JEE Physics Coaching', to: '/jee-physics-coaching' },
+                { label: 'JEE Chemistry Coaching', to: '/jee-chemistry-coaching' },
+                { label: 'JEE Mathematics Coaching', to: '/jee-mathematics-coaching' },
+                { label: 'Meet Our JEE Expert Mentors', to: '/mentors' },
+                { label: 'Student Success Stories', to: '/success-stories' },
+                { label: 'Our Teaching Methodology', to: '/methodology' },
+                { label: 'About MindPeak Institute', to: '/about' },
                 { label: 'JEE Physics Preparation', to: '/jee-physics-preparation' },
                 { label: 'JEE Chemistry Preparation', to: '/jee-chemistry-preparation' },
                 { label: 'JEE Mathematics Preparation', to: '/jee-mathematics-preparation' },
-                { label: 'JEE Mock Test Strategy', to: '/jee-mock-test-strategy' },
                 { label: 'JEE Physics Formulas', to: '/jee-physics-formulas' },
                 { label: 'JEE Chemistry Formulas', to: '/jee-chemistry-formulas' },
                 { label: 'JEE Maths Formulas', to: '/jee-maths-formulas' },
@@ -479,7 +485,7 @@ const JEECoaching = () => {
                 { label: 'MindPeak vs FIITJEE', to: '/mindpeak-vs-fiitjee' },
                 { label: 'JEE Coaching in Delhi', to: '/jee-coaching-in-delhi' },
                 { label: 'JEE Coaching in Mumbai', to: '/jee-coaching-in-mumbai' },
-                { label: 'Blog — JEE Tips', to: '/blog' },
+                { label: 'JEE Preparation Blog & Strategy Guides', to: '/blog' },
               ].map((l) => (
                 <Link
                   key={l.to}

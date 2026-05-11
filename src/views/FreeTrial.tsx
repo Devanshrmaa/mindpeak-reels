@@ -185,9 +185,19 @@ const FreeTrial = () => {
                     <CheckCircle className="w-16 h-16 text-primary mx-auto mb-6" />
                     <h2 className="font-display font-bold text-foreground text-2xl mb-3">You&rsquo;re All Set!</h2>
                     <p className="text-muted-foreground mb-6">Our counselor will call you within 24 hours to schedule your free trial class.</p>
-                    <Link to="/" className="px-8 py-3 bg-primary text-primary-foreground font-display font-bold text-sm rounded-lg hover:scale-105 transition-transform inline-block">
+                    <Link to="/" className="px-8 py-3 bg-primary text-primary-foreground font-display font-bold text-sm rounded-lg hover:scale-105 transition-transform inline-block mb-6">
                       Back to Home
                     </Link>
+                    <div className="mt-6 pt-6 border-t border-border">
+                      <p className="text-muted-foreground text-xs mb-3 uppercase tracking-wider">Learn more about your program</p>
+                      <div className="flex flex-wrap gap-2 justify-center">
+                        <Link to="/jee-coaching" className="px-4 py-2 rounded-full border border-border text-muted-foreground text-xs hover:border-primary/40 hover:text-primary transition-colors">JEE 1-on-1 Coaching</Link>
+                        <Link to="/neet-coaching" className="px-4 py-2 rounded-full border border-border text-muted-foreground text-xs hover:border-primary/40 hover:text-primary transition-colors">NEET 1-on-1 Coaching</Link>
+                        <Link to="/courses" className="px-4 py-2 rounded-full border border-border text-muted-foreground text-xs hover:border-primary/40 hover:text-primary transition-colors">Browse All JEE &amp; NEET Programs</Link>
+                        <Link to="/mentors" className="px-4 py-2 rounded-full border border-border text-muted-foreground text-xs hover:border-primary/40 hover:text-primary transition-colors">Meet Your Future Mentor</Link>
+                        <Link to="/success-stories" className="px-4 py-2 rounded-full border border-border text-muted-foreground text-xs hover:border-primary/40 hover:text-primary transition-colors">Student Success Stories</Link>
+                      </div>
+                    </div>
                   </div>
                 ) : (
                   <>
