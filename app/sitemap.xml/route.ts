@@ -141,6 +141,11 @@ export async function GET() {
    * - Thin blog posts (~600+) → killed generators return []
    */
 
+  /* ═══ Breaking news / time-sensitive pages (highest crawl frequency) ═══ */
+  const BREAKING = [
+    '/neet-ug-2026-cancelled',
+  ];
+
   /* ═══ Build XML ═══ */
   const lines: string[] = [
     '<?xml version="1.0" encoding="UTF-8"?>',
@@ -163,6 +168,9 @@ export async function GET() {
 
   lines.push(`<!-- Total URLs: ${total} | Static: ${counts.static} | Chapters: ${counts.chapters} | Blogs: ${counts.blogs} | ExamInfo: ${counts.examInfo} | Difference: ${counts.difference} -->`);
   lines.push('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
+
+  // Breaking / time-sensitive pages → highest priority + hourly crawl
+  for (const p of BREAKING) lines.push(urlEntry(p, '0.90', 'hourly', TODAY));
 
   // Static pages → always TODAY
   for (const p of STATIC) lines.push(urlEntry(p, '0.80', 'weekly', TODAY));

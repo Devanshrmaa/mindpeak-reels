@@ -172,6 +172,9 @@ const nextConfig: NextConfig = {
       { source: '/sitemap-topics.xml', destination: '/sitemap.xml', permanent: true },
       { source: '/final.xml', destination: '/sitemap.xml', permanent: true },
       { source: '/sitemaps/:path*', destination: '/sitemap.xml', permanent: true },
+
+      /* ── NEET UG 2026 cancellation — news-path alias → canonical ── */
+      { source: '/news/neet-ug-2026-cancelled', destination: '/neet-ug-2026-cancelled', permanent: true },
     ];
   },
 
