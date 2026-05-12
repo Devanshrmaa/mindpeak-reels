@@ -1,5 +1,5 @@
 import type { NextConfig } from 'next';
-
+// Last updated: 2026-05-12
 const emptyNextPolyfillModulePath = `${process.cwd()}/src/polyfills/empty-next-polyfill-module.js`;
 
 const nextConfig: NextConfig = {
