@@ -87,6 +87,11 @@ export async function GET() {
     '/online-coaching-karnataka',
   ];
 
+  /* ═══ Hot news / time-sensitive pages — hourly changefreq for first 7 days ═══ */
+  const HOT_NEWS: { path: string; until: string }[] = [
+    { path: '/neet-ug-2026-cancelled', until: '2026-05-19' },
+  ];
+
   /* ═══ 2. Comparison pages ═══ */
   const comparisonPaths = competitors.map(c => `/${c.slug}`);
 
@@ -186,6 +191,12 @@ export async function GET() {
 
   // T1 city coaching pages — high commercial intent, genuinely unique content
   for (const p of CITY_PAGES) lines.push(urlEntry(p, '0.85', 'monthly', staggeredLastmod(p, now)));
+
+  // Hot news pages — hourly until their "until" date, then daily; high priority
+  for (const h of HOT_NEWS) {
+    const freq = TODAY < h.until ? 'hourly' : 'daily';
+    lines.push(urlEntry(h.path, '0.90', freq, TODAY));
+  }
 
   lines.push('</urlset>');
 
