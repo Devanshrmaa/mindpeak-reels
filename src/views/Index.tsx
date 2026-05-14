@@ -52,27 +52,31 @@ const Index = ({ children }: { children?: ReactNode }) => {
 
       <main id="main-content" className="bg-background">
         {children}
-        {showDeferredSections ? (
-          <div
-            style={{
-              contentVisibility: 'auto',
-              containIntrinsicSize: '3000px',
-              contain: 'layout style paint',
-            }}
-          >
-            <ProblemSection />
-            <DiscoverySection />
-            <TransformationTimeline />
-            <BeforeAfterSection />
-            <ResultSection />
-            <StatsSection />
-            <SuccessGrid />
-            <CourseFlashcards />
-            <MethodologySection />
-            <FAQSection />
-            <ContactSection />
-          </div>
-        ) : null}
+        {/* Placeholder div reserves ~4000px so the page doesn't jump from 0 to full
+            height when deferred sections mount (eliminates scroll-triggered CLS). */}
+        <div style={showDeferredSections ? undefined : { minHeight: '4000px' }}>
+          {showDeferredSections && (
+            <div
+              style={{
+                contentVisibility: 'auto',
+                containIntrinsicSize: '4000px',
+                contain: 'layout style paint',
+              }}
+            >
+              <ProblemSection />
+              <DiscoverySection />
+              <TransformationTimeline />
+              <BeforeAfterSection />
+              <ResultSection />
+              <StatsSection />
+              <SuccessGrid />
+              <CourseFlashcards />
+              <MethodologySection />
+              <FAQSection />
+              <ContactSection />
+            </div>
+          )}
+        </div>
       </main>
       {/* ScrollIndicator uses framer-motion (useScroll/useSpring/motion) —
           defer until idle to keep framer-motion out of the initial JS bundle */}
