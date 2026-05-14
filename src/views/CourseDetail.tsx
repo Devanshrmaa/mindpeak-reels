@@ -6,6 +6,7 @@ import { Link } from '@/components/RouterLink';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Users, Clock, BookOpen, Download, Calendar } from 'lucide-react';
 import { getCourseBySlug, courses, type Course } from '@/data/coursesData';
+import { getMonthsToCourseTarget } from '@/lib/examYears';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import { NCERTDownloadModal } from '@/components/NCERTDownloadModal';
 import { StudyPlanSection } from '@/components/StudyPlanSection';
@@ -259,6 +260,7 @@ const CourseDetail = () => {
         {(course.category === 'jee' || course.category === 'neet') && (
           <StudyPlanSection
             examType={course.category === 'neet' ? 'NEET' : 'JEE'}
+            monthsOverride={getMonthsToCourseTarget(course.slug) ?? undefined}
             themed
           />
         )}
