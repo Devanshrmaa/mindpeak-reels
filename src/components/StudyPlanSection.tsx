@@ -27,7 +27,6 @@ import {
   type ExamType,
   type StudyPlan,
 } from '@/lib/studyPlanGenerator';
-import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 import { useDemoModal } from '@/components/DemoBookingModal';
 
 /* ─── Tier helpers ─── */
@@ -107,13 +106,13 @@ export const StudyPlanSection = ({
               <>
                 Your Personalised{' '}
                 <span className={themed ? 'text-gradient-gold' : 'bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent'}>
-                  {examType} {CURRENT_EXAM_YEAR} Study Plan
+                  {examType} {plan.examYear} Study Plan
                 </span>
               </>
             )}
           </h2>
           <p className={`${textMuted} text-sm sm:text-base max-w-2xl mx-auto`}>
-            {months} months until {examType} {CURRENT_EXAM_YEAR} — your personalised {plan.tierLabel} is ready.
+            {months} months until {examType} {plan.examYear} — your personalised {plan.tierLabel} is ready.
             Curriculum, fee, and schedule auto-adjust based on time remaining.
           </p>
         </motion.div>

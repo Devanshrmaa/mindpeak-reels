@@ -15,6 +15,7 @@ import { TOPIC_PATHS } from '../src/data/chapterData';
 import { buildAllPYQSlugs } from '../src/data/pyq/index';
 import { buildAllNEETPracticeSlugs } from '../src/data/neet-practice/index';
 import { buildAllNEETPYQSlugs } from '../src/data/neet-pyq/index';
+import { ONE_YEAR_TARGET, TWO_YEAR_TARGET } from '../src/lib/examYears';
 
 /* ─── Config ─── */
 const BASE = 'https://mindpeakinstitute.com';
@@ -104,11 +105,11 @@ const STATIC_PAGES: { path: string; priority: string; changefreq: string }[] = [
   { path: '/jee-mock-test-strategy', priority: '0.65', changefreq: 'monthly' },
   { path: '/neet-mock-test-strategy', priority: '0.65', changefreq: 'monthly' },
 
-  /* Course slugs */
-  { path: '/course/jee-main-target-2027', priority: '0.80', changefreq: 'monthly' },
-  { path: '/course/neet-target-2027', priority: '0.80', changefreq: 'monthly' },
-  { path: '/course/jee-target-2026', priority: '0.80', changefreq: 'monthly' },
-  { path: '/course/neet-target-2026', priority: '0.80', changefreq: 'monthly' },
+  /* Course slugs (auto-derived from examYears.ts) */
+  { path: `/course/jee-main-target-${TWO_YEAR_TARGET}`, priority: '0.80', changefreq: 'monthly' },
+  { path: `/course/neet-target-${TWO_YEAR_TARGET}`, priority: '0.80', changefreq: 'monthly' },
+  { path: `/course/jee-target-${ONE_YEAR_TARGET}`, priority: '0.80', changefreq: 'monthly' },
+  { path: `/course/neet-target-${ONE_YEAR_TARGET}`, priority: '0.80', changefreq: 'monthly' },
   { path: '/course/subject-crash-course', priority: '0.75', changefreq: 'monthly' },
   { path: '/course/1-on-1-crash-program', priority: '0.75', changefreq: 'monthly' },
   { path: '/course/6th-foundation', priority: '0.65', changefreq: 'monthly' },
