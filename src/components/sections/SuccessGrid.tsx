@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
+import Image from 'next/image';
 
 const student1 = '/images/aarav-sharma.jpg';
 const student2 = '/images/priya-patel.jpg';
@@ -79,15 +80,14 @@ export const SuccessGrid = () => {
               className="relative group cursor-pointer overflow-hidden aspect-[4/5] rounded-xl"
               onClick={() => setSelected(story)}
             >
-              <div className="w-full h-full overflow-hidden">
-                <img
+              <div className="relative w-full h-full overflow-hidden">
+                <Image
                   src={story.image}
                   alt={altTextMap[story.id] || story.title}
-                  className="w-full h-full object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.08]"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.08]"
                   style={{ objectPosition: story.objectPos || 'center center' }}
-                  loading="lazy"
-                  width={600}
-                  height={750}
                 />
               </div>
 
@@ -147,12 +147,12 @@ export const SuccessGrid = () => {
               className="relative w-full max-w-4xl"
               onClick={(e) => e.stopPropagation()}
             >
-              <img
+              <Image
                 src={selected.image}
                 alt={altTextMap[selected.id] || selected.title}
-                className="w-full max-h-[70vh] object-contain rounded-xl"
                 width={800}
                 height={1000}
+                className="w-full max-h-[70vh] object-contain rounded-xl"
                 style={{ aspectRatio: '4/5' }}
               />
               <div className="text-center mt-8">
