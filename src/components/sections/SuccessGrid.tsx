@@ -151,6 +151,9 @@ export const SuccessGrid = () => {
                 src={selected.image}
                 alt={altTextMap[selected.id] || selected.title}
                 className="w-full max-h-[70vh] object-contain rounded-xl"
+                width={800}
+                height={1000}
+                style={{ aspectRatio: '4/5' }}
               />
               <div className="text-center mt-8">
                 <h3 className="text-foreground font-display text-2xl md:text-3xl font-semibold tracking-wide mb-1">{selected.title}</h3>
