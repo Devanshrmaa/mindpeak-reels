@@ -10,7 +10,7 @@
  *   1-2 months  →  Crash course flat rate
  */
 
-import { CURRENT_EXAM_YEAR } from './examYears';
+import { CURRENT_EXAM_YEAR, ONE_YEAR_TARGET, TWO_YEAR_TARGET } from './examYears';
 
 /* ─── Fee constants (in ₹, excl. GST) ─── */
 const FEES = {
@@ -283,8 +283,8 @@ export function generateStudyPlan(
     feeNumeric = prorateFee(FEES.oneYear, 12, totalMonths);
     courseSlug =
       examType === 'JEE'
-        ? `jee-main-target-${CURRENT_EXAM_YEAR}`
-        : `neet-target-${CURRENT_EXAM_YEAR}`;
+        ? `jee-target-${ONE_YEAR_TARGET}`
+        : `neet-target-${ONE_YEAR_TARGET}`;
     courseName = `${examType} Intensive ${totalMonths}-Month Programme`;
   } else if (totalMonths <= 12) {
     tier = 'standard';
@@ -292,8 +292,8 @@ export function generateStudyPlan(
     feeNumeric = prorateFee(FEES.oneYear, 12, totalMonths);
     courseSlug =
       examType === 'JEE'
-        ? `jee-main-target-${CURRENT_EXAM_YEAR}`
-        : `neet-target-${CURRENT_EXAM_YEAR}`;
+        ? `jee-target-${ONE_YEAR_TARGET}`
+        : `neet-target-${ONE_YEAR_TARGET}`;
     courseName = `${examType} ${totalMonths}-Month Target Programme`;
   } else {
     tier = 'extended';
@@ -301,8 +301,8 @@ export function generateStudyPlan(
     feeNumeric = prorateFee(FEES.twoYear, 24, totalMonths);
     courseSlug =
       examType === 'JEE'
-        ? `jee-main-target-${CURRENT_EXAM_YEAR + 1}`
-        : `neet-target-${CURRENT_EXAM_YEAR + 1}`;
+        ? `jee-main-target-${TWO_YEAR_TARGET}`
+        : `neet-target-${TWO_YEAR_TARGET}`;
     courseName = `${examType} ${totalMonths}-Month Foundation Programme`;
   }
 
@@ -346,16 +346,16 @@ export function generateStudyPlan(
   /* ── Summary ── */
   const summary =
     tier === 'crash'
-      ? `With only ${totalMonths} month${totalMonths > 1 ? 's' : ''} until ${examType} ${CURRENT_EXAM_YEAR}, this crash course focuses exclusively on high-weightage chapters, rapid formula revision, and daily mock tests. Your dedicated 1-on-1 mentor will prioritise the 40-50 most important topics to maximise your score in the shortest time.`
+      ? `With only ${totalMonths} month${totalMonths > 1 ? 's' : ''} until ${examType} ${ONE_YEAR_TARGET}, this crash course focuses exclusively on high-weightage chapters, rapid formula revision, and daily mock tests. Your dedicated 1-on-1 mentor will prioritise the 40-50 most important topics to maximise your score in the shortest time.`
       : tier === 'intensive'
-        ? `This ${totalMonths}-month intensive plan covers the complete ${examType} syllabus at an accelerated pace. With 30+ hours/week of focused 1-on-1 sessions, weekly mocks, and targeted revision, you'll be exam-ready for ${examType} ${CURRENT_EXAM_YEAR}. Fee is prorated from the standard 1-year programme.`
+        ? `This ${totalMonths}-month intensive plan covers the complete ${examType} syllabus at an accelerated pace. With 30+ hours/week of focused 1-on-1 sessions, weekly mocks, and targeted revision, you'll be exam-ready for ${examType} ${ONE_YEAR_TARGET}. Fee is prorated from the standard 1-year programme.`
         : tier === 'standard'
-          ? `Your personalised ${totalMonths}-month programme provides comprehensive syllabus coverage, phased learning, and progressive mock-test intensity to ensure you peak at the right time for ${examType} ${CURRENT_EXAM_YEAR}.`
-          : `This ${totalMonths}-month extended programme gives you the luxury of time to build unshakeable fundamentals before progressively advancing to competition-level problem-solving for ${examType} ${CURRENT_EXAM_YEAR + 1}.`;
+          ? `Your personalised ${totalMonths}-month programme provides comprehensive syllabus coverage, phased learning, and progressive mock-test intensity to ensure you peak at the right time for ${examType} ${ONE_YEAR_TARGET}.`
+          : `This ${totalMonths}-month extended programme gives you the luxury of time to build unshakeable fundamentals before progressively advancing to competition-level problem-solving for ${examType} ${TWO_YEAR_TARGET}.`;
 
   return {
     examType,
-    examYear: tier === 'extended' ? CURRENT_EXAM_YEAR + 1 : CURRENT_EXAM_YEAR,
+    examYear: tier === 'extended' ? TWO_YEAR_TARGET : ONE_YEAR_TARGET,
     totalMonths,
     tier,
     tierLabel,

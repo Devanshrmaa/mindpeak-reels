@@ -8,17 +8,23 @@
  * Logic:
  * - JEE Main Session 2 & NEET UG happen in April-May each year.
  * - Once May starts (month index >= 4), the "current" exam cycle is
- *   considered done and everything rolls forward to the next cycle.
+ *   considered done and CURRENT_EXAM_YEAR rolls forward to next cycle.
+ *
+ * Course-naming semantics:
+ * - A 1-year intensive course is for students who have ~1 year to
+ *   prepare for the NEXT upcoming exam — so its target IS that exam.
+ * - A 2-year foundation course (Class 11 entrants) targets the cycle
+ *   AFTER the next one.
  *
  * Example (May 2026 onwards):
  *   CURRENT_EXAM_YEAR = 2027  (next upcoming exam)
- *   ONE_YEAR_TARGET   = 2028  (1-year intensive courses)
- *   TWO_YEAR_TARGET   = 2029  (2-year foundation courses)
+ *   ONE_YEAR_TARGET   = 2027  (1-year intensive — 8 months to Jan 2027)
+ *   TWO_YEAR_TARGET   = 2028  (2-year foundation — Class 11 → Jan 2028)
  *
  * Example (Jan–Apr 2027):
  *   CURRENT_EXAM_YEAR = 2027  (exams happening this cycle)
- *   ONE_YEAR_TARGET   = 2028
- *   TWO_YEAR_TARGET   = 2029
+ *   ONE_YEAR_TARGET   = 2027
+ *   TWO_YEAR_TARGET   = 2028
  */
 
 const now = new Date();
@@ -33,11 +39,11 @@ const rollover = now.getMonth() >= 4; // May onwards → roll forward
 /** The next upcoming exam year (JEE / NEET) students are currently targeting. */
 export const CURRENT_EXAM_YEAR = rollover ? calendarYear + 1 : calendarYear;
 
-/** Target year for 1-year intensive courses. */
-export const ONE_YEAR_TARGET = CURRENT_EXAM_YEAR + 1;
+/** Target year for 1-year intensive courses — the next upcoming exam. */
+export const ONE_YEAR_TARGET = CURRENT_EXAM_YEAR;
 
-/** Target year for 2-year foundation courses. */
-export const TWO_YEAR_TARGET = CURRENT_EXAM_YEAR + 2;
+/** Target year for 2-year foundation courses — the cycle after next. */
+export const TWO_YEAR_TARGET = CURRENT_EXAM_YEAR + 1;
 
 /** Months remaining until JEE Main Session 1 (approx Jan 20 of CURRENT_EXAM_YEAR). */
 export const MONTHS_TO_JEE = (() => {

@@ -14,6 +14,7 @@ import { getAllExamInfoSlugs } from '@/data/examInfoData';
 import { getAllDifferenceSlugs } from '@/data/differenceBetweenData';
 import { getAllCounsellingSlugs } from '@/data/counsellingData';
 import { getAllExamEventBlogSlugs } from '@/lib/examEventBlogs';
+import { ONE_YEAR_TARGET, TWO_YEAR_TARGET } from '@/lib/examYears';
 
 const IMPORTANT_Q_SLUGS = [
   'jee-physics-important-questions',
@@ -73,8 +74,8 @@ export async function GET() {
     '/jee-physics-preparation', '/jee-chemistry-preparation', '/jee-mathematics-preparation',
     '/neet-biology-preparation', '/neet-physics-preparation', '/neet-chemistry-preparation',
     '/jee-mock-test-strategy', '/neet-mock-test-strategy',
-    '/course/jee-main-target-2027', '/course/neet-target-2027',
-    '/course/jee-target-2026', '/course/neet-target-2026',
+    `/course/jee-main-target-${TWO_YEAR_TARGET}`, `/course/neet-target-${TWO_YEAR_TARGET}`,
+    `/course/jee-target-${ONE_YEAR_TARGET}`, `/course/neet-target-${ONE_YEAR_TARGET}`,
     '/course/subject-crash-course', '/course/1-on-1-crash-program',
     '/course/6th-foundation', '/course/7th-foundation', '/course/8th-foundation',
     '/course/9th-foundation', '/course/10th-foundation',
