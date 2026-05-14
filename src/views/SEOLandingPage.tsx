@@ -89,7 +89,7 @@ const SEOLandingPage = () => {
       url: `https://mindpeakinstitute.com/${page.slug}`,
       description: page.description,
       telephone: '+91-82194-57704',
-      address: { '@type': 'PostalAddress', addressLocality: 'Kota', addressRegion: 'Rajasthan', addressCountry: 'IN' },
+      address: { '@type': 'PostalAddress', streetAddress: 'Nehran Pukhar Road', addressLocality: 'Dehra Gopipur', addressRegion: 'Himachal Pradesh', postalCode: '176110', addressCountry: 'IN' },
       // Individual Review objects instead of risky aggregateRating
       review: [
         { '@type': 'Review', author: { '@type': 'Person', name: 'Aarav Sharma' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'MindPeak\'s 1-on-1 coaching helped me achieve AIR 42 in JEE Advanced.' },

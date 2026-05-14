@@ -3,21 +3,21 @@
 <!-- This is a representative subset. Run the script for complete 500+ topic URLs. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- JEE Physics Topics (sample) -->
-  <url><loc>https://mindpeakinstitute.com/jee-physics-kinematics/motion-in-a-straight-line</loc><lastmod>2026-03-26</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
-  <url><loc>https://mindpeakinstitute.com/jee-physics-kinematics/equations-of-motion</loc><lastmod>2026-03-26</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
-  <url><loc>https://mindpeakinstitute.com/jee-physics-kinematics/projectile-motion</loc><lastmod>2026-03-26</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
-  <url><loc>https://mindpeakinstitute.com/jee-physics-newtons-laws/free-body-diagrams</loc><lastmod>2026-03-26</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
-  <url><loc>https://mindpeakinstitute.com/jee-physics-newtons-laws/friction-static-kinetic</loc><lastmod>2026-03-26</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
-  <url><loc>https://mindpeakinstitute.com/jee-physics-work-energy-power/work-energy-theorem</loc><lastmod>2026-03-26</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
-  <url><loc>https://mindpeakinstitute.com/jee-physics-electrostatics/coulombs-law</loc><lastmod>2026-03-26</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
-  <url><loc>https://mindpeakinstitute.com/jee-physics-electrostatics/gauss-law</loc><lastmod>2026-03-26</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
-  <url><loc>https://mindpeakinstitute.com/jee-physics-modern-physics/photoelectric-effect</loc><lastmod>2026-03-26</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://mindpeakinstitute.com/jee-physics-kinematics/motion-in-a-straight-line</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://mindpeakinstitute.com/jee-physics-kinematics/equations-of-motion</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://mindpeakinstitute.com/jee-physics-kinematics/projectile-motion</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://mindpeakinstitute.com/jee-physics-newtons-laws/free-body-diagrams</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://mindpeakinstitute.com/jee-physics-newtons-laws/friction-static-kinetic</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://mindpeakinstitute.com/jee-physics-work-energy-power/work-energy-theorem</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://mindpeakinstitute.com/jee-physics-electrostatics/coulombs-law</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://mindpeakinstitute.com/jee-physics-electrostatics/gauss-law</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://mindpeakinstitute.com/jee-physics-modern-physics/photoelectric-effect</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
   <!-- JEE Chemistry Topics (sample) -->
-  <url><loc>https://mindpeakinstitute.com/jee-chemistry-atomic-structure/bohrs-model</loc><lastmod>2026-03-26</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
-  <url><loc>https://mindpeakinstitute.com/jee-chemistry-chemical-bonding/vsepr-theory</loc><lastmod>2026-03-26</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
-  <url><loc>https://mindpeakinstitute.com/jee-chemistry-goc/inductive-effect</loc><lastmod>2026-03-26</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://mindpeakinstitute.com/jee-chemistry-atomic-structure/bohrs-model</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://mindpeakinstitute.com/jee-chemistry-chemical-bonding/vsepr-theory</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://mindpeakinstitute.com/jee-chemistry-goc/inductive-effect</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
   <!-- JEE Maths Topics (sample) -->
-  <url><loc>https://mindpeakinstitute.com/jee-maths-limits-continuity/lhopitals-rule</loc><lastmod>2026-03-26</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
-  <url><loc>https://mindpeakinstitute.com/jee-maths-differentiation/chain-rule</loc><lastmod>2026-03-26</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
-  <url><loc>https://mindpeakinstitute.com/jee-maths-probability/bayes-theorem</loc><lastmod>2026-03-26</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://mindpeakinstitute.com/jee-maths-limits-continuity/lhopitals-rule</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://mindpeakinstitute.com/jee-maths-differentiation/chain-rule</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://mindpeakinstitute.com/jee-maths-probability/bayes-theorem</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
 </urlset>

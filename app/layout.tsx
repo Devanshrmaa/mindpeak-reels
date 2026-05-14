@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     "1-on-1 coaching",
   ],
   authors: [{ name: "MindPeak Institute" }],
-  robots: "index, follow",
+  robots: { index: true, follow: true },
   metadataBase: new URL("https://mindpeakinstitute.com"),
   alternates: {
     canonical: "https://mindpeakinstitute.com/",
@@ -78,10 +78,10 @@ export const metadata: Metadata = {
     images: ["https://mindpeakinstitute.com/hero-bg.jpg"],
   },
   other: {
-    "geo.region": "IN-RJ",
-    "geo.placename": "Kota, Rajasthan, India",
-    "geo.position": "25.2138;75.8648",
-    ICBM: "25.2138, 75.8648",
+    "geo.region": "IN-HP",
+    "geo.placename": "Dehra Gopipur, Kangra, Himachal Pradesh, India",
+    "geo.position": "32.4394;76.5362",
+    ICBM: "32.4394, 76.5362",
     language: "English",
     "revisit-after": "7 days",
   },
@@ -99,7 +99,7 @@ const jsonLdGraph = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "EducationalOrganization",
+      "@type": ["EducationalOrganization", "LocalBusiness"],
       "@id": "https://mindpeakinstitute.com/#organization",
       name: "MindPeak Institute",
       alternateName: "MindPeak",
@@ -112,17 +112,37 @@ const jsonLdGraph = {
         height: 64,
       },
       description:
-        "India's #1 personalized 1-on-1 JEE and NEET coaching with 95% success rate.",
+        "India's #1 personalized 1-on-1 JEE and NEET online coaching. Himachal Pradesh's own coaching institute with a 95%+ success rate.",
       telephone: "+91-82194-57704",
       email: "mindpeak@mindpeakinstitute.com",
       foundingDate: "2018",
+      priceRange: "₹₹",
       areaServed: { "@type": "Country", name: "India" },
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Kota",
-        addressRegion: "Rajasthan",
-        postalCode: "324005",
+        streetAddress: "Nehran Pukhar Road",
+        addressLocality: "Dehra Gopipur",
+        addressRegion: "Himachal Pradesh",
+        postalCode: "176110",
         addressCountry: "IN",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 32.4394,
+        longitude: 76.5362,
+      },
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          opens: "09:00",
+          closes: "20:00",
+        },
+      ],
+      identifier: {
+        "@type": "PropertyValue",
+        name: "UDYAM",
+        value: "UDYAM-HP-04-0042530",
       },
       sameAs: [
         "https://instagram.com/mindpeakinstitute",

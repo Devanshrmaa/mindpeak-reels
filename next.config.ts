@@ -135,6 +135,7 @@ const nextConfig: NextConfig = {
 
       /* ── Legacy content pages → nearest equivalent ── */
       { source: '/study-material', destination: '/courses', permanent: true },
+      { source: '/course', destination: '/courses', permanent: true },
       { source: '/jee-previous-year-papers', destination: '/jee-pyq', permanent: true },
       { source: '/free-mock-test-jee', destination: '/jee-practice', permanent: true },
       { source: '/free-mock-test-neet', destination: '/neet-practice', permanent: true },
