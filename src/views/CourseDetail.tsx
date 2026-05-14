@@ -601,7 +601,7 @@ const CourseDetail = () => {
                     <Link to="/pricing" className="text-primary/70 hover:text-primary text-sm transition-colors">Pricing & Plans →</Link>
                     <Link to="/jee-crash-course" className="text-primary/70 hover:text-primary text-sm transition-colors">JEE Crash Course →</Link>
                     <Link to="/methodology" className="text-primary/70 hover:text-primary text-sm transition-colors">Our Methodology →</Link>
-                    <Link to="/success-stories" className="text-primary/70 hover:text-primary text-sm transition-colors">Success Stories →</Link>
+                    <Link to="/#success-stories" className="text-primary/70 hover:text-primary text-sm transition-colors">Success Stories →</Link>
                   </>
                 ) : course.category === 'neet' ? (
                   <>
@@ -613,7 +613,7 @@ const CourseDetail = () => {
                     <Link to="/pricing" className="text-primary/70 hover:text-primary text-sm transition-colors">Pricing & Plans →</Link>
                     <Link to="/neet-crash-course" className="text-primary/70 hover:text-primary text-sm transition-colors">NEET Crash Course →</Link>
                     <Link to="/methodology" className="text-primary/70 hover:text-primary text-sm transition-colors">Our Methodology →</Link>
-                    <Link to="/success-stories" className="text-primary/70 hover:text-primary text-sm transition-colors">Success Stories →</Link>
+                    <Link to="/#success-stories" className="text-primary/70 hover:text-primary text-sm transition-colors">Success Stories →</Link>
                   </>
                 ) : (
                   <>
@@ -622,7 +622,7 @@ const CourseDetail = () => {
                     <Link to="/neet-coaching" className="text-primary/70 hover:text-primary text-sm transition-colors">NEET Coaching →</Link>
                     <Link to="/pricing" className="text-primary/70 hover:text-primary text-sm transition-colors">Pricing & Plans →</Link>
                     <Link to="/methodology" className="text-primary/70 hover:text-primary text-sm transition-colors">Our Methodology →</Link>
-                    <Link to="/success-stories" className="text-primary/70 hover:text-primary text-sm transition-colors">Success Stories →</Link>
+                    <Link to="/#success-stories" className="text-primary/70 hover:text-primary text-sm transition-colors">Success Stories →</Link>
                   </>
                 )}
               </div>
