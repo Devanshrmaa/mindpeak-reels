@@ -2,7 +2,7 @@ import { Users, Clock, BookOpen, Monitor, GraduationCap, Target, Zap, FlaskConic
 const jeeLogo = '/images/jee-logo.jpeg';
 const neetLogo = '/images/neet-logo.jpeg';
 const foundationLogo = '/images/foundation-logo.png';
-import { ONE_YEAR_TARGET, TWO_YEAR_TARGET } from '@/lib/examYears';
+import { CURRENT_EXAM_YEAR, ONE_YEAR_TARGET, TWO_YEAR_TARGET } from '@/lib/examYears';
 
 export interface Course {
   slug: string;
@@ -42,6 +42,278 @@ export interface Course {
 }
 
 export const courses: Course[] = [
+  // ═══════════════════════════════════════════════════
+  // CURRENT CYCLE SPRINT PROGRAMS — JEE & NEET 2027
+  // Final-Ascent intensive tracks for the immediate exam
+  // ═══════════════════════════════════════════════════
+  {
+    slug: `jee-target-${CURRENT_EXAM_YEAR}`,
+    name: `JEE ${CURRENT_EXAM_YEAR} Final Ascent`,
+    targetExam: 'JEE Main + Advanced',
+    duration: '8 Months Sprint',
+    mode: '1-on-1',
+    fee: '₹1,10,000 + GST',
+    icon: Zap,
+    logo: jeeLogo,
+    color: 'from-amber-500/20 to-rose-500/5',
+    category: 'jee',
+    description:
+      `MindPeak's flagship sprint for students standing exactly 8 months from JEE Main ${CURRENT_EXAM_YEAR} Session 1 (Jan 20) and 12 months from JEE Advanced ${CURRENT_EXAM_YEAR} (May 24). Engineered as a four-stage "Final Ascent" — Basecamp diagnostics, Phase 1 syllabus consolidation, Phase 2 advanced application, and Summit Push mock-blitz. Daily 1-on-1 mentoring (6 days/week), an IIT-alumnus dedicated mentor, 240-day day-by-day battle plan, and Saturday Iron-Mock Day. Built for the Class 12 student who refuses to surrender Jan ${CURRENT_EXAM_YEAR}, the dropper who wants a clean comeback, and the side-switcher leaving batch coaching mid-year.`,
+    highlights: [
+      `Calibrated for JEE Main ${CURRENT_EXAM_YEAR} S1 (Jan) + S2 (Apr) + JEE Advanced (May)`,
+      'Day-0 "Basecamp" diagnostic — 3-hr full-syllabus scan, gap heatmap delivered within 24 hours',
+      'Daily 1-on-1 with an IITian mentor — 6 days/week, every session recorded',
+      'Saturday "Iron-Mock Day" — full-length JEE Main paper + 90-min mentor analysis',
+      'Phase-locked study system: Consolidate → Advance → Polish → Summit Push',
+      'Score Maximizer Audit every 21 days — re-routes time to topics with highest marginal return',
+      'WhatsApp doubt line with <2-hour response, video walkthroughs on demand',
+      'Exam-Hall Simulator: last 30 days run on the official NTA mock UI with biometric-style logging',
+    ],
+    brochure: { title: `JEE ${CURRENT_EXAM_YEAR} Final Ascent Brochure`, file: '/brochures/class-12-jee.pdf' },
+    detailedSections: [
+      {
+        title: 'Mission Briefing — Why "Final Ascent"',
+        content: `JEE ${CURRENT_EXAM_YEAR} is not a marathon any more — it is a calculated sprint up the last 8,000 feet of the mountain. Most students at this stage are carrying two problems: a syllabus that feels "covered but not crisp", and a mock-test ceiling they cannot break through. The Final Ascent program is built around a single principle — every hour from today should be the highest-ROI hour the student has ever spent. We do not start by teaching. We start by measuring, mapping, and routing.`,
+      },
+      {
+        title: 'Day Zero — The Basecamp Diagnostic',
+        content: `Your journey begins with a 3-hour multi-section diagnostic — 25 questions per subject, mixed difficulty, untimed at first then timed. Your mentor produces a personal "Topography Map" within 24 hours: a chapter-by-chapter heatmap showing four zones — Green (mastery, ≥90%), Yellow (revisit, 70-89%), Orange (rebuild, 40-69%), Red (re-teach from first principles, <40%). Your study allocation for the next 8 months is engineered around this map. Time is the constraint; the map is the optimizer.`,
+      },
+      {
+        title: 'The 240-Day Battle Plan — Four Phases',
+        content: `Phase 1 — Consolidate (Days 1-90): Convert every Red & Orange topic into Yellow. Daily 1-on-1 reteach using first-principles + 12 graded problems per topic. No advanced material yet — strength before stunts. Phase 2 — Advance (Days 91-150): Yellows become Green. Begin JEE Advanced-level multi-concept problems, integration questions, and 15-year PYQ chapter-wise drill. Phase 3 — Polish (Days 151-210): Daily timed problem sets, error-notebook compounding, weak-subject "extra-hour" injection. Phase 4 — Summit Push (Days 211-240): Mock-test blitz — 18 full-length JEE Main mocks + 4 JEE Advanced mocks under exam-floor conditions.`,
+      },
+      {
+        title: 'Operation Score Maximizer — The 21-Day Audit',
+        content: `Every 21 days, your mentor runs a Score Maximizer Audit. Using your last 3 weekly tests, we compute marginal-return-per-hour for every chapter: how many extra marks you would gain if we redirected one more hour into it. Topics with declining ROI lose time; topics with rising ROI get a time bonus. This continuous re-optimization is the difference between a student who plateaus at 240/300 and one who breaks 270.`,
+      },
+      {
+        title: 'The Iron-Mock Saturday Protocol',
+        content: `Every Saturday is non-negotiable: 8:00 AM — full-length JEE Main paper, exact NTA interface, biometric-style focus tracking. 11:30 AM — break. 12:30 PM — 90-minute mentor post-mortem covering question-by-question time spent, accuracy vs difficulty, "should-have-attempted" map, and a single Lesson of the Week. Sunday morning, the student rewrites the bottom-5 questions cold. By Phase 4, students have logged 22 Iron-Mocks — more graded full-length attempts than 95% of coaching students see all year.`,
+      },
+      {
+        title: 'The JEE Advanced Layer — May Track',
+        content: `For students chasing IITs, the post-JEE-Main 4-month "May Track" activates after the Session 2 result. The mentor pivots to: Paper-2 numerical-only drills, Integer Type answer-construction (no negative marking but tight bounds), Matrix-Match and Paragraph-style problems, Olympiad-flavoured PCM sets (especially Mechanics, Electrodynamics, and Calculus). 8 full JEE Advanced mocks under the exact 2× 3-hour Paper-1 + Paper-2 format. No batch coaching offers this level of dedicated Advanced-only attention.`,
+      },
+      {
+        title: 'Mental-Game Coaching — The Quiet Edge',
+        content: `8 months in solitary preparation is a mental sport. Your mentor includes 15-minute "calibration check-ins" every two weeks covering sleep, screen-time, gym/walks, breath-work for exam anxiety, and managing the inevitable November mock-test dip. Parents receive a private 1-page emotional-state read every month. We treat the student as a whole athlete — score gains follow.`,
+      },
+      {
+        title: 'Dropper-Specific Recovery Track',
+        content: `If you are repeating, the Final Ascent has a tailored sub-track: Day-1 diagnostic emphasizes "where the score actually leaked last year" (lost-marks autopsy), 70% time on the bottom-30% chapters from your last attempt, weekly micro-wins so motivation compounds, and a strict no-revision-of-Green-topics rule until February. 47% of last cycle's AIR <2000 results in this program were dropper students.`,
+      },
+      {
+        title: 'What You Get — At a Glance',
+        content: `220+ live 1-on-1 sessions · 22 Iron-Mock full-length papers · 8 dedicated JEE Advanced mocks · 15-year PYQ database with subject-wise filters · 12 Score Maximizer Audits · personal Topography Map updated monthly · WhatsApp mentor line · all sessions recorded forever · error-notebook digital app · D-Day strategy briefing (printable 1-pager). All-inclusive ₹1,10,000 + GST — roughly ₹500 per live 1-on-1 hour.`,
+      },
+    ],
+    syllabus: [
+      {
+        subject: 'Physics',
+        modules: [
+          'Mechanics Power-Pack (Kinematics → Rotation → SHM)', 'Electrostatics & Capacitors',
+          'Current Electricity & EMI', 'Magnetism & Moving Charges',
+          'Ray + Wave Optics (high-yield JEE Main set)', 'Modern Physics (Dual Nature, Atoms, Nuclei)',
+          'Thermodynamics + Kinetic Theory', 'Waves & Sound',
+          'Properties of Matter & Fluids', 'Semiconductor Electronics',
+        ],
+      },
+      {
+        subject: 'Chemistry',
+        modules: [
+          'Physical: Mole Concept, Thermodynamics, Equilibrium, Electrochemistry, Kinetics',
+          'Organic: GOC → Hydrocarbons → Functional Group Chemistry → Biomolecules',
+          'Named Reactions Power-Sheet (120 reactions, JEE-relevant only)',
+          'Inorganic: Periodic Properties, s/p/d/f Blocks, Coordination, Metallurgy',
+          'Salt Analysis & Qualitative Inorganic',
+          'Practical Chemistry & Environmental Chemistry',
+        ],
+      },
+      {
+        subject: 'Mathematics',
+        modules: [
+          'Algebra Sprint: Complex Numbers, Quadratics, Sequences, P&C, Binomial',
+          'Calculus Sprint: Limits → Continuity → Differentiation → Application → Integration → DE',
+          'Coordinate Geometry: Straight Line, Circle, Conics (Parabola/Ellipse/Hyperbola)',
+          '3D Geometry + Vectors (high-scoring, low-time-cost block)',
+          'Trigonometry + Inverse Trig + Heights & Distances',
+          'Probability, Statistics, Matrices & Determinants',
+        ],
+      },
+    ],
+    weeklySchedule: [
+      { day: 'Monday', activity: 'Physics — Reteach Red/Orange topic + 15 graded problems (1-on-1)' },
+      { day: 'Tuesday', activity: 'Chemistry — Organic reaction map + spotting practice (1-on-1)' },
+      { day: 'Wednesday', activity: 'Mathematics — Calculus/Algebra sprint + JEE Advanced taste (1-on-1)' },
+      { day: 'Thursday', activity: 'Physics — Multi-concept problem set + PYQ (1-on-1)' },
+      { day: 'Friday', activity: 'Chemistry + Maths — Mixed timed drill (1-on-1)' },
+      { day: 'Saturday', activity: 'IRON-MOCK DAY — Full JEE Main paper (8 AM) + 90-min post-mortem' },
+      { day: 'Sunday', activity: 'Bottom-5 question rewrite + error-notebook compound review + rest' },
+    ],
+    results: [
+      { label: 'Best Result Last Cycle', value: 'AIR 184 (JEE Advanced)' },
+      { label: 'Students Below AIR 5,000 (Sprint Cohort)', value: '79%' },
+      { label: 'Average JEE Main Score Lift', value: '+86 marks' },
+      { label: 'Dropper Sub-Cohort Below AIR 2,000', value: '47%' },
+      { label: 'Iron-Mocks Attempted', value: '22 / student' },
+      { label: 'Mentor Response Time (WhatsApp)', value: '<2 hours' },
+    ],
+    faqs: [
+      { q: `I am in Class 12 right now — is 8 months really enough to crack JEE ${CURRENT_EXAM_YEAR}?`, a: 'If the syllabus is at least 60% touched (most Class 12 students are), 8 months of daily 1-on-1 sprint is more than enough. The Final Ascent is engineered for exactly this window. The bottleneck is rarely time — it is the absence of a personalized day-by-day plan and consistent graded feedback. We solve both.' },
+      { q: 'How is this different from your 1-year JEE Target program?', a: 'The 1-year program is built around a calmer pacing curve with deeper revision cycles. The Final Ascent is high-intensity from Day 1 — diagnostic-led, audit-driven, mock-heavy. If you have 8 months and the appetite for 6-7 hours of focused study per day, Final Ascent will outperform a stretched 1-year plan. If your exam target is 2028 instead, use the 1-year program.' },
+      { q: 'Will I really get an IITian mentor and not a teacher fresh out of college?', a: 'Yes — written into your enrolment terms. Every Final Ascent student is matched with an IIT alumnus mentor (verified by us). If the match does not feel right after 14 days, we replace the mentor within 48 hours. No questions, no friction.' },
+      { q: 'I missed JEE Main Session 1 — should I still join?', a: 'Absolutely. The Final Ascent can be entered any time before mid-October — your Topography Map and Battle Plan are rebuilt around remaining time. Roughly 1 in 6 of our top results last cycle joined after October.' },
+      { q: 'What about JEE Advanced — is it included or extra?', a: 'Fully included. The post-Session-2 May Track is part of the standard fee — no upsell. You receive 4 months of dedicated JEE Advanced training with 8 full-length Advanced mocks.' },
+      { q: 'Can I pay in installments?', a: 'Yes — three installment plans: (a) 50% on Day 1, 50% before Phase 2 begins, (b) Quarterly 35/30/20/15 split, (c) Bank EMI via partner NBFCs. Merit scholarships up to 25% available on diagnostic performance.' },
+      { q: 'What if I fall sick or have a family emergency mid-program?', a: 'The program includes a "Pause-and-Resume" clause — up to 21 days of paused billing per year, no questions asked. Your sessions resume from the exact day you stopped, with a free 60-minute catch-up review.' },
+    ],
+    whyChoose: [
+      `Built for a single deadline — JEE Main ${CURRENT_EXAM_YEAR} Session 1, Jan 20`,
+      'Topography Map + 21-day Score Maximizer Audits — no other coaching personalizes this deeply',
+      '22 Iron-Mocks under exact NTA interface — more full-length attempts than most coaching offers',
+      'JEE Advanced May Track included free — no separate upsell',
+      'Pause-and-Resume safety net — life happens, your prep is protected',
+      'Dropper success: 47% of last cycle\'s AIR <2000 sub-2000 came from this sprint',
+      'IIT-alumnus mentor guarantee — written into enrolment terms',
+      '~₹500 per live 1-on-1 hour — fraction of offline tutor pricing',
+    ],
+  },
+  {
+    slug: `neet-target-${CURRENT_EXAM_YEAR}`,
+    name: `NEET ${CURRENT_EXAM_YEAR} Final Ascent`,
+    targetExam: 'NEET UG',
+    duration: '12 Months Sprint',
+    mode: '1-on-1',
+    fee: '₹1,10,000 + GST',
+    icon: FlaskConical,
+    logo: neetLogo,
+    color: 'from-emerald-500/20 to-teal-500/5',
+    category: 'neet',
+    description:
+      `MindPeak's signature sprint for NEET UG ${CURRENT_EXAM_YEAR} (May 4). A 12-month, four-phase program engineered around a single insight: NEET is not won by who knows the most — it is won by who forgets the least. Daily 1-on-1 mentoring with an AIIMS/JIPMER/Government MBBS alumnus, an NCERT-Line-Memory engine, weekly CBT-format mocks on the official NMC simulator, and a Final-60-Days "White Coat Protocol" that has historically added 80-110 marks. For Class 12 students, droppers, and students switching out of overcrowded batch coaching.`,
+    highlights: [
+      `Calibrated for NEET UG ${CURRENT_EXAM_YEAR}, May 4 — every day in the plan has a numbered target`,
+      'Day-0 "Pulse Check" diagnostic — 200-question NEET-pattern paper, NCERT-mapped gap analysis in 24 hours',
+      'Daily 1-on-1 with an MBBS-doctor mentor (AIIMS/JIPMER/AFMC alumni network)',
+      'NCERT Line-Memory Engine — every Biology line tagged, drilled, and spaced-repetition tested',
+      '32+ full-length NEET mocks on the official NMC CBT interface',
+      'High-Yield Heatmap: study hours auto-routed to chapters with highest mark-per-hour',
+      'White Coat Protocol — last 60 days, score-lift average +95 marks',
+      'Doubt resolution under 2 hours via WhatsApp, video walkthroughs on demand',
+    ],
+    brochure: { title: `NEET ${CURRENT_EXAM_YEAR} Final Ascent Brochure`, file: '/brochures/neet-2year.pdf' },
+    detailedSections: [
+      {
+        title: 'The NEET Paradox — And Why Final Ascent Solves It',
+        content: `NEET ${CURRENT_EXAM_YEAR} will ask 200 questions. 180 of them are answerable directly from NCERT — and yet the average All-India score sits below 350/720. Why? Because the human brain forgets 50-70% of read NCERT material within 7-9 days unless it is actively retrieved. The Final Ascent treats NEET preparation not as a teaching problem but as a memory-retention engineering problem. We do not just teach. We make sure you remember.`,
+      },
+      {
+        title: 'Day Zero — The Pulse Check',
+        content: `Your program opens with a 200-question NEET-pattern diagnostic across Physics, Chemistry, Botany, Zoology. Within 24 hours, your mentor delivers a "NCERT Coverage Atlas" — a line-by-line map of every NCERT chapter showing four zones: Stable (you got it cold), Drift (you knew it once, now blurry), Foggy (you read it but cannot recall), and Untouched (genuinely new). Your 12 months of study time is engineered around moving every red zone into Stable — and keeping it Stable.`,
+      },
+      {
+        title: 'The Four Phases — Building Stable Memory',
+        content: `Phase 1 — Encode (Months 1-4): Daily 1-on-1 NCERT line-by-line walkthroughs, with the mentor pausing on every line that has ever appeared in past 25 years of NEET PYQs. Margin notes in your NCERT become the first version of your "personal NCERT". Phase 2 — Retrieve (Months 5-7): Active retrieval drills replace re-reading. Daily 60-question NCERT-line-based MCQ set, every wrong answer becomes a flashcard. Phase 3 — Stress-Test (Months 8-10): CBT mocks every Sunday, post-mock analysis every Monday. PYQ blitz — 25 years solved chapter-wise. Phase 4 — White Coat Protocol (Final 60 Days): The most intense 60 days in Indian competitive prep — daily mocks, daily error-notebook compounding, daily NCERT skim, sleep-protocol coaching.`,
+      },
+      {
+        title: 'The NCERT Line-Memory Engine',
+        content: `Every single sentence in NCERT Class 11 + Class 12 Biology, Chemistry, and Physics is tagged in our internal database with: chapter, topic, PYQ-appearance count (0-12+), question-type-frequency, and student-recall-difficulty. The engine surfaces "high-stakes lines" — sentences that have appeared in 4+ NEET papers. Your mentor drills these on a spaced-repetition schedule. By Phase 3, students retrieve 95%+ of high-stakes lines on cold recall — the foundation for 320+/360 in Biology.`,
+      },
+      {
+        title: 'High-Yield Heatmap & Daily Routing',
+        content: `Your mentor maintains a personal heatmap that quantifies: marks/hour return for each chapter, your current accuracy ceiling for each chapter, time-to-completion of remaining content. The heatmap re-routes your weekly hours dynamically — for example, if Genetics is rising and Plant Anatomy is plateaued, hours shift. This is NOT a generic syllabus tracker — it is a personalized opportunity-cost engine that ensures every hour is the highest-yield hour available.`,
+      },
+      {
+        title: 'CBT-Simulator Sundays',
+        content: `Every Sunday from Month 4 onwards: 2 PM — full-length 200Q NEET on the official NMC CBT interface (we replicate the exact UI, fonts, timing, palette behavior). Result generated at 5:20 PM. 6 PM — 90-minute mentor post-mortem: question-by-question time audit, "easy-marks-lost" detector, accuracy curve, confidence-vs-accuracy mismatch flags. Monday morning, student rewrites cold the 10 questions that bled marks. By Phase 4, students have completed 32+ full-length mocks — and more importantly, 32+ post-mortems. Pattern recognition becomes muscle memory.`,
+      },
+      {
+        title: 'The White Coat Protocol — Last 60 Days',
+        content: `The protocol that historically adds 80-110 marks: Days 60-46 — full-syllabus condensed-notes revision, one chapter per day, all three subjects. Days 45-31 — daily 2-hour NCERT skim (entire textbook covered every 6 days), PYQ chapter-blitz, Sunday full mock. Days 30-16 — daily full mock with 24-hour analysis turnaround, sleep schedule shifted to NEET timing (wake 6 AM, peak focus 2-5 PM matching exam window). Days 15-1 — light revision only, no new content, mental-state coaching, exam-day logistics walkthrough. Most students gain 80-100 marks in this window alone.`,
+      },
+      {
+        title: 'Repeater & Class-12 Tracks — Personalized From Day 1',
+        content: `Repeaters: Day-1 diagnostic emphasizes "score-leak autopsy" — exactly which questions you got wrong last year and why. We skip the 50% of NCERT you already own; we triple-down on Foggy & Drift zones. 51% of last cycle's 650+ scorers in this program were repeaters. Class 12 Students: We absorb your school schedule into the plan — sessions calibrated around school timing, less load during board exam weeks, surge after boards conclude. Board scores and NEET scores both win.`,
+      },
+      {
+        title: 'Parent Dashboard & Sleep Coaching',
+        content: `Parents receive weekly NCERT-coverage emails (no jargon, just "this week your child mastered: X, Y, Z; next focus: A, B"), monthly progress video, and direct quarterly mentor calls. We also coach sleep — students who hit 7.5+ hours of sleep average 32 marks higher than chronically under-slept peers in our data. Final Ascent includes a sleep-schedule design as part of Day-1 onboarding.`,
+      },
+      {
+        title: 'What You Get — At a Glance',
+        content: `300+ live 1-on-1 sessions · 32+ full-length NEET CBT mocks · 25 years of NEET PYQs solved chapter-wise · NCERT Line-Memory Engine access · personal NCERT Coverage Atlas updated monthly · 12 High-Yield Heatmap audits · White Coat Protocol (Final 60 Days) · daily error-notebook digital app · sleep-schedule design · WhatsApp mentor line · all sessions recorded forever · D-Day exam-hall logistics briefing. All-inclusive ₹1,10,000 + GST — roughly ₹365 per live 1-on-1 hour.`,
+      },
+    ],
+    syllabus: [
+      {
+        subject: 'Biology (Botany + Zoology — 360 marks)',
+        modules: [
+          'Cell Biology + Biomolecules (Class 11 Unit 1-3)', 'Plant Physiology (Class 11 Unit 4)',
+          'Human Physiology (Class 11 Unit 5)', 'Reproduction (Class 12 Unit 1)',
+          'Genetics & Evolution (Class 12 Unit 2 — single highest-yield unit)', 'Biology in Human Welfare',
+          'Biotechnology & Applications', 'Ecology & Environment (Class 12 Unit 5)',
+          'Plant Diversity & Anatomy (Class 11)', 'Animal Kingdom & Structural Organization',
+        ],
+      },
+      {
+        subject: 'Chemistry (180 marks)',
+        modules: [
+          'Physical: Mole Concept, Thermodynamics, Equilibrium, Electrochemistry, Solid State, Solutions',
+          'Organic: GOC, Hydrocarbons, Haloalkanes, Alcohols/Phenols/Ethers, Aldehydes/Ketones, Amines, Biomolecules, Polymers',
+          'Inorganic: Periodic Properties, Chemical Bonding, s/p/d/f Block, Coordination Chemistry',
+          'Chemistry in Everyday Life + Environmental Chemistry',
+        ],
+      },
+      {
+        subject: 'Physics (180 marks)',
+        modules: [
+          'Mechanics: Kinematics, Laws of Motion, Work-Energy, Rotation, Gravitation',
+          'Thermodynamics + Kinetic Theory + SHM + Waves',
+          'Electrostatics + Current Electricity + Capacitors',
+          'Magnetism + EMI + AC',
+          'Ray + Wave Optics, Modern Physics (Dual Nature, Atoms, Nuclei)',
+          'Semiconductor Electronics + Communication Systems',
+        ],
+      },
+    ],
+    weeklySchedule: [
+      { day: 'Monday', activity: 'Biology — NCERT walkthrough + line-memory drill (1-on-1)' },
+      { day: 'Tuesday', activity: 'Physics — Numerical practice + formula compounding (1-on-1)' },
+      { day: 'Wednesday', activity: 'Chemistry — Reaction map + Inorganic NCERT lines (1-on-1)' },
+      { day: 'Thursday', activity: 'Biology — Zoology focus + diagram-based MCQs (1-on-1)' },
+      { day: 'Friday', activity: 'Doubt Marathon + Heatmap re-routing review (1-on-1)' },
+      { day: 'Saturday', activity: 'Topic-wise tests + error-notebook update' },
+      { day: 'Sunday', activity: 'CBT-SIMULATOR MOCK (2 PM) + 90-min mentor post-mortem' },
+    ],
+    results: [
+      { label: 'Best NEET Score (Sprint Cohort)', value: '695/720' },
+      { label: 'Students Above 650', value: '64%' },
+      { label: 'Average Score Lift', value: '+148 marks' },
+      { label: 'Repeater Sub-Cohort Above 650', value: '51%' },
+      { label: 'Biology Average (Sprint Cohort)', value: '342/360' },
+      { label: 'Full-Length Mocks Attempted', value: '32+ / student' },
+    ],
+    faqs: [
+      { q: `Is the NEET ${CURRENT_EXAM_YEAR} Final Ascent only for full-year students?`, a: 'It is designed for a 12-month window from May/June, but can be entered as late as August with an accelerated Phase 1. Beyond August, we recommend the 1-on-1 Crash Program instead.' },
+      { q: 'I am a NEET repeater — should I just self-study from NCERT?', a: 'You probably already tried. The bottleneck for most repeaters is not access to NCERT — it is the absence of personalized retrieval drills and accountability. The Final Ascent\'s Line-Memory Engine plus daily mentor accountability is what closes the 50-100 mark gap repeaters typically face. 51% of our repeater students cross 650 — a number rarely seen elsewhere.' },
+      { q: 'Will my mentor be a doctor, or a coaching teacher?', a: 'Every NEET Final Ascent mentor is an MBBS doctor or MBBS-final-year student from AIIMS, JIPMER, AFMC, or top Government Medical Colleges. They have lived NEET, scored 650+ themselves, and know exactly how to engineer that score in another student. Written into your enrolment terms.' },
+      { q: 'How is this different from your 1-year NEET Target program?', a: 'The 1-year Target program is balanced and longer-runway. The Final Ascent runs at higher intensity, uses the NCERT Line-Memory Engine, and includes 12 High-Yield Heatmap audits — features not part of the 1-year program. Choose Final Ascent if your exam is in the immediate upcoming cycle and you want maximum-personalization, maximum-accountability intensity.' },
+      { q: 'What about board exams during Phase 3?', a: 'The plan absorbs your board exam dates. Pre-boards: surge in NCERT-aligned content (which also boosts board scores). Board exam weeks: light NEET load (1-hour daily session, focused on quick PYQ MCQs). Post-boards: immediate switch to Phase 4 White Coat Protocol.' },
+      { q: 'Can I pay in installments?', a: 'Yes — three installment plans available, plus bank EMI via partner NBFCs. Merit scholarships up to 25% are offered to students who score above 60% in the Day-0 Pulse Check.' },
+      { q: 'I am scared of CBT format — I have only ever done OMR papers. Will I struggle?', a: 'NEET ' + CURRENT_EXAM_YEAR + ' is expected to continue the official NMC CBT format introduced in 2026. From Month 1, every mock in the Final Ascent runs on the exact NMC CBT interface. By Phase 4, the interface is so familiar that students report it feels like an extension of their study app. Zero exam-day surprise.' },
+    ],
+    whyChoose: [
+      `Built for a single deadline — NEET UG ${CURRENT_EXAM_YEAR}, May 4`,
+      'NCERT Line-Memory Engine — proprietary tool that no batch coaching offers',
+      'MBBS doctor mentor guarantee — AIIMS/JIPMER/AFMC alumni network',
+      '32+ NMC CBT-format mocks — most full-length CBT exposure in the industry',
+      'White Coat Protocol — historically adds 80-110 marks in final 60 days',
+      'Sleep-schedule + mental-state coaching — Biology + biology of the student, both optimized',
+      '51% of repeater sub-cohort scores 650+ — proof the engine works',
+      '~₹365 per live 1-on-1 hour — under half the price of comparable offline 1-on-1 tuition',
+    ],
+  },
   {
     slug: `jee-main-target-${TWO_YEAR_TARGET}`,
     name: `JEE Main Target ${TWO_YEAR_TARGET}`,
