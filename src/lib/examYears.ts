@@ -6,16 +6,17 @@
  * should import from here instead of hardcoding.
  *
  * Logic:
- * - JEE Main Session 2 & NEET UG happen in April-May each year.
- * - Once May starts (month index >= 4), the "current" exam cycle is
+ * - JEE Main Session 1: ~Jan 20, Session 2: ~Apr 15, JEE Advanced: ~May 24-25.
+ * - NEET UG: ~May 3-4.
+ * - Once JEE Advanced is over (~May 25), the "current" exam cycle is
  *   considered done and everything rolls forward to the next cycle.
  *
- * Example (May 2026 onwards):
+ * Example (late May 2026 onwards):
  *   CURRENT_EXAM_YEAR = 2027  (next upcoming exam)
  *   ONE_YEAR_TARGET   = 2028  (1-year intensive courses)
  *   TWO_YEAR_TARGET   = 2029  (2-year foundation courses)
  *
- * Example (Jan–Apr 2027):
+ * Example (Jan–May 2027):
  *   CURRENT_EXAM_YEAR = 2027  (exams happening this cycle)
  *   ONE_YEAR_TARGET   = 2028
  *   TWO_YEAR_TARGET   = 2029
@@ -25,10 +26,12 @@ const now = new Date();
 const calendarYear = now.getFullYear();
 
 /**
- * After April (month index >= 4, i.e. May onwards), the current exam
- * session is done — students enrolling now target the NEXT year's exam.
+ * After April (month index >= 4, i.e. May onwards), JEE Main Sessions 1 & 2
+ * and NEET UG have all happened — students enrolling now target the NEXT
+ * year's exam cycle. (JEE Advanced for the current year may still be pending,
+ * but new students cannot sit for it without prior registration.)
  */
-const rollover = now.getMonth() >= 4; // May onwards → roll forward
+const rollover = now.getMonth() >= 4;
 
 /** The next upcoming exam year (JEE / NEET) students are currently targeting. */
 export const CURRENT_EXAM_YEAR = rollover ? calendarYear + 1 : calendarYear;
@@ -39,19 +42,25 @@ export const ONE_YEAR_TARGET = CURRENT_EXAM_YEAR + 1;
 /** Target year for 2-year foundation courses. */
 export const TWO_YEAR_TARGET = CURRENT_EXAM_YEAR + 2;
 
-/** Months remaining until JEE Main Session 1 (approx Jan 20 of CURRENT_EXAM_YEAR). */
-export const MONTHS_TO_JEE = (() => {
-  const jeeDate = new Date(CURRENT_EXAM_YEAR, 0, 20); // Jan 20
-  const diff = jeeDate.getTime() - now.getTime();
-  return Math.max(0, Math.round(diff / (1000 * 60 * 60 * 24 * 30.44)));
-})();
+const MS_PER_MONTH = 1000 * 60 * 60 * 24 * 30.44;
 
-/** Months remaining until NEET UG (approx May 4 of CURRENT_EXAM_YEAR). */
-export const MONTHS_TO_NEET = (() => {
-  const neetDate = new Date(CURRENT_EXAM_YEAR, 4, 4); // May 4
-  const diff = neetDate.getTime() - now.getTime();
-  return Math.max(0, Math.round(diff / (1000 * 60 * 60 * 24 * 30.44)));
-})();
+/** Months remaining from today until JEE Main Session 1 (Jan 20) of the given year. */
+export function getMonthsUntilJee(year: number): number {
+  const jeeDate = new Date(year, 0, 20);
+  return Math.max(0, Math.round((jeeDate.getTime() - now.getTime()) / MS_PER_MONTH));
+}
+
+/** Months remaining from today until NEET UG (May 4) of the given year. */
+export function getMonthsUntilNeet(year: number): number {
+  const neetDate = new Date(year, 4, 4);
+  return Math.max(0, Math.round((neetDate.getTime() - now.getTime()) / MS_PER_MONTH));
+}
+
+/** Months remaining until the next JEE Main Session 1 (CURRENT_EXAM_YEAR). */
+export const MONTHS_TO_JEE = getMonthsUntilJee(CURRENT_EXAM_YEAR);
+
+/** Months remaining until the next NEET UG (CURRENT_EXAM_YEAR). */
+export const MONTHS_TO_NEET = getMonthsUntilNeet(CURRENT_EXAM_YEAR);
 
 /* ─── Convenience label strings ─── */
 
@@ -82,4 +91,29 @@ export function getCourseTargetYear(
 ): string {
   const year = duration === '2-year' ? TWO_YEAR_TARGET : ONE_YEAR_TARGET;
   return `${exam} Target ${year}`;
+}
+
+/**
+ * Extracts the 4-digit target year from a course slug like
+ * `jee-target-2028`, `jee-main-target-2029`, or `neet-target-2028`.
+ * Returns null if the slug carries no year.
+ */
+export function getCourseYearFromSlug(slug: string): number | null {
+  const match = slug.match(/(\d{4})$/);
+  if (!match) return null;
+  const y = parseInt(match[1], 10);
+  return Number.isFinite(y) ? y : null;
+}
+
+/**
+ * Returns months remaining until the target exam encoded in a course slug.
+ * JEE slugs target Jan; NEET slugs target May. Returns null for slugs
+ * without a year (e.g. crash courses, foundation, BITSAT, ISI, Olympiad).
+ */
+export function getMonthsToCourseTarget(slug: string): number | null {
+  const year = getCourseYearFromSlug(slug);
+  if (year === null) return null;
+  if (slug.startsWith('neet-')) return getMonthsUntilNeet(year);
+  if (slug.startsWith('jee-')) return getMonthsUntilJee(year);
+  return null;
 }

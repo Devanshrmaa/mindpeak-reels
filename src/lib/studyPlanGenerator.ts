@@ -10,7 +10,13 @@
  *   1-2 months  →  Crash course flat rate
  */
 
-import { CURRENT_EXAM_YEAR } from './examYears';
+import {
+  CURRENT_EXAM_YEAR,
+  ONE_YEAR_TARGET,
+  TWO_YEAR_TARGET,
+  getMonthsUntilJee,
+  getMonthsUntilNeet,
+} from './examYears';
 
 /* ─── Fee constants (in ₹, excl. GST) ─── */
 const FEES = {
@@ -264,12 +270,41 @@ export function generateStudyPlan(
   const subjects = examType === 'JEE' ? JEE_SUBJECTS : NEET_SUBJECTS;
   const curriculum = examType === 'JEE' ? JEE_CURRICULUM : NEET_CURRICULUM;
 
+  /* ── Pick the actual exam cycle this plan targets ──
+   * If the student has more months than the next exam allows, they're
+   * preparing for a later cycle. Match the slug to the real course in
+   * coursesData.ts so CTAs never 404.
+   */
+  const monthsToNextExam =
+    examType === 'JEE'
+      ? getMonthsUntilJee(CURRENT_EXAM_YEAR)
+      : getMonthsUntilNeet(CURRENT_EXAM_YEAR);
+  const monthsToOneYearTarget =
+    examType === 'JEE'
+      ? getMonthsUntilJee(ONE_YEAR_TARGET)
+      : getMonthsUntilNeet(ONE_YEAR_TARGET);
+
+  let examYear: number;
+  if (totalMonths <= Math.max(2, monthsToNextExam + 1)) examYear = CURRENT_EXAM_YEAR;
+  else if (totalMonths <= Math.max(12, monthsToOneYearTarget + 1)) examYear = ONE_YEAR_TARGET;
+  else examYear = TWO_YEAR_TARGET;
+
   /* ── Determine tier ── */
   let tier: StudyPlan['tier'];
   let tierLabel: string;
   let feeNumeric: number;
   let courseSlug: string;
   let courseName: string;
+
+  // 1-year course slug uses `jee-target-` (no "main"); 2-year uses `jee-main-target-`.
+  const oneYearSlug =
+    examType === 'JEE'
+      ? `jee-target-${ONE_YEAR_TARGET}`
+      : `neet-target-${ONE_YEAR_TARGET}`;
+  const twoYearSlug =
+    examType === 'JEE'
+      ? `jee-main-target-${TWO_YEAR_TARGET}`
+      : `neet-target-${TWO_YEAR_TARGET}`;
 
   if (totalMonths <= 2) {
     tier = 'crash';
@@ -281,28 +316,19 @@ export function generateStudyPlan(
     tier = 'intensive';
     tierLabel = 'Intensive Accelerated Programme';
     feeNumeric = prorateFee(FEES.oneYear, 12, totalMonths);
-    courseSlug =
-      examType === 'JEE'
-        ? `jee-main-target-${CURRENT_EXAM_YEAR}`
-        : `neet-target-${CURRENT_EXAM_YEAR}`;
+    courseSlug = oneYearSlug;
     courseName = `${examType} Intensive ${totalMonths}-Month Programme`;
   } else if (totalMonths <= 12) {
     tier = 'standard';
     tierLabel = '1-Year Programme';
     feeNumeric = prorateFee(FEES.oneYear, 12, totalMonths);
-    courseSlug =
-      examType === 'JEE'
-        ? `jee-main-target-${CURRENT_EXAM_YEAR}`
-        : `neet-target-${CURRENT_EXAM_YEAR}`;
+    courseSlug = oneYearSlug;
     courseName = `${examType} ${totalMonths}-Month Target Programme`;
   } else {
     tier = 'extended';
     tierLabel = '2-Year Foundation Programme';
     feeNumeric = prorateFee(FEES.twoYear, 24, totalMonths);
-    courseSlug =
-      examType === 'JEE'
-        ? `jee-main-target-${CURRENT_EXAM_YEAR + 1}`
-        : `neet-target-${CURRENT_EXAM_YEAR + 1}`;
+    courseSlug = twoYearSlug;
     courseName = `${examType} ${totalMonths}-Month Foundation Programme`;
   }
 
@@ -346,16 +372,16 @@ export function generateStudyPlan(
   /* ── Summary ── */
   const summary =
     tier === 'crash'
-      ? `With only ${totalMonths} month${totalMonths > 1 ? 's' : ''} until ${examType} ${CURRENT_EXAM_YEAR}, this crash course focuses exclusively on high-weightage chapters, rapid formula revision, and daily mock tests. Your dedicated 1-on-1 mentor will prioritise the 40-50 most important topics to maximise your score in the shortest time.`
+      ? `With only ${totalMonths} month${totalMonths > 1 ? 's' : ''} until ${examType} ${examYear}, this crash course focuses exclusively on high-weightage chapters, rapid formula revision, and daily mock tests. Your dedicated 1-on-1 mentor will prioritise the 40-50 most important topics to maximise your score in the shortest time.`
       : tier === 'intensive'
-        ? `This ${totalMonths}-month intensive plan covers the complete ${examType} syllabus at an accelerated pace. With 30+ hours/week of focused 1-on-1 sessions, weekly mocks, and targeted revision, you'll be exam-ready for ${examType} ${CURRENT_EXAM_YEAR}. Fee is prorated from the standard 1-year programme.`
+        ? `This ${totalMonths}-month intensive plan covers the complete ${examType} syllabus at an accelerated pace. With 30+ hours/week of focused 1-on-1 sessions, weekly mocks, and targeted revision, you'll be exam-ready for ${examType} ${examYear}. Fee is prorated from the standard 1-year programme.`
         : tier === 'standard'
-          ? `Your personalised ${totalMonths}-month programme provides comprehensive syllabus coverage, phased learning, and progressive mock-test intensity to ensure you peak at the right time for ${examType} ${CURRENT_EXAM_YEAR}.`
-          : `This ${totalMonths}-month extended programme gives you the luxury of time to build unshakeable fundamentals before progressively advancing to competition-level problem-solving for ${examType} ${CURRENT_EXAM_YEAR + 1}.`;
+          ? `Your personalised ${totalMonths}-month programme provides comprehensive syllabus coverage, phased learning, and progressive mock-test intensity to ensure you peak at the right time for ${examType} ${examYear}.`
+          : `This ${totalMonths}-month extended programme gives you the luxury of time to build unshakeable fundamentals before progressively advancing to competition-level problem-solving for ${examType} ${examYear}.`;
 
   return {
     examType,
-    examYear: tier === 'extended' ? CURRENT_EXAM_YEAR + 1 : CURRENT_EXAM_YEAR,
+    examYear,
     totalMonths,
     tier,
     tierLabel,

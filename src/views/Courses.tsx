@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import { NCERTDownloadModal } from '@/components/NCERTDownloadModal';
 import { courses, testSeriesData, type Course } from '@/data/coursesData';
+import { getCourseYearFromSlug, getMonthsToCourseTarget } from '@/lib/examYears';
 import Image from 'next/image';
 const logo = '/images/logo.jpeg';
 const jeeLogo = '/images/jee-logo.jpeg';
@@ -32,6 +33,17 @@ const CourseCard = ({ course, index, onBookDemo, onDownloadBrochure }: { course:
   const router = useRouter();
   const Icon = course.icon;
   const num = String(index + 1).padStart(2, '0');
+
+  // Compute target-exam metadata for cards whose slug encodes a year
+  // (jee-target-YYYY, jee-main-target-YYYY, neet-target-YYYY).
+  const targetYear = getCourseYearFromSlug(course.slug);
+  const monthsLeft = getMonthsToCourseTarget(course.slug);
+  const targetExamLabel = (() => {
+    if (targetYear === null) return null;
+    if (course.slug.startsWith('neet-')) return `NEET UG ${targetYear} (May)`;
+    if (course.slug.startsWith('jee-')) return `JEE Main ${targetYear} S1 (Jan)`;
+    return null;
+  })();
 
   return (
     <motion.div
@@ -76,6 +88,19 @@ const CourseCard = ({ course, index, onBookDemo, onDownloadBrochure }: { course:
           <span className="w-px h-3 bg-foreground/[0.06]" />
           <span className="text-primary/70 font-medium">{course.fee}</span>
         </div>
+
+        {/* Target-exam countdown — auto-updates with today's date */}
+        {targetExamLabel && monthsLeft !== null && monthsLeft > 0 && (
+          <div className="flex flex-wrap items-center gap-2 text-[11px] -mt-1">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/[0.07] border border-primary/15 text-primary/85">
+              <Target className="w-3 h-3" strokeWidth={1.8} />
+              Targets {targetExamLabel}
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-foreground/[0.04] border border-foreground/[0.08] text-muted-foreground">
+              {monthsLeft} {monthsLeft === 1 ? 'month' : 'months'} left
+            </span>
+          </div>
+        )}
 
         {/* Short description */}
         <p className="text-muted-foreground/70 text-sm leading-relaxed line-clamp-2">{course.description}</p>

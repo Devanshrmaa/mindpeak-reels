@@ -50,7 +50,6 @@ import {
   type MonthBlock,
   type DailyScheduleBlock,
 } from '@/lib/studyPlanGenerator';
-import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 
 /* ─── FAQ ─── */
 const faqs: FAQItem[] = [
@@ -304,8 +303,8 @@ const StudyPlan = () => {
   return (
     <>
       <SEOHead
-        title={`${examType} Study Plan ${CURRENT_EXAM_YEAR} — Personalised ${months}-Month Roadmap | MindPeak`}
-        description={`Auto-generated ${months}-month study plan for ${examType} ${CURRENT_EXAM_YEAR}. Month-by-month syllabus, prorated fee (${plan.fee}), mock-test schedule & crash course option. Start today.`}
+        title={`${examType} Study Plan ${plan.examYear} — Personalised ${months}-Month Roadmap | MindPeak`}
+        description={`Auto-generated ${months}-month study plan for ${examType} ${plan.examYear}. Month-by-month syllabus, prorated fee (${plan.fee}), mock-test schedule & crash course option. Start today.`}
         jsonLd={[
           {
             '@context': 'https://schema.org',
@@ -337,7 +336,7 @@ const StudyPlan = () => {
           <div className="max-w-4xl mx-auto text-center relative z-10">
             <FreshnessBadge
               lastUpdated={freshness}
-              verifiedFor={`${examType} ${CURRENT_EXAM_YEAR}`}
+              verifiedFor={`${examType} ${plan.examYear}`}
             />
 
             <motion.h1

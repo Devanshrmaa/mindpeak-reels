@@ -17,6 +17,7 @@ import { buildAllNEETPYQSlugs } from '../src/data/neet-pyq/index';
 import { allCities } from '../src/data/cityData';
 import { getAllSubjectCitySlugs } from '../src/data/subjectCityData';
 import { getAllProgrammaticBlogSlugs } from '../src/lib/programmaticBlogs';
+import { ONE_YEAR_TARGET, TWO_YEAR_TARGET } from '../src/lib/examYears';
 
 const BASE = 'https://mindpeakinstitute.com';
 const TODAY = new Date().toISOString().slice(0, 10);
@@ -48,8 +49,8 @@ const STATIC: string[] = [
   '/jee-physics-preparation', '/jee-chemistry-preparation', '/jee-mathematics-preparation',
   '/neet-biology-preparation', '/neet-physics-preparation', '/neet-chemistry-preparation',
   '/jee-mock-test-strategy', '/neet-mock-test-strategy',
-  '/course/jee-main-target-2027', '/course/neet-target-2027',
-  '/course/jee-target-2026', '/course/neet-target-2026',
+  `/course/jee-main-target-${TWO_YEAR_TARGET}`, `/course/neet-target-${TWO_YEAR_TARGET}`,
+  `/course/jee-target-${ONE_YEAR_TARGET}`, `/course/neet-target-${ONE_YEAR_TARGET}`,
   '/course/subject-crash-course', '/course/1-on-1-crash-program',
   '/course/6th-foundation', '/course/7th-foundation', '/course/8th-foundation',
   '/course/9th-foundation', '/course/10th-foundation',
