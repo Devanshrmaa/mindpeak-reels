@@ -12,6 +12,7 @@ import { PageFAQ, buildFAQSchema } from '@/components/PageFAQ';
 import type { FAQItem } from '@/components/PageFAQ';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
 import { FreshnessBadge } from '@/components/FreshnessBadge';
+import { getLastUpdated } from '@/lib/contentFreshness';
 import { PeopleAlsoAsk } from '@/components/PeopleAlsoAsk';
 import type { PAAQuestion } from '@/components/PeopleAlsoAsk';
 import { useDemoModal } from '@/components/DemoBookingModal';
@@ -609,7 +610,7 @@ const SubjectPage = () => {
         {/* ───── HERO ───── */}
         <section className="max-w-5xl mx-auto px-4 sm:px-6 pb-8 sm:pb-12 text-center">
           <div>
-            <FreshnessBadge lastUpdated="2026-02-18" verifiedFor={`${data.exam} ${CURRENT_EXAM_YEAR}`} />
+            <FreshnessBadge lastUpdated={getLastUpdated(data.slug)} verifiedFor={`${data.exam} ${CURRENT_EXAM_YEAR}`} />
 
             <div className="flex items-center justify-center gap-3 mb-4 sm:mb-6">
               <Image src={logo} alt="MindPeak Institute" className="w-10 h-10 sm:w-14 sm:h-14 rounded-full flex-shrink-0" width={56} height={56} priority />

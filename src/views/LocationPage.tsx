@@ -1129,7 +1129,7 @@ const LocationPage = () => {
         {/* Footer */}
         <footer className="bg-background border-t border-border py-8 px-6 text-center" role="contentinfo">
           <p className="text-muted-foreground text-xs tracking-wider mb-4">
-            © 2026 MindPeak Institute. Personalized 1-on-1 {examLabel} Coaching in {city.city}, {city.state}.
+            © {new Date().getFullYear()} MindPeak Institute. Personalized 1-on-1 {examLabel} Coaching in {city.city}, {city.state}.
           </p>
           <div className="flex justify-center gap-4 text-xs">
             <Link to="/terms-and-conditions" className="text-muted-foreground hover:text-primary transition-colors">Terms & Conditions</Link>
