@@ -3,6 +3,7 @@ import { Space_Grotesk, Inter } from "next/font/google";
 import Script from "next/script";
 import { Providers } from "./providers";
 import { ScrollToTop } from "./scroll-to-top";
+import { CURRENT_EXAM_YEAR } from "@/lib/examYears";
 import "./globals.css";
 
 /* ── Fonts ── */
@@ -23,8 +24,7 @@ const inter = Inter({
 /* ── Metadata (migrated from index.html) ── */
 export const metadata: Metadata = {
   title: {
-    default:
-      "MindPeak Institute — #1 Personalized JEE & NEET Coaching 2026 | 95% Success",
+    default: `MindPeak Institute — #1 Personalized JEE & NEET Coaching ${CURRENT_EXAM_YEAR} | 95% Success`,
     template: "%s",
   },
   description:

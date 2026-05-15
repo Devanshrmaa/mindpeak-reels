@@ -13,6 +13,7 @@ import { CheckCircle, ArrowRight, Star, ShieldCheck, Phone, CreditCard } from 'l
 import { DynamicOfferBanner } from '@/components/DynamicOfferBanner';
 import { FreshnessBadge } from '@/components/FreshnessBadge';
 import { getLastUpdated } from '@/lib/contentFreshness';
+import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 import Image from 'next/image';
 const logo = '/images/logo.jpeg';
 
@@ -235,7 +236,7 @@ const Pricing = () => {
               <ShieldCheck className="w-4 h-4" /> 7-Day Money-Back Guarantee on All Plans
             </p>
             <div className="mt-4">
-              <FreshnessBadge lastUpdated={lastUpdated} verifiedFor="2026 Plans" />
+              <FreshnessBadge lastUpdated={lastUpdated} verifiedFor={`${CURRENT_EXAM_YEAR} Plans`} />
             </div>
           </div>
         </section>

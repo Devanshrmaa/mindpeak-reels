@@ -214,7 +214,7 @@ export const PageFooter = ({ extra }: { extra?: string }) => {
           <span className="text-border">|</span>
           <Link to="/refund-policy" className="hover:text-primary transition-colors">Refund Policy</Link>
         </div>
-        <p>© 2026 MindPeak Institute. All rights reserved.{extra ? ` ${extra}` : ''}</p>
+        <p>© {new Date().getFullYear()} MindPeak Institute. All rights reserved.{extra ? ` ${extra}` : ''}</p>
       </div>
 
       {/* Related Pages (compact) */}

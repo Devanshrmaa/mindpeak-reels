@@ -157,7 +157,7 @@ export const ContactSection = () => {
         </div>
 
         <p className="text-muted-foreground/80 text-[11px] tracking-[0.1em] text-center">
-          © 2026 MindPeak Institute. All rights reserved.
+          © {new Date().getFullYear()} MindPeak Institute. All rights reserved.
         </p>
       </footer>
     </section>
