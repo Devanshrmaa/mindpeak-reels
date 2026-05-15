@@ -1805,7 +1805,7 @@ const successStoriesPage: SEOPageData = {
       heading: 'Our Results at a Glance',
       content: 'MindPeak Institute has consistently produced outstanding results since its inception. Our personalized 1-on-1 approach ensures that every student receives the attention they need to excel.',
       table: {
-        headers: ['Metric', '2024-25', '2023-24', '2022-23'],
+        headers: ['Metric', '2025-26', '2024-25', '2023-24'],
         rows: [
           ['Students Mentored', '200+', '180+', '120+'],
           ['JEE Main Qualified', '95%', '93%', '90%'],

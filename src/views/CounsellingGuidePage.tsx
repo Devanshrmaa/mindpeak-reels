@@ -35,7 +35,7 @@ const CounsellingGuidePage = () => {
       description: page.description,
       author: { '@type': 'Organization', name: 'MindPeak Institute' },
       publisher: { '@type': 'Organization', name: 'MindPeak Institute', logo: { '@type': 'ImageObject', url: 'https://mindpeakinstitute.com/images/logo.jpeg' } },
-      datePublished: '2025-01-01',
+      datePublished: '2026-01-01',
       dateModified: lastUpdated,
       about: getExamEntities(page.exam),
     },

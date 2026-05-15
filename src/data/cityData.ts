@@ -123,8 +123,8 @@ export const cities: CityData[] = [
     targetColleges: ['IIT Delhi', 'AIIMS Delhi', 'DTU (Delhi Technological University)', 'NSUT (Netaji Subhas University of Technology)', 'IIIT Delhi', 'Maulana Azad Medical College', 'Lady Hardinge Medical College', 'Jamia Millia Islamia'],
     localAreas: ['South Delhi', 'Dwarka', 'Rohini', 'Noida', 'Gurgaon', 'Faridabad', 'Ghaziabad', 'Rajouri Garden', 'Laxmi Nagar', 'Vasant Kunj', 'Pitampura', 'Kalu Sarai'],
     testimonials: [
-      { name: 'Arjun S.', rank: 'AIR 156 — JEE Advanced 2025', quote: 'I left Allen after Class 11 because I was just a number there. MindPeak\'s 1-on-1 coaching from my Delhi home helped me crack JEE Advanced with AIR 156. My mentor knew exactly where I was weak.' },
-      { name: 'Priya K.', rank: 'NEET 695/720 — 2025', quote: 'As a South Delhi student, commuting to coaching was killing my study time. MindPeak gave me 3 extra hours daily. My Biology mentor\'s NCERT-first approach was exactly what NEET needed.' },
+      { name: 'Arjun S.', rank: 'AIR 156 — JEE Advanced 2026', quote: 'I left Allen after Class 11 because I was just a number there. MindPeak\'s 1-on-1 coaching from my Delhi home helped me crack JEE Advanced with AIR 156. My mentor knew exactly where I was weak.' },
+      { name: 'Priya K.', rank: 'NEET 695/720 — 2026', quote: 'As a South Delhi student, commuting to coaching was killing my study time. MindPeak gave me 3 extra hours daily. My Biology mentor\'s NCERT-first approach was exactly what NEET needed.' },
       { name: 'Rahul M.', rank: 'AIR 42 — JEE Advanced 2024', quote: 'MindPeak\'s personalised attention is unmatched. My mentor identified my weak areas in Physical Chemistry and turned them into my strongest section within 4 months.' },
     ],
   },
@@ -159,8 +159,8 @@ export const cities: CityData[] = [
     targetColleges: ['IIT Bombay', 'VJTI Mumbai', 'ICT Mumbai (UDCT)', 'SPIT Mumbai', 'Grant Medical College', 'Seth GS Medical College (KEM)', 'Topiwala National Medical College (Nair)', 'DJ Sanghvi College of Engineering'],
     localAreas: ['Andheri', 'Borivali', 'Thane', 'Navi Mumbai', 'Dadar', 'Powai', 'Goregaon', 'Kandivali', 'Mulund', 'Bandra', 'Vashi', 'Panvel'],
     testimonials: [
-      { name: 'Sneha R.', rank: 'AIR 289 — JEE Main 2025', quote: 'Mumbai local trains used to eat 4 hours of my day. MindPeak gave me that time back. I studied from Borivali and got into NIT Trichy — impossible with batch coaching commute.' },
-      { name: 'Aditya P.', rank: 'NEET 668/720 — 2025', quote: 'My MindPeak mentor understood the Maharashtra Board to NEET gap perfectly. The personalised biology sessions were worth every rupee. Now I\'m at Grant Medical College.' },
+      { name: 'Sneha R.', rank: 'AIR 289 — JEE Main 2026', quote: 'Mumbai local trains used to eat 4 hours of my day. MindPeak gave me that time back. I studied from Borivali and got into NIT Trichy — impossible with batch coaching commute.' },
+      { name: 'Aditya P.', rank: 'NEET 668/720 — 2026', quote: 'My MindPeak mentor understood the Maharashtra Board to NEET gap perfectly. The personalised biology sessions were worth every rupee. Now I\'m at Grant Medical College.' },
       { name: 'Kavya D.', rank: 'MHT-CET 99.8 percentile', quote: 'MindPeak covered both JEE and MHT-CET seamlessly. My mentor\'s integrated approach saved me from juggling two separate coaching schedules in Mumbai.' },
     ],
   },
@@ -195,9 +195,9 @@ export const cities: CityData[] = [
     targetColleges: ['IISc Bangalore', 'IIT Madras (nearby)', 'RV College of Engineering', 'BMS College of Engineering', 'PES University', 'MS Ramaiah Medical College', 'Bangalore Medical College', 'St. John\'s Medical College'],
     localAreas: ['Koramangala', 'Whitefield', 'Electronic City', 'BTM Layout', 'HSR Layout', 'Marathahalli', 'Indiranagar', 'Jayanagar', 'Yelahanka', 'Banashankari', 'JP Nagar', 'Hebbal'],
     testimonials: [
-      { name: 'Karthik V.', rank: 'AIR 203 — JEE Advanced 2025', quote: 'My parents are techies in Whitefield and they loved MindPeak\'s data-driven approach. Weekly analytics showed exactly where I needed to improve. Bangalore traffic made coaching impossible, but MindPeak made it easy.' },
-      { name: 'Ananya S.', rank: 'KCET Rank 45 — 2025', quote: 'MindPeak integrated my KCET and JEE prep beautifully. I topped KCET while also getting a great JEE Main score. The 1-on-1 format was perfect for my learning style.' },
-      { name: 'Rohan M.', rank: 'NEET 645/720 — 2025', quote: 'From HSR Layout, commuting to any coaching centre was a nightmare. MindPeak\'s online sessions fit perfectly into my schedule and my mentor\'s NCERT focus was exactly right.' },
+      { name: 'Karthik V.', rank: 'AIR 203 — JEE Advanced 2026', quote: 'My parents are techies in Whitefield and they loved MindPeak\'s data-driven approach. Weekly analytics showed exactly where I needed to improve. Bangalore traffic made coaching impossible, but MindPeak made it easy.' },
+      { name: 'Ananya S.', rank: 'KCET Rank 45 — 2026', quote: 'MindPeak integrated my KCET and JEE prep beautifully. I topped KCET while also getting a great JEE Main score. The 1-on-1 format was perfect for my learning style.' },
+      { name: 'Rohan M.', rank: 'NEET 645/720 — 2026', quote: 'From HSR Layout, commuting to any coaching centre was a nightmare. MindPeak\'s online sessions fit perfectly into my schedule and my mentor\'s NCERT focus was exactly right.' },
     ],
   },
   {
@@ -231,8 +231,8 @@ export const cities: CityData[] = [
     targetColleges: ['IIT Hyderabad', 'BITS Pilani Hyderabad', 'Osmania Medical College', 'Gandhi Medical College', 'NIT Warangal', 'IIIT Hyderabad', 'CBIT Hyderabad', 'Deccan College of Medical Sciences'],
     localAreas: ['Ameerpet', 'Kukatpally', 'Gachibowli', 'Secunderabad', 'Miyapur', 'Madhapur', 'Dilsukhnagar', 'ECIL', 'LB Nagar', 'Begumpet', 'Uppal', 'Kompally'],
     testimonials: [
-      { name: 'Sai K.', rank: 'AIR 178 — JEE Main 2025', quote: 'Ameerpet coaching had 200 students in my batch. At MindPeak, I had a dedicated mentor who focused only on my weaknesses. The difference showed in my rank — AIR 178 from Hyderabad!' },
-      { name: 'Meghana R.', rank: 'NEET 672/720 — 2025', quote: 'MindPeak\'s NEET program was perfect for my Telangana Board background. My mentor bridged every gap systematically. I got into Gandhi Medical College — my dream since childhood.' },
+      { name: 'Sai K.', rank: 'AIR 178 — JEE Main 2026', quote: 'Ameerpet coaching had 200 students in my batch. At MindPeak, I had a dedicated mentor who focused only on my weaknesses. The difference showed in my rank — AIR 178 from Hyderabad!' },
+      { name: 'Meghana R.', rank: 'NEET 672/720 — 2026', quote: 'MindPeak\'s NEET program was perfect for my Telangana Board background. My mentor bridged every gap systematically. I got into Gandhi Medical College — my dream since childhood.' },
       { name: 'Arjun T.', rank: 'TS EAMCET Rank 89', quote: 'I was preparing for both JEE and EAMCET from Gachibowli. MindPeak\'s integrated approach covered both exams without doubling my study time. Brilliant strategy by my mentor.' },
     ],
   },
@@ -267,8 +267,8 @@ export const cities: CityData[] = [
     targetColleges: ['IIT Madras', 'Anna University (CEG)', 'Madras Medical College', 'Stanley Medical College', 'SRM University', 'VIT Vellore (nearby)', 'SSN College of Engineering', 'Kilpauk Medical College'],
     localAreas: ['T. Nagar', 'Adyar', 'Anna Nagar', 'Velachery', 'Tambaram', 'OMR Corridor', 'Porur', 'Thoraipakkam', 'Chrompet', 'Ambattur', 'Sholinganallur', 'Guindy'],
     testimonials: [
-      { name: 'Deepak R.', rank: 'AIR 312 — JEE Advanced 2025', quote: 'Tamil Nadu Board to JEE transition was my biggest fear. My MindPeak mentor made it seamless. From OMR, commuting to coaching was impossible — online 1-on-1 was the perfect solution.' },
-      { name: 'Lakshmi S.', rank: 'NEET 688/720 — 2025', quote: 'My NCERT-first strategy with MindPeak worked perfectly for NEET. Being a TN Board student, I needed specific bridging that my mentor provided patiently. Now at Madras Medical College!' },
+      { name: 'Deepak R.', rank: 'AIR 312 — JEE Advanced 2026', quote: 'Tamil Nadu Board to JEE transition was my biggest fear. My MindPeak mentor made it seamless. From OMR, commuting to coaching was impossible — online 1-on-1 was the perfect solution.' },
+      { name: 'Lakshmi S.', rank: 'NEET 688/720 — 2026', quote: 'My NCERT-first strategy with MindPeak worked perfectly for NEET. Being a TN Board student, I needed specific bridging that my mentor provided patiently. Now at Madras Medical College!' },
       { name: 'Vikram N.', rank: 'TNEA Rank 23', quote: 'MindPeak helped me with JEE preparation, and the depth of understanding automatically gave me an incredible TNEA rank. The 1-on-1 Chemistry sessions were transformative.' },
     ],
   },
@@ -303,8 +303,8 @@ export const cities: CityData[] = [
     targetColleges: ['IIT Kharagpur', 'Jadavpur University', 'NIT Durgapur', 'IIEST Shibpur', 'Medical College Kolkata', 'NRS Medical College', 'RG Kar Medical College', 'Presidency University'],
     localAreas: ['Salt Lake', 'New Town', 'Howrah', 'Dum Dum', 'Barasat', 'Garia', 'Jadavpur', 'Behala', 'Lake Town', 'Park Street', 'Tollygunge', 'Barrackpore'],
     testimonials: [
-      { name: 'Aniket B.', rank: 'AIR 267 — JEE Advanced 2025', quote: 'Kolkata\'s coaching centres felt intellectually shallow. MindPeak\'s mentor matched my depth of questioning and pushed me to think beyond formulas. JEE Advanced in the top 300 from Kolkata — amazing!' },
-      { name: 'Ritika G.', rank: 'NEET 654/720 — 2025', quote: 'West Bengal Board to NEET transition was difficult until my MindPeak mentor created a systematic bridge. From Salt Lake, I didn\'t need any coaching centre. Now at Medical College Kolkata.' },
+      { name: 'Aniket B.', rank: 'AIR 267 — JEE Advanced 2026', quote: 'Kolkata\'s coaching centres felt intellectually shallow. MindPeak\'s mentor matched my depth of questioning and pushed me to think beyond formulas. JEE Advanced in the top 300 from Kolkata — amazing!' },
+      { name: 'Ritika G.', rank: 'NEET 654/720 — 2026', quote: 'West Bengal Board to NEET transition was difficult until my MindPeak mentor created a systematic bridge. From Salt Lake, I didn\'t need any coaching centre. Now at Medical College Kolkata.' },
       { name: 'Soham C.', rank: 'WBJEE Rank 34', quote: 'MindPeak covered JEE and WBJEE together. My mentor\'s integrated approach was brilliant — I didn\'t need separate coaching for the state exam. Got Jadavpur University CSE!' },
     ],
   },
@@ -339,9 +339,9 @@ export const cities: CityData[] = [
     targetColleges: ['COEP Pune', 'MIT Pune', 'VIT Pune', 'Symbiosis Institute of Technology', 'BJ Government Medical College', 'Sassoon General Hospital (Government)', 'AISSMS College of Engineering', 'Bharati Vidyapeeth Medical College'],
     localAreas: ['Kothrud', 'FC Road', 'Hinjewadi', 'Wakad', 'Hadapsar', 'Baner', 'Aundh', 'Swargate', 'Pimpri-Chinchwad', 'Viman Nagar', 'Kharadi', 'Shivajinagar'],
     testimonials: [
-      { name: 'Aarav J.', rank: 'AIR 445 — JEE Main 2025', quote: 'FC Road coaching was a waste of time — 150 students in a batch. MindPeak gave me a dedicated mentor from Hinjewadi. My Mathematics jumped from 60% to 95% accuracy in 3 months.' },
-      { name: 'Neha P.', rank: 'MHT-CET 99.6 percentile — 2025', quote: 'My MindPeak mentor integrated JEE, MHT-CET, and Maharashtra Board prep into one cohesive plan. I didn\'t need three separate coaching centres in Pune!' },
-      { name: 'Siddharth K.', rank: 'NEET 635/720 — 2025', quote: 'From Wakad, commuting to Pune coaching centres was impractical. MindPeak\'s online 1-on-1 sessions fit my schedule perfectly and my mentor\'s approach was far superior to any batch coaching.' },
+      { name: 'Aarav J.', rank: 'AIR 445 — JEE Main 2026', quote: 'FC Road coaching was a waste of time — 150 students in a batch. MindPeak gave me a dedicated mentor from Hinjewadi. My Mathematics jumped from 60% to 95% accuracy in 3 months.' },
+      { name: 'Neha P.', rank: 'MHT-CET 99.6 percentile — 2026', quote: 'My MindPeak mentor integrated JEE, MHT-CET, and Maharashtra Board prep into one cohesive plan. I didn\'t need three separate coaching centres in Pune!' },
+      { name: 'Siddharth K.', rank: 'NEET 635/720 — 2026', quote: 'From Wakad, commuting to Pune coaching centres was impractical. MindPeak\'s online 1-on-1 sessions fit my schedule perfectly and my mentor\'s approach was far superior to any batch coaching.' },
     ],
   },
   {
@@ -375,9 +375,9 @@ export const cities: CityData[] = [
     targetColleges: ['IIT Gandhinagar', 'NID Ahmedabad', 'DAIICT', 'LD College of Engineering', 'BJ Medical College', 'GCS Medical College', 'Nirma University', 'PDPU Gandhinagar'],
     localAreas: ['CG Road', 'Navrangpura', 'Satellite', 'SG Highway', 'Bopal', 'Maninagar', 'Paldi', 'Vastrapur', 'Prahlad Nagar', 'Thaltej', 'Gota', 'Chandkheda'],
     testimonials: [
-      { name: 'Harsh P.', rank: 'AIR 234 — JEE Main 2025', quote: 'MindPeak\'s ROI-focused approach appealed to my Gujarati businessman father. The weekly analytics proved every session was productive. I cracked JEE Main from Ahmedabad — no Kota needed.' },
-      { name: 'Riya S.', rank: 'GUJCET Rank 67 — 2025', quote: 'My mentor covered GUJCET and JEE seamlessly. From SG Highway, I studied at home and outperformed students who commuted to CG Road coaching centres daily.' },
-      { name: 'Dev M.', rank: 'NEET 648/720 — 2025', quote: 'Gujarat Board to NEET was challenging, but my MindPeak mentor bridged every gap. The 1-on-1 attention made all the difference. Now at BJ Medical College Ahmedabad!' },
+      { name: 'Harsh P.', rank: 'AIR 234 — JEE Main 2026', quote: 'MindPeak\'s ROI-focused approach appealed to my Gujarati businessman father. The weekly analytics proved every session was productive. I cracked JEE Main from Ahmedabad — no Kota needed.' },
+      { name: 'Riya S.', rank: 'GUJCET Rank 67 — 2026', quote: 'My mentor covered GUJCET and JEE seamlessly. From SG Highway, I studied at home and outperformed students who commuted to CG Road coaching centres daily.' },
+      { name: 'Dev M.', rank: 'NEET 648/720 — 2026', quote: 'Gujarat Board to NEET was challenging, but my MindPeak mentor bridged every gap. The 1-on-1 attention made all the difference. Now at BJ Medical College Ahmedabad!' },
     ],
   },
 
@@ -413,9 +413,9 @@ export const cities: CityData[] = [
     targetColleges: ['MNIT Jaipur', 'IIIT Kota (nearby)', 'SMS Medical College Jaipur', 'LNMIIT Jaipur', 'Manipal University Jaipur', 'JK Lakshmipat University', 'RUHS College of Medical Sciences', 'Malaviya National Institute of Technology'],
     localAreas: ['Vaishali Nagar', 'Mansarovar', 'Malviya Nagar', 'Raja Park', 'C-Scheme', 'Tonk Road', 'Jagatpura', 'Sodala', 'Pratap Nagar', 'Jhotwara', 'Sitapura', 'Sanganer'],
     testimonials: [
-      { name: 'Aman R.', rank: 'AIR 189 — JEE Advanced 2025', quote: 'I was about to go to Kota from Jaipur, but my parents found MindPeak. Best decision ever. My mentor gave me more attention in one session than Kota teachers gave in a week. AIR 189!' },
-      { name: 'Divya S.', rank: 'NEET 661/720 — 2025', quote: 'From Mansarovar, driving to coaching was stressful. MindPeak eliminated commute stress entirely. My dedicated mentor\'s NCERT mastery approach was perfect for NEET.' },
-      { name: 'Kunal J.', rank: 'AIR 512 — JEE Main 2025', quote: 'Jaipur students always feel Kota pressure. MindPeak proved that 1-on-1 coaching from home can beat Kota batch results. My Rajasthan Board gaps were fixed in the first 2 months.' },
+      { name: 'Aman R.', rank: 'AIR 189 — JEE Advanced 2026', quote: 'I was about to go to Kota from Jaipur, but my parents found MindPeak. Best decision ever. My mentor gave me more attention in one session than Kota teachers gave in a week. AIR 189!' },
+      { name: 'Divya S.', rank: 'NEET 661/720 — 2026', quote: 'From Mansarovar, driving to coaching was stressful. MindPeak eliminated commute stress entirely. My dedicated mentor\'s NCERT mastery approach was perfect for NEET.' },
+      { name: 'Kunal J.', rank: 'AIR 512 — JEE Main 2026', quote: 'Jaipur students always feel Kota pressure. MindPeak proved that 1-on-1 coaching from home can beat Kota batch results. My Rajasthan Board gaps were fixed in the first 2 months.' },
     ],
   },
   {
@@ -449,9 +449,9 @@ export const cities: CityData[] = [
     targetColleges: ['NIT Calicut', 'IIST Thiruvananthapuram', 'Cochin University (CUSAT)', 'Government Medical College Kochi', 'Amrita Institute of Medical Sciences', 'Model Engineering College', 'Rajiv Gandhi Institute of Technology', 'Government Medical College Thrissur'],
     localAreas: ['Ernakulam', 'Edappally', 'Kakkanad', 'Fort Kochi', 'Aluva', 'Thrippunithura', 'Kaloor', 'Palarivattom', 'Vytilla', 'Maradu', 'Thevara', 'Kalamassery'],
     testimonials: [
-      { name: 'Arun K.', rank: 'AIR 198 — JEE Advanced 2025', quote: 'Kerala students have strong basics but need competitive exam strategy. MindPeak\'s mentor gave me exactly that — speed techniques and time management that made the difference. From Kochi to IIT!' },
-      { name: 'Anjali R.', rank: 'NEET 678/720 — 2025', quote: 'My MindPeak mentor built on my Kerala Board strength in Biology and added the competitive edge I needed. KEAM and NEET were both covered beautifully from my Ernakulam home.' },
-      { name: 'Vishnu M.', rank: 'KEAM Rank 56 — 2025', quote: 'MindPeak covered KEAM and JEE together without doubling my workload. The integrated approach from my dedicated mentor was incredibly efficient. Kochi students don\'t need to go anywhere else.' },
+      { name: 'Arun K.', rank: 'AIR 198 — JEE Advanced 2026', quote: 'Kerala students have strong basics but need competitive exam strategy. MindPeak\'s mentor gave me exactly that — speed techniques and time management that made the difference. From Kochi to IIT!' },
+      { name: 'Anjali R.', rank: 'NEET 678/720 — 2026', quote: 'My MindPeak mentor built on my Kerala Board strength in Biology and added the competitive edge I needed. KEAM and NEET were both covered beautifully from my Ernakulam home.' },
+      { name: 'Vishnu M.', rank: 'KEAM Rank 56 — 2026', quote: 'MindPeak covered KEAM and JEE together without doubling my workload. The integrated approach from my dedicated mentor was incredibly efficient. Kochi students don\'t need to go anywhere else.' },
     ],
   },
   {
@@ -485,8 +485,8 @@ export const cities: CityData[] = [
     targetColleges: ['IIT Indore', 'IIM Indore (nearby)', 'DAVV Indore', 'MGM Medical College Indore', 'SGSITS Indore', 'Medicaps University', 'Prestige Institute of Engineering', 'Sri Aurobindo Institute of Medical Sciences'],
     localAreas: ['Vijay Nagar', 'Palasia', 'AB Road', 'Sapna Sangeeta', 'Bhawarkuan', 'Rajendra Nagar', 'Sudama Nagar', 'Bhanwarkuan', 'MR 10', 'Scheme 78', 'Nipania', 'Bengali Square'],
     testimonials: [
-      { name: 'Aditya T.', rank: 'AIR 378 — JEE Main 2025', quote: 'From Vijay Nagar, I tried local coaching for a year. MindPeak\'s 1-on-1 approach was completely different — my mentor knew exactly where I struggled and fixed those gaps. MP Board bridging was seamless.' },
-      { name: 'Sakshi G.', rank: 'NEET 632/720 — 2025', quote: 'My MindPeak mentor helped me transition from MP Board to NEET preparation smoothly. Hindi explanations when needed made complex Organic Chemistry concepts click. Now at MGM Medical College!' },
+      { name: 'Aditya T.', rank: 'AIR 378 — JEE Main 2026', quote: 'From Vijay Nagar, I tried local coaching for a year. MindPeak\'s 1-on-1 approach was completely different — my mentor knew exactly where I struggled and fixed those gaps. MP Board bridging was seamless.' },
+      { name: 'Sakshi G.', rank: 'NEET 632/720 — 2026', quote: 'My MindPeak mentor helped me transition from MP Board to NEET preparation smoothly. Hindi explanations when needed made complex Organic Chemistry concepts click. Now at MGM Medical College!' },
       { name: 'Rohit P.', rank: 'JEE Main 98.5 percentile', quote: 'Indore coaching centres couldn\'t match MindPeak\'s personalised attention. My mentor adjusted the pace to my learning speed — something impossible in a batch of 100+ students.' },
     ],
   },
@@ -521,8 +521,8 @@ export const cities: CityData[] = [
     targetColleges: ['PEC Chandigarh', 'Punjab University', 'PGIMER Chandigarh', 'GMCH Chandigarh', 'NITTTR Chandigarh', 'UIET Chandigarh', 'Thapar Institute Patiala (nearby)', 'IISER Mohali'],
     localAreas: ['Sector 17', 'Sector 34', 'Sector 22', 'Panchkula', 'Mohali', 'Zirakpur', 'Kharar', 'Sector 44', 'Sector 35', 'Manimajra', 'IT Park Chandigarh', 'Sector 43'],
     testimonials: [
-      { name: 'Gurpreet S.', rank: 'AIR 267 — JEE Advanced 2025', quote: 'Chandigarh coaching centres in Sector 34 couldn\'t match MindPeak\'s personalised approach. Living in Panchkula, the commute was eliminated completely. My mentor\'s structured methodology suited the Chandigarh discipline perfectly.' },
-      { name: 'Simran K.', rank: 'NEET 652/720 — 2025', quote: 'As a Punjab Board student, I needed specific JEE/NEET bridging. MindPeak\'s mentor created a customised plan. From Mohali, I got better coaching than any Sector 34 centre offers.' },
+      { name: 'Gurpreet S.', rank: 'AIR 267 — JEE Advanced 2026', quote: 'Chandigarh coaching centres in Sector 34 couldn\'t match MindPeak\'s personalised approach. Living in Panchkula, the commute was eliminated completely. My mentor\'s structured methodology suited the Chandigarh discipline perfectly.' },
+      { name: 'Simran K.', rank: 'NEET 652/720 — 2026', quote: 'As a Punjab Board student, I needed specific JEE/NEET bridging. MindPeak\'s mentor created a customised plan. From Mohali, I got better coaching than any Sector 34 centre offers.' },
       { name: 'Aryan M.', rank: 'JEE Main 99.1 percentile', quote: 'The tri-city commute for coaching was eating my study time. MindPeak from home gave me 2 extra hours daily for practice. My mentor\'s focused approach delivered a 99+ percentile.' },
     ],
   },
@@ -557,8 +557,8 @@ export const cities: CityData[] = [
     targetColleges: ['VNIT Nagpur', 'AIIMS Nagpur', 'Government Medical College Nagpur', 'IIIT Nagpur', 'RCOEM Nagpur', 'Laxminarayan Institute of Technology', 'Indira Gandhi Government Medical College', 'Priyadarshini College of Engineering'],
     localAreas: ['Dharampeth', 'Sadar', 'Civil Lines', 'Sitabuldi', 'Kamptee', 'Manish Nagar', 'Wardha Road', 'Hingna', 'Koradi Road', 'Nandanvan', 'Lakadganj', 'Seminary Hills'],
     testimonials: [
-      { name: 'Pranav D.', rank: 'AIR 356 — JEE Main 2025', quote: 'Nagpur students always felt disadvantaged compared to Mumbai/Pune. MindPeak levelled the playing field completely. My mentor was IIT alumni — the quality was identical to what Delhi students get.' },
-      { name: 'Anushka S.', rank: 'NEET 641/720 — 2025', quote: 'AIIMS Nagpur was my dream. My MindPeak mentor\'s systematic NCERT approach with Maharashtra Board integration was perfect. No need to relocate to Pune for quality coaching.' },
+      { name: 'Pranav D.', rank: 'AIR 356 — JEE Main 2026', quote: 'Nagpur students always felt disadvantaged compared to Mumbai/Pune. MindPeak levelled the playing field completely. My mentor was IIT alumni — the quality was identical to what Delhi students get.' },
+      { name: 'Anushka S.', rank: 'NEET 641/720 — 2026', quote: 'AIIMS Nagpur was my dream. My MindPeak mentor\'s systematic NCERT approach with Maharashtra Board integration was perfect. No need to relocate to Pune for quality coaching.' },
       { name: 'Varun K.', rank: 'MHT-CET 99.2 percentile', quote: 'From Dharampeth, I studied with MindPeak and covered JEE + MHT-CET together. The integrated approach saved me from juggling two coaching centres in Nagpur.' },
     ],
   },
@@ -593,8 +593,8 @@ export const cities: CityData[] = [
     targetColleges: ['PSG College of Technology', 'Coimbatore Institute of Technology', 'GCT Coimbatore', 'Amrita University', 'Coimbatore Medical College', 'Sri Ramakrishna Institute of Technology', 'Kumaraguru College of Technology', 'PSG Institute of Medical Sciences'],
     localAreas: ['RS Puram', 'Gandhipuram', 'Peelamedu', 'Saravanampatti', 'Singanallur', 'Ganapathy', 'Ukkadam', 'Ramanathapuram', 'Vadavalli', 'Thudiyalur', 'Hope College', 'Race Course'],
     testimonials: [
-      { name: 'Surya V.', rank: 'AIR 423 — JEE Main 2025', quote: 'Coimbatore coaching options were limited compared to Chennai. MindPeak brought Chennai-quality 1-on-1 coaching right to my Peelamedu home. TN Board to JEE transition was handled perfectly.' },
-      { name: 'Preethi M.', rank: 'NEET 656/720 — 2025', quote: 'Tamil Nadu Board to NEET bridging was my biggest concern. My MindPeak mentor addressed every gap systematically. Now I\'m at Coimbatore Medical College — my first choice!' },
+      { name: 'Surya V.', rank: 'AIR 423 — JEE Main 2026', quote: 'Coimbatore coaching options were limited compared to Chennai. MindPeak brought Chennai-quality 1-on-1 coaching right to my Peelamedu home. TN Board to JEE transition was handled perfectly.' },
+      { name: 'Preethi M.', rank: 'NEET 656/720 — 2026', quote: 'Tamil Nadu Board to NEET bridging was my biggest concern. My MindPeak mentor addressed every gap systematically. Now I\'m at Coimbatore Medical College — my first choice!' },
       { name: 'Karthik R.', rank: 'TNEA Rank 78', quote: 'MindPeak\'s deep JEE preparation automatically gave me an outstanding TNEA rank. From Saravanampatti, I didn\'t need to travel to Chennai for coaching. PSG Tech, here I come!' },
     ],
   },
@@ -629,9 +629,9 @@ export const cities: CityData[] = [
     targetColleges: ['SVNIT Surat', 'VNSGU Surat', 'Government Medical College Surat', 'SMIMER Surat', 'SCET Surat', 'Sarvajanik College of Engineering', 'PDPU (nearby)', 'CKBPC Surat'],
     localAreas: ['Adajan', 'Varachha', 'Piplod', 'Vesu', 'Athwa', 'Katargam', 'City Light', 'Pal', 'Dumas Road', 'Althan', 'Udhna', 'Rander'],
     testimonials: [
-      { name: 'Dhruv S.', rank: 'AIR 345 — JEE Main 2025', quote: 'Surat coaching centres couldn\'t match MindPeak\'s dedicated 1-on-1 attention. My mentor knew my learning style and adjusted accordingly. Gujarat Board gaps were fixed within the first month.' },
-      { name: 'Krupa P.', rank: 'GUJCET Rank 89 — 2025', quote: 'From Adajan, MindPeak\'s online coaching was perfect. My mentor integrated GUJCET and JEE preparation into one streamlined plan. No wasted time, maximum results.' },
-      { name: 'Parth M.', rank: 'NEET 638/720 — 2025', quote: 'My family\'s investment-minded approach loved MindPeak\'s ROI tracking. Every week, I could see my improvement quantified. Now at Government Medical College Surat!' },
+      { name: 'Dhruv S.', rank: 'AIR 345 — JEE Main 2026', quote: 'Surat coaching centres couldn\'t match MindPeak\'s dedicated 1-on-1 attention. My mentor knew my learning style and adjusted accordingly. Gujarat Board gaps were fixed within the first month.' },
+      { name: 'Krupa P.', rank: 'GUJCET Rank 89 — 2026', quote: 'From Adajan, MindPeak\'s online coaching was perfect. My mentor integrated GUJCET and JEE preparation into one streamlined plan. No wasted time, maximum results.' },
+      { name: 'Parth M.', rank: 'NEET 638/720 — 2026', quote: 'My family\'s investment-minded approach loved MindPeak\'s ROI tracking. Every week, I could see my improvement quantified. Now at Government Medical College Surat!' },
     ],
   },
   {
@@ -665,9 +665,9 @@ export const cities: CityData[] = [
     targetColleges: ['MS University Vadodara', 'Parul University', 'Government Medical College Vadodara', 'Sumandeep Vidyapeeth', 'Babaria Institute', 'SVIT Vasad', 'Vadodara Medical College', 'ITM Universe'],
     localAreas: ['Alkapuri', 'Fatehgunj', 'Manjalpur', 'Gotri', 'Waghodia Road', 'Vasna', 'OP Road', 'Sayajigunj', 'Harni', 'Karelibaug', 'Akota', 'Subhanpura'],
     testimonials: [
-      { name: 'Manan P.', rank: 'AIR 456 — JEE Main 2025', quote: 'Vadodara had limited coaching options for JEE. MindPeak brought Ahmedabad-level quality to my Alkapuri home. My mentor\'s deep-learning approach matched Vadodara\'s intellectual culture.' },
-      { name: 'Riddhi S.', rank: 'NEET 629/720 — 2025', quote: 'My MindPeak mentor understood Gujarat Board gaps perfectly. From Fatehgunj, I didn\'t need to travel to Ahmedabad. Now at Government Medical College Vadodara!' },
-      { name: 'Yash T.', rank: 'GUJCET Rank 112 — 2025', quote: 'GUJCET + JEE combined coaching from MindPeak was incredibly efficient. One mentor, one plan, two exams covered. Vadodara students really benefit from this approach.' },
+      { name: 'Manan P.', rank: 'AIR 456 — JEE Main 2026', quote: 'Vadodara had limited coaching options for JEE. MindPeak brought Ahmedabad-level quality to my Alkapuri home. My mentor\'s deep-learning approach matched Vadodara\'s intellectual culture.' },
+      { name: 'Riddhi S.', rank: 'NEET 629/720 — 2026', quote: 'My MindPeak mentor understood Gujarat Board gaps perfectly. From Fatehgunj, I didn\'t need to travel to Ahmedabad. Now at Government Medical College Vadodara!' },
+      { name: 'Yash T.', rank: 'GUJCET Rank 112 — 2026', quote: 'GUJCET + JEE combined coaching from MindPeak was incredibly efficient. One mentor, one plan, two exams covered. Vadodara students really benefit from this approach.' },
     ],
   },
 
@@ -703,8 +703,8 @@ export const cities: CityData[] = [
     targetColleges: ['IIT Roorkee (nearby)', 'UPES Dehradun', 'DIT University', 'Graphic Era University', 'Government Doon Medical College', 'Himalayan Institute of Medical Sciences', 'ICFAI University', 'BTKIT Dwarahat'],
     localAreas: ['Rajpur Road', 'ISBT Area', 'Clement Town', 'Race Course', 'Dalanwala', 'Raipur Road', 'Ballupur', 'GMS Road', 'Sahastradhara Road', 'Mussoorie Road', 'Prem Nagar', 'Majra'],
     testimonials: [
-      { name: 'Aryan S.', rank: 'AIR 234 — JEE Advanced 2025', quote: 'I studied at one of Dehradun\'s top boarding schools but needed JEE edge. MindPeak\'s mentor worked around my school schedule and gave me the competitive preparation I needed. IIT Roorkee, here I come!' },
-      { name: 'Nandini K.', rank: 'NEET 647/720 — 2025', quote: 'From Rajpur Road, commuting to Delhi for coaching was my only option before MindPeak. Now I get better 1-on-1 attention from home. My mentor understood Uttarakhand Board perfectly.' },
+      { name: 'Aryan S.', rank: 'AIR 234 — JEE Advanced 2026', quote: 'I studied at one of Dehradun\'s top boarding schools but needed JEE edge. MindPeak\'s mentor worked around my school schedule and gave me the competitive preparation I needed. IIT Roorkee, here I come!' },
+      { name: 'Nandini K.', rank: 'NEET 647/720 — 2026', quote: 'From Rajpur Road, commuting to Delhi for coaching was my only option before MindPeak. Now I get better 1-on-1 attention from home. My mentor understood Uttarakhand Board perfectly.' },
       { name: 'Vikash M.', rank: 'JEE Main 98.2 percentile', quote: 'Dehradun students always felt they needed Kota. MindPeak proved us wrong. My dedicated mentor provided more personalised attention than any Kota batch could. UK Board gaps fixed in 6 weeks!' },
     ],
   },
@@ -739,9 +739,9 @@ export const cities: CityData[] = [
     targetColleges: ['NIT Mysore (NITK Surathkal nearby)', 'JSS Science and Technology University', 'University of Mysore', 'Mysore Medical College', 'JSS Medical College', 'SJCE Mysore', 'VVCE Mysore', 'NIE Mysore'],
     localAreas: ['Kuvempunagar', 'Saraswathipuram', 'Gokulam', 'Vijayanagar', 'Yadavagiri', 'Hebbal (Mysore)', 'JP Nagar (Mysore)', 'Bogadi', 'Jayalakshmipuram', 'Nazarbad', 'Lakshmipuram', 'Siddarthanagar'],
     testimonials: [
-      { name: 'Shreyas R.', rank: 'AIR 389 — JEE Main 2025', quote: 'Mysore had no quality JEE coaching — everyone went to Bangalore. MindPeak changed that. My mentor gave me Bangalore-quality coaching from Kuvempunagar. Not a single day of travel!' },
-      { name: 'Chandana K.', rank: 'NEET 639/720 — 2025', quote: 'KCET + NEET preparation together from Mysore — MindPeak made it possible without relocating to Bangalore. My mentor\'s integrated approach was exactly what I needed.' },
-      { name: 'Manoj V.', rank: 'KCET Rank 156 — 2025', quote: 'From Saraswathipuram, quality coaching felt impossible without Bangalore. MindPeak\'s online 1-on-1 sessions proved that location doesn\'t matter — preparation quality does.' },
+      { name: 'Shreyas R.', rank: 'AIR 389 — JEE Main 2026', quote: 'Mysore had no quality JEE coaching — everyone went to Bangalore. MindPeak changed that. My mentor gave me Bangalore-quality coaching from Kuvempunagar. Not a single day of travel!' },
+      { name: 'Chandana K.', rank: 'NEET 639/720 — 2026', quote: 'KCET + NEET preparation together from Mysore — MindPeak made it possible without relocating to Bangalore. My mentor\'s integrated approach was exactly what I needed.' },
+      { name: 'Manoj V.', rank: 'KCET Rank 156 — 2026', quote: 'From Saraswathipuram, quality coaching felt impossible without Bangalore. MindPeak\'s online 1-on-1 sessions proved that location doesn\'t matter — preparation quality does.' },
     ],
   },
   {
@@ -775,9 +775,9 @@ export const cities: CityData[] = [
     targetColleges: ['DAIICT (nearby)', 'LD College of Engineering (Ahmedabad)', 'RK University Rajkot', 'PDU Medical College Rajkot', 'Atmiya University', 'CHARUSAT (nearby)', 'Marwadi University', 'Government Engineering College Rajkot'],
     localAreas: ['Kalawad Road', 'University Road', 'Bhavnagar Road', 'Gondal Road', 'Jamnagar Road', 'Astron Chowk', 'Sadar', 'Raiya Road', 'Kotecha Chowk', 'Mavdi', '150 Feet Ring Road', 'Amin Marg'],
     testimonials: [
-      { name: 'Chintan P.', rank: 'AIR 478 — JEE Main 2025', quote: 'Rajkot coaching was limited. MindPeak brought Ahmedabad-quality 1-on-1 coaching to my Kalawad Road home. My mentor\'s efficient approach matched Saurashtra\'s practical culture perfectly.' },
-      { name: 'Janki S.', rank: 'GUJCET Rank 134 — 2025', quote: 'GUJCET and JEE together from Rajkot — MindPeak made this possible without separate coaching centres. My mentor\'s integrated approach saved time and delivered results.' },
-      { name: 'Mihir D.', rank: 'NEET 621/720 — 2025', quote: 'From Rajkot, good NEET coaching meant relocating to Ahmedabad. MindPeak eliminated that need. My mentor bridged Gujarat Board gaps perfectly. Now at PDU Medical College!' },
+      { name: 'Chintan P.', rank: 'AIR 478 — JEE Main 2026', quote: 'Rajkot coaching was limited. MindPeak brought Ahmedabad-quality 1-on-1 coaching to my Kalawad Road home. My mentor\'s efficient approach matched Saurashtra\'s practical culture perfectly.' },
+      { name: 'Janki S.', rank: 'GUJCET Rank 134 — 2026', quote: 'GUJCET and JEE together from Rajkot — MindPeak made this possible without separate coaching centres. My mentor\'s integrated approach saved time and delivered results.' },
+      { name: 'Mihir D.', rank: 'NEET 621/720 — 2026', quote: 'From Rajkot, good NEET coaching meant relocating to Ahmedabad. MindPeak eliminated that need. My mentor bridged Gujarat Board gaps perfectly. Now at PDU Medical College!' },
     ],
   },
   {
@@ -811,8 +811,8 @@ export const cities: CityData[] = [
     targetColleges: ['IIT Jodhpur (nearby)', 'CTAE Udaipur', 'Geetanjali Medical College', 'Pacific Medical College', 'MLSU Udaipur', 'IIM Udaipur', 'RNT Medical College', 'College of Technology and Engineering'],
     localAreas: ['Fatehpura', 'Udaipole', 'Surajpole', 'Bhatt Ji Ki Bari', 'Ashok Nagar', 'Chetak Circle', 'Savina', 'Hiran Magri', 'Pratap Nagar (Udaipur)', 'Bedla', 'Ambamata', 'Goverdhan Vilas'],
     testimonials: [
-      { name: 'Lakshya R.', rank: 'AIR 356 — JEE Advanced 2025', quote: 'My family was sending me to Kota from Udaipur until a friend recommended MindPeak. Best decision — my 1-on-1 mentor provided more attention than Kota\'s 200-student batches. AIR 356 from Udaipur!' },
-      { name: 'Anjali M.', rank: 'NEET 643/720 — 2025', quote: 'Rajasthan Board to NEET transition was handled beautifully by my MindPeak mentor. From Hiran Magri, I prepared in Udaipur\'s peaceful environment instead of Kota\'s pressure cooker.' },
+      { name: 'Lakshya R.', rank: 'AIR 356 — JEE Advanced 2026', quote: 'My family was sending me to Kota from Udaipur until a friend recommended MindPeak. Best decision — my 1-on-1 mentor provided more attention than Kota\'s 200-student batches. AIR 356 from Udaipur!' },
+      { name: 'Anjali M.', rank: 'NEET 643/720 — 2026', quote: 'Rajasthan Board to NEET transition was handled beautifully by my MindPeak mentor. From Hiran Magri, I prepared in Udaipur\'s peaceful environment instead of Kota\'s pressure cooker.' },
       { name: 'Hemant S.', rank: 'JEE Main 97.8 percentile', quote: 'Udaipur students don\'t need Kota anymore. MindPeak proved it with personalised coaching that\'s superior to any batch model. My mentor fixed my Rajasthan Board gaps in weeks.' },
     ],
   },
@@ -849,8 +849,8 @@ export const cities: CityData[] = [
     targetColleges: ['IIT Kanpur (nearby)', 'KGMU Lucknow', 'BBAU Lucknow', 'IIIT Lucknow', 'Era Medical College', 'HBTI Kanpur (nearby)', 'Integral University', 'SGPGIMS Lucknow'],
     localAreas: ['Hazratganj', 'Gomti Nagar', 'Aliganj', 'Indira Nagar', 'Mahanagar', 'Alambagh', 'Rajajipuram', 'Vikas Nagar', 'Jankipuram', 'Aminabad', 'Chowk', 'Chinhat'],
     testimonials: [
-      { name: 'Ayush S.', rank: 'AIR 298 — JEE Main 2025', quote: 'UP Board to JEE transition was my biggest challenge. My MindPeak mentor bridges every gap systematically from my Gomti Nagar home. No Delhi relocation needed — AIR 298 speaks for itself!' },
-      { name: 'Shreya G.', rank: 'NEET 664/720 — 2025', quote: 'My MindPeak mentor\'s bilingual approach (Hindi + English) made complex concepts click. From Aliganj, I got better coaching than any Lucknow centre. Now at KGMU — my dream!' },
+      { name: 'Ayush S.', rank: 'AIR 298 — JEE Main 2026', quote: 'UP Board to JEE transition was my biggest challenge. My MindPeak mentor bridges every gap systematically from my Gomti Nagar home. No Delhi relocation needed — AIR 298 speaks for itself!' },
+      { name: 'Shreya G.', rank: 'NEET 664/720 — 2026', quote: 'My MindPeak mentor\'s bilingual approach (Hindi + English) made complex concepts click. From Aliganj, I got better coaching than any Lucknow centre. Now at KGMU — my dream!' },
       { name: 'Mohit K.', rank: 'JEE Main 98.7 percentile', quote: 'Lucknow coaching centres had 100+ students per batch. MindPeak gave me a dedicated mentor who knew my weaknesses inside out. The personalised attention is unmatched.' },
     ],
   },
@@ -885,8 +885,8 @@ export const cities: CityData[] = [
     targetColleges: ['IIT Patna', 'NIT Patna', 'AIIMS Patna', 'Patna Medical College', 'PMCH Patna', 'Nalanda Medical College', 'Bihar Engineering University', 'Chandragupt Institute of Management'],
     localAreas: ['Boring Road', 'Kankarbagh', 'Patna City', 'Danapur', 'Rajendra Nagar', 'Exhibition Road', 'Bailey Road', 'Anisabad', 'Gardanibagh', 'Phulwari Sharif', 'Kurji', 'Saguna More'],
     testimonials: [
-      { name: 'Ravi K.', rank: 'AIR 167 — JEE Advanced 2025', quote: 'Bihar students have the talent — just not the coaching access. MindPeak changed everything. From Boring Road, I got IIT alumni mentors. AIR 167 proves Patna students can compete nationally!' },
-      { name: 'Ananya S.', rank: 'NEET 671/720 — 2025', quote: 'My family couldn\'t afford Kota relocation from Patna. MindPeak\'s 1-on-1 coaching cost a fraction and delivered better results. NCERT-first approach was perfect — AIIMS Patna, here I come!' },
+      { name: 'Ravi K.', rank: 'AIR 167 — JEE Advanced 2026', quote: 'Bihar students have the talent — just not the coaching access. MindPeak changed everything. From Boring Road, I got IIT alumni mentors. AIR 167 proves Patna students can compete nationally!' },
+      { name: 'Ananya S.', rank: 'NEET 671/720 — 2026', quote: 'My family couldn\'t afford Kota relocation from Patna. MindPeak\'s 1-on-1 coaching cost a fraction and delivered better results. NCERT-first approach was perfect — AIIMS Patna, here I come!' },
       { name: 'Vikrant M.', rank: 'JEE Main 99.3 percentile', quote: 'Bihar Board to JEE felt impossible until MindPeak. My mentor built from NCERT foundations to advanced problems. From Kankarbagh to 99+ percentile — MindPeak made it happen.' },
     ],
   },
@@ -921,8 +921,8 @@ export const cities: CityData[] = [
     targetColleges: ['MANIT Bhopal', 'AIIMS Bhopal', 'Gandhi Medical College Bhopal', 'LNCT Bhopal', 'IIIT Bhopal (nearby)', 'BMHRC Bhopal', 'Peoples Medical College', 'Oriental Institute of Science and Technology'],
     localAreas: ['MP Nagar', 'Arera Colony', 'Kolar', 'Hoshangabad Road', 'Ashoka Garden', 'Govindpura', 'Shahpura', 'Bairagarh', 'Misrod', 'Ayodhya Nagar', 'Habibganj', 'Piplani'],
     testimonials: [
-      { name: 'Arjun V.', rank: 'AIR 234 — JEE Main 2025', quote: 'Bhopal\'s MP Nagar coaching centres had 120+ students per class. MindPeak\'s 1-on-1 changed my entire preparation trajectory. MP Board gaps were systematically bridged from Day 1.' },
-      { name: 'Prachi S.', rank: 'NEET 657/720 — 2025', quote: 'Targeting AIIMS Bhopal from Bhopal itself! My MindPeak mentor\'s NCERT mastery approach was perfect. From Arera Colony, I didn\'t need to go anywhere for world-class coaching.' },
+      { name: 'Arjun V.', rank: 'AIR 234 — JEE Main 2026', quote: 'Bhopal\'s MP Nagar coaching centres had 120+ students per class. MindPeak\'s 1-on-1 changed my entire preparation trajectory. MP Board gaps were systematically bridged from Day 1.' },
+      { name: 'Prachi S.', rank: 'NEET 657/720 — 2026', quote: 'Targeting AIIMS Bhopal from Bhopal itself! My MindPeak mentor\'s NCERT mastery approach was perfect. From Arera Colony, I didn\'t need to go anywhere for world-class coaching.' },
       { name: 'Saurabh T.', rank: 'JEE Main 98.4 percentile', quote: 'My mentor understood MP Board specifics and created a customised JEE plan. From Kolar, MindPeak was more convenient and more effective than any Bhopal coaching centre.' },
     ],
   },
@@ -957,8 +957,8 @@ export const cities: CityData[] = [
     targetColleges: ['Andhra University Vizag', 'NIT Warangal (nearby)', 'GITAM University', 'Andhra Medical College', 'GSL Medical College', 'Vizag Steel Plant Technical Institute', 'MVGR College of Engineering', 'King George Hospital Medical College'],
     localAreas: ['MVP Colony', 'Dwaraka Nagar', 'Gajuwaka', 'Seethammadhara', 'Madhurawada', 'Rushikonda', 'Pendurthi', 'NAD Junction', 'Simhachalam', 'Akkayyapalem', 'Asilmetta', 'Waltair Uplands'],
     testimonials: [
-      { name: 'Karthik N.', rank: 'AIR 312 — JEE Main 2025', quote: 'Vizag students used to go to Hyderabad for coaching. MindPeak brought better quality to my MVP Colony home. AP Board bridging was smooth — my mentor knew BIEAP specifics perfectly.' },
-      { name: 'Swathi R.', rank: 'NEET 649/720 — 2025', quote: 'AP EAMCET and NEET preparation together from Vizag — MindPeak made it seamless. My mentor\'s Telugu concept explanations made difficult Chemistry topics click instantly.' },
+      { name: 'Karthik N.', rank: 'AIR 312 — JEE Main 2026', quote: 'Vizag students used to go to Hyderabad for coaching. MindPeak brought better quality to my MVP Colony home. AP Board bridging was smooth — my mentor knew BIEAP specifics perfectly.' },
+      { name: 'Swathi R.', rank: 'NEET 649/720 — 2026', quote: 'AP EAMCET and NEET preparation together from Vizag — MindPeak made it seamless. My mentor\'s Telugu concept explanations made difficult Chemistry topics click instantly.' },
       { name: 'Ravi T.', rank: 'AP EAMCET Rank 67', quote: 'From Dwaraka Nagar, I prepared for EAMCET and JEE simultaneously with one MindPeak mentor. The integrated approach saved me from juggling separate coaching centres.' },
     ],
   },
@@ -993,9 +993,9 @@ export const cities: CityData[] = [
     targetColleges: ['KBTCOE Nashik', 'MVP College of Engineering', 'Nashik Engineering Cluster', 'Government Medical College Nashik', 'Sandip University', 'NDMVP College of Engineering', 'SMBT Medical College', 'KBH Dental College'],
     localAreas: ['College Road', 'Gangapur Road', 'Panchavati', 'Nashik Road', 'Indira Nagar (Nashik)', 'Satpur', 'Cidco', 'Deolali', 'Pathardi Road', 'Mumbai Naka', 'Makhmalabad', 'Dwarka'],
     testimonials: [
-      { name: 'Aniket M.', rank: 'AIR 489 — JEE Main 2025', quote: 'Nashik\'s coaching options were limited — everyone said go to Pune. MindPeak proved that 1-on-1 from home beats any Pune batch centre. Maharashtra Board to JEE transition was seamless.' },
-      { name: 'Sakshi R.', rank: 'MHT-CET 99.1 percentile — 2025', quote: 'MHT-CET + JEE from Nashik — MindPeak covered both without the Pune commute. My mentor understood Maharashtra Board perfectly. College Road coaching centres can\'t match this attention.' },
-      { name: 'Omkar K.', rank: 'NEET 627/720 — 2025', quote: 'From Gangapur Road, quality NEET coaching was unavailable locally. MindPeak brought it to my home. My mentor\'s systematic approach delivered results that surprised everyone.' },
+      { name: 'Aniket M.', rank: 'AIR 489 — JEE Main 2026', quote: 'Nashik\'s coaching options were limited — everyone said go to Pune. MindPeak proved that 1-on-1 from home beats any Pune batch centre. Maharashtra Board to JEE transition was seamless.' },
+      { name: 'Sakshi R.', rank: 'MHT-CET 99.1 percentile — 2026', quote: 'MHT-CET + JEE from Nashik — MindPeak covered both without the Pune commute. My mentor understood Maharashtra Board perfectly. College Road coaching centres can\'t match this attention.' },
+      { name: 'Omkar K.', rank: 'NEET 627/720 — 2026', quote: 'From Gangapur Road, quality NEET coaching was unavailable locally. MindPeak brought it to my home. My mentor\'s systematic approach delivered results that surprised everyone.' },
     ],
   },
   {
@@ -1029,8 +1029,8 @@ export const cities: CityData[] = [
     targetColleges: ['IIT Guwahati', 'Gauhati Medical College', 'NIT Silchar', 'Tezpur University', 'Cotton University', 'Assam Engineering College', 'Jorhat Medical College (nearby)', 'NEIGRIHMS Shillong (nearby)'],
     localAreas: ['GS Road', 'Ganeshguri', 'Zoo Road', 'Chandmari', 'Christian Basti', 'Panbazar', 'Paltan Bazaar', 'Beltola', 'Kahilipara', 'Dispur', 'Maligaon', 'Narengi'],
     testimonials: [
-      { name: 'Animesh B.', rank: 'AIR 278 — JEE Advanced 2025', quote: 'Northeast India finally has access to premium coaching through MindPeak. From GS Road Guwahati, I got IIT alumni mentors. No Delhi relocation — AIR 278 proves geography doesn\'t matter!' },
-      { name: 'Priyanka D.', rank: 'NEET 662/720 — 2025', quote: 'Assam Board to NEET felt impossible until MindPeak. My mentor systematically bridged every gap. From Ganeshguri, I got better coaching than any mainland-quality batch centre could offer.' },
+      { name: 'Animesh B.', rank: 'AIR 278 — JEE Advanced 2026', quote: 'Northeast India finally has access to premium coaching through MindPeak. From GS Road Guwahati, I got IIT alumni mentors. No Delhi relocation — AIR 278 proves geography doesn\'t matter!' },
+      { name: 'Priyanka D.', rank: 'NEET 662/720 — 2026', quote: 'Assam Board to NEET felt impossible until MindPeak. My mentor systematically bridged every gap. From Ganeshguri, I got better coaching than any mainland-quality batch centre could offer.' },
       { name: 'Jayanta S.', rank: 'JEE Main 98.1 percentile', quote: 'Guwahati students used to relocate to Delhi or Kota. MindPeak\'s 1-on-1 coaching from home delivered a 98+ percentile. Regional board gaps were fixed in the first 6 weeks!' },
     ],
   },
@@ -1065,8 +1065,8 @@ export const cities: CityData[] = [
     targetColleges: ['NITK Surathkal', 'Kasturba Medical College', 'Father Muller Medical College', 'St. Joseph Engineering College', 'NMAM Institute of Technology', 'Mangalore University', 'AJ Institute of Medical Sciences', 'Yenepoya Medical College'],
     localAreas: ['Kadri', 'Bejai', 'Hampankatta', 'Falnir', 'Bendoorwell', 'Kankanady', 'Surathkal', 'Derebail', 'Mangaladevi', 'Urva', 'Attavar', 'Kulur'],
     testimonials: [
-      { name: 'Sachin N.', rank: 'NEET 667/720 — 2025', quote: 'Mangalore has great medical tradition. MindPeak\'s NEET program with dedicated Biology mentors from Kadri was perfect. No Bangalore relocation needed — KMC Mangalore, here I come!' },
-      { name: 'Raksha K.', rank: 'KCET Rank 89 — 2025', quote: 'KCET + JEE from Mangalore — MindPeak integrated both beautifully. My mentor knew Karnataka Board specifics and made the transition smooth. From Bejai to NITK Surathkal!' },
+      { name: 'Sachin N.', rank: 'NEET 667/720 — 2026', quote: 'Mangalore has great medical tradition. MindPeak\'s NEET program with dedicated Biology mentors from Kadri was perfect. No Bangalore relocation needed — KMC Mangalore, here I come!' },
+      { name: 'Raksha K.', rank: 'KCET Rank 89 — 2026', quote: 'KCET + JEE from Mangalore — MindPeak integrated both beautifully. My mentor knew Karnataka Board specifics and made the transition smooth. From Bejai to NITK Surathkal!' },
       { name: 'Vinayak S.', rank: 'JEE Main 97.9 percentile', quote: 'Mangalore coaching was mostly batch-oriented. MindPeak\'s 1-on-1 from Hampankatta gave me personalised attention I couldn\'t find locally. Bangalore-quality coaching at home.' },
     ],
   },
@@ -1101,8 +1101,8 @@ export const cities: CityData[] = [
     targetColleges: ['IIT (ISM) Dhanbad', 'NIT Jamshedpur', 'BIT Mesra', 'RIMS Ranchi', 'Rajendra Institute of Medical Sciences', 'XISS Ranchi', 'BIT Sindri', 'MGM Medical College Jamshedpur'],
     localAreas: ['Kanke', 'Doranda', 'Main Road', 'Lalpur', 'Upper Bazar', 'Ratu Road', 'Kadru', 'Ashok Nagar (Ranchi)', 'Bariatu', 'Morabadi', 'Namkum', 'Hatia'],
     testimonials: [
-      { name: 'Rahul T.', rank: 'AIR 345 — JEE Main 2025', quote: 'Ranchi students always felt coaching disadvantage vs metro cities. MindPeak eliminated it. From Main Road, I got IIT alumni mentors who gave more attention than any Kota batch. JEE cracked from Ranchi!' },
-      { name: 'Smriti K.', rank: 'NEET 638/720 — 2025', quote: 'My MindPeak mentor understood Jharkhand Board challenges perfectly. Hindi explanations when needed, English-medium NEET prep overall. RIMS Ranchi is now a reality — all from home!' },
+      { name: 'Rahul T.', rank: 'AIR 345 — JEE Main 2026', quote: 'Ranchi students always felt coaching disadvantage vs metro cities. MindPeak eliminated it. From Main Road, I got IIT alumni mentors who gave more attention than any Kota batch. JEE cracked from Ranchi!' },
+      { name: 'Smriti K.', rank: 'NEET 638/720 — 2026', quote: 'My MindPeak mentor understood Jharkhand Board challenges perfectly. Hindi explanations when needed, English-medium NEET prep overall. RIMS Ranchi is now a reality — all from home!' },
       { name: 'Abhishek M.', rank: 'JEE Main 97.6 percentile', quote: 'Kanke to Kota? Not needed. MindPeak\'s 1-on-1 from Ranchi gave me a dedicated mentor who fixed my Jharkhand Board gaps systematically. 97+ percentile without leaving home.' },
     ],
   },
@@ -1137,8 +1137,8 @@ export const cities: CityData[] = [
     targetColleges: ['NIT Raipur', 'Pt. J.N.M. Medical College', 'IIIT Naya Raipur', 'GEC Raipur', 'AIIMS Raipur (upcoming)', 'Rungta College of Engineering', 'Chhattisgarh Institute of Medical Sciences', 'OP Jindal University'],
     localAreas: ['Shankar Nagar', 'Telibandha', 'Civil Lines (Raipur)', 'Pandri', 'Tatibandh', 'Devendra Nagar', 'Nehru Nagar', 'Mowa', 'Amanaka', 'Samta Colony', 'Avanti Vihar', 'Kota (Raipur)'],
     testimonials: [
-      { name: 'Aditya R.', rank: 'AIR 412 — JEE Main 2025', quote: 'Raipur had very limited JEE coaching — students went to Indore or Kota. MindPeak brought metro-quality 1-on-1 coaching to my Shankar Nagar home. CG Board gaps fixed in weeks!' },
-      { name: 'Tanvi S.', rank: 'NEET 634/720 — 2025', quote: 'From Telibandha, MindPeak gave me coaching that no local centre could match. My mentor\'s Hindi support for complex topics was a lifesaver. Pt. JNM Medical College — my dream come true!' },
+      { name: 'Aditya R.', rank: 'AIR 412 — JEE Main 2026', quote: 'Raipur had very limited JEE coaching — students went to Indore or Kota. MindPeak brought metro-quality 1-on-1 coaching to my Shankar Nagar home. CG Board gaps fixed in weeks!' },
+      { name: 'Tanvi S.', rank: 'NEET 634/720 — 2026', quote: 'From Telibandha, MindPeak gave me coaching that no local centre could match. My mentor\'s Hindi support for complex topics was a lifesaver. Pt. JNM Medical College — my dream come true!' },
       { name: 'Prayag K.', rank: 'JEE Main 97.2 percentile', quote: 'Chhattisgarh Board to JEE seemed like a huge gap. My MindPeak mentor bridged it systematically. From Raipur to NIT — no relocation needed for quality coaching.' },
     ],
   },
@@ -1173,8 +1173,8 @@ export const cities: CityData[] = [
     targetColleges: ['NIT Warangal (nearby)', 'IIIT Sri City', 'KL University', 'Siddhartha Medical College Vijayawada', 'Andhra Loyola College', 'VR Siddhartha Engineering College', 'PVPSIT Vijayawada', 'Guntur Medical College (nearby)'],
     localAreas: ['Governorpet', 'Benz Circle', 'Gandhinagar (Vijayawada)', 'Labbipet', 'Moghalrajpuram', 'Patamata', 'Poranki', 'Kanuru', 'Gollapudi', 'Gunadala', 'Enikepadu', 'Auto Nagar'],
     testimonials: [
-      { name: 'Suresh N.', rank: 'AIR 234 — JEE Main 2025', quote: 'Vijayawada corporate colleges had 150+ students per section. MindPeak\'s 1-on-1 from Governorpet was revolutionary. AP Board bridging was handled expertly by my dedicated mentor.' },
-      { name: 'Mounika R.', rank: 'NEET 653/720 — 2025', quote: 'AP EAMCET and NEET together from Vijayawada — MindPeak\'s integrated approach was brilliant. Telugu concept explanations made Organic Chemistry click. Siddhartha Medical College is my reality now!' },
+      { name: 'Suresh N.', rank: 'AIR 234 — JEE Main 2026', quote: 'Vijayawada corporate colleges had 150+ students per section. MindPeak\'s 1-on-1 from Governorpet was revolutionary. AP Board bridging was handled expertly by my dedicated mentor.' },
+      { name: 'Mounika R.', rank: 'NEET 653/720 — 2026', quote: 'AP EAMCET and NEET together from Vijayawada — MindPeak\'s integrated approach was brilliant. Telugu concept explanations made Organic Chemistry click. Siddhartha Medical College is my reality now!' },
       { name: 'Prasad K.', rank: 'AP EAMCET Rank 78', quote: 'My MindPeak mentor covered JEE and EAMCET from Benz Circle. Better than any corporate college batch — personalised, transparent, and parents get weekly reports. AP students need MindPeak.' },
     ],
   },
