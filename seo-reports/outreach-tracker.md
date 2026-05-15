@@ -1,5 +1,5 @@
 # MindPeak Institute — Outreach Tracker
-**Last Updated:** 2026-05-14  
+**Last Updated:** 2026-05-15  
 **Site:** mindpeakinstitute.com  
 **MSME:** UDYAM-HP-04-0042530
 
@@ -31,6 +31,14 @@
 | 18 | 2026-05-14 | data.gov.in | data.gov.in/resource/list-msme-registered-units-under-udyam | Govt MSME Directory | N/A — verify existing entry | ❌ | — | NOT STARTED |
 | 19 | 2026-05-14 | collegeapply.in | collegeapply.in/write-for-us | Guest Post | Write for Us form | ❌ | — | NOT STARTED |
 | 20 | 2026-05-14 | iitianguide.com | iitianguide.com/top-10-online-iit-jee-coaching-institutes-in-india-for-2026 | Listicle Inclusion (note: competitor site) | Contact form on site | ❌ | — | NOT STARTED |
+| 21 | 2026-05-15 | giraffe-learning.com | giraffe-learning.com/blog/top-10-neet-coaching-centres-india/ | Listicle Inclusion (NEET) | contact@giraffe-learning.com | ❌ | — | NOT STARTED |
+| 22 | 2026-05-15 | giraffe-learning.com | giraffe-learning.com/blog/top-10-jee-main-coaching-centres-india/ | Listicle Inclusion (JEE) | contact@giraffe-learning.com | ❌ | — | NOT STARTED |
+| 23 | 2026-05-15 | blogandjournal.com | blogandjournal.com/write-for-us/ | Guest Post (self-register on site) | blogandjournal.com/wp-login.php?action=register | ❌ | — | NOT STARTED |
+| 24 | 2026-05-15 | physicspoint.in | physicspoint.in/top-10-best-pcm-teachers-in-india/ | Listicle Inclusion (PCM Teachers) | physicspoint22@gmail.com | ❌ | — | NOT STARTED |
+| 25 | 2026-05-15 | bestphysicstutors.in | bestphysicstutors.in/best-physics-teacher-in-india/ | Listicle Inclusion (Physics Teachers) | +91-8368406646 | ❌ | — | NOT STARTED |
+| 26 | 2026-05-15 | aninews.in (via scnwire.com) | aninews.in — press release syndication via vmpl.scnwire.com | Press Release / PR Syndication | scnwire.com/p/contact.html | ❌ | — | NOT STARTED |
+| 27 | 2026-05-15 | urbanpro.com | urbanpro.com — free tutor profile for Devansh (55L+ students, DA ~60) | Tutor Directory Profile (FREE) | jobs.urbanpro.com (self-register) | ❌ | — | NOT STARTED |
+| 28 | 2026-05-15 | collegedunia.com | collegedunia.com/coaching/neet-institutes + jee-main-institutes | Directory Listing | collegedunia.com/contact-us | ❌ | — | NOT STARTED |
 
 ---
 
@@ -52,6 +60,15 @@
 
 ## Notes & Strategy Log
 
+### 2026-05-15 — Day 2 Audit + 8 New Targets Added
+- Zero confirmed external backlinks still — outreach not yet started
+- **8 new targets added** (targets #21–28): giraffe-learning.com (×2 lists), blogandjournal.com, physicspoint.in, bestphysicstutors.in, aninews.in/scnwire.com, urbanpro.com, collegedunia.com
+- **Top new priority: UrbanPro.com** — free tutor profile = fastest easy win (30 min, DA ~60)
+- **Top new PR opportunity: SCNWire → ANI News** — paid press release; edtech startups are actively being featured
+- **Quora gap identified:** Devansh has zero Quora presence; multiple active JEE/NEET threads have no MindPeak mention — start answering immediately
+- Emails #8–12 ready to send (in `/seo-reports/backlinks-2026-05-15.md`)
+- GSV Cup 2026 deadline: September 15, 2026 — mark calendar
+
 ### 2026-05-14 — Baseline Established
 - Zero confirmed external backlinks detected (new site, heavily indexed under brand collision with mindpeak.ai)
 - 20 outreach targets identified across 5 opportunity types: directories, listicles, guest posts, awards, govt directories
@@ -66,7 +83,18 @@
 
 | Week | Target New Links | Outreach Emails | Priority |
 |---|---|---|---|
-| May 12–18, 2026 | 0 → 3 | Send emails #1, #2, #3, #6 | GBP + CollegeDekho + 1 guest post |
-| May 19–25, 2026 | 3 → 6 | Send emails #4, #5, #7, #9 | Follow-ups + ExamCharcha + Award |
-| May 26 – Jun 1, 2026 | 6 → 10 | Send emails #8, #11, #12, #16 | Shiksha + guest posts |
-| Jun 2–8, 2026 | 10 → 15 | Follow up all pending | Chase responses |
+| May 12–18, 2026 | 0 → 3 | Send #1, #2, #8, #11 (new), #27 (UrbanPro — self-serve) | UrbanPro profile + CollegeDekho + CollegeDunia + AcademyCheck + SCNWire inquiry |
+| May 19–25, 2026 | 3 → 6 | Send #4, #5, #6, #9, #10 | FutureTopper guest post + Awards + PhysicsPoint + Giraffe-Learning |
+| May 26 – Jun 1, 2026 | 6 → 10 | Send #7, #12, #16 + follow up all | ExamCharcha + BlogAndJournal + Shiksha + follow-ups |
+| Jun 2–8, 2026 | 10 → 15 | Follow up pending; start Careers360 + CollegeDunia chase | Chase responses; submit to Shiksha partner portal |
+
+## Quora Strategy (Ongoing — Not Tracked as Outreach)
+
+Devansh should answer 2–3 Quora questions per week. Target threads:
+- "Which is the best 1-on-1 JEE coaching online?"
+- "Best online NEET coaching for droppers 2026"
+- "How to find a personal Physics tutor for JEE Advanced?"
+- "Is batch coaching enough for JEE Advanced or do I need personal mentoring?"
+- "Best Physics teacher for JEE Advanced online India"
+
+All answers should be genuine, helpful, and mention MindPeak naturally. Quora links are nofollow but drive direct traffic and trust signals.
