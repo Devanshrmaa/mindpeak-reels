@@ -154,7 +154,7 @@ const TopicPage = () => {
       name: 'MindPeak Institute',
       logo: { '@type': 'ImageObject', url: 'https://mindpeakinstitute.com/images/logo.jpeg' },
     },
-    datePublished: '2025-01-01',
+    datePublished: '2026-01-01',
     dateModified: getLastUpdated(pathname),
     about: [
       { '@type': 'Thing', name: chapter.exam === 'JEE' ? 'JEE Main' : 'NEET-UG', sameAs: chapter.exam === 'JEE' ? 'https://en.wikipedia.org/wiki/Joint_Entrance_Examination_%E2%80%93_Main' : 'https://en.wikipedia.org/wiki/National_Eligibility_cum_Entrance_Test_(Undergraduate)' },

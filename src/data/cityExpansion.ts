@@ -276,7 +276,7 @@ function generateQuickStats(c: CityConfig): QuickStat[] {
   const hash = c.slug.split('').reduce((a, ch) => a + ch.charCodeAt(0), 0);
   const improvementMarks = 120 + (hash % 50); // 120-169, seeded per city
   const stats: QuickStat[] = [
-    { value: '95%', label: 'Selection Rate', source: 'Cohort outcomes, 2024-25' },
+    { value: '95%', label: 'Selection Rate', source: 'Cohort outcomes, 2025-26' },
   ];
   if (c.tier === 1) {
     stats.push({ value: '500+', label: `Students in ${c.state}`, source: 'Cumulative enrolment data' });
@@ -287,8 +287,8 @@ function generateQuickStats(c: CityConfig): QuickStat[] {
   }
   stats.push(
     c.exams.includes('neet')
-      ? { value: 'Top 500', label: 'Best NEET Rank', source: 'NEET UG 2025 result' }
-      : { value: 'AIR 42', label: 'Best JEE Rank', source: 'JEE Advanced 2024 result' }
+      ? { value: 'Top 500', label: 'Best NEET Rank', source: 'NEET UG 2026 result' }
+      : { value: 'AIR 42', label: 'Best JEE Rank', source: 'JEE Advanced 2025 result' }
   );
   // Add a 4th stat that varies by city context
   const stateData = getStateEducation(c.state);

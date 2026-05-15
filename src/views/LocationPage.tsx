@@ -51,9 +51,9 @@ function fallbackSocialProof(): string {
 }
 function fallbackQuickStats(city: CityData, examLabel: string): QuickStat[] {
   return [
-    { value: '95%', label: 'Selection Rate', source: 'Cohort outcomes, 2024-25' },
+    { value: '95%', label: 'Selection Rate', source: 'Cohort outcomes, 2025-26' },
     { value: '500+', label: `Students in ${city.state}`, source: 'Cumulative enrolment' },
-    { value: 'AIR 42', label: `Best ${examLabel} Rank`, source: 'JEE Advanced 2024' },
+    { value: 'AIR 42', label: `Best ${examLabel} Rank`, source: 'JEE Advanced 2025' },
   ];
 }
 function fallbackCourseTiles(city: CityData): CourseTile[] {

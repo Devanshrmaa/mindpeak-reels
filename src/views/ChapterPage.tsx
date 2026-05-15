@@ -21,6 +21,7 @@ import {
 const logo = '/images/logo.jpeg';
 import { getChapterBySlug, chapters, CHAPTER_SLUGS, topicToSlug } from '@/data/chapterData';
 import { getLastUpdated } from '@/lib/contentFreshness';
+import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 import type { ChapterData } from '@/data/chapterData';
 
 export { CHAPTER_SLUGS };
@@ -123,7 +124,7 @@ const ChapterPage = () => {
       name: 'MindPeak Institute',
       logo: { '@type': 'ImageObject', url: 'https://mindpeakinstitute.com/images/logo.jpeg' },
     },
-    datePublished: '2025-01-01',
+    datePublished: '2026-01-01',
     dateModified: getLastUpdated(slug),
     about: [
       { '@type': 'Thing', name: chapter.exam === 'JEE' ? 'JEE Main' : 'NEET-UG', sameAs: chapter.exam === 'JEE' ? 'https://en.wikipedia.org/wiki/Joint_Entrance_Examination_%E2%80%93_Main' : 'https://en.wikipedia.org/wiki/National_Eligibility_cum_Entrance_Test_(Undergraduate)' },
@@ -1466,12 +1467,12 @@ const ChapterPage = () => {
                       ? `${chapter.chapter} is a goldmine for marks. I made sure I never lost a single mark from this chapter. Regular revision and PYQ practice were my secret weapons.`
                       : `Don\'t underestimate ${chapter.chapter} just because it\'s rated easy. Examiners can ask tricky questions. I practiced ${chapter.exam === 'JEE' ? 'JEE Advanced level' : 'assertion-reason'} questions to be fully prepared.`,
                     name: 'MindPeak Student',
-                    rank: `${chapter.exam} ${chapter.exam === 'JEE' ? '2024' : '2024'} batch`,
+                    rank: `${chapter.exam} ${CURRENT_EXAM_YEAR - 1} batch`,
                     tip: chapter.difficulty === 'Hard' ? 'Break it down' : 'Never underestimate',
                   },
                   {
                     quote: `PYQs from ${chapter.chapter} were my revision tool. I solved 10+ years of papers and noticed that ${chapter.exam === 'JEE' ? 'examiners love combining this chapter with ' + (relatedChapters.length > 0 ? relatedChapters[0].chapter : 'other chapters') : 'the same NCERT concepts are tested with different wording every year'}. This pattern recognition gave me an edge.`,
-                    name: chapter.exam === 'JEE' ? 'JEE 2024 Topper' : 'NEET 2024 Topper',
+                    name: `${chapter.exam} ${CURRENT_EXAM_YEAR - 1} Topper`,
                     rank: 'AIR under 200',
                     tip: 'PYQs are gold',
                   },

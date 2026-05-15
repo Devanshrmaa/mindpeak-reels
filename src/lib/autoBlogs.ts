@@ -768,7 +768,7 @@ Unlike generic Pomodoro, this method is specifically designed for JEE/NEET prepa
 
 ## 📖 Real Student Case Study
 
-**Aarav, JEE 2024 — AIR 847:**
+**Aarav, JEE 2026 — AIR 847:**
 "In Class 11, I studied 8 hours daily but randomly. My rank was 15,000+ in mocks. My MindPeak mentor made me track my time for a week — I discovered I was spending 3 hours on easy Maths problems I already knew, and only 45 minutes on Organic Chemistry (my weakest area). After restructuring: hardest subject first (6 AM), weakest chapters get 40% of time, and I stopped studying after 9:30 PM. My mock rank jumped to under 1,000 in 4 months."
 
 ---
@@ -860,7 +860,7 @@ When a stressful thought hits, the neurochemical reaction lasts exactly 90 secon
 
 ## 📖 Real Student Experience
 
-**Priya, NEET 2024 — Score 685/720:**
+**Priya, NEET 2026 — Score 685/720:**
 "I had severe panic attacks during mocks in September. My MindPeak mentor introduced me to exam simulation training — we did 8 full NEET simulations in October-November. By exam day, the test hall felt familiar, not threatening. I also started 20-minute morning walks and journaling before bed. The combination changed everything."
 
 ---
@@ -1048,7 +1048,7 @@ Mock tests are the closest simulation to the real exam, yet **most students use 
 
 ## 📖 Student Example
 
-**Priya, NEET 2024 — 685/720:**
+**Priya, NEET 2026 — 685/720:**
 "I used to take mocks but never analyzed them properly. My MindPeak mentor made me maintain a Google Sheet with columns: Question Number, Chapter, Error Type, Concept Gap, Similar PYQ. After every mock, I'd fill this sheet. Within 2 months, I noticed 40% of my errors were from just 5 chapters. I focused my remaining time there and my score jumped from 580 to 685."
 
 ---
@@ -1126,7 +1126,7 @@ Make starting effortless. Instead of "Study Physics for 3 hours," start with "Op
 
 ## 📖 Student Case Study
 
-**Rohan, JEE 2024 — AIR 312:**
+**Rohan, JEE 2026 — AIR 312:**
 "My biggest problem wasn't intelligence — it was consistency. Some days I'd study 14 hours, then burn out and do nothing for 2 days. My MindPeak mentor made me commit to just 8 hours for the first month but at the SAME time every day. We used a visual streak tracker. By month 2, the habit was automatic and I naturally extended to 10-11 hours. That consistency, not intensity, got me my rank."
 
 ---
@@ -1301,7 +1301,7 @@ Motivation isn't a feeling — it's a system. Top rankers don't wake up motivate
 
 ## 📖 Student Case Study
 
-**Aarav, JEE 2024 — AIR 847:**
+**Aarav, JEE 2026 — AIR 847:**
 "October was my lowest point — my mock scores dropped for 3 weeks straight. I nearly quit. My MindPeak mentor showed me that my *chapter-wise accuracy* was actually improving — the mocks were just getting harder. That data-driven perspective kept me going. We set weekly targets instead of score targets, and my confidence rebuilt naturally."
 
 ---

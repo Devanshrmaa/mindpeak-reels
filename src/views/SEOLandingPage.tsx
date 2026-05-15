@@ -124,7 +124,7 @@ const SEOLandingPage = () => {
       name: 'MindPeak Institute',
       logo: { '@type': 'ImageObject', url: 'https://mindpeakinstitute.com/images/logo.jpeg' },
     },
-    datePublished: '2025-01-01',
+    datePublished: '2026-01-01',
     dateModified: lastUpdated,
     mainEntityOfPage: { '@type': 'WebPage', '@id': `https://mindpeakinstitute.com/${page.slug}` },
     about: getExamEntities(slug.includes('neet') ? 'NEET' : 'JEE'),

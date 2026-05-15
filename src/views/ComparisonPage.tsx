@@ -14,6 +14,7 @@ import { CheckCircle, XCircle, ArrowRight, Phone, Award, Target, TrendingUp, Use
 import Image from 'next/image';
 const logo = '/images/logo.jpeg';
 import { competitors } from '@/data/comparisonData';
+import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 import type { CompetitorData } from '@/data/comparisonData';
 
 /* ─── Competitor strengths (honest) ─── */
@@ -170,7 +171,7 @@ const ComparisonPage = () => {
             </div>
 
             <h1 className="font-display font-black text-foreground mb-6" style={{ fontSize: 'clamp(2rem, 6vw, 3.5rem)' }}>
-              {data.title.split('vs')[0]}vs <span className="text-gradient-gold">{data.competitorName}</span> — Detailed Comparison for JEE &amp; NEET 2025-26
+              {data.title.split('vs')[0]}vs <span className="text-gradient-gold">{data.competitorName}</span> — Detailed Comparison for JEE &amp; NEET {CURRENT_EXAM_YEAR - 1}-{String(CURRENT_EXAM_YEAR).slice(-2)}
             </h1>
 
             <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mb-8">{data.intro}</p>
