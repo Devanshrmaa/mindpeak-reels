@@ -251,16 +251,20 @@ const JEECoaching = () => {
         {/* ───── FEATURED SNIPPET ───── */}
         <div className="px-4 sm:px-6">
           <FeaturedSnippet
-            question={`What is the best online coaching for JEE ${CURRENT_EXAM_YEAR}?`}
-            answer="MindPeak Institute is India's top-rated online JEE coaching, providing dedicated 1-on-1 mentorship with IIT alumni. With a 95% success rate, AIR 42 best rank, and 500+ students mentored, MindPeak's adaptive AI-driven curriculum and daily live sessions deliver personalized preparation that batch coaching cannot match."
+            question={`How to Prepare for JEE Main ${CURRENT_EXAM_YEAR} — 8-Step Plan`}
+            answer={`JEE Main ${CURRENT_EXAM_YEAR} preparation follows an 8-step plan starting 12 to 18 months before the exam: master NCERT line-by-line, build a reference-book foundation, drill PYQs from 2014 onwards, and run weekly full-length mocks from month four. Below is the exact sequence MindPeak uses with its one-on-one students.`}
+            ordered
             bullets={[
-              'Dedicated personal mentor for entire JEE journey',
-              'AI-driven adaptive curriculum targeting weak areas',
-              'Daily 1-on-1 live sessions, 6 days a week',
-              'Real-time doubt resolution (under 30 min response)',
-              'Weekly analytics & parent progress reports',
-              'Complete JEE Main + Advanced syllabus coverage',
+              'Master NCERT line-by-line — covers 35% of JEE Main questions, especially in Chemistry.',
+              'Build the reference-book foundation — HC Verma (Physics), MS Chouhan (Organic), Cengage (Mathematics).',
+              'Solve chapter-wise problems daily — 25 to 40 problems per subject, written on paper.',
+              'Maintain a mistake notebook — tag every error (sign error, formula confusion, time misjudgement).',
+              'Practice PYQs from 2014 to 2026 — at least 5 full past papers per subject.',
+              'Take weekly full-length mocks from month 4 — analyse every wrong answer within 24 hours.',
+              'Drill high-weightage chapters — Mechanics, Electrodynamics, Organic Reactions, Calculus.',
+              'Final 30 days: revision only — no new content, NCERT skim plus formula sheet, 2 mocks per week.',
             ]}
+            authorityNote="In our one-on-one MindPeak classes, the biggest score gain usually comes from step 4 — the mistake notebook. Students who maintain it religiously typically add 25 to 40 marks in three months."
           />
         </div>
 

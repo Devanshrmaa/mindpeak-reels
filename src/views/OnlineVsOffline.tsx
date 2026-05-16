@@ -194,11 +194,14 @@ const OnlineVsOffline = () => {
         </section>
 
         {/* 3-Way Comparison Table */}
-        <section className="max-w-5xl mx-auto px-6 py-20">
+        <section id="online-vs-offline-coaching-for-jee" className="max-w-5xl mx-auto px-6 py-20 scroll-mt-24">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl mb-10">
-              Detailed <span className="text-gradient-gold">Comparison</span>
+            <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl mb-4">
+              Online vs Offline Coaching for JEE — <span className="text-gradient-gold">9 Criteria Compared</span>
             </h2>
+            <p className="text-foreground/85 text-sm sm:text-base leading-relaxed max-w-3xl mb-8">
+              Online 1-on-1 JEE coaching beats offline batch coaching on personalisation, cost, and commute, while offline batch coaching still wins on peer competition and physical-classroom routine. The 9-criterion table below maps every meaningful difference so you can pick the format that fits your situation.
+            </p>
             <div className="overflow-x-auto rounded-xl border border-border">
               <table className="w-full text-sm min-w-[550px]">
                 <thead>

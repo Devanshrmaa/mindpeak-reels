@@ -31,14 +31,22 @@ const ContentSection = ({ section, index }: { section: SEOPageSection; index: nu
       <p className="text-muted-foreground leading-relaxed mb-4">{section.content}</p>
     )}
     {section.bullets && (
-      <ul className="space-y-2 mb-4">
-        {section.bullets.map((b, i) => (
-          <li key={i} className="flex items-start gap-3">
-            <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
-            <span className="text-muted-foreground text-sm leading-relaxed">{b}</span>
-          </li>
-        ))}
-      </ul>
+      section.ordered ? (
+        <ol className="list-decimal pl-5 sm:pl-6 space-y-2 mb-4 marker:text-primary marker:font-semibold">
+          {section.bullets.map((b, i) => (
+            <li key={i} className="text-foreground/85 text-sm sm:text-base leading-relaxed pl-1">{b}</li>
+          ))}
+        </ol>
+      ) : (
+        <ul className="space-y-2 mb-4">
+          {section.bullets.map((b, i) => (
+            <li key={i} className="flex items-start gap-3">
+              <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
+              <span className="text-muted-foreground text-sm leading-relaxed">{b}</span>
+            </li>
+          ))}
+        </ul>
+      )
     )}
     {section.table && (
       <div className="overflow-x-auto rounded-xl border border-border mt-4">
@@ -61,6 +69,9 @@ const ContentSection = ({ section, index }: { section: SEOPageSection; index: nu
           </tbody>
         </table>
       </div>
+    )}
+    {section.authorityNote && (
+      <p className="mt-4 text-foreground/70 text-sm sm:text-base leading-relaxed italic">{section.authorityNote}</p>
     )}
   </FadeInView>
   </section>
