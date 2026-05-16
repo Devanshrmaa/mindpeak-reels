@@ -12,6 +12,7 @@
 
 import { getAuthorBySlug, type Author } from '@/data/authorData';
 import { Award, BookOpen, GraduationCap, Users } from 'lucide-react';
+import { Link } from '@/components/RouterLink';
 
 interface AuthorBioProps {
   /** Author slug from authorData */
@@ -31,6 +32,9 @@ function CompactBio({ author }: { author: Author }) {
         <p className="text-foreground font-medium text-sm" itemProp="name">{author.name}</p>
         <p className="text-muted-foreground text-xs" itemProp="jobTitle">{author.credential}</p>
         <meta itemProp="worksFor" content="MindPeak Institute" />
+        <Link to="/mentors" className="text-xs text-primary/70 hover:text-primary transition-colors">
+          Meet all our expert mentors →
+        </Link>
       </div>
     </div>
   );
@@ -70,6 +74,9 @@ function FullBio({ author }: { author: Author }) {
               LinkedIn Profile →
             </a>
           )}
+          <Link to="/mentors" className="block text-xs text-primary/70 hover:text-primary transition-colors mt-1">
+            View all MindPeak expert mentors →
+          </Link>
         </div>
       </div>
 

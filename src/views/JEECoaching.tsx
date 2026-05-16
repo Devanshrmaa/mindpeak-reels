@@ -461,6 +461,11 @@ const JEECoaching = () => {
             <h3 className="font-display font-semibold text-foreground text-sm mb-5 tracking-[-0.01em]">Explore More</h3>
             <div className="flex flex-wrap gap-2">
               {[
+                { label: 'JEE Physics Coaching', to: '/jee-physics-coaching' },
+                { label: 'JEE Chemistry Coaching', to: '/jee-chemistry-coaching' },
+                { label: 'JEE Mathematics Coaching', to: '/jee-mathematics-coaching' },
+                { label: 'Meet Our JEE Mentors', to: '/mentors' },
+                { label: 'Student Success Stories', to: '/success-stories' },
                 { label: 'JEE Physics Preparation', to: '/jee-physics-preparation' },
                 { label: 'JEE Chemistry Preparation', to: '/jee-chemistry-preparation' },
                 { label: 'JEE Mathematics Preparation', to: '/jee-mathematics-preparation' },

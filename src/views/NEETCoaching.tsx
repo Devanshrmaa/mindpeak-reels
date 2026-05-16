@@ -443,6 +443,11 @@ const NEETCoaching = () => {
             <h3 className="font-display font-semibold text-foreground text-sm mb-5 tracking-[-0.01em]">Explore More</h3>
             <div className="flex flex-wrap gap-2">
               {[
+                { label: 'NEET Biology Coaching', to: '/neet-biology-coaching' },
+                { label: 'NEET Physics Coaching', to: '/neet-physics-coaching' },
+                { label: 'NEET Chemistry Coaching', to: '/neet-chemistry-coaching' },
+                { label: 'Meet Our NEET Mentors', to: '/mentors' },
+                { label: 'Student Success Stories', to: '/success-stories' },
                 { label: 'NEET Biology Preparation', to: '/neet-biology-preparation' },
                 { label: 'NEET Chemistry Preparation', to: '/neet-chemistry-preparation' },
                 { label: 'NEET Physics Preparation', to: '/neet-physics-preparation' },

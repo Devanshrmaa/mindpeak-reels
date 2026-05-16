@@ -245,10 +245,16 @@ const Blog = () => {
               Book Your Free Demo
             </button>
             <Link
-              to="/courses"
-              className="px-12 py-4 border border-primary text-primary font-display text-sm uppercase tracking-[0.15em] hover:bg-primary hover:text-primary-foreground transition-all duration-300 flex items-center"
+              to="/jee-coaching"
+              className="px-8 py-4 border border-primary text-primary font-display text-sm uppercase tracking-[0.15em] hover:bg-primary hover:text-primary-foreground transition-all duration-300 flex items-center"
             >
-              Explore Courses
+              JEE Coaching
+            </Link>
+            <Link
+              to="/neet-coaching"
+              className="px-8 py-4 border border-primary text-primary font-display text-sm uppercase tracking-[0.15em] hover:bg-primary hover:text-primary-foreground transition-all duration-300 flex items-center"
+            >
+              NEET Coaching
             </Link>
           </div>
         </section>

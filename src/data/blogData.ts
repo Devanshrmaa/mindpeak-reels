@@ -107,9 +107,9 @@ Having a guide makes all the difference:
 
 ## Conclusion
 
-JEE preparation requires dedication, smart work, and the right guidance. At Mindpeak, we provide personalized 1-on-1 coaching that adapts to your learning pace and style. Our students have consistently achieved top ranks in JEE by following these strategies.
+JEE preparation requires dedication, smart work, and the right guidance. At MindPeak, we provide [personalized 1-on-1 JEE coaching](/jee-coaching) that adapts to your learning pace and style. Our students have consistently achieved top ranks in JEE by following these strategies. You can also sharpen your skills with our [free JEE Practice Questions](/jee-practice) and review [JEE Previous Year Papers](/jee-pyq).
 
-**Ready to start your JEE journey?** [Book a free demo class](/courses) today!
+**Ready to start your JEE journey?** [Book a free trial class](/free-trial) today and speak with a dedicated JEE mentor!
 `
   },
   {
@@ -299,7 +299,9 @@ At Mindpeak, our NEET Biology experts:
 
 Biology can be your strongest scoring subject in NEET if you give it the time and respect it deserves. The key is consistent reading, regular revision, and plenty of practice. Remember: **NCERT is non-negotiable!**
 
-**Want personalized NEET Biology coaching?** [Book your free demo class](/courses) now!
+Practise Biology questions daily with our [free NEET Practice Questions](/neet-practice) and refer to the [NEET Biology Formula Sheet](/neet-biology-formulas) for quick revision.
+
+**Want personalized NEET Biology coaching?** Explore our [dedicated NEET Biology Coaching program](/neet-biology-coaching) or [book a free trial class](/free-trial) with an AIIMS mentor today!
 `
   },
   {
@@ -507,7 +509,9 @@ Our 1-on-1 coaching includes:
 
 Time management is a skill that improves with practice. Start implementing these techniques today, and you'll see dramatic improvements in your preparation efficiency. Remember: **It's not about studying more hours; it's about studying the right things at the right time.**
 
-**Need help creating your personalized study schedule?** [Book a free consultation](/courses) with our experts!
+Use our [free Study Plan generator](/study-plan) to build a personalized timetable for JEE or NEET. For 1-on-1 guidance, explore our [JEE Coaching](/jee-coaching) or [NEET Coaching](/neet-coaching) programs.
+
+**Need help creating your personalized study schedule?** [Book a free trial class](/free-trial) and get a custom plan from your dedicated mentor!
 `
   },
   {
@@ -751,7 +755,9 @@ Our 1-on-1 coaching for Organic Chemistry includes:
 
 Organic Chemistry is a scoring subject if you understand the fundamentals. Focus on mechanisms, practice daily, and solve previous papers. With the right approach, you can easily score 90-100% in organic chemistry questions.
 
-**Need personalized help with Organic Chemistry?** [Book a free trial class](/courses) today!
+Reinforce your learning with our [JEE Chemistry Formulas sheet](/jee-chemistry-formulas) and try our [free JEE Practice Questions](/jee-practice). For Organic Chemistry-heavy NEET prep, our [JEE Chemistry Coaching](/jee-chemistry-coaching) program covers every named reaction and mechanism in depth.
+
+**Need personalized help with Organic Chemistry?** [Book a free trial class](/free-trial) with our IIT Kanpur Chemistry mentor today!
 `
   },
   {
@@ -1028,7 +1034,9 @@ Our NEET Physics coaching includes:
 
 NEET Physics numericals are not difficult if you have formula clarity and practice regularly. The key is practicing without a calculator, memorizing important constants, and developing speed through repetitive practice.
 
-**Want personalized guidance for NEET Physics?** [Start your free trial](/courses) today!
+Bookmark the [NEET Physics Formula Sheet](/neet-physics-formulas) for quick reference, and test yourself with our [free NEET Practice Questions](/neet-practice). Our dedicated [NEET Physics Coaching](/neet-physics-coaching) program has specialist mentors who drill numericals daily.
+
+**Want personalized guidance for NEET Physics?** [Start your free trial class](/free-trial) today with a NEET Physics specialist!
 `
   },
   {
@@ -1335,7 +1343,9 @@ Effective revision is not about studying more—it's about studying smart. Use a
 
 **Remember:** The pain of retrieval practice is temporary, but the gains in retention are permanent.
 
-**Need help building a revision system?** [Book a free consultation](/courses) with our experts!
+For structured revision resources, use our [JEE Practice Question Bank](/jee-practice) or [NEET Practice Questions](/neet-practice) to run active recall sessions. Formula sheets — [JEE Physics](/jee-physics-formulas), [JEE Chemistry](/jee-chemistry-formulas), [NEET Biology](/neet-biology-formulas) — are ideal for spaced repetition.
+
+**Need help building a revision system?** [Book a free trial class](/free-trial) and get a custom spaced repetition plan from your personal mentor!
 `
   },
   {
@@ -1642,7 +1652,9 @@ Confused about your path? Our career counseling includes:
 
 **Remember:** Both JEE and NEET can lead to successful, fulfilling careers. The key is choosing what aligns with your interests, strengths, and life goals.
 
-**Need personalized career counseling?** [Book a free consultation](/courses) with our experts today!
+Explore both paths: our [JEE Coaching program](/jee-coaching) (with IIT alumni mentors) and [NEET Coaching program](/neet-coaching) (with AIIMS mentors) both offer a free trial. You can also read about our [student success stories](/success-stories) to see real results from both JEE and NEET students.
+
+**Need personalized career counseling?** [Book a free trial class](/free-trial) and discuss your goals with a dedicated mentor today!
 `
   }
 ];

@@ -15,6 +15,8 @@ const cards = [
     accent: 'from-primary to-primary/60',
     num: '01',
     result: 'AIR 42 in JEE Advanced',
+    to: '/jee-coaching',
+    ctaLabel: 'Explore JEE Coaching — Main & Advanced',
   },
   {
     logo: neetLogo,
@@ -24,6 +26,8 @@ const cards = [
     accent: 'from-emerald-400 to-emerald-600',
     num: '02',
     result: 'AIR 156 in NEET UG',
+    to: '/neet-coaching',
+    ctaLabel: 'Explore NEET Coaching — 1-on-1 Mentorship',
   },
   {
     logo: foundationLogo,
@@ -33,6 +37,8 @@ const cards = [
     accent: 'from-violet-400 to-violet-600',
     num: '03',
     result: '95%+ board scores consistently',
+    to: '/foundation-coaching',
+    ctaLabel: 'Explore Foundation Coaching — Class 6–10',
   },
 ];
 
@@ -122,13 +128,13 @@ export const CourseFlashcards = () => {
 
                 {/* CTA */}
                 <Link
-                  to="/courses"
-                  aria-label={`View ${card.title} details`}
+                  to={card.to}
+                  aria-label={card.ctaLabel}
                   className={`inline-flex items-center gap-2 text-[12px] font-medium tracking-[0.15em] uppercase transition-all duration-500 ${
                     isHovered ? 'text-primary gap-3' : 'text-muted-foreground'
                   }`}
                 >
-                  View {card.title} Details
+                  {card.ctaLabel}
                   <ArrowRight className={`w-3.5 h-3.5 transition-transform duration-500 ${isHovered ? 'translate-x-1' : ''}`} />
                 </Link>
               </motion.div>

@@ -15,6 +15,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import Image from 'next/image';
 import AuthorBio from '@/components/AuthorBio';
+import { CourseLinks } from '@/components/CourseLinks';
 import { getAuthorForSubject, type Author } from '@/data/authorData';
 const logo = '/images/logo.jpeg';
 
@@ -261,6 +262,9 @@ const BlogPost = () => {
                 {post.content}
               </ReactMarkdown>
             </div>
+
+            {/* Related courses and tools */}
+            <CourseLinks category={post.category} />
 
             {/* Expert author bio (E-E-A-T signal) */}
             <AuthorBio slug={expertAuthor.slug} variant="full" />
