@@ -233,16 +233,20 @@ const NEETCoaching = () => {
         {/* ───── FEATURED SNIPPET ───── */}
         <div className="px-4 sm:px-6">
           <FeaturedSnippet
-            question={`What is the best online coaching for NEET ${CURRENT_EXAM_YEAR}?`}
-            answer="MindPeak Institute is India's leading personalized NEET coaching, offering dedicated 1-on-1 mentorship with Biology-first curriculum. With a 95% success rate, NCERT line-by-line mastery program, and mentors from AIIMS and top medical colleges, MindPeak delivers the most effective NEET preparation available online."
+            question={`How to Prepare for NEET ${CURRENT_EXAM_YEAR} — 8-Step Plan`}
+            answer={`NEET ${CURRENT_EXAM_YEAR} preparation centres on NCERT mastery for Biology (50% of the 720-mark paper) and structured Physics-Chemistry problem practice. The 8 steps below scale from a 12-month plan down to a 6-month intensive cycle.`}
+            ordered
             bullets={[
-              'Biology-first approach (50% curriculum focus matching 360/720 marks)',
-              'NCERT Mastery — line-by-line coverage of every textbook',
-              'Dedicated NEET mentor from AIIMS / top medical colleges',
-              'Daily 1-on-1 live sessions, 6 days a week',
-              'Full-length NEET mock tests in CBT format',
-              'Integrated CBSE board + NEET preparation',
+              'Master NCERT Biology line-by-line — 85 to 90% of NEET Biology comes directly from NCERT.',
+              'Complete NCERT Physics and Chemistry — the foundation for both subjects.',
+              'Add reference books — DC Pandey / BM Sharma for Physics, MS Chouhan for Organic Chemistry.',
+              'Solve NCERT Exemplar — covers high-yield question patterns across all three subjects.',
+              'Drill chapter-wise PYQs — the last 15 years of NEET papers, subject by subject.',
+              'Run a 21-day Biology revision cycle — re-skim every Biology chapter every 3 weeks.',
+              'Take weekly full-length mocks from month 4 — under exam conditions, analyse the same day.',
+              'Final 30 days: revision only — NCERT skim plus weak-area drills, 2 mocks per week.',
             ]}
+            authorityNote="In our NEET classes, the biggest score-mover is enforcing the 21-day Biology revision cycle. Students who maintain it typically gain 30 to 50 Biology marks within 90 days."
           />
         </div>
 

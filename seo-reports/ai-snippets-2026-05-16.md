@@ -28,6 +28,44 @@
 
 ---
 
+### 1.1 Fixes Applied (2026-05-16)
+
+**Structural component upgrades** (apply to every page using them):
+
+- `src/components/FeaturedSnippet.tsx` — now supports `ordered` (renders `<ol>` for "how to" / "steps" / "tips" intent) and `authorityNote` (E-E-A-T closer paragraph). Switched answer/list text from `text-muted-foreground text-xs` to `text-foreground/85 text-sm sm:text-base` so the snippet extractor sees primary-content typography, not muted decoration.
+- `src/data/seoPageData.ts` — `SEOPageSection` extended with `ordered?: boolean` and `authorityNote?: string`. Backward-compatible: existing sections still render as before.
+- `src/views/SEOLandingPage.tsx` — renders `<ol>` with decimal markers (no flex/icon wrapper) when `section.ordered === true`, and an italic authority note when `section.authorityNote` is set. Existing `<ul>` checklist preserved as default.
+
+**Snippet-target content shipped** (8 queries, including 3 UNCLAIMED):
+
+| # | Query | Page | Snippet Type | Status |
+|---|---|---|---|---|
+| 1 | how to prepare for jee main 2027 | `src/views/JEECoaching.tsx` | 8-step ordered list + authority note | ✅ Shipped |
+| 16 | how to prepare for neet 2027 | `src/views/NEETCoaching.tsx` | 8-step ordered list + authority note | ✅ Shipped |
+| 26 | online vs offline coaching for jee | `src/views/OnlineVsOffline.tsx` | Query-matched H2 + 50-word BLUF on existing 9-criterion table | ✅ Shipped |
+| 15 | **one on one jee coaching benefits** | `seoPageData.ts: batch-vs-personal-coaching` | 8-item ordered list (UNCLAIMED) | ✅ Shipped |
+| 28 | **one on one coaching vs batch coaching** | `seoPageData.ts: batch-vs-personal-coaching` | 7-criterion comparison table with query-matched H2 (UNCLAIMED) | ✅ Shipped |
+| 30 | **is personal tutor better than coaching** | `seoPageData.ts: batch-vs-personal-coaching` | 55-word direct-answer paragraph (UNCLAIMED) | ✅ Shipped |
+| 9 | jee preparation for dropper | `seoPageData.ts: jee-dropper-coaching` | 9-step ordered roadmap + authority note | ✅ Shipped |
+| 5 | jee physics preparation tips | `seoPageData.ts: jee-physics-coaching` | 10-tip ordered list + authority note (UNCLAIMED FS) | ✅ Shipped |
+| 2 | jee main physics important topics | `seoPageData.ts: jee-physics-coaching` | Existing weightage table — re-headed with query-matched H2 + BLUF | ✅ Shipped |
+| 17 | neet physics important chapters | `seoPageData.ts: neet-physics-coaching` | Existing weightage table — re-headed with query-matched H2 + BLUF | ✅ Shipped |
+
+**FAQ schema status:** The 5 batch-vs-personal-coaching FAQs now include the "is personal tutor better than coaching" and "who should choose batch over personal tutor" Q&As — these emit via the existing `buildFAQSchemaFromQA` pipeline in `SEOLandingPage.tsx`, so FAQPage JSON-LD is automatic.
+
+**What still requires net-new pages** (not shipped — needs sitemap update + dedicated route):
+- `/jee-main-vs-jee-advanced` (query 3, P0)
+- `/jee-main-exam-pattern-2027` (query 8, P0)
+- `/neet-vs-jee-comparison` (query 22, P0)
+- `/neet-2027-syllabus-changes` (query 25, P0)
+- `/blog/how-to-balance-boards-and-jee` (query 10, UNCLAIMED, P0)
+- `/blog/neet-preparation-strategy-average-student` (query 18, UNCLAIMED, P0)
+- Plus 5 more blog posts in §10.
+
+These should follow the same template applied above: query-matched H2 → 40-60 word BLUF → ordered list **or** semantic `<table>` → 1-paragraph authority note. The components and types now support all three formats directly.
+
+---
+
 ## 2. AI Overview Detection — Query-by-Query Findings
 
 ### 2.1 JEE-Related Queries
