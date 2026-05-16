@@ -1,0 +1,194 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "generated": "2026-05-16",
+  "purpose": "Voice-search-optimised answers for 22 high-volume question-format queries. Each answer is 30-40 words for Alexa/Google Assistant readback. Surface these as the immediate paragraph after the matching H2.",
+  "format": "Each entry: { query, voiceAnswer (30-40 words), wordCount, targetPage, fullContentRecommendation, speakableSchema }",
+  "implementationNote": "Add speakable schema (Article or WebPage with speakable property) to pages with voice-ready answers. Wrap the voice answer in a CSS class targeted by the speakable selector.",
+  "answers": [
+    {
+      "query": "How many hours should I study for JEE?",
+      "voiceAnswer": "For JEE Main, study 6 to 8 hours daily alongside school. Droppers should target 8 to 10 hours. Focus on quality problem solving rather than just hours spent reading theory.",
+      "wordCount": 32,
+      "targetPage": "app/study-plan/page.tsx",
+      "fullContentRecommendation": "Add detailed 12-month hour breakdown showing daily, weekly, and monthly time allocation per subject with rest day schedule.",
+      "speakableSchema": {"cssSelector": [".voice-answer-jee-hours"]}
+    },
+    {
+      "query": "How many hours should I study for NEET?",
+      "voiceAnswer": "Study 6 to 8 hours daily for NEET, increasing to 8 to 10 hours for droppers. Biology needs 90 minutes daily, Physics 2 hours, and Chemistry 90 minutes split.",
+      "wordCount": 30,
+      "targetPage": "app/study-plan/page.tsx",
+      "fullContentRecommendation": "Detailed daily routine for NEET aspirants showing subject-wise time blocks and revision cycles.",
+      "speakableSchema": {"cssSelector": [".voice-answer-neet-hours"]}
+    },
+    {
+      "query": "Is NCERT enough for JEE Main?",
+      "voiceAnswer": "NCERT is enough for 80 to 85 percentile in JEE Main, especially for Chemistry where 35 percent of questions come from NCERT. For 95 plus percentile, add HC Verma and Cengage.",
+      "wordCount": 36,
+      "targetPage": "app/jee-main-coaching/page.tsx",
+      "fullContentRecommendation": "Subject-wise NCERT coverage analysis with reference book recommendations for each gap area.",
+      "speakableSchema": {"cssSelector": [".voice-answer-ncert-jee"]}
+    },
+    {
+      "query": "Is NCERT enough for NEET?",
+      "voiceAnswer": "NCERT alone reaches around 550 in NEET because 85 to 90 percent of Biology comes from NCERT. For 650 plus scores, add DC Pandey for Physics and exemplar problems.",
+      "wordCount": 34,
+      "targetPage": "app/neet-coaching/page.tsx",
+      "fullContentRecommendation": "NCERT-only score ceiling analysis with progression to reference books for higher scores.",
+      "speakableSchema": {"cssSelector": [".voice-answer-ncert-neet"]}
+    },
+    {
+      "query": "Can I crack JEE in 6 months?",
+      "voiceAnswer": "Cracking JEE Main in 6 months is realistic if you have 70 plus percentile baseline. Plan 10 hours daily, three phase plan, and 30 plus mock tests under exam conditions.",
+      "wordCount": 38,
+      "targetPage": "app/jee-crash-course/page.tsx",
+      "fullContentRecommendation": "Complete 6-month JEE Main strategy with month-by-month plan and mock-test cadence.",
+      "speakableSchema": {"cssSelector": [".voice-answer-jee-6-months"]}
+    },
+    {
+      "query": "Can I crack NEET in one year?",
+      "voiceAnswer": "Yes, one year is sufficient for NEET with 8 hours daily focused study, complete NCERT Biology mastery, and weekly mocks from month 4. Around 25 percent of MBBS seats go to one year preparers.",
+      "wordCount": 38,
+      "targetPage": "app/neet-coaching/page.tsx",
+      "fullContentRecommendation": "12-month NEET timeline with subject-wise milestones and mock-test schedule.",
+      "speakableSchema": {"cssSelector": [".voice-answer-neet-one-year"]}
+    },
+    {
+      "query": "Is online coaching effective for JEE?",
+      "voiceAnswer": "Yes, online JEE coaching is highly effective. Around 35 to 40 percent of top 1000 JEE Advanced rankers since 2022 used primarily online coaching, with flexibility and recorded sessions as key advantages.",
+      "wordCount": 36,
+      "targetPage": "app/online-vs-offline-jee-coaching/page.tsx",
+      "fullContentRecommendation": "Detailed online vs offline comparison with success data and platform recommendations.",
+      "speakableSchema": {"cssSelector": [".voice-answer-online-coaching"]}
+    },
+    {
+      "query": "Is one on one coaching better than batch?",
+      "voiceAnswer": "One on one coaching delivers 25 to 40 percent faster percentile gains for students below 80 percentile, because every session targets your exact weak areas rather than the batch average pace.",
+      "wordCount": 38,
+      "targetPage": "app/batch-vs-personal-coaching/page.tsx",
+      "fullContentRecommendation": "Side-by-side comparison of one-on-one and batch formats with decision framework.",
+      "speakableSchema": {"cssSelector": [".voice-answer-one-on-one"]}
+    },
+    {
+      "query": "What is JEE Main exam pattern 2027?",
+      "voiceAnswer": "JEE Main 2027 has 75 attempted questions across Physics, Chemistry, and Math over 3 hours. Each subject has 20 MCQs and 5 numerical questions. Total marks 300, with negative marking minus 1.",
+      "wordCount": 36,
+      "targetPage": "NEW /jee-main-exam-pattern-2027",
+      "fullContentRecommendation": "Complete exam pattern page with table breakdown and tie-breaker rules.",
+      "speakableSchema": {"cssSelector": [".voice-answer-jee-pattern"]}
+    },
+    {
+      "query": "What is NEET 2027 exam date?",
+      "voiceAnswer": "NEET 2027 is expected on the first Sunday of May 2027 based on NTA's historical schedule. Confirm the official date once NTA releases the 2027 information bulletin at neet.nta.nic.in.",
+      "wordCount": 31,
+      "targetPage": "app/neet-coaching/page.tsx",
+      "fullContentRecommendation": "NEET 2027 important dates page with registration, admit card, and exam timeline.",
+      "speakableSchema": {"cssSelector": [".voice-answer-neet-date"]}
+    },
+    {
+      "query": "How do I score 99 percentile in JEE Main?",
+      "voiceAnswer": "Scoring 99 percentile in JEE Main needs 220 to 240 marks, achieved through complete NCERT mastery, last 10 years PYQ practice, 25 plus mocks under exam conditions, and 90 plus percent accuracy.",
+      "wordCount": 35,
+      "targetPage": "NEW /blog/how-to-score-99-percentile-jee-main-2027",
+      "fullContentRecommendation": "Full 99 percentile strategy with marks targets, study plan, and mock analysis method.",
+      "speakableSchema": {"cssSelector": [".voice-answer-99-percentile"]}
+    },
+    {
+      "query": "How do I score 650 in NEET?",
+      "voiceAnswer": "Scoring 650 plus in NEET needs Biology 340 plus, Physics 140 plus, Chemistry 155 plus. The key drivers are complete NCERT mastery, weekly mocks, and the 21 day Biology revision cycle.",
+      "wordCount": 35,
+      "targetPage": "NEW /blog/how-to-score-650-plus-neet",
+      "fullContentRecommendation": "Complete 650+ NEET strategy with subject-wise target breakdown and weekly cadence.",
+      "speakableSchema": {"cssSelector": [".voice-answer-650-neet"]}
+    },
+    {
+      "query": "Is JEE harder than NEET?",
+      "voiceAnswer": "JEE Advanced is harder than NEET on problem solving complexity, while NEET is harder on volume due to Biology's 360 mark weight. Both have brutal competition with millions of aspirants annually.",
+      "wordCount": 33,
+      "targetPage": "NEW /neet-vs-jee-comparison",
+      "fullContentRecommendation": "Detailed comparison page showing difficulty across subjects, competition stats, and decision framework.",
+      "speakableSchema": {"cssSelector": [".voice-answer-jee-vs-neet"]}
+    },
+    {
+      "query": "What is the best book for JEE Physics?",
+      "voiceAnswer": "Best JEE Physics books are NCERT for foundation, HC Verma for concept mastery, and DC Pandey for problem variety. For JEE Advanced, add Irodov selectively for the hardest electromagnetism and rotation problems.",
+      "wordCount": 35,
+      "targetPage": "app/jee-physics-coaching/page.tsx",
+      "fullContentRecommendation": "Subject-wise book guide with usage order and chapter-specific recommendations.",
+      "speakableSchema": {"cssSelector": [".voice-answer-jee-physics-books"]}
+    },
+    {
+      "query": "What is the best book for NEET Physics?",
+      "voiceAnswer": "Best NEET Physics books are NCERT for foundation, DC Pandey NEET Objective or BM Sharma Cengage NEET for practice, and NCERT Exemplar for question pattern. Avoid JEE level books like HC Verma.",
+      "wordCount": 36,
+      "targetPage": "app/neet-physics-coaching/page.tsx",
+      "fullContentRecommendation": "NEET-specific book recommendations with usage stages and timeline.",
+      "speakableSchema": {"cssSelector": [".voice-answer-neet-physics-books"]}
+    },
+    {
+      "query": "What are important chapters for JEE Physics?",
+      "voiceAnswer": "Most important JEE Physics chapters are Electrodynamics 22 to 26 percent, Mechanics 18 to 22 percent, and Modern Physics 10 to 14 percent. These three blocks cover 60 plus percent of JEE Main Physics marks.",
+      "wordCount": 35,
+      "targetPage": "app/jee-physics-coaching/page.tsx",
+      "fullContentRecommendation": "Chapter weightage table with sub-topic breakdown and recommended study order.",
+      "speakableSchema": {"cssSelector": [".voice-answer-jee-physics-chapters"]}
+    },
+    {
+      "query": "What are important chapters for NEET Physics?",
+      "voiceAnswer": "Most important NEET Physics chapters are Electrodynamics 22 to 24 percent, Mechanics 18 to 20 percent, Optics 10 to 12 percent, and Modern Physics 10 to 12 percent.",
+      "wordCount": 30,
+      "targetPage": "app/neet-physics-coaching/page.tsx",
+      "fullContentRecommendation": "NEET Physics chapter weightage table with class-wise breakdown.",
+      "speakableSchema": {"cssSelector": [".voice-answer-neet-physics-chapters"]}
+    },
+    {
+      "query": "How is JEE Main percentile calculated?",
+      "voiceAnswer": "JEE Main percentile equals the percentage of candidates who scored less than or equal to you, normalised across sessions and shifts. Top scorer in any shift gets 100 percentile.",
+      "wordCount": 31,
+      "targetPage": "app/jee-rank-predictor/page.tsx",
+      "fullContentRecommendation": "Percentile-rank calculation explainer with worked examples and normalisation logic.",
+      "speakableSchema": {"cssSelector": [".voice-answer-percentile-calc"]}
+    },
+    {
+      "query": "What percentile do I need for NIT?",
+      "voiceAnswer": "Top NIT branches need 98 plus percentile in JEE Main. Mid tier NITs accept 95 plus percentile. Lower tier NITs and IIITs admit 90 to 94 percentile students in less competitive branches.",
+      "wordCount": 35,
+      "targetPage": "app/jee-rank-predictor/page.tsx",
+      "fullContentRecommendation": "NIT cutoff table by branch, category, and college tier.",
+      "speakableSchema": {"cssSelector": [".voice-answer-nit-percentile"]}
+    },
+    {
+      "query": "Is JEE preparation for dropper easy?",
+      "voiceAnswer": "Yes for committed droppers. Around 35 to 40 percent of top IIT seats go to droppers each year. Expect 15 to 25 percentile point improvement with 8 plus hours daily study and structured mentorship.",
+      "wordCount": 38,
+      "targetPage": "app/jee-dropper-coaching/page.tsx",
+      "fullContentRecommendation": "Dropper success rate analysis with structural recommendations.",
+      "speakableSchema": {"cssSelector": [".voice-answer-dropper-jee"]}
+    },
+    {
+      "query": "Is NEET dropper better than fresher?",
+      "voiceAnswer": "Yes. Around 60 percent of MBBS admissions go to droppers each year. The extra year provides 80 to 120 mark improvement on average through Biology revision cycles and refined exam temperament.",
+      "wordCount": 33,
+      "targetPage": "app/neet-dropper-coaching/page.tsx",
+      "fullContentRecommendation": "Dropper success rate data with year-over-year improvement statistics.",
+      "speakableSchema": {"cssSelector": [".voice-answer-dropper-neet"]}
+    },
+    {
+      "query": "How to choose JEE coaching?",
+      "voiceAnswer": "Check teacher experience, batch size under 30, verifiable track record, weekly mock tests with individual analysis, mentor accountability, transparent fees, and a 7 day refund or trial window before committing.",
+      "wordCount": 34,
+      "targetPage": "NEW /blog/how-to-choose-jee-coaching",
+      "fullContentRecommendation": "9-criterion checklist with red-flag warnings for low-quality coaching.",
+      "speakableSchema": {"cssSelector": [".voice-answer-choose-coaching"]}
+    }
+  ],
+  "speakableSchemaTemplate": {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".voice-answer"]
+    }
+  },
+  "cssRecommendation": "Add a single .voice-answer class to all H2-immediate voice answer paragraphs across the site, then use the speakable schema with a single cssSelector entry. This avoids per-page schema maintenance."
+}

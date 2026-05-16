@@ -1,0 +1,382 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "generated": "2026-05-16",
+  "purpose": "Ready-to-render FAQ content + FAQPage JSON-LD for 14 priority pages. Render every Q/A pair as visible HTML AND emit the JSON-LD block. Schema without visible content is treated as spam.",
+  "usage": "For each entry: copy the `visibleHtml` block into the page body and pass the `jsonLd` object to the shared <FAQSchema /> or <JsonLd /> component.",
+  "pages": [
+    {
+      "page": "app/jee-coaching/page.tsx",
+      "targetQuery": "best online jee coaching / how to prepare for jee main 2027",
+      "lastUpdated": "2026-05-16",
+      "faqs": [
+        {
+          "q": "How should I prepare for JEE Main 2027?",
+          "a": "Start with NCERT mastery for all three subjects, then move to standard reference books (HC Verma for Physics, NCERT plus MS Chouhan for Chemistry, Cengage for Math). Allocate 6 to 8 hours daily, alternate between concept learning and problem-solving, and take a full-length mock every weekend from month 4 onwards."
+        },
+        {
+          "q": "Is one-on-one coaching better than batch coaching for JEE?",
+          "a": "One-on-one coaching wins when a student has subject-specific weak spots or pacing issues, because every session adapts to that student's exact gaps. Batch coaching works when peer competition motivates the student. At MindPeak we have seen one-on-one students gain 30 to 50 marks faster on doubt-heavy chapters like Electrodynamics."
+        },
+        {
+          "q": "How many hours should I study daily for JEE Main?",
+          "a": "Six to eight hours of focused study daily is the sweet spot for Class 11 and 12 students preparing alongside boards. Droppers should target 8 to 10 hours split into three 90-minute deep-work blocks with active recall in between. Quality matters more than raw hours."
+        },
+        {
+          "q": "Is NCERT enough to clear JEE Main?",
+          "a": "NCERT alone is sufficient for clearing JEE Main with 80 to 85 percentile if mastered completely, especially for Chemistry where roughly 35% of questions trace directly to NCERT lines. For a 95+ percentile, supplement NCERT with HC Verma (Physics) and standard problem books (Math)."
+        },
+        {
+          "q": "When should I start JEE preparation?",
+          "a": "Ideally start in Class 9 or 10 with strong NCERT and foundational concepts, then full intensity from Class 11. Starting in Class 11 is the realistic mainstream timeline. Beginning in Class 12 alone is tight but workable with 8+ hours daily and a structured personal mentor."
+        },
+        {
+          "q": "How is MindPeak Institute different from larger coaching brands?",
+          "a": "MindPeak runs one-on-one online classes with senior subject experts including Devansh, Sahil and Krishnendu. Every student gets a personalised study plan, weekly progress reviews, and direct WhatsApp access to mentors. This contrasts with the 60-to-100-student virtual batches at large brands."
+        }
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "How should I prepare for JEE Main 2027?", "acceptedAnswer": {"@type": "Answer", "text": "Start with NCERT mastery for all three subjects, then move to standard reference books (HC Verma for Physics, NCERT plus MS Chouhan for Chemistry, Cengage for Math). Allocate 6 to 8 hours daily, alternate between concept learning and problem-solving, and take a full-length mock every weekend from month 4 onwards."}},
+          {"@type": "Question", "name": "Is one-on-one coaching better than batch coaching for JEE?", "acceptedAnswer": {"@type": "Answer", "text": "One-on-one coaching wins when a student has subject-specific weak spots or pacing issues, because every session adapts to that student's exact gaps. Batch coaching works when peer competition motivates the student. At MindPeak we have seen one-on-one students gain 30 to 50 marks faster on doubt-heavy chapters like Electrodynamics."}},
+          {"@type": "Question", "name": "How many hours should I study daily for JEE Main?", "acceptedAnswer": {"@type": "Answer", "text": "Six to eight hours of focused study daily is the sweet spot for Class 11 and 12 students preparing alongside boards. Droppers should target 8 to 10 hours split into three 90-minute deep-work blocks with active recall in between. Quality matters more than raw hours."}},
+          {"@type": "Question", "name": "Is NCERT enough to clear JEE Main?", "acceptedAnswer": {"@type": "Answer", "text": "NCERT alone is sufficient for clearing JEE Main with 80 to 85 percentile if mastered completely, especially for Chemistry where roughly 35% of questions trace directly to NCERT lines. For a 95+ percentile, supplement NCERT with HC Verma (Physics) and standard problem books (Math)."}},
+          {"@type": "Question", "name": "When should I start JEE preparation?", "acceptedAnswer": {"@type": "Answer", "text": "Ideally start in Class 9 or 10 with strong NCERT and foundational concepts, then full intensity from Class 11. Starting in Class 11 is the realistic mainstream timeline. Beginning in Class 12 alone is tight but workable with 8+ hours daily and a structured personal mentor."}},
+          {"@type": "Question", "name": "How is MindPeak Institute different from larger coaching brands?", "acceptedAnswer": {"@type": "Answer", "text": "MindPeak runs one-on-one online classes with senior subject experts including Devansh, Sahil and Krishnendu. Every student gets a personalised study plan, weekly progress reviews, and direct WhatsApp access to mentors. This contrasts with the 60-to-100-student virtual batches at large brands."}}
+        ]
+      }
+    },
+    {
+      "page": "app/neet-coaching/page.tsx",
+      "targetQuery": "best online neet coaching / how to prepare for neet 2027",
+      "lastUpdated": "2026-05-16",
+      "faqs": [
+        {"q": "How should I prepare for NEET 2027?", "a": "Master NCERT Biology line-by-line first, since 85 to 90 percent of NEET Biology questions come directly from NCERT. For Physics and Chemistry, balance NCERT theory with problem practice from NCERT exemplar and HC Verma (Physics). Take weekly mocks starting month 4 and analyse every wrong answer."},
+        {"q": "Is NCERT enough for NEET?", "a": "For NEET Biology, NCERT is essentially the entire syllabus. For Chemistry, NCERT plus exemplar problems covers 90 percent. For Physics, NCERT is the base but HC Verma and NCERT Exemplar are needed for the numerical-heavy questions. NCERT alone gets you to 550; reference books get you past 650."},
+        {"q": "How many hours should I study for NEET?", "a": "Six to eight hours daily during Class 11 and 12, eight to ten hours for droppers. Biology demands frequent revision cycles (daily 90 minutes), Physics needs 2 hours of problem-solving daily, Chemistry split equally between theory and reactions."},
+        {"q": "Can I crack NEET without coaching?", "a": "Self-study can clear NEET with discipline, NCERT mastery, and structured mock testing. However, 80 percent of 650+ scorers use some form of guided coaching for doubt resolution and pacing. A personal mentor compresses the learning curve significantly."},
+        {"q": "What score is required for MBBS in NEET 2027?", "a": "Government MBBS admission typically requires 620+ for general category, 580+ for OBC, and 560+ for SC/ST in most state quotas. AIIMS and JIPMER need 680+. Private medical colleges accept scores as low as 480, but fees are 60 lakh+ for the full course."},
+        {"q": "Which subject should I focus on most in NEET?", "a": "Biology carries 50 percent of marks (360 out of 720), making it the highest-leverage subject. Strong Biology (320+) plus average Physics and Chemistry (160+ each) lands you at 640. Strengthen Biology first, then balance Physics-Chemistry, since these decide your final rank tier."}
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "How should I prepare for NEET 2027?", "acceptedAnswer": {"@type": "Answer", "text": "Master NCERT Biology line-by-line first, since 85 to 90 percent of NEET Biology questions come directly from NCERT. For Physics and Chemistry, balance NCERT theory with problem practice from NCERT exemplar and HC Verma (Physics). Take weekly mocks starting month 4 and analyse every wrong answer."}},
+          {"@type": "Question", "name": "Is NCERT enough for NEET?", "acceptedAnswer": {"@type": "Answer", "text": "For NEET Biology, NCERT is essentially the entire syllabus. For Chemistry, NCERT plus exemplar problems covers 90 percent. For Physics, NCERT is the base but HC Verma and NCERT Exemplar are needed for the numerical-heavy questions. NCERT alone gets you to 550; reference books get you past 650."}},
+          {"@type": "Question", "name": "How many hours should I study for NEET?", "acceptedAnswer": {"@type": "Answer", "text": "Six to eight hours daily during Class 11 and 12, eight to ten hours for droppers. Biology demands frequent revision cycles (daily 90 minutes), Physics needs 2 hours of problem-solving daily, Chemistry split equally between theory and reactions."}},
+          {"@type": "Question", "name": "Can I crack NEET without coaching?", "acceptedAnswer": {"@type": "Answer", "text": "Self-study can clear NEET with discipline, NCERT mastery, and structured mock testing. However, 80 percent of 650+ scorers use some form of guided coaching for doubt resolution and pacing. A personal mentor compresses the learning curve significantly."}},
+          {"@type": "Question", "name": "What score is required for MBBS in NEET 2027?", "acceptedAnswer": {"@type": "Answer", "text": "Government MBBS admission typically requires 620+ for general category, 580+ for OBC, and 560+ for SC/ST in most state quotas. AIIMS and JIPMER need 680+. Private medical colleges accept scores as low as 480, but fees are 60 lakh+ for the full course."}},
+          {"@type": "Question", "name": "Which subject should I focus on most in NEET?", "acceptedAnswer": {"@type": "Answer", "text": "Biology carries 50 percent of marks (360 out of 720), making it the highest-leverage subject. Strong Biology (320+) plus average Physics and Chemistry (160+ each) lands you at 640. Strengthen Biology first, then balance Physics-Chemistry, since these decide your final rank tier."}}
+        ]
+      }
+    },
+    {
+      "page": "app/jee-main-coaching/page.tsx",
+      "targetQuery": "jee main preparation 2027 / jee main exam pattern 2027",
+      "lastUpdated": "2026-05-16",
+      "faqs": [
+        {"q": "What is the JEE Main 2027 exam pattern?", "a": "JEE Main 2027 has 90 questions (75 attempted) across Physics, Chemistry, and Mathematics over 3 hours. Each subject has 20 MCQs (all attempted) and 5 numerical questions (5 attempted out of 10). Correct: +4, wrong MCQ: -1, wrong numerical: -1. Maximum marks: 300."},
+          {"q": "How many attempts are allowed for JEE Main?", "a": "JEE Main is conducted twice per year (January and April sessions). Each session counts as one attempt, so a student typically gets two attempts in the same calendar year. The better of the two scores is used for ranking."},
+          {"q": "What is a good JEE Main 2027 score?", "a": "A good JEE Main score depends on target colleges. NITs and IIITs typically need 200+ out of 300 (95+ percentile). Top NITs like Trichy, Warangal, Surathkal need 240+ (98+ percentile). For JEE Advanced qualification, the cutoff is around 90 to 95 marks (rank under 2.5 lakh)."},
+          {"q": "How is JEE Main percentile calculated?", "a": "JEE Main percentile is normalised across sessions and shifts. Your percentile equals (number of candidates with score equal or less than you / total candidates) × 100. The top scorer in any shift gets 100 percentile, regardless of the raw marks they obtained that day."},
+          {"q": "Is JEE Main easier than JEE Advanced?", "a": "Yes. JEE Main tests application of NCERT-level concepts, while JEE Advanced tests multi-concept problem-solving under tighter time pressure. A 250/300 in JEE Main roughly corresponds to a 150/360 in JEE Advanced for the same student. Top NIT cutoffs are around 99 percentile in Main; IIT cutoffs need top 2.5 lakh rank."},
+          {"q": "What are the most important chapters for JEE Main?", "a": "Highest-weightage chapters: Mechanics (15-18%), Electrodynamics (12-15%), Modern Physics (10-12%), Coordination Compounds (8-10%), Organic Chemistry GOC and reactions (15-18%), Calculus (18-22%), Coordinate Geometry (12-15%), Vector and 3D Geometry (8-10%)."},
+          {"q": "When does JEE Main 2027 registration open?", "a": "JEE Main 2027 Session 1 registration historically opens in late October 2026 with the exam in late January 2027. Session 2 registration opens in early February 2027 with the exam in early April 2027. Check jeemain.nta.nic.in for the official notification."}
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "What is the JEE Main 2027 exam pattern?", "acceptedAnswer": {"@type": "Answer", "text": "JEE Main 2027 has 90 questions (75 attempted) across Physics, Chemistry, and Mathematics over 3 hours. Each subject has 20 MCQs (all attempted) and 5 numerical questions (5 attempted out of 10). Correct: +4, wrong MCQ: -1, wrong numerical: -1. Maximum marks: 300."}},
+          {"@type": "Question", "name": "How many attempts are allowed for JEE Main?", "acceptedAnswer": {"@type": "Answer", "text": "JEE Main is conducted twice per year (January and April sessions). Each session counts as one attempt, so a student typically gets two attempts in the same calendar year. The better of the two scores is used for ranking."}},
+          {"@type": "Question", "name": "What is a good JEE Main 2027 score?", "acceptedAnswer": {"@type": "Answer", "text": "A good JEE Main score depends on target colleges. NITs and IIITs typically need 200+ out of 300 (95+ percentile). Top NITs like Trichy, Warangal, Surathkal need 240+ (98+ percentile). For JEE Advanced qualification, the cutoff is around 90 to 95 marks (rank under 2.5 lakh)."}},
+          {"@type": "Question", "name": "How is JEE Main percentile calculated?", "acceptedAnswer": {"@type": "Answer", "text": "JEE Main percentile is normalised across sessions and shifts. Your percentile equals (number of candidates with score equal or less than you / total candidates) × 100. The top scorer in any shift gets 100 percentile, regardless of the raw marks they obtained that day."}},
+          {"@type": "Question", "name": "Is JEE Main easier than JEE Advanced?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. JEE Main tests application of NCERT-level concepts, while JEE Advanced tests multi-concept problem-solving under tighter time pressure. A 250/300 in JEE Main roughly corresponds to a 150/360 in JEE Advanced for the same student. Top NIT cutoffs are around 99 percentile in Main; IIT cutoffs need top 2.5 lakh rank."}},
+          {"@type": "Question", "name": "What are the most important chapters for JEE Main?", "acceptedAnswer": {"@type": "Answer", "text": "Highest-weightage chapters: Mechanics (15-18%), Electrodynamics (12-15%), Modern Physics (10-12%), Coordination Compounds (8-10%), Organic Chemistry GOC and reactions (15-18%), Calculus (18-22%), Coordinate Geometry (12-15%), Vector and 3D Geometry (8-10%)."}},
+          {"@type": "Question", "name": "When does JEE Main 2027 registration open?", "acceptedAnswer": {"@type": "Answer", "text": "JEE Main 2027 Session 1 registration historically opens in late October 2026 with the exam in late January 2027. Session 2 registration opens in early February 2027 with the exam in early April 2027. Check jeemain.nta.nic.in for the official notification."}}
+        ]
+      }
+    },
+    {
+      "page": "app/jee-advanced-coaching/page.tsx",
+      "targetQuery": "jee advanced preparation 2027",
+      "lastUpdated": "2026-05-16",
+      "faqs": [
+        {"q": "How do I qualify for JEE Advanced?", "a": "Score within the top 2,50,000 ranks in JEE Main (around 90+ percentile) to qualify for JEE Advanced. Of the 2.5 lakh qualifiers, around 1.6 lakh actually appear. Around 17,000 secure IIT seats. The cutoff varies year-to-year but a JEE Main percentile of 92+ is a safe threshold."},
+        {"q": "What is the JEE Advanced exam pattern?", "a": "JEE Advanced has two compulsory papers (Paper 1 and Paper 2), each 3 hours, conducted on the same day. Each paper has 54 questions across Physics, Chemistry, Math, with negative marking varying by question type (MCQs, numerical, matrix-match). Total marks: 360."},
+        {"q": "What rank do I need for IIT Bombay computer science?", "a": "IIT Bombay Computer Science typically closes within the top 100 (general category) in JEE Advanced. IIT Delhi CS closes around 150, IIT Madras CS around 180. For other branches at top IITs, ranks under 500 generally secure admission to a strong branch."},
+        {"q": "How is JEE Advanced different from JEE Main?", "a": "JEE Advanced tests deeper conceptual understanding and multi-step problem-solving with non-standard questions, while JEE Main tests breadth and speed on standard problem types. Advanced has trickier question patterns (paragraph-based, integer-type, multi-correct), making strategy and partial credit more important."},
+        {"q": "Can I prepare for JEE Advanced in 6 months?", "a": "Six-month JEE Advanced preparation works only if your JEE Main fundamentals are already solid (250+ marks level). You need 8 to 10 hours daily focusing on multi-concept problems from Cengage, DC Pandey, MS Chouhan. Without a strong base, six months is insufficient for top-rank IIT seats."},
+        {"q": "What books should I use for JEE Advanced?", "a": "Physics: HC Verma (foundation), DC Pandey (problems), Irodov (advanced). Chemistry: NCERT, MS Chouhan (organic), JD Lee (inorganic), N Awasthi (physical). Mathematics: Cengage series, Arihant Skills in Mathematics, RD Sharma for foundation. Past 25 years of JEE Advanced papers are non-negotiable."}
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "How do I qualify for JEE Advanced?", "acceptedAnswer": {"@type": "Answer", "text": "Score within the top 2,50,000 ranks in JEE Main (around 90+ percentile) to qualify for JEE Advanced. Of the 2.5 lakh qualifiers, around 1.6 lakh actually appear. Around 17,000 secure IIT seats. The cutoff varies year-to-year but a JEE Main percentile of 92+ is a safe threshold."}},
+          {"@type": "Question", "name": "What is the JEE Advanced exam pattern?", "acceptedAnswer": {"@type": "Answer", "text": "JEE Advanced has two compulsory papers (Paper 1 and Paper 2), each 3 hours, conducted on the same day. Each paper has 54 questions across Physics, Chemistry, Math, with negative marking varying by question type (MCQs, numerical, matrix-match). Total marks: 360."}},
+          {"@type": "Question", "name": "What rank do I need for IIT Bombay computer science?", "acceptedAnswer": {"@type": "Answer", "text": "IIT Bombay Computer Science typically closes within the top 100 (general category) in JEE Advanced. IIT Delhi CS closes around 150, IIT Madras CS around 180. For other branches at top IITs, ranks under 500 generally secure admission to a strong branch."}},
+          {"@type": "Question", "name": "How is JEE Advanced different from JEE Main?", "acceptedAnswer": {"@type": "Answer", "text": "JEE Advanced tests deeper conceptual understanding and multi-step problem-solving with non-standard questions, while JEE Main tests breadth and speed on standard problem types. Advanced has trickier question patterns (paragraph-based, integer-type, multi-correct), making strategy and partial credit more important."}},
+          {"@type": "Question", "name": "Can I prepare for JEE Advanced in 6 months?", "acceptedAnswer": {"@type": "Answer", "text": "Six-month JEE Advanced preparation works only if your JEE Main fundamentals are already solid (250+ marks level). You need 8 to 10 hours daily focusing on multi-concept problems from Cengage, DC Pandey, MS Chouhan. Without a strong base, six months is insufficient for top-rank IIT seats."}},
+          {"@type": "Question", "name": "What books should I use for JEE Advanced?", "acceptedAnswer": {"@type": "Answer", "text": "Physics: HC Verma (foundation), DC Pandey (problems), Irodov (advanced). Chemistry: NCERT, MS Chouhan (organic), JD Lee (inorganic), N Awasthi (physical). Mathematics: Cengage series, Arihant Skills in Mathematics, RD Sharma for foundation. Past 25 years of JEE Advanced papers are non-negotiable."}}
+        ]
+      }
+    },
+    {
+      "page": "app/neet-ug-coaching/page.tsx",
+      "targetQuery": "neet ug coaching 2027",
+      "lastUpdated": "2026-05-16",
+      "faqs": [
+        {"q": "What is the NEET UG 2027 exam pattern?", "a": "NEET UG 2027 has 180 attempted questions (200 total with optional section in Biology) over 3 hours 20 minutes. Physics: 45 questions, Chemistry: 45 questions, Biology (Botany + Zoology): 90 questions. Correct: +4, wrong: -1. Maximum marks: 720. All MCQs, no numerical-type."},
+        {"q": "When will NEET UG 2027 exam be held?", "a": "NEET UG 2027 is expected on the first Sunday of May 2027 (typically May 2 or May 4), based on the NTA's historical schedule. The 2026 exam was originally scheduled for May 3 before being cancelled. Confirm the official date at neet.nta.nic.in."},
+        {"q": "What was the result of NEET UG 2026 cancellation?", "a": "NEET UG 2026 was cancelled by NTA citing exam-integrity concerns. Students were given the option of waiting for a rescheduled exam (later announced) or carrying forward to 2027. Most dropper students chose to extend preparation to 2027, increasing competition for the 2027 cycle."},
+        {"q": "How many marks are needed for government MBBS in NEET?", "a": "Government MBBS admission needs approximately 620+ (general), 580+ (OBC), 560+ (SC/ST) under the state quota; AIIMS Delhi closes at 680+. Lower-tier government colleges in some states close as low as 580. Tamil Nadu, Karnataka, and Maharashtra have the most competitive cutoffs."},
+        {"q": "Is NEET UG getting tougher every year?", "a": "Yes, by competition rather than difficulty. The number of candidates rose from 16 lakh (2021) to over 24 lakh (2024). The exam itself maintains NCERT-aligned difficulty, but cutoffs rise because more students score 600+ each year. A 650 score now guarantees a government MBBS seat in most states."},
+        {"q": "Can I take NEET UG multiple times?", "a": "Yes. There is no upper limit on the number of attempts for NEET UG (the 2017 cap of 3 attempts was withdrawn). The age limit was also removed by Supreme Court ruling. You can attempt NEET UG every year until you secure admission."}
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "What is the NEET UG 2027 exam pattern?", "acceptedAnswer": {"@type": "Answer", "text": "NEET UG 2027 has 180 attempted questions (200 total with optional section in Biology) over 3 hours 20 minutes. Physics: 45 questions, Chemistry: 45 questions, Biology (Botany + Zoology): 90 questions. Correct: +4, wrong: -1. Maximum marks: 720. All MCQs, no numerical-type."}},
+          {"@type": "Question", "name": "When will NEET UG 2027 exam be held?", "acceptedAnswer": {"@type": "Answer", "text": "NEET UG 2027 is expected on the first Sunday of May 2027 (typically May 2 or May 4), based on the NTA's historical schedule. The 2026 exam was originally scheduled for May 3 before being cancelled. Confirm the official date at neet.nta.nic.in."}},
+          {"@type": "Question", "name": "What was the result of NEET UG 2026 cancellation?", "acceptedAnswer": {"@type": "Answer", "text": "NEET UG 2026 was cancelled by NTA citing exam-integrity concerns. Students were given the option of waiting for a rescheduled exam (later announced) or carrying forward to 2027. Most dropper students chose to extend preparation to 2027, increasing competition for the 2027 cycle."}},
+          {"@type": "Question", "name": "How many marks are needed for government MBBS in NEET?", "acceptedAnswer": {"@type": "Answer", "text": "Government MBBS admission needs approximately 620+ (general), 580+ (OBC), 560+ (SC/ST) under the state quota; AIIMS Delhi closes at 680+. Lower-tier government colleges in some states close as low as 580. Tamil Nadu, Karnataka, and Maharashtra have the most competitive cutoffs."}},
+          {"@type": "Question", "name": "Is NEET UG getting tougher every year?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, by competition rather than difficulty. The number of candidates rose from 16 lakh (2021) to over 24 lakh (2024). The exam itself maintains NCERT-aligned difficulty, but cutoffs rise because more students score 600+ each year. A 650 score now guarantees a government MBBS seat in most states."}},
+          {"@type": "Question", "name": "Can I take NEET UG multiple times?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. There is no upper limit on the number of attempts for NEET UG (the 2017 cap of 3 attempts was withdrawn). The age limit was also removed by Supreme Court ruling. You can attempt NEET UG every year until you secure admission."}}
+        ]
+      }
+    },
+    {
+      "page": "app/jee-dropper-coaching/page.tsx",
+      "targetQuery": "jee preparation for dropper",
+      "lastUpdated": "2026-05-16",
+      "faqs": [
+        {"q": "Are droppers at a disadvantage in JEE?", "a": "No. JEE statistics show droppers consistently outperform first-attempters in the top 10,000 ranks — typically 35 to 40 percent of top IIT seats go to droppers. The extra year provides depth on weak chapters, additional mock practice, and emotional resilience that fresh aspirants rarely have."},
+        {"q": "What is the best routine for a JEE dropper?", "a": "Eight to ten hours of focused study split into three 90-minute deep-work blocks. Morning: hardest subject (typically Math or Physics). Afternoon: problem-solving on previous-day concepts. Evening: revision plus 1 hour of weak-area drilling. Take a full-length mock every Sunday and analyse Monday morning."},
+        {"q": "Should JEE droppers prepare from home or join coaching?", "a": "Most successful droppers combine home study with focused mentorship. Self-paced home study suits droppers who scored above 90 percentile last attempt and just need polish. Below 85 percentile last attempt strongly suggests structured coaching — either an intensive offline programme or one-on-one online mentorship like MindPeak."},
+        {"q": "How do droppers handle motivation issues?", "a": "Set monthly milestone goals (chapters completed, mock marks improved by X) rather than vague yearly ones. Weekly review with a mentor (or peer accountability) prevents drift. Many droppers fail not from lack of ability but from isolation — a 30-minute weekly mentor check-in is the single highest-ROI intervention."},
+        {"q": "Can a dropper score 99 percentile in JEE Main?", "a": "Yes, provided last year's score was 75+ percentile and you commit to genuine 8+ hour daily study with structured mock-test analysis. About 12 to 15 percent of 99 percentile scorers each year are droppers. The gain from dropper-year preparation is typically 15 to 25 percentile points."},
+        {"q": "Is one year enough for a JEE dropper?", "a": "Yes for most droppers if you start by April-May after Class 12, allowing 8 to 10 months of focused prep before JEE Main January attempt. The dropper year fails when students lose the first 3 months to indecision — start planning in April, begin structured study by May 15."}
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "Are droppers at a disadvantage in JEE?", "acceptedAnswer": {"@type": "Answer", "text": "No. JEE statistics show droppers consistently outperform first-attempters in the top 10,000 ranks — typically 35 to 40 percent of top IIT seats go to droppers. The extra year provides depth on weak chapters, additional mock practice, and emotional resilience that fresh aspirants rarely have."}},
+          {"@type": "Question", "name": "What is the best routine for a JEE dropper?", "acceptedAnswer": {"@type": "Answer", "text": "Eight to ten hours of focused study split into three 90-minute deep-work blocks. Morning: hardest subject (typically Math or Physics). Afternoon: problem-solving on previous-day concepts. Evening: revision plus 1 hour of weak-area drilling. Take a full-length mock every Sunday and analyse Monday morning."}},
+          {"@type": "Question", "name": "Should JEE droppers prepare from home or join coaching?", "acceptedAnswer": {"@type": "Answer", "text": "Most successful droppers combine home study with focused mentorship. Self-paced home study suits droppers who scored above 90 percentile last attempt and just need polish. Below 85 percentile last attempt strongly suggests structured coaching — either an intensive offline programme or one-on-one online mentorship like MindPeak."}},
+          {"@type": "Question", "name": "How do droppers handle motivation issues?", "acceptedAnswer": {"@type": "Answer", "text": "Set monthly milestone goals (chapters completed, mock marks improved by X) rather than vague yearly ones. Weekly review with a mentor (or peer accountability) prevents drift. Many droppers fail not from lack of ability but from isolation — a 30-minute weekly mentor check-in is the single highest-ROI intervention."}},
+          {"@type": "Question", "name": "Can a dropper score 99 percentile in JEE Main?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, provided last year's score was 75+ percentile and you commit to genuine 8+ hour daily study with structured mock-test analysis. About 12 to 15 percent of 99 percentile scorers each year are droppers. The gain from dropper-year preparation is typically 15 to 25 percentile points."}},
+          {"@type": "Question", "name": "Is one year enough for a JEE dropper?", "acceptedAnswer": {"@type": "Answer", "text": "Yes for most droppers if you start by April-May after Class 12, allowing 8 to 10 months of focused prep before JEE Main January attempt. The dropper year fails when students lose the first 3 months to indecision — start planning in April, begin structured study by May 15."}}
+        ]
+      }
+    },
+    {
+      "page": "app/neet-dropper-coaching/page.tsx",
+      "targetQuery": "neet preparation for dropper",
+      "lastUpdated": "2026-05-16",
+      "faqs": [
+        {"q": "Are NEET droppers more likely to succeed?", "a": "Yes. Roughly 60 percent of MBBS admissions each year go to dropper or repeater students. The extra year offers depth on Biology revision cycles, refined exam temperament, and 2 to 3 additional full mock-test cycles, which directly translates to 80 to 120 mark improvement on average."},
+        {"q": "How should a NEET dropper structure the year?", "a": "Months 1 to 4: complete syllabus revision (Biology daily, Physics/Chemistry alternating). Months 5 to 8: chapter-wise testing and weak-area remediation. Months 9 to 12: full mocks weekly plus PYQ marathon. Daily target: 8 hours focused study with three deep-work blocks."},
+        {"q": "Should NEET droppers join offline coaching or online one-on-one?", "a": "Offline coaching helps droppers who thrive in peer competition and need physical accountability. Online one-on-one suits droppers who need flexible pacing, struggle with specific chapters, or live in tier-2/tier-3 cities without quality offline options. Many droppers also combine self-study with weekly one-on-one mentorship."},
+        {"q": "Can I score 650+ as a NEET dropper?", "a": "Yes. About 18 to 22 percent of 650+ NEET scorers each year are droppers. The key drivers: complete Biology mastery (target 340+/360), Physics application practice (140+/180), and Chemistry accuracy (155+/180). A structured Biology revision cycle every 21 days is the single biggest mark-multiplier."},
+        {"q": "How do droppers handle exam pressure the second time?", "a": "Acknowledge the pressure exists; do not pretend the second attempt does not matter. Build a Plan B (private MBBS, BDS, allied health) so the brain does not treat NEET as life-or-death. Take a full mock weekly under timed conditions from month 5 — exposure desensitises the pressure."},
+        {"q": "Is NEET coaching necessary for droppers?", "a": "Not universally. Droppers who scored 550+ in their first attempt and have strong self-discipline can self-study with online mock-test platforms. Droppers below 500 in first attempt typically benefit from structured coaching or one-on-one mentorship to identify exactly which chapters and question types are causing the score gap."}
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "Are NEET droppers more likely to succeed?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Roughly 60 percent of MBBS admissions each year go to dropper or repeater students. The extra year offers depth on Biology revision cycles, refined exam temperament, and 2 to 3 additional full mock-test cycles, which directly translates to 80 to 120 mark improvement on average."}},
+          {"@type": "Question", "name": "How should a NEET dropper structure the year?", "acceptedAnswer": {"@type": "Answer", "text": "Months 1 to 4: complete syllabus revision (Biology daily, Physics/Chemistry alternating). Months 5 to 8: chapter-wise testing and weak-area remediation. Months 9 to 12: full mocks weekly plus PYQ marathon. Daily target: 8 hours focused study with three deep-work blocks."}},
+          {"@type": "Question", "name": "Should NEET droppers join offline coaching or online one-on-one?", "acceptedAnswer": {"@type": "Answer", "text": "Offline coaching helps droppers who thrive in peer competition and need physical accountability. Online one-on-one suits droppers who need flexible pacing, struggle with specific chapters, or live in tier-2/tier-3 cities without quality offline options. Many droppers also combine self-study with weekly one-on-one mentorship."}},
+          {"@type": "Question", "name": "Can I score 650+ as a NEET dropper?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. About 18 to 22 percent of 650+ NEET scorers each year are droppers. The key drivers: complete Biology mastery (target 340+/360), Physics application practice (140+/180), and Chemistry accuracy (155+/180). A structured Biology revision cycle every 21 days is the single biggest mark-multiplier."}},
+          {"@type": "Question", "name": "How do droppers handle exam pressure the second time?", "acceptedAnswer": {"@type": "Answer", "text": "Acknowledge the pressure exists; do not pretend the second attempt does not matter. Build a Plan B (private MBBS, BDS, allied health) so the brain does not treat NEET as life-or-death. Take a full mock weekly under timed conditions from month 5 — exposure desensitises the pressure."}},
+          {"@type": "Question", "name": "Is NEET coaching necessary for droppers?", "acceptedAnswer": {"@type": "Answer", "text": "Not universally. Droppers who scored 550+ in their first attempt and have strong self-discipline can self-study with online mock-test platforms. Droppers below 500 in first attempt typically benefit from structured coaching or one-on-one mentorship to identify exactly which chapters and question types are causing the score gap."}}
+        ]
+      }
+    },
+    {
+      "page": "app/jee-physics-coaching/page.tsx",
+      "targetQuery": "jee physics preparation tips / jee main physics important topics",
+      "lastUpdated": "2026-05-16",
+      "faqs": [
+        {"q": "Which are the most important chapters in JEE Physics?", "a": "Mechanics (Kinematics, Newton's Laws, Work-Energy, Rotational): 18-22% weightage. Electrodynamics (Electrostatics, Current, Magnetism, EMI): 22-26%. Modern Physics (Atoms, Nuclei, Photoelectric, Semiconductors): 10-14%. Optics: 8-10%. Thermodynamics and Kinetic Theory: 6-8%. Master these five blocks and you cover 75 percent of JEE Physics marks."},
+        {"q": "How should I study JEE Physics?", "a": "Build concepts from NCERT, then practice from HC Verma for foundation and DC Pandey or Cengage for higher-difficulty problems. Solve every problem on paper, not mentally. Maintain a mistake notebook with patterns (sign error, vector direction error, unit conversion). Revisit weekly. Solving 5 hard problems daily beats 30 easy ones."},
+        {"q": "Is HC Verma enough for JEE Main physics?", "a": "Yes for JEE Main physics (90+ percentile possible from HC Verma plus NCERT alone). For JEE Advanced, add DC Pandey for problem variety and Irodov selectively for the trickiest topics like electromagnetism and rotational mechanics. HC Verma's strength is conceptual depth, not exam-pattern question types."},
+        {"q": "How many hours daily for JEE Physics?", "a": "Two to two and a half hours daily during regular school months, three to four hours during dedicated prep windows. Split: 60 percent problem-solving, 30 percent concept revision, 10 percent error analysis. Physics rewards consistency over intensity — daily 2 hours beats weekend 14-hour marathons."},
+        {"q": "Why do students struggle with JEE Physics?", "a": "Three recurring reasons: weak mathematical foundation (vectors, calculus, trigonometry), trying to memorise formulas without understanding derivations, and not solving problems on paper. In our one-on-one classes, fixing the mathematical foundation alone often produces a 15 to 25 mark jump in two months."},
+        {"q": "Which is the toughest topic in JEE Physics?", "a": "Rotational Mechanics and Electromagnetic Induction (EMI) are consistently the highest-difficulty chapters by student-reported metric, both involving multi-step vector analysis and non-intuitive physics. They also carry high weightage (8-12% combined), making them non-negotiable for 99+ percentile aspirants."}
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "Which are the most important chapters in JEE Physics?", "acceptedAnswer": {"@type": "Answer", "text": "Mechanics (Kinematics, Newton's Laws, Work-Energy, Rotational): 18-22% weightage. Electrodynamics (Electrostatics, Current, Magnetism, EMI): 22-26%. Modern Physics (Atoms, Nuclei, Photoelectric, Semiconductors): 10-14%. Optics: 8-10%. Thermodynamics and Kinetic Theory: 6-8%. Master these five blocks and you cover 75 percent of JEE Physics marks."}},
+          {"@type": "Question", "name": "How should I study JEE Physics?", "acceptedAnswer": {"@type": "Answer", "text": "Build concepts from NCERT, then practice from HC Verma for foundation and DC Pandey or Cengage for higher-difficulty problems. Solve every problem on paper, not mentally. Maintain a mistake notebook with patterns (sign error, vector direction error, unit conversion). Revisit weekly. Solving 5 hard problems daily beats 30 easy ones."}},
+          {"@type": "Question", "name": "Is HC Verma enough for JEE Main physics?", "acceptedAnswer": {"@type": "Answer", "text": "Yes for JEE Main physics (90+ percentile possible from HC Verma plus NCERT alone). For JEE Advanced, add DC Pandey for problem variety and Irodov selectively for the trickiest topics like electromagnetism and rotational mechanics. HC Verma's strength is conceptual depth, not exam-pattern question types."}},
+          {"@type": "Question", "name": "How many hours daily for JEE Physics?", "acceptedAnswer": {"@type": "Answer", "text": "Two to two and a half hours daily during regular school months, three to four hours during dedicated prep windows. Split: 60 percent problem-solving, 30 percent concept revision, 10 percent error analysis. Physics rewards consistency over intensity — daily 2 hours beats weekend 14-hour marathons."}},
+          {"@type": "Question", "name": "Why do students struggle with JEE Physics?", "acceptedAnswer": {"@type": "Answer", "text": "Three recurring reasons: weak mathematical foundation (vectors, calculus, trigonometry), trying to memorise formulas without understanding derivations, and not solving problems on paper. In our one-on-one classes, fixing the mathematical foundation alone often produces a 15 to 25 mark jump in two months."}},
+          {"@type": "Question", "name": "Which is the toughest topic in JEE Physics?", "acceptedAnswer": {"@type": "Answer", "text": "Rotational Mechanics and Electromagnetic Induction (EMI) are consistently the highest-difficulty chapters by student-reported metric, both involving multi-step vector analysis and non-intuitive physics. They also carry high weightage (8-12% combined), making them non-negotiable for 99+ percentile aspirants."}}
+        ]
+      }
+    },
+    {
+      "page": "app/neet-physics-coaching/page.tsx",
+      "targetQuery": "best way to study neet physics / neet physics important chapters",
+      "lastUpdated": "2026-05-16",
+      "faqs": [
+        {"q": "Which chapters are most important in NEET Physics?", "a": "Mechanics (Laws of Motion, Work-Power-Energy, Rotational): 18-20%. Electrodynamics (Current Electricity, Magnetism, EMI): 22-24%. Modern Physics: 10-12%. Optics: 10-12%. Heat and Thermodynamics: 8-10%. SHM and Waves: 6-8%. These six blocks cover 80 percent of NEET Physics marks."},
+        {"q": "Why is NEET Physics considered tough?", "a": "NEET Physics demands quick numerical application (sub-1 minute per question) on multi-concept problems, while most aspirants prepare primarily for Biology and underinvest in Physics practice. The result: time pressure on the question type least practised. The fix is two hours of timed Physics practice daily, not theory."},
+        {"q": "How do I improve NEET Physics numericals?", "a": "Solve 15 to 20 timed NEET-pattern numericals daily after building concepts. Use NCERT examples first (often appear verbatim or with mild modification), then NCERT Exemplar, then DC Pandey for NEET. Maintain a formula notebook organised by chapter. Sub-vocal counting drill: aim for under 60 seconds per numerical."},
+        {"q": "Is HC Verma good for NEET Physics?", "a": "HC Verma is overkill for NEET — its difficulty level targets JEE. For NEET, NCERT plus DC Pandey (Objective NEET edition) or BM Sharma (Cengage NEET) is the standard combination. HC Verma is useful only for the few topics where NCERT explanation feels thin, like rotational mechanics."},
+        {"q": "How many hours should I study NEET Physics daily?", "a": "Two hours daily during Class 11-12 prep, two and a half to three hours for droppers. NEET Physics ideal split: 50 percent numerical practice, 30 percent theory revision, 20 percent past paper attempt. Daily 2 hours beats weekend marathons because retention compounds with frequency."},
+        {"q": "What is the best book for NEET Physics?", "a": "Foundation: NCERT Physics Class 11 and 12 (compulsory, line-by-line). Practice: DC Pandey NEET Objective or BM Sharma Cengage NEET Physics. Exemplar: NCERT Exemplar problems. PYQs: last 20 years of NEET Physics. This four-book combination covers everything a NEET aspirant needs."}
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "Which chapters are most important in NEET Physics?", "acceptedAnswer": {"@type": "Answer", "text": "Mechanics (Laws of Motion, Work-Power-Energy, Rotational): 18-20%. Electrodynamics (Current Electricity, Magnetism, EMI): 22-24%. Modern Physics: 10-12%. Optics: 10-12%. Heat and Thermodynamics: 8-10%. SHM and Waves: 6-8%. These six blocks cover 80 percent of NEET Physics marks."}},
+          {"@type": "Question", "name": "Why is NEET Physics considered tough?", "acceptedAnswer": {"@type": "Answer", "text": "NEET Physics demands quick numerical application (sub-1 minute per question) on multi-concept problems, while most aspirants prepare primarily for Biology and underinvest in Physics practice. The result: time pressure on the question type least practised. The fix is two hours of timed Physics practice daily, not theory."}},
+          {"@type": "Question", "name": "How do I improve NEET Physics numericals?", "acceptedAnswer": {"@type": "Answer", "text": "Solve 15 to 20 timed NEET-pattern numericals daily after building concepts. Use NCERT examples first (often appear verbatim or with mild modification), then NCERT Exemplar, then DC Pandey for NEET. Maintain a formula notebook organised by chapter. Sub-vocal counting drill: aim for under 60 seconds per numerical."}},
+          {"@type": "Question", "name": "Is HC Verma good for NEET Physics?", "acceptedAnswer": {"@type": "Answer", "text": "HC Verma is overkill for NEET — its difficulty level targets JEE. For NEET, NCERT plus DC Pandey (Objective NEET edition) or BM Sharma (Cengage NEET) is the standard combination. HC Verma is useful only for the few topics where NCERT explanation feels thin, like rotational mechanics."}},
+          {"@type": "Question", "name": "How many hours should I study NEET Physics daily?", "acceptedAnswer": {"@type": "Answer", "text": "Two hours daily during Class 11-12 prep, two and a half to three hours for droppers. NEET Physics ideal split: 50 percent numerical practice, 30 percent theory revision, 20 percent past paper attempt. Daily 2 hours beats weekend marathons because retention compounds with frequency."}},
+          {"@type": "Question", "name": "What is the best book for NEET Physics?", "acceptedAnswer": {"@type": "Answer", "text": "Foundation: NCERT Physics Class 11 and 12 (compulsory, line-by-line). Practice: DC Pandey NEET Objective or BM Sharma Cengage NEET Physics. Exemplar: NCERT Exemplar problems. PYQs: last 20 years of NEET Physics. This four-book combination covers everything a NEET aspirant needs."}}
+        ]
+      }
+    },
+    {
+      "page": "app/batch-vs-personal-coaching/page.tsx",
+      "targetQuery": "one on one coaching vs batch coaching / is personal tutor better than coaching",
+      "lastUpdated": "2026-05-16",
+      "faqs": [
+        {"q": "Is one-on-one coaching better than batch coaching for JEE and NEET?", "a": "One-on-one coaching produces faster gains on subject-specific weak areas and pacing issues, because every session targets that student's exact gaps. Batch coaching works when peer competition motivates the student and the syllabus pacing happens to match. For students under 80 percentile, one-on-one delivers 25 to 40 percent faster improvement."},
+        {"q": "What is the cost difference between one-on-one and batch coaching?", "a": "Premium batch coaching at top brands costs 1.5 to 3.5 lakh per year for 60-to-100-student batches. Quality one-on-one online coaching ranges from 1.2 to 4 lakh per year depending on subject count and session frequency. MindPeak's one-on-one programmes are typically 20 to 30 percent more cost-efficient per teaching hour."},
+        {"q": "Does one-on-one coaching have less peer interaction?", "a": "Yes by design, which is a feature for students who are intimidated in large groups but a drawback for those motivated by competition. MindPeak offsets this with peer cohort access via group mock-test analysis sessions and a private student community, while preserving the one-on-one teaching format."},
+        {"q": "Which is better for droppers — batch or one-on-one?", "a": "One-on-one is typically better for droppers because the diagnostic phase of the year (identifying exactly why last attempt failed) is far more efficient with a personal mentor. After diagnosis, structured one-on-one delivers chapter-targeted intervention rather than re-teaching the entire syllabus."},
+        {"q": "Can a private tutor replace coaching institutes?", "a": "Yes for academic instruction if the tutor is subject-expert, but coaching institutes also provide structured mock tests, peer benchmarking, and study material. A private tutor plus a quality online mock-test platform (free or sub-15K per year) replicates 90 percent of coaching institute value at a fraction of the cost."},
+        {"q": "How do I know if one-on-one coaching suits me?", "a": "Three signals: you struggle to ask doubts in front of large groups, your previous coaching had pacing mismatches (too slow or too fast), or you have specific weak subjects. If two of these apply, one-on-one will likely outperform batch coaching by a clear margin in your case."},
+        {"q": "Is online one-on-one as effective as in-person tutoring?", "a": "Yes for academic teaching where the bottleneck is concept clarity and problem-solving. Online formats add screen-share for problem walkthroughs and recorded sessions for revision, which in-person sessions lack. The only edge for in-person is for students with severe self-discipline issues."}
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "Is one-on-one coaching better than batch coaching for JEE and NEET?", "acceptedAnswer": {"@type": "Answer", "text": "One-on-one coaching produces faster gains on subject-specific weak areas and pacing issues, because every session targets that student's exact gaps. Batch coaching works when peer competition motivates the student and the syllabus pacing happens to match. For students under 80 percentile, one-on-one delivers 25 to 40 percent faster improvement."}},
+          {"@type": "Question", "name": "What is the cost difference between one-on-one and batch coaching?", "acceptedAnswer": {"@type": "Answer", "text": "Premium batch coaching at top brands costs 1.5 to 3.5 lakh per year for 60-to-100-student batches. Quality one-on-one online coaching ranges from 1.2 to 4 lakh per year depending on subject count and session frequency. MindPeak's one-on-one programmes are typically 20 to 30 percent more cost-efficient per teaching hour."}},
+          {"@type": "Question", "name": "Does one-on-one coaching have less peer interaction?", "acceptedAnswer": {"@type": "Answer", "text": "Yes by design, which is a feature for students who are intimidated in large groups but a drawback for those motivated by competition. MindPeak offsets this with peer cohort access via group mock-test analysis sessions and a private student community, while preserving the one-on-one teaching format."}},
+          {"@type": "Question", "name": "Which is better for droppers — batch or one-on-one?", "acceptedAnswer": {"@type": "Answer", "text": "One-on-one is typically better for droppers because the diagnostic phase of the year (identifying exactly why last attempt failed) is far more efficient with a personal mentor. After diagnosis, structured one-on-one delivers chapter-targeted intervention rather than re-teaching the entire syllabus."}},
+          {"@type": "Question", "name": "Can a private tutor replace coaching institutes?", "acceptedAnswer": {"@type": "Answer", "text": "Yes for academic instruction if the tutor is subject-expert, but coaching institutes also provide structured mock tests, peer benchmarking, and study material. A private tutor plus a quality online mock-test platform (free or sub-15K per year) replicates 90 percent of coaching institute value at a fraction of the cost."}},
+          {"@type": "Question", "name": "How do I know if one-on-one coaching suits me?", "acceptedAnswer": {"@type": "Answer", "text": "Three signals: you struggle to ask doubts in front of large groups, your previous coaching had pacing mismatches (too slow or too fast), or you have specific weak subjects. If two of these apply, one-on-one will likely outperform batch coaching by a clear margin in your case."}},
+          {"@type": "Question", "name": "Is online one-on-one as effective as in-person tutoring?", "acceptedAnswer": {"@type": "Answer", "text": "Yes for academic teaching where the bottleneck is concept clarity and problem-solving. Online formats add screen-share for problem walkthroughs and recorded sessions for revision, which in-person sessions lack. The only edge for in-person is for students with severe self-discipline issues."}}
+        ]
+      }
+    },
+    {
+      "page": "app/online-vs-offline-jee-coaching/page.tsx",
+      "targetQuery": "online vs offline coaching for jee / is online coaching effective for neet",
+      "lastUpdated": "2026-05-16",
+      "faqs": [
+        {"q": "Is online coaching effective for JEE preparation?", "a": "Yes. Post-2020 data shows online JEE coaching delivers comparable or better results for students with self-discipline, particularly when combined with structured mentorship. Online coaching wins on flexibility, geographic access, recorded sessions, and cost. Offline wins on enforced discipline and peer competition for students who need external accountability."},
+        {"q": "Which top JEE rankers came from online coaching?", "a": "Since 2021, an increasing share of top 1,000 JEE Advanced rankers cite online coaching as their primary preparation method, with 2024 estimates around 35 to 40 percent. The trend accelerates each year as production quality and one-on-one online tutoring options improve."},
+        {"q": "What are the disadvantages of online coaching?", "a": "Reduced peer interaction, dependence on self-discipline, screen fatigue during long sessions, and absence of physical mock-test environments. These are real but addressable: structured mentor check-ins fix discipline, scheduled mocks fix exam temperament, and screen-break protocols handle fatigue."},
+        {"q": "How does online coaching compare on cost?", "a": "Online coaching typically costs 30 to 50 percent less than equivalent-tier offline coaching for batch formats. For one-on-one online tutoring versus one-on-one offline private tutors, online saves on commute time and tutor-side overhead, making rates 20 to 35 percent lower for the same teaching quality."},
+        {"q": "Can I do online JEE coaching alongside school?", "a": "Yes — this is now the mainstream format for Class 11 and 12 students. Online coaching is scheduled around school hours, sessions are recorded for revision, and the format avoids the 2 to 3 hours daily commute that offline coaching imposes. Total time saved per week: 10 to 15 hours."},
+        {"q": "Is offline coaching still necessary for top JEE ranks?", "a": "No. The top-100 rank list has included online-coaching-only students every year since 2022. What matters is the quality of teaching, structured mock testing, and mentor accountability, not the delivery format. Choose by content quality and teacher reputation, not online versus offline."},
+        {"q": "Which is better — recorded video lectures or live online classes?", "a": "Live one-on-one or small-batch online classes outperform recorded video lectures by a wide margin for doubt resolution, concept clarity, and accountability. Recorded videos work as supplement (revision, missed sessions) but not as the primary teaching modality, especially for difficulty-level above NCERT."}
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "Is online coaching effective for JEE preparation?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Post-2020 data shows online JEE coaching delivers comparable or better results for students with self-discipline, particularly when combined with structured mentorship. Online coaching wins on flexibility, geographic access, recorded sessions, and cost. Offline wins on enforced discipline and peer competition for students who need external accountability."}},
+          {"@type": "Question", "name": "Which top JEE rankers came from online coaching?", "acceptedAnswer": {"@type": "Answer", "text": "Since 2021, an increasing share of top 1,000 JEE Advanced rankers cite online coaching as their primary preparation method, with 2024 estimates around 35 to 40 percent. The trend accelerates each year as production quality and one-on-one online tutoring options improve."}},
+          {"@type": "Question", "name": "What are the disadvantages of online coaching?", "acceptedAnswer": {"@type": "Answer", "text": "Reduced peer interaction, dependence on self-discipline, screen fatigue during long sessions, and absence of physical mock-test environments. These are real but addressable: structured mentor check-ins fix discipline, scheduled mocks fix exam temperament, and screen-break protocols handle fatigue."}},
+          {"@type": "Question", "name": "How does online coaching compare on cost?", "acceptedAnswer": {"@type": "Answer", "text": "Online coaching typically costs 30 to 50 percent less than equivalent-tier offline coaching for batch formats. For one-on-one online tutoring versus one-on-one offline private tutors, online saves on commute time and tutor-side overhead, making rates 20 to 35 percent lower for the same teaching quality."}},
+          {"@type": "Question", "name": "Can I do online JEE coaching alongside school?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — this is now the mainstream format for Class 11 and 12 students. Online coaching is scheduled around school hours, sessions are recorded for revision, and the format avoids the 2 to 3 hours daily commute that offline coaching imposes. Total time saved per week: 10 to 15 hours."}},
+          {"@type": "Question", "name": "Is offline coaching still necessary for top JEE ranks?", "acceptedAnswer": {"@type": "Answer", "text": "No. The top-100 rank list has included online-coaching-only students every year since 2022. What matters is the quality of teaching, structured mock testing, and mentor accountability, not the delivery format. Choose by content quality and teacher reputation, not online versus offline."}},
+          {"@type": "Question", "name": "Which is better — recorded video lectures or live online classes?", "acceptedAnswer": {"@type": "Answer", "text": "Live one-on-one or small-batch online classes outperform recorded video lectures by a wide margin for doubt resolution, concept clarity, and accountability. Recorded videos work as supplement (revision, missed sessions) but not as the primary teaching modality, especially for difficulty-level above NCERT."}}
+        ]
+      }
+    },
+    {
+      "page": "app/jee-rank-predictor/page.tsx",
+      "targetQuery": "jee main marks vs percentile 2027",
+      "lastUpdated": "2026-05-16",
+      "faqs": [
+        {"q": "How is JEE Main rank calculated from percentile?", "a": "Your rank equals (100 minus percentile) divided by 100, multiplied by total candidates. For example, 99.5 percentile with 10 lakh candidates gives rank (0.5/100) × 10,00,000 = 5,000. NTA publishes the official conversion after each session."},
+        {"q": "What percentile do I need for NIT admission in JEE Main 2027?", "a": "Top NITs (Trichy, Warangal, Surathkal, Calicut, Rourkela) need 98+ percentile for CSE branch. Mid-tier NITs accept 95+ percentile for popular branches. Lower-tier NITs and IIITs admit 90 to 94 percentile students in less competitive branches like Civil, Metallurgy, or Production Engineering."},
+        {"q": "What marks give 99 percentile in JEE Main 2027?", "a": "Approximately 220 to 240 out of 300 typically gives 99 percentile in JEE Main, varying slightly by session difficulty. 250+ marks puts you above 99.5 percentile, and 270+ marks crosses 99.9 percentile (top 1,000 ranks). Exact cutoffs are normalised across the two sessions."},
+        {"q": "How is JEE Main percentile normalised across sessions?", "a": "NTA conducts JEE Main in two sessions (January and April) with multiple shifts. The percentile is calculated separately within each session-shift, then your best percentile from either session is used for ranking. This prevents disadvantage from shift-difficulty variation."},
+        {"q": "Can I predict my JEE Main rank from a mock test?", "a": "Approximately, yes — quality mock-test platforms (Allen, Aakash, Resonance) and tools like MindPeak's JEE Rank Predictor map mock scores to historical rank ranges. Accuracy is within 5 to 10 percentile points if you take 5+ mocks and the platform's difficulty matches the actual exam pattern."},
+        {"q": "What is the JEE Main cutoff for JEE Advanced 2027?", "a": "The qualifying percentile for JEE Advanced 2027 is expected at the top 2,50,000 ranks in JEE Main, roughly 90 to 92 percentile for general category. Reserved categories have lower cutoffs (around 75 to 80 percentile for OBC-NCL, 50 to 55 percentile for SC/ST)."}
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "How is JEE Main rank calculated from percentile?", "acceptedAnswer": {"@type": "Answer", "text": "Your rank equals (100 minus percentile) divided by 100, multiplied by total candidates. For example, 99.5 percentile with 10 lakh candidates gives rank (0.5/100) × 10,00,000 = 5,000. NTA publishes the official conversion after each session."}},
+          {"@type": "Question", "name": "What percentile do I need for NIT admission in JEE Main 2027?", "acceptedAnswer": {"@type": "Answer", "text": "Top NITs (Trichy, Warangal, Surathkal, Calicut, Rourkela) need 98+ percentile for CSE branch. Mid-tier NITs accept 95+ percentile for popular branches. Lower-tier NITs and IIITs admit 90 to 94 percentile students in less competitive branches like Civil, Metallurgy, or Production Engineering."}},
+          {"@type": "Question", "name": "What marks give 99 percentile in JEE Main 2027?", "acceptedAnswer": {"@type": "Answer", "text": "Approximately 220 to 240 out of 300 typically gives 99 percentile in JEE Main, varying slightly by session difficulty. 250+ marks puts you above 99.5 percentile, and 270+ marks crosses 99.9 percentile (top 1,000 ranks). Exact cutoffs are normalised across the two sessions."}},
+          {"@type": "Question", "name": "How is JEE Main percentile normalised across sessions?", "acceptedAnswer": {"@type": "Answer", "text": "NTA conducts JEE Main in two sessions (January and April) with multiple shifts. The percentile is calculated separately within each session-shift, then your best percentile from either session is used for ranking. This prevents disadvantage from shift-difficulty variation."}},
+          {"@type": "Question", "name": "Can I predict my JEE Main rank from a mock test?", "acceptedAnswer": {"@type": "Answer", "text": "Approximately, yes — quality mock-test platforms (Allen, Aakash, Resonance) and tools like MindPeak's JEE Rank Predictor map mock scores to historical rank ranges. Accuracy is within 5 to 10 percentile points if you take 5+ mocks and the platform's difficulty matches the actual exam pattern."}},
+          {"@type": "Question", "name": "What is the JEE Main cutoff for JEE Advanced 2027?", "acceptedAnswer": {"@type": "Answer", "text": "The qualifying percentile for JEE Advanced 2027 is expected at the top 2,50,000 ranks in JEE Main, roughly 90 to 92 percentile for general category. Reserved categories have lower cutoffs (around 75 to 80 percentile for OBC-NCL, 50 to 55 percentile for SC/ST)."}}
+        ]
+      }
+    },
+    {
+      "page": "app/study-plan/page.tsx",
+      "targetQuery": "how many hours should i study for jee / neet preparation timeline 12 months",
+      "lastUpdated": "2026-05-16",
+      "faqs": [
+        {"q": "How many hours should I study daily for JEE?", "a": "Class 11 and 12 students: 6 to 8 hours daily focused study alongside school. Droppers: 8 to 10 hours daily. Split: 60 percent problem-solving and active recall, 30 percent new concept learning, 10 percent revision and error analysis. Quality of 5 focused hours beats 10 distracted ones."},
+        {"q": "What is the best 12-month NEET preparation timeline?", "a": "Months 1-4: complete NCERT line-by-line plus chapter-wise practice. Months 5-8: NCERT Exemplar plus weakness drilling plus PYQ subject-wise. Months 9-11: full mocks weekly, error log review, target-area intensives. Month 12: revision, NCERT re-skim, mock analysis, no new content."},
+        {"q": "How do toppers manage their time?", "a": "Toppers use 90-minute deep-work blocks separated by 15-minute breaks (Pomodoro variant), maintain a daily error log, do active recall in the last 30 minutes of each block, and review mock-test mistakes the same day. They explicitly schedule rest (one half-day off weekly) to prevent burnout."},
+        {"q": "Is it better to study in the morning or night for JEE?", "a": "Morning sessions are optimal for analytical subjects (Physics and Math) because the brain's working memory peaks 2 to 4 hours after waking. Reserve nights for revision, NCERT reading, and concept consolidation. Most JEE toppers wake by 5:30-6:30 AM to capture this window."},
+        {"q": "How do I balance JEE preparation with Class 12 boards?", "a": "Use 70 percent of study time for JEE prep and 30 percent for boards from June to November of Class 12, then flip to 60 percent boards and 40 percent JEE from December to February. Both boards and JEE Main share NCERT content for Chemistry (70 percent overlap) and Math (50 percent overlap)."},
+        {"q": "Can I prepare for JEE and NEET together?", "a": "Technically yes (Physics and Chemistry overlap), but realistically no for serious aspirants. JEE Math demands daily 2 hours, NEET Biology demands daily 2 hours; combined with Physics and Chemistry the load exceeds 12 hours. Pick one by month 3 of Class 11 based on aptitude and interest."}
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "How many hours should I study daily for JEE?", "acceptedAnswer": {"@type": "Answer", "text": "Class 11 and 12 students: 6 to 8 hours daily focused study alongside school. Droppers: 8 to 10 hours daily. Split: 60 percent problem-solving and active recall, 30 percent new concept learning, 10 percent revision and error analysis. Quality of 5 focused hours beats 10 distracted ones."}},
+          {"@type": "Question", "name": "What is the best 12-month NEET preparation timeline?", "acceptedAnswer": {"@type": "Answer", "text": "Months 1-4: complete NCERT line-by-line plus chapter-wise practice. Months 5-8: NCERT Exemplar plus weakness drilling plus PYQ subject-wise. Months 9-11: full mocks weekly, error log review, target-area intensives. Month 12: revision, NCERT re-skim, mock analysis, no new content."}},
+          {"@type": "Question", "name": "How do toppers manage their time?", "acceptedAnswer": {"@type": "Answer", "text": "Toppers use 90-minute deep-work blocks separated by 15-minute breaks (Pomodoro variant), maintain a daily error log, do active recall in the last 30 minutes of each block, and review mock-test mistakes the same day. They explicitly schedule rest (one half-day off weekly) to prevent burnout."}},
+          {"@type": "Question", "name": "Is it better to study in the morning or night for JEE?", "acceptedAnswer": {"@type": "Answer", "text": "Morning sessions are optimal for analytical subjects (Physics and Math) because the brain's working memory peaks 2 to 4 hours after waking. Reserve nights for revision, NCERT reading, and concept consolidation. Most JEE toppers wake by 5:30-6:30 AM to capture this window."}},
+          {"@type": "Question", "name": "How do I balance JEE preparation with Class 12 boards?", "acceptedAnswer": {"@type": "Answer", "text": "Use 70 percent of study time for JEE prep and 30 percent for boards from June to November of Class 12, then flip to 60 percent boards and 40 percent JEE from December to February. Both boards and JEE Main share NCERT content for Chemistry (70 percent overlap) and Math (50 percent overlap)."}},
+          {"@type": "Question", "name": "Can I prepare for JEE and NEET together?", "acceptedAnswer": {"@type": "Answer", "text": "Technically yes (Physics and Chemistry overlap), but realistically no for serious aspirants. JEE Math demands daily 2 hours, NEET Biology demands daily 2 hours; combined with Physics and Chemistry the load exceeds 12 hours. Pick one by month 3 of Class 11 based on aptitude and interest."}}
+        ]
+      }
+    },
+    {
+      "page": "app/pricing/page.tsx",
+      "targetQuery": "jee coaching cost / worth paying for private jee tutor",
+      "lastUpdated": "2026-05-16",
+      "faqs": [
+        {"q": "How much does JEE coaching cost in India?", "a": "Top offline brands (Allen, Aakash, FIITJEE, Resonance, Vibrant) charge 1.5 to 3.5 lakh per year for two-year integrated programmes. Online batch coaching ranges from 60K to 1.5 lakh per year. One-on-one online tutoring like MindPeak ranges from 1.2 to 4 lakh per year depending on subject count."},
+        {"q": "Is paying for a private JEE tutor worth it?", "a": "Yes, when (a) you have specific weak subjects dragging your overall score, (b) you need pacing flexibility around school or work, or (c) batch coaching has failed to move your percentile. Private tutoring's ROI shows in 60 to 90 days; if no measurable percentile gain by then, the tutor or method is wrong."},
+        {"q": "How does MindPeak's pricing compare to Allen and Aakash?", "a": "MindPeak's one-on-one programmes are typically priced between Allen/Aakash's batch fees and their VIP private programmes. Per teaching hour, MindPeak is 20 to 30 percent more efficient because every minute is one-on-one rather than shared across 60+ students. See our pricing page for exact current rates."},
+        {"q": "Are there scholarships for JEE coaching at MindPeak?", "a": "Yes. MindPeak offers merit-based scholarships covering 15 to 50 percent of fees based on a placement test and previous academic record. Need-based scholarships are also available with documentation. Reach out via the contact form to request scholarship details and the application timeline."},
+        {"q": "Can I get EMI options for JEE coaching fees?", "a": "Yes. MindPeak offers 3-month, 6-month, and 12-month EMI options without additional interest for verified students. EMI is available across all programmes (foundation, regular, dropper, crash course). Speak to admissions for the EMI setup process."},
+        {"q": "What is the refund policy for JEE coaching?", "a": "MindPeak offers a 7-day satisfaction guarantee — if you find the teaching style does not suit you within the first 7 days, you receive a full refund less applicable transaction charges. After 7 days, prorated refunds apply per our refund policy document."}
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "How much does JEE coaching cost in India?", "acceptedAnswer": {"@type": "Answer", "text": "Top offline brands (Allen, Aakash, FIITJEE, Resonance, Vibrant) charge 1.5 to 3.5 lakh per year for two-year integrated programmes. Online batch coaching ranges from 60K to 1.5 lakh per year. One-on-one online tutoring like MindPeak ranges from 1.2 to 4 lakh per year depending on subject count."}},
+          {"@type": "Question", "name": "Is paying for a private JEE tutor worth it?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, when (a) you have specific weak subjects dragging your overall score, (b) you need pacing flexibility around school or work, or (c) batch coaching has failed to move your percentile. Private tutoring's ROI shows in 60 to 90 days; if no measurable percentile gain by then, the tutor or method is wrong."}},
+          {"@type": "Question", "name": "How does MindPeak's pricing compare to Allen and Aakash?", "acceptedAnswer": {"@type": "Answer", "text": "MindPeak's one-on-one programmes are typically priced between Allen/Aakash's batch fees and their VIP private programmes. Per teaching hour, MindPeak is 20 to 30 percent more efficient because every minute is one-on-one rather than shared across 60+ students. See our pricing page for exact current rates."}},
+          {"@type": "Question", "name": "Are there scholarships for JEE coaching at MindPeak?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. MindPeak offers merit-based scholarships covering 15 to 50 percent of fees based on a placement test and previous academic record. Need-based scholarships are also available with documentation. Reach out via the contact form to request scholarship details and the application timeline."}},
+          {"@type": "Question", "name": "Can I get EMI options for JEE coaching fees?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. MindPeak offers 3-month, 6-month, and 12-month EMI options without additional interest for verified students. EMI is available across all programmes (foundation, regular, dropper, crash course). Speak to admissions for the EMI setup process."}},
+          {"@type": "Question", "name": "What is the refund policy for JEE coaching?", "acceptedAnswer": {"@type": "Answer", "text": "MindPeak offers a 7-day satisfaction guarantee — if you find the teaching style does not suit you within the first 7 days, you receive a full refund less applicable transaction charges. After 7 days, prorated refunds apply per our refund policy document."}}
+        ]
+      }
+    }
+  ]
+}
