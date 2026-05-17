@@ -8,9 +8,24 @@ import { CURRENT_EXAM_YEAR } from "@/lib/examYears";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: `JEE & NEET Preparation Tips ${CURRENT_EXAM_YEAR} — Expert Strategies & Study Guides`,
+  title: `JEE & NEET Study Guides ${CURRENT_EXAM_YEAR} — Expert Tips | MindPeak`,
   description: `Proven JEE/NEET study strategies, time management hacks, and subject-wise tips from IIT/NIT mentors. Updated for ${CURRENT_EXAM_YEAR}. Read free guides now.`,
   alternates: { canonical: "https://mindpeakinstitute.com/blog" },
+  openGraph: {
+    title: `Free JEE & NEET Study Guides ${CURRENT_EXAM_YEAR} by MindPeak Experts`,
+    description: "100+ expert articles on JEE & NEET preparation — from subject strategies to college admission guides. Written by IIT & AIIMS alumni.",
+    url: "https://mindpeakinstitute.com/blog",
+    siteName: "MindPeak Institute",
+    type: "website",
+    locale: "en_IN",
+    images: [{ url: "https://mindpeakinstitute.com/images/og/coaching.jpg", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `JEE & NEET Expert Study Guides ${CURRENT_EXAM_YEAR} | MindPeak`,
+    description: "Free expert guides on JEE & NEET preparation by IIT & AIIMS alumni mentors. Updated for the latest exam patterns.",
+    images: ["https://mindpeakinstitute.com/images/og/coaching.jpg"],
+  },
 };
 
 export default async function BlogPage() {

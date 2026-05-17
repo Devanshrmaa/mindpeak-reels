@@ -37,8 +37,8 @@ export interface SEOPageData {
 
 const aboutPage: SEOPageData = {
   slug: 'about',
-  title: 'About MindPeak Institute — Expert JEE & NEET Faculty, Mission & Results',
-  description: 'MindPeak Institute is India\'s leading personalized 1-on-1 JEE & NEET coaching. IIT/AIIMS alumni faculty, 500+ students, AIR 42 in JEE Advanced. Learn about our team, editorial standards, and results.',
+  title: 'About MindPeak Institute — IIT & AIIMS Faculty | MindPeak',
+  description: 'India\'s leading 1-on-1 JEE & NEET coaching. IIT/AIIMS alumni mentors, 500+ students, AIR 42 in JEE Advanced. Learn our story, faculty credentials & verified results.',
   h1: 'About',
   h1Highlight: 'MindPeak Institute',
   heroSubtitle: 'We believe every student deserves a dedicated mentor — not a seat number in a 200-student batch. MindPeak Institute was founded to bring truly personalized coaching to JEE and NEET aspirants across India.',
@@ -946,7 +946,7 @@ const subjectPages: SEOPageData[] = [
   },
   {
     slug: 'jee-chemistry-coaching',
-    title: `Best JEE Chemistry Coaching Online ${CURRENT_EXAM_YEAR} — Physical, Organic & Inorganic | MindPeak`,
+    title: `Best JEE Chemistry Coaching ${CURRENT_EXAM_YEAR} — Score 80+ with 1-on-1 | MindPeak`,
     description: `Master JEE Chemistry with 1-on-1 coaching. Physical Chemistry calculations, Organic reaction mechanisms, Inorganic memory techniques. Score 80+ in Chemistry.`,
     h1: 'Best JEE Chemistry Coaching',
     h1Highlight: `Online — Master All 3 Branches`,
@@ -1182,7 +1182,7 @@ const subjectPages: SEOPageData[] = [
   },
   {
     slug: 'neet-physics-coaching',
-    title: `Best NEET Physics Coaching Online ${CURRENT_EXAM_YEAR} — Score 160+ with NCERT Focus | MindPeak`,
+    title: `Best NEET Physics Coaching ${CURRENT_EXAM_YEAR} — Score 160+ with NCERT | MindPeak`,
     description: `NEET Physics coaching with 1-on-1 mentoring. NCERT-based concepts, numerical problem practice, high-yield topic focus. Improve Physics score by 40+ marks.`,
     h1: 'Best NEET Physics Coaching',
     h1Highlight: `Online — Score 160+ in ${CURRENT_EXAM_YEAR}`,
@@ -1262,7 +1262,7 @@ const subjectPages: SEOPageData[] = [
   },
   {
     slug: 'neet-chemistry-coaching',
-    title: `Best NEET Chemistry Coaching Online ${CURRENT_EXAM_YEAR} — Score 160+ with NCERT Focus | MindPeak`,
+    title: `Best NEET Chemistry Coaching ${CURRENT_EXAM_YEAR} — Physical + Organic + Inorganic | MindPeak`,
     description: `NEET Chemistry coaching with 1-on-1 mentoring. NCERT-based Physical, Organic & Inorganic Chemistry. Dedicated mentor, daily sessions, MCQ mastery. Free trial.`,
     h1: 'Best NEET Chemistry Coaching',
     h1Highlight: `Online — Score 160+ in ${CURRENT_EXAM_YEAR}`,
@@ -1464,7 +1464,7 @@ const bestJeeCoachingIndiaPage: SEOPageData = {
 const comparisonPages: SEOPageData[] = [
   {
     slug: 'kota-coaching-alternative',
-    title: 'Kota Coaching Alternative — Why Online 1-on-1 Beats Kota | MindPeak',
+    title: 'Kota Coaching Alternative — 1-on-1 Beats Kota Online | MindPeak',
     description: 'Looking for a Kota coaching alternative? MindPeak offers 1-on-1 personalized JEE/NEET coaching online. AIR 42 achieved. Save ₹3-5 lakhs vs Kota. No relocation needed.',
     h1: 'The Best',
     h1Highlight: 'Kota Coaching Alternative',
@@ -1557,7 +1557,7 @@ const comparisonPages: SEOPageData[] = [
   },
   {
     slug: 'batch-vs-personal-coaching',
-    title: 'One-on-One Coaching vs Batch Coaching for JEE/NEET — Honest Comparison | MindPeak',
+    title: '1-on-1 vs Batch JEE Coaching — Full Comparison | MindPeak',
     description: 'One-on-one coaching vs batch coaching for JEE and NEET. 7-criterion comparison table, 8 documented benefits of 1-on-1, and a direct answer on whether a personal tutor beats coaching.',
     h1: 'One-on-One vs',
     h1Highlight: 'Batch Coaching',
@@ -1868,7 +1868,7 @@ const neetCrashPage: SEOPageData = {
 
 const successStoriesPage: SEOPageData = {
   slug: 'success-stories',
-  title: 'Student Success Stories — JEE & NEET Results | MindPeak Institute',
+  title: '500+ Student Success Stories — JEE & NEET Results | MindPeak',
   description: 'Read real success stories of MindPeak students who cracked JEE & NEET with top ranks. 500+ students mentored, 95% selection rate. See their journeys.',
   h1: 'Student',
   h1Highlight: 'Success Stories',
@@ -1957,7 +1957,7 @@ const successStoriesPage: SEOPageData = {
 
 const methodologyPage: SEOPageData = {
   slug: 'methodology',
-  title: 'Our Teaching Methodology — How MindPeak\'s 1-on-1 Coaching Works',
+  title: 'MindPeak Teaching Methodology — 1-on-1 Coaching Explained',
   description: 'Discover MindPeak Institute\'s proven teaching methodology. Adaptive curriculum, daily 1-on-1 sessions, weekly analytics, and AI-powered practice — all designed for JEE & NEET success.',
   h1: 'Our',
   h1Highlight: 'Teaching Methodology',
@@ -2061,7 +2061,7 @@ const methodologyPage: SEOPageData = {
 
 const mentorsPage: SEOPageData = {
   slug: 'mentors',
-  title: 'Our Mentors — IIT & AIIMS Alumni Faculty | MindPeak Institute',
+  title: 'JEE & NEET Mentors — IIT & AIIMS Alumni Faculty | MindPeak',
   description: 'Meet MindPeak\'s expert mentors — IIT, NIT, and AIIMS alumni with 3-10 years of teaching experience. Handpicked faculty for personalized JEE & NEET coaching.',
   h1: 'Meet Our',
   h1Highlight: 'Expert Mentors',
