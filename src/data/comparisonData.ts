@@ -18,7 +18,7 @@ export const competitors: CompetitorData[] = [
     slug: 'mindpeak-vs-allen',
     competitorName: 'Allen',
     title: 'MindPeak vs Allen',
-    metaTitle: `MindPeak vs Allen — 1-on-1 vs Batch JEE/NEET Coaching Comparison | ${CURRENT_EXAM_YEAR}`,
+    metaTitle: `MindPeak vs Allen — 1-on-1 vs Batch Coaching | MindPeak`,
     metaDescription: 'Detailed comparison of MindPeak vs Allen coaching for JEE & NEET. Compare teaching format, fees, mentor quality, doubt resolution, and results. See why students switch.',
     intro: 'Allen Career Institute is one of India\'s biggest coaching brands, known for mass-scale JEE and NEET preparation in Kota. With batches of 100-200+ students, Allen follows a factory-model where top students thrive but the majority struggle for attention. MindPeak takes the opposite approach: dedicated 1-on-1 mentorship where every student is the entire focus. Here\'s how the two approaches compare.',
     comparisonRows: [
@@ -54,7 +54,7 @@ export const competitors: CompetitorData[] = [
     slug: 'mindpeak-vs-resonance',
     competitorName: 'Resonance',
     title: 'MindPeak vs Resonance',
-    metaTitle: `MindPeak vs Resonance — 1-on-1 vs Batch Coaching Comparison | JEE & NEET ${CURRENT_EXAM_YEAR}`,
+    metaTitle: `MindPeak vs Resonance — 1-on-1 vs Batch | MindPeak`,
     metaDescription: 'MindPeak vs Resonance coaching comparison. Compare fees, teaching quality, mentor attention, results. See why personalized 1-on-1 coaching beats batch teaching.',
     intro: 'Resonance Eduventures is a well-known coaching brand based in Kota, offering batch coaching for JEE and NEET with decent results. However, like all batch models, Resonance struggles to provide individual attention to each student. MindPeak\'s 1-on-1 approach fundamentally differs — every student gets a dedicated mentor, personalized curriculum, and real-time doubt resolution. Here\'s a detailed comparison.',
     comparisonRows: [
@@ -87,7 +87,7 @@ export const competitors: CompetitorData[] = [
     slug: 'mindpeak-vs-fiitjee',
     competitorName: 'FIITJEE',
     title: 'MindPeak vs FIITJEE',
-    metaTitle: `MindPeak vs FIITJEE — 1-on-1 Personalized vs Batch Coaching | JEE ${CURRENT_EXAM_YEAR}`,
+    metaTitle: `MindPeak vs FIITJEE — Personalized vs Batch JEE | MindPeak`,
     metaDescription: 'MindPeak vs FIITJEE comparison for JEE coaching. Compare teaching methods, fees, results. Discover why 1-on-1 coaching delivers better results than FIITJEE batches.',
     intro: 'FIITJEE is one of India\'s oldest and most recognized JEE coaching brands, known for producing toppers through its intensive batch program. However, the FIITJEE model — like all batch models — primarily benefits the top-performing students who would likely succeed regardless. For the majority, the experience is high-pressure batch coaching with limited personal attention. MindPeak offers a fundamentally different proposition.',
     comparisonRows: [
@@ -120,7 +120,7 @@ export const competitors: CompetitorData[] = [
     slug: 'mindpeak-vs-byjus',
     competitorName: 'BYJU\'S',
     title: 'MindPeak vs BYJU\'S',
-    metaTitle: `MindPeak vs BYJU'S — Live 1-on-1 vs Recorded/Hybrid Coaching | ${CURRENT_EXAM_YEAR}`,
+    metaTitle: `MindPeak vs BYJU'S — Live 1-on-1 vs Recorded | MindPeak`,
     metaDescription: 'MindPeak vs BYJU\'S for JEE & NEET coaching. Compare live 1-on-1 mentorship vs recorded content + hybrid model. See why live personalized coaching wins.',
     intro: 'BYJU\'S is India\'s largest edtech brand, known for produced content and app-based learning. However, for competitive exam preparation like JEE and NEET, recorded content and automated programs have significant limitations. MindPeak offers what BYJU\'S cannot: live 1-on-1 daily sessions with a dedicated human mentor who knows your child personally.',
     comparisonRows: [
@@ -154,7 +154,7 @@ export const competitors: CompetitorData[] = [
     slug: 'mindpeak-vs-physics-wallah',
     competitorName: 'Physics Wallah',
     title: 'MindPeak vs Physics Wallah',
-    metaTitle: `MindPeak vs Physics Wallah (PW) — 1-on-1 vs Affordable Batch | ${CURRENT_EXAM_YEAR}`,
+    metaTitle: `MindPeak vs Physics Wallah — 1-on-1 vs Batch | MindPeak`,
     metaDescription: 'MindPeak vs Physics Wallah comparison for JEE & NEET. Compare 1-on-1 dedicated mentoring vs affordable batch coaching. Features, fees, results analysis.',
     intro: 'Physics Wallah (PW) has disrupted the coaching industry with affordable batch coaching and engaging content. Alakh Pandey\'s teaching style has made PW enormously popular among JEE and NEET aspirants. However, PW\'s model is fundamentally a batch coaching platform — students learn in groups of hundreds to thousands, with limited individual attention. MindPeak offers a completely different experience: dedicated 1-on-1 mentoring where your child is the only student in the class.',
     comparisonRows: [
@@ -190,7 +190,7 @@ export const competitors: CompetitorData[] = [
     slug: 'mindpeak-vs-unacademy',
     competitorName: 'Unacademy',
     title: 'MindPeak vs Unacademy',
-    metaTitle: `MindPeak vs Unacademy — 1-on-1 Mentoring vs Live Batch Platform | ${CURRENT_EXAM_YEAR}`,
+    metaTitle: `MindPeak vs Unacademy — 1-on-1 vs Live Batch | MindPeak`,
     metaDescription: 'MindPeak vs Unacademy for JEE & NEET coaching. Compare dedicated 1-on-1 mentoring vs large live batch classes. Fees, teaching quality, and results.',
     intro: 'Unacademy is one of India\'s leading edtech platforms, offering live batch classes for JEE and NEET with popular educators. While Unacademy provides good content and an engaging learning experience, it fundamentally operates as a batch coaching platform — students attend live classes with hundreds of peers, with limited scope for individual attention. MindPeak\'s dedicated 1-on-1 model provides what Unacademy cannot: a personal mentor relationship.',
     comparisonRows: [
@@ -223,7 +223,7 @@ export const competitors: CompetitorData[] = [
     slug: 'mindpeak-vs-aakash',
     competitorName: 'Aakash',
     title: 'MindPeak vs Aakash',
-    metaTitle: `MindPeak vs Aakash Institute — 1-on-1 vs Batch Coaching | NEET & JEE ${CURRENT_EXAM_YEAR}`,
+    metaTitle: `MindPeak vs Aakash — 1-on-1 vs Batch NEET & JEE | MindPeak`,
     metaDescription: 'MindPeak vs Aakash Institute comparison for NEET & JEE. Compare personalised 1-on-1 coaching vs batch classes. Fees, results, and teaching methodology.',
     intro: 'Aakash Institute (now Aakash BYJU\'S) is one of India\'s largest coaching chains, particularly strong in NEET preparation. With 300+ centres across India, Aakash follows a standardised batch coaching model. While their scale brings consistency, it also brings the limitations inherent to batch teaching — limited individual attention and rigid curricula. MindPeak offers an alternative that addresses exactly these limitations.',
     comparisonRows: [
@@ -256,7 +256,7 @@ export const competitors: CompetitorData[] = [
     slug: 'mindpeak-vs-narayana',
     competitorName: 'Narayana',
     title: 'MindPeak vs Narayana',
-    metaTitle: `MindPeak vs Narayana — 1-on-1 vs South India's Largest Batch Coaching | ${CURRENT_EXAM_YEAR}`,
+    metaTitle: `MindPeak vs Narayana — 1-on-1 vs South India Batch | MindPeak`,
     metaDescription: 'MindPeak vs Narayana Group comparison for JEE & NEET. Compare personalised mentoring vs large batch coaching. Fees, results, and student experience.',
     intro: 'Narayana Group is one of South India\'s largest coaching networks, operating integrated school + coaching programs across Andhra Pradesh, Telangana, and other states. With massive batch sizes and a factory-scale approach, Narayana has produced impressive aggregate results. However, the individual student experience — with 60-120+ students per batch — often leaves much to be desired. MindPeak offers personalised coaching that addresses the specific gaps Narayana\'s model creates.',
     comparisonRows: [
@@ -288,7 +288,7 @@ export const competitors: CompetitorData[] = [
     slug: 'mindpeak-vs-sri-chaitanya',
     competitorName: 'Sri Chaitanya',
     title: 'MindPeak vs Sri Chaitanya',
-    metaTitle: `MindPeak vs Sri Chaitanya — 1-on-1 vs Integrated Batch Coaching | ${CURRENT_EXAM_YEAR}`,
+    metaTitle: `MindPeak vs Sri Chaitanya — 1-on-1 vs Integrated Batch | MindPeak`,
     metaDescription: 'MindPeak vs Sri Chaitanya comparison for JEE & NEET. Personalised 1-on-1 mentoring vs integrated school + coaching. Fees, attention, and results analysis.',
     intro: 'Sri Chaitanya is one of India\'s largest educational groups, running integrated schools and coaching programs primarily across South India. Similar to Narayana, Sri Chaitanya operates at massive scale with batch sizes of 60-100+ students. While the institution has produced impressive numbers through volume, the individual student experience often suffers from lack of personalised attention. MindPeak represents a fundamentally different approach.',
     comparisonRows: [
@@ -320,7 +320,7 @@ export const competitors: CompetitorData[] = [
     slug: 'mindpeak-vs-vedantu',
     competitorName: 'Vedantu',
     title: 'MindPeak vs Vedantu',
-    metaTitle: `MindPeak vs Vedantu — Dedicated 1-on-1 vs Live Batch Online Coaching | ${CURRENT_EXAM_YEAR}`,
+    metaTitle: `MindPeak vs Vedantu — 1-on-1 vs Live Batch Online | MindPeak`,
     metaDescription: 'MindPeak vs Vedantu for JEE & NEET online coaching. Compare dedicated 1-on-1 mentoring vs live batch classes. Teaching format, fees, and results.',
     intro: 'Vedantu is a well-known online coaching platform offering live batch classes for JEE and NEET preparation. While Vedantu provides good quality online content and interactive features like WAVE technology, it operates fundamentally as a batch coaching model — one teacher addressing many students. MindPeak offers a categorically different experience with dedicated 1-on-1 mentoring.',
     comparisonRows: [

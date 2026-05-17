@@ -20,18 +20,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = resolvePostBySlug(slug);
   if (!post) return { title: "Blog | MindPeak Institute" };
   const canonical = `${BASE}/blog/${post.slug}`;
+  const ogImage = "https://mindpeakinstitute.com/images/og/coaching.jpg";
+  const desc = post.excerpt.slice(0, 155);
   return {
     title: `${post.title} | MindPeak Institute`,
-    description: post.excerpt.slice(0, 160),
+    description: desc,
     alternates: { canonical },
     openGraph: {
       type: "article",
       url: canonical,
       title: post.title,
-      description: post.excerpt.slice(0, 160),
+      description: desc,
       publishedTime: post.publishDate,
       authors: [post.author],
       siteName: "MindPeak Institute",
+      locale: "en_IN",
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: desc,
+      images: [ogImage],
     },
   };
 }
