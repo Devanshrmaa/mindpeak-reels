@@ -314,7 +314,7 @@ const Courses = () => {
             <h2 className="font-display font-bold text-foreground text-2xl sm:text-3xl tracking-[-0.02em] mb-1">
               All <span className="text-gradient-gold">Courses</span>
             </h2>
-            <p className="text-muted-foreground/60 text-sm">Click any course to see full syllabus, schedule, results & FAQs.</p>
+            <p className="text-muted-foreground/60 text-sm">Open any course below for full syllabus, schedule, results &amp; FAQs.</p>
           </motion.div>
 
           {/* Category Filter Tabs */}

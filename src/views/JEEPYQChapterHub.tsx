@@ -169,14 +169,38 @@ const JEEPYQChapterHub = () => {
         </section>
 
         {/* CTA */}
-        <section className="mx-auto max-w-4xl px-4 pb-16">
+        <section className="mx-auto max-w-4xl px-4 pb-12">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-xl border border-amber-500/20 bg-gradient-to-r from-amber-500/5 to-amber-500/10 p-8 text-center">
             <h2 className="font-display font-bold text-xl text-foreground mb-2">Need Help with {chapter.name}?</h2>
-            <p className="text-muted-foreground text-sm mb-6 max-w-lg mx-auto">Get 1-on-1 doubt sessions and personalised PYQ analysis with MindPeak's JEE mentors.</p>
+            <p className="text-muted-foreground text-sm mb-6 max-w-lg mx-auto">Get 1-on-1 doubt sessions and personalised PYQ analysis with our <Link to={`/jee-${bank.slug}-coaching`} className="text-amber-400 font-semibold hover:underline">JEE {subj} coaching mentors</Link>.</p>
             <button onClick={openDemoModal} className="inline-flex items-center gap-2 rounded-full bg-amber-500 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-amber-600 transition-colors">
               Book Free Demo Class <ArrowRight className="w-4 h-4" />
             </button>
           </motion.div>
+        </section>
+
+        {/* Cross-link cluster: subject coaching + practice + tools */}
+        <section className="mx-auto max-w-5xl px-4 pb-16">
+          <h2 className="font-display font-bold text-base text-foreground mb-4">Master {chapter.name} — Coaching, Practice & Tools</h2>
+          <div className="flex flex-wrap gap-2">
+            {[
+              { to: `/jee-${bank.slug}-coaching`, label: `JEE ${subj} 1-on-1 Coaching` },
+              { to: '/jee-coaching', label: 'JEE Complete Coaching Program' },
+              { to: `/jee-practice-${bank.slug}-${chapter.slug}`, label: `Practice ${chapter.name} MCQs` },
+              { to: '/jee-pyq', label: 'All JEE PYQ Chapters' },
+              { to: '/jee-rank-predictor', label: 'Free JEE Rank Predictor' },
+              { to: '/study-plan', label: 'Free JEE Study Plan Generator' },
+              { to: '/mentors', label: `Meet Our IIT-Alumni ${subj} Mentors` },
+            ].map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                className="px-4 py-2.5 rounded-full border border-border bg-card/50 text-foreground/80 text-xs hover:border-amber-500/40 hover:text-foreground transition-colors flex items-center gap-1.5"
+              >
+                <ArrowRight className="w-3 h-3 text-amber-400/60" /> {l.label}
+              </Link>
+            ))}
+          </div>
         </section>
 
         <PageFooter extra={`JEE ${subj} PYQ — ${chapter.name} — ${chapter.questions.length} Questions.`} />

@@ -294,7 +294,7 @@ const BlogPost = () => {
                   to="/courses"
                   className="px-10 py-4 border border-primary text-primary font-display text-sm uppercase tracking-[0.15em] hover:bg-primary hover:text-primary-foreground transition-all duration-300 flex items-center"
                 >
-                  Explore Courses
+                  Browse All JEE &amp; NEET Programs
                 </Link>
               </div>
             </div>

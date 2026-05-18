@@ -251,7 +251,7 @@ const NEETPracticeHub = () => {
         </section>
 
         {/* CTA */}
-        <section className="mx-auto max-w-4xl px-4 pb-16">
+        <section className="mx-auto max-w-4xl px-4 pb-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -262,7 +262,7 @@ const NEETPracticeHub = () => {
               Want Guided Practice with a Mentor?
             </h2>
             <p className="text-muted-foreground text-sm mb-6 max-w-lg mx-auto">
-              Get personalised problem-solving sessions, doubt support, and chapter-wise tests with MindPeak's 1-on-1 NEET coaching.
+              Get personalised problem-solving sessions, doubt support, and chapter-wise tests with MindPeak's <Link to="/neet-coaching" className="text-green-500 font-semibold hover:underline">NEET 1-on-1 coaching program</Link>.
             </p>
             <button
               onClick={openDemoModal}
@@ -271,6 +271,35 @@ const NEETPracticeHub = () => {
               Book Free Demo Class <ArrowRight className="w-4 h-4" />
             </button>
           </motion.div>
+        </section>
+
+        {/* Explore NEET Coaching & Tools — cross-link cluster for crawlers */}
+        <section className="mx-auto max-w-5xl px-4 pb-16">
+          <h2 className="font-display font-bold text-lg text-foreground mb-5">Explore NEET Coaching, PYQs & Free Tools</h2>
+          <div className="flex flex-wrap gap-2">
+            {[
+              { to: '/neet-coaching', label: 'NEET 1-on-1 Coaching Program' },
+              { to: '/neet-biology-coaching', label: 'NEET Biology Coaching by AIIMS Mentors' },
+              { to: '/neet-physics-coaching', label: 'NEET Physics Coaching by AIIMS Mentors' },
+              { to: '/neet-chemistry-coaching', label: 'NEET Chemistry Coaching by AIIMS Mentors' },
+              { to: '/neet-ug-coaching', label: 'NEET UG Coaching Program' },
+              { to: '/neet-dropper-coaching', label: 'NEET Dropper Batch Coaching' },
+              { to: '/neet-pyq', label: 'NEET Previous Year Questions (PYQs)' },
+              { to: '/neet-rank-predictor', label: 'Free NEET Rank Predictor Tool' },
+              { to: '/study-plan', label: 'Free NEET Study Plan Generator' },
+              { to: '/methodology', label: 'MindPeak Teaching Methodology' },
+              { to: '/mentors', label: 'Meet Our AIIMS-Alumni NEET Mentors' },
+              { to: '/courses', label: 'All NEET Programs & Pricing' },
+            ].map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                className="px-4 py-2.5 rounded-full border border-border bg-card/50 text-foreground/80 text-xs hover:border-green-500/40 hover:text-foreground transition-colors flex items-center gap-1.5"
+              >
+                <ArrowRight className="w-3 h-3 text-green-500/60" /> {l.label}
+              </Link>
+            ))}
+          </div>
         </section>
 
         <PageFooter extra="NEET Practice Questions — Biology, Physics, Chemistry." />

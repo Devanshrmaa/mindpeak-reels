@@ -539,7 +539,7 @@ const ChapterPage = () => {
                       </div>
                       <div className="min-w-0 flex-1">
                         <span className="text-foreground font-medium text-sm group-hover:text-primary transition-colors">{topic}</span>
-                        <span className="block text-[10px] text-muted-foreground mt-1 group-hover:text-primary/70">View detailed guide →</span>
+                        <span className="block text-[10px] text-muted-foreground mt-1 group-hover:text-primary/70">Read {topic} study guide for {chapter.exam} →</span>
                       </div>
                       <ArrowRight className="w-4 h-4 text-muted-foreground/70 group-hover:text-primary flex-shrink-0 mt-1 transition-colors" />
                     </Link>
@@ -709,7 +709,7 @@ const ChapterPage = () => {
 
               {chapter.topics.length > 8 && (
                 <p className="text-center text-sm text-muted-foreground mt-6">
-                  + {chapter.topics.length - 8} more concepts covered in this chapter. <Link to={`/${chapter.slug}`} className="text-primary hover:underline">Explore all topics above ↑</Link>
+                  + {chapter.topics.length - 8} more concepts covered in this chapter. <Link to={`/${chapter.slug}`} className="text-primary hover:underline">See all {chapter.topics.length} topics in {chapter.chapter}</Link>
                 </p>
               )}
             </motion.div>
