@@ -29,6 +29,7 @@ import { getSEOPage } from '@/data/seoPageData';
 import { chapters, getTopicInfo } from '@/data/chapterData';
 import { resolveOgImageMeta } from '@/lib/ogImage';
 import { parseStudyGuideSlug, buildStudyGuide } from '@/lib/topicStudyGuides';
+import { isRemovedDoorwaySlug } from '@/lib/removedSlugs';
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 import { getExamInfoPage } from '@/data/examInfoData';
 import { getDifferencePair } from '@/data/differenceBetweenData';
@@ -144,6 +145,10 @@ const INDEXABLE_CITY_META: Record<string, { title: string; description: string }
 export function isKnownSlug(slugSegments: string[]): boolean {
   if (slugSegments.length === 0) return false;
   const slug = slugSegments.join('/');
+
+  // Doorway URLs serving 410 Gone via proxy.ts — reject here too so any
+  // request that bypasses the proxy (preview, SSG fallback) returns 404.
+  if (isRemovedDoorwaySlug(slug)) return false;
 
   // Two-segment: notes or topic pages
   if (slugSegments.length === 2) {

@@ -3,17 +3,17 @@
 <!-- This is a representative subset. Run the script for complete 400+ topic URLs. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- NEET Biology Topics (sample) -->
-  <url><loc>https://mindpeakinstitute.com/neet-biology-cell-unit-of-life/cell-membrane-structure</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
-  <url><loc>https://mindpeakinstitute.com/neet-biology-photosynthesis/light-reactions</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
-  <url><loc>https://mindpeakinstitute.com/neet-biology-digestion-absorption/human-digestive-system</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
-  <url><loc>https://mindpeakinstitute.com/neet-biology-inheritance-variation/mendels-laws</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
-  <url><loc>https://mindpeakinstitute.com/neet-biology-molecular-inheritance/dna-replication</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
-  <url><loc>https://mindpeakinstitute.com/neet-biology-biotechnology-principles/pcr-polymerase-chain-reaction</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
-  <url><loc>https://mindpeakinstitute.com/neet-biology-ecosystem/energy-flow-10-rule</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://mindpeakinstitute.com/neet-biology-cell-unit-of-life/cell-membrane-structure</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://mindpeakinstitute.com/neet-biology-photosynthesis/light-reactions</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://mindpeakinstitute.com/neet-biology-digestion-absorption/human-digestive-system</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://mindpeakinstitute.com/neet-biology-inheritance-variation/mendels-laws</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://mindpeakinstitute.com/neet-biology-molecular-inheritance/dna-replication</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://mindpeakinstitute.com/neet-biology-biotechnology-principles/pcr-polymerase-chain-reaction</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://mindpeakinstitute.com/neet-biology-ecosystem/energy-flow-10-rule</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
   <!-- NEET Physics Topics (sample) -->
-  <url><loc>https://mindpeakinstitute.com/neet-physics-kinematics/projectile-motion</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
-  <url><loc>https://mindpeakinstitute.com/neet-physics-electrostatics/coulombs-law</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://mindpeakinstitute.com/neet-physics-kinematics/projectile-motion</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://mindpeakinstitute.com/neet-physics-electrostatics/coulombs-law</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
   <!-- NEET Chemistry Topics (sample) -->
-  <url><loc>https://mindpeakinstitute.com/neet-chemistry-chemical-bonding/hybridization</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
-  <url><loc>https://mindpeakinstitute.com/neet-chemistry-equilibrium/le-chateliers-principle</loc><lastmod>2026-05-14</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://mindpeakinstitute.com/neet-chemistry-chemical-bonding/hybridization</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
+  <url><loc>https://mindpeakinstitute.com/neet-chemistry-equilibrium/le-chateliers-principle</loc><lastmod>2026-05-18</lastmod><changefreq>monthly</changefreq><priority>0.55</priority></url>
 </urlset>
