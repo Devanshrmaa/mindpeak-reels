@@ -1,5 +1,5 @@
 # MindPeak Institute — Outreach Tracker
-**Last Updated:** 2026-05-15  
+**Last Updated:** 2026-05-18  
 **Site:** mindpeakinstitute.com  
 **MSME:** UDYAM-HP-04-0042530
 
@@ -39,6 +39,16 @@
 | 26 | 2026-05-15 | aninews.in (via scnwire.com) | aninews.in — press release syndication via vmpl.scnwire.com | Press Release / PR Syndication | scnwire.com/p/contact.html | ❌ | — | NOT STARTED |
 | 27 | 2026-05-15 | urbanpro.com | urbanpro.com — free tutor profile for Devansh (55L+ students, DA ~60) | Tutor Directory Profile (FREE) | jobs.urbanpro.com (self-register) | ❌ | — | NOT STARTED |
 | 28 | 2026-05-15 | collegedunia.com | collegedunia.com/coaching/neet-institutes + jee-main-institutes | Directory Listing | collegedunia.com/contact-us | ❌ | — | NOT STARTED |
+| 29 | 2026-05-18 | origineducare.com | origineducare.com/best-coaching-for-1-on-1-live-for-iit-jee-in-india/ | **🔥 Listicle Inclusion — 1-on-1 JEE article (HIGHEST PRIORITY)** | Contact form on site | ❌ | — | NOT STARTED |
+| 30 | 2026-05-18 | businessoutreach.in | businessoutreach.in/top-neet-coaching-institutes-in-india/ | Listicle Inclusion (NEET) | Contact page on site | ❌ | — | NOT STARTED |
+| 31 | 2026-05-18 | wellfound.com | wellfound.com/company/new | **Free Startup Profile — HP EdTech (DA ~80)** | Self-register (free) | ❌ | — | NOT STARTED |
+| 32 | 2026-05-18 | cucetexam.in | cucetexam.in/write-for-us/ | Guest Post — JEE/NEET education topics | Submit via Write for Us form | ❌ | — | NOT STARTED |
+| 33 | 2026-05-18 | classnstudy.com | classnstudy.com/write-for-us/ | Guest Post — education niche | write4us@classnstudy.com | ❌ | — | NOT STARTED |
+| 34 | 2026-05-18 | exambazaar.com | exambazaar.com/blogpost/guest-post-editorial-guidelines | Guest Post — exam prep content | Contact via guidelines page | ❌ | — | NOT STARTED |
+| 35 | 2026-05-18 | samarthedu.in | samarthedu.in/education-guest-post/ | Guest Post — coaching/online learning | Submit via guest post portal | ❌ | — | NOT STARTED |
+| 36 | 2026-05-18 | gauravtiwari.org | gauravtiwari.org (JEE coaching listicle) | Listicle Inclusion — independent blogger | gauravtiwari.org contact form | ❌ | — | NOT STARTED |
+| 37 | 2026-05-18 | cosmosiq.ai | cosmosiq.ai/blog/best-edtech-startups-india-2026 | Feature / EdTech Startup Mention | cosmosiq.ai contact | ❌ | — | NOT STARTED |
+| 38 | 2026-05-18 | brandempower.org | brandempower.org/education-awards.htm | Award Nomination — Education Awards 2026 India | Submit via award form | ❌ | — | NOT STARTED |
 
 ---
 
@@ -59,6 +69,16 @@
 ---
 
 ## Notes & Strategy Log
+
+### 2026-05-18 — Day 5 Audit + 10 New Targets Added
+- Zero confirmed external backlinks still. **Zero outreach emails sent** across 5 audit days — this is the single highest-risk bottleneck.
+- **10 new targets added** (#29–38): origineducare.com 1-on-1 article (🔥 TOP priority), businessoutreach.in NEET list, wellfound.com free profile, cucetexam.in guest post, classnstudy.com guest post, exambazaar.com guest post, samarthedu.in guest post, gauravtiwari.org listicle, cosmosiq.ai EdTech feature, brandempower.org awards
+- **Top new priority: origineducare.com** — "Best Coaching for 1 on 1 Live for IIT-JEE in India 2026" is the highest-relevance listicle discovered across all 5 audits. MindPeak must be in this article.
+- **Wellfound.com** — zero HP EdTech startups listed; free profile = DA ~80 backlink in 15 minutes.
+- **AcademyCheck has 3 relevant articles**, not 2 — update outreach to Harish Kumawat to reference all three.
+- Emails #13–16 ready to send (in `/seo-reports/backlinks-2026-05-18.md`).
+- **DPIIT Startup India recognition** flagged as next-audit research item — government listing angle distinct from MSME Udyam.
+- Google Alerts for `"mindpeak institute"` still not set up — OVERDUE.
 
 ### 2026-05-15 — Day 2 Audit + 8 New Targets Added
 - Zero confirmed external backlinks still — outreach not yet started
@@ -83,10 +103,11 @@
 
 | Week | Target New Links | Outreach Emails | Priority |
 |---|---|---|---|
-| May 12–18, 2026 | 0 → 3 | Send #1, #2, #8, #11 (new), #27 (UrbanPro — self-serve) | UrbanPro profile + CollegeDekho + CollegeDunia + AcademyCheck + SCNWire inquiry |
-| May 19–25, 2026 | 3 → 6 | Send #4, #5, #6, #9, #10 | FutureTopper guest post + Awards + PhysicsPoint + Giraffe-Learning |
-| May 26 – Jun 1, 2026 | 6 → 10 | Send #7, #12, #16 + follow up all | ExamCharcha + BlogAndJournal + Shiksha + follow-ups |
-| Jun 2–8, 2026 | 10 → 15 | Follow up pending; start Careers360 + CollegeDunia chase | Chase responses; submit to Shiksha partner portal |
+| May 12–18, 2026 | 0 → 0 | ⚠️ NONE SENT — pipeline blocked | All 28 targets remain NOT STARTED |
+| **May 19–25, 2026** | **0 → 5** | **Send #13 (OriginEducare), #2 (CollegeDekho), #8 (CollegeDunia), #27 (UrbanPro self-serve), #31 (Wellfound self-serve), #15 (ClassNStudy), #16 (GauravTiwari), #1 (AcademyCheck 3 articles), #11 (SCNWire)** | **🔥 Highest priority week — send 9 emails minimum** |
+| May 26 – Jun 1, 2026 | 5 → 9 | Send #4, #5, #6, #9, #10, #14 (BusinessOutreach) + follow up week 1 responses | FutureTopper GP + Awards + PhysicsPoint + Giraffe-Learning + follow-ups |
+| Jun 2–8, 2026 | 9 → 15 | Send #7, #12, #32–35 (guest posts) + follow up pending | ExamCharcha + BlogAndJournal + all guest post sites + chase responses |
+| Jun 9–15, 2026 | 15 → 20 | Careers360 partner portal + Shiksha submission + follow up all | Directory giants; PRs expected live by now |
 
 ## Quora Strategy (Ongoing — Not Tracked as Outreach)
 
