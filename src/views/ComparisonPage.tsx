@@ -419,6 +419,14 @@ const ComparisonPage = () => {
               <p className="font-display font-bold text-foreground text-sm group-hover:text-primary transition-colors">Online vs Offline Coaching</p>
               <p className="text-xs text-muted-foreground mt-1">Complete analysis →</p>
             </Link>
+            <Link to="/jee-coaching" className="bg-secondary/30 border border-border rounded-lg p-4 hover:border-primary/30 transition-colors group">
+              <p className="font-display font-bold text-foreground text-sm group-hover:text-primary transition-colors">JEE Personalized Coaching</p>
+              <p className="text-xs text-muted-foreground mt-1">1-on-1 JEE mentorship program →</p>
+            </Link>
+            <Link to="/neet-coaching" className="bg-secondary/30 border border-border rounded-lg p-4 hover:border-primary/30 transition-colors group">
+              <p className="font-display font-bold text-foreground text-sm group-hover:text-primary transition-colors">NEET Personalized Coaching</p>
+              <p className="text-xs text-muted-foreground mt-1">1-on-1 NEET mentorship program →</p>
+            </Link>
           </div>
         </section>
 
