@@ -428,6 +428,34 @@ const ComparisonPage = () => {
               <p className="text-xs text-muted-foreground mt-1">1-on-1 NEET mentorship program →</p>
             </Link>
           </div>
+
+          <h2 className="font-display text-xl font-bold text-foreground mt-12 mb-6">Free Prep Resources & Tools</h2>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <Link to="/jee-practice" className="bg-secondary/30 border border-border rounded-lg p-4 hover:border-primary/30 transition-colors group">
+              <p className="font-display font-bold text-foreground text-sm group-hover:text-primary transition-colors">JEE Practice Questions</p>
+              <p className="text-xs text-muted-foreground mt-1">Chapter-wise MCQs with solutions →</p>
+            </Link>
+            <Link to="/jee-pyq" className="bg-secondary/30 border border-border rounded-lg p-4 hover:border-primary/30 transition-colors group">
+              <p className="font-display font-bold text-foreground text-sm group-hover:text-primary transition-colors">JEE Previous Year Questions</p>
+              <p className="text-xs text-muted-foreground mt-1">PYQs from JEE Main &amp; Advanced →</p>
+            </Link>
+            <Link to="/neet-practice" className="bg-secondary/30 border border-border rounded-lg p-4 hover:border-primary/30 transition-colors group">
+              <p className="font-display font-bold text-foreground text-sm group-hover:text-primary transition-colors">NEET Practice Questions</p>
+              <p className="text-xs text-muted-foreground mt-1">Biology, Physics, Chemistry MCQs →</p>
+            </Link>
+            <Link to="/jee-rank-predictor" className="bg-secondary/30 border border-border rounded-lg p-4 hover:border-primary/30 transition-colors group">
+              <p className="font-display font-bold text-foreground text-sm group-hover:text-primary transition-colors">JEE Rank Predictor</p>
+              <p className="text-xs text-muted-foreground mt-1">Estimate your JEE rank free →</p>
+            </Link>
+            <Link to="/mentors" className="bg-secondary/30 border border-border rounded-lg p-4 hover:border-primary/30 transition-colors group">
+              <p className="font-display font-bold text-foreground text-sm group-hover:text-primary transition-colors">Meet Our IIT &amp; AIIMS Mentors</p>
+              <p className="text-xs text-muted-foreground mt-1">Verified credentials &amp; profiles →</p>
+            </Link>
+            <Link to="/methodology" className="bg-secondary/30 border border-border rounded-lg p-4 hover:border-primary/30 transition-colors group">
+              <p className="font-display font-bold text-foreground text-sm group-hover:text-primary transition-colors">MindPeak Teaching Methodology</p>
+              <p className="text-xs text-muted-foreground mt-1">How our 1-on-1 sessions work →</p>
+            </Link>
+          </div>
         </section>
 
         {/* Final CTA */}

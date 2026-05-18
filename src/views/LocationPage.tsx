@@ -1096,11 +1096,23 @@ const LocationPage = () => {
         <section className="max-w-5xl mx-auto px-6 py-14">
           <h3 className="font-display font-bold text-foreground text-xl mb-6">Explore More</h3>
           <div className="flex flex-wrap gap-3">
-            <Link to="/" className="px-5 py-3 rounded-lg bg-card border border-border text-foreground text-sm hover:border-primary/40 transition-colors flex items-center gap-2">
-              <ArrowRight className="w-4 h-4 text-primary" /> Home
+            <Link to={`/${exam}-coaching`} className="px-5 py-3 rounded-lg bg-card border border-border text-foreground text-sm hover:border-primary/40 transition-colors flex items-center gap-2">
+              <ArrowRight className="w-4 h-4 text-primary" /> {examLabel} 1-on-1 Coaching Program
+            </Link>
+            <Link to={`/${exam}-practice`} className="px-5 py-3 rounded-lg bg-card border border-border text-foreground text-sm hover:border-primary/40 transition-colors flex items-center gap-2">
+              <ArrowRight className="w-4 h-4 text-primary" /> Free {examLabel} Practice Questions
+            </Link>
+            <Link to={`/${exam}-pyq`} className="px-5 py-3 rounded-lg bg-card border border-border text-foreground text-sm hover:border-primary/40 transition-colors flex items-center gap-2">
+              <ArrowRight className="w-4 h-4 text-primary" /> {examLabel} Previous Year Questions
+            </Link>
+            <Link to={`/${exam}-rank-predictor`} className="px-5 py-3 rounded-lg bg-card border border-border text-foreground text-sm hover:border-primary/40 transition-colors flex items-center gap-2">
+              <ArrowRight className="w-4 h-4 text-primary" /> Free {examLabel} Rank Predictor
+            </Link>
+            <Link to="/mentors" className="px-5 py-3 rounded-lg bg-card border border-border text-foreground text-sm hover:border-primary/40 transition-colors flex items-center gap-2">
+              <ArrowRight className="w-4 h-4 text-primary" /> Meet Our IIT &amp; AIIMS Mentors
             </Link>
             <Link to="/courses" className="px-5 py-3 rounded-lg bg-card border border-border text-foreground text-sm hover:border-primary/40 transition-colors flex items-center gap-2">
-              <ArrowRight className="w-4 h-4 text-primary" /> All Courses
+              <ArrowRight className="w-4 h-4 text-primary" /> All Coaching Programs &amp; Pricing
             </Link>
             {city.exams.includes(otherExam) && (
               <Link to={`/${otherExam}-coaching-in-${city.slug}`} className="px-5 py-3 rounded-lg bg-card border border-border text-foreground text-sm hover:border-primary/40 transition-colors flex items-center gap-2">

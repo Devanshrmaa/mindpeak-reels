@@ -174,14 +174,38 @@ const NEETPYQChapterHub = () => {
           </section>
         )}
 
-        <section className="mx-auto max-w-4xl px-4 pb-16">
+        <section className="mx-auto max-w-4xl px-4 pb-12">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-xl border border-green-500/20 bg-gradient-to-r from-green-500/5 to-green-500/10 p-8 text-center">
             <h2 className="font-display font-bold text-xl text-foreground mb-2">Need Help with {chapterName}?</h2>
-            <p className="text-muted-foreground text-sm mb-6 max-w-lg mx-auto">Get 1-on-1 doubt sessions and personalised PYQ analysis with MindPeak's NEET mentors.</p>
+            <p className="text-muted-foreground text-sm mb-6 max-w-lg mx-auto">Get 1-on-1 doubt sessions and personalised PYQ analysis with our <Link to={`/neet-${bank.slug}-coaching`} className="text-green-400 font-semibold hover:underline">NEET {subj} coaching mentors</Link>.</p>
             <button onClick={openDemoModal} className="inline-flex items-center gap-2 rounded-full bg-green-500 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-green-600 transition-colors">
               Book Free Demo Class <ArrowRight className="w-4 h-4" />
             </button>
           </motion.div>
+        </section>
+
+        {/* Cross-link cluster: subject coaching + practice + tools */}
+        <section className="mx-auto max-w-5xl px-4 pb-16">
+          <h2 className="font-display font-bold text-base text-foreground mb-4">Master {chapterName} — Coaching, Practice & Tools</h2>
+          <div className="flex flex-wrap gap-2">
+            {[
+              { to: `/neet-${bank.slug}-coaching`, label: `NEET ${subj} 1-on-1 Coaching` },
+              { to: '/neet-coaching', label: 'NEET Complete Coaching Program' },
+              { to: '/neet-practice', label: 'All NEET Practice Chapters' },
+              { to: '/neet-pyq', label: 'All NEET PYQ Chapters' },
+              { to: '/neet-rank-predictor', label: 'Free NEET Rank Predictor' },
+              { to: '/study-plan', label: 'Free NEET Study Plan Generator' },
+              { to: '/mentors', label: `Meet Our AIIMS-Alumni ${subj} Mentors` },
+            ].map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                className="px-4 py-2.5 rounded-full border border-border bg-card/50 text-foreground/80 text-xs hover:border-green-500/40 hover:text-foreground transition-colors flex items-center gap-1.5"
+              >
+                <ArrowRight className="w-3 h-3 text-green-400/60" /> {l.label}
+              </Link>
+            ))}
+          </div>
         </section>
 
         <PageFooter extra={`NEET ${subj} PYQ — ${chapterName} — ${chapter.questions.length} Questions.`} />
