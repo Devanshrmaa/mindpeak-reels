@@ -31,7 +31,7 @@
 |---|---|---|---|---|---|---|
 | jee coaching himachal pradesh | >10 | 🆕 | – | aspireiit.in/jee-coaching-himachal-pradesh | Local landing page | No |
 | neet coaching kangra | >10 | 🆕 | – | targetstudy.com (directory) | Directory listing | No |
-| online tuition himachal | >10 | 🆕 | – | shiksha.com/hpu (unrelated) | University page | No |
+| online tuition himachal pradesh | >10 | 🆕 | – | shiksha.com/hpu (unrelated) | University page | No |
 | best coaching institute himachal pradesh | >10 | 🆕 | – | onlinehimachal.com/top-10 | Listicle | No |
 
 ### LONG-TAIL KEYWORDS
