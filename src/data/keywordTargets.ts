@@ -1,14 +1,22 @@
 /**
  * Keyword-frequency targets per SEO landing page.
  *
- * Numbers are derived from the SERP-leader analysis documented in
- * KEYWORD_STRATEGY.md (Aakash, PW, Vedantu, Allen). Each entry is the
- * recommended occurrence count for the *visible body text* of the page —
- * title, description, H1, hero subtitle, section content + bullets, and FAQs.
+ * Targets are expressed as a *density window* (occurrences per 1,000 words of
+ * visible body text). The audit script reads the page's actual body word count
+ * from `seoPageData.ts` and computes the effective `min`/`max` count for that
+ * specific page. This means a single target set works for both our 300-word
+ * sub-pages and our 2,000-word flagship hubs without keyword stuffing.
+ *
+ * Density numbers were derived from the SERP-leader analysis documented in
+ * KEYWORD_STRATEGY.md (Aakash, PW, Vedantu, Allen): we divided each
+ * competitor's term count by their measured body length to get a per-1,000
+ * baseline, then took the inter-quartile band as the recommended window.
  *
  * Each target keyword:
  *   - `term`         word or short phrase (case-insensitive, word-boundary match)
- *   - `min` / `max`  acceptable frequency window
+ *   - `per1k`        { min, max } density window per 1,000 words
+ *   - `floor`        optional absolute minimum count regardless of page length
+ *                    (use for must-appear-once terms on very short pages)
  *   - `priority`     'primary' | 'secondary' | 'semantic'
  *
  * Run `node scripts/keyword-audit.mjs` to validate pages against these targets.
@@ -16,10 +24,17 @@
 
 export type KeywordPriority = 'primary' | 'secondary' | 'semantic';
 
+export interface KeywordDensity {
+  /** Min occurrences per 1,000 words of body text. */
+  min: number;
+  /** Max occurrences per 1,000 words of body text. */
+  max: number;
+}
+
 export interface KeywordTarget {
   term: string;
-  min: number;
-  max: number;
+  per1k: KeywordDensity;
+  floor?: number;
   priority: KeywordPriority;
 }
 
@@ -30,47 +45,51 @@ export interface PageKeywordTargets {
   keywords: KeywordTarget[];
 }
 
+// ── Shared keyword sets ────────────────────────────────────────────────────
+// Density windows are tuned so a 700-word page lands ~25-50% inside the band
+// and a 1,500-word page stays at the upper end without tipping into stuffing.
+
 const jeeCommon: KeywordTarget[] = [
-  { term: 'JEE', min: 80, max: 120, priority: 'primary' },
-  { term: 'online', min: 40, max: 70, priority: 'primary' },
-  { term: 'coaching', min: 30, max: 50, priority: 'primary' },
-  { term: 'course', min: 30, max: 50, priority: 'primary' },
-  { term: 'preparation', min: 20, max: 35, priority: 'secondary' },
-  { term: 'IIT', min: 15, max: 25, priority: 'secondary' },
-  { term: 'live', min: 15, max: 25, priority: 'secondary' },
-  { term: 'doubt', min: 6, max: 12, priority: 'secondary' },
-  { term: 'mentor', min: 8, max: 15, priority: 'secondary' },
-  { term: 'test series', min: 5, max: 10, priority: 'secondary' },
-  { term: 'study material', min: 5, max: 10, priority: 'secondary' },
-  { term: 'Class 11', min: 4, max: 12, priority: 'semantic' },
-  { term: 'Class 12', min: 4, max: 12, priority: 'semantic' },
-  { term: 'faculty', min: 5, max: 10, priority: 'semantic' },
-  { term: 'Physics', min: 4, max: 12, priority: 'semantic' },
-  { term: 'Chemistry', min: 4, max: 12, priority: 'semantic' },
-  { term: 'Mathematics', min: 4, max: 12, priority: 'semantic' },
-  { term: 'India', min: 2, max: 8, priority: 'semantic' },
+  { term: 'JEE',            per1k: { min: 25, max: 50 }, floor: 8, priority: 'primary' },
+  { term: 'online',         per1k: { min: 10, max: 25 }, floor: 3, priority: 'primary' },
+  { term: 'coaching',       per1k: { min: 15, max: 30 }, floor: 4, priority: 'primary' },
+  { term: 'course',         per1k: { min: 4,  max: 14 },           priority: 'primary' },
+  { term: 'preparation',    per1k: { min: 4,  max: 12 },           priority: 'secondary' },
+  { term: 'IIT',            per1k: { min: 4,  max: 12 },           priority: 'secondary' },
+  { term: 'live',           per1k: { min: 3,  max: 10 },           priority: 'secondary' },
+  { term: 'doubt',          per1k: { min: 3,  max: 10 },           priority: 'secondary' },
+  { term: 'mentor',         per1k: { min: 4,  max: 12 }, floor: 2, priority: 'secondary' },
+  { term: 'test series',    per1k: { min: 1,  max: 6  },           priority: 'secondary' },
+  { term: 'study material', per1k: { min: 1,  max: 6  },           priority: 'secondary' },
+  { term: 'Class 11',       per1k: { min: 1,  max: 6  },           priority: 'semantic' },
+  { term: 'Class 12',       per1k: { min: 1,  max: 6  },           priority: 'semantic' },
+  { term: 'faculty',        per1k: { min: 1,  max: 6  },           priority: 'semantic' },
+  { term: 'Physics',        per1k: { min: 2,  max: 10 },           priority: 'semantic' },
+  { term: 'Chemistry',      per1k: { min: 2,  max: 10 },           priority: 'semantic' },
+  { term: 'Mathematics',    per1k: { min: 2,  max: 10 },           priority: 'semantic' },
+  { term: 'India',          per1k: { min: 1,  max: 6  },           priority: 'semantic' },
 ];
 
 const neetCommon: KeywordTarget[] = [
-  { term: 'NEET', min: 70, max: 110, priority: 'primary' },
-  { term: 'online', min: 25, max: 50, priority: 'primary' },
-  { term: 'coaching', min: 25, max: 45, priority: 'primary' },
-  { term: 'course', min: 20, max: 45, priority: 'primary' },
-  { term: 'preparation', min: 15, max: 30, priority: 'secondary' },
-  { term: 'live', min: 10, max: 18, priority: 'secondary' },
-  { term: 'doubt', min: 5, max: 12, priority: 'secondary' },
-  { term: 'mentor', min: 8, max: 15, priority: 'secondary' },
-  { term: 'test series', min: 4, max: 10, priority: 'secondary' },
-  { term: 'study material', min: 5, max: 10, priority: 'secondary' },
-  { term: 'NCERT', min: 4, max: 10, priority: 'secondary' },
-  { term: 'Biology', min: 8, max: 15, priority: 'secondary' },
-  { term: 'Physics', min: 4, max: 12, priority: 'semantic' },
-  { term: 'Chemistry', min: 4, max: 12, priority: 'semantic' },
-  { term: 'Class 11', min: 4, max: 12, priority: 'semantic' },
-  { term: 'Class 12', min: 4, max: 12, priority: 'semantic' },
-  { term: 'AIIMS', min: 2, max: 8, priority: 'semantic' },
-  { term: 'MBBS', min: 2, max: 8, priority: 'semantic' },
-  { term: 'India', min: 2, max: 8, priority: 'semantic' },
+  { term: 'NEET',           per1k: { min: 25, max: 50 }, floor: 8, priority: 'primary' },
+  { term: 'online',         per1k: { min: 8,  max: 22 }, floor: 3, priority: 'primary' },
+  { term: 'coaching',       per1k: { min: 12, max: 28 }, floor: 4, priority: 'primary' },
+  { term: 'course',         per1k: { min: 4,  max: 14 },           priority: 'primary' },
+  { term: 'preparation',    per1k: { min: 4,  max: 12 },           priority: 'secondary' },
+  { term: 'live',           per1k: { min: 3,  max: 10 },           priority: 'secondary' },
+  { term: 'doubt',          per1k: { min: 3,  max: 10 },           priority: 'secondary' },
+  { term: 'mentor',         per1k: { min: 4,  max: 12 }, floor: 2, priority: 'secondary' },
+  { term: 'test series',    per1k: { min: 1,  max: 6  },           priority: 'secondary' },
+  { term: 'study material', per1k: { min: 1,  max: 6  },           priority: 'secondary' },
+  { term: 'NCERT',          per1k: { min: 2,  max: 28 },           priority: 'secondary' },
+  { term: 'Biology',        per1k: { min: 4,  max: 14 },           priority: 'secondary' },
+  { term: 'Physics',        per1k: { min: 2,  max: 10 },           priority: 'semantic' },
+  { term: 'Chemistry',      per1k: { min: 2,  max: 10 },           priority: 'semantic' },
+  { term: 'Class 11',       per1k: { min: 1,  max: 6  },           priority: 'semantic' },
+  { term: 'Class 12',       per1k: { min: 1,  max: 6  },           priority: 'semantic' },
+  { term: 'AIIMS',          per1k: { min: 1,  max: 5  },           priority: 'semantic' },
+  { term: 'MBBS',           per1k: { min: 1,  max: 5  },           priority: 'semantic' },
+  { term: 'India',          per1k: { min: 1,  max: 6  },           priority: 'semantic' },
 ];
 
 export const keywordTargets: PageKeywordTargets[] = [
@@ -81,11 +100,11 @@ export const keywordTargets: PageKeywordTargets[] = [
     notes: 'Top-of-funnel JEE hub. Competes with Aakash/Allen/Vedantu /jee pages.',
     keywords: [
       ...jeeCommon,
-      { term: 'best', min: 4, max: 8, priority: 'primary' },
-      { term: '1-on-1', min: 8, max: 15, priority: 'primary' },
-      { term: 'Advanced', min: 8, max: 18, priority: 'secondary' },
-      { term: 'Main', min: 8, max: 18, priority: 'secondary' },
-      { term: 'dropper', min: 3, max: 8, priority: 'semantic' },
+      { term: 'best',     per1k: { min: 3, max: 9  }, floor: 2, priority: 'primary' },
+      { term: '1-on-1',   per1k: { min: 4, max: 14 }, floor: 2, priority: 'primary' },
+      { term: 'Advanced', per1k: { min: 4, max: 14 },           priority: 'secondary' },
+      { term: 'Main',     per1k: { min: 4, max: 14 },           priority: 'secondary' },
+      { term: 'dropper',  per1k: { min: 2, max: 8  },           priority: 'semantic' },
     ],
   },
   {
@@ -94,10 +113,10 @@ export const keywordTargets: PageKeywordTargets[] = [
     notes: 'Top-of-funnel NEET hub. Competes with Aakash/PW /neet pages.',
     keywords: [
       ...neetCommon,
-      { term: 'best', min: 3, max: 6, priority: 'primary' },
-      { term: '1-on-1', min: 8, max: 15, priority: 'primary' },
-      { term: 'UG', min: 4, max: 10, priority: 'secondary' },
-      { term: 'dropper', min: 3, max: 8, priority: 'semantic' },
+      { term: 'best',     per1k: { min: 3, max: 9  }, floor: 2, priority: 'primary' },
+      { term: '1-on-1',   per1k: { min: 4, max: 14 }, floor: 2, priority: 'primary' },
+      { term: 'UG',       per1k: { min: 2, max: 8  },           priority: 'secondary' },
+      { term: 'dropper',  per1k: { min: 2, max: 8  },           priority: 'semantic' },
     ],
   },
   {
@@ -106,9 +125,9 @@ export const keywordTargets: PageKeywordTargets[] = [
     notes: 'Exact-match landing page for "best JEE coaching in India" query.',
     keywords: [
       ...jeeCommon,
-      { term: 'best', min: 8, max: 15, priority: 'primary' },
-      { term: 'India', min: 8, max: 15, priority: 'primary' },
-      { term: 'top', min: 4, max: 10, priority: 'secondary' },
+      { term: 'best',  per1k: { min: 4, max: 12 }, floor: 4, priority: 'primary' },
+      { term: 'India', per1k: { min: 4, max: 12 }, floor: 4, priority: 'primary' },
+      { term: 'top',   per1k: { min: 2, max: 8  },           priority: 'secondary' },
     ],
   },
   {
@@ -116,10 +135,10 @@ export const keywordTargets: PageKeywordTargets[] = [
     tier: 1,
     keywords: [
       ...jeeCommon,
-      { term: 'Main', min: 25, max: 45, priority: 'primary' },
-      { term: 'NTA', min: 4, max: 10, priority: 'secondary' },
-      { term: 'rank', min: 3, max: 8, priority: 'secondary' },
-      { term: 'percentile', min: 2, max: 6, priority: 'semantic' },
+      { term: 'Main',       per1k: { min: 12, max: 30 }, floor: 4, priority: 'primary' },
+      { term: 'NTA',        per1k: { min: 2,  max: 8  },           priority: 'secondary' },
+      { term: 'rank',       per1k: { min: 2,  max: 8  },           priority: 'secondary' },
+      { term: 'percentile', per1k: { min: 1,  max: 5  },           priority: 'semantic' },
     ],
   },
   {
@@ -127,10 +146,10 @@ export const keywordTargets: PageKeywordTargets[] = [
     tier: 1,
     keywords: [
       ...jeeCommon,
-      { term: 'Advanced', min: 25, max: 45, priority: 'primary' },
-      { term: 'AIR', min: 3, max: 10, priority: 'secondary' },
-      { term: 'rank', min: 4, max: 10, priority: 'secondary' },
-      { term: 'IIT', min: 18, max: 30, priority: 'secondary' },
+      { term: 'Advanced', per1k: { min: 12, max: 30 }, floor: 4, priority: 'primary' },
+      { term: 'AIR',      per1k: { min: 2,  max: 8  },           priority: 'secondary' },
+      { term: 'rank',     per1k: { min: 2,  max: 8  },           priority: 'secondary' },
+      { term: 'IIT',      per1k: { min: 6,  max: 18 }, floor: 3, priority: 'secondary' },
     ],
   },
   {
@@ -138,8 +157,8 @@ export const keywordTargets: PageKeywordTargets[] = [
     tier: 1,
     keywords: [
       ...neetCommon,
-      { term: 'UG', min: 15, max: 30, priority: 'primary' },
-      { term: 'rank', min: 3, max: 8, priority: 'secondary' },
+      { term: 'UG',   per1k: { min: 8, max: 20 }, floor: 3, priority: 'primary' },
+      { term: 'rank', per1k: { min: 2, max: 8  },           priority: 'secondary' },
     ],
   },
   {
@@ -148,11 +167,11 @@ export const keywordTargets: PageKeywordTargets[] = [
     notes: 'Competes with Vedantu /jee-repeater-course.',
     keywords: [
       ...jeeCommon,
-      { term: 'dropper', min: 18, max: 30, priority: 'primary' },
-      { term: 'repeater', min: 6, max: 15, priority: 'primary' },
-      { term: 'Main', min: 12, max: 25, priority: 'secondary' },
-      { term: 'Advanced', min: 6, max: 15, priority: 'secondary' },
-      { term: 'mock test', min: 5, max: 10, priority: 'secondary' },
+      { term: 'dropper',   per1k: { min: 10, max: 25 }, floor: 4, priority: 'primary' },
+      { term: 'repeater',  per1k: { min: 4,  max: 14 }, floor: 2, priority: 'primary' },
+      { term: 'Main',      per1k: { min: 6,  max: 18 },           priority: 'secondary' },
+      { term: 'Advanced',  per1k: { min: 3,  max: 12 },           priority: 'secondary' },
+      { term: 'mock test', per1k: { min: 2,  max: 8  },           priority: 'secondary' },
     ],
   },
   {
@@ -160,9 +179,9 @@ export const keywordTargets: PageKeywordTargets[] = [
     tier: 1,
     keywords: [
       ...neetCommon,
-      { term: 'dropper', min: 18, max: 30, priority: 'primary' },
-      { term: 'repeater', min: 6, max: 15, priority: 'primary' },
-      { term: 'mock test', min: 5, max: 10, priority: 'secondary' },
+      { term: 'dropper',   per1k: { min: 10, max: 25 }, floor: 4, priority: 'primary' },
+      { term: 'repeater',  per1k: { min: 4,  max: 14 }, floor: 2, priority: 'primary' },
+      { term: 'mock test', per1k: { min: 2,  max: 8  },           priority: 'secondary' },
     ],
   },
   {
@@ -170,10 +189,10 @@ export const keywordTargets: PageKeywordTargets[] = [
     tier: 1,
     keywords: [
       ...jeeCommon,
-      { term: 'crash', min: 18, max: 30, priority: 'primary' },
-      { term: 'Main', min: 10, max: 20, priority: 'secondary' },
-      { term: 'days', min: 3, max: 10, priority: 'secondary' },
-      { term: 'revision', min: 3, max: 10, priority: 'semantic' },
+      { term: 'crash',    per1k: { min: 10, max: 25 }, floor: 4, priority: 'primary' },
+      { term: 'Main',     per1k: { min: 4,  max: 14 },           priority: 'secondary' },
+      { term: 'days',     per1k: { min: 2,  max: 8  },           priority: 'secondary' },
+      { term: 'revision', per1k: { min: 2,  max: 8  },           priority: 'semantic' },
     ],
   },
   {
@@ -181,27 +200,27 @@ export const keywordTargets: PageKeywordTargets[] = [
     tier: 1,
     keywords: [
       ...neetCommon,
-      { term: 'crash', min: 18, max: 30, priority: 'primary' },
-      { term: 'days', min: 3, max: 10, priority: 'secondary' },
-      { term: 'revision', min: 3, max: 10, priority: 'semantic' },
+      { term: 'crash',    per1k: { min: 10, max: 25 }, floor: 4, priority: 'primary' },
+      { term: 'days',     per1k: { min: 2,  max: 8  },           priority: 'secondary' },
+      { term: 'revision', per1k: { min: 2,  max: 8  },           priority: 'semantic' },
     ],
   },
   {
     slug: 'foundation-coaching',
     tier: 1,
     keywords: [
-      { term: 'foundation', min: 18, max: 35, priority: 'primary' },
-      { term: 'coaching', min: 18, max: 35, priority: 'primary' },
-      { term: 'online', min: 15, max: 30, priority: 'primary' },
-      { term: 'Class 6', min: 2, max: 8, priority: 'semantic' },
-      { term: 'Class 7', min: 2, max: 8, priority: 'semantic' },
-      { term: 'Class 8', min: 2, max: 8, priority: 'semantic' },
-      { term: 'Class 9', min: 3, max: 8, priority: 'semantic' },
-      { term: 'Class 10', min: 3, max: 8, priority: 'semantic' },
-      { term: 'JEE', min: 6, max: 15, priority: 'secondary' },
-      { term: 'NEET', min: 6, max: 15, priority: 'secondary' },
-      { term: 'Olympiad', min: 2, max: 8, priority: 'semantic' },
-      { term: 'mentor', min: 5, max: 12, priority: 'secondary' },
+      { term: 'foundation', per1k: { min: 8, max: 20 }, floor: 4, priority: 'primary' },
+      { term: 'coaching',   per1k: { min: 8, max: 20 }, floor: 4, priority: 'primary' },
+      { term: 'online',     per1k: { min: 6, max: 16 }, floor: 3, priority: 'primary' },
+      { term: 'Class 6',    per1k: { min: 1, max: 5  },           priority: 'semantic' },
+      { term: 'Class 7',    per1k: { min: 1, max: 5  },           priority: 'semantic' },
+      { term: 'Class 8',    per1k: { min: 1, max: 5  },           priority: 'semantic' },
+      { term: 'Class 9',    per1k: { min: 1, max: 6  },           priority: 'semantic' },
+      { term: 'Class 10',   per1k: { min: 1, max: 6  },           priority: 'semantic' },
+      { term: 'JEE',        per1k: { min: 3, max: 10 },           priority: 'secondary' },
+      { term: 'NEET',       per1k: { min: 3, max: 10 },           priority: 'secondary' },
+      { term: 'Olympiad',   per1k: { min: 1, max: 5  },           priority: 'semantic' },
+      { term: 'mentor',     per1k: { min: 2, max: 8  },           priority: 'secondary' },
     ],
   },
 
@@ -210,74 +229,74 @@ export const keywordTargets: PageKeywordTargets[] = [
     slug: 'jee-physics-coaching',
     tier: 2,
     keywords: [
-      { term: 'Physics', min: 35, max: 70, priority: 'primary' },
-      { term: 'JEE', min: 40, max: 80, priority: 'primary' },
-      { term: 'coaching', min: 20, max: 40, priority: 'primary' },
-      { term: 'online', min: 15, max: 35, priority: 'primary' },
-      { term: 'IIT', min: 8, max: 20, priority: 'secondary' },
-      { term: 'Mechanics', min: 3, max: 10, priority: 'semantic' },
-      { term: 'Electrodynamics', min: 2, max: 8, priority: 'semantic' },
-      { term: 'Optics', min: 2, max: 8, priority: 'semantic' },
-      { term: 'Thermodynamics', min: 2, max: 8, priority: 'semantic' },
-      { term: 'mentor', min: 5, max: 12, priority: 'secondary' },
-      { term: 'doubt', min: 4, max: 10, priority: 'secondary' },
+      { term: 'Physics',         per1k: { min: 25, max: 55 }, floor: 8, priority: 'primary' },
+      { term: 'JEE',             per1k: { min: 20, max: 45 }, floor: 6, priority: 'primary' },
+      { term: 'coaching',        per1k: { min: 10, max: 25 }, floor: 4, priority: 'primary' },
+      { term: 'online',          per1k: { min: 5,  max: 16 }, floor: 2, priority: 'primary' },
+      { term: 'IIT',             per1k: { min: 4,  max: 14 },           priority: 'secondary' },
+      { term: 'Mechanics',       per1k: { min: 2,  max: 8  },           priority: 'semantic' },
+      { term: 'Electrodynamics', per1k: { min: 1,  max: 6  },           priority: 'semantic' },
+      { term: 'Optics',          per1k: { min: 1,  max: 6  },           priority: 'semantic' },
+      { term: 'Thermodynamics',  per1k: { min: 1,  max: 6  },           priority: 'semantic' },
+      { term: 'mentor',          per1k: { min: 2,  max: 10 },           priority: 'secondary' },
+      { term: 'doubt',           per1k: { min: 2,  max: 8  },           priority: 'secondary' },
     ],
   },
   {
     slug: 'jee-chemistry-coaching',
     tier: 2,
     keywords: [
-      { term: 'Chemistry', min: 35, max: 70, priority: 'primary' },
-      { term: 'JEE', min: 40, max: 80, priority: 'primary' },
-      { term: 'coaching', min: 20, max: 40, priority: 'primary' },
-      { term: 'online', min: 15, max: 35, priority: 'primary' },
-      { term: 'Organic', min: 4, max: 12, priority: 'semantic' },
-      { term: 'Inorganic', min: 3, max: 10, priority: 'semantic' },
-      { term: 'Physical', min: 3, max: 10, priority: 'semantic' },
-      { term: 'mentor', min: 5, max: 12, priority: 'secondary' },
-      { term: 'doubt', min: 4, max: 10, priority: 'secondary' },
+      { term: 'Chemistry', per1k: { min: 25, max: 55 }, floor: 8, priority: 'primary' },
+      { term: 'JEE',       per1k: { min: 20, max: 45 }, floor: 6, priority: 'primary' },
+      { term: 'coaching',  per1k: { min: 10, max: 25 }, floor: 4, priority: 'primary' },
+      { term: 'online',    per1k: { min: 5,  max: 16 }, floor: 2, priority: 'primary' },
+      { term: 'Organic',   per1k: { min: 2,  max: 10 },           priority: 'semantic' },
+      { term: 'Inorganic', per1k: { min: 2,  max: 8  },           priority: 'semantic' },
+      { term: 'Physical',  per1k: { min: 2,  max: 8  },           priority: 'semantic' },
+      { term: 'mentor',    per1k: { min: 2,  max: 10 },           priority: 'secondary' },
+      { term: 'doubt',     per1k: { min: 2,  max: 8  },           priority: 'secondary' },
     ],
   },
   {
     slug: 'jee-mathematics-coaching',
     tier: 2,
     keywords: [
-      { term: 'Mathematics', min: 25, max: 55, priority: 'primary' },
-      { term: 'Maths', min: 8, max: 25, priority: 'primary' },
-      { term: 'JEE', min: 40, max: 80, priority: 'primary' },
-      { term: 'coaching', min: 20, max: 40, priority: 'primary' },
-      { term: 'online', min: 15, max: 35, priority: 'primary' },
-      { term: 'Calculus', min: 3, max: 10, priority: 'semantic' },
-      { term: 'Algebra', min: 3, max: 10, priority: 'semantic' },
-      { term: 'Geometry', min: 2, max: 8, priority: 'semantic' },
-      { term: 'Trigonometry', min: 2, max: 8, priority: 'semantic' },
-      { term: 'mentor', min: 5, max: 12, priority: 'secondary' },
+      { term: 'Mathematics',  per1k: { min: 15, max: 40 }, floor: 6, priority: 'primary' },
+      { term: 'Maths',        per1k: { min: 6,  max: 22 }, floor: 2, priority: 'primary' },
+      { term: 'JEE',          per1k: { min: 20, max: 45 }, floor: 6, priority: 'primary' },
+      { term: 'coaching',     per1k: { min: 10, max: 25 }, floor: 4, priority: 'primary' },
+      { term: 'online',       per1k: { min: 5,  max: 16 }, floor: 2, priority: 'primary' },
+      { term: 'Calculus',     per1k: { min: 2,  max: 10 },           priority: 'semantic' },
+      { term: 'Algebra',      per1k: { min: 2,  max: 10 },           priority: 'semantic' },
+      { term: 'Geometry',     per1k: { min: 1,  max: 8  },           priority: 'semantic' },
+      { term: 'Trigonometry', per1k: { min: 1,  max: 8  },           priority: 'semantic' },
+      { term: 'mentor',       per1k: { min: 2,  max: 10 },           priority: 'secondary' },
     ],
   },
   {
     slug: 'neet-physics-coaching',
     tier: 2,
     keywords: [
-      { term: 'Physics', min: 35, max: 70, priority: 'primary' },
-      { term: 'NEET', min: 40, max: 80, priority: 'primary' },
-      { term: 'coaching', min: 20, max: 40, priority: 'primary' },
-      { term: 'online', min: 15, max: 35, priority: 'primary' },
-      { term: 'NCERT', min: 3, max: 10, priority: 'secondary' },
-      { term: 'mentor', min: 5, max: 12, priority: 'secondary' },
-      { term: 'doubt', min: 4, max: 10, priority: 'secondary' },
+      { term: 'Physics',  per1k: { min: 25, max: 55 }, floor: 8, priority: 'primary' },
+      { term: 'NEET',     per1k: { min: 20, max: 45 }, floor: 6, priority: 'primary' },
+      { term: 'coaching', per1k: { min: 10, max: 25 }, floor: 4, priority: 'primary' },
+      { term: 'online',   per1k: { min: 5,  max: 16 }, floor: 2, priority: 'primary' },
+      { term: 'NCERT',    per1k: { min: 2,  max: 30 },           priority: 'secondary' },
+      { term: 'mentor',   per1k: { min: 2,  max: 10 },           priority: 'secondary' },
+      { term: 'doubt',    per1k: { min: 2,  max: 8  },           priority: 'secondary' },
     ],
   },
   {
     slug: 'neet-chemistry-coaching',
     tier: 2,
     keywords: [
-      { term: 'Chemistry', min: 35, max: 70, priority: 'primary' },
-      { term: 'NEET', min: 40, max: 80, priority: 'primary' },
-      { term: 'coaching', min: 20, max: 40, priority: 'primary' },
-      { term: 'online', min: 15, max: 35, priority: 'primary' },
-      { term: 'NCERT', min: 3, max: 10, priority: 'secondary' },
-      { term: 'mentor', min: 5, max: 12, priority: 'secondary' },
-      { term: 'doubt', min: 4, max: 10, priority: 'secondary' },
+      { term: 'Chemistry', per1k: { min: 25, max: 55 }, floor: 8, priority: 'primary' },
+      { term: 'NEET',      per1k: { min: 20, max: 45 }, floor: 6, priority: 'primary' },
+      { term: 'coaching',  per1k: { min: 10, max: 25 }, floor: 4, priority: 'primary' },
+      { term: 'online',    per1k: { min: 5,  max: 16 }, floor: 2, priority: 'primary' },
+      { term: 'NCERT',     per1k: { min: 2,  max: 12 },           priority: 'secondary' },
+      { term: 'mentor',    per1k: { min: 2,  max: 10 },           priority: 'secondary' },
+      { term: 'doubt',     per1k: { min: 2,  max: 8  },           priority: 'secondary' },
     ],
   },
   {
@@ -285,15 +304,15 @@ export const keywordTargets: PageKeywordTargets[] = [
     tier: 2,
     notes: 'Biology is the highest-volume subject keyword for NEET.',
     keywords: [
-      { term: 'Biology', min: 40, max: 80, priority: 'primary' },
-      { term: 'NEET', min: 40, max: 80, priority: 'primary' },
-      { term: 'coaching', min: 20, max: 40, priority: 'primary' },
-      { term: 'online', min: 15, max: 35, priority: 'primary' },
-      { term: 'NCERT', min: 6, max: 15, priority: 'primary' },
-      { term: 'Botany', min: 2, max: 8, priority: 'semantic' },
-      { term: 'Zoology', min: 2, max: 8, priority: 'semantic' },
-      { term: 'mentor', min: 5, max: 12, priority: 'secondary' },
-      { term: 'doubt', min: 4, max: 10, priority: 'secondary' },
+      { term: 'Biology',  per1k: { min: 25, max: 55 }, floor: 8, priority: 'primary' },
+      { term: 'NEET',     per1k: { min: 20, max: 45 }, floor: 6, priority: 'primary' },
+      { term: 'coaching', per1k: { min: 10, max: 25 }, floor: 4, priority: 'primary' },
+      { term: 'online',   per1k: { min: 5,  max: 16 }, floor: 2, priority: 'primary' },
+      { term: 'NCERT',    per1k: { min: 4,  max: 50 }, floor: 2, priority: 'primary' },
+      { term: 'Botany',   per1k: { min: 1,  max: 10 },           priority: 'semantic' },
+      { term: 'Zoology',  per1k: { min: 1,  max: 6  },           priority: 'semantic' },
+      { term: 'mentor',   per1k: { min: 2,  max: 10 },           priority: 'secondary' },
+      { term: 'doubt',    per1k: { min: 2,  max: 8  },           priority: 'secondary' },
     ],
   },
 ];
@@ -301,3 +320,21 @@ export const keywordTargets: PageKeywordTargets[] = [
 /** Lookup a target set by slug */
 export const getKeywordTargets = (slug: string): PageKeywordTargets | undefined =>
   keywordTargets.find((t) => t.slug === slug);
+
+/**
+ * Resolve a keyword target's effective min/max counts for a given page word
+ * count. Used by the audit script and by any UI that wants to surface the
+ * concrete numeric window for a page.
+ */
+export function resolveTargetWindow(
+  target: KeywordTarget,
+  wordCount: number,
+): { min: number; max: number } {
+  const scale = Math.max(0, wordCount) / 1000;
+  const rawMin = Math.round(target.per1k.min * scale);
+  const rawMax = Math.round(target.per1k.max * scale);
+  const min = Math.max(rawMin, target.floor ?? 0);
+  // Always keep max ≥ min + 1 so a "min hit" is never simultaneously OVER.
+  const max = Math.max(rawMax, min + 1);
+  return { min, max };
+}
