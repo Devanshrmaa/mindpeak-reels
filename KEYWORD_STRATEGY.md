@@ -5,7 +5,7 @@
 > currently top-ranking pages and translates it into **on-page targets** for
 > every major MindPeak course page.
 
-Branch: `claude/keyword-ranking-analysis-f32D5`
+Branch: `claude/seo-keyword-ranking-audit-3j81G`
 Last reviewed: 2026-05-19
 
 ---
@@ -242,20 +242,49 @@ Audit findings vs the top SERPs for each cluster:
 
 ## 7. Programmatic targets
 
-The per-slug numeric keyword targets are encoded in
-`src/data/keywordTargets.ts` and validated by `scripts/keyword-audit.mjs`.
-Run the audit any time content changes:
+Per-slug keyword targets are encoded in `src/data/keywordTargets.ts` and
+validated by `scripts/keyword-audit.mjs`.
 
-```bash
-node scripts/keyword-audit.mjs           # prints a gap report
-node scripts/keyword-audit.mjs --json    # machine-readable output
-node scripts/keyword-audit.mjs jee-coaching neet-coaching   # specific slugs
+### Density, not absolute counts
+
+Competitor pages are 3-6k words; our SEO pages are typically 300-2,300
+words. Copying competitor *absolute* counts (e.g. "JEE × 89") onto a
+700-word page is keyword stuffing. Targets are therefore stored as a
+**density window per 1,000 words**:
+
+```ts
+{ term: 'JEE', per1k: { min: 25, max: 50 }, floor: 8, priority: 'primary' }
 ```
 
-The audit script reads `seoPageData.ts`, concatenates each page's title,
-description, H1, hero subtitle, section content, bullets, and FAQs into a
-single text blob, then counts each target keyword (case-insensitive, word
-boundary) and reports under-shoots, over-shoots, and missing terms.
+For each page the audit resolves the window against the page's actual
+body word count:
+
+```
+min = max(round(per1k.min × wordCount / 1000), floor ?? 0)
+max = max(round(per1k.max × wordCount / 1000), min + 1)
+```
+
+`floor` guarantees a term appears at least N times even on very short
+pages (e.g. brand-level "JEE" must appear ≥ 8× on any JEE page, regardless
+of length).
+
+### Running the audit
+
+```bash
+node scripts/keyword-audit.mjs                   # all configured pages, table output
+node scripts/keyword-audit.mjs --json            # machine-readable output
+node scripts/keyword-audit.mjs --no-exit         # don't exit non-zero on primary misses
+node scripts/keyword-audit.mjs jee-coaching      # filter to specific slugs
+```
+
+The audit reads `seoPageData.ts`, walks each page object with brace-balanced
+parsing, concatenates every visible-text field (title, description, h1,
+heroSubtitle, section content, bullets, FAQ q/a) into a single blob, then
+counts each target keyword (case-insensitive, word-boundary) and reports
+UNDER / OK / OVER plus the measured `per1k` density.
+
+By default the script exits non-zero if any **primary** keyword is under
+target — suitable for CI. Pass `--no-exit` for local diagnostic runs.
 
 ---
 
