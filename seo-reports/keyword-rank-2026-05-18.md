@@ -25,14 +25,20 @@
 | jee main 2027 preparation | >10 | 🆕 | – | pw.live/iit-jee/batches | Course/batch page | Yes |
 | neet 2027 preparation | >10 | 🆕 | – | pw.live/neet/batches | Course/batch page | Yes |
 
-### LOCAL KEYWORDS
+### LOCAL / CITY KEYWORDS
+
+Pan-India coverage: 6 keyword variants across 5 tier-1/tier-2 metros where MindPeak already has landing pages (Delhi, Mumbai, Bangalore, Kota, Pune) + 2 Himachal Pradesh keywords (home-state differentiator cluster).
 
 | Keyword | Position | Change | Our URL | #1 Competitor | #1 Format | AI Overview? |
 |---|---|---|---|---|---|---|
+| jee coaching in delhi | >10 | 🆕 | /jee-coaching-in-delhi (not surfaced) | aakashdigital.com/delhi | Centre/listicle | Yes |
+| neet coaching in delhi | >10 | 🆕 | /neet-coaching-in-delhi (not surfaced) | allen.in/delhi | Centre page | Yes |
+| jee coaching in mumbai | >10 | 🆕 | /jee-coaching-in-mumbai (not surfaced) | iitiansprime.in | Local institute | No |
+| neet coaching in bangalore | >10 | 🆕 | /neet-coaching-in-bangalore (not surfaced) | deeksha.edu.in | Local institute | No |
+| online jee coaching kota | >10 | 🆕 | – | allen.in/kota | Brand page | Yes |
+| neet coaching in pune | >10 | 🆕 | /neet-coaching-in-pune (not surfaced) | aakashdigital.com/pune | Centre page | No |
 | jee coaching himachal pradesh | >10 | 🆕 | – | aspireiit.in/jee-coaching-himachal-pradesh | Local landing page | No |
-| neet coaching kangra | >10 | 🆕 | – | targetstudy.com (directory) | Directory listing | No |
-| online tuition himachal | >10 | 🆕 | – | shiksha.com/hpu (unrelated) | University page | No |
-| best coaching institute himachal pradesh | >10 | 🆕 | – | onlinehimachal.com/top-10 | Listicle | No |
+| online tuition himachal pradesh | >10 | 🆕 | – | shiksha.com/hpu (unrelated) | University page | No |
 
 ### LONG-TAIL KEYWORDS
 
@@ -90,14 +96,14 @@
 
 ---
 
-### 🥈 #2 — "neet coaching kangra" (Local dominance, ~2–4 weeks)
-**Why it's good:** Competitors are small local institutes (Chanakya Career Institute, Vision Academy) and one Aakash center. MindPeak's online-only model is a unique differentiator here — no need to commute to Dharamshala.
+### 🥈 #2 — Tier-2 metro push: Jaipur / Indore / Chandigarh / Lucknow (Volume play, ~3–6 weeks)
+**Why it's good:** MindPeak already has live tier-2 city pages for Jaipur, Indore, Chandigarh, Nagpur, Lucknow, Patna, Bhopal, Surat (visible in `public/sitemaps/locations/tier2/sitemap.xml`). Unlike tier-1 metros (Delhi, Mumbai, Bangalore) where Aakash, Allen, Vedantu, and Unacademy own the SERP, tier-2 SERPs are dominated by smaller local institutes (winnable) and aggregator listicles (linkable). National search volume across these 8 cities aggregates to ~25k+ combined monthly searches for "jee/neet coaching in [city]" — far bigger than any single HP keyword.
 
 **Action:**
-- Create `/app/neet-coaching-in-kangra/page.tsx` (or confirm if city data already includes it)
-- Title: `Best NEET Coaching in Kangra 2026 — Online 1-on-1 | MindPeak Institute`
-- Content: Why online beats offline in Kangra (no commute from Palampur/Baijnath), mention Aakash's Dharamshala center as an option but highlight MindPeak's personalized model
-- Add `neet coaching kangra` and `jee coaching kangra` to the page's keyword targets
+- Audit the 8 tier-2 city pages: confirm each has a unique H1 with the city name, 1,000+ words of city-specific content, and a `LocalBusiness` JSON-LD block
+- Submit each to Google Search Console URL Inspection → Request Indexing (May 2026 indexing report flagged that several T1 pages remain unconfirmed after 32 days — same risk likely affects T2)
+- Build 2 internal links into each city page from the JEE/NEET hub pages and from at least one blog post
+- Target keyword variants: `jee coaching in [city]`, `online jee coaching [city]`, `best neet coaching [city]`, `[city] jee preparation online`
 
 ---
 
@@ -160,8 +166,13 @@
 | "X vs Y comparison" | Comparison article with tables, clear verdict |
 | Local keywords | Local landing page with city name in URL + content |
 
-### Competitive gap MindPeak can exploit
-None of the top competitors are **from Himachal Pradesh**. The Aspire Academy (aspireiit.in) is the only HP-based competitor with any SEO presence, but they are offline-focused. MindPeak can own the entire "HP online coaching for JEE/NEET" space if it creates local-intent pages for every major HP district.
+### Competitive gaps MindPeak can exploit
+
+**1. Tier-2 metros (national volume play).** Aakash, Allen, and Unacademy dump generic centre pages onto tier-2 city SERPs (Jaipur, Indore, Chandigarh, Lucknow, Patna, Bhopal, Nagpur, Surat) but rarely produce city-specific content that answers a student's actual question ("Is online coaching from Patna as effective as moving to Kota?"). MindPeak's existing tier-2 pages can outrank these with genuine city-aware content + faster indexing.
+
+**2. The "online 1-on-1" intent across India.** Vedantu owns dedicated 1-on-1 pages for JEE and NEET but treats it as one of many marketplace tracks. No competitor has positioned itself as a pure 1-on-1-only national brand. Owning long-tails like "personalized jee coaching online", "one to one neet coaching india", "online jee physics mentor india" is achievable with focused content.
+
+**3. Himachal Pradesh local SEO (differentiator cluster, not primary).** Aspire Academy is the only HP-based competitor with any SEO presence, and they are offline-focused. MindPeak can own the entire "HP online coaching" space — but treat this as a secondary cluster supporting brand authority, not the main growth driver.
 
 ---
 
@@ -170,9 +181,9 @@ None of the top competitors are **from Himachal Pradesh**. The Aspire Academy (a
 Prioritized by impact × effort ratio:
 
 ### Day 1–2: Quick Wins (Low Effort / High Impact)
-1. **Create `/online-tuition-himachal-pradesh/` landing page** — this SERP has zero real competition; any page will rank
-2. **Check if Kangra city page exists** in `src/data/cityData.ts` — if not, add it and create the landing page
-3. **Submit `mindpeakinstitute.com` to Google Search Console** (if not already) and request indexing for all existing city pages
+1. **Submit all 8 tier-1 and 18 tier-2 city pages to Google Search Console** → Request Indexing — the May 2026 indexing report flagged several T1 pages still unconfirmed after 32 days; this is the fastest pan-India action
+2. **Create `/online-tuition-himachal-pradesh/` landing page** — zero-competition SERP for the HP differentiator cluster
+3. **Audit homepage H1 + meta description** — confirm it targets "online 1-on-1 JEE & NEET coaching in India" (national intent), not just region-specific phrasing
 
 ### Day 3–4: Blog Content (Medium Effort / High Long-Term Impact)
 4. **Write blog post: "JEE vs NEET: Which is Harder?" (2,000+ words)** — targets 40k+/month keyword, AI Overview eligible
@@ -184,8 +195,9 @@ Prioritized by impact × effort ratio:
 8. **Create a dedicated page: `mindpeakinstitute.com/one-on-one-neet-coaching`** — same for NEET niche
 
 ### Ongoing
-9. **Start HP district series** — after Kangra, create pages for: Mandi, Kullu, Solan, Una, Hamirpur, Bilaspur, Chamba. Each page targets "[city] jee/neet coaching" keywords with zero national competition.
-10. **Request inclusion in AcademyCheck, Notesly, InstituteRank listicles** — these ranking aggregator pages appear #2–#4 for "best online coaching" keywords; getting mentioned in them is link-building + referral traffic.
+9. **Tier-2 city ranking push (national volume)** — for each of Jaipur, Indore, Chandigarh, Lucknow, Patna, Bhopal, Nagpur, Surat: refresh on-page content with city-specific testimonials, add 2 internal links from JEE/NEET hubs + 1 blog post, request indexing
+10. **HP district series (differentiator cluster)** — secondary track: after the HP umbrella page, add Mandi, Kullu, Solan, Una, Hamirpur, Bilaspur, Chamba. Pages target "[district] jee/neet coaching" keywords with near-zero national competition
+11. **Request inclusion in AcademyCheck, Notesly, InstituteRank listicles** — these aggregator pages appear #2–#4 for "best online coaching" keywords; getting mentioned is link-building + referral traffic for the pan-India audience
 
 ---
 
@@ -193,18 +205,22 @@ Prioritized by impact × effort ratio:
 
 | Category | Status |
 |---|---|
-| Keywords tracking | 32 keywords across 4 groups |
-| Keywords ranked top 10 | **0 / 32** |
+| Keywords tracking | 36 keywords across 4 groups (Primary, Local/City, Long-tail, Content) |
+| Keywords ranked top 10 | **0 / 36** |
 | Keywords ranked top 20 | Unknown (first report) |
-| Top immediate opportunity | "online tuition himachal pradesh" (zero competition) |
+| Geographic coverage | Pan-India (8 metros: Delhi, Mumbai, Bangalore, Hyderabad, Pune, Chennai, Kolkata, Ahmedabad) + tier-2 (Jaipur, Indore, Chandigarh, Lucknow, Patna, Bhopal, Nagpur, Surat) + HP differentiator cluster |
+| Top volume opportunity | Tier-2 metro cluster (~25k+ combined monthly searches across 8 cities) |
+| Top easy-win opportunity | "online tuition himachal pradesh" (zero competition in HP differentiator cluster) |
 | Top content opportunity | "jee vs neet which is harder" (~40k/month) |
-| Primary organic threat | Vedantu (owns 1-on-1 niche pages) |
-| Biggest competitor gap | Himachal Pradesh local SEO — completely uncontested |
+| Primary organic threat | Vedantu (owns 1-on-1 niche pages), Aakash + Allen (tier-1 metros) |
 | Indexed pages observed in SERPs | 6+ MindPeak pages appear in branded/site: searches ✅ |
 | Google AI Overview exposure | 0 keywords (no MindPeak content cited yet) |
 
 ### Monthly Action Priority
-The single highest-ROI action for May–June 2026 is creating **HP district landing pages** (Kangra, Mandi, Shimla, Hamirpur) + one comprehensive blog targeting "online tuition himachal pradesh". This entire cluster has almost no national competition and MindPeak's Himachal Pradesh origin is a genuine authority signal Google rewards.
+Two parallel tracks for May–June 2026, prioritised by volume:
+
+1. **Pan-India volume track (primary):** push the 8 tier-1 and 18 tier-2 city pages that already exist into Google's index — the May 2026 indexing report flagged several still unconfirmed after 32+ days live. Aggregate addressable volume across tier-2 metros alone is ~25k+ monthly searches, far exceeding any single regional cluster. National keyword cluster ("online jee coaching", "one on one jee coaching", "best online coaching for neet") is the long-term moat.
+2. **HP differentiator track (secondary):** roll out HP umbrella + district pages (Kangra, Mandi, Shimla, Hamirpur). This cluster has near-zero national competition and MindPeak's Himachal Pradesh origin is a genuine authority signal — but it complements rather than replaces the pan-India strategy.
 
 ---
 
