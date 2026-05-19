@@ -2,43 +2,43 @@
   {
     "slug": "jee-coaching",
     "tier": 1,
-    "wordCount": 756,
+    "wordCount": 3313,
     "results": [
       {
         "term": "best",
         "priority": "primary",
         "count": 3,
-        "min": 2,
-        "max": 7,
-        "density": 4,
+        "min": 10,
+        "max": 30,
+        "density": 0.9,
         "per1k": {
           "min": 3,
           "max": 9
         },
         "floor": 2,
-        "status": "OK"
+        "status": "UNDER"
       },
       {
         "term": "1-on-1",
         "priority": "primary",
-        "count": 12,
-        "min": 3,
-        "max": 11,
-        "density": 15.9,
+        "count": 23,
+        "min": 13,
+        "max": 46,
+        "density": 6.9,
         "per1k": {
           "min": 4,
           "max": 14
         },
         "floor": 2,
-        "status": "OVER"
+        "status": "OK"
       },
       {
         "term": "Advanced",
         "priority": "secondary",
-        "count": 11,
-        "min": 3,
-        "max": 11,
-        "density": 14.6,
+        "count": 27,
+        "min": 13,
+        "max": 46,
+        "density": 8.1,
         "per1k": {
           "min": 4,
           "max": 14
@@ -49,10 +49,10 @@
       {
         "term": "Main",
         "priority": "secondary",
-        "count": 9,
-        "min": 3,
-        "max": 11,
-        "density": 11.9,
+        "count": 25,
+        "min": 13,
+        "max": 46,
+        "density": 7.5,
         "per1k": {
           "min": 4,
           "max": 14
@@ -63,10 +63,10 @@
       {
         "term": "dropper",
         "priority": "semantic",
-        "count": 1,
-        "min": 2,
-        "max": 6,
-        "density": 1.3,
+        "count": 3,
+        "min": 7,
+        "max": 27,
+        "density": 0.9,
         "per1k": {
           "min": 2,
           "max": 8
@@ -77,10 +77,10 @@
       {
         "term": "JEE",
         "priority": "primary",
-        "count": 37,
-        "min": 19,
-        "max": 38,
-        "density": 48.9,
+        "count": 121,
+        "min": 83,
+        "max": 166,
+        "density": 36.5,
         "per1k": {
           "min": 25,
           "max": 50
@@ -91,10 +91,10 @@
       {
         "term": "online",
         "priority": "primary",
-        "count": 5,
-        "min": 8,
-        "max": 19,
-        "density": 6.6,
+        "count": 28,
+        "min": 33,
+        "max": 83,
+        "density": 8.5,
         "per1k": {
           "min": 10,
           "max": 25
@@ -105,52 +105,52 @@
       {
         "term": "coaching",
         "priority": "primary",
-        "count": 24,
-        "min": 11,
-        "max": 23,
-        "density": 31.7,
+        "count": 50,
+        "min": 50,
+        "max": 99,
+        "density": 15.1,
         "per1k": {
           "min": 15,
           "max": 30
         },
         "floor": 4,
-        "status": "OVER"
+        "status": "OK"
       },
       {
         "term": "course",
         "priority": "primary",
-        "count": 2,
-        "min": 3,
-        "max": 11,
-        "density": 2.6,
+        "count": 18,
+        "min": 13,
+        "max": 46,
+        "density": 5.4,
         "per1k": {
           "min": 4,
           "max": 14
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "preparation",
         "priority": "secondary",
-        "count": 3,
-        "min": 3,
-        "max": 9,
-        "density": 4,
+        "count": 6,
+        "min": 13,
+        "max": 40,
+        "density": 1.8,
         "per1k": {
           "min": 4,
           "max": 12
         },
         "floor": 0,
-        "status": "OK"
+        "status": "UNDER"
       },
       {
         "term": "IIT",
         "priority": "secondary",
-        "count": 3,
-        "min": 3,
-        "max": 9,
-        "density": 4,
+        "count": 18,
+        "min": 13,
+        "max": 40,
+        "density": 5.4,
         "per1k": {
           "min": 4,
           "max": 12
@@ -161,24 +161,24 @@
       {
         "term": "live",
         "priority": "secondary",
-        "count": 0,
-        "min": 2,
-        "max": 8,
-        "density": 0,
+        "count": 22,
+        "min": 10,
+        "max": 33,
+        "density": 6.6,
         "per1k": {
           "min": 3,
           "max": 10
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "doubt",
         "priority": "secondary",
-        "count": 3,
-        "min": 2,
-        "max": 8,
-        "density": 4,
+        "count": 20,
+        "min": 10,
+        "max": 33,
+        "density": 6,
         "per1k": {
           "min": 3,
           "max": 10
@@ -189,10 +189,10 @@
       {
         "term": "mentor",
         "priority": "secondary",
-        "count": 5,
-        "min": 3,
-        "max": 9,
-        "density": 6.6,
+        "count": 36,
+        "min": 13,
+        "max": 40,
+        "density": 10.9,
         "per1k": {
           "min": 4,
           "max": 12
@@ -203,38 +203,38 @@
       {
         "term": "test series",
         "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 5,
-        "density": 0,
+        "count": 5,
+        "min": 3,
+        "max": 20,
+        "density": 1.5,
         "per1k": {
           "min": 1,
           "max": 6
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "study material",
         "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 5,
-        "density": 0,
+        "count": 7,
+        "min": 3,
+        "max": 20,
+        "density": 2.1,
         "per1k": {
           "min": 1,
           "max": 6
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "Class 11",
         "priority": "semantic",
-        "count": 1,
-        "min": 1,
-        "max": 5,
-        "density": 1.3,
+        "count": 14,
+        "min": 3,
+        "max": 20,
+        "density": 4.2,
         "per1k": {
           "min": 1,
           "max": 6
@@ -245,10 +245,10 @@
       {
         "term": "Class 12",
         "priority": "semantic",
-        "count": 1,
-        "min": 1,
-        "max": 5,
-        "density": 1.3,
+        "count": 11,
+        "min": 3,
+        "max": 20,
+        "density": 3.3,
         "per1k": {
           "min": 1,
           "max": 6
@@ -259,24 +259,24 @@
       {
         "term": "faculty",
         "priority": "semantic",
-        "count": 0,
-        "min": 1,
-        "max": 5,
-        "density": 0,
+        "count": 13,
+        "min": 3,
+        "max": 20,
+        "density": 3.9,
         "per1k": {
           "min": 1,
           "max": 6
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "Physics",
         "priority": "semantic",
-        "count": 4,
-        "min": 2,
-        "max": 8,
-        "density": 5.3,
+        "count": 24,
+        "min": 7,
+        "max": 33,
+        "density": 7.2,
         "per1k": {
           "min": 2,
           "max": 10
@@ -287,10 +287,10 @@
       {
         "term": "Chemistry",
         "priority": "semantic",
-        "count": 3,
-        "min": 2,
-        "max": 8,
-        "density": 4,
+        "count": 23,
+        "min": 7,
+        "max": 33,
+        "density": 6.9,
         "per1k": {
           "min": 2,
           "max": 10
@@ -301,10 +301,10 @@
       {
         "term": "Mathematics",
         "priority": "semantic",
-        "count": 2,
-        "min": 2,
-        "max": 8,
-        "density": 2.6,
+        "count": 21,
+        "min": 7,
+        "max": 33,
+        "density": 6.3,
         "per1k": {
           "min": 2,
           "max": 10
@@ -315,10 +315,10 @@
       {
         "term": "India",
         "priority": "semantic",
-        "count": 2,
-        "min": 1,
-        "max": 5,
-        "density": 2.6,
+        "count": 8,
+        "min": 3,
+        "max": 20,
+        "density": 2.4,
         "per1k": {
           "min": 1,
           "max": 6
@@ -331,29 +331,29 @@
   {
     "slug": "neet-coaching",
     "tier": 1,
-    "wordCount": 669,
+    "wordCount": 3167,
     "results": [
       {
         "term": "best",
         "priority": "primary",
-        "count": 4,
-        "min": 2,
-        "max": 6,
-        "density": 6,
+        "count": 3,
+        "min": 10,
+        "max": 29,
+        "density": 0.9,
         "per1k": {
           "min": 3,
           "max": 9
         },
         "floor": 2,
-        "status": "OK"
+        "status": "UNDER"
       },
       {
         "term": "1-on-1",
         "priority": "primary",
-        "count": 8,
-        "min": 3,
-        "max": 9,
-        "density": 12,
+        "count": 19,
+        "min": 13,
+        "max": 44,
+        "density": 6,
         "per1k": {
           "min": 4,
           "max": 14
@@ -364,80 +364,80 @@
       {
         "term": "UG",
         "priority": "secondary",
-        "count": 2,
-        "min": 1,
-        "max": 5,
-        "density": 3,
+        "count": 5,
+        "min": 6,
+        "max": 25,
+        "density": 1.6,
         "per1k": {
           "min": 2,
           "max": 8
         },
         "floor": 0,
-        "status": "OK"
+        "status": "UNDER"
       },
       {
         "term": "dropper",
         "priority": "semantic",
-        "count": 2,
-        "min": 1,
-        "max": 5,
-        "density": 3,
+        "count": 4,
+        "min": 6,
+        "max": 25,
+        "density": 1.3,
         "per1k": {
           "min": 2,
           "max": 8
         },
         "floor": 0,
-        "status": "OK"
+        "status": "UNDER"
       },
       {
         "term": "NEET",
         "priority": "primary",
-        "count": 35,
-        "min": 17,
-        "max": 33,
-        "density": 52.3,
+        "count": 136,
+        "min": 79,
+        "max": 158,
+        "density": 42.9,
         "per1k": {
           "min": 25,
           "max": 50
         },
         "floor": 8,
-        "status": "OVER"
+        "status": "OK"
       },
       {
         "term": "online",
         "priority": "primary",
-        "count": 6,
-        "min": 5,
-        "max": 15,
-        "density": 9,
+        "count": 24,
+        "min": 25,
+        "max": 70,
+        "density": 7.6,
         "per1k": {
           "min": 8,
           "max": 22
         },
         "floor": 3,
-        "status": "OK"
+        "status": "UNDER"
       },
       {
         "term": "coaching",
         "priority": "primary",
-        "count": 16,
-        "min": 8,
-        "max": 19,
-        "density": 23.9,
+        "count": 31,
+        "min": 38,
+        "max": 89,
+        "density": 9.8,
         "per1k": {
           "min": 12,
           "max": 28
         },
         "floor": 4,
-        "status": "OK"
+        "status": "UNDER"
       },
       {
         "term": "course",
         "priority": "primary",
-        "count": 1,
-        "min": 3,
-        "max": 9,
-        "density": 1.5,
+        "count": 12,
+        "min": 13,
+        "max": 44,
+        "density": 3.8,
         "per1k": {
           "min": 4,
           "max": 14
@@ -448,52 +448,52 @@
       {
         "term": "preparation",
         "priority": "secondary",
-        "count": 5,
-        "min": 3,
-        "max": 8,
-        "density": 7.5,
+        "count": 7,
+        "min": 13,
+        "max": 38,
+        "density": 2.2,
         "per1k": {
           "min": 4,
           "max": 12
         },
         "floor": 0,
-        "status": "OK"
+        "status": "UNDER"
       },
       {
         "term": "live",
         "priority": "secondary",
-        "count": 0,
-        "min": 2,
-        "max": 7,
-        "density": 0,
+        "count": 19,
+        "min": 10,
+        "max": 32,
+        "density": 6,
         "per1k": {
           "min": 3,
           "max": 10
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "doubt",
         "priority": "secondary",
-        "count": 0,
-        "min": 2,
-        "max": 7,
-        "density": 0,
+        "count": 14,
+        "min": 10,
+        "max": 32,
+        "density": 4.4,
         "per1k": {
           "min": 3,
           "max": 10
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "mentor",
         "priority": "secondary",
-        "count": 4,
-        "min": 3,
-        "max": 8,
-        "density": 6,
+        "count": 32,
+        "min": 13,
+        "max": 38,
+        "density": 10.1,
         "per1k": {
           "min": 4,
           "max": 12
@@ -504,24 +504,24 @@
       {
         "term": "test series",
         "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 4,
-        "density": 0,
+        "count": 3,
+        "min": 3,
+        "max": 19,
+        "density": 0.9,
         "per1k": {
           "min": 1,
           "max": 6
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "study material",
         "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 4,
-        "density": 0,
+        "count": 2,
+        "min": 3,
+        "max": 19,
+        "density": 0.6,
         "per1k": {
           "min": 1,
           "max": 6
@@ -532,10 +532,10 @@
       {
         "term": "NCERT",
         "priority": "secondary",
-        "count": 17,
-        "min": 1,
-        "max": 19,
-        "density": 25.4,
+        "count": 68,
+        "min": 6,
+        "max": 89,
+        "density": 21.5,
         "per1k": {
           "min": 2,
           "max": 28
@@ -546,24 +546,24 @@
       {
         "term": "Biology",
         "priority": "secondary",
-        "count": 8,
-        "min": 3,
-        "max": 9,
-        "density": 12,
+        "count": 47,
+        "min": 13,
+        "max": 44,
+        "density": 14.8,
         "per1k": {
           "min": 4,
           "max": 14
         },
         "floor": 0,
-        "status": "OK"
+        "status": "OVER"
       },
       {
         "term": "Physics",
         "priority": "semantic",
-        "count": 4,
-        "min": 1,
-        "max": 7,
-        "density": 6,
+        "count": 29,
+        "min": 6,
+        "max": 32,
+        "density": 9.2,
         "per1k": {
           "min": 2,
           "max": 10
@@ -574,10 +574,10 @@
       {
         "term": "Chemistry",
         "priority": "semantic",
-        "count": 4,
-        "min": 1,
-        "max": 7,
-        "density": 6,
+        "count": 29,
+        "min": 6,
+        "max": 32,
+        "density": 9.2,
         "per1k": {
           "min": 2,
           "max": 10
@@ -588,10 +588,10 @@
       {
         "term": "Class 11",
         "priority": "semantic",
-        "count": 1,
-        "min": 1,
-        "max": 4,
-        "density": 1.5,
+        "count": 15,
+        "min": 3,
+        "max": 19,
+        "density": 4.7,
         "per1k": {
           "min": 1,
           "max": 6
@@ -602,10 +602,10 @@
       {
         "term": "Class 12",
         "priority": "semantic",
-        "count": 1,
-        "min": 1,
-        "max": 4,
-        "density": 1.5,
+        "count": 12,
+        "min": 3,
+        "max": 19,
+        "density": 3.8,
         "per1k": {
           "min": 1,
           "max": 6
@@ -616,10 +616,10 @@
       {
         "term": "AIIMS",
         "priority": "semantic",
-        "count": 4,
-        "min": 1,
-        "max": 3,
-        "density": 6,
+        "count": 17,
+        "min": 3,
+        "max": 16,
+        "density": 5.4,
         "per1k": {
           "min": 1,
           "max": 5
@@ -630,24 +630,24 @@
       {
         "term": "MBBS",
         "priority": "semantic",
-        "count": 0,
-        "min": 1,
-        "max": 3,
-        "density": 0,
+        "count": 3,
+        "min": 3,
+        "max": 16,
+        "density": 0.9,
         "per1k": {
           "min": 1,
           "max": 5
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "India",
         "priority": "semantic",
-        "count": 2,
-        "min": 1,
-        "max": 4,
-        "density": 3,
+        "count": 7,
+        "min": 3,
+        "max": 19,
+        "density": 2.2,
         "per1k": {
           "min": 1,
           "max": 6
@@ -660,43 +660,43 @@
   {
     "slug": "best-jee-coaching-in-india",
     "tier": 1,
-    "wordCount": 1781,
+    "wordCount": 3468,
     "results": [
       {
         "term": "best",
         "priority": "primary",
-        "count": 9,
-        "min": 7,
-        "max": 21,
-        "density": 5.1,
+        "count": 10,
+        "min": 14,
+        "max": 42,
+        "density": 2.9,
         "per1k": {
           "min": 4,
           "max": 12
         },
         "floor": 4,
-        "status": "OK"
+        "status": "UNDER"
       },
       {
         "term": "India",
         "priority": "primary",
-        "count": 7,
-        "min": 7,
-        "max": 21,
-        "density": 3.9,
+        "count": 12,
+        "min": 14,
+        "max": 42,
+        "density": 3.5,
         "per1k": {
           "min": 4,
           "max": 12
         },
         "floor": 4,
-        "status": "OK"
+        "status": "UNDER"
       },
       {
         "term": "top",
         "priority": "secondary",
-        "count": 1,
-        "min": 4,
-        "max": 14,
-        "density": 0.6,
+        "count": 5,
+        "min": 7,
+        "max": 28,
+        "density": 1.4,
         "per1k": {
           "min": 2,
           "max": 8
@@ -707,52 +707,52 @@
       {
         "term": "JEE",
         "priority": "primary",
-        "count": 21,
-        "min": 45,
-        "max": 89,
-        "density": 11.8,
+        "count": 100,
+        "min": 87,
+        "max": 173,
+        "density": 28.8,
         "per1k": {
           "min": 25,
           "max": 50
         },
         "floor": 8,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "online",
         "priority": "primary",
-        "count": 18,
-        "min": 18,
-        "max": 45,
-        "density": 10.1,
+        "count": 27,
+        "min": 35,
+        "max": 87,
+        "density": 7.8,
         "per1k": {
           "min": 10,
           "max": 25
         },
         "floor": 3,
-        "status": "OK"
+        "status": "UNDER"
       },
       {
         "term": "coaching",
         "priority": "primary",
-        "count": 57,
-        "min": 27,
-        "max": 53,
-        "density": 32,
+        "count": 73,
+        "min": 52,
+        "max": 104,
+        "density": 21,
         "per1k": {
           "min": 15,
           "max": 30
         },
         "floor": 4,
-        "status": "OVER"
+        "status": "OK"
       },
       {
         "term": "course",
         "priority": "primary",
-        "count": 0,
-        "min": 7,
-        "max": 25,
-        "density": 0,
+        "count": 6,
+        "min": 14,
+        "max": 49,
+        "density": 1.7,
         "per1k": {
           "min": 4,
           "max": 14
@@ -763,10 +763,10 @@
       {
         "term": "preparation",
         "priority": "secondary",
-        "count": 6,
-        "min": 7,
-        "max": 21,
-        "density": 3.4,
+        "count": 9,
+        "min": 14,
+        "max": 42,
+        "density": 2.6,
         "per1k": {
           "min": 4,
           "max": 12
@@ -777,38 +777,38 @@
       {
         "term": "IIT",
         "priority": "secondary",
-        "count": 1,
-        "min": 7,
-        "max": 21,
-        "density": 0.6,
+        "count": 14,
+        "min": 14,
+        "max": 42,
+        "density": 4,
         "per1k": {
           "min": 4,
           "max": 12
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "live",
         "priority": "secondary",
-        "count": 0,
-        "min": 5,
-        "max": 18,
-        "density": 0,
+        "count": 16,
+        "min": 10,
+        "max": 35,
+        "density": 4.6,
         "per1k": {
           "min": 3,
           "max": 10
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "doubt",
         "priority": "secondary",
-        "count": 10,
-        "min": 5,
-        "max": 18,
-        "density": 5.6,
+        "count": 19,
+        "min": 10,
+        "max": 35,
+        "density": 5.5,
         "per1k": {
           "min": 3,
           "max": 10
@@ -819,10 +819,10 @@
       {
         "term": "mentor",
         "priority": "secondary",
-        "count": 10,
-        "min": 7,
-        "max": 21,
-        "density": 5.6,
+        "count": 22,
+        "min": 14,
+        "max": 42,
+        "density": 6.3,
         "per1k": {
           "min": 4,
           "max": 12
@@ -833,10 +833,10 @@
       {
         "term": "test series",
         "priority": "secondary",
-        "count": 3,
-        "min": 2,
-        "max": 11,
-        "density": 1.7,
+        "count": 8,
+        "min": 3,
+        "max": 21,
+        "density": 2.3,
         "per1k": {
           "min": 1,
           "max": 6
@@ -847,10 +847,10 @@
       {
         "term": "study material",
         "priority": "secondary",
-        "count": 3,
-        "min": 2,
-        "max": 11,
-        "density": 1.7,
+        "count": 7,
+        "min": 3,
+        "max": 21,
+        "density": 2,
         "per1k": {
           "min": 1,
           "max": 6
@@ -861,10 +861,10 @@
       {
         "term": "Class 11",
         "priority": "semantic",
-        "count": 2,
-        "min": 2,
-        "max": 11,
-        "density": 1.1,
+        "count": 13,
+        "min": 3,
+        "max": 21,
+        "density": 3.7,
         "per1k": {
           "min": 1,
           "max": 6
@@ -875,10 +875,10 @@
       {
         "term": "Class 12",
         "priority": "semantic",
-        "count": 2,
-        "min": 2,
-        "max": 11,
-        "density": 1.1,
+        "count": 9,
+        "min": 3,
+        "max": 21,
+        "density": 2.6,
         "per1k": {
           "min": 1,
           "max": 6
@@ -889,73 +889,73 @@
       {
         "term": "faculty",
         "priority": "semantic",
-        "count": 0,
-        "min": 2,
-        "max": 11,
-        "density": 0,
+        "count": 10,
+        "min": 3,
+        "max": 21,
+        "density": 2.9,
         "per1k": {
           "min": 1,
           "max": 6
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "Physics",
         "priority": "semantic",
-        "count": 2,
-        "min": 4,
-        "max": 18,
-        "density": 1.1,
+        "count": 19,
+        "min": 7,
+        "max": 35,
+        "density": 5.5,
         "per1k": {
           "min": 2,
           "max": 10
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "Chemistry",
         "priority": "semantic",
-        "count": 1,
-        "min": 4,
-        "max": 18,
-        "density": 0.6,
+        "count": 18,
+        "min": 7,
+        "max": 35,
+        "density": 5.2,
         "per1k": {
           "min": 2,
           "max": 10
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "Mathematics",
         "priority": "semantic",
-        "count": 0,
-        "min": 4,
-        "max": 18,
-        "density": 0,
+        "count": 16,
+        "min": 7,
+        "max": 35,
+        "density": 4.6,
         "per1k": {
           "min": 2,
           "max": 10
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       }
     ]
   },
   {
     "slug": "jee-main-coaching",
     "tier": 1,
-    "wordCount": 443,
+    "wordCount": 2514,
     "results": [
       {
         "term": "Main",
         "priority": "primary",
-        "count": 17,
-        "min": 5,
-        "max": 13,
-        "density": 38.4,
+        "count": 105,
+        "min": 30,
+        "max": 75,
+        "density": 41.8,
         "per1k": {
           "min": 12,
           "max": 30
@@ -966,10 +966,10 @@
       {
         "term": "NTA",
         "priority": "secondary",
-        "count": 6,
-        "min": 1,
-        "max": 4,
-        "density": 13.5,
+        "count": 22,
+        "min": 5,
+        "max": 20,
+        "density": 8.8,
         "per1k": {
           "min": 2,
           "max": 8
@@ -981,8 +981,8 @@
         "term": "rank",
         "priority": "secondary",
         "count": 0,
-        "min": 1,
-        "max": 4,
+        "min": 5,
+        "max": 20,
         "density": 0,
         "per1k": {
           "min": 2,
@@ -994,10 +994,10 @@
       {
         "term": "percentile",
         "priority": "semantic",
-        "count": 0,
-        "min": 0,
-        "max": 2,
-        "density": 0,
+        "count": 8,
+        "min": 3,
+        "max": 13,
+        "density": 3.2,
         "per1k": {
           "min": 1,
           "max": 5
@@ -1008,24 +1008,24 @@
       {
         "term": "JEE",
         "priority": "primary",
-        "count": 26,
-        "min": 11,
-        "max": 22,
-        "density": 58.7,
+        "count": 123,
+        "min": 63,
+        "max": 126,
+        "density": 48.9,
         "per1k": {
           "min": 25,
           "max": 50
         },
         "floor": 8,
-        "status": "OVER"
+        "status": "OK"
       },
       {
         "term": "online",
         "priority": "primary",
-        "count": 2,
-        "min": 4,
-        "max": 11,
-        "density": 4.5,
+        "count": 21,
+        "min": 25,
+        "max": 63,
+        "density": 8.4,
         "per1k": {
           "min": 10,
           "max": 25
@@ -1036,37 +1036,51 @@
       {
         "term": "coaching",
         "priority": "primary",
-        "count": 12,
-        "min": 7,
-        "max": 13,
-        "density": 27.1,
+        "count": 36,
+        "min": 38,
+        "max": 75,
+        "density": 14.3,
         "per1k": {
           "min": 15,
           "max": 30
         },
         "floor": 4,
-        "status": "OK"
+        "status": "UNDER"
       },
       {
         "term": "course",
         "priority": "primary",
-        "count": 0,
-        "min": 2,
-        "max": 6,
-        "density": 0,
+        "count": 12,
+        "min": 10,
+        "max": 35,
+        "density": 4.8,
         "per1k": {
           "min": 4,
           "max": 14
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "preparation",
         "priority": "secondary",
-        "count": 3,
-        "min": 2,
-        "max": 5,
+        "count": 5,
+        "min": 10,
+        "max": 30,
+        "density": 2,
+        "per1k": {
+          "min": 4,
+          "max": 12
+        },
+        "floor": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "IIT",
+        "priority": "secondary",
+        "count": 17,
+        "min": 10,
+        "max": 30,
         "density": 6.8,
         "per1k": {
           "min": 4,
@@ -1076,54 +1090,40 @@
         "status": "OK"
       },
       {
-        "term": "IIT",
-        "priority": "secondary",
-        "count": 0,
-        "min": 2,
-        "max": 5,
-        "density": 0,
-        "per1k": {
-          "min": 4,
-          "max": 12
-        },
-        "floor": 0,
-        "status": "UNDER"
-      },
-      {
         "term": "live",
         "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 4,
-        "density": 0,
+        "count": 18,
+        "min": 8,
+        "max": 25,
+        "density": 7.2,
         "per1k": {
           "min": 3,
           "max": 10
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "doubt",
         "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 4,
-        "density": 0,
+        "count": 14,
+        "min": 8,
+        "max": 25,
+        "density": 5.6,
         "per1k": {
           "min": 3,
           "max": 10
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "mentor",
         "priority": "secondary",
-        "count": 2,
-        "min": 2,
-        "max": 5,
-        "density": 4.5,
+        "count": 18,
+        "min": 10,
+        "max": 30,
+        "density": 7.2,
         "per1k": {
           "min": 4,
           "max": 12
@@ -1134,10 +1134,10 @@
       {
         "term": "test series",
         "priority": "secondary",
-        "count": 0,
-        "min": 0,
-        "max": 3,
-        "density": 0,
+        "count": 6,
+        "min": 3,
+        "max": 15,
+        "density": 2.4,
         "per1k": {
           "min": 1,
           "max": 6
@@ -1148,10 +1148,10 @@
       {
         "term": "study material",
         "priority": "secondary",
-        "count": 0,
-        "min": 0,
-        "max": 3,
-        "density": 0,
+        "count": 5,
+        "min": 3,
+        "max": 15,
+        "density": 2,
         "per1k": {
           "min": 1,
           "max": 6
@@ -1162,10 +1162,10 @@
       {
         "term": "Class 11",
         "priority": "semantic",
-        "count": 0,
-        "min": 0,
-        "max": 3,
-        "density": 0,
+        "count": 15,
+        "min": 3,
+        "max": 15,
+        "density": 6,
         "per1k": {
           "min": 1,
           "max": 6
@@ -1176,10 +1176,10 @@
       {
         "term": "Class 12",
         "priority": "semantic",
-        "count": 0,
-        "min": 0,
-        "max": 3,
-        "density": 0,
+        "count": 6,
+        "min": 3,
+        "max": 15,
+        "density": 2.4,
         "per1k": {
           "min": 1,
           "max": 6
@@ -1190,10 +1190,10 @@
       {
         "term": "faculty",
         "priority": "semantic",
-        "count": 0,
-        "min": 0,
-        "max": 3,
-        "density": 0,
+        "count": 11,
+        "min": 3,
+        "max": 15,
+        "density": 4.4,
         "per1k": {
           "min": 1,
           "max": 6
@@ -1204,10 +1204,10 @@
       {
         "term": "Physics",
         "priority": "semantic",
-        "count": 4,
-        "min": 1,
-        "max": 4,
-        "density": 9,
+        "count": 17,
+        "min": 5,
+        "max": 25,
+        "density": 6.8,
         "per1k": {
           "min": 2,
           "max": 10
@@ -1218,10 +1218,10 @@
       {
         "term": "Chemistry",
         "priority": "semantic",
-        "count": 3,
-        "min": 1,
-        "max": 4,
-        "density": 6.8,
+        "count": 16,
+        "min": 5,
+        "max": 25,
+        "density": 6.4,
         "per1k": {
           "min": 2,
           "max": 10
@@ -1232,10 +1232,10 @@
       {
         "term": "Mathematics",
         "priority": "semantic",
-        "count": 3,
-        "min": 1,
-        "max": 4,
-        "density": 6.8,
+        "count": 16,
+        "min": 5,
+        "max": 25,
+        "density": 6.4,
         "per1k": {
           "min": 2,
           "max": 10
@@ -1246,10 +1246,10 @@
       {
         "term": "India",
         "priority": "semantic",
-        "count": 0,
-        "min": 0,
-        "max": 3,
-        "density": 0,
+        "count": 6,
+        "min": 3,
+        "max": 15,
+        "density": 2.4,
         "per1k": {
           "min": 1,
           "max": 6
@@ -1262,15 +1262,15 @@
   {
     "slug": "jee-advanced-coaching",
     "tier": 1,
-    "wordCount": 485,
+    "wordCount": 2432,
     "results": [
       {
         "term": "Advanced",
         "priority": "primary",
-        "count": 18,
-        "min": 6,
-        "max": 15,
-        "density": 37.1,
+        "count": 84,
+        "min": 29,
+        "max": 73,
+        "density": 34.5,
         "per1k": {
           "min": 12,
           "max": 30
@@ -1281,24 +1281,10 @@
       {
         "term": "AIR",
         "priority": "secondary",
-        "count": 7,
-        "min": 1,
-        "max": 4,
-        "density": 14.4,
-        "per1k": {
-          "min": 2,
-          "max": 8
-        },
-        "floor": 0,
-        "status": "OVER"
-      },
-      {
-        "term": "rank",
-        "priority": "secondary",
-        "count": 1,
-        "min": 1,
-        "max": 4,
-        "density": 2.1,
+        "count": 18,
+        "min": 5,
+        "max": 19,
+        "density": 7.4,
         "per1k": {
           "min": 2,
           "max": 8
@@ -1307,12 +1293,26 @@
         "status": "OK"
       },
       {
+        "term": "rank",
+        "priority": "secondary",
+        "count": 3,
+        "min": 5,
+        "max": 19,
+        "density": 1.2,
+        "per1k": {
+          "min": 2,
+          "max": 8
+        },
+        "floor": 0,
+        "status": "UNDER"
+      },
+      {
         "term": "IIT",
         "priority": "secondary",
-        "count": 4,
-        "min": 3,
-        "max": 9,
-        "density": 8.2,
+        "count": 21,
+        "min": 15,
+        "max": 44,
+        "density": 8.6,
         "per1k": {
           "min": 6,
           "max": 18
@@ -1323,10 +1323,10 @@
       {
         "term": "JEE",
         "priority": "primary",
-        "count": 22,
-        "min": 12,
-        "max": 24,
-        "density": 45.4,
+        "count": 102,
+        "min": 61,
+        "max": 122,
+        "density": 41.9,
         "per1k": {
           "min": 25,
           "max": 50
@@ -1337,10 +1337,10 @@
       {
         "term": "online",
         "priority": "primary",
-        "count": 3,
-        "min": 5,
-        "max": 12,
-        "density": 6.2,
+        "count": 19,
+        "min": 24,
+        "max": 61,
+        "density": 7.8,
         "per1k": {
           "min": 10,
           "max": 25
@@ -1351,10 +1351,10 @@
       {
         "term": "coaching",
         "priority": "primary",
-        "count": 14,
-        "min": 7,
-        "max": 15,
-        "density": 28.9,
+        "count": 36,
+        "min": 36,
+        "max": 73,
+        "density": 14.8,
         "per1k": {
           "min": 15,
           "max": 30
@@ -1366,9 +1366,9 @@
         "term": "course",
         "priority": "primary",
         "count": 1,
-        "min": 2,
-        "max": 7,
-        "density": 2.1,
+        "min": 10,
+        "max": 34,
+        "density": 0.4,
         "per1k": {
           "min": 4,
           "max": 14
@@ -1379,52 +1379,52 @@
       {
         "term": "preparation",
         "priority": "secondary",
-        "count": 3,
-        "min": 2,
-        "max": 6,
-        "density": 6.2,
+        "count": 8,
+        "min": 10,
+        "max": 29,
+        "density": 3.3,
         "per1k": {
           "min": 4,
           "max": 12
         },
         "floor": 0,
-        "status": "OK"
+        "status": "UNDER"
       },
       {
         "term": "live",
         "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 5,
-        "density": 0,
+        "count": 12,
+        "min": 7,
+        "max": 24,
+        "density": 4.9,
         "per1k": {
           "min": 3,
           "max": 10
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "doubt",
         "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 5,
-        "density": 0,
+        "count": 11,
+        "min": 7,
+        "max": 24,
+        "density": 4.5,
         "per1k": {
           "min": 3,
           "max": 10
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "mentor",
         "priority": "secondary",
-        "count": 2,
-        "min": 2,
-        "max": 6,
-        "density": 4.1,
+        "count": 29,
+        "min": 10,
+        "max": 29,
+        "density": 11.9,
         "per1k": {
           "min": 4,
           "max": 12
@@ -1435,10 +1435,10 @@
       {
         "term": "test series",
         "priority": "secondary",
-        "count": 0,
-        "min": 0,
-        "max": 3,
-        "density": 0,
+        "count": 4,
+        "min": 2,
+        "max": 15,
+        "density": 1.6,
         "per1k": {
           "min": 1,
           "max": 6
@@ -1449,10 +1449,10 @@
       {
         "term": "study material",
         "priority": "secondary",
-        "count": 0,
-        "min": 0,
-        "max": 3,
-        "density": 0,
+        "count": 6,
+        "min": 2,
+        "max": 15,
+        "density": 2.5,
         "per1k": {
           "min": 1,
           "max": 6
@@ -1463,10 +1463,10 @@
       {
         "term": "Class 11",
         "priority": "semantic",
-        "count": 1,
-        "min": 0,
-        "max": 3,
-        "density": 2.1,
+        "count": 11,
+        "min": 2,
+        "max": 15,
+        "density": 4.5,
         "per1k": {
           "min": 1,
           "max": 6
@@ -1477,10 +1477,10 @@
       {
         "term": "Class 12",
         "priority": "semantic",
-        "count": 0,
-        "min": 0,
-        "max": 3,
-        "density": 0,
+        "count": 8,
+        "min": 2,
+        "max": 15,
+        "density": 3.3,
         "per1k": {
           "min": 1,
           "max": 6
@@ -1491,10 +1491,10 @@
       {
         "term": "faculty",
         "priority": "semantic",
-        "count": 0,
-        "min": 0,
-        "max": 3,
-        "density": 0,
+        "count": 9,
+        "min": 2,
+        "max": 15,
+        "density": 3.7,
         "per1k": {
           "min": 1,
           "max": 6
@@ -1505,10 +1505,10 @@
       {
         "term": "Physics",
         "priority": "semantic",
-        "count": 3,
-        "min": 1,
-        "max": 5,
-        "density": 6.2,
+        "count": 14,
+        "min": 5,
+        "max": 24,
+        "density": 5.8,
         "per1k": {
           "min": 2,
           "max": 10
@@ -1519,10 +1519,10 @@
       {
         "term": "Chemistry",
         "priority": "semantic",
-        "count": 1,
-        "min": 1,
-        "max": 5,
-        "density": 2.1,
+        "count": 12,
+        "min": 5,
+        "max": 24,
+        "density": 4.9,
         "per1k": {
           "min": 2,
           "max": 10
@@ -1533,10 +1533,10 @@
       {
         "term": "Mathematics",
         "priority": "semantic",
-        "count": 1,
-        "min": 1,
-        "max": 5,
-        "density": 2.1,
+        "count": 12,
+        "min": 5,
+        "max": 24,
+        "density": 4.9,
         "per1k": {
           "min": 2,
           "max": 10
@@ -1547,10 +1547,10 @@
       {
         "term": "India",
         "priority": "semantic",
-        "count": 0,
-        "min": 0,
-        "max": 3,
-        "density": 0,
+        "count": 4,
+        "min": 2,
+        "max": 15,
+        "density": 1.6,
         "per1k": {
           "min": 1,
           "max": 6
@@ -1563,15 +1563,15 @@
   {
     "slug": "neet-ug-coaching",
     "tier": 1,
-    "wordCount": 292,
+    "wordCount": 2342,
     "results": [
       {
         "term": "UG",
         "priority": "primary",
-        "count": 11,
-        "min": 3,
-        "max": 6,
-        "density": 37.7,
+        "count": 96,
+        "min": 19,
+        "max": 47,
+        "density": 41,
         "per1k": {
           "min": 8,
           "max": 20
@@ -1583,8 +1583,8 @@
         "term": "rank",
         "priority": "secondary",
         "count": 0,
-        "min": 1,
-        "max": 2,
+        "min": 5,
+        "max": 19,
         "density": 0,
         "per1k": {
           "min": 2,
@@ -1596,51 +1596,51 @@
       {
         "term": "NEET",
         "priority": "primary",
-        "count": 19,
-        "min": 8,
-        "max": 15,
-        "density": 65.1,
+        "count": 116,
+        "min": 59,
+        "max": 117,
+        "density": 49.5,
         "per1k": {
           "min": 25,
           "max": 50
         },
         "floor": 8,
-        "status": "OVER"
+        "status": "OK"
       },
       {
         "term": "online",
         "priority": "primary",
-        "count": 2,
-        "min": 3,
-        "max": 6,
-        "density": 6.8,
+        "count": 24,
+        "min": 19,
+        "max": 52,
+        "density": 10.2,
         "per1k": {
           "min": 8,
           "max": 22
         },
         "floor": 3,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "coaching",
         "priority": "primary",
-        "count": 7,
-        "min": 4,
-        "max": 8,
-        "density": 24,
+        "count": 25,
+        "min": 28,
+        "max": 66,
+        "density": 10.7,
         "per1k": {
           "min": 12,
           "max": 28
         },
         "floor": 4,
-        "status": "OK"
+        "status": "UNDER"
       },
       {
         "term": "course",
         "priority": "primary",
         "count": 0,
-        "min": 1,
-        "max": 4,
+        "min": 9,
+        "max": 33,
         "density": 0,
         "per1k": {
           "min": 4,
@@ -1652,66 +1652,66 @@
       {
         "term": "preparation",
         "priority": "secondary",
-        "count": 6,
-        "min": 1,
-        "max": 4,
-        "density": 20.5,
+        "count": 9,
+        "min": 9,
+        "max": 28,
+        "density": 3.8,
         "per1k": {
           "min": 4,
           "max": 12
         },
         "floor": 0,
-        "status": "OVER"
+        "status": "OK"
       },
       {
         "term": "live",
         "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 3,
-        "density": 0,
+        "count": 16,
+        "min": 7,
+        "max": 23,
+        "density": 6.8,
         "per1k": {
           "min": 3,
           "max": 10
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "doubt",
         "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 3,
-        "density": 0,
+        "count": 10,
+        "min": 7,
+        "max": 23,
+        "density": 4.3,
         "per1k": {
           "min": 3,
           "max": 10
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "mentor",
         "priority": "secondary",
-        "count": 0,
-        "min": 2,
-        "max": 4,
-        "density": 0,
+        "count": 21,
+        "min": 9,
+        "max": 28,
+        "density": 9,
         "per1k": {
           "min": 4,
           "max": 12
         },
         "floor": 2,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "test series",
         "priority": "secondary",
-        "count": 0,
-        "min": 0,
-        "max": 2,
-        "density": 0,
+        "count": 3,
+        "min": 2,
+        "max": 14,
+        "density": 1.3,
         "per1k": {
           "min": 1,
           "max": 6
@@ -1722,10 +1722,10 @@
       {
         "term": "study material",
         "priority": "secondary",
-        "count": 0,
-        "min": 0,
-        "max": 2,
-        "density": 0,
+        "count": 4,
+        "min": 2,
+        "max": 14,
+        "density": 1.7,
         "per1k": {
           "min": 1,
           "max": 6
@@ -1736,10 +1736,10 @@
       {
         "term": "NCERT",
         "priority": "secondary",
-        "count": 5,
-        "min": 1,
-        "max": 8,
-        "density": 17.1,
+        "count": 38,
+        "min": 5,
+        "max": 66,
+        "density": 16.2,
         "per1k": {
           "min": 2,
           "max": 28
@@ -1750,10 +1750,10 @@
       {
         "term": "Biology",
         "priority": "secondary",
-        "count": 7,
-        "min": 1,
-        "max": 4,
-        "density": 24,
+        "count": 37,
+        "min": 9,
+        "max": 33,
+        "density": 15.8,
         "per1k": {
           "min": 4,
           "max": 14
@@ -1764,10 +1764,10 @@
       {
         "term": "Physics",
         "priority": "semantic",
-        "count": 1,
-        "min": 1,
-        "max": 3,
-        "density": 3.4,
+        "count": 16,
+        "min": 5,
+        "max": 23,
+        "density": 6.8,
         "per1k": {
           "min": 2,
           "max": 10
@@ -1778,10 +1778,10 @@
       {
         "term": "Chemistry",
         "priority": "semantic",
-        "count": 1,
-        "min": 1,
-        "max": 3,
-        "density": 3.4,
+        "count": 14,
+        "min": 5,
+        "max": 23,
+        "density": 6,
         "per1k": {
           "min": 2,
           "max": 10
@@ -1792,10 +1792,10 @@
       {
         "term": "Class 11",
         "priority": "semantic",
-        "count": 0,
-        "min": 0,
-        "max": 2,
-        "density": 0,
+        "count": 10,
+        "min": 2,
+        "max": 14,
+        "density": 4.3,
         "per1k": {
           "min": 1,
           "max": 6
@@ -1806,10 +1806,10 @@
       {
         "term": "Class 12",
         "priority": "semantic",
-        "count": 0,
-        "min": 0,
-        "max": 2,
-        "density": 0,
+        "count": 9,
+        "min": 2,
+        "max": 14,
+        "density": 3.8,
         "per1k": {
           "min": 1,
           "max": 6
@@ -1820,24 +1820,10 @@
       {
         "term": "AIIMS",
         "priority": "semantic",
-        "count": 1,
-        "min": 0,
-        "max": 1,
-        "density": 3.4,
-        "per1k": {
-          "min": 1,
-          "max": 5
-        },
-        "floor": 0,
-        "status": "OK"
-      },
-      {
-        "term": "MBBS",
-        "priority": "semantic",
-        "count": 3,
-        "min": 0,
-        "max": 1,
-        "density": 10.3,
+        "count": 14,
+        "min": 2,
+        "max": 12,
+        "density": 6,
         "per1k": {
           "min": 1,
           "max": 5
@@ -1846,12 +1832,26 @@
         "status": "OVER"
       },
       {
+        "term": "MBBS",
+        "priority": "semantic",
+        "count": 6,
+        "min": 2,
+        "max": 12,
+        "density": 2.6,
+        "per1k": {
+          "min": 1,
+          "max": 5
+        },
+        "floor": 0,
+        "status": "OK"
+      },
+      {
         "term": "India",
         "priority": "semantic",
-        "count": 2,
-        "min": 0,
-        "max": 2,
-        "density": 6.8,
+        "count": 4,
+        "min": 2,
+        "max": 14,
+        "density": 1.7,
         "per1k": {
           "min": 1,
           "max": 6
@@ -1864,71 +1864,71 @@
   {
     "slug": "jee-dropper-coaching",
     "tier": 1,
-    "wordCount": 693,
+    "wordCount": 2193,
     "results": [
       {
         "term": "dropper",
         "priority": "primary",
-        "count": 12,
-        "min": 7,
-        "max": 17,
-        "density": 17.3,
+        "count": 69,
+        "min": 22,
+        "max": 55,
+        "density": 31.5,
         "per1k": {
           "min": 10,
           "max": 25
         },
         "floor": 4,
-        "status": "OK"
+        "status": "OVER"
       },
       {
         "term": "repeater",
         "priority": "primary",
-        "count": 0,
-        "min": 3,
-        "max": 10,
-        "density": 0,
+        "count": 11,
+        "min": 9,
+        "max": 31,
+        "density": 5,
         "per1k": {
           "min": 4,
           "max": 14
         },
         "floor": 2,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "Main",
         "priority": "secondary",
-        "count": 2,
-        "min": 4,
-        "max": 12,
-        "density": 2.9,
+        "count": 14,
+        "min": 13,
+        "max": 39,
+        "density": 6.4,
         "per1k": {
           "min": 6,
           "max": 18
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "Advanced",
         "priority": "secondary",
-        "count": 1,
-        "min": 2,
-        "max": 8,
-        "density": 1.4,
+        "count": 14,
+        "min": 7,
+        "max": 26,
+        "density": 6.4,
         "per1k": {
           "min": 3,
           "max": 12
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "mock test",
         "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 6,
-        "density": 0,
+        "count": 1,
+        "min": 4,
+        "max": 18,
+        "density": 0.5,
         "per1k": {
           "min": 2,
           "max": 8
@@ -1939,24 +1939,24 @@
       {
         "term": "JEE",
         "priority": "primary",
-        "count": 16,
-        "min": 17,
-        "max": 35,
-        "density": 23.1,
+        "count": 83,
+        "min": 55,
+        "max": 110,
+        "density": 37.8,
         "per1k": {
           "min": 25,
           "max": 50
         },
         "floor": 8,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "online",
         "priority": "primary",
-        "count": 0,
-        "min": 7,
-        "max": 17,
-        "density": 0,
+        "count": 11,
+        "min": 22,
+        "max": 55,
+        "density": 5,
         "per1k": {
           "min": 10,
           "max": 25
@@ -1967,24 +1967,24 @@
       {
         "term": "coaching",
         "priority": "primary",
-        "count": 13,
-        "min": 10,
-        "max": 21,
-        "density": 18.8,
+        "count": 23,
+        "min": 33,
+        "max": 66,
+        "density": 10.5,
         "per1k": {
           "min": 15,
           "max": 30
         },
         "floor": 4,
-        "status": "OK"
+        "status": "UNDER"
       },
       {
         "term": "course",
         "priority": "primary",
-        "count": 0,
-        "min": 3,
-        "max": 10,
-        "density": 0,
+        "count": 4,
+        "min": 9,
+        "max": 31,
+        "density": 1.8,
         "per1k": {
           "min": 4,
           "max": 14
@@ -1996,23 +1996,9 @@
         "term": "preparation",
         "priority": "secondary",
         "count": 4,
-        "min": 3,
-        "max": 8,
-        "density": 5.8,
-        "per1k": {
-          "min": 4,
-          "max": 12
-        },
-        "floor": 0,
-        "status": "OK"
-      },
-      {
-        "term": "IIT",
-        "priority": "secondary",
-        "count": 1,
-        "min": 3,
-        "max": 8,
-        "density": 1.4,
+        "min": 9,
+        "max": 26,
+        "density": 1.8,
         "per1k": {
           "min": 4,
           "max": 12
@@ -2021,12 +2007,26 @@
         "status": "UNDER"
       },
       {
+        "term": "IIT",
+        "priority": "secondary",
+        "count": 18,
+        "min": 9,
+        "max": 26,
+        "density": 8.2,
+        "per1k": {
+          "min": 4,
+          "max": 12
+        },
+        "floor": 0,
+        "status": "OK"
+      },
+      {
         "term": "live",
         "priority": "secondary",
-        "count": 0,
-        "min": 2,
-        "max": 7,
-        "density": 0,
+        "count": 6,
+        "min": 7,
+        "max": 22,
+        "density": 2.7,
         "per1k": {
           "min": 3,
           "max": 10
@@ -2037,24 +2037,24 @@
       {
         "term": "doubt",
         "priority": "secondary",
-        "count": 0,
-        "min": 2,
-        "max": 7,
-        "density": 0,
+        "count": 10,
+        "min": 7,
+        "max": 22,
+        "density": 4.6,
         "per1k": {
           "min": 3,
           "max": 10
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "mentor",
         "priority": "secondary",
-        "count": 3,
-        "min": 3,
-        "max": 8,
-        "density": 4.3,
+        "count": 26,
+        "min": 9,
+        "max": 26,
+        "density": 11.9,
         "per1k": {
           "min": 4,
           "max": 12
@@ -2065,38 +2065,38 @@
       {
         "term": "test series",
         "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 4,
-        "density": 0,
+        "count": 4,
+        "min": 2,
+        "max": 13,
+        "density": 1.8,
         "per1k": {
           "min": 1,
           "max": 6
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "study material",
         "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 4,
-        "density": 0,
+        "count": 4,
+        "min": 2,
+        "max": 13,
+        "density": 1.8,
         "per1k": {
           "min": 1,
           "max": 6
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "Class 11",
         "priority": "semantic",
-        "count": 0,
-        "min": 1,
-        "max": 4,
-        "density": 0,
+        "count": 1,
+        "min": 2,
+        "max": 13,
+        "density": 0.5,
         "per1k": {
           "min": 1,
           "max": 6
@@ -2107,10 +2107,10 @@
       {
         "term": "Class 12",
         "priority": "semantic",
-        "count": 0,
-        "min": 1,
-        "max": 4,
-        "density": 0,
+        "count": 1,
+        "min": 2,
+        "max": 13,
+        "density": 0.5,
         "per1k": {
           "min": 1,
           "max": 6
@@ -2121,66 +2121,66 @@
       {
         "term": "faculty",
         "priority": "semantic",
-        "count": 0,
-        "min": 1,
-        "max": 4,
-        "density": 0,
+        "count": 6,
+        "min": 2,
+        "max": 13,
+        "density": 2.7,
         "per1k": {
           "min": 1,
           "max": 6
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "Physics",
         "priority": "semantic",
-        "count": 0,
-        "min": 1,
-        "max": 7,
-        "density": 0,
+        "count": 10,
+        "min": 4,
+        "max": 22,
+        "density": 4.6,
         "per1k": {
           "min": 2,
           "max": 10
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "Chemistry",
         "priority": "semantic",
-        "count": 0,
-        "min": 1,
-        "max": 7,
-        "density": 0,
+        "count": 9,
+        "min": 4,
+        "max": 22,
+        "density": 4.1,
         "per1k": {
           "min": 2,
           "max": 10
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "Mathematics",
         "priority": "semantic",
-        "count": 0,
-        "min": 1,
-        "max": 7,
-        "density": 0,
+        "count": 10,
+        "min": 4,
+        "max": 22,
+        "density": 4.6,
         "per1k": {
           "min": 2,
           "max": 10
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "India",
         "priority": "semantic",
-        "count": 1,
-        "min": 1,
-        "max": 4,
-        "density": 1.4,
+        "count": 5,
+        "min": 2,
+        "max": 13,
+        "density": 2.3,
         "per1k": {
           "min": 1,
           "max": 6
@@ -2193,15 +2193,15 @@
   {
     "slug": "neet-dropper-coaching",
     "tier": 1,
-    "wordCount": 363,
+    "wordCount": 1954,
     "results": [
       {
         "term": "dropper",
         "priority": "primary",
-        "count": 10,
-        "min": 4,
-        "max": 9,
-        "density": 27.5,
+        "count": 68,
+        "min": 20,
+        "max": 49,
+        "density": 34.8,
         "per1k": {
           "min": 10,
           "max": 25
@@ -2212,52 +2212,52 @@
       {
         "term": "repeater",
         "priority": "primary",
-        "count": 0,
-        "min": 2,
-        "max": 5,
-        "density": 0,
+        "count": 10,
+        "min": 8,
+        "max": 27,
+        "density": 5.1,
         "per1k": {
           "min": 4,
           "max": 14
         },
         "floor": 2,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "mock test",
         "priority": "secondary",
-        "count": 1,
-        "min": 1,
-        "max": 3,
-        "density": 2.8,
+        "count": 2,
+        "min": 4,
+        "max": 16,
+        "density": 1,
         "per1k": {
           "min": 2,
           "max": 8
         },
         "floor": 0,
-        "status": "OK"
+        "status": "UNDER"
       },
       {
         "term": "NEET",
         "priority": "primary",
-        "count": 18,
-        "min": 9,
-        "max": 18,
-        "density": 49.6,
+        "count": 111,
+        "min": 49,
+        "max": 98,
+        "density": 56.8,
         "per1k": {
           "min": 25,
           "max": 50
         },
         "floor": 8,
-        "status": "OK"
+        "status": "OVER"
       },
       {
         "term": "online",
         "priority": "primary",
-        "count": 0,
-        "min": 3,
-        "max": 8,
-        "density": 0,
+        "count": 10,
+        "min": 16,
+        "max": 43,
+        "density": 5.1,
         "per1k": {
           "min": 8,
           "max": 22
@@ -2268,23 +2268,23 @@
       {
         "term": "coaching",
         "priority": "primary",
-        "count": 9,
-        "min": 4,
-        "max": 10,
-        "density": 24.8,
+        "count": 22,
+        "min": 23,
+        "max": 55,
+        "density": 11.3,
         "per1k": {
           "min": 12,
           "max": 28
         },
         "floor": 4,
-        "status": "OK"
+        "status": "UNDER"
       },
       {
         "term": "course",
         "priority": "primary",
         "count": 0,
-        "min": 1,
-        "max": 5,
+        "min": 8,
+        "max": 27,
         "density": 0,
         "per1k": {
           "min": 4,
@@ -2296,66 +2296,66 @@
       {
         "term": "preparation",
         "priority": "secondary",
-        "count": 3,
-        "min": 1,
-        "max": 4,
-        "density": 8.3,
+        "count": 4,
+        "min": 8,
+        "max": 23,
+        "density": 2,
         "per1k": {
           "min": 4,
           "max": 12
+        },
+        "floor": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "live",
+        "priority": "secondary",
+        "count": 7,
+        "min": 6,
+        "max": 20,
+        "density": 3.6,
+        "per1k": {
+          "min": 3,
+          "max": 10
         },
         "floor": 0,
         "status": "OK"
       },
       {
-        "term": "live",
-        "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 4,
-        "density": 0,
-        "per1k": {
-          "min": 3,
-          "max": 10
-        },
-        "floor": 0,
-        "status": "UNDER"
-      },
-      {
         "term": "doubt",
         "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 4,
-        "density": 0,
+        "count": 9,
+        "min": 6,
+        "max": 20,
+        "density": 4.6,
         "per1k": {
           "min": 3,
           "max": 10
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "mentor",
         "priority": "secondary",
-        "count": 1,
-        "min": 2,
-        "max": 4,
-        "density": 2.8,
+        "count": 20,
+        "min": 8,
+        "max": 23,
+        "density": 10.2,
         "per1k": {
           "min": 4,
           "max": 12
         },
         "floor": 2,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "test series",
         "priority": "secondary",
-        "count": 0,
-        "min": 0,
-        "max": 2,
-        "density": 0,
+        "count": 4,
+        "min": 2,
+        "max": 12,
+        "density": 2,
         "per1k": {
           "min": 1,
           "max": 6
@@ -2366,10 +2366,10 @@
       {
         "term": "study material",
         "priority": "secondary",
-        "count": 0,
-        "min": 0,
-        "max": 2,
-        "density": 0,
+        "count": 4,
+        "min": 2,
+        "max": 12,
+        "density": 2,
         "per1k": {
           "min": 1,
           "max": 6
@@ -2380,10 +2380,10 @@
       {
         "term": "NCERT",
         "priority": "secondary",
-        "count": 3,
-        "min": 1,
-        "max": 10,
-        "density": 8.3,
+        "count": 26,
+        "min": 4,
+        "max": 55,
+        "density": 13.3,
         "per1k": {
           "min": 2,
           "max": 28
@@ -2394,66 +2394,66 @@
       {
         "term": "Biology",
         "priority": "secondary",
-        "count": 5,
-        "min": 1,
-        "max": 5,
-        "density": 13.8,
+        "count": 28,
+        "min": 8,
+        "max": 27,
+        "density": 14.3,
         "per1k": {
           "min": 4,
           "max": 14
         },
         "floor": 0,
-        "status": "OK"
+        "status": "OVER"
       },
       {
         "term": "Physics",
         "priority": "semantic",
-        "count": 0,
-        "min": 1,
-        "max": 4,
-        "density": 0,
+        "count": 10,
+        "min": 4,
+        "max": 20,
+        "density": 5.1,
         "per1k": {
           "min": 2,
           "max": 10
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "Chemistry",
         "priority": "semantic",
-        "count": 0,
-        "min": 1,
-        "max": 4,
-        "density": 0,
+        "count": 9,
+        "min": 4,
+        "max": 20,
+        "density": 4.6,
         "per1k": {
           "min": 2,
           "max": 10
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "Class 11",
         "priority": "semantic",
-        "count": 0,
-        "min": 0,
-        "max": 2,
-        "density": 0,
+        "count": 1,
+        "min": 2,
+        "max": 12,
+        "density": 0.5,
         "per1k": {
           "min": 1,
           "max": 6
         },
         "floor": 0,
-        "status": "OK"
+        "status": "UNDER"
       },
       {
         "term": "Class 12",
         "priority": "semantic",
-        "count": 0,
-        "min": 0,
-        "max": 2,
-        "density": 0,
+        "count": 2,
+        "min": 2,
+        "max": 12,
+        "density": 1,
         "per1k": {
           "min": 1,
           "max": 6
@@ -2464,24 +2464,24 @@
       {
         "term": "AIIMS",
         "priority": "semantic",
-        "count": 0,
-        "min": 0,
-        "max": 2,
-        "density": 0,
+        "count": 12,
+        "min": 2,
+        "max": 10,
+        "density": 6.1,
         "per1k": {
           "min": 1,
           "max": 5
         },
         "floor": 0,
-        "status": "OK"
+        "status": "OVER"
       },
       {
         "term": "MBBS",
         "priority": "semantic",
-        "count": 0,
-        "min": 0,
-        "max": 2,
-        "density": 0,
+        "count": 2,
+        "min": 2,
+        "max": 10,
+        "density": 1,
         "per1k": {
           "min": 1,
           "max": 5
@@ -2492,10 +2492,10 @@
       {
         "term": "India",
         "priority": "semantic",
-        "count": 0,
-        "min": 0,
-        "max": 2,
-        "density": 0,
+        "count": 4,
+        "min": 2,
+        "max": 12,
+        "density": 2,
         "per1k": {
           "min": 1,
           "max": 6
@@ -2508,15 +2508,15 @@
   {
     "slug": "jee-crash-course",
     "tier": 1,
-    "wordCount": 261,
+    "wordCount": 1403,
     "results": [
       {
         "term": "crash",
         "priority": "primary",
-        "count": 14,
-        "min": 4,
-        "max": 7,
-        "density": 53.6,
+        "count": 63,
+        "min": 14,
+        "max": 35,
+        "density": 44.9,
         "per1k": {
           "min": 10,
           "max": 25
@@ -2527,38 +2527,38 @@
       {
         "term": "Main",
         "priority": "secondary",
-        "count": 1,
-        "min": 1,
-        "max": 4,
-        "density": 3.8,
+        "count": 21,
+        "min": 6,
+        "max": 20,
+        "density": 15,
         "per1k": {
           "min": 4,
           "max": 14
         },
         "floor": 0,
-        "status": "OK"
+        "status": "OVER"
       },
       {
         "term": "days",
         "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 2,
-        "density": 0,
+        "count": 19,
+        "min": 3,
+        "max": 11,
+        "density": 13.5,
         "per1k": {
           "min": 2,
           "max": 8
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OVER"
       },
       {
         "term": "revision",
         "priority": "semantic",
-        "count": 4,
-        "min": 1,
-        "max": 2,
-        "density": 15.3,
+        "count": 16,
+        "min": 3,
+        "max": 11,
+        "density": 11.4,
         "per1k": {
           "min": 2,
           "max": 8
@@ -2569,10 +2569,10 @@
       {
         "term": "JEE",
         "priority": "primary",
-        "count": 9,
-        "min": 8,
-        "max": 13,
-        "density": 34.5,
+        "count": 62,
+        "min": 35,
+        "max": 70,
+        "density": 44.2,
         "per1k": {
           "min": 25,
           "max": 50
@@ -2583,10 +2583,10 @@
       {
         "term": "online",
         "priority": "primary",
-        "count": 0,
-        "min": 3,
-        "max": 7,
-        "density": 0,
+        "count": 6,
+        "min": 14,
+        "max": 35,
+        "density": 4.3,
         "per1k": {
           "min": 10,
           "max": 25
@@ -2597,10 +2597,10 @@
       {
         "term": "coaching",
         "priority": "primary",
-        "count": 3,
-        "min": 4,
-        "max": 8,
-        "density": 11.5,
+        "count": 4,
+        "min": 21,
+        "max": 42,
+        "density": 2.9,
         "per1k": {
           "min": 15,
           "max": 30
@@ -2611,10 +2611,10 @@
       {
         "term": "course",
         "priority": "primary",
-        "count": 9,
-        "min": 1,
-        "max": 4,
-        "density": 34.5,
+        "count": 35,
+        "min": 6,
+        "max": 20,
+        "density": 24.9,
         "per1k": {
           "min": 4,
           "max": 14
@@ -2625,24 +2625,24 @@
       {
         "term": "preparation",
         "priority": "secondary",
-        "count": 1,
-        "min": 1,
-        "max": 3,
-        "density": 3.8,
+        "count": 3,
+        "min": 6,
+        "max": 17,
+        "density": 2.1,
         "per1k": {
           "min": 4,
           "max": 12
         },
         "floor": 0,
-        "status": "OK"
+        "status": "UNDER"
       },
       {
         "term": "IIT",
         "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 3,
-        "density": 0,
+        "count": 5,
+        "min": 6,
+        "max": 17,
+        "density": 3.6,
         "per1k": {
           "min": 4,
           "max": 12
@@ -2653,52 +2653,52 @@
       {
         "term": "live",
         "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 3,
-        "density": 0,
+        "count": 8,
+        "min": 4,
+        "max": 14,
+        "density": 5.7,
         "per1k": {
           "min": 3,
           "max": 10
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "doubt",
         "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 3,
-        "density": 0,
+        "count": 8,
+        "min": 4,
+        "max": 14,
+        "density": 5.7,
         "per1k": {
           "min": 3,
           "max": 10
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "mentor",
         "priority": "secondary",
-        "count": 1,
-        "min": 2,
-        "max": 3,
-        "density": 3.8,
+        "count": 6,
+        "min": 6,
+        "max": 17,
+        "density": 4.3,
         "per1k": {
           "min": 4,
           "max": 12
         },
         "floor": 2,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "test series",
         "priority": "secondary",
-        "count": 0,
-        "min": 0,
-        "max": 2,
-        "density": 0,
+        "count": 3,
+        "min": 1,
+        "max": 8,
+        "density": 2.1,
         "per1k": {
           "min": 1,
           "max": 6
@@ -2709,10 +2709,10 @@
       {
         "term": "study material",
         "priority": "secondary",
-        "count": 0,
-        "min": 0,
-        "max": 2,
-        "density": 0,
+        "count": 2,
+        "min": 1,
+        "max": 8,
+        "density": 1.4,
         "per1k": {
           "min": 1,
           "max": 6
@@ -2724,23 +2724,23 @@
         "term": "Class 11",
         "priority": "semantic",
         "count": 0,
-        "min": 0,
-        "max": 2,
+        "min": 1,
+        "max": 8,
         "density": 0,
         "per1k": {
           "min": 1,
           "max": 6
         },
         "floor": 0,
-        "status": "OK"
+        "status": "UNDER"
       },
       {
         "term": "Class 12",
         "priority": "semantic",
-        "count": 0,
-        "min": 0,
-        "max": 2,
-        "density": 0,
+        "count": 3,
+        "min": 1,
+        "max": 8,
+        "density": 2.1,
         "per1k": {
           "min": 1,
           "max": 6
@@ -2751,10 +2751,10 @@
       {
         "term": "faculty",
         "priority": "semantic",
-        "count": 0,
-        "min": 0,
-        "max": 2,
-        "density": 0,
+        "count": 1,
+        "min": 1,
+        "max": 8,
+        "density": 0.7,
         "per1k": {
           "min": 1,
           "max": 6
@@ -2765,10 +2765,10 @@
       {
         "term": "Physics",
         "priority": "semantic",
-        "count": 1,
-        "min": 1,
-        "max": 3,
-        "density": 3.8,
+        "count": 10,
+        "min": 3,
+        "max": 14,
+        "density": 7.1,
         "per1k": {
           "min": 2,
           "max": 10
@@ -2779,10 +2779,10 @@
       {
         "term": "Chemistry",
         "priority": "semantic",
-        "count": 1,
-        "min": 1,
-        "max": 3,
-        "density": 3.8,
+        "count": 8,
+        "min": 3,
+        "max": 14,
+        "density": 5.7,
         "per1k": {
           "min": 2,
           "max": 10
@@ -2793,10 +2793,10 @@
       {
         "term": "Mathematics",
         "priority": "semantic",
-        "count": 1,
-        "min": 1,
-        "max": 3,
-        "density": 3.8,
+        "count": 9,
+        "min": 3,
+        "max": 14,
+        "density": 6.4,
         "per1k": {
           "min": 2,
           "max": 10
@@ -2807,10 +2807,10 @@
       {
         "term": "India",
         "priority": "semantic",
-        "count": 0,
-        "min": 0,
-        "max": 2,
-        "density": 0,
+        "count": 2,
+        "min": 1,
+        "max": 8,
+        "density": 1.4,
         "per1k": {
           "min": 1,
           "max": 6
@@ -2823,15 +2823,15 @@
   {
     "slug": "neet-crash-course",
     "tier": 1,
-    "wordCount": 261,
+    "wordCount": 1461,
     "results": [
       {
         "term": "crash",
         "priority": "primary",
-        "count": 15,
-        "min": 4,
-        "max": 7,
-        "density": 57.5,
+        "count": 66,
+        "min": 15,
+        "max": 37,
+        "density": 45.2,
         "per1k": {
           "min": 10,
           "max": 25
@@ -2842,24 +2842,24 @@
       {
         "term": "days",
         "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 2,
-        "density": 0,
+        "count": 18,
+        "min": 3,
+        "max": 12,
+        "density": 12.3,
         "per1k": {
           "min": 2,
           "max": 8
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OVER"
       },
       {
         "term": "revision",
         "priority": "semantic",
-        "count": 7,
-        "min": 1,
-        "max": 2,
-        "density": 26.8,
+        "count": 21,
+        "min": 3,
+        "max": 12,
+        "density": 14.4,
         "per1k": {
           "min": 2,
           "max": 8
@@ -2870,24 +2870,24 @@
       {
         "term": "NEET",
         "priority": "primary",
-        "count": 11,
-        "min": 8,
-        "max": 13,
-        "density": 42.1,
+        "count": 83,
+        "min": 37,
+        "max": 73,
+        "density": 56.8,
         "per1k": {
           "min": 25,
           "max": 50
         },
         "floor": 8,
-        "status": "OK"
+        "status": "OVER"
       },
       {
         "term": "online",
         "priority": "primary",
-        "count": 0,
-        "min": 3,
-        "max": 6,
-        "density": 0,
+        "count": 7,
+        "min": 12,
+        "max": 32,
+        "density": 4.8,
         "per1k": {
           "min": 8,
           "max": 22
@@ -2898,10 +2898,10 @@
       {
         "term": "coaching",
         "priority": "primary",
-        "count": 1,
-        "min": 4,
-        "max": 7,
-        "density": 3.8,
+        "count": 3,
+        "min": 18,
+        "max": 41,
+        "density": 2.1,
         "per1k": {
           "min": 12,
           "max": 28
@@ -2912,10 +2912,10 @@
       {
         "term": "course",
         "priority": "primary",
-        "count": 12,
-        "min": 1,
-        "max": 4,
-        "density": 46,
+        "count": 36,
+        "min": 6,
+        "max": 20,
+        "density": 24.6,
         "per1k": {
           "min": 4,
           "max": 14
@@ -2926,66 +2926,66 @@
       {
         "term": "preparation",
         "priority": "secondary",
-        "count": 5,
-        "min": 1,
-        "max": 3,
-        "density": 19.2,
+        "count": 7,
+        "min": 6,
+        "max": 18,
+        "density": 4.8,
         "per1k": {
           "min": 4,
           "max": 12
         },
         "floor": 0,
-        "status": "OVER"
+        "status": "OK"
       },
       {
         "term": "live",
         "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 3,
-        "density": 0,
+        "count": 8,
+        "min": 4,
+        "max": 15,
+        "density": 5.5,
         "per1k": {
           "min": 3,
           "max": 10
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "doubt",
         "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 3,
-        "density": 0,
+        "count": 8,
+        "min": 4,
+        "max": 15,
+        "density": 5.5,
         "per1k": {
           "min": 3,
           "max": 10
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "mentor",
         "priority": "secondary",
-        "count": 1,
-        "min": 2,
-        "max": 3,
-        "density": 3.8,
+        "count": 8,
+        "min": 6,
+        "max": 18,
+        "density": 5.5,
         "per1k": {
           "min": 4,
           "max": 12
         },
         "floor": 2,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "test series",
         "priority": "secondary",
-        "count": 0,
-        "min": 0,
-        "max": 2,
-        "density": 0,
+        "count": 2,
+        "min": 1,
+        "max": 9,
+        "density": 1.4,
         "per1k": {
           "min": 1,
           "max": 6
@@ -2996,10 +2996,10 @@
       {
         "term": "study material",
         "priority": "secondary",
-        "count": 0,
-        "min": 0,
-        "max": 2,
-        "density": 0,
+        "count": 2,
+        "min": 1,
+        "max": 9,
+        "density": 1.4,
         "per1k": {
           "min": 1,
           "max": 6
@@ -3010,10 +3010,10 @@
       {
         "term": "NCERT",
         "priority": "secondary",
-        "count": 5,
-        "min": 1,
-        "max": 7,
-        "density": 19.2,
+        "count": 14,
+        "min": 3,
+        "max": 41,
+        "density": 9.6,
         "per1k": {
           "min": 2,
           "max": 28
@@ -3024,10 +3024,10 @@
       {
         "term": "Biology",
         "priority": "secondary",
-        "count": 5,
-        "min": 1,
-        "max": 4,
-        "density": 19.2,
+        "count": 23,
+        "min": 6,
+        "max": 20,
+        "density": 15.7,
         "per1k": {
           "min": 4,
           "max": 14
@@ -3038,10 +3038,10 @@
       {
         "term": "Physics",
         "priority": "semantic",
-        "count": 1,
-        "min": 1,
-        "max": 3,
-        "density": 3.8,
+        "count": 13,
+        "min": 3,
+        "max": 15,
+        "density": 8.9,
         "per1k": {
           "min": 2,
           "max": 10
@@ -3052,10 +3052,10 @@
       {
         "term": "Chemistry",
         "priority": "semantic",
-        "count": 1,
-        "min": 1,
-        "max": 3,
-        "density": 3.8,
+        "count": 10,
+        "min": 3,
+        "max": 15,
+        "density": 6.8,
         "per1k": {
           "min": 2,
           "max": 10
@@ -3067,23 +3067,23 @@
         "term": "Class 11",
         "priority": "semantic",
         "count": 0,
-        "min": 0,
-        "max": 2,
+        "min": 1,
+        "max": 9,
         "density": 0,
         "per1k": {
           "min": 1,
           "max": 6
         },
         "floor": 0,
-        "status": "OK"
+        "status": "UNDER"
       },
       {
         "term": "Class 12",
         "priority": "semantic",
-        "count": 0,
-        "min": 0,
-        "max": 2,
-        "density": 0,
+        "count": 3,
+        "min": 1,
+        "max": 9,
+        "density": 2.1,
         "per1k": {
           "min": 1,
           "max": 6
@@ -3094,10 +3094,10 @@
       {
         "term": "AIIMS",
         "priority": "semantic",
-        "count": 0,
-        "min": 0,
-        "max": 1,
-        "density": 0,
+        "count": 4,
+        "min": 1,
+        "max": 7,
+        "density": 2.7,
         "per1k": {
           "min": 1,
           "max": 5
@@ -3108,10 +3108,10 @@
       {
         "term": "MBBS",
         "priority": "semantic",
-        "count": 0,
-        "min": 0,
-        "max": 1,
-        "density": 0,
+        "count": 1,
+        "min": 1,
+        "max": 7,
+        "density": 0.7,
         "per1k": {
           "min": 1,
           "max": 5
@@ -3122,10 +3122,10 @@
       {
         "term": "India",
         "priority": "semantic",
-        "count": 0,
-        "min": 0,
-        "max": 2,
-        "density": 0,
+        "count": 2,
+        "min": 1,
+        "max": 9,
+        "density": 1.4,
         "per1k": {
           "min": 1,
           "max": 6
@@ -3313,15 +3313,15 @@
   {
     "slug": "jee-physics-coaching",
     "tier": 2,
-    "wordCount": 992,
+    "wordCount": 2810,
     "results": [
       {
         "term": "Physics",
         "priority": "primary",
-        "count": 50,
-        "min": 25,
-        "max": 55,
-        "density": 50.4,
+        "count": 102,
+        "min": 70,
+        "max": 155,
+        "density": 36.3,
         "per1k": {
           "min": 25,
           "max": 55
@@ -3332,10 +3332,10 @@
       {
         "term": "JEE",
         "priority": "primary",
-        "count": 38,
-        "min": 20,
-        "max": 45,
-        "density": 38.3,
+        "count": 103,
+        "min": 56,
+        "max": 126,
+        "density": 36.7,
         "per1k": {
           "min": 20,
           "max": 45
@@ -3346,38 +3346,38 @@
       {
         "term": "coaching",
         "priority": "primary",
-        "count": 9,
-        "min": 10,
-        "max": 25,
-        "density": 9.1,
+        "count": 28,
+        "min": 28,
+        "max": 70,
+        "density": 10,
         "per1k": {
           "min": 10,
           "max": 25
         },
         "floor": 4,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "online",
         "priority": "primary",
-        "count": 2,
-        "min": 5,
-        "max": 16,
-        "density": 2,
+        "count": 18,
+        "min": 14,
+        "max": 45,
+        "density": 6.4,
         "per1k": {
           "min": 5,
           "max": 16
         },
         "floor": 2,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "IIT",
         "priority": "secondary",
-        "count": 2,
-        "min": 4,
-        "max": 14,
-        "density": 2,
+        "count": 9,
+        "min": 11,
+        "max": 39,
+        "density": 3.2,
         "per1k": {
           "min": 4,
           "max": 14
@@ -3388,10 +3388,10 @@
       {
         "term": "Mechanics",
         "priority": "semantic",
-        "count": 8,
-        "min": 2,
-        "max": 8,
-        "density": 8.1,
+        "count": 18,
+        "min": 6,
+        "max": 22,
+        "density": 6.4,
         "per1k": {
           "min": 2,
           "max": 8
@@ -3402,24 +3402,24 @@
       {
         "term": "Electrodynamics",
         "priority": "semantic",
-        "count": 0,
-        "min": 1,
-        "max": 6,
-        "density": 0,
+        "count": 11,
+        "min": 3,
+        "max": 17,
+        "density": 3.9,
         "per1k": {
           "min": 1,
           "max": 6
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "Optics",
         "priority": "semantic",
-        "count": 5,
-        "min": 1,
-        "max": 6,
-        "density": 5,
+        "count": 13,
+        "min": 3,
+        "max": 17,
+        "density": 4.6,
         "per1k": {
           "min": 1,
           "max": 6
@@ -3430,10 +3430,10 @@
       {
         "term": "Thermodynamics",
         "priority": "semantic",
-        "count": 3,
-        "min": 1,
-        "max": 6,
-        "density": 3,
+        "count": 6,
+        "min": 3,
+        "max": 17,
+        "density": 2.1,
         "per1k": {
           "min": 1,
           "max": 6
@@ -3444,10 +3444,10 @@
       {
         "term": "mentor",
         "priority": "secondary",
-        "count": 3,
-        "min": 2,
-        "max": 10,
-        "density": 3,
+        "count": 26,
+        "min": 6,
+        "max": 28,
+        "density": 9.3,
         "per1k": {
           "min": 2,
           "max": 10
@@ -3458,31 +3458,31 @@
       {
         "term": "doubt",
         "priority": "secondary",
-        "count": 0,
-        "min": 2,
-        "max": 8,
-        "density": 0,
+        "count": 12,
+        "min": 6,
+        "max": 22,
+        "density": 4.3,
         "per1k": {
           "min": 2,
           "max": 8
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       }
     ]
   },
   {
     "slug": "jee-chemistry-coaching",
     "tier": 2,
-    "wordCount": 726,
+    "wordCount": 1992,
     "results": [
       {
         "term": "Chemistry",
         "priority": "primary",
-        "count": 43,
-        "min": 18,
-        "max": 40,
-        "density": 59.2,
+        "count": 124,
+        "min": 50,
+        "max": 110,
+        "density": 62.2,
         "per1k": {
           "min": 25,
           "max": 55
@@ -3493,10 +3493,10 @@
       {
         "term": "JEE",
         "priority": "primary",
-        "count": 23,
-        "min": 15,
-        "max": 33,
-        "density": 31.7,
+        "count": 87,
+        "min": 40,
+        "max": 90,
+        "density": 43.7,
         "per1k": {
           "min": 20,
           "max": 45
@@ -3507,10 +3507,10 @@
       {
         "term": "coaching",
         "priority": "primary",
-        "count": 11,
-        "min": 7,
-        "max": 18,
-        "density": 15.2,
+        "count": 26,
+        "min": 20,
+        "max": 50,
+        "density": 13.1,
         "per1k": {
           "min": 10,
           "max": 25
@@ -3521,24 +3521,24 @@
       {
         "term": "online",
         "priority": "primary",
-        "count": 1,
-        "min": 4,
-        "max": 12,
-        "density": 1.4,
+        "count": 13,
+        "min": 10,
+        "max": 32,
+        "density": 6.5,
         "per1k": {
           "min": 5,
           "max": 16
         },
         "floor": 2,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "Organic",
         "priority": "semantic",
-        "count": 16,
-        "min": 1,
-        "max": 7,
-        "density": 22,
+        "count": 26,
+        "min": 4,
+        "max": 20,
+        "density": 13.1,
         "per1k": {
           "min": 2,
           "max": 10
@@ -3549,10 +3549,10 @@
       {
         "term": "Inorganic",
         "priority": "semantic",
-        "count": 16,
-        "min": 1,
-        "max": 6,
-        "density": 22,
+        "count": 22,
+        "min": 4,
+        "max": 16,
+        "density": 11,
         "per1k": {
           "min": 2,
           "max": 8
@@ -3563,10 +3563,10 @@
       {
         "term": "Physical",
         "priority": "semantic",
-        "count": 14,
-        "min": 1,
-        "max": 6,
-        "density": 19.3,
+        "count": 21,
+        "min": 4,
+        "max": 16,
+        "density": 10.5,
         "per1k": {
           "min": 2,
           "max": 8
@@ -3577,45 +3577,45 @@
       {
         "term": "mentor",
         "priority": "secondary",
-        "count": 2,
-        "min": 1,
-        "max": 7,
-        "density": 2.8,
+        "count": 22,
+        "min": 4,
+        "max": 20,
+        "density": 11,
         "per1k": {
           "min": 2,
           "max": 10
         },
         "floor": 0,
-        "status": "OK"
+        "status": "OVER"
       },
       {
         "term": "doubt",
         "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 6,
-        "density": 0,
+        "count": 10,
+        "min": 4,
+        "max": 16,
+        "density": 5,
         "per1k": {
           "min": 2,
           "max": 8
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       }
     ]
   },
   {
     "slug": "jee-mathematics-coaching",
     "tier": 2,
-    "wordCount": 578,
+    "wordCount": 1829,
     "results": [
       {
         "term": "Mathematics",
         "priority": "primary",
-        "count": 11,
-        "min": 9,
-        "max": 23,
-        "density": 19,
+        "count": 46,
+        "min": 27,
+        "max": 73,
+        "density": 25.2,
         "per1k": {
           "min": 15,
           "max": 40
@@ -3626,10 +3626,10 @@
       {
         "term": "Maths",
         "priority": "primary",
-        "count": 18,
-        "min": 3,
-        "max": 13,
-        "density": 31.1,
+        "count": 63,
+        "min": 11,
+        "max": 40,
+        "density": 34.4,
         "per1k": {
           "min": 6,
           "max": 22
@@ -3640,24 +3640,24 @@
       {
         "term": "JEE",
         "priority": "primary",
-        "count": 24,
-        "min": 12,
-        "max": 26,
-        "density": 41.5,
+        "count": 98,
+        "min": 37,
+        "max": 82,
+        "density": 53.6,
         "per1k": {
           "min": 20,
           "max": 45
         },
         "floor": 6,
-        "status": "OK"
+        "status": "OVER"
       },
       {
         "term": "coaching",
         "priority": "primary",
-        "count": 9,
-        "min": 6,
-        "max": 14,
-        "density": 15.6,
+        "count": 22,
+        "min": 18,
+        "max": 46,
+        "density": 12,
         "per1k": {
           "min": 10,
           "max": 25
@@ -3668,38 +3668,38 @@
       {
         "term": "online",
         "priority": "primary",
-        "count": 2,
-        "min": 3,
-        "max": 9,
-        "density": 3.5,
+        "count": 14,
+        "min": 9,
+        "max": 29,
+        "density": 7.7,
         "per1k": {
           "min": 5,
           "max": 16
         },
         "floor": 2,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "Calculus",
         "priority": "semantic",
-        "count": 10,
-        "min": 1,
-        "max": 6,
-        "density": 17.3,
+        "count": 18,
+        "min": 4,
+        "max": 18,
+        "density": 9.8,
         "per1k": {
           "min": 2,
           "max": 10
         },
         "floor": 0,
-        "status": "OVER"
+        "status": "OK"
       },
       {
         "term": "Algebra",
         "priority": "semantic",
-        "count": 6,
-        "min": 1,
-        "max": 6,
-        "density": 10.4,
+        "count": 11,
+        "min": 4,
+        "max": 18,
+        "density": 6,
         "per1k": {
           "min": 2,
           "max": 10
@@ -3710,24 +3710,24 @@
       {
         "term": "Geometry",
         "priority": "semantic",
-        "count": 6,
-        "min": 1,
-        "max": 5,
-        "density": 10.4,
+        "count": 11,
+        "min": 2,
+        "max": 15,
+        "density": 6,
         "per1k": {
           "min": 1,
           "max": 8
         },
         "floor": 0,
-        "status": "OVER"
+        "status": "OK"
       },
       {
         "term": "Trigonometry",
         "priority": "semantic",
-        "count": 4,
-        "min": 1,
-        "max": 5,
-        "density": 6.9,
+        "count": 8,
+        "min": 2,
+        "max": 15,
+        "density": 4.4,
         "per1k": {
           "min": 1,
           "max": 8
@@ -3738,31 +3738,31 @@
       {
         "term": "mentor",
         "priority": "secondary",
-        "count": 2,
-        "min": 1,
-        "max": 6,
-        "density": 3.5,
+        "count": 20,
+        "min": 4,
+        "max": 18,
+        "density": 10.9,
         "per1k": {
           "min": 2,
           "max": 10
         },
         "floor": 0,
-        "status": "OK"
+        "status": "OVER"
       }
     ]
   },
   {
     "slug": "neet-physics-coaching",
     "tier": 2,
-    "wordCount": 616,
+    "wordCount": 1646,
     "results": [
       {
         "term": "Physics",
         "priority": "primary",
-        "count": 38,
-        "min": 15,
-        "max": 34,
-        "density": 61.7,
+        "count": 114,
+        "min": 41,
+        "max": 91,
+        "density": 69.3,
         "per1k": {
           "min": 25,
           "max": 55
@@ -3773,10 +3773,10 @@
       {
         "term": "NEET",
         "priority": "primary",
-        "count": 31,
-        "min": 12,
-        "max": 28,
-        "density": 50.3,
+        "count": 96,
+        "min": 33,
+        "max": 74,
+        "density": 58.3,
         "per1k": {
           "min": 20,
           "max": 45
@@ -3787,9 +3787,9 @@
       {
         "term": "coaching",
         "priority": "primary",
-        "count": 6,
-        "min": 6,
-        "max": 15,
+        "count": 16,
+        "min": 16,
+        "max": 41,
         "density": 9.7,
         "per1k": {
           "min": 10,
@@ -3801,24 +3801,24 @@
       {
         "term": "online",
         "priority": "primary",
-        "count": 1,
-        "min": 3,
-        "max": 10,
-        "density": 1.6,
+        "count": 10,
+        "min": 8,
+        "max": 26,
+        "density": 6.1,
         "per1k": {
           "min": 5,
           "max": 16
         },
         "floor": 2,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "NCERT",
         "priority": "secondary",
-        "count": 12,
-        "min": 1,
-        "max": 18,
-        "density": 19.5,
+        "count": 18,
+        "min": 3,
+        "max": 49,
+        "density": 10.9,
         "per1k": {
           "min": 2,
           "max": 30
@@ -3829,45 +3829,45 @@
       {
         "term": "mentor",
         "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 6,
-        "density": 0,
+        "count": 17,
+        "min": 3,
+        "max": 16,
+        "density": 10.3,
         "per1k": {
           "min": 2,
           "max": 10
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OVER"
       },
       {
         "term": "doubt",
         "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 5,
-        "density": 0,
+        "count": 10,
+        "min": 3,
+        "max": 13,
+        "density": 6.1,
         "per1k": {
           "min": 2,
           "max": 8
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       }
     ]
   },
   {
     "slug": "neet-chemistry-coaching",
     "tier": 2,
-    "wordCount": 553,
+    "wordCount": 1612,
     "results": [
       {
         "term": "Chemistry",
         "priority": "primary",
-        "count": 31,
-        "min": 14,
-        "max": 30,
-        "density": 56.1,
+        "count": 108,
+        "min": 40,
+        "max": 89,
+        "density": 67,
         "per1k": {
           "min": 25,
           "max": 55
@@ -3878,24 +3878,24 @@
       {
         "term": "NEET",
         "priority": "primary",
-        "count": 24,
-        "min": 11,
-        "max": 25,
-        "density": 43.4,
+        "count": 89,
+        "min": 32,
+        "max": 73,
+        "density": 55.2,
         "per1k": {
           "min": 20,
           "max": 45
         },
         "floor": 6,
-        "status": "OK"
+        "status": "OVER"
       },
       {
         "term": "coaching",
         "priority": "primary",
-        "count": 7,
-        "min": 6,
-        "max": 14,
-        "density": 12.7,
+        "count": 17,
+        "min": 16,
+        "max": 40,
+        "density": 10.5,
         "per1k": {
           "min": 10,
           "max": 25
@@ -3906,24 +3906,24 @@
       {
         "term": "online",
         "priority": "primary",
-        "count": 1,
-        "min": 3,
-        "max": 9,
-        "density": 1.8,
+        "count": 10,
+        "min": 8,
+        "max": 26,
+        "density": 6.2,
         "per1k": {
           "min": 5,
           "max": 16
         },
         "floor": 2,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "NCERT",
         "priority": "secondary",
-        "count": 20,
-        "min": 1,
-        "max": 7,
-        "density": 36.2,
+        "count": 25,
+        "min": 3,
+        "max": 19,
+        "density": 15.5,
         "per1k": {
           "min": 2,
           "max": 12
@@ -3934,73 +3934,73 @@
       {
         "term": "mentor",
         "priority": "secondary",
-        "count": 3,
-        "min": 1,
-        "max": 6,
-        "density": 5.4,
+        "count": 20,
+        "min": 3,
+        "max": 16,
+        "density": 12.4,
         "per1k": {
           "min": 2,
           "max": 10
         },
         "floor": 0,
-        "status": "OK"
+        "status": "OVER"
       },
       {
         "term": "doubt",
         "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 4,
-        "density": 0,
+        "count": 10,
+        "min": 3,
+        "max": 13,
+        "density": 6.2,
         "per1k": {
           "min": 2,
           "max": 8
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       }
     ]
   },
   {
     "slug": "neet-biology-coaching",
     "tier": 2,
-    "wordCount": 617,
+    "wordCount": 1811,
     "results": [
       {
         "term": "Biology",
         "priority": "primary",
-        "count": 33,
-        "min": 15,
-        "max": 34,
-        "density": 53.5,
+        "count": 116,
+        "min": 45,
+        "max": 100,
+        "density": 64.1,
         "per1k": {
           "min": 25,
           "max": 55
         },
         "floor": 8,
-        "status": "OK"
+        "status": "OVER"
       },
       {
         "term": "NEET",
         "priority": "primary",
-        "count": 23,
-        "min": 12,
-        "max": 28,
-        "density": 37.3,
+        "count": 89,
+        "min": 36,
+        "max": 81,
+        "density": 49.1,
         "per1k": {
           "min": 20,
           "max": 45
         },
         "floor": 6,
-        "status": "OK"
+        "status": "OVER"
       },
       {
         "term": "coaching",
         "priority": "primary",
-        "count": 8,
-        "min": 6,
-        "max": 15,
-        "density": 13,
+        "count": 19,
+        "min": 18,
+        "max": 45,
+        "density": 10.5,
         "per1k": {
           "min": 10,
           "max": 25
@@ -4011,24 +4011,24 @@
       {
         "term": "online",
         "priority": "primary",
-        "count": 2,
-        "min": 3,
-        "max": 10,
-        "density": 3.2,
+        "count": 11,
+        "min": 9,
+        "max": 29,
+        "density": 6.1,
         "per1k": {
           "min": 5,
           "max": 16
         },
         "floor": 2,
-        "status": "UNDER"
+        "status": "OK"
       },
       {
         "term": "NCERT",
         "priority": "primary",
-        "count": 29,
-        "min": 2,
-        "max": 31,
-        "density": 47,
+        "count": 41,
+        "min": 7,
+        "max": 91,
+        "density": 22.6,
         "per1k": {
           "min": 4,
           "max": 50
@@ -4039,10 +4039,10 @@
       {
         "term": "Botany",
         "priority": "semantic",
-        "count": 5,
-        "min": 1,
-        "max": 6,
-        "density": 8.1,
+        "count": 10,
+        "min": 2,
+        "max": 18,
+        "density": 5.5,
         "per1k": {
           "min": 1,
           "max": 10
@@ -4053,10 +4053,10 @@
       {
         "term": "Zoology",
         "priority": "semantic",
-        "count": 3,
-        "min": 1,
-        "max": 4,
-        "density": 4.9,
+        "count": 8,
+        "min": 2,
+        "max": 11,
+        "density": 4.4,
         "per1k": {
           "min": 1,
           "max": 6
@@ -4067,30 +4067,30 @@
       {
         "term": "mentor",
         "priority": "secondary",
-        "count": 5,
-        "min": 1,
-        "max": 6,
-        "density": 8.1,
+        "count": 22,
+        "min": 4,
+        "max": 18,
+        "density": 12.1,
         "per1k": {
           "min": 2,
           "max": 10
         },
         "floor": 0,
-        "status": "OK"
+        "status": "OVER"
       },
       {
         "term": "doubt",
         "priority": "secondary",
-        "count": 0,
-        "min": 1,
-        "max": 5,
-        "density": 0,
+        "count": 9,
+        "min": 4,
+        "max": 14,
+        "density": 5,
         "per1k": {
           "min": 2,
           "max": 8
         },
         "floor": 0,
-        "status": "UNDER"
+        "status": "OK"
       }
     ]
   }
