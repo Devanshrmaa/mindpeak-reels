@@ -1,0 +1,2393 @@
+[
+  {
+    "slug": "jee-coaching",
+    "tier": 1,
+    "wordCount": 756,
+    "results": [
+      {
+        "term": "best",
+        "min": 4,
+        "max": 8,
+        "priority": "primary",
+        "count": 3,
+        "status": "UNDER"
+      },
+      {
+        "term": "1-on-1",
+        "min": 8,
+        "max": 15,
+        "priority": "primary",
+        "count": 12,
+        "status": "OK"
+      },
+      {
+        "term": "Advanced",
+        "min": 8,
+        "max": 18,
+        "priority": "secondary",
+        "count": 11,
+        "status": "OK"
+      },
+      {
+        "term": "Main",
+        "min": 8,
+        "max": 18,
+        "priority": "secondary",
+        "count": 9,
+        "status": "OK"
+      },
+      {
+        "term": "dropper",
+        "min": 3,
+        "max": 8,
+        "priority": "semantic",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "JEE",
+        "min": 80,
+        "max": 120,
+        "priority": "primary",
+        "count": 37,
+        "status": "UNDER"
+      },
+      {
+        "term": "online",
+        "min": 40,
+        "max": 70,
+        "priority": "primary",
+        "count": 5,
+        "status": "UNDER"
+      },
+      {
+        "term": "coaching",
+        "min": 30,
+        "max": 50,
+        "priority": "primary",
+        "count": 24,
+        "status": "UNDER"
+      },
+      {
+        "term": "course",
+        "min": 30,
+        "max": 50,
+        "priority": "primary",
+        "count": 2,
+        "status": "UNDER"
+      },
+      {
+        "term": "preparation",
+        "min": 20,
+        "max": 35,
+        "priority": "secondary",
+        "count": 3,
+        "status": "UNDER"
+      },
+      {
+        "term": "IIT",
+        "min": 15,
+        "max": 25,
+        "priority": "secondary",
+        "count": 3,
+        "status": "UNDER"
+      },
+      {
+        "term": "live",
+        "min": 15,
+        "max": 25,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "doubt",
+        "min": 6,
+        "max": 12,
+        "priority": "secondary",
+        "count": 3,
+        "status": "UNDER"
+      },
+      {
+        "term": "mentor",
+        "min": 8,
+        "max": 15,
+        "priority": "secondary",
+        "count": 5,
+        "status": "UNDER"
+      },
+      {
+        "term": "test series",
+        "min": 5,
+        "max": 10,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "study material",
+        "min": 5,
+        "max": 10,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "Class 11",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "Class 12",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "faculty",
+        "min": 5,
+        "max": 10,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "Physics",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 4,
+        "status": "OK"
+      },
+      {
+        "term": "Chemistry",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 3,
+        "status": "UNDER"
+      },
+      {
+        "term": "Mathematics",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 2,
+        "status": "UNDER"
+      },
+      {
+        "term": "India",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 2,
+        "status": "OK"
+      }
+    ]
+  },
+  {
+    "slug": "neet-coaching",
+    "tier": 1,
+    "wordCount": 669,
+    "results": [
+      {
+        "term": "best",
+        "min": 3,
+        "max": 6,
+        "priority": "primary",
+        "count": 4,
+        "status": "OK"
+      },
+      {
+        "term": "1-on-1",
+        "min": 8,
+        "max": 15,
+        "priority": "primary",
+        "count": 8,
+        "status": "OK"
+      },
+      {
+        "term": "UG",
+        "min": 4,
+        "max": 10,
+        "priority": "secondary",
+        "count": 2,
+        "status": "UNDER"
+      },
+      {
+        "term": "dropper",
+        "min": 3,
+        "max": 8,
+        "priority": "semantic",
+        "count": 2,
+        "status": "UNDER"
+      },
+      {
+        "term": "NEET",
+        "min": 70,
+        "max": 110,
+        "priority": "primary",
+        "count": 35,
+        "status": "UNDER"
+      },
+      {
+        "term": "online",
+        "min": 25,
+        "max": 50,
+        "priority": "primary",
+        "count": 6,
+        "status": "UNDER"
+      },
+      {
+        "term": "coaching",
+        "min": 25,
+        "max": 45,
+        "priority": "primary",
+        "count": 16,
+        "status": "UNDER"
+      },
+      {
+        "term": "course",
+        "min": 20,
+        "max": 45,
+        "priority": "primary",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "preparation",
+        "min": 15,
+        "max": 30,
+        "priority": "secondary",
+        "count": 5,
+        "status": "UNDER"
+      },
+      {
+        "term": "live",
+        "min": 10,
+        "max": 18,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "doubt",
+        "min": 5,
+        "max": 12,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "mentor",
+        "min": 8,
+        "max": 15,
+        "priority": "secondary",
+        "count": 4,
+        "status": "UNDER"
+      },
+      {
+        "term": "test series",
+        "min": 4,
+        "max": 10,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "study material",
+        "min": 5,
+        "max": 10,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "NCERT",
+        "min": 4,
+        "max": 10,
+        "priority": "secondary",
+        "count": 17,
+        "status": "OVER"
+      },
+      {
+        "term": "Biology",
+        "min": 8,
+        "max": 15,
+        "priority": "secondary",
+        "count": 8,
+        "status": "OK"
+      },
+      {
+        "term": "Physics",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 4,
+        "status": "OK"
+      },
+      {
+        "term": "Chemistry",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 4,
+        "status": "OK"
+      },
+      {
+        "term": "Class 11",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "Class 12",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "AIIMS",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 4,
+        "status": "OK"
+      },
+      {
+        "term": "MBBS",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "India",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 2,
+        "status": "OK"
+      }
+    ]
+  },
+  {
+    "slug": "best-jee-coaching-in-india",
+    "tier": 1,
+    "wordCount": 1781,
+    "results": [
+      {
+        "term": "best",
+        "min": 8,
+        "max": 15,
+        "priority": "primary",
+        "count": 9,
+        "status": "OK"
+      },
+      {
+        "term": "India",
+        "min": 8,
+        "max": 15,
+        "priority": "primary",
+        "count": 7,
+        "status": "UNDER"
+      },
+      {
+        "term": "top",
+        "min": 4,
+        "max": 10,
+        "priority": "secondary",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "JEE",
+        "min": 80,
+        "max": 120,
+        "priority": "primary",
+        "count": 21,
+        "status": "UNDER"
+      },
+      {
+        "term": "online",
+        "min": 40,
+        "max": 70,
+        "priority": "primary",
+        "count": 18,
+        "status": "UNDER"
+      },
+      {
+        "term": "coaching",
+        "min": 30,
+        "max": 50,
+        "priority": "primary",
+        "count": 57,
+        "status": "OVER"
+      },
+      {
+        "term": "course",
+        "min": 30,
+        "max": 50,
+        "priority": "primary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "preparation",
+        "min": 20,
+        "max": 35,
+        "priority": "secondary",
+        "count": 6,
+        "status": "UNDER"
+      },
+      {
+        "term": "IIT",
+        "min": 15,
+        "max": 25,
+        "priority": "secondary",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "live",
+        "min": 15,
+        "max": 25,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "doubt",
+        "min": 6,
+        "max": 12,
+        "priority": "secondary",
+        "count": 10,
+        "status": "OK"
+      },
+      {
+        "term": "mentor",
+        "min": 8,
+        "max": 15,
+        "priority": "secondary",
+        "count": 10,
+        "status": "OK"
+      },
+      {
+        "term": "test series",
+        "min": 5,
+        "max": 10,
+        "priority": "secondary",
+        "count": 3,
+        "status": "UNDER"
+      },
+      {
+        "term": "study material",
+        "min": 5,
+        "max": 10,
+        "priority": "secondary",
+        "count": 3,
+        "status": "UNDER"
+      },
+      {
+        "term": "Class 11",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 2,
+        "status": "UNDER"
+      },
+      {
+        "term": "Class 12",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 2,
+        "status": "UNDER"
+      },
+      {
+        "term": "faculty",
+        "min": 5,
+        "max": 10,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "Physics",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 2,
+        "status": "UNDER"
+      },
+      {
+        "term": "Chemistry",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "Mathematics",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      }
+    ]
+  },
+  {
+    "slug": "jee-main-coaching",
+    "tier": 1,
+    "wordCount": 443,
+    "results": [
+      {
+        "term": "Main",
+        "min": 25,
+        "max": 45,
+        "priority": "primary",
+        "count": 17,
+        "status": "UNDER"
+      },
+      {
+        "term": "NTA",
+        "min": 4,
+        "max": 10,
+        "priority": "secondary",
+        "count": 6,
+        "status": "OK"
+      },
+      {
+        "term": "rank",
+        "min": 3,
+        "max": 8,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "percentile",
+        "min": 2,
+        "max": 6,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "JEE",
+        "min": 80,
+        "max": 120,
+        "priority": "primary",
+        "count": 26,
+        "status": "UNDER"
+      },
+      {
+        "term": "online",
+        "min": 40,
+        "max": 70,
+        "priority": "primary",
+        "count": 2,
+        "status": "UNDER"
+      },
+      {
+        "term": "coaching",
+        "min": 30,
+        "max": 50,
+        "priority": "primary",
+        "count": 12,
+        "status": "UNDER"
+      },
+      {
+        "term": "course",
+        "min": 30,
+        "max": 50,
+        "priority": "primary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "preparation",
+        "min": 20,
+        "max": 35,
+        "priority": "secondary",
+        "count": 3,
+        "status": "UNDER"
+      },
+      {
+        "term": "IIT",
+        "min": 15,
+        "max": 25,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "live",
+        "min": 15,
+        "max": 25,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "doubt",
+        "min": 6,
+        "max": 12,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "mentor",
+        "min": 8,
+        "max": 15,
+        "priority": "secondary",
+        "count": 2,
+        "status": "UNDER"
+      },
+      {
+        "term": "test series",
+        "min": 5,
+        "max": 10,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "study material",
+        "min": 5,
+        "max": 10,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "Class 11",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "Class 12",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "faculty",
+        "min": 5,
+        "max": 10,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "Physics",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 4,
+        "status": "OK"
+      },
+      {
+        "term": "Chemistry",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 3,
+        "status": "UNDER"
+      },
+      {
+        "term": "Mathematics",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 3,
+        "status": "UNDER"
+      },
+      {
+        "term": "India",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      }
+    ]
+  },
+  {
+    "slug": "jee-advanced-coaching",
+    "tier": 1,
+    "wordCount": 485,
+    "results": [
+      {
+        "term": "Advanced",
+        "min": 25,
+        "max": 45,
+        "priority": "primary",
+        "count": 18,
+        "status": "UNDER"
+      },
+      {
+        "term": "AIR",
+        "min": 3,
+        "max": 10,
+        "priority": "secondary",
+        "count": 7,
+        "status": "OK"
+      },
+      {
+        "term": "rank",
+        "min": 4,
+        "max": 10,
+        "priority": "secondary",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "IIT",
+        "min": 18,
+        "max": 30,
+        "priority": "secondary",
+        "count": 4,
+        "status": "UNDER"
+      },
+      {
+        "term": "JEE",
+        "min": 80,
+        "max": 120,
+        "priority": "primary",
+        "count": 22,
+        "status": "UNDER"
+      },
+      {
+        "term": "online",
+        "min": 40,
+        "max": 70,
+        "priority": "primary",
+        "count": 3,
+        "status": "UNDER"
+      },
+      {
+        "term": "coaching",
+        "min": 30,
+        "max": 50,
+        "priority": "primary",
+        "count": 14,
+        "status": "UNDER"
+      },
+      {
+        "term": "course",
+        "min": 30,
+        "max": 50,
+        "priority": "primary",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "preparation",
+        "min": 20,
+        "max": 35,
+        "priority": "secondary",
+        "count": 3,
+        "status": "UNDER"
+      },
+      {
+        "term": "live",
+        "min": 15,
+        "max": 25,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "doubt",
+        "min": 6,
+        "max": 12,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "mentor",
+        "min": 8,
+        "max": 15,
+        "priority": "secondary",
+        "count": 2,
+        "status": "UNDER"
+      },
+      {
+        "term": "test series",
+        "min": 5,
+        "max": 10,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "study material",
+        "min": 5,
+        "max": 10,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "Class 11",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "Class 12",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "faculty",
+        "min": 5,
+        "max": 10,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "Physics",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 3,
+        "status": "UNDER"
+      },
+      {
+        "term": "Chemistry",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "Mathematics",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "India",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      }
+    ]
+  },
+  {
+    "slug": "neet-ug-coaching",
+    "tier": 1,
+    "wordCount": 292,
+    "results": [
+      {
+        "term": "UG",
+        "min": 15,
+        "max": 30,
+        "priority": "primary",
+        "count": 11,
+        "status": "UNDER"
+      },
+      {
+        "term": "rank",
+        "min": 3,
+        "max": 8,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "NEET",
+        "min": 70,
+        "max": 110,
+        "priority": "primary",
+        "count": 19,
+        "status": "UNDER"
+      },
+      {
+        "term": "online",
+        "min": 25,
+        "max": 50,
+        "priority": "primary",
+        "count": 2,
+        "status": "UNDER"
+      },
+      {
+        "term": "coaching",
+        "min": 25,
+        "max": 45,
+        "priority": "primary",
+        "count": 7,
+        "status": "UNDER"
+      },
+      {
+        "term": "course",
+        "min": 20,
+        "max": 45,
+        "priority": "primary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "preparation",
+        "min": 15,
+        "max": 30,
+        "priority": "secondary",
+        "count": 6,
+        "status": "UNDER"
+      },
+      {
+        "term": "live",
+        "min": 10,
+        "max": 18,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "doubt",
+        "min": 5,
+        "max": 12,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "mentor",
+        "min": 8,
+        "max": 15,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "test series",
+        "min": 4,
+        "max": 10,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "study material",
+        "min": 5,
+        "max": 10,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "NCERT",
+        "min": 4,
+        "max": 10,
+        "priority": "secondary",
+        "count": 5,
+        "status": "OK"
+      },
+      {
+        "term": "Biology",
+        "min": 8,
+        "max": 15,
+        "priority": "secondary",
+        "count": 7,
+        "status": "UNDER"
+      },
+      {
+        "term": "Physics",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "Chemistry",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "Class 11",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "Class 12",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "AIIMS",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "MBBS",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 3,
+        "status": "OK"
+      },
+      {
+        "term": "India",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 2,
+        "status": "OK"
+      }
+    ]
+  },
+  {
+    "slug": "jee-dropper-coaching",
+    "tier": 1,
+    "wordCount": 693,
+    "results": [
+      {
+        "term": "dropper",
+        "min": 18,
+        "max": 30,
+        "priority": "primary",
+        "count": 12,
+        "status": "UNDER"
+      },
+      {
+        "term": "repeater",
+        "min": 6,
+        "max": 15,
+        "priority": "primary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "Main",
+        "min": 12,
+        "max": 25,
+        "priority": "secondary",
+        "count": 2,
+        "status": "UNDER"
+      },
+      {
+        "term": "Advanced",
+        "min": 6,
+        "max": 15,
+        "priority": "secondary",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "mock test",
+        "min": 5,
+        "max": 10,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "JEE",
+        "min": 80,
+        "max": 120,
+        "priority": "primary",
+        "count": 16,
+        "status": "UNDER"
+      },
+      {
+        "term": "online",
+        "min": 40,
+        "max": 70,
+        "priority": "primary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "coaching",
+        "min": 30,
+        "max": 50,
+        "priority": "primary",
+        "count": 13,
+        "status": "UNDER"
+      },
+      {
+        "term": "course",
+        "min": 30,
+        "max": 50,
+        "priority": "primary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "preparation",
+        "min": 20,
+        "max": 35,
+        "priority": "secondary",
+        "count": 4,
+        "status": "UNDER"
+      },
+      {
+        "term": "IIT",
+        "min": 15,
+        "max": 25,
+        "priority": "secondary",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "live",
+        "min": 15,
+        "max": 25,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "doubt",
+        "min": 6,
+        "max": 12,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "mentor",
+        "min": 8,
+        "max": 15,
+        "priority": "secondary",
+        "count": 3,
+        "status": "UNDER"
+      },
+      {
+        "term": "test series",
+        "min": 5,
+        "max": 10,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "study material",
+        "min": 5,
+        "max": 10,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "Class 11",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "Class 12",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "faculty",
+        "min": 5,
+        "max": 10,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "Physics",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "Chemistry",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "Mathematics",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "India",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 1,
+        "status": "UNDER"
+      }
+    ]
+  },
+  {
+    "slug": "neet-dropper-coaching",
+    "tier": 1,
+    "wordCount": 363,
+    "results": [
+      {
+        "term": "dropper",
+        "min": 18,
+        "max": 30,
+        "priority": "primary",
+        "count": 10,
+        "status": "UNDER"
+      },
+      {
+        "term": "repeater",
+        "min": 6,
+        "max": 15,
+        "priority": "primary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "mock test",
+        "min": 5,
+        "max": 10,
+        "priority": "secondary",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "NEET",
+        "min": 70,
+        "max": 110,
+        "priority": "primary",
+        "count": 18,
+        "status": "UNDER"
+      },
+      {
+        "term": "online",
+        "min": 25,
+        "max": 50,
+        "priority": "primary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "coaching",
+        "min": 25,
+        "max": 45,
+        "priority": "primary",
+        "count": 9,
+        "status": "UNDER"
+      },
+      {
+        "term": "course",
+        "min": 20,
+        "max": 45,
+        "priority": "primary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "preparation",
+        "min": 15,
+        "max": 30,
+        "priority": "secondary",
+        "count": 3,
+        "status": "UNDER"
+      },
+      {
+        "term": "live",
+        "min": 10,
+        "max": 18,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "doubt",
+        "min": 5,
+        "max": 12,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "mentor",
+        "min": 8,
+        "max": 15,
+        "priority": "secondary",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "test series",
+        "min": 4,
+        "max": 10,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "study material",
+        "min": 5,
+        "max": 10,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "NCERT",
+        "min": 4,
+        "max": 10,
+        "priority": "secondary",
+        "count": 3,
+        "status": "UNDER"
+      },
+      {
+        "term": "Biology",
+        "min": 8,
+        "max": 15,
+        "priority": "secondary",
+        "count": 5,
+        "status": "UNDER"
+      },
+      {
+        "term": "Physics",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "Chemistry",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "Class 11",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "Class 12",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "AIIMS",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "MBBS",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "India",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      }
+    ]
+  },
+  {
+    "slug": "jee-crash-course",
+    "tier": 1,
+    "wordCount": 261,
+    "results": [
+      {
+        "term": "crash",
+        "min": 18,
+        "max": 30,
+        "priority": "primary",
+        "count": 14,
+        "status": "UNDER"
+      },
+      {
+        "term": "Main",
+        "min": 10,
+        "max": 20,
+        "priority": "secondary",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "days",
+        "min": 3,
+        "max": 10,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "revision",
+        "min": 3,
+        "max": 10,
+        "priority": "semantic",
+        "count": 4,
+        "status": "OK"
+      },
+      {
+        "term": "JEE",
+        "min": 80,
+        "max": 120,
+        "priority": "primary",
+        "count": 9,
+        "status": "UNDER"
+      },
+      {
+        "term": "online",
+        "min": 40,
+        "max": 70,
+        "priority": "primary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "coaching",
+        "min": 30,
+        "max": 50,
+        "priority": "primary",
+        "count": 3,
+        "status": "UNDER"
+      },
+      {
+        "term": "course",
+        "min": 30,
+        "max": 50,
+        "priority": "primary",
+        "count": 9,
+        "status": "UNDER"
+      },
+      {
+        "term": "preparation",
+        "min": 20,
+        "max": 35,
+        "priority": "secondary",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "IIT",
+        "min": 15,
+        "max": 25,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "live",
+        "min": 15,
+        "max": 25,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "doubt",
+        "min": 6,
+        "max": 12,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "mentor",
+        "min": 8,
+        "max": 15,
+        "priority": "secondary",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "test series",
+        "min": 5,
+        "max": 10,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "study material",
+        "min": 5,
+        "max": 10,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "Class 11",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "Class 12",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "faculty",
+        "min": 5,
+        "max": 10,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "Physics",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "Chemistry",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "Mathematics",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "India",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      }
+    ]
+  },
+  {
+    "slug": "neet-crash-course",
+    "tier": 1,
+    "wordCount": 261,
+    "results": [
+      {
+        "term": "crash",
+        "min": 18,
+        "max": 30,
+        "priority": "primary",
+        "count": 15,
+        "status": "UNDER"
+      },
+      {
+        "term": "days",
+        "min": 3,
+        "max": 10,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "revision",
+        "min": 3,
+        "max": 10,
+        "priority": "semantic",
+        "count": 7,
+        "status": "OK"
+      },
+      {
+        "term": "NEET",
+        "min": 70,
+        "max": 110,
+        "priority": "primary",
+        "count": 11,
+        "status": "UNDER"
+      },
+      {
+        "term": "online",
+        "min": 25,
+        "max": 50,
+        "priority": "primary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "coaching",
+        "min": 25,
+        "max": 45,
+        "priority": "primary",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "course",
+        "min": 20,
+        "max": 45,
+        "priority": "primary",
+        "count": 12,
+        "status": "UNDER"
+      },
+      {
+        "term": "preparation",
+        "min": 15,
+        "max": 30,
+        "priority": "secondary",
+        "count": 5,
+        "status": "UNDER"
+      },
+      {
+        "term": "live",
+        "min": 10,
+        "max": 18,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "doubt",
+        "min": 5,
+        "max": 12,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "mentor",
+        "min": 8,
+        "max": 15,
+        "priority": "secondary",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "test series",
+        "min": 4,
+        "max": 10,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "study material",
+        "min": 5,
+        "max": 10,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "NCERT",
+        "min": 4,
+        "max": 10,
+        "priority": "secondary",
+        "count": 5,
+        "status": "OK"
+      },
+      {
+        "term": "Biology",
+        "min": 8,
+        "max": 15,
+        "priority": "secondary",
+        "count": 5,
+        "status": "UNDER"
+      },
+      {
+        "term": "Physics",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "Chemistry",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "Class 11",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "Class 12",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "AIIMS",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "MBBS",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "India",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      }
+    ]
+  },
+  {
+    "slug": "foundation-coaching",
+    "tier": 1,
+    "wordCount": 2315,
+    "results": [
+      {
+        "term": "foundation",
+        "min": 18,
+        "max": 35,
+        "priority": "primary",
+        "count": 46,
+        "status": "OVER"
+      },
+      {
+        "term": "coaching",
+        "min": 18,
+        "max": 35,
+        "priority": "primary",
+        "count": 14,
+        "status": "UNDER"
+      },
+      {
+        "term": "online",
+        "min": 15,
+        "max": 30,
+        "priority": "primary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "Class 6",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 13,
+        "status": "OVER"
+      },
+      {
+        "term": "Class 7",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 3,
+        "status": "OK"
+      },
+      {
+        "term": "Class 8",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 4,
+        "status": "OK"
+      },
+      {
+        "term": "Class 9",
+        "min": 3,
+        "max": 8,
+        "priority": "semantic",
+        "count": 13,
+        "status": "OVER"
+      },
+      {
+        "term": "Class 10",
+        "min": 3,
+        "max": 8,
+        "priority": "semantic",
+        "count": 9,
+        "status": "OVER"
+      },
+      {
+        "term": "JEE",
+        "min": 6,
+        "max": 15,
+        "priority": "secondary",
+        "count": 30,
+        "status": "OVER"
+      },
+      {
+        "term": "NEET",
+        "min": 6,
+        "max": 15,
+        "priority": "secondary",
+        "count": 33,
+        "status": "OVER"
+      },
+      {
+        "term": "Olympiad",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 19,
+        "status": "OVER"
+      },
+      {
+        "term": "mentor",
+        "min": 5,
+        "max": 12,
+        "priority": "secondary",
+        "count": 8,
+        "status": "OK"
+      }
+    ]
+  },
+  {
+    "slug": "jee-physics-coaching",
+    "tier": 2,
+    "wordCount": 992,
+    "results": [
+      {
+        "term": "Physics",
+        "min": 35,
+        "max": 70,
+        "priority": "primary",
+        "count": 50,
+        "status": "OK"
+      },
+      {
+        "term": "JEE",
+        "min": 40,
+        "max": 80,
+        "priority": "primary",
+        "count": 38,
+        "status": "UNDER"
+      },
+      {
+        "term": "coaching",
+        "min": 20,
+        "max": 40,
+        "priority": "primary",
+        "count": 9,
+        "status": "UNDER"
+      },
+      {
+        "term": "online",
+        "min": 15,
+        "max": 35,
+        "priority": "primary",
+        "count": 2,
+        "status": "UNDER"
+      },
+      {
+        "term": "IIT",
+        "min": 8,
+        "max": 20,
+        "priority": "secondary",
+        "count": 2,
+        "status": "UNDER"
+      },
+      {
+        "term": "Mechanics",
+        "min": 3,
+        "max": 10,
+        "priority": "semantic",
+        "count": 8,
+        "status": "OK"
+      },
+      {
+        "term": "Electrodynamics",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "Optics",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 5,
+        "status": "OK"
+      },
+      {
+        "term": "Thermodynamics",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 3,
+        "status": "OK"
+      },
+      {
+        "term": "mentor",
+        "min": 5,
+        "max": 12,
+        "priority": "secondary",
+        "count": 3,
+        "status": "UNDER"
+      },
+      {
+        "term": "doubt",
+        "min": 4,
+        "max": 10,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      }
+    ]
+  },
+  {
+    "slug": "jee-chemistry-coaching",
+    "tier": 2,
+    "wordCount": 726,
+    "results": [
+      {
+        "term": "Chemistry",
+        "min": 35,
+        "max": 70,
+        "priority": "primary",
+        "count": 43,
+        "status": "OK"
+      },
+      {
+        "term": "JEE",
+        "min": 40,
+        "max": 80,
+        "priority": "primary",
+        "count": 23,
+        "status": "UNDER"
+      },
+      {
+        "term": "coaching",
+        "min": 20,
+        "max": 40,
+        "priority": "primary",
+        "count": 11,
+        "status": "UNDER"
+      },
+      {
+        "term": "online",
+        "min": 15,
+        "max": 35,
+        "priority": "primary",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "Organic",
+        "min": 4,
+        "max": 12,
+        "priority": "semantic",
+        "count": 16,
+        "status": "OVER"
+      },
+      {
+        "term": "Inorganic",
+        "min": 3,
+        "max": 10,
+        "priority": "semantic",
+        "count": 16,
+        "status": "OVER"
+      },
+      {
+        "term": "Physical",
+        "min": 3,
+        "max": 10,
+        "priority": "semantic",
+        "count": 14,
+        "status": "OVER"
+      },
+      {
+        "term": "mentor",
+        "min": 5,
+        "max": 12,
+        "priority": "secondary",
+        "count": 2,
+        "status": "UNDER"
+      },
+      {
+        "term": "doubt",
+        "min": 4,
+        "max": 10,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      }
+    ]
+  },
+  {
+    "slug": "jee-mathematics-coaching",
+    "tier": 2,
+    "wordCount": 578,
+    "results": [
+      {
+        "term": "Mathematics",
+        "min": 25,
+        "max": 55,
+        "priority": "primary",
+        "count": 11,
+        "status": "UNDER"
+      },
+      {
+        "term": "Maths",
+        "min": 8,
+        "max": 25,
+        "priority": "primary",
+        "count": 18,
+        "status": "OK"
+      },
+      {
+        "term": "JEE",
+        "min": 40,
+        "max": 80,
+        "priority": "primary",
+        "count": 24,
+        "status": "UNDER"
+      },
+      {
+        "term": "coaching",
+        "min": 20,
+        "max": 40,
+        "priority": "primary",
+        "count": 9,
+        "status": "UNDER"
+      },
+      {
+        "term": "online",
+        "min": 15,
+        "max": 35,
+        "priority": "primary",
+        "count": 2,
+        "status": "UNDER"
+      },
+      {
+        "term": "Calculus",
+        "min": 3,
+        "max": 10,
+        "priority": "semantic",
+        "count": 10,
+        "status": "OK"
+      },
+      {
+        "term": "Algebra",
+        "min": 3,
+        "max": 10,
+        "priority": "semantic",
+        "count": 6,
+        "status": "OK"
+      },
+      {
+        "term": "Geometry",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 6,
+        "status": "OK"
+      },
+      {
+        "term": "Trigonometry",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 4,
+        "status": "OK"
+      },
+      {
+        "term": "mentor",
+        "min": 5,
+        "max": 12,
+        "priority": "secondary",
+        "count": 2,
+        "status": "UNDER"
+      }
+    ]
+  },
+  {
+    "slug": "neet-physics-coaching",
+    "tier": 2,
+    "wordCount": 616,
+    "results": [
+      {
+        "term": "Physics",
+        "min": 35,
+        "max": 70,
+        "priority": "primary",
+        "count": 38,
+        "status": "OK"
+      },
+      {
+        "term": "NEET",
+        "min": 40,
+        "max": 80,
+        "priority": "primary",
+        "count": 31,
+        "status": "UNDER"
+      },
+      {
+        "term": "coaching",
+        "min": 20,
+        "max": 40,
+        "priority": "primary",
+        "count": 6,
+        "status": "UNDER"
+      },
+      {
+        "term": "online",
+        "min": 15,
+        "max": 35,
+        "priority": "primary",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "NCERT",
+        "min": 3,
+        "max": 10,
+        "priority": "secondary",
+        "count": 12,
+        "status": "OVER"
+      },
+      {
+        "term": "mentor",
+        "min": 5,
+        "max": 12,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      },
+      {
+        "term": "doubt",
+        "min": 4,
+        "max": 10,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      }
+    ]
+  },
+  {
+    "slug": "neet-chemistry-coaching",
+    "tier": 2,
+    "wordCount": 553,
+    "results": [
+      {
+        "term": "Chemistry",
+        "min": 35,
+        "max": 70,
+        "priority": "primary",
+        "count": 31,
+        "status": "UNDER"
+      },
+      {
+        "term": "NEET",
+        "min": 40,
+        "max": 80,
+        "priority": "primary",
+        "count": 24,
+        "status": "UNDER"
+      },
+      {
+        "term": "coaching",
+        "min": 20,
+        "max": 40,
+        "priority": "primary",
+        "count": 7,
+        "status": "UNDER"
+      },
+      {
+        "term": "online",
+        "min": 15,
+        "max": 35,
+        "priority": "primary",
+        "count": 1,
+        "status": "UNDER"
+      },
+      {
+        "term": "NCERT",
+        "min": 3,
+        "max": 10,
+        "priority": "secondary",
+        "count": 20,
+        "status": "OVER"
+      },
+      {
+        "term": "mentor",
+        "min": 5,
+        "max": 12,
+        "priority": "secondary",
+        "count": 3,
+        "status": "UNDER"
+      },
+      {
+        "term": "doubt",
+        "min": 4,
+        "max": 10,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      }
+    ]
+  },
+  {
+    "slug": "neet-biology-coaching",
+    "tier": 2,
+    "wordCount": 617,
+    "results": [
+      {
+        "term": "Biology",
+        "min": 40,
+        "max": 80,
+        "priority": "primary",
+        "count": 33,
+        "status": "UNDER"
+      },
+      {
+        "term": "NEET",
+        "min": 40,
+        "max": 80,
+        "priority": "primary",
+        "count": 23,
+        "status": "UNDER"
+      },
+      {
+        "term": "coaching",
+        "min": 20,
+        "max": 40,
+        "priority": "primary",
+        "count": 8,
+        "status": "UNDER"
+      },
+      {
+        "term": "online",
+        "min": 15,
+        "max": 35,
+        "priority": "primary",
+        "count": 2,
+        "status": "UNDER"
+      },
+      {
+        "term": "NCERT",
+        "min": 6,
+        "max": 15,
+        "priority": "primary",
+        "count": 29,
+        "status": "OVER"
+      },
+      {
+        "term": "Botany",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 5,
+        "status": "OK"
+      },
+      {
+        "term": "Zoology",
+        "min": 2,
+        "max": 8,
+        "priority": "semantic",
+        "count": 3,
+        "status": "OK"
+      },
+      {
+        "term": "mentor",
+        "min": 5,
+        "max": 12,
+        "priority": "secondary",
+        "count": 5,
+        "status": "OK"
+      },
+      {
+        "term": "doubt",
+        "min": 4,
+        "max": 10,
+        "priority": "secondary",
+        "count": 0,
+        "status": "UNDER"
+      }
+    ]
+  }
+]
