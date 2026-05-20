@@ -87,9 +87,24 @@ const Contact = () => {
     } finally { setLoading(false); }
   };
 
-  const jsonLd = {
+  const contactPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    '@id': 'https://mindpeakinstitute.com/contact',
+    name: 'Contact MindPeak Institute',
+    url: 'https://mindpeakinstitute.com/contact',
+    description: 'Contact MindPeak Institute for JEE and NEET coaching enquiries. Call, WhatsApp, or email — we respond within 30 minutes.',
+    isPartOf: {
+      '@type': 'WebSite',
+      '@id': 'https://mindpeakinstitute.com/#website',
+    },
+    about: { '@id': 'https://mindpeakinstitute.com/#organization' },
+  };
+
+  const orgSchema = {
     '@context': 'https://schema.org',
     '@type': ['EducationalOrganization', 'LocalBusiness'],
+    '@id': 'https://mindpeakinstitute.com/#organization',
     name: 'MindPeak Institute',
     url: 'https://mindpeakinstitute.com',
     telephone: '+91-82194-57704',
@@ -115,6 +130,17 @@ const Contact = () => {
       hoursAvailable: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], opens: '09:00', closes: '20:00' },
     },
   };
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://mindpeakinstitute.com' },
+      { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://mindpeakinstitute.com/contact' },
+    ],
+  };
+
+  const jsonLd = [contactPageSchema, orgSchema, breadcrumbSchema];
 
   return (
     <>
