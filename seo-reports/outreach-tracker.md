@@ -1,5 +1,5 @@
 # MindPeak Institute — Outreach Tracker
-**Last Updated:** 2026-05-15  
+**Last Updated:** 2026-05-20  
 **Site:** mindpeakinstitute.com  
 **MSME:** UDYAM-HP-04-0042530
 
@@ -39,6 +39,16 @@
 | 26 | 2026-05-15 | aninews.in (via scnwire.com) | aninews.in — press release syndication via vmpl.scnwire.com | Press Release / PR Syndication | scnwire.com/p/contact.html | ❌ | — | NOT STARTED |
 | 27 | 2026-05-15 | urbanpro.com | urbanpro.com — free tutor profile for Devansh (55L+ students, DA ~60) | Tutor Directory Profile (FREE) | jobs.urbanpro.com (self-register) | ❌ | — | NOT STARTED |
 | 28 | 2026-05-15 | collegedunia.com | collegedunia.com/coaching/neet-institutes + jee-main-institutes | Directory Listing | collegedunia.com/contact-us | ❌ | — | NOT STARTED |
+| 29 | 2026-05-20 | origineducare.com | origineducare.com/best-coaching-for-1-on-1-live-for-iit-jee-in-india/ | Listicle Inclusion — "Best 1-on-1 Live IIT-JEE Coaching India 2026" (🔥 HIGHEST PRIORITY — exact semantic match) | origineducare.com contact form | ❌ | — | NOT STARTED |
+| 30 | 2026-05-20 | origineducare.com | origineducare.com/best-online-coaching-platforms-for-iit-jee-2026/ | Listicle Inclusion — "Best Online Coaching Platforms for IIT JEE 2026" | origineducare.com contact form | ❌ | — | NOT STARTED |
+| 31 | 2026-05-20 | notesly.in | notesly.in/article/top-10-online-coaching-platforms-for-jee-20262027-exam-preparation | Listicle Inclusion — "Top 10 JEE Online Coaching Platforms 2026–27" (Mar 29, 2026) | notesly.in contact page | ❌ | — | NOT STARTED |
+| 32 | 2026-05-20 | notesly.in | notesly.in/article/top-5-online-neet-coaching-platforms-in-india-2026-for-neet-2027-aspirants | Listicle Inclusion — "Top 5 NEET Online Coaching Platforms 2026" | notesly.in contact page (same email as #31) | ❌ | — | NOT STARTED |
+| 33 | 2026-05-20 | gauravtiwari.org | gauravtiwari.org/best-iit-jee-online-coaching-websites/ | Paid Sponsored Post / Review (no free guest posts) — "Best IIT-JEE Online Coaching 2026" | gauravtiwari.org/write-for-us/ | ❌ | — | NOT STARTED |
+| 34 | 2026-05-20 | bestphysicsteacher.in | bestphysicsteacher.in/top-10-best-physics-teachers-india-2026/ (+ 2 more articles on site) | Listicle Inclusion — "Best 1-on-1 Mentor" category across 3 physics teacher articles | bestphysicsteacher.in contact form | ❌ | — | NOT STARTED |
+| 35 | 2026-05-20 | tutorswale.com | tutorswale.com/blog/top-10-best-physics-teachers-in-india-delhi-2026-guide | Listicle Inclusion — "Top 10 Best Physics Teachers India & Delhi 2026 Guide" | tutorswale.com contact | ❌ | — | NOT STARTED |
+| 36 | 2026-05-20 | brandempower.org | brandempower.org/education-awards.htm + education-leaders-awards.htm | Award Nomination — Education Awards 2026 + Education Leaders Awards 2026 (national + Chandigarh regional) | Via nomination form on site | ❌ | — | NOT STARTED |
+| 37 | 2026-05-20 | emerginghimachal.hp.gov.in | emerginghimachal.hp.gov.in/startup/home/register/ | HP Govt Startup Registration — self-serve portal; use UDYAM-HP-04-0042530 as credential; backlink from govt domain DA ~65+ | startuphimachal@gmail.com (helpdesk) | ❌ | — | NOT STARTED |
+| 38 | 2026-05-20 | wellfound.com | wellfound.com/startups/location/himachal-pradesh | Startup Directory Profile — free company listing on HP startups page; DA ~80 | wellfound.com self-register (free) | ❌ | — | NOT STARTED |
 
 ---
 
@@ -59,6 +69,18 @@
 ---
 
 ## Notes & Strategy Log
+
+### 2026-05-20 — Week 3 Audit + 10 New Targets Added
+
+- **Zero backlinks for third consecutive week.** Root cause: no outreach has been sent. All 28 prior targets remain at NOT STARTED. The strategy and pre-written emails are fully in place — execution is the bottleneck.
+- **10 new targets added (#29–38):** origineducare.com (×2 articles), notesly.in (×2 articles), gauravtiwari.org (paid), bestphysicsteacher.in, tutorswale.com, brandempower.org, emerginghimachal.hp.gov.in, wellfound.com
+- **Top new priority: origineducare.com #29** — "BEST COACHING FOR 1 ON 1 LIVE FOR IIT-JEE IN INDIA 2026" — the single most semantically perfect external listicle for MindPeak discovered across all three audits
+- **New self-serve wins added:** emerginghimachal.hp.gov.in (govt startup registration, DA ~65+) and wellfound.com (HP startup directory, DA ~80) — both free and completable in under 30 min
+- **Brand Empower Education Awards (#36):** multiple 2026 award categories open; Chandigarh regional edition relevant for HP institute positioning
+- **3rd physics teacher ranking site found:** bestphysicsteacher.in — joins physicsnavigator.in (#9) and physicspoint.in (#24) in tracker; all three lack a "1-on-1 mentor" category
+- **Quora gap persists (week 3):** 4 active high-traffic JEE coaching threads with zero MindPeak mention; Devansh has not started Quora yet — now becoming urgent
+- **Google Alerts:** still not set up as of May 20; overdue from May 15
+- Emails #13–17 ready to send (in `/seo-reports/backlinks-2026-05-20.md`)
 
 ### 2026-05-15 — Day 2 Audit + 8 New Targets Added
 - Zero confirmed external backlinks still — outreach not yet started
@@ -83,10 +105,11 @@
 
 | Week | Target New Links | Outreach Emails | Priority |
 |---|---|---|---|
-| May 12–18, 2026 | 0 → 3 | Send #1, #2, #8, #11 (new), #27 (UrbanPro — self-serve) | UrbanPro profile + CollegeDekho + CollegeDunia + AcademyCheck + SCNWire inquiry |
-| May 19–25, 2026 | 3 → 6 | Send #4, #5, #6, #9, #10 | FutureTopper guest post + Awards + PhysicsPoint + Giraffe-Learning |
-| May 26 – Jun 1, 2026 | 6 → 10 | Send #7, #12, #16 + follow up all | ExamCharcha + BlogAndJournal + Shiksha + follow-ups |
-| Jun 2–8, 2026 | 10 → 15 | Follow up pending; start Careers360 + CollegeDunia chase | Chase responses; submit to Shiksha partner portal |
+| May 12–18, 2026 | 0 → 3 | Send #1, #2, #8, #11 (new), #27 (UrbanPro — self-serve) | **MISSED — zero sent** |
+| May 19–25, 2026 | 0 → 5 | **URGENT CATCHUP:** Self-serve: UrbanPro (#27), HP Startup (#37), Wellfound (#38). Email: #2 CollegeDekho, #8 CollegeDunia, #13 OriginEducare, #1 AcademyCheck, #14 Notesly, #4 FutureTopper | Clear backlog — minimum 3 self-serve + 3 emails this week |
+| May 26 – Jun 1, 2026 | 5 → 10 | Follow up #2/#8/#13/#14; send #9, #10, #6, #15, #16, #17 | PhysicsPoint + Giraffe + Awards + BestPhysicsTeacher + GauravTiwari + BrandEmpower |
+| Jun 2–8, 2026 | 10 → 15 | Send #7, #11, #12, #5; follow up all first-week emails | ExamCharcha guest post + SCNWire PR + BlogAndJournal + Colleges18 |
+| Jun 9–15, 2026 | 15 → 20 | Start Careers360 + Shiksha; follow up all pending | Critical: chase Shiksha partner portal + Careers360 editorial |
 
 ## Quora Strategy (Ongoing — Not Tracked as Outreach)
 
