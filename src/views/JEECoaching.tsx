@@ -120,25 +120,40 @@ const JEECoaching = () => {
   const courseSchema = {
     '@context': 'https://schema.org',
     '@type': 'Course',
-    name: 'JEE Advanced Personalized Coaching — MindPeak Institute',
+    '@id': 'https://mindpeakinstitute.com/jee-coaching#course',
+    name: 'JEE Main & Advanced Personalized Coaching — MindPeak Institute',
     description: 'Comprehensive 1-on-1 personalized JEE Main and Advanced coaching with dedicated mentors, adaptive curriculum, and 95% success rate.',
+    url: 'https://mindpeakinstitute.com/jee-coaching',
     provider: {
       '@type': 'EducationalOrganization',
+      '@id': 'https://mindpeakinstitute.com/#organization',
       name: 'MindPeak Institute',
       url: 'https://mindpeakinstitute.com',
     },
-    offers: {
-      '@type': 'Offer',
-      price: '100000',
-      priceCurrency: 'INR',
-      availability: 'https://schema.org/InStock',
+    educationalLevel: 'Class 11-12 / JEE Aspirant',
+    teaches: ['Physics', 'Chemistry', 'Mathematics', 'JEE Main Problem Solving', 'JEE Advanced Problem Solving'],
+    courseMode: 'online',
+    inLanguage: ['en-IN', 'hi-IN'],
+    audience: {
+      '@type': 'EducationalAudience',
+      educationalRole: 'student',
+      audienceType: 'JEE aspirants in Class 11, Class 12, or droppers',
     },
+    offers: [
+      { '@type': 'Offer', name: '1-Year JEE Coaching', price: '130000', priceCurrency: 'INR', availability: 'https://schema.org/InStock', url: 'https://mindpeakinstitute.com/pricing' },
+      { '@type': 'Offer', name: '2-Year JEE Coaching', price: '230000', priceCurrency: 'INR', availability: 'https://schema.org/InStock', url: 'https://mindpeakinstitute.com/pricing' },
+      { '@type': 'Offer', name: 'Free Trial Class', price: '0', priceCurrency: 'INR', availability: 'https://schema.org/InStock', url: 'https://mindpeakinstitute.com/free-trial' },
+    ],
     dateModified: lastUpdated,
-    hasCourseInstance: {
-      '@type': 'CourseInstance',
-      courseMode: 'online',
-      courseWorkload: 'P1Y',
-    },
+    hasCourseInstance: [
+      {
+        '@type': 'CourseInstance',
+        courseMode: 'online',
+        courseWorkload: 'P1Y',
+        location: { '@type': 'VirtualLocation', url: 'https://mindpeakinstitute.com/jee-coaching' },
+        instructor: { '@type': 'Person', '@id': 'https://mindpeakinstitute.com/mentors#devansh', name: 'Devansh', jobTitle: 'Founder & Physics Mentor' },
+      },
+    ],
     about: [
       { '@type': 'Thing', name: 'JEE Main', sameAs: 'https://en.wikipedia.org/wiki/Joint_Entrance_Examination_%E2%80%93_Main' },
       { '@type': 'Thing', name: 'JEE Advanced', sameAs: 'https://en.wikipedia.org/wiki/Joint_Entrance_Examination_%E2%80%93_Advanced' },

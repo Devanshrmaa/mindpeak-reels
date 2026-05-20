@@ -1,0 +1,373 @@
+{
+  "generated": "2026-05-20",
+  "site": "https://mindpeakinstitute.com",
+  "standard": "schema.org / Google Rich Results 2026",
+  "blocks": {
+
+    "homepage_organization_enhanced": {
+      "page": "/",
+      "status": "updated",
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": ["EducationalOrganization", "LocalBusiness"],
+            "@id": "https://mindpeakinstitute.com/#organization",
+            "name": "MindPeak Institute",
+            "alternateName": "MindPeak",
+            "url": "https://mindpeakinstitute.com",
+            "logo": {
+              "@type": "ImageObject",
+              "@id": "https://mindpeakinstitute.com/#logo",
+              "url": "https://mindpeakinstitute.com/images/logo.jpeg",
+              "width": 200,
+              "height": 200,
+              "caption": "MindPeak Institute logo"
+            },
+            "image": "https://mindpeakinstitute.com/images/logo.jpeg",
+            "description": "India's #1 personalized 1-on-1 JEE and NEET online coaching. Himachal Pradesh's own coaching institute with a 95%+ success rate.",
+            "telephone": "+91-82194-57704",
+            "email": "mindpeak@mindpeakinstitute.com",
+            "foundingDate": "2018",
+            "founder": {
+              "@type": "Person",
+              "@id": "https://mindpeakinstitute.com/mentors#devansh",
+              "name": "Devansh",
+              "jobTitle": "Founder & Physics Mentor",
+              "worksFor": { "@id": "https://mindpeakinstitute.com/#organization" }
+            },
+            "priceRange": "₹₹",
+            "areaServed": { "@type": "Country", "name": "India" },
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Nehran Pukhar Road",
+              "addressLocality": "Dehra Gopipur",
+              "addressRegion": "Himachal Pradesh",
+              "postalCode": "176110",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 32.4394,
+              "longitude": 76.5362
+            },
+            "sameAs": [
+              "https://instagram.com/mindpeakinstitute",
+              "https://www.facebook.com/profile.php?id=61584805776923",
+              "https://www.linkedin.com/company/mindpeak-institute/",
+              "https://x.com/mindpeakins",
+              "https://www.youtube.com/@mindpeakinstitute"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://mindpeakinstitute.com/#website",
+            "url": "https://mindpeakinstitute.com",
+            "name": "MindPeak Institute",
+            "publisher": { "@id": "https://mindpeakinstitute.com/#organization" },
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://mindpeakinstitute.com/blog?q={search_term_string}"
+              },
+              "query-input": "required name=search_term_string"
+            },
+            "inLanguage": ["en-IN", "hi-IN"]
+          }
+        ]
+      }
+    },
+
+    "jee_coaching_course": {
+      "page": "/jee-coaching",
+      "status": "updated",
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "@id": "https://mindpeakinstitute.com/jee-coaching#course",
+        "name": "JEE Main & Advanced Personalized Coaching — MindPeak Institute",
+        "description": "Comprehensive 1-on-1 personalized JEE Main and Advanced coaching with dedicated mentors, adaptive curriculum, and 95% success rate.",
+        "url": "https://mindpeakinstitute.com/jee-coaching",
+        "provider": {
+          "@type": "EducationalOrganization",
+          "@id": "https://mindpeakinstitute.com/#organization",
+          "name": "MindPeak Institute",
+          "url": "https://mindpeakinstitute.com"
+        },
+        "educationalLevel": "Class 11-12 / JEE Aspirant",
+        "teaches": ["Physics", "Chemistry", "Mathematics", "JEE Main Problem Solving", "JEE Advanced Problem Solving"],
+        "courseMode": "online",
+        "inLanguage": ["en-IN", "hi-IN"],
+        "audience": {
+          "@type": "EducationalAudience",
+          "educationalRole": "student",
+          "audienceType": "JEE aspirants in Class 11, Class 12, or droppers"
+        },
+        "offers": [
+          { "@type": "Offer", "name": "1-Year JEE Coaching", "price": "130000", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://mindpeakinstitute.com/pricing" },
+          { "@type": "Offer", "name": "2-Year JEE Coaching", "price": "230000", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://mindpeakinstitute.com/pricing" },
+          { "@type": "Offer", "name": "Free Trial Class", "price": "0", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://mindpeakinstitute.com/free-trial" }
+        ],
+        "hasCourseInstance": [{
+          "@type": "CourseInstance",
+          "courseMode": "online",
+          "courseWorkload": "P1Y",
+          "location": { "@type": "VirtualLocation", "url": "https://mindpeakinstitute.com/jee-coaching" },
+          "instructor": {
+            "@type": "Person",
+            "@id": "https://mindpeakinstitute.com/mentors#devansh",
+            "name": "Devansh",
+            "jobTitle": "Founder & Physics Mentor"
+          }
+        }]
+      }
+    },
+
+    "neet_coaching_course": {
+      "page": "/neet-coaching",
+      "status": "updated",
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "@id": "https://mindpeakinstitute.com/neet-coaching#course",
+        "name": "NEET UG Personalized Coaching — MindPeak Institute",
+        "description": "Comprehensive 1-on-1 personalized NEET coaching with Biology-first approach, dedicated mentors, and 95% success rate.",
+        "url": "https://mindpeakinstitute.com/neet-coaching",
+        "provider": {
+          "@type": "EducationalOrganization",
+          "@id": "https://mindpeakinstitute.com/#organization",
+          "name": "MindPeak Institute",
+          "url": "https://mindpeakinstitute.com"
+        },
+        "educationalLevel": "Class 11-12 / NEET Aspirant",
+        "teaches": ["Biology", "Physics", "Chemistry", "NEET MCQ Strategy", "NCERT Mastery"],
+        "courseMode": "online",
+        "inLanguage": ["en-IN", "hi-IN"],
+        "audience": {
+          "@type": "EducationalAudience",
+          "educationalRole": "student",
+          "audienceType": "NEET aspirants in Class 11, Class 12, or droppers"
+        },
+        "offers": [
+          { "@type": "Offer", "name": "1-Year NEET Coaching", "price": "130000", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://mindpeakinstitute.com/pricing" },
+          { "@type": "Offer", "name": "2-Year NEET Coaching", "price": "230000", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://mindpeakinstitute.com/pricing" },
+          { "@type": "Offer", "name": "Free Trial Class", "price": "0", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://mindpeakinstitute.com/free-trial" }
+        ],
+        "hasCourseInstance": [{
+          "@type": "CourseInstance",
+          "courseMode": "online",
+          "courseWorkload": "P1Y",
+          "location": { "@type": "VirtualLocation", "url": "https://mindpeakinstitute.com/neet-coaching" },
+          "instructor": {
+            "@type": "Person",
+            "@id": "https://mindpeakinstitute.com/mentors#aparna-chandra",
+            "name": "Aparna Chandra",
+            "jobTitle": "Biology Mentor"
+          }
+        }]
+      }
+    },
+
+    "contact_page_schema": {
+      "page": "/contact",
+      "status": "new",
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "@id": "https://mindpeakinstitute.com/contact",
+        "name": "Contact MindPeak Institute",
+        "url": "https://mindpeakinstitute.com/contact",
+        "description": "Contact MindPeak Institute for JEE and NEET coaching enquiries. Call, WhatsApp, or email — we respond within 30 minutes.",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://mindpeakinstitute.com/#website"
+        },
+        "about": { "@id": "https://mindpeakinstitute.com/#organization" }
+      }
+    },
+
+    "mentors_item_list": {
+      "page": "/mentors",
+      "status": "new",
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "MindPeak Institute Faculty & Mentors",
+        "description": "Meet the expert mentors who deliver personalised 1-on-1 JEE and NEET coaching at MindPeak Institute.",
+        "url": "https://mindpeakinstitute.com/mentors",
+        "numberOfItems": 6,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "Person",
+              "@id": "https://mindpeakinstitute.com/mentors#devansh",
+              "name": "Devansh",
+              "jobTitle": "Founder & Physics Mentor",
+              "worksFor": { "@type": "EducationalOrganization", "@id": "https://mindpeakinstitute.com/#organization", "name": "MindPeak Institute", "url": "https://mindpeakinstitute.com" },
+              "knowsAbout": ["Physics"],
+              "description": "Devansh founded MindPeak Institute to deliver personalised 1-on-1 JEE and NEET coaching to students across India. He leads the Physics mentorship programme and has built the institute's adaptive curriculum framework."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "Person",
+              "@id": "https://mindpeakinstitute.com/mentors#sahil-singh",
+              "name": "Sahil Singh",
+              "jobTitle": "Chemistry Mentor",
+              "worksFor": { "@type": "EducationalOrganization", "@id": "https://mindpeakinstitute.com/#organization", "name": "MindPeak Institute", "url": "https://mindpeakinstitute.com" },
+              "knowsAbout": ["Chemistry", "Physical Chemistry", "Organic Chemistry", "Inorganic Chemistry"],
+              "description": "Sahil Singh specialises in Physical, Organic, and Inorganic Chemistry for JEE and NEET. He is known for making reaction mechanisms intuitive and building student confidence in Inorganic Chemistry."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "Person",
+              "@id": "https://mindpeakinstitute.com/mentors#krishnendu-brahmacharya",
+              "name": "Krishnendu Brahmacharya",
+              "jobTitle": "Mathematics Mentor",
+              "worksFor": { "@type": "EducationalOrganization", "@id": "https://mindpeakinstitute.com/#organization", "name": "MindPeak Institute", "url": "https://mindpeakinstitute.com" },
+              "knowsAbout": ["Mathematics", "Calculus", "Algebra", "Coordinate Geometry"],
+              "description": "Krishnendu Brahmacharya leads JEE Mathematics mentorship at MindPeak. He focuses on building pattern-recognition skills and problem-solving speed critical for JEE Main and Advanced Mathematics."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@type": "Person",
+              "@id": "https://mindpeakinstitute.com/mentors#aparna-chandra",
+              "name": "Aparna Chandra",
+              "jobTitle": "Biology Mentor",
+              "worksFor": { "@type": "EducationalOrganization", "@id": "https://mindpeakinstitute.com/#organization", "name": "MindPeak Institute", "url": "https://mindpeakinstitute.com" },
+              "knowsAbout": ["Biology", "Botany", "Zoology"],
+              "description": "Aparna Chandra mentors NEET Biology students at MindPeak with an NCERT-first approach. She emphasises diagram mastery and high-yield NCERT line identification for consistent high scores."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@type": "Person",
+              "@id": "https://mindpeakinstitute.com/mentors#nishkersh-mishra",
+              "name": "Nishkersh Mishra",
+              "jobTitle": "Physics & Mathematics Mentor",
+              "worksFor": { "@type": "EducationalOrganization", "@id": "https://mindpeakinstitute.com/#organization", "name": "MindPeak Institute", "url": "https://mindpeakinstitute.com" },
+              "knowsAbout": ["Physics", "Mathematics"],
+              "description": "Nishkersh Mishra teaches Physics and Mathematics at MindPeak, with expertise in electrodynamics, mechanics, and higher algebra for both JEE and NEET aspirants."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@type": "Person",
+              "@id": "https://mindpeakinstitute.com/mentors#muskan-singla",
+              "name": "Muskan Singla",
+              "jobTitle": "Chemistry & Biology Mentor",
+              "worksFor": { "@type": "EducationalOrganization", "@id": "https://mindpeakinstitute.com/#organization", "name": "MindPeak Institute", "url": "https://mindpeakinstitute.com" },
+              "knowsAbout": ["Chemistry", "Biology"],
+              "description": "Muskan Singla covers Chemistry and Biology at MindPeak, helping NEET students develop mastery in both subjects through focused 1-on-1 sessions and daily MCQ practice."
+            }
+          }
+        ]
+      }
+    },
+
+    "pricing_course_enhanced": {
+      "page": "/pricing",
+      "status": "updated",
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "@id": "https://mindpeakinstitute.com/pricing#course",
+        "name": "Personalized JEE & NEET Coaching",
+        "description": "Live 1-on-1 coaching for JEE Main, JEE Advanced & NEET UG with dedicated mentors, adaptive curriculum, and recorded sessions.",
+        "url": "https://mindpeakinstitute.com/pricing",
+        "provider": {
+          "@type": "EducationalOrganization",
+          "@id": "https://mindpeakinstitute.com/#organization",
+          "name": "MindPeak Institute",
+          "url": "https://mindpeakinstitute.com"
+        },
+        "educationalLevel": "Class 11-12 / Competitive Exam Aspirant",
+        "courseMode": "online",
+        "inLanguage": ["en-IN", "hi-IN"],
+        "offers": [
+          { "@type": "Offer", "name": "Foundation Plan (Class 6-10)", "price": "100000", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://mindpeakinstitute.com/pricing" },
+          { "@type": "Offer", "name": "1-Year JEE/NEET Coaching", "price": "130000", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://mindpeakinstitute.com/pricing" },
+          { "@type": "Offer", "name": "2-Year JEE/NEET Coaching", "price": "230000", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://mindpeakinstitute.com/pricing" }
+        ],
+        "hasCourseInstance": {
+          "@type": "CourseInstance",
+          "courseMode": "online",
+          "location": { "@type": "VirtualLocation", "url": "https://mindpeakinstitute.com" },
+          "instructor": {
+            "@type": "Person",
+            "@id": "https://mindpeakinstitute.com/mentors#devansh",
+            "name": "Devansh",
+            "jobTitle": "Founder & Physics Mentor"
+          }
+        }
+      }
+    },
+
+    "courses_page_todo": {
+      "page": "/courses",
+      "status": "not_yet_implemented",
+      "notes": "The Courses view was refactored and no longer contains schema. A follow-up task should add an ItemList of Course objects using data from src/data/coursesData.ts.",
+      "recommended_schema_type": "ItemList",
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "MindPeak Institute Coaching Programs",
+        "description": "All JEE and NEET coaching courses offered by MindPeak Institute",
+        "url": "https://mindpeakinstitute.com/courses",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "Course",
+              "name": "1-Year JEE Coaching Program",
+              "description": "Intensive 1-year 1-on-1 coaching for JEE Main & Advanced",
+              "provider": { "@type": "Organization", "name": "MindPeak Institute", "url": "https://mindpeakinstitute.com" },
+              "url": "https://mindpeakinstitute.com/courses",
+              "offers": { "@type": "Offer", "price": "130000", "priceCurrency": "INR", "availability": "https://schema.org/InStock" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "Course",
+              "name": "2-Year JEE Coaching Program",
+              "description": "Comprehensive 2-year 1-on-1 coaching for JEE Main & Advanced starting from Class 11",
+              "provider": { "@type": "Organization", "name": "MindPeak Institute", "url": "https://mindpeakinstitute.com" },
+              "url": "https://mindpeakinstitute.com/courses",
+              "offers": { "@type": "Offer", "price": "230000", "priceCurrency": "INR", "availability": "https://schema.org/InStock" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "Course",
+              "name": "1-Year NEET Coaching Program",
+              "description": "Intensive 1-year 1-on-1 coaching for NEET UG with Biology-first approach",
+              "provider": { "@type": "Organization", "name": "MindPeak Institute", "url": "https://mindpeakinstitute.com" },
+              "url": "https://mindpeakinstitute.com/courses",
+              "offers": { "@type": "Offer", "price": "130000", "priceCurrency": "INR", "availability": "https://schema.org/InStock" }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

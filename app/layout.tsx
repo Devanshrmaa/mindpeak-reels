@@ -107,15 +107,24 @@ const jsonLdGraph = {
       logo: {
         "@type": "ImageObject",
         "@id": "https://mindpeakinstitute.com/#logo",
-        url: "https://mindpeakinstitute.com/favicon.ico",
-        width: 64,
-        height: 64,
+        url: "https://mindpeakinstitute.com/images/logo.jpeg",
+        width: 200,
+        height: 200,
+        caption: "MindPeak Institute logo",
       },
+      image: "https://mindpeakinstitute.com/images/logo.jpeg",
       description:
         "India's #1 personalized 1-on-1 JEE and NEET online coaching. Himachal Pradesh's own coaching institute with a 95%+ success rate.",
       telephone: "+91-82194-57704",
       email: "mindpeak@mindpeakinstitute.com",
       foundingDate: "2018",
+      founder: {
+        "@type": "Person",
+        "@id": "https://mindpeakinstitute.com/mentors#devansh",
+        name: "Devansh",
+        jobTitle: "Founder & Physics Mentor",
+        worksFor: { "@id": "https://mindpeakinstitute.com/#organization" },
+      },
       priceRange: "₹₹",
       areaServed: { "@type": "Country", name: "India" },
       address: {

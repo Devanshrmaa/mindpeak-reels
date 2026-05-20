@@ -122,12 +122,40 @@ const NEETCoaching = () => {
   const courseSchema = {
     '@context': 'https://schema.org',
     '@type': 'Course',
+    '@id': 'https://mindpeakinstitute.com/neet-coaching#course',
     name: 'NEET UG Personalized Coaching — MindPeak Institute',
     description: 'Comprehensive 1-on-1 personalized NEET coaching with Biology-first approach, dedicated mentors, and 95% success rate.',
-    provider: { '@type': 'EducationalOrganization', name: 'MindPeak Institute', url: 'https://mindpeakinstitute.com' },
-    offers: { '@type': 'Offer', price: '100000', priceCurrency: 'INR', availability: 'https://schema.org/InStock' },
+    url: 'https://mindpeakinstitute.com/neet-coaching',
+    provider: {
+      '@type': 'EducationalOrganization',
+      '@id': 'https://mindpeakinstitute.com/#organization',
+      name: 'MindPeak Institute',
+      url: 'https://mindpeakinstitute.com',
+    },
+    educationalLevel: 'Class 11-12 / NEET Aspirant',
+    teaches: ['Biology', 'Physics', 'Chemistry', 'NEET MCQ Strategy', 'NCERT Mastery'],
+    courseMode: 'online',
+    inLanguage: ['en-IN', 'hi-IN'],
+    audience: {
+      '@type': 'EducationalAudience',
+      educationalRole: 'student',
+      audienceType: 'NEET aspirants in Class 11, Class 12, or droppers',
+    },
+    offers: [
+      { '@type': 'Offer', name: '1-Year NEET Coaching', price: '130000', priceCurrency: 'INR', availability: 'https://schema.org/InStock', url: 'https://mindpeakinstitute.com/pricing' },
+      { '@type': 'Offer', name: '2-Year NEET Coaching', price: '230000', priceCurrency: 'INR', availability: 'https://schema.org/InStock', url: 'https://mindpeakinstitute.com/pricing' },
+      { '@type': 'Offer', name: 'Free Trial Class', price: '0', priceCurrency: 'INR', availability: 'https://schema.org/InStock', url: 'https://mindpeakinstitute.com/free-trial' },
+    ],
     dateModified: lastUpdated,
-    hasCourseInstance: { '@type': 'CourseInstance', courseMode: 'online', courseWorkload: 'P1Y' },
+    hasCourseInstance: [
+      {
+        '@type': 'CourseInstance',
+        courseMode: 'online',
+        courseWorkload: 'P1Y',
+        location: { '@type': 'VirtualLocation', url: 'https://mindpeakinstitute.com/neet-coaching' },
+        instructor: { '@type': 'Person', '@id': 'https://mindpeakinstitute.com/mentors#aparna-chandra', name: 'Aparna Chandra', jobTitle: 'Biology Mentor' },
+      },
+    ],
     about: [
       { '@type': 'Thing', name: 'NEET-UG', sameAs: 'https://en.wikipedia.org/wiki/National_Eligibility_cum_Entrance_Test_(Undergraduate)' },
       { '@type': 'Thing', name: 'National Testing Agency', sameAs: 'https://en.wikipedia.org/wiki/National_Testing_Agency' },

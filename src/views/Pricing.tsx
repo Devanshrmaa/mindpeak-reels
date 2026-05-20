@@ -172,15 +172,35 @@ const Pricing = () => {
   const courseSchema = {
     '@context': 'https://schema.org',
     '@type': 'Course',
+    '@id': 'https://mindpeakinstitute.com/pricing#course',
     name: 'Personalized JEE & NEET Coaching',
     description: 'Live 1-on-1 coaching for JEE Main, JEE Advanced & NEET UG with dedicated mentors, adaptive curriculum, and recorded sessions.',
-    provider: { '@type': 'Organization', name: 'MindPeak Institute', url: 'https://mindpeakinstitute.com' },
+    url: 'https://mindpeakinstitute.com/pricing',
+    provider: {
+      '@type': 'EducationalOrganization',
+      '@id': 'https://mindpeakinstitute.com/#organization',
+      name: 'MindPeak Institute',
+      url: 'https://mindpeakinstitute.com',
+    },
+    educationalLevel: 'Class 11-12 / Competitive Exam Aspirant',
+    courseMode: 'online',
+    inLanguage: ['en-IN', 'hi-IN'],
     offers: [
-      { '@type': 'Offer', name: 'Foundation Plan', price: '100000', priceCurrency: 'INR', availability: 'https://schema.org/InStock' },
-      { '@type': 'Offer', name: '1-Year Intensive', price: '130000', priceCurrency: 'INR', availability: 'https://schema.org/InStock' },
-      { '@type': 'Offer', name: '2-Year Complete', price: '230000', priceCurrency: 'INR', availability: 'https://schema.org/InStock' },
+      { '@type': 'Offer', name: 'Foundation Plan (Class 6–10)', price: '100000', priceCurrency: 'INR', availability: 'https://schema.org/InStock', url: 'https://mindpeakinstitute.com/pricing' },
+      { '@type': 'Offer', name: '1-Year JEE/NEET Coaching', price: '130000', priceCurrency: 'INR', availability: 'https://schema.org/InStock', url: 'https://mindpeakinstitute.com/pricing' },
+      { '@type': 'Offer', name: '2-Year JEE/NEET Coaching', price: '230000', priceCurrency: 'INR', availability: 'https://schema.org/InStock', url: 'https://mindpeakinstitute.com/pricing' },
     ],
-    hasCourseInstance: { '@type': 'CourseInstance', courseMode: 'online', instructor: { '@type': 'Organization', name: 'MindPeak Institute' } },
+    hasCourseInstance: {
+      '@type': 'CourseInstance',
+      courseMode: 'online',
+      location: { '@type': 'VirtualLocation', url: 'https://mindpeakinstitute.com' },
+      instructor: {
+        '@type': 'Person',
+        '@id': 'https://mindpeakinstitute.com/mentors#devansh',
+        name: 'Devansh',
+        jobTitle: 'Founder & Physics Mentor',
+      },
+    },
   };
 
   const jsonLd = [
@@ -188,9 +208,19 @@ const Pricing = () => {
     {
       '@context': 'https://schema.org',
       '@type': 'WebPage',
-      name: 'Pricing — MindPeak Institute',
-      description: 'Transparent pricing for personalized 1-on-1 JEE & NEET coaching.',
+      '@id': 'https://mindpeakinstitute.com/pricing',
+      name: 'JEE & NEET Coaching Fees — MindPeak Institute',
+      description: 'Transparent pricing for personalized 1-on-1 JEE & NEET coaching. Foundation ₹1L, 1-Year ₹1.3L, 2-Year ₹2.3L. EMI available.',
       url: 'https://mindpeakinstitute.com/pricing',
+      isPartOf: { '@type': 'WebSite', '@id': 'https://mindpeakinstitute.com/#website' },
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://mindpeakinstitute.com' },
+        { '@type': 'ListItem', position: 2, name: 'Pricing', item: 'https://mindpeakinstitute.com/pricing' },
+      ],
     },
     buildFAQSchema(faqs),
   ];
