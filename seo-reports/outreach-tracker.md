@@ -1,5 +1,5 @@
 # MindPeak Institute — Outreach Tracker
-**Last Updated:** 2026-05-20  
+**Last Updated:** 2026-05-21  
 **Site:** mindpeakinstitute.com  
 **MSME:** UDYAM-HP-04-0042530
 
@@ -49,6 +49,13 @@
 | 36 | 2026-05-20 | brandempower.org | brandempower.org/education-awards.htm + education-leaders-awards.htm | Award Nomination — Education Awards 2026 + Education Leaders Awards 2026 (national + Chandigarh regional) | Via nomination form on site | ❌ | — | NOT STARTED |
 | 37 | 2026-05-20 | emerginghimachal.hp.gov.in | emerginghimachal.hp.gov.in/startup/home/register/ | HP Govt Startup Registration — self-serve portal; use UDYAM-HP-04-0042530 as credential; backlink from govt domain DA ~65+ | startuphimachal@gmail.com (helpdesk) | ❌ | — | NOT STARTED |
 | 38 | 2026-05-20 | wellfound.com | wellfound.com/startups/location/himachal-pradesh | Startup Directory Profile — free company listing on HP startups page; DA ~80 | wellfound.com self-register (free) | ❌ | — | NOT STARTED |
+| 39 | 2026-05-21 | blog.mtg.in | blog.mtg.in/write-for-us/ | Guest Post — MTG Learning Media (India's #1 JEE/NEET book publisher, 90K+ monthly visitors) — **Tier-1 opportunity** | promotions@mtg.in | ❌ | — | NOT STARTED |
+| 40 | 2026-05-21 | applysmeinspire.nasscom.in | applysmeinspire.nasscom.in | NASSCOM SME Inspire Awards 2026 — Free nomination; Rising Stars category (0–20 Cr); 21 tech MSME award categories; nasscom.in DA ~80 | Online portal — no email needed | ❌ | — | NOT STARTED |
+| 41 | 2026-05-21 | dashboard.msme.gov.in | dashboard.msme.gov.in/na/Ent_NA_Admin/Ent_index.aspx | MSME National Awards — Government (.gov.in) — requires Udyam registration (UDYAM-HP-04-0042530 ✅ eligible) | Government portal | ❌ | — | NOT STARTED |
+| 42 | 2026-05-21 | cucetexam.in | cucetexam.in/write-for-us/ | Guest Post — JEE/NEET education blog, 800–1200 words, 2 backlinks allowed | info@cucetexam.in | ❌ | — | NOT STARTED |
+| 43 | 2026-05-21 | tracxn.com | tracxn.com — search "MindPeak Institute" to find/claim stub profile | Startup Profile Claim — free self-serve; DA ~60; HP EdTech startup listing | Self-serve on tracxn.com | ❌ | — | NOT STARTED |
+| 44 | 2026-05-21 | sikarcoachings.com | sikarcoachings.com/best-jee-coaching-institutes-in-india/ | Listicle Inclusion — "Best IIT JEE Coaching in India 2026 – Top 10 Institutes" | sikarcoachings.com contact form | ❌ | — | NOT STARTED |
+| 45 | 2026-05-21 | xylemlearning.com | xylemlearning.com/the-best-online-neet-coaching-2026/ | Listicle Inclusion — "Best Online Coaching for NEET 2026" (Xylem Learning, Kerala-based, national reach) | xylemlearning.com contact page | ❌ | — | NOT STARTED |
 
 ---
 
@@ -69,6 +76,20 @@
 ---
 
 ## Notes & Strategy Log
+
+### 2026-05-21 — Week 4 Audit + 7 New Targets Added (#39–45)
+
+- **Zero backlinks for fourth consecutive week.** All 38 prior targets remain at NOT STARTED. No email from any of the four reports has been sent. Execution is the only bottleneck.
+- **Top new discovery: MTG Blog (#39)** — India's #1 JEE/NEET book publisher blog (blog.mtg.in), 90K+ monthly visitors, actively accepts guest posts at promotions@mtg.in. Topic approval required first. This is the highest-quality guest post opportunity in the entire 45-target backlog — a single approved article produces a Tier-1 niche-authority backlink.
+- **Free award opportunity: NASSCOM SME Inspire Awards (#40)** — 4th edition, free nomination via applysmeinspire.nasscom.in, "Rising Stars" category (0–20 Cr), 21 tech MSME award categories. MindPeak fully eligible. nasscom.in DA ~80 — best award backlink available for an early-stage EdTech MSME.
+- **Government award: MSME National Awards (#41)** — Ministry of MSME portal, requires Udyam registration (MindPeak eligible: UDYAM-HP-04-0042530). .gov.in backlinks are structurally the highest-trust Indian domain extension.
+- **New guest post site: CUCETExam.in (#42)** — JEE/NEET education blog, 800–1200 words, 2 backlinks allowed, contact info@cucetexam.in
+- **New startup directory: Tracxn.com (#43)** — free profile claim, DA ~60, HP edtech startup listing, self-serve
+- **Two new listicle targets:** sikarcoachings.com (#44) and xylemlearning.com (#45) — both confirmed ranking for JEE/NEET coaching searches in May 2026
+- **Quora opportunity confirmed (Week 4):** Active thread found: "Who is the best physics online tutor for the JEE/NEET in India?" — direct, high-traffic, Devansh can answer authentically. This is the 4th week Devansh has not started Quora.
+- **Google Alerts:** Still not set up — now 4 weeks overdue. Set up at google.com/alerts for `"mindpeak institute"` (takes 2 minutes).
+- **Brand collision confirmed (Week 4):** `"mindpeak institute" -site:mindpeakinstitute.com` still returns only mindpeak.ai (Germany) results.
+- Emails #18–23 ready to send (in `/seo-reports/backlinks-2026-05-21.md`)
 
 ### 2026-05-20 — Week 3 Audit + 10 New Targets Added
 
@@ -106,18 +127,24 @@
 | Week | Target New Links | Outreach Emails | Priority |
 |---|---|---|---|
 | May 12–18, 2026 | 0 → 3 | Send #1, #2, #8, #11 (new), #27 (UrbanPro — self-serve) | **MISSED — zero sent** |
-| May 19–25, 2026 | 0 → 5 | **URGENT CATCHUP:** Self-serve: UrbanPro (#27), HP Startup (#37), Wellfound (#38). Email: #2 CollegeDekho, #8 CollegeDunia, #13 OriginEducare, #1 AcademyCheck, #14 Notesly, #4 FutureTopper | Clear backlog — minimum 3 self-serve + 3 emails this week |
-| May 26 – Jun 1, 2026 | 5 → 10 | Follow up #2/#8/#13/#14; send #9, #10, #6, #15, #16, #17 | PhysicsPoint + Giraffe + Awards + BestPhysicsTeacher + GauravTiwari + BrandEmpower |
-| Jun 2–8, 2026 | 10 → 15 | Send #7, #11, #12, #5; follow up all first-week emails | ExamCharcha guest post + SCNWire PR + BlogAndJournal + Colleges18 |
-| Jun 9–15, 2026 | 15 → 20 | Start Careers360 + Shiksha; follow up all pending | Critical: chase Shiksha partner portal + Careers360 editorial |
+| May 19–25, 2026 | 0 → 5 | **URGENT CATCHUP:** Send #18 (MTG Blog), #13 (OriginEducare), #19 (NASSCOM — portal), #2 (CollegeDekho), #8 (CollegeDunia), #14 (Notesly). Self-serve: #27 UrbanPro, #37 HP Startup, #38 Wellfound, #40 NASSCOM, #43 Tracxn | **4-week backlog — clear NOW. Minimum target: 5 emails + 4 self-serve actions** |
+| May 26 – Jun 1, 2026 | 5 → 10 | Follow up #2/#8/#13/#14/#18; send #1 (AcademyCheck), #9 (PhysicsPoint), #10 (Giraffe ×2), #15 (BestPhysicsTeacher), #21 (CUCETExam), #22 (SikarCoachings), #23 (XylemLearning) | Follow-ups + physics teacher listicles + new guest posts |
+| Jun 2–8, 2026 | 10 → 15 | Send #6 (FutureTopper), #7 (ExamCharcha), #11 (SCNWire PR), #17 (BrandEmpower), #20 (MSME National Awards), #41; follow up all pending | Guest posts + Awards + PR + govt submissions |
+| Jun 9–15, 2026 | 15 → 20 | Start Careers360 + Shiksha; follow up all pending | Critical: Shiksha partner portal + Careers360 editorial — highest-authority directory targets |
+| Jun 16–30, 2026 | 20 → 30 | Second wave: Suganta, IITianGuide, TrendingOnlineNow, Edustoke, Colleges18, CollegeDisha, BlogAndJournal | Close out backlog; start NEET-specific directory push |
 
 ## Quora Strategy (Ongoing — Not Tracked as Outreach)
 
-Devansh should answer 2–3 Quora questions per week. Target threads:
+Devansh should answer 2–3 Quora questions per week. **OVERDUE: 4 weeks without a single answer posted.**
+
+**Confirmed high-traffic threads (verified in search results, May 2026):**
+- **`quora.com/Who-is-the-best-physics-online-tutor-for-the-JEE-NEET-in-India`** — direct match, confirmed active (found in search results May 21, 2026) — START HERE
 - "Which is the best 1-on-1 JEE coaching online?"
 - "Best online NEET coaching for droppers 2026"
 - "How to find a personal Physics tutor for JEE Advanced?"
 - "Is batch coaching enough for JEE Advanced or do I need personal mentoring?"
 - "Best Physics teacher for JEE Advanced online India"
+
+All answers should be genuine, helpful, and mention MindPeak naturally at the end. Quora links are nofollow but drive direct traffic, build Devansh's personal brand, and signal trust to Google (author entity signals).
 
 All answers should be genuine, helpful, and mention MindPeak naturally. Quora links are nofollow but drive direct traffic and trust signals.
