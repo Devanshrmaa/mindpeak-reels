@@ -1,5 +1,5 @@
 # MindPeak Institute — Outreach Tracker
-**Last Updated:** 2026-05-20  
+**Last Updated:** 2026-05-22  
 **Site:** mindpeakinstitute.com  
 **MSME:** UDYAM-HP-04-0042530
 
@@ -49,6 +49,15 @@
 | 36 | 2026-05-20 | brandempower.org | brandempower.org/education-awards.htm + education-leaders-awards.htm | Award Nomination — Education Awards 2026 + Education Leaders Awards 2026 (national + Chandigarh regional) | Via nomination form on site | ❌ | — | NOT STARTED |
 | 37 | 2026-05-20 | emerginghimachal.hp.gov.in | emerginghimachal.hp.gov.in/startup/home/register/ | HP Govt Startup Registration — self-serve portal; use UDYAM-HP-04-0042530 as credential; backlink from govt domain DA ~65+ | startuphimachal@gmail.com (helpdesk) | ❌ | — | NOT STARTED |
 | 38 | 2026-05-20 | wellfound.com | wellfound.com/startups/location/himachal-pradesh | Startup Directory Profile — free company listing on HP startups page; DA ~80 | wellfound.com self-register (free) | ❌ | — | NOT STARTED |
+| 39 | 2026-05-22 | crunchbase.com | crunchbase.com — create "MindPeak Institute" company profile (no entry exists; mindpeak.ai occupies brand search) | Startup Directory Profile — FREE, DA ~91, resolves brand collision with mindpeak.ai Crunchbase entry (🔥 HIGHEST DA FREE BACKLINK AVAILABLE) | crunchbase.com self-register (free) | ❌ | — | NOT STARTED |
+| 40 | 2026-05-22 | seedtable.com | seedtable.com/best-educational-technology-startups-in-india | Startup Directory — "Best Educational Technology Startups in India 2026" (69 companies tracked; MindPeak absent); DA ~60 | seedtable.com self-register (free) | ❌ | — | NOT STARTED |
+| 41 | 2026-05-22 | tracxn.com | tracxn.com/d/explore/k-12-edtech-startups-in-india/ | K-12 EdTech Startup Directory — 8,340 companies tracked; MindPeak absent; verify if free tier generates backlink | tracxn.com self-register (free tier; paid for full control) | ❌ | — | NOT STARTED |
+| 42 | 2026-05-22 | feedspot.com | bloggers.feedspot.com/jee_blogs/ + bloggers.feedspot.com/indian_education_blogs/ | Blog Directory Listing — "20 Best JEE Blogs 2026" + "90 Best Indian Education Blogs 2026"; submit mindpeakinstitute.com/blog | feedspot.com/submit blog (free) | ❌ | — | NOT STARTED |
+| 43 | 2026-05-22 | sikarcoachings.com | sikarcoachings.com/best-jee-coaching-institutes-in-india/ + sikarcoachings.com/which-coaching-is-best-for-iit-jee-droppers/ | Listicle Inclusion — "Best IIT JEE Coaching India 2026" + "Best Coaching for IIT-JEE Droppers 2026"; no personalised/1-on-1 option currently listed | Via sikarcoachings.com contact page | ❌ | — | NOT STARTED |
+| 44 | 2026-05-22 | ksquareinstitute.in | ksquareinstitute.in/blog/neet-online-coaching/ | Listicle Inclusion — "Top NEET Online Coaching Platforms 2026"; KSquare is Bengaluru coaching institute with active blog; no 1-on-1 option listed | Via ksquareinstitute.in contact page | ❌ | — | NOT STARTED |
+| 45 | 2026-05-22 | xylemlearning.com | xylemlearning.com/the-best-online-neet-coaching-2026/ | Listicle Inclusion — "Best Online Coaching for NEET 2026"; Kerala-focused but lists pan-India platforms; no 1-on-1 option present | Via xylemlearning.com contact page | ❌ | — | NOT STARTED |
+| 46 | 2026-05-22 | dnb.com | dnb.com/business-directory/company-information.educational_services.in.himachal_pradesh.html | Business Directory — D&B "Educational Services Companies in Himachal Pradesh, India"; DA ~82; may be auto-populated from registry or require manual claim | dnb.com business registration / claim listing | ❌ | — | NOT STARTED |
+| 47 | 2026-05-22 | startupgrantsindia.com | startupgrantsindia.com/industry/edtech | EdTech Grants & Startup Directory — India's largest EdTech funding directory; visibility listing for EdTech startups | startupgrantsindia.com submit / contact | ❌ | — | NOT STARTED |
 
 ---
 
@@ -69,6 +78,19 @@
 ---
 
 ## Notes & Strategy Log
+
+### 2026-05-22 — Week 4 Audit + 9 New Targets Added
+
+- **Zero backlinks for FOURTH consecutive week.** 38 prior targets remain at NOT STARTED. Root cause is purely execution. No more targets are needed before sending emails.
+- **9 new targets added (#39–47):** crunchbase.com, seedtable.com, tracxn.com, feedspot.com, sikarcoachings.com (×2 articles), ksquareinstitute.in, xylemlearning.com, dnb.com, startupgrantsindia.com
+- **Top new priority: crunchbase.com (#39)** — FREE, DA ~91, resolves active brand collision where mindpeak.ai (German company) occupies "mindpeak institute" search results via their Crunchbase entry. Creating a MindPeak Institute profile is the single highest-authority free backlink available and takes 10 minutes.
+- **Brand collision status:** Google searches for "mindpeak institute" still return mindpeak.ai properties (Crunchbase, PitchBook, TheOrg, Yahoo Finance). Zero external results for the Indian coaching institute.
+- **Competitor intelligence:** PracBee, IITianGuide, Origin Educare, and Vedantu all rank page 1 for "1 on 1 JEE coaching India". MindPeak is absent. Backlinks are the primary gap.
+- **ETIH Innovation Awards 2026** — deadline was March 27, 2026. MISSED for 2026. Set calendar reminder for January 2027.
+- **New self-serve wins:** feedspot.com blog submission (10 min), seedtable.com company listing (15 min) — both free and take under 30 min combined.
+- **Quora gap persists (week 4):** still zero Quora presence — now critical.
+- **Google Alerts still not set up** — overdue 3 weeks.
+- Emails #18–21 + Self-Serve Action #22 ready in `/seo-reports/backlinks-2026-05-22.md`
 
 ### 2026-05-20 — Week 3 Audit + 10 New Targets Added
 
@@ -106,7 +128,7 @@
 | Week | Target New Links | Outreach Emails | Priority |
 |---|---|---|---|
 | May 12–18, 2026 | 0 → 3 | Send #1, #2, #8, #11 (new), #27 (UrbanPro — self-serve) | **MISSED — zero sent** |
-| May 19–25, 2026 | 0 → 5 | **URGENT CATCHUP:** Self-serve: UrbanPro (#27), HP Startup (#37), Wellfound (#38). Email: #2 CollegeDekho, #8 CollegeDunia, #13 OriginEducare, #1 AcademyCheck, #14 Notesly, #4 FutureTopper | Clear backlog — minimum 3 self-serve + 3 emails this week |
+| May 19–25, 2026 | 0 → 5 | **URGENT CATCHUP:** Self-serve: Crunchbase (#39), UrbanPro (#27), HP Startup (#37), Wellfound (#38), Feedspot (#42), Seedtable (#40). Email: #2 CollegeDekho, #8 CollegeDunia, #13 OriginEducare, #1 AcademyCheck, #14 Notesly | Crunchbase = absolute minimum; aim for all 6 self-serve (105 min total) + 3 emails |
 | May 26 – Jun 1, 2026 | 5 → 10 | Follow up #2/#8/#13/#14; send #9, #10, #6, #15, #16, #17 | PhysicsPoint + Giraffe + Awards + BestPhysicsTeacher + GauravTiwari + BrandEmpower |
 | Jun 2–8, 2026 | 10 → 15 | Send #7, #11, #12, #5; follow up all first-week emails | ExamCharcha guest post + SCNWire PR + BlogAndJournal + Colleges18 |
 | Jun 9–15, 2026 | 15 → 20 | Start Careers360 + Shiksha; follow up all pending | Critical: chase Shiksha partner portal + Careers360 editorial |
