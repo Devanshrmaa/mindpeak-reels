@@ -97,13 +97,13 @@ export default function DemoBookingModalContent({
       await fetch(GOOGLE_SHEET_URL, {
         method: "POST",
         mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+        body: new URLSearchParams({
           name: form.name.trim(),
           phone: form.phone.trim(),
           email: form.email.trim(),
           course: form.course,
           message: form.message.trim(),
+          source: "demo-booking-modal",
           timestamp: new Date().toISOString(),
         }),
       });

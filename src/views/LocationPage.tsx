@@ -138,8 +138,14 @@ function LeadCaptureForm({ city, openDemoModal }: { city: CityData; openDemoModa
     if (!name || !phone || !course) return;
 
     setLoading(true);
-    // Submit to Google Sheets endpoint
-    const params = new URLSearchParams({ name, phone: encodeURIComponent(phone), course, city: city.city });
+    const params = new URLSearchParams({
+      name,
+      phone,
+      course,
+      city: city.city,
+      source: 'location-page',
+      timestamp: new Date().toISOString(),
+    });
     fetch(`https://script.google.com/macros/s/AKfycbynDEbMQqfStBwK-sJa5UoLuZtBDNvSPZ4HLvcpuZxTSe6lUy7nuIbxWbQ3QOPovG6N/exec?${params.toString()}`, { method: 'GET', mode: 'no-cors' })
       .finally(() => {
         setLoading(false);
