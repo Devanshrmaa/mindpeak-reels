@@ -45,12 +45,11 @@ export const NCERTDownloadModal = ({ isOpen, onClose, book }: Props) => {
       await fetch(GOOGLE_SHEET_URL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+        body: new URLSearchParams({
           name: form.name.trim(),
           phone: form.phone.trim(),
           email: form.email.trim(),
-          course: `PDF Download: ${book?.title}`,
+          course: `PDF Download: ${book?.title ?? ''}`,
           message: '',
           timestamp: new Date().toISOString(),
           source: 'PDF Download',

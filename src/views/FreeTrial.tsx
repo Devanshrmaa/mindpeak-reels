@@ -91,8 +91,7 @@ const FreeTrial = () => {
     try {
       await fetch(GOOGLE_SHEET_URL, {
         method: 'POST', mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, source: 'free-trial-page', timestamp: new Date().toISOString() }),
+        body: new URLSearchParams({ ...form, source: 'free-trial-page', timestamp: new Date().toISOString() }),
       });
       setSubmitted(true);
       fireConversion();

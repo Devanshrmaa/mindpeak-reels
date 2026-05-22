@@ -69,12 +69,11 @@ const ContinueTestModal = ({ isOpen, testName, onSuccess }: ContinueTestModalPro
       await fetch(GOOGLE_SHEET_URL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+        body: new URLSearchParams({
           name: form.name.trim(),
           phone: form.phone.trim(),
           email: form.email.trim(),
-          testName,
+          testName: testName ?? '',
           source: 'Continue Test Gate',
           timestamp: new Date().toISOString(),
         }),

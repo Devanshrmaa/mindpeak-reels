@@ -329,13 +329,12 @@ const RankPredictor = () => {
     try {
       await fetch(GOOGLE_SHEET_URL, {
         method: 'POST', mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+        body: new URLSearchParams({
           name: name.trim(),
           email: email.trim(),
           phone: phone.replace(/[\s-]/g, ''),
           exam: examLabel,
-          score,
+          score: String(score ?? ''),
           source: 'rank-predictor',
           timestamp: new Date().toISOString(),
         }),
