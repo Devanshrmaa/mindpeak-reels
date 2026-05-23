@@ -3601,5 +3601,14 @@ export function getKeptBlogSlugs(): string[] {
     slugs.push(`blog/${exam.slug}-complete-guide-${year}`);
   }
 
+  // Curated editorial posts authored in blogData.ts (evergreen, snippet-optimised)
+  const editorialSlugs = [
+    'how-to-balance-board-exams-and-jee',
+    'neet-preparation-strategy-for-average-student',
+    'is-private-jee-tutor-worth-it',
+    'how-to-score-99-percentile-in-jee-main',
+  ];
+  for (const s of editorialSlugs) slugs.push(`blog/${s}`);
+
   return slugs;
 }
