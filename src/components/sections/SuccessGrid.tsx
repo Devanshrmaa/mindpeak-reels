@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { X, ArrowRight } from 'lucide-react';
+import { Link } from '@/components/RouterLink';
 
 const student1 = '/images/aarav-sharma.jpg';
 const student2 = '/images/priya-patel.jpg';
@@ -118,6 +119,23 @@ export const SuccessGrid = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* CTA linking to full success stories page */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="text-center mt-12"
+        >
+          <Link
+            to="/success-stories"
+            className="inline-flex items-center gap-2 text-primary/70 hover:text-primary text-sm uppercase tracking-[0.15em] transition-colors"
+          >
+            View All JEE &amp; NEET Student Success Stories
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </motion.div>
       </div>
 
       {/* Modal */}

@@ -490,7 +490,9 @@ const JEECoaching = () => {
                 { label: 'MindPeak vs FIITJEE', to: '/mindpeak-vs-fiitjee' },
                 { label: 'JEE Coaching in Delhi', to: '/jee-coaching-in-delhi' },
                 { label: 'JEE Coaching in Mumbai', to: '/jee-coaching-in-mumbai' },
-                { label: 'Blog — JEE Tips', to: '/blog' },
+                { label: 'JEE & NEET Preparation Blog', to: '/blog' },
+                { label: 'JEE Coaching Fees & Pricing', to: '/pricing' },
+                { label: 'Book a Free 1-on-1 Demo Class', to: '/free-trial' },
               ].map((l) => (
                 <Link
                   key={l.to}

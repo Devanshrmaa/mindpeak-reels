@@ -30,6 +30,7 @@ const MethodologySection = dynamic(() => import('@/components/sections/Methodolo
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection').then(m => ({ default: m.FAQSection })), { ssr: false });
 const ContactSection = dynamic(() => import('@/components/sections/ContactSection').then(m => ({ default: m.ContactSection })), { ssr: false });
 const StatsSection = dynamic(() => import('@/components/sections/StatsSection').then(m => ({ default: m.StatsSection })), { ssr: false });
+const BlogHighlights = dynamic(() => import('@/components/BlogHighlights').then(m => ({ default: m.BlogHighlights })), { ssr: false });
 
 const Index = ({ children }: { children?: ReactNode }) => {
   const [showDeferredSections, setShowDeferredSections] = useState(false);
@@ -69,6 +70,7 @@ const Index = ({ children }: { children?: ReactNode }) => {
             <SuccessGrid />
             <CourseFlashcards />
             <MethodologySection />
+            <BlogHighlights />
             <FAQSection />
             <ContactSection />
           </div>
