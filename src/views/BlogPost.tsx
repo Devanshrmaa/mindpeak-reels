@@ -297,6 +297,12 @@ const BlogPost = () => {
                   Browse All JEE &amp; NEET Programs
                 </Link>
               </div>
+              <p className="text-muted-foreground/60 text-xs mt-4">
+                Prefer a form?{' '}
+                <Link to="/free-trial" className="text-primary/80 hover:text-primary hover:underline transition-colors">
+                  Book your free 1-on-1 demo class online →
+                </Link>
+              </p>
             </div>
           </div>
         </article>

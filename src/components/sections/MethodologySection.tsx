@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Users, Target, BookOpen, TrendingUp } from 'lucide-react';
+import { Link } from '@/components/RouterLink';
 
 const pillars = [
   {
@@ -145,6 +146,11 @@ export const MethodologySection = () => {
               </svg>
             </span>
           </a>
+          <p className="text-muted-foreground/50 text-xs mt-5">
+            <Link to="/methodology" className="hover:text-primary transition-colors tracking-[0.1em] uppercase">
+              Read Our Full Teaching Methodology →
+            </Link>
+          </p>
         </motion.div>
       </div>
 

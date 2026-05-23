@@ -468,7 +468,9 @@ const NEETCoaching = () => {
                 { label: 'NEET Coaching in Delhi', to: '/neet-coaching-in-delhi' },
                 { label: 'NEET Coaching in Mumbai', to: '/neet-coaching-in-mumbai' },
                 { label: 'NEET Coaching in Bangalore', to: '/neet-coaching-in-bangalore' },
-                { label: 'Blog — NEET Tips', to: '/blog' },
+                { label: 'NEET Strategy & Study Tips Blog', to: '/blog' },
+                { label: 'NEET Coaching Fees & Pricing', to: '/pricing' },
+                { label: 'Book a Free 1-on-1 Demo Class', to: '/free-trial' },
               ].map((l) => (
                 <Link key={l.to} to={l.to} className="px-4 py-2.5 rounded-full border border-foreground/[0.06] bg-foreground/[0.02] text-foreground/70 text-[11px] tracking-[0.05em] hover:border-primary/15 hover:text-foreground transition-all duration-400 flex items-center gap-1.5">
                   <ArrowRight className="w-3 h-3 text-primary/50" strokeWidth={1.5} /> {l.label}
