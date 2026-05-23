@@ -207,7 +207,7 @@ const NEETCoaching = () => {
             </h1>
 
             <p className="text-muted-foreground/70 text-sm sm:text-base leading-[1.8] max-w-3xl mb-8 sm:mb-10">
-              Your dream of becoming a doctor deserves more than a seat in a 200-student classroom. At MindPeak, every NEET aspirant receives a dedicated mentor from AIIMS or top medical colleges, an adaptive Biology-first curriculum, and daily 1-on-1 live sessions. 95% success rate, NCERT mastery, 500+ students mentored.
+              NEET success starts with the right priority order: Biology carries 360 of 720 marks, so it comes first — anchored to NCERT, where 80-90% of NEET questions originate. At MindPeak, every NEET aspirant gets a dedicated AIIMS-mentored coach, an adaptive Biology-first curriculum, and daily 1-on-1 live sessions — backed by a 95% success rate, NCERT mastery, and 500+ students mentored.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">

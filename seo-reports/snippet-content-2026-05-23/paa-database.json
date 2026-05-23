@@ -1,0 +1,203 @@
+{
+  "_meta": {
+    "generated": "2026-05-23",
+    "cumulative_unique_questions": 99,
+    "new_this_week": 12,
+    "note": "Modelled from stable PAA patterns for Indian JEE/NEET queries; Devansh should spot-verify live PAA boxes (audit §7). 'answer' fields are 50-60 words, snippet/voice length. 'new' flags questions added in the 2026-05-23 run. Categories: JEE Strategy, NEET Strategy, Study Planning, Subject-Specific, Coaching Decision, Exam Info, Motivation/Mindset.",
+    "answer_length_target": "50-60 words"
+  },
+  "questions": [
+    {
+      "question": "Can I prepare for boards and JEE at the same time?",
+      "category": "Study Planning",
+      "target_page": "/blog/how-to-balance-board-exams-and-jee",
+      "answer_exists": true,
+      "new": true,
+      "answer": "Yes. Around 75-85% of the Class 12 syllabus overlaps with JEE, so one well-planned schedule covers both. Spend the bulk of the year on JEE depth, then the final six to eight weeks on board-style answer writing and presentation."
+    },
+    {
+      "question": "Should I stop JEE preparation before board exams?",
+      "category": "Study Planning",
+      "target_page": "/blog/how-to-balance-board-exams-and-jee",
+      "answer_exists": true,
+      "new": true,
+      "answer": "No. Keep a daily 45-90 minute JEE problem set during board prep so your speed and accuracy do not decay. Going fully cold on JEE costs three to four weeks of recovery time you cannot afford before JEE Main."
+    },
+    {
+      "question": "How many days before boards should I shift focus fully to boards?",
+      "category": "Study Planning",
+      "target_page": "/blog/how-to-balance-board-exams-and-jee",
+      "answer_exists": true,
+      "new": true,
+      "answer": "About three to four weeks before your first board paper, move to a 70% boards and 30% JEE split, then go almost fully board-focused during the exam window, studying only the next paper's subject."
+    },
+    {
+      "question": "Can an average student crack NEET?",
+      "category": "NEET Strategy",
+      "target_page": "/blog/neet-preparation-strategy-for-average-student",
+      "answer_exists": true,
+      "new": true,
+      "answer": "Yes. NEET rewards disciplined NCERT mastery and Biology focus more than raw talent. An average student on a consistent plan can realistically target 550-600 marks, enough for a government MBBS seat in many state quotas."
+    },
+    {
+      "question": "Which subject should an average NEET student focus on most?",
+      "category": "Subject-Specific",
+      "target_page": "/blog/neet-preparation-strategy-for-average-student",
+      "answer_exists": true,
+      "new": true,
+      "answer": "Biology. It carries 360 of 720 marks, is the most NCERT-bound, and is the most reliable to score in. A strong Biology score plus solid Chemistry covers the bulk of a safe NEET total for an average student."
+    },
+    {
+      "question": "Is NCERT enough for an average student in NEET?",
+      "category": "NEET Strategy",
+      "target_page": "/blog/neet-preparation-strategy-for-average-student",
+      "answer_exists": true,
+      "new": true,
+      "answer": "For Biology and Chemistry, NCERT covers the overwhelming majority of NEET questions and should be mastered completely. For Physics, supplement NCERT with focused numerical practice on high-scoring chapters like Modern Physics and Ray Optics."
+    },
+    {
+      "question": "Is a private JEE tutor better than a coaching institute?",
+      "category": "Coaching Decision",
+      "target_page": "/blog/is-private-jee-tutor-worth-it",
+      "answer_exists": true,
+      "new": true,
+      "answer": "For students below 80 percentile or with specific weak subjects, yes, one-on-one teaching targets your exact gaps instead of the batch average. For self-disciplined top-percentile students, a strong test series may give similar results at lower cost."
+    },
+    {
+      "question": "How much does a private JEE tutor cost in India?",
+      "category": "Coaching Decision",
+      "target_page": "/blog/is-private-jee-tutor-worth-it",
+      "answer_exists": true,
+      "new": true,
+      "answer": "It varies by city, experience, and mode. Home tutors charge per hour; online 1-on-1 programs charge a bundled course fee covering mentoring, tests, and tracking. Online coaching has made expert mentoring far more affordable than metro home tuition."
+    },
+    {
+      "question": "Can online 1-on-1 coaching replace a private home tutor?",
+      "category": "Coaching Decision",
+      "target_page": "/blog/is-private-jee-tutor-worth-it",
+      "answer_exists": true,
+      "new": true,
+      "answer": "Yes. Online 1-on-1 coaching gives the same personalised attention without commute time and connects you with IIT or AIIMS alumni mentors regardless of your city, something a local home-tutor pool often cannot match."
+    },
+    {
+      "question": "How many marks are needed for 99 percentile in JEE Main?",
+      "category": "Exam Info",
+      "target_page": "/blog/how-to-score-99-percentile-in-jee-main",
+      "answer_exists": true,
+      "new": true,
+      "answer": "Roughly 235-255 marks out of 300 in most years, though NTA's shift-wise normalisation means the exact cutoff varies. Treat the low-250s as a safe target band for a confident 99 percentile."
+    },
+    {
+      "question": "Can I score 99 percentile in JEE Main in 6 months?",
+      "category": "JEE Strategy",
+      "target_page": "/blog/how-to-score-99-percentile-in-jee-main",
+      "answer_exists": true,
+      "new": true,
+      "answer": "Yes, with reasonable fundamentals and a disciplined plan: finish NCERT Chemistry, master high-weightage chapters, and take 15-plus analysed mock tests. Six focused months with above-90% accuracy can reach 99 percentile."
+    },
+    {
+      "question": "Does attempting all 75 questions help score 99 percentile?",
+      "category": "JEE Strategy",
+      "target_page": "/blog/how-to-score-99-percentile-in-jee-main",
+      "answer_exists": true,
+      "new": true,
+      "answer": "No. Because of negative marking, accuracy beats volume. Most 99-percentile scorers attempt around 60-68 questions with 90%-plus accuracy rather than risking all 75 and bleeding marks on careless errors."
+    },
+    {
+      "question": "How many hours should I study for JEE Main?",
+      "category": "Study Planning",
+      "target_page": "/jee-coaching",
+      "answer_exists": true,
+      "new": false,
+      "answer": "Study 6 to 8 focused hours daily in Class 11 and 8 to 10 hours in Class 12, with short breaks every 90 minutes. Quality and consistency matter far more than raw hours; protect 7 to 8 hours of sleep for retention."
+    },
+    {
+      "question": "Is NCERT enough for JEE Main?",
+      "category": "Subject-Specific",
+      "target_page": "/jee-coaching",
+      "answer_exists": true,
+      "new": false,
+      "answer": "NCERT is essential and nearly sufficient for Chemistry, where 30-40% of questions originate directly. For Physics and Mathematics, NCERT builds the foundation but you must add standard problem sets for the speed and application JEE demands."
+    },
+    {
+      "question": "Which are the highest-weightage chapters in JEE Main Physics?",
+      "category": "Subject-Specific",
+      "target_page": "/jee-physics-coaching",
+      "answer_exists": true,
+      "new": false,
+      "answer": "Mechanics, Electrostatics and Current Electricity, Modern Physics, and Optics consistently carry the highest weightage in JEE Main Physics. Mastering these first builds a strong scoring floor before you spread into lower-weightage topics."
+    },
+    {
+      "question": "How do I prepare for NEET in 12 months?",
+      "category": "NEET Strategy",
+      "target_page": "/neet-coaching",
+      "answer_exists": false,
+      "new": false,
+      "answer": "Spend months 1-6 building NCERT-deep concepts across all subjects, months 7-10 on chapter-wise practice and full mocks, and the final two months on revision and exam temperament. Lead with Biology throughout; it is half the paper."
+    },
+    {
+      "question": "How can I score 650+ in NEET?",
+      "category": "NEET Strategy",
+      "target_page": "/blog/how-to-score-650-plus-neet (queued)",
+      "answer_exists": false,
+      "new": false,
+      "answer": "A 650+ NEET score needs near-perfect Biology (330+/360), strong Chemistry (150+/180), and reliable Physics (130+/180). It rests on line-by-line NCERT mastery, daily MCQ practice, and weekly full mocks with detailed error analysis."
+    },
+    {
+      "question": "Is NEET harder than JEE?",
+      "category": "Exam Info",
+      "target_page": "/neet-vs-jee-comparison (queued)",
+      "answer_exists": false,
+      "new": false,
+      "answer": "They are hard differently. JEE, especially Advanced, is harder in problem-solving depth and Mathematics; NEET is harder in volume and recall, with 180 questions over a vast Biology syllabus under tight time and negative marking."
+    },
+    {
+      "question": "What is the JEE Main 2027 exam pattern?",
+      "category": "Exam Info",
+      "target_page": "/jee-main-exam-pattern-2027 (queued)",
+      "answer_exists": false,
+      "new": false,
+      "answer": "JEE Main Paper 1 has 75 questions for 300 marks: Physics, Chemistry, and Mathematics each have 25 questions (20 Section A MCQs and 5 Section B numerical, all compulsory). Marking is +4 correct and −1 incorrect."
+    },
+    {
+      "question": "How is JEE Main percentile calculated?",
+      "category": "Exam Info",
+      "target_page": "/blog/how-to-score-99-percentile-in-jee-main",
+      "answer_exists": true,
+      "new": false,
+      "answer": "Percentile is the proportion of candidates in your session scoring at or below you, normalised across multiple shifts. It is not a fixed marks formula, so the same raw marks can map to slightly different percentiles by shift difficulty."
+    },
+    {
+      "question": "Is online coaching effective for NEET?",
+      "category": "Coaching Decision",
+      "target_page": "/neet-coaching",
+      "answer_exists": false,
+      "new": false,
+      "answer": "Yes, especially 1-on-1 online coaching, which gives personalised Biology-first attention, recorded classes for revision, and access to AIIMS-alumni mentors regardless of location. Self-discipline and a structured mentor are the keys to making it work."
+    },
+    {
+      "question": "How do I choose the right JEE coaching?",
+      "category": "Coaching Decision",
+      "target_page": "/how-to-choose-jee-coaching (queued)",
+      "answer_exists": false,
+      "new": false,
+      "answer": "Judge a JEE coaching on mentor credentials (IIT/NIT background), student-to-teacher ratio, doubt-clearing speed, mock-test quality, and personalised feedback. For students needing individual attention, a 1-on-1 model beats large batches per percentile gained."
+    },
+    {
+      "question": "How do I stay motivated during JEE preparation?",
+      "category": "Motivation/Mindset",
+      "target_page": "/jee-coaching",
+      "answer_exists": false,
+      "new": false,
+      "answer": "Set weekly, measurable targets instead of fixating on rank, track small wins in an error log, and avoid constant comparison with peers. A mentor who reviews progress weekly keeps motivation tied to visible improvement rather than mood."
+    },
+    {
+      "question": "What is the best way to study NEET Physics?",
+      "category": "Subject-Specific",
+      "target_page": "/neet-physics-coaching",
+      "answer_exists": false,
+      "new": false,
+      "answer": "Build concepts from NCERT, then drill formula-based numericals on high-scoring chapters like Modern Physics, Semiconductors, Ray Optics, and Thermodynamics. Prioritise accuracy on these over attempting every chapter, since Physics is the toughest NEET section for most."
+    }
+  ]
+}

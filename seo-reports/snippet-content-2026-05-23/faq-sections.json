@@ -1,0 +1,134 @@
+{
+  "_meta": {
+    "generated": "2026-05-23",
+    "generator": "Claude Code AI-visibility audit",
+    "note": "FAQ Q&A pairs for the 4 blog posts shipped 2026-05-23. The posts currently emit BlogPosting + BreadcrumbList JSON-LD but NOT FAQPage. To make these PAA-eligible, add an optional `faqs?: FAQItem[]` field to BlogPost (src/data/blogData.ts), render via the existing <PageFAQ> component, and emit buildFAQSchema(post.faqs) inside src/views/BlogPost.tsx. The `jsonLd` block under each page below is the exact FAQPage object buildFAQSchema() would produce — paste-ready.",
+    "answer_length_target": "50-60 words (snippet/voice length)"
+  },
+  "pages": {
+    "/blog/how-to-balance-board-exams-and-jee": {
+      "heading": "Balancing Boards & JEE",
+      "items": [
+        {
+          "question": "Can I prepare for boards and JEE at the same time?",
+          "answer": "Yes. Around 75-85% of the Class 12 syllabus overlaps with JEE, so a single, well-planned schedule covers both. Dedicate the bulk of the year to JEE depth and the final six to eight weeks to board presentation and answer writing."
+        },
+        {
+          "question": "Should I stop JEE preparation before board exams?",
+          "answer": "No, do not stop completely. Reduce JEE to a daily 45-90 minute problem set during the final board-prep weeks so your speed and accuracy do not decay, while giving boards the majority of your time."
+        },
+        {
+          "question": "Do good JEE scores help in board exams?",
+          "answer": "Indirectly, yes. The conceptual depth you build for JEE makes board theory feel easy. You only need to add board-specific presentation, derivations, diagrams, and structured written solutions, to convert that depth into a high board percentage."
+        },
+        {
+          "question": "How many days before boards should I shift focus fully to boards?",
+          "answer": "Roughly three to four weeks before your first board paper, shift to a 70% boards and 30% JEE split, then go almost fully board-focused during the exam window itself."
+        }
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Can I prepare for boards and JEE at the same time?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Around 75-85% of the Class 12 syllabus overlaps with JEE, so a single, well-planned schedule covers both. Dedicate the bulk of the year to JEE depth and the final six to eight weeks to board presentation and answer writing." } },
+          { "@type": "Question", "name": "Should I stop JEE preparation before board exams?", "acceptedAnswer": { "@type": "Answer", "text": "No, do not stop completely. Reduce JEE to a daily 45-90 minute problem set during the final board-prep weeks so your speed and accuracy do not decay, while giving boards the majority of your time." } },
+          { "@type": "Question", "name": "Do good JEE scores help in board exams?", "acceptedAnswer": { "@type": "Answer", "text": "Indirectly, yes. The conceptual depth you build for JEE makes board theory feel easy. You only need to add board-specific presentation, derivations, diagrams, and structured written solutions, to convert that depth into a high board percentage." } },
+          { "@type": "Question", "name": "How many days before boards should I shift focus fully to boards?", "acceptedAnswer": { "@type": "Answer", "text": "Roughly three to four weeks before your first board paper, shift to a 70% boards and 30% JEE split, then go almost fully board-focused during the exam window itself." } }
+        ]
+      }
+    },
+    "/blog/neet-preparation-strategy-for-average-student": {
+      "heading": "NEET Strategy for Average Students",
+      "items": [
+        {
+          "question": "Can an average student crack NEET?",
+          "answer": "Yes. NEET rewards disciplined NCERT mastery and Biology focus more than raw talent. An average student following a consistent plan can realistically target 550-600 marks, which is enough for government MBBS admission in many state quotas."
+        },
+        {
+          "question": "How many hours should an average student study for NEET?",
+          "answer": "Around 7 to 9 focused hours daily is sufficient. Consistency every day matters far more than occasional marathon sessions. Protect your sleep so your revision actually sticks and concepts consolidate."
+        },
+        {
+          "question": "Which subject should an average NEET student focus on most?",
+          "answer": "Biology, without question. It carries 360 of 720 marks, is the most NCERT-based, and is the most reliable to score in. Strong Biology plus solid Chemistry covers the bulk of a safe NEET score."
+        },
+        {
+          "question": "Is NCERT enough for an average student in NEET?",
+          "answer": "For Biology and Chemistry, NCERT covers the overwhelming majority of NEET questions and should be mastered completely. For Physics, supplement NCERT with focused numerical practice on high-scoring chapters."
+        }
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Can an average student crack NEET?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. NEET rewards disciplined NCERT mastery and Biology focus more than raw talent. An average student following a consistent plan can realistically target 550-600 marks, which is enough for government MBBS admission in many state quotas." } },
+          { "@type": "Question", "name": "How many hours should an average student study for NEET?", "acceptedAnswer": { "@type": "Answer", "text": "Around 7 to 9 focused hours daily is sufficient. Consistency every day matters far more than occasional marathon sessions. Protect your sleep so your revision actually sticks and concepts consolidate." } },
+          { "@type": "Question", "name": "Which subject should an average NEET student focus on most?", "acceptedAnswer": { "@type": "Answer", "text": "Biology, without question. It carries 360 of 720 marks, is the most NCERT-based, and is the most reliable to score in. Strong Biology plus solid Chemistry covers the bulk of a safe NEET score." } },
+          { "@type": "Question", "name": "Is NCERT enough for an average student in NEET?", "acceptedAnswer": { "@type": "Answer", "text": "For Biology and Chemistry, NCERT covers the overwhelming majority of NEET questions and should be mastered completely. For Physics, supplement NCERT with focused numerical practice on high-scoring chapters." } }
+        ]
+      }
+    },
+    "/blog/is-private-jee-tutor-worth-it": {
+      "heading": "Private JEE Tutor — Worth It?",
+      "items": [
+        {
+          "question": "Is a private JEE tutor better than a coaching institute?",
+          "answer": "For students below 80 percentile or with specific weak subjects, yes, one-on-one teaching targets your exact gaps instead of the batch average. For self-disciplined top-percentile students, a strong test series may deliver similar results at lower cost."
+        },
+        {
+          "question": "How much does a private JEE tutor cost in India?",
+          "answer": "It varies by city, experience, and mode. Independent home tutors charge per hour, while online 1-on-1 programs charge a bundled course fee covering mentoring, tests, and tracking. Online coaching has made expert 1-on-1 mentoring far more affordable than metro home tuition."
+        },
+        {
+          "question": "Can online 1-on-1 coaching replace a private home tutor?",
+          "answer": "Yes. Online 1-on-1 coaching delivers the same personalised attention without commute time and often connects you with IIT or AIIMS alumni mentors regardless of your city, something a local home-tutor pool may not offer."
+        },
+        {
+          "question": "When should I hire a private JEE tutor?",
+          "answer": "Hire one when your batch pace is leaving you behind, when you have stubborn weak subjects, or when you are a dropper who needs daily structure. The earlier you fix targeted gaps, the more percentile you recover."
+        }
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Is a private JEE tutor better than a coaching institute?", "acceptedAnswer": { "@type": "Answer", "text": "For students below 80 percentile or with specific weak subjects, yes, one-on-one teaching targets your exact gaps instead of the batch average. For self-disciplined top-percentile students, a strong test series may deliver similar results at lower cost." } },
+          { "@type": "Question", "name": "How much does a private JEE tutor cost in India?", "acceptedAnswer": { "@type": "Answer", "text": "It varies by city, experience, and mode. Independent home tutors charge per hour, while online 1-on-1 programs charge a bundled course fee covering mentoring, tests, and tracking. Online coaching has made expert 1-on-1 mentoring far more affordable than metro home tuition." } },
+          { "@type": "Question", "name": "Can online 1-on-1 coaching replace a private home tutor?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Online 1-on-1 coaching delivers the same personalised attention without commute time and often connects you with IIT or AIIMS alumni mentors regardless of your city, something a local home-tutor pool may not offer." } },
+          { "@type": "Question", "name": "When should I hire a private JEE tutor?", "acceptedAnswer": { "@type": "Answer", "text": "Hire one when your batch pace is leaving you behind, when you have stubborn weak subjects, or when you are a dropper who needs daily structure. The earlier you fix targeted gaps, the more percentile you recover." } }
+        ]
+      }
+    },
+    "/blog/how-to-score-99-percentile-in-jee-main": {
+      "heading": "Scoring 99 Percentile in JEE Main",
+      "items": [
+        {
+          "question": "How many marks are needed for 99 percentile in JEE Main?",
+          "answer": "Roughly 235-255 marks out of 300 in most years, though NTA's shift-wise normalisation means the exact cutoff varies. Treat the low-250s as a safe target band for a confident 99 percentile."
+        },
+        {
+          "question": "Can I score 99 percentile in JEE Main in 6 months?",
+          "answer": "Yes, if your fundamentals are reasonable and you commit to a disciplined plan: finish NCERT Chemistry, master high-weightage chapters, and take 15-plus analysed mock tests. Six focused months with high accuracy can reach 99 percentile."
+        },
+        {
+          "question": "Is NCERT enough to score 99 percentile in JEE Main?",
+          "answer": "NCERT is essential and nearly sufficient for Chemistry, but Physics and Mathematics require additional problem-solving practice from standard problem sets. Use NCERT as your foundation, then build speed and application on top."
+        },
+        {
+          "question": "Does attempting all 75 questions help score 99 percentile?",
+          "answer": "No. Because of negative marking, accuracy beats volume. Most 99-percentile scorers attempt around 60-68 questions with 90%-plus accuracy rather than risking all 75."
+        }
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "How many marks are needed for 99 percentile in JEE Main?", "acceptedAnswer": { "@type": "Answer", "text": "Roughly 235-255 marks out of 300 in most years, though NTA's shift-wise normalisation means the exact cutoff varies. Treat the low-250s as a safe target band for a confident 99 percentile." } },
+          { "@type": "Question", "name": "Can I score 99 percentile in JEE Main in 6 months?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, if your fundamentals are reasonable and you commit to a disciplined plan: finish NCERT Chemistry, master high-weightage chapters, and take 15-plus analysed mock tests. Six focused months with high accuracy can reach 99 percentile." } },
+          { "@type": "Question", "name": "Is NCERT enough to score 99 percentile in JEE Main?", "acceptedAnswer": { "@type": "Answer", "text": "NCERT is essential and nearly sufficient for Chemistry, but Physics and Mathematics require additional problem-solving practice from standard problem sets. Use NCERT as your foundation, then build speed and application on top." } },
+          { "@type": "Question", "name": "Does attempting all 75 questions help score 99 percentile?", "acceptedAnswer": { "@type": "Answer", "text": "No. Because of negative marking, accuracy beats volume. Most 99-percentile scorers attempt around 60-68 questions with 90%-plus accuracy rather than risking all 75." } }
+        ]
+      }
+    }
+  }
+}

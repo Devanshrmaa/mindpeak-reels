@@ -1,0 +1,59 @@
+{
+  "_meta": {
+    "generated": "2026-05-23",
+    "note": "Voice-ready answers: 30-40 words, conversational, one direct answer first. Pair each with a query-format H2 on the listed page; the immediate paragraph after the H2 should be this answer so it can win both the Featured Snippet and the voice/assistant answer. Add `speakable` schema selectors targeting these paragraphs.",
+    "length_target": "30-40 words"
+  },
+  "answers": [
+    {
+      "query": "How do I balance board exams and JEE preparation?",
+      "page": "/blog/how-to-balance-board-exams-and-jee",
+      "voice_answer": "Treat boards and JEE as one syllabus, since most of Class 12 overlaps. Spend most of the year on JEE depth, then the final six to eight weeks on board answer writing. Never drop JEE to zero."
+    },
+    {
+      "query": "Can an average student crack NEET?",
+      "page": "/blog/neet-preparation-strategy-for-average-student",
+      "voice_answer": "Yes. An average student can target 550 to 600 in NEET by leading with Biology, which is 360 of 720 marks, and mastering NCERT line by line. Consistency beats marathon study sessions."
+    },
+    {
+      "query": "How many hours should an average student study for NEET?",
+      "page": "/blog/neet-preparation-strategy-for-average-student",
+      "voice_answer": "About seven to nine focused hours every day is enough. Daily consistency matters far more than occasional fourteen-hour days, and protecting your sleep keeps revision sticking. Burnout costs more marks than it gains."
+    },
+    {
+      "query": "Is a private JEE tutor worth it?",
+      "page": "/blog/is-private-jee-tutor-worth-it",
+      "voice_answer": "A private JEE tutor is worth it if you are below the 80th percentile, have weak subjects, or are a dropper needing accountability, because one-on-one teaching targets your exact gaps instead of the batch average."
+    },
+    {
+      "query": "How many marks do I need for 99 percentile in JEE Main?",
+      "page": "/blog/how-to-score-99-percentile-in-jee-main",
+      "voice_answer": "Around 235 to 255 marks out of 300 in most years, though the exact cutoff shifts with paper difficulty and NTA normalisation. Treat the low 250s as a safe target for a confident 99 percentile."
+    },
+    {
+      "query": "How many hours should I study for JEE?",
+      "page": "/jee-coaching",
+      "voice_answer": "Study six to eight hours daily in Class 11 and eight to ten in Class 12, with short breaks every ninety minutes. Quality problem solving matters more than just hours spent reading theory."
+    },
+    {
+      "query": "Is NCERT enough for JEE Main?",
+      "page": "/jee-coaching",
+      "voice_answer": "NCERT is nearly sufficient for Chemistry, where many questions come directly from it. For Physics and Mathematics, NCERT builds the base, but you must add standard problem sets for JEE-level speed and application."
+    },
+    {
+      "query": "Which subject should I focus on most for NEET?",
+      "page": "/neet-coaching",
+      "voice_answer": "Focus most on Biology. It carries 360 of NEET's 720 marks, is the most NCERT-based, and is the most reliable to score in. Strong Biology plus solid Chemistry secures a safe total."
+    },
+    {
+      "query": "What is the JEE Main exam pattern?",
+      "page": "/jee-main-exam-pattern-2027",
+      "voice_answer": "JEE Main Paper 1 has seventy-five questions for three hundred marks, with twenty-five questions each in Physics, Chemistry, and Mathematics. All are compulsory, scored plus four for correct and minus one for incorrect answers."
+    },
+    {
+      "query": "Is online coaching effective for NEET?",
+      "page": "/neet-coaching",
+      "voice_answer": "Yes, especially one-on-one online coaching. It gives personalised Biology-first attention, recorded classes for revision, and AIIMS-alumni mentors regardless of your city. With self-discipline and a structured mentor, it matches or beats offline batches."
+    }
+  ]
+}
