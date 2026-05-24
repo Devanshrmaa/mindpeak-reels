@@ -4,9 +4,9 @@ import NEETUGCancelled2026 from "@/views/NEETUGCancelled2026";
 export const dynamic = "force-static";
 export const revalidate = 1800;
 
-const TITLE = "NEET UG 2026 Cancelled: What Every Student Must Know Now";
+const TITLE = "NEET UG 2026 Cancelled — What Students Must Know | MindPeak";
 const DESCRIPTION =
-  "NTA cancelled NEET UG 2026 on 12 May after paper leak allegations. CBI probe underway. No re-registration needed. Full update, timeline, FAQs, and next steps for aspirants.";
+  "NTA cancelled NEET UG 2026 after paper leak allegations. CBI probe underway. Full update: timeline, FAQs & what aspirants should do next.";
 const CANONICAL = "https://mindpeakinstitute.com/neet-ug-2026-cancelled";
 const DATE_PUBLISHED = "2026-05-12T10:00:00+05:30";
 const DATE_MODIFIED = "2026-05-12T14:30:00+05:30";

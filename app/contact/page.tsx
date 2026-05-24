@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const revalidate = false;
 
 export const metadata: Metadata = {
-  title: "Contact MindPeak — JEE & NEET Coaching Enquiry | MindPeak",
+  title: "JEE & NEET Coaching Enquiry — Contact MindPeak",
   description: "Have questions about JEE/NEET coaching? Call +91 82194 57704, WhatsApp, or email. Get a callback within 30 minutes. Mon-Sat, 9 AM – 8 PM IST.",
   alternates: { canonical: "https://mindpeakinstitute.com/contact" },
   openGraph: {
