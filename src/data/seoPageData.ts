@@ -663,7 +663,7 @@ const freeTrialPage: SEOPageData = {
 
 const jeeMainPage: SEOPageData = {
   slug: 'jee-main-coaching',
-  title: 'JEE Main Coaching Online — Score 250+ with 1-on-1 Mentoring | MindPeak',
+  title: 'JEE Main Coaching — Score 250+ with 1-on-1 | MindPeak',
   description: 'Targeted JEE Main coaching with personalized 1-on-1 mentoring. Focus on NTA patterns, score optimization & time management. 95% students score 200+. Start free trial.',
   h1: 'JEE Main',
   h1Highlight: 'Coaching Online',
@@ -815,7 +815,7 @@ const jeeMainPage: SEOPageData = {
 
 const jeeAdvancedPage: SEOPageData = {
   slug: 'jee-advanced-coaching',
-  title: 'JEE Advanced Coaching — Crack Top IIT Ranks with 1-on-1 Mentoring | MindPeak',
+  title: 'JEE Advanced Coaching — AIR 42 Achieved, 1-on-1 | MindPeak',
   description: 'JEE Advanced coaching for IIT aspirants. Our AIR 42 result proves 1-on-1 mentoring works. Advanced problem-solving, multi-concept questions, exam strategy. Free trial.',
   h1: 'JEE Advanced',
   h1Highlight: 'Coaching for IIT',
@@ -1151,7 +1151,7 @@ const neetUgPage: SEOPageData = {
 
 const jeeDropperPage: SEOPageData = {
   slug: 'jee-dropper-coaching',
-  title: 'JEE Dropper Coaching — Personalized Retry Strategy | MindPeak',
+  title: 'JEE Dropper Coaching — 1-on-1 Retry Strategy | MindPeak',
   description: 'Failed JEE? Don\'t give up. MindPeak\'s 1-on-1 JEE dropper program identifies YOUR specific gaps and builds a targeted comeback strategy. 90% improvement rate.',
   h1: 'JEE Dropper',
   h1Highlight: 'Coaching Program',
@@ -1316,7 +1316,7 @@ const jeeDropperPage: SEOPageData = {
 
 const neetDropperPage: SEOPageData = {
   slug: 'neet-dropper-coaching',
-  title: 'NEET Dropper Coaching — Targeted Comeback Strategy | MindPeak',
+  title: 'NEET Dropper Coaching — Personalised Comeback | MindPeak',
   description: 'NEET dropper? Get 1-on-1 coaching that analyses your previous attempt and targets your specific weak areas. NCERT-focused, Biology-strong. 90% improvement rate.',
   h1: 'NEET Dropper',
   h1Highlight: 'Coaching Program',
@@ -1463,7 +1463,7 @@ const neetDropperPage: SEOPageData = {
 
 const foundationPage: SEOPageData = {
   slug: 'foundation-coaching',
-  title: `Foundation Coaching (Class 6-10) — Early IIT/NEET Prep ${CURRENT_EXAM_YEAR} | MindPeak`,
+  title: 'Foundation Coaching (Class 6–10) — IIT/NEET Prep | MindPeak',
   description: `Start IIT-JEE & NEET preparation early with MindPeak's 1-on-1 foundation coaching for Class 6-10. Olympiad prep, NTSE, analytical thinking & strong Science/Math base. Free demo.`,
   h1: 'Foundation',
   h1Highlight: 'Coaching (Class 6-10)',
@@ -1634,7 +1634,7 @@ const foundationPage: SEOPageData = {
 const subjectPages: SEOPageData[] = [
   {
     slug: 'jee-physics-coaching',
-    title: `Best JEE Physics Coaching Online ${CURRENT_EXAM_YEAR} — Score 80+ in Physics | MindPeak`,
+    title: 'JEE Physics Coaching — Score 80+ with 1-on-1 | MindPeak',
     description: `Personalized 1-on-1 JEE Physics coaching. Master Mechanics, Electromagnetism, Optics & Modern Physics with IIT alumni mentors. Improve by 30+ marks. Free trial.`,
     h1: 'Best JEE Physics Coaching',
     h1Highlight: `Online — Score 80+ in ${CURRENT_EXAM_YEAR}`,
@@ -1877,7 +1877,7 @@ const subjectPages: SEOPageData[] = [
   },
   {
     slug: 'jee-chemistry-coaching',
-    title: `Best JEE Chemistry Coaching ${CURRENT_EXAM_YEAR} — Score 80+ with 1-on-1 | MindPeak`,
+    title: 'JEE Chemistry Coaching — Score 80+ with 1-on-1 | MindPeak',
     description: `Master JEE Chemistry with 1-on-1 coaching. Physical Chemistry calculations, Organic reaction mechanisms, Inorganic memory techniques. Score 80+ in Chemistry.`,
     h1: 'Best JEE Chemistry Coaching',
     h1Highlight: `Online — Master All 3 Branches`,
@@ -2049,7 +2049,7 @@ const subjectPages: SEOPageData[] = [
   },
   {
     slug: 'jee-mathematics-coaching',
-    title: `Best JEE Mathematics Coaching Online ${CURRENT_EXAM_YEAR} — Calculus to Algebra | MindPeak`,
+    title: 'JEE Maths Coaching — Score 90+ with 1-on-1 | MindPeak',
     description: `Master JEE Mathematics with personalized 1-on-1 coaching. Calculus, Algebra, Coordinate Geometry & Trigonometry with IIT alumni mentors. Score 90+ in Maths.`,
     h1: 'Best JEE Maths Coaching',
     h1Highlight: `Online — Score 90+ in ${CURRENT_EXAM_YEAR}`,
@@ -2220,7 +2220,7 @@ const subjectPages: SEOPageData[] = [
   },
   {
     slug: 'neet-biology-coaching',
-    title: `Best NEET Biology Coaching Online ${CURRENT_EXAM_YEAR} — Score 340+ with NCERT Mastery | MindPeak`,
+    title: 'NEET Biology Coaching — Score 340+, NCERT First | MindPeak',
     description: `NEET Biology coaching with NCERT-first approach. Dedicated Biology mentor for diagrams, assertion-reason, MCQ mastery. Biology = 50% of NEET marks. Free trial.`,
     h1: 'Best NEET Biology Coaching',
     h1Highlight: `Online — Score 340+ in ${CURRENT_EXAM_YEAR}`,
@@ -2395,7 +2395,7 @@ const subjectPages: SEOPageData[] = [
   },
   {
     slug: 'neet-physics-coaching',
-    title: `Best NEET Physics Coaching ${CURRENT_EXAM_YEAR} — Score 160+ with NCERT | MindPeak`,
+    title: 'NEET Physics Coaching — Score 160+ with 1-on-1 | MindPeak',
     description: `NEET Physics coaching with 1-on-1 mentoring. NCERT-based concepts, numerical problem practice, high-yield topic focus. Improve Physics score by 40+ marks.`,
     h1: 'Best NEET Physics Coaching',
     h1Highlight: `Online — Score 160+ in ${CURRENT_EXAM_YEAR}`,
@@ -2555,7 +2555,7 @@ const subjectPages: SEOPageData[] = [
   },
   {
     slug: 'neet-chemistry-coaching',
-    title: `Best NEET Chemistry Coaching ${CURRENT_EXAM_YEAR} — Physical + Organic + Inorganic | MindPeak`,
+    title: 'NEET Chemistry Coaching — Full Coverage, 1-on-1 | MindPeak',
     description: `NEET Chemistry coaching with 1-on-1 mentoring. NCERT-based Physical, Organic & Inorganic Chemistry. Dedicated mentor, daily sessions, MCQ mastery. Free trial.`,
     h1: 'Best NEET Chemistry Coaching',
     h1Highlight: `Online — Score 160+ in ${CURRENT_EXAM_YEAR}`,
@@ -2719,7 +2719,7 @@ const subjectPages: SEOPageData[] = [
 
 const bestJeeCoachingIndiaPage: SEOPageData = {
   slug: 'best-jee-coaching-in-india',
-  title: `Best JEE Coaching in India ${CURRENT_EXAM_YEAR} — How to Choose the Right One | MindPeak`,
+  title: `Best JEE Coaching in India ${CURRENT_EXAM_YEAR} — How to Choose | MindPeak`,
   description: `Honest guide to choosing JEE coaching in India. What actually matters, what doesn't, red flags to watch for, and how to evaluate any coaching — online or offline, any city.`,
   h1: 'Best JEE Coaching in India',
   h1Highlight: `${CURRENT_EXAM_YEAR}`,
@@ -2915,7 +2915,7 @@ const bestJeeCoachingIndiaPage: SEOPageData = {
 const comparisonPages: SEOPageData[] = [
   {
     slug: 'kota-coaching-alternative',
-    title: 'Kota Coaching Alternative — 1-on-1 Beats Kota Online | MindPeak',
+    title: 'Kota Coaching Alternative — 1-on-1 vs Kota | MindPeak',
     description: 'Looking for a Kota coaching alternative? MindPeak offers 1-on-1 personalized JEE/NEET coaching online. AIR 42 achieved. Save ₹3-5 lakhs vs Kota. No relocation needed.',
     h1: 'The Best',
     h1Highlight: 'Kota Coaching Alternative',
@@ -2969,7 +2969,7 @@ const comparisonPages: SEOPageData[] = [
   },
   {
     slug: 'online-vs-offline-jee-coaching',
-    title: `Online vs Offline JEE Coaching — Which is Better in ${CURRENT_EXAM_YEAR}? | MindPeak`,
+    title: 'Online vs Offline JEE Coaching — Which Wins? | MindPeak',
     description: `Honest comparison of online vs offline JEE coaching. Pros, cons, cost analysis & results. Find which format works best for your JEE ${CURRENT_EXAM_YEAR} preparation.`,
     h1: 'Online vs Offline',
     h1Highlight: 'JEE Coaching',
@@ -3350,7 +3350,7 @@ const jeeCrashPage: SEOPageData = {
 
 const neetCrashPage: SEOPageData = {
   slug: 'neet-crash-course',
-  title: 'NEET Crash Course — Last-Minute Intensive Preparation | MindPeak',
+  title: 'NEET Crash Course — Intensive Last-Month Prep | MindPeak',
   description: 'NEET crash course for final revision. 1-on-1 and small batch options. NCERT-focused rapid revision, Biology intensive, mock test drills. Starting ₹18,000/subject.',
   h1: 'NEET',
   h1Highlight: 'Crash Course',
@@ -3478,7 +3478,7 @@ const neetCrashPage: SEOPageData = {
 
 const successStoriesPage: SEOPageData = {
   slug: 'success-stories',
-  title: '500+ Student Success Stories — JEE & NEET Results | MindPeak',
+  title: '500+ Student Success Stories — JEE & NEET Ranks | MindPeak',
   description: 'Read real success stories of MindPeak students who cracked JEE & NEET with top ranks. 500+ students mentored, 95% selection rate. See their journeys.',
   h1: 'Student',
   h1Highlight: 'Success Stories',
@@ -3567,7 +3567,7 @@ const successStoriesPage: SEOPageData = {
 
 const methodologyPage: SEOPageData = {
   slug: 'methodology',
-  title: 'MindPeak Teaching Methodology — 1-on-1 Coaching Explained',
+  title: 'MindPeak Coaching Methodology — How We Teach | MindPeak',
   description: 'Discover MindPeak Institute\'s proven teaching methodology. Adaptive curriculum, daily 1-on-1 sessions, weekly analytics, and AI-powered practice — all designed for JEE & NEET success.',
   h1: 'Our',
   h1Highlight: 'Teaching Methodology',
@@ -3772,7 +3772,7 @@ const mentorsPage: SEOPageData = {
 
 const jeePhysMechanics: SEOPageData = {
   slug: 'jee-physics-mechanics',
-  title: 'JEE Physics Mechanics — Complete Preparation Guide | MindPeak',
+  title: 'JEE Physics Mechanics — Notes, Formulas & PYQs | MindPeak',
   description: 'Master JEE Physics Mechanics with 1-on-1 coaching. Kinematics, Newton\'s Laws, Work-Energy, Rotational Motion, Gravitation — complete chapter-wise strategy & formulas.',
   h1: 'JEE Physics',
   h1Highlight: 'Mechanics',
@@ -3831,7 +3831,7 @@ const jeePhysMechanics: SEOPageData = {
 
 const jeePhysElectrodynamics: SEOPageData = {
   slug: 'jee-physics-electrodynamics',
-  title: 'JEE Physics Electrodynamics — Electrostatics, Current, EMI Guide | MindPeak',
+  title: 'JEE Electrodynamics — Electrostatics to EMI | MindPeak',
   description: 'Complete JEE Electrodynamics preparation. Electrostatics, Current Electricity, Magnetism, EMI — 25% weightage in JEE Physics. 1-on-1 expert coaching at MindPeak.',
   h1: 'JEE Physics',
   h1Highlight: 'Electrodynamics',
@@ -3887,7 +3887,7 @@ const jeePhysElectrodynamics: SEOPageData = {
 
 const jeePhysOptics: SEOPageData = {
   slug: 'jee-physics-optics',
-  title: 'JEE Physics Optics — Ray & Wave Optics Complete Guide | MindPeak',
+  title: 'JEE Optics — Ray & Wave Optics Guide | MindPeak',
   description: 'Master JEE Optics: ray optics, wave optics, interference, diffraction. 10-12% weightage. Expert 1-on-1 coaching with IIT alumni mentors at MindPeak.',
   h1: 'JEE Physics',
   h1Highlight: 'Optics',
@@ -3932,7 +3932,7 @@ const jeePhysOptics: SEOPageData = {
 
 const jeePhysThermodynamics: SEOPageData = {
   slug: 'jee-physics-thermodynamics',
-  title: 'JEE Physics Thermodynamics — Heat, Processes & KTG Guide | MindPeak',
+  title: 'JEE Thermodynamics — Laws, Processes & KTG | MindPeak',
   description: 'Complete JEE Thermodynamics preparation: laws of thermodynamics, thermodynamic processes, KTG, heat transfer. 8-10% weightage. Expert 1-on-1 coaching.',
   h1: 'JEE Physics',
   h1Highlight: 'Thermodynamics',
@@ -3977,7 +3977,7 @@ const jeePhysThermodynamics: SEOPageData = {
 
 const jeePhysWaves: SEOPageData = {
   slug: 'jee-physics-waves',
-  title: 'JEE Physics Waves & Oscillations — SHM, Sound, Standing Waves | MindPeak',
+  title: 'JEE Waves & Oscillations — SHM to Sound | MindPeak',
   description: 'Master JEE Waves & Oscillations. SHM, sound waves, standing waves, Doppler effect — 8-10% weightage. Expert 1-on-1 coaching by IIT mentors.',
   h1: 'JEE Physics',
   h1Highlight: 'Waves & Oscillations',
@@ -4021,7 +4021,7 @@ const jeePhysWaves: SEOPageData = {
 
 const jeeChemPhysical: SEOPageData = {
   slug: 'jee-chemistry-physical',
-  title: 'JEE Physical Chemistry — Complete Preparation Guide | MindPeak',
+  title: 'JEE Physical Chemistry — Complete Guide | MindPeak',
   description: 'Master JEE Physical Chemistry: thermodynamics, equilibrium, electrochemistry, kinetics. 35% of JEE Chemistry. Expert 1-on-1 coaching at MindPeak Institute.',
   h1: 'JEE',
   h1Highlight: 'Physical Chemistry',
@@ -4069,7 +4069,7 @@ const jeeChemPhysical: SEOPageData = {
 
 const jeeChemOrganic: SEOPageData = {
   slug: 'jee-chemistry-organic',
-  title: 'JEE Organic Chemistry — Reaction Mechanisms & Strategy | MindPeak',
+  title: 'JEE Organic Chemistry — Mechanisms & Strategy | MindPeak',
   description: 'Conquer JEE Organic Chemistry with MindPeak\'s mechanism-first approach. GOC, named reactions, stereochemistry — 30% of JEE Chemistry. 1-on-1 expert coaching.',
   h1: 'JEE',
   h1Highlight: 'Organic Chemistry',
@@ -4128,7 +4128,7 @@ const jeeChemOrganic: SEOPageData = {
 
 const jeeChemInorganic: SEOPageData = {
   slug: 'jee-chemistry-inorganic',
-  title: 'JEE Inorganic Chemistry — Periodic Table to Coordination Chemistry | MindPeak',
+  title: 'JEE Inorganic Chemistry — Periodic to Coordination | MindPeak',
   description: 'Ace JEE Inorganic Chemistry: periodic properties, chemical bonding, coordination compounds, metallurgy. 35% of JEE Chemistry. Pattern-based 1-on-1 coaching.',
   h1: 'JEE',
   h1Highlight: 'Inorganic Chemistry',
@@ -4177,7 +4177,7 @@ const jeeChemInorganic: SEOPageData = {
 
 const jeeMathAlgebra: SEOPageData = {
   slug: 'jee-math-algebra',
-  title: 'JEE Mathematics Algebra — Complete Preparation Guide | MindPeak',
+  title: 'JEE Algebra — Complete Guide & Practice | MindPeak',
   description: 'Master JEE Algebra: complex numbers, matrices, quadratics, progressions, binomial theorem. 30% of JEE Maths. 1-on-1 coaching with IIT mentors.',
   h1: 'JEE Mathematics',
   h1Highlight: 'Algebra',
@@ -4226,7 +4226,7 @@ const jeeMathAlgebra: SEOPageData = {
 
 const jeeMathCalculus: SEOPageData = {
   slug: 'jee-math-calculus',
-  title: 'JEE Mathematics Calculus — Limits to Differential Equations | MindPeak',
+  title: 'JEE Calculus — Limits to Differential Equations | MindPeak',
   description: 'Master JEE Calculus: limits, derivatives, integrals, differential equations, area under curves. 35% of JEE Maths. Expert 1-on-1 coaching.',
   h1: 'JEE Mathematics',
   h1Highlight: 'Calculus',
@@ -4285,7 +4285,7 @@ const jeeMathCalculus: SEOPageData = {
 
 const jeeMathTrigonometry: SEOPageData = {
   slug: 'jee-math-trigonometry',
-  title: 'JEE Mathematics Trigonometry — Identities, Equations & Properties | MindPeak',
+  title: 'JEE Trigonometry — Identities, Equations & More | MindPeak',
   description: 'Complete JEE Trigonometry guide: identities, equations, inverse trig, properties of triangles. 8-10% weightage. Expert 1-on-1 coaching.',
   h1: 'JEE Mathematics',
   h1Highlight: 'Trigonometry',
@@ -4328,7 +4328,7 @@ const jeeMathTrigonometry: SEOPageData = {
 
 const jeeMathGeometry: SEOPageData = {
   slug: 'jee-math-geometry',
-  title: 'JEE Coordinate Geometry & Vectors — Conics, 3D, Vectors | MindPeak',
+  title: 'JEE Coordinate Geometry — Conics, 3D & Vectors | MindPeak',
   description: 'Master JEE Coordinate Geometry: straight lines, circles, conics, 3D geometry, vectors. 25% of JEE Maths. 1-on-1 expert coaching at MindPeak.',
   h1: 'JEE Mathematics',
   h1Highlight: 'Geometry & Vectors',

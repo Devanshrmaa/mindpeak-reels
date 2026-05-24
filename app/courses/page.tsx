@@ -6,7 +6,7 @@ export const revalidate = false;
 
 export const metadata: Metadata = {
   title: `JEE & NEET Coaching Courses ${CURRENT_EXAM_YEAR} — 12+ Programs | MindPeak`,
-  description: `Explore 12+ personalized 1-on-1 JEE & NEET programs — foundation (Class 6–10), 1-year, 2-year, crash & Olympiad. 95% success rate, AIR 42 best JEE result. Book a free demo class.`,
+  description: `Explore 12+ personalised JEE & NEET programs — foundation to crash course. 1-on-1 mentoring, 95% success rate, AIR 42 best result. Book a free demo class.`,
   alternates: { canonical: "https://mindpeakinstitute.com/courses" },
   openGraph: {
     title: `12+ Personalized JEE & NEET Coaching Programs ${CURRENT_EXAM_YEAR} | MindPeak`,

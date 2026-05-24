@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ogImage = "https://mindpeakinstitute.com/images/og/coaching.jpg";
   const desc = post.excerpt.slice(0, 155);
   return {
-    title: `${post.title} | MindPeak Institute`,
+    title: `${post.title} | MindPeak`,
     description: desc,
     alternates: { canonical },
     openGraph: {

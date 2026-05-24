@@ -5,7 +5,7 @@ import { CURRENT_EXAM_YEAR } from "@/lib/examYears";
 export const revalidate = false;
 
 const title = `Best JEE Coaching Online ${CURRENT_EXAM_YEAR} — 1-on-1 | MindPeak`;
-const description = `Crack JEE ${CURRENT_EXAM_YEAR} with 1-on-1 mentors from IIT/NIT. Adaptive curriculum, daily doubt sessions, 95% success rate. 500+ students trust MindPeak. Try free today.`;
+const description = `Crack JEE ${CURRENT_EXAM_YEAR} with 1-on-1 mentors from IIT/NIT. Adaptive curriculum, daily doubt sessions, 95% success rate. 500+ students trust MindPeak. Start free.`;
 const ogImage = "https://mindpeakinstitute.com/images/og/coaching.jpg";
 
 export const metadata: Metadata = {
