@@ -1,5 +1,5 @@
 # MindPeak Institute — Outreach Tracker
-**Last Updated:** 2026-05-20  
+**Last Updated:** 2026-05-25  
 **Site:** mindpeakinstitute.com  
 **MSME:** UDYAM-HP-04-0042530
 
@@ -49,6 +49,16 @@
 | 36 | 2026-05-20 | brandempower.org | brandempower.org/education-awards.htm + education-leaders-awards.htm | Award Nomination — Education Awards 2026 + Education Leaders Awards 2026 (national + Chandigarh regional) | Via nomination form on site | ❌ | — | NOT STARTED |
 | 37 | 2026-05-20 | emerginghimachal.hp.gov.in | emerginghimachal.hp.gov.in/startup/home/register/ | HP Govt Startup Registration — self-serve portal; use UDYAM-HP-04-0042530 as credential; backlink from govt domain DA ~65+ | startuphimachal@gmail.com (helpdesk) | ❌ | — | NOT STARTED |
 | 38 | 2026-05-20 | wellfound.com | wellfound.com/startups/location/himachal-pradesh | Startup Directory Profile — free company listing on HP startups page; DA ~80 | wellfound.com self-register (free) | ❌ | — | NOT STARTED |
+| 39 | 2026-05-25 | academycheck.com | academycheck.com/blog/top-5-jee-coaching-institutes-in-india-based-on-online-education-2026 | Listicle Inclusion — "Top 5 JEE Coaching Institutes: Based on Online Education 2026" (NEW article, separate from #3 Top 10 JEE and #4 Top 10 NEET; focus on online education quality favours MindPeak's model) — combine in one email with #3 and #4 | Harish Kumawat — 08062179896 | ❌ | — | NOT STARTED |
+| 40 | 2026-05-25 | blogandjournal.com | blogandjournal.com/top-jee-coaching-institutes-in-india-for-2026/ | Listicle Inclusion + Guest Post — live JEE coaching listicle (Allen/PW/Vedantu listed, no 1-on-1 option); ALSO accepts guest posts (same site as #23); dual opportunity in one email | Via site contact form | ❌ | — | NOT STARTED |
+| 41 | 2026-05-25 | superprof.co.in | superprof.co.in/tutor/m/physics/ | Tutor Directory Profile (FREE, self-serve) — JEE/NEET Physics tutor profile; 282K+ physics tutors listed; profile includes website link field; DA ~60; "3 clicks" to create | namaste@superprof.com (or self-register) | ❌ | — | NOT STARTED |
+| 42 | 2026-05-25 | teacheron.com | teacheron.com/tutors/online-jee_physics-tutors-in-india | Tutor Directory Profile (FREE, self-serve) — 30,000+ JEE Physics tutors listed; India-specific indexed pages; profile includes website link field; DA ~55 | teacheron.com self-register | ❌ | — | NOT STARTED |
+| 43 | 2026-05-25 | supertutor.in | supertutor.in/resources/blog/best-coaching-for-jee/ | Listicle Inclusion — "Best Coaching for JEE 2026 in India — Honest Comparison" (fresh 2026 article, batch-only platforms listed, no 1-on-1 option) | Via supertutor.in contact form | ❌ | — | NOT STARTED |
+| 44 | 2026-05-25 | supertutor.in | supertutor.in/resources/blog/best-coaching-for-neet/ | Listicle Inclusion — "Best Coaching for NEET 2026 in India — Honest Comparison" (same site as #43; one email covers both) | Via supertutor.in contact form (same as #43) | ❌ | — | NOT STARTED |
+| 45 | 2026-05-25 | sarkariresultexams.com | sarkariresultexams.com/write-for-us/ | Guest Post — education blog accepting guest contributions; 24hr reply; contact: info@sarkariresultexams.com | info@sarkariresultexams.com | ❌ | — | NOT STARTED |
+| 46 | 2026-05-25 | cucetexam.in | cucetexam.in/write-for-us/ | Guest Post — CUET/entrance exam education blog; min. 1,000 words; limited slots | Write for Us form on site | ❌ | — | NOT STARTED |
+| 47 | 2026-05-25 | seedtable.com | seedtable.com/best-educational-technology-startups-in-india | EdTech Startup Directory — "69 Best Educational Technology Startups in India to watch in 2026" (updated May 5, 2026); use UDYAM-HP-04-0042530 as MSME credential in pitch | Via seedtable.com contact / company submission form | ❌ | — | NOT STARTED |
+| 48 | 2026-05-25 | xylemlearning.com | xylemlearning.com/the-best-online-neet-coaching-2026/ | Listicle Inclusion — "Best Online Coaching for NEET 2026" (Kerala-based competitor site; low probability but article ranks well; 1-on-1 angle genuine) | Via xylemlearning.com contact page | ❌ | — | NOT STARTED |
 
 ---
 
@@ -69,6 +79,16 @@
 ---
 
 ## Notes & Strategy Log
+
+### 2026-05-25 — Week 4 Audit + 10 New Targets Added (#39–48)
+
+- **Zero backlinks for fourth consecutive week.** All 38 prior targets remain NOT STARTED. Zero outreach sent.
+- **10 new targets added (#39–48):** academycheck.com new article (Top 5 Online JEE Education), blogandjournal.com listicle + guest post (dual), superprof.co.in (free tutor profile), teacheron.com (free tutor profile), supertutor.in JEE article, supertutor.in NEET article, sarkariresultexams.com (guest post), cucetexam.in (guest post), seedtable.com (EdTech startup directory), xylemlearning.com (NEET coaching listicle)
+- **Self-serve tier now has 6 completable actions:** UrbanPro (#27, overdue May 15) + Superprof (#41, new) + TeacherOn (#42, new) + Wellfound (#38, overdue May 20) + Emerging Himachal (#37, overdue May 20) + Google Alerts (no email needed) — all achievable in ~2 hours, zero email required
+- **New Quora threads identified (3 exact-match threads):** "Who is the best personal tutor for IIT JEE?" / "Who is the best physics teacher online for JEE?" / "Who is the best physics online tutor for JEE/NEET in India?" — Devansh still has zero Quora activity after 4 weeks
+- **EdTech Digest Awards 2026:** Closed (winners announced March 2026). Next entry window: Summer 2026 for 2027 awards — calendar mark required
+- **AcademyCheck has 3 separate articles now** — combine #3, #4, and new #39 into one outreach email to Harish Kumawat
+- Emails #18–20 ready to send (in `/seo-reports/backlinks-2026-05-25.md`)
 
 ### 2026-05-20 — Week 3 Audit + 10 New Targets Added
 
@@ -106,8 +126,8 @@
 | Week | Target New Links | Outreach Emails | Priority |
 |---|---|---|---|
 | May 12–18, 2026 | 0 → 3 | Send #1, #2, #8, #11 (new), #27 (UrbanPro — self-serve) | **MISSED — zero sent** |
-| May 19–25, 2026 | 0 → 5 | **URGENT CATCHUP:** Self-serve: UrbanPro (#27), HP Startup (#37), Wellfound (#38). Email: #2 CollegeDekho, #8 CollegeDunia, #13 OriginEducare, #1 AcademyCheck, #14 Notesly, #4 FutureTopper | Clear backlog — minimum 3 self-serve + 3 emails this week |
-| May 26 – Jun 1, 2026 | 5 → 10 | Follow up #2/#8/#13/#14; send #9, #10, #6, #15, #16, #17 | PhysicsPoint + Giraffe + Awards + BestPhysicsTeacher + GauravTiwari + BrandEmpower |
+| May 19–25, 2026 | 0 → 5 | **MISSED:** Self-serve: UrbanPro (#27), HP Startup (#37), Wellfound (#38). Email: #2 CollegeDekho, #8 CollegeDunia, #13 OriginEducare, #1 AcademyCheck, #14 Notesly | **Zero sent. All overdue.** |
+| May 26 – Jun 1, 2026 | 0 → 8 | **CRITICAL CATCHUP:** Self-serve FIRST: UrbanPro (#27), Superprof (#41), TeacherOn (#42), Wellfound (#38), Emerging Himachal (#37). Then email: #13 OriginEducare, #2 CollegeDekho, #8 CollegeDunia, #18 SuperTutor, #1 AcademyCheck (3 articles now) | Min. 5 self-serve actions + 5 emails by Jun 1 |
 | Jun 2–8, 2026 | 10 → 15 | Send #7, #11, #12, #5; follow up all first-week emails | ExamCharcha guest post + SCNWire PR + BlogAndJournal + Colleges18 |
 | Jun 9–15, 2026 | 15 → 20 | Start Careers360 + Shiksha; follow up all pending | Critical: chase Shiksha partner portal + Careers360 editorial |
 
