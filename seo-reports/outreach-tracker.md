@@ -1,5 +1,5 @@
 # MindPeak Institute — Outreach Tracker
-**Last Updated:** 2026-05-20  
+**Last Updated:** 2026-05-26  
 **Site:** mindpeakinstitute.com  
 **MSME:** UDYAM-HP-04-0042530
 
@@ -49,6 +49,16 @@
 | 36 | 2026-05-20 | brandempower.org | brandempower.org/education-awards.htm + education-leaders-awards.htm | Award Nomination — Education Awards 2026 + Education Leaders Awards 2026 (national + Chandigarh regional) | Via nomination form on site | ❌ | — | NOT STARTED |
 | 37 | 2026-05-20 | emerginghimachal.hp.gov.in | emerginghimachal.hp.gov.in/startup/home/register/ | HP Govt Startup Registration — self-serve portal; use UDYAM-HP-04-0042530 as credential; backlink from govt domain DA ~65+ | startuphimachal@gmail.com (helpdesk) | ❌ | — | NOT STARTED |
 | 38 | 2026-05-20 | wellfound.com | wellfound.com/startups/location/himachal-pradesh | Startup Directory Profile — free company listing on HP startups page; DA ~80 | wellfound.com self-register (free) | ❌ | — | NOT STARTED |
+| 39 | 2026-05-26 | blogandjournal.com | blogandjournal.com/top-jee-coaching-institutes-in-india-for-2026/ | Listicle Inclusion — "Top JEE Coaching Institutes in India for 2026" (live indexed article; currently lists batch-only institutes; request "Best Online 1-on-1 Option" addition) | Via blogandjournal.com contact / author contact | ❌ | — | NOT STARTED |
+| 40 | 2026-05-26 | seedtable.com | seedtable.com/best-educational-technology-startups-in-india + seedtable.com/best-coaching-startups | Startup Directory Listing — "Best EdTech Startups India 2026" + "Best Coaching Startups 2026"; last updated May 12 2026; free self-serve; DA ~60+ | seedtable.com company submission form (self-register) | ❌ | — | NOT STARTED |
+| 41 | 2026-05-26 | tracxn.com | tracxn.com/d/explore/edtech-startups-in-india/ | Startup Directory Profile — EdTech India company profile; DA ~70; investor-facing; widely cited by media; free self-register | tracxn.com "Add Company" (self-register) | ❌ | — | NOT STARTED |
+| 42 | 2026-05-26 | pieawards.in | pieawards.in | Award Nomination — Pride of Indian Education (PIE) Awards; "Best Online Tutoring (National)" + "Best Online Tutoring (Regional)" categories; 9th edition 2025–26; press coverage on win/shortlist | pieawards.in nomination form | ❌ | — | NOT STARTED |
+| 43 | 2026-05-26 | sarkariresultexams.com | sarkariresultexams.com/write-for-us/ | Guest Post — education, career, competitive exam prep (JEE/NEET topics accepted); article shared on all social media channels | Submission form at write-for-us page | ❌ | — | NOT STARTED |
+| 44 | 2026-05-26 | thefamous.in | thefamous.in/write-for-us-education-edtech-guest-articles/ | Guest Post — "Write for Us: Education & EdTech" — explicitly invites educators and EdTech founders; byline with author website | Submission form at thefamous.in write-for-us page | ❌ | — | NOT STARTED |
+| 45 | 2026-05-26 | sarkarieducation.net | sarkarieducation.net/top-jee-coaching-in-india-for-2026-crack-iit-from-kota-delhi-hyderabad-with-expert-guidance/ | Listicle Inclusion — "Top JEE Coaching In India For 2026" (live article; city/offline institute focus; MindPeak = online gap fill) | Via sarkarieducation.net contact | ❌ | — | NOT STARTED |
+| 46 | 2026-05-26 | exambazaar.com | exambazaar.com/blogpost/guest-post-editorial-guidelines | Guest Post — test prep / education blog; editorial guidelines available; education and competitive exam content | exambazaar.com guest post submission | ❌ | — | NOT STARTED |
+| 47 | 2026-05-26 | eduindex.org | eduindex.org | Education News Portal — institutional news / press release submission; invites colleges, institutes, EdTech organisations; Google-indexed; PR angle: "HP EdTech Startup Achieves AIR 42 in JEE Advanced" | eduindex.org submit news form | ❌ | — | NOT STARTED |
+| 48 | 2026-05-26 | ezyschooling.com | ezyschooling.com/parenting/expert/guest-post-write-for-us | Guest Post — education, parenting, school/tutoring topics; education vertical; broader general audience; lower competition | ezyschooling.com write for us / guest post form | ❌ | — | NOT STARTED |
 
 ---
 
@@ -69,6 +79,18 @@
 ---
 
 ## Notes & Strategy Log
+
+### 2026-05-26 — Week 4 Audit + 10 New Targets Added (#39–48)
+
+- **Zero backlinks for fourth consecutive week.** Zero emails from 38-target backlog sent. Execution remains the only blocker.
+- **10 new targets added (#39–48):** blogandjournal.com listicle, seedtable.com (×2 directories), tracxn.com, pieawards.in (PIE Awards "Best Online Tutoring"), sarkariresultexams.com, thefamous.in, sarkarieducation.net, exambazaar.com, eduindex.org, ezyschooling.com
+- **New self-serve wins (no email needed):** Seedtable (#40) and Tracxn (#41) — both free company profile submissions completable in under 30 min
+- **PIE Awards (#42):** Dedicated "Best Online Tutoring (National + Regional)" category — most specifically relevant award programme found across four audits
+- **BlogAndJournal dual opportunity:** #23 (guest post, already in tracker) + #39 (live "Top JEE Coaching India 2026" listicle) — two distinct contact reasons for the same site
+- **New competitors identified:** JEE Carnot (jeecarnot.com) and JEE Neeti (jeetneeti.com) now appearing in 1-on-1 JEE mentorship listicles that MindPeak should dominate. Urgency elevated.
+- **AcademyCheck has 3+ new articles** not fully captured: "Top 5 JEE Based on Online Education 2026", "Top 5 JEE Main Based on AIR 2025", "JEE Advanced Toppers coaching list" — all missing MindPeak. Contact Harish Kumawat (08062179896) covers all.
+- Emails #18–22 ready to send (in `/seo-reports/backlinks-2026-05-26.md`)
+- **Escalating concern:** If no emails are sent before the June 2 audit, next report will recommend reducing new target discovery and implementing an accountability mechanism.
 
 ### 2026-05-20 — Week 3 Audit + 10 New Targets Added
 
@@ -107,7 +129,7 @@
 |---|---|---|---|
 | May 12–18, 2026 | 0 → 3 | Send #1, #2, #8, #11 (new), #27 (UrbanPro — self-serve) | **MISSED — zero sent** |
 | May 19–25, 2026 | 0 → 5 | **URGENT CATCHUP:** Self-serve: UrbanPro (#27), HP Startup (#37), Wellfound (#38). Email: #2 CollegeDekho, #8 CollegeDunia, #13 OriginEducare, #1 AcademyCheck, #14 Notesly, #4 FutureTopper | Clear backlog — minimum 3 self-serve + 3 emails this week |
-| May 26 – Jun 1, 2026 | 5 → 10 | Follow up #2/#8/#13/#14; send #9, #10, #6, #15, #16, #17 | PhysicsPoint + Giraffe + Awards + BestPhysicsTeacher + GauravTiwari + BrandEmpower |
+| May 26 – Jun 1, 2026 | 0 → 3 | **URGENT CATCHUP x2:** Self-serve: UrbanPro (#27), Seedtable (#40), Tracxn (#41), HP Startup (#37), Wellfound (#38). Email: #13 OriginEducare, #2 CollegeDekho, #18 BlogAndJournal, #20 PIE Awards, #8 CollegeDunia | Clear the self-serve backlog (5 form-fills) + send minimum 3 emails |
 | Jun 2–8, 2026 | 10 → 15 | Send #7, #11, #12, #5; follow up all first-week emails | ExamCharcha guest post + SCNWire PR + BlogAndJournal + Colleges18 |
 | Jun 9–15, 2026 | 15 → 20 | Start Careers360 + Shiksha; follow up all pending | Critical: chase Shiksha partner portal + Careers360 editorial |
 
