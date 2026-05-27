@@ -108,6 +108,7 @@ const SEOLandingPage = () => {
       ],
     });
   } else if (page.schemaType === 'Course') {
+    const isNeet = page.slug.includes('neet');
     jsonLd.push({
       '@context': 'https://schema.org',
       '@type': 'Course',
@@ -115,6 +116,33 @@ const SEOLandingPage = () => {
       description: page.description,
       provider: { '@type': 'Organization', name: 'MindPeak Institute', url: 'https://mindpeakinstitute.com' },
       url: `https://mindpeakinstitute.com/${page.slug}`,
+      educationalLevel: isNeet ? 'NEET UG Preparation' : 'JEE Main & Advanced Preparation',
+      courseMode: 'online',
+      inLanguage: 'en-IN',
+      teaches: isNeet
+        ? ['Biology', 'Physics', 'Chemistry', 'NEET UG MCQ Strategy', 'NCERT Mastery']
+        : ['Physics', 'Chemistry', 'Mathematics', 'JEE Problem Solving', 'JEE Advanced Strategy'],
+      audience: {
+        '@type': 'EducationalAudience',
+        educationalRole: 'student',
+        audienceType: isNeet ? 'NEET Aspirant' : 'JEE Aspirant',
+      },
+      hasCourseInstance: {
+        '@type': 'CourseInstance',
+        courseMode: 'Online',
+        courseWorkload: 'PT14H',
+        location: { '@type': 'VirtualLocation', url: 'https://mindpeakinstitute.com' },
+      },
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'INR',
+        availability: 'https://schema.org/InStock',
+        url: 'https://mindpeakinstitute.com/free-trial',
+        name: 'Free Demo Class',
+        description: 'Book a free 1-on-1 demo class with no obligation.',
+        validFrom: new Date().toISOString().slice(0, 10),
+      },
     });
   }
 

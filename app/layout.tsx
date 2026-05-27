@@ -107,9 +107,9 @@ const jsonLdGraph = {
       logo: {
         "@type": "ImageObject",
         "@id": "https://mindpeakinstitute.com/#logo",
-        url: "https://mindpeakinstitute.com/favicon.ico",
-        width: 64,
-        height: 64,
+        url: "https://mindpeakinstitute.com/images/logo.jpeg",
+        width: 200,
+        height: 200,
       },
       description:
         "India's #1 personalized 1-on-1 JEE and NEET online coaching. Himachal Pradesh's own coaching institute with a 95%+ success rate.",
@@ -139,6 +139,12 @@ const jsonLdGraph = {
           closes: "20:00",
         },
       ],
+      founder: {
+        "@type": "Person",
+        "@id": "https://mindpeakinstitute.com/mentors#devansh",
+        name: "Devansh",
+        jobTitle: "Founder & Physics Mentor",
+      },
       identifier: {
         "@type": "PropertyValue",
         name: "UDYAM",

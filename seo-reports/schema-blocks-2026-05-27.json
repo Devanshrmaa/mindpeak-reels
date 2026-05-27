@@ -1,0 +1,307 @@
+{
+  "generated": "2026-05-27",
+  "site": "https://mindpeakinstitute.com",
+  "totalBlocks": 8,
+  "blocks": [
+    {
+      "id": "homepage-organization",
+      "page": "/",
+      "file": "app/layout.tsx",
+      "status": "updated",
+      "changes": ["Added founder property", "Fixed logo URL from favicon.ico to images/logo.jpeg"],
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": ["EducationalOrganization", "LocalBusiness"],
+            "@id": "https://mindpeakinstitute.com/#organization",
+            "name": "MindPeak Institute",
+            "alternateName": "MindPeak",
+            "url": "https://mindpeakinstitute.com",
+            "logo": {
+              "@type": "ImageObject",
+              "@id": "https://mindpeakinstitute.com/#logo",
+              "url": "https://mindpeakinstitute.com/images/logo.jpeg",
+              "width": 200,
+              "height": 200
+            },
+            "description": "India's #1 personalized 1-on-1 JEE and NEET online coaching. Himachal Pradesh's own coaching institute with a 95%+ success rate.",
+            "telephone": "+91-82194-57704",
+            "email": "mindpeak@mindpeakinstitute.com",
+            "foundingDate": "2018",
+            "founder": {
+              "@type": "Person",
+              "@id": "https://mindpeakinstitute.com/mentors#devansh",
+              "name": "Devansh",
+              "jobTitle": "Founder & Physics Mentor"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Nehran Pukhar Road",
+              "addressLocality": "Dehra Gopipur",
+              "addressRegion": "Himachal Pradesh",
+              "postalCode": "176110",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 32.4394,
+              "longitude": 76.5362
+            },
+            "sameAs": [
+              "https://instagram.com/mindpeakinstitute",
+              "https://www.facebook.com/profile.php?id=61584805776923",
+              "https://www.linkedin.com/company/mindpeak-institute/",
+              "https://x.com/mindpeakins",
+              "https://www.youtube.com/@mindpeakinstitute"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://mindpeakinstitute.com/#website",
+            "url": "https://mindpeakinstitute.com",
+            "name": "MindPeak Institute",
+            "publisher": { "@id": "https://mindpeakinstitute.com/#organization" },
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://mindpeakinstitute.com/blog?q={search_term_string}"
+              },
+              "query-input": "required name=search_term_string"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "faculty-persons",
+      "page": "/mentors",
+      "file": "app/mentors/page.tsx + src/lib/facultySchema.ts",
+      "status": "new",
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://mindpeakinstitute.com/mentors#devansh",
+            "name": "Devansh",
+            "jobTitle": "Founder & Physics Mentor",
+            "description": "Founder of MindPeak Institute and dedicated Physics mentor for JEE and NEET aspirants.",
+            "worksFor": { "@type": "EducationalOrganization", "name": "MindPeak Institute", "url": "https://mindpeakinstitute.com" },
+            "knowsAbout": ["Physics", "JEE Physics", "NEET Physics", "Mechanics", "Electrodynamics", "Optics", "Thermodynamics", "Modern Physics"],
+            "url": "https://mindpeakinstitute.com/mentors"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://mindpeakinstitute.com/mentors#sahil-singh",
+            "name": "Sahil Singh",
+            "jobTitle": "Chemistry Mentor",
+            "description": "Chemistry mentor at MindPeak Institute specialising in Physical, Organic, and Inorganic Chemistry for JEE and NEET preparation.",
+            "worksFor": { "@type": "EducationalOrganization", "name": "MindPeak Institute", "url": "https://mindpeakinstitute.com" },
+            "knowsAbout": ["Chemistry", "Organic Chemistry", "Inorganic Chemistry", "Physical Chemistry", "JEE Chemistry", "NEET Chemistry"],
+            "url": "https://mindpeakinstitute.com/mentors"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://mindpeakinstitute.com/mentors#krishnendu-brahmacharya",
+            "name": "Krishnendu Brahmacharya",
+            "jobTitle": "Mathematics Mentor",
+            "description": "Mathematics mentor at MindPeak Institute, guiding JEE aspirants through Calculus, Algebra, Coordinate Geometry, and advanced problem-solving.",
+            "worksFor": { "@type": "EducationalOrganization", "name": "MindPeak Institute", "url": "https://mindpeakinstitute.com" },
+            "knowsAbout": ["Mathematics", "JEE Mathematics", "Calculus", "Algebra", "Coordinate Geometry", "Probability", "Trigonometry", "Vectors"],
+            "url": "https://mindpeakinstitute.com/mentors"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://mindpeakinstitute.com/mentors#aparna-chandra",
+            "name": "Aparna Chandra",
+            "jobTitle": "Subject Mentor",
+            "description": "Dedicated subject mentor at MindPeak Institute, helping JEE and NEET aspirants with personalised 1-on-1 coaching.",
+            "worksFor": { "@type": "EducationalOrganization", "name": "MindPeak Institute", "url": "https://mindpeakinstitute.com" },
+            "knowsAbout": ["JEE Preparation", "NEET Preparation", "Personalized Coaching"],
+            "url": "https://mindpeakinstitute.com/mentors"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://mindpeakinstitute.com/mentors#nishkersh-mishra",
+            "name": "Nishkersh Mishra",
+            "jobTitle": "Subject Mentor",
+            "description": "Subject mentor at MindPeak Institute, delivering personalised 1-on-1 online coaching for JEE and NEET aspirants.",
+            "worksFor": { "@type": "EducationalOrganization", "name": "MindPeak Institute", "url": "https://mindpeakinstitute.com" },
+            "knowsAbout": ["JEE Preparation", "NEET Preparation", "Personalized Coaching"],
+            "url": "https://mindpeakinstitute.com/mentors"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://mindpeakinstitute.com/mentors#muskan-singla",
+            "name": "Muskan Singla",
+            "jobTitle": "Subject Mentor",
+            "description": "Subject mentor at MindPeak Institute, providing dedicated 1-on-1 coaching tailored to each student's target exam and learning style.",
+            "worksFor": { "@type": "EducationalOrganization", "name": "MindPeak Institute", "url": "https://mindpeakinstitute.com" },
+            "knowsAbout": ["JEE Preparation", "NEET Preparation", "Personalized Coaching"],
+            "url": "https://mindpeakinstitute.com/mentors"
+          }
+        ]
+      }
+    },
+    {
+      "id": "contact-page",
+      "page": "/contact",
+      "file": "app/contact/page.tsx",
+      "status": "new",
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ContactPage",
+            "@id": "https://mindpeakinstitute.com/contact",
+            "url": "https://mindpeakinstitute.com/contact",
+            "name": "Contact MindPeak Institute",
+            "description": "Contact MindPeak Institute for JEE & NEET coaching enquiries. Mon–Sat, 9 AM–8 PM IST.",
+            "breadcrumb": {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mindpeakinstitute.com" },
+                { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://mindpeakinstitute.com/contact" }
+              ]
+            }
+          },
+          {
+            "@type": ["EducationalOrganization", "LocalBusiness"],
+            "name": "MindPeak Institute",
+            "telephone": "+91-82194-57704",
+            "email": "mindpeak@mindpeakinstitute.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Nehran Pukhar Road",
+              "addressLocality": "Dehra Gopipur",
+              "addressRegion": "Himachal Pradesh",
+              "postalCode": "176110",
+              "addressCountry": "IN"
+            },
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "telephone": "+91-82194-57704",
+                "contactType": "customer service",
+                "areaServed": "IN",
+                "availableLanguage": ["English", "Hindi"]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "courses-list",
+      "page": "/courses",
+      "file": "app/courses/page.tsx",
+      "status": "new",
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mindpeakinstitute.com" },
+              { "@type": "ListItem", "position": 2, "name": "Courses", "item": "https://mindpeakinstitute.com/courses" }
+            ]
+          },
+          {
+            "@type": "ItemList",
+            "name": "JEE & NEET Coaching Programs — MindPeak Institute",
+            "numberOfItems": 5,
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "item": { "@type": "Course", "name": "Foundation Program (Class 6–10)", "offers": { "@type": "Offer", "price": "100000", "priceCurrency": "INR" } } },
+              { "@type": "ListItem", "position": 2, "item": { "@type": "Course", "name": "1-on-1 JEE / NEET — 1 Year", "offers": { "@type": "Offer", "price": "130000", "priceCurrency": "INR" } } },
+              { "@type": "ListItem", "position": 3, "item": { "@type": "Course", "name": "1-on-1 JEE / NEET — 2 Year", "offers": { "@type": "Offer", "price": "230000", "priceCurrency": "INR" } } },
+              { "@type": "ListItem", "position": 4, "item": { "@type": "Course", "name": "Crash Course — 6 Months", "offers": { "@type": "Offer", "price": "75000", "priceCurrency": "INR" } } },
+              { "@type": "ListItem", "position": 5, "item": { "@type": "Course", "name": "Subject Crash Course", "offers": { "@type": "Offer", "price": "25000", "priceCurrency": "INR" } } }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "pricing-offers",
+      "page": "/pricing",
+      "file": "app/pricing/page.tsx",
+      "status": "new",
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          { "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mindpeakinstitute.com" }, { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://mindpeakinstitute.com/pricing" } ] },
+          { "@type": "Course", "name": "Foundation Program", "offers": { "@type": "Offer", "price": "100000", "priceCurrency": "INR" } },
+          { "@type": "Course", "name": "1-on-1 JEE/NEET — 1 Year", "offers": { "@type": "Offer", "price": "130000", "priceCurrency": "INR" } },
+          { "@type": "Course", "name": "1-on-1 JEE/NEET — 2 Year", "offers": { "@type": "Offer", "price": "230000", "priceCurrency": "INR" } },
+          { "@type": "Course", "name": "Crash Course — 6 Months", "offers": { "@type": "Offer", "price": "75000", "priceCurrency": "INR" } },
+          { "@type": "Course", "name": "Subject Crash Course", "offers": { "@type": "Offer", "price": "25000", "priceCurrency": "INR" } }
+        ]
+      }
+    },
+    {
+      "id": "course-schema-template",
+      "page": "All Course landing pages (~50 pages)",
+      "file": "src/views/SEOLandingPage.tsx",
+      "status": "enhanced",
+      "changes": ["Added educationalLevel", "Added courseMode: online", "Added teaches array", "Added hasCourseInstance with courseMode Online", "Added offers (free demo class)", "Added audience"],
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "[page.h1] [page.h1Highlight]",
+        "description": "[page.description]",
+        "provider": { "@type": "Organization", "name": "MindPeak Institute", "url": "https://mindpeakinstitute.com" },
+        "url": "https://mindpeakinstitute.com/[slug]",
+        "educationalLevel": "JEE Main & Advanced Preparation",
+        "courseMode": "online",
+        "inLanguage": "en-IN",
+        "teaches": ["Physics", "Chemistry", "Mathematics", "JEE Problem Solving", "JEE Advanced Strategy"],
+        "audience": { "@type": "EducationalAudience", "educationalRole": "student", "audienceType": "JEE Aspirant" },
+        "hasCourseInstance": { "@type": "CourseInstance", "courseMode": "Online", "courseWorkload": "PT14H", "location": { "@type": "VirtualLocation", "url": "https://mindpeakinstitute.com" } },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://mindpeakinstitute.com/free-trial", "name": "Free Demo Class" }
+      }
+    },
+    {
+      "id": "faq-template",
+      "page": "100+ pages (via SEOLandingPage and city pages)",
+      "file": "src/views/SEOLandingPage.tsx, src/lib/cityJsonLd.ts",
+      "status": "existing-valid",
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "[FAQ question]", "acceptedAnswer": { "@type": "Answer", "text": "[FAQ answer]" } }
+        ]
+      }
+    },
+    {
+      "id": "breadcrumb-template",
+      "page": "All inner pages",
+      "file": "src/lib/breadcrumbSchema.ts, src/views/SEOLandingPage.tsx",
+      "status": "existing-valid",
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mindpeakinstitute.com" },
+          { "@type": "ListItem", "position": 2, "name": "[Page Name]", "item": "https://mindpeakinstitute.com/[slug]" }
+        ]
+      }
+    }
+  ],
+  "googleRichResultsTestUrls": {
+    "note": "Test each URL at https://search.google.com/test/rich-results",
+    "priority": [
+      "https://mindpeakinstitute.com/",
+      "https://mindpeakinstitute.com/jee-coaching",
+      "https://mindpeakinstitute.com/neet-coaching",
+      "https://mindpeakinstitute.com/courses",
+      "https://mindpeakinstitute.com/pricing",
+      "https://mindpeakinstitute.com/contact",
+      "https://mindpeakinstitute.com/mentors",
+      "https://mindpeakinstitute.com/jee-coaching-in-delhi",
+      "https://mindpeakinstitute.com/methodology"
+    ]
+  }
+}

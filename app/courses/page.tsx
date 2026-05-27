@@ -24,4 +24,150 @@ export const metadata: Metadata = {
     images: ["https://mindpeakinstitute.com/images/og/coaching.jpg"],
   },
 };
-export default function CoursesPage() { return <Courses />; }
+
+const BASE = "https://mindpeakinstitute.com";
+const PROVIDER = { "@type": "Organization", name: "MindPeak Institute", url: BASE } as const;
+const COURSE_INSTANCE = { "@type": "CourseInstance", courseMode: "Online", location: { "@type": "VirtualLocation", url: BASE } } as const;
+
+const coursesSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+        { "@type": "ListItem", position: 2, name: "Courses", item: `${BASE}/courses` },
+      ],
+    },
+    {
+      "@type": "ItemList",
+      "@id": `${BASE}/courses#program-list`,
+      name: "JEE & NEET Coaching Programs — MindPeak Institute",
+      description: `12+ personalized 1-on-1 JEE & NEET coaching programs for Class 6–12 students and droppers. ${CURRENT_EXAM_YEAR} batch enrollments open.`,
+      numberOfItems: 12,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          item: {
+            "@type": "Course",
+            name: "JEE / NEET Foundation Program",
+            description: "Personalized 1-on-1 online foundation coaching for Class 6–10 students. Builds competitive exam base for JEE and NEET alongside board preparation.",
+            provider: PROVIDER,
+            educationalLevel: "Middle School / High School",
+            courseMode: "online",
+            hasCourseInstance: COURSE_INSTANCE,
+            teaches: ["Mathematics", "Science", "Physics", "Chemistry"],
+            offers: {
+              "@type": "Offer",
+              price: "100000",
+              priceCurrency: "INR",
+              availability: "https://schema.org/InStock",
+              url: `${BASE}/courses`,
+              description: "₹1,00,000/year + GST (23% OFF original ₹1,30,000)",
+            },
+          },
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          item: {
+            "@type": "Course",
+            name: "1-on-1 JEE / NEET Coaching — 1 Year",
+            description: "Complete JEE Main + Advanced or NEET UG preparation. Daily 1-on-1 live classes with dedicated IIT/AIIMS alumni mentor, adaptive curriculum, weekly mock tests.",
+            provider: PROVIDER,
+            educationalLevel: "JEE / NEET Preparation (Class 12 / Dropper)",
+            courseMode: "online",
+            hasCourseInstance: COURSE_INSTANCE,
+            teaches: ["Physics", "Chemistry", "Mathematics", "Biology"],
+            offers: {
+              "@type": "Offer",
+              price: "130000",
+              priceCurrency: "INR",
+              availability: "https://schema.org/InStock",
+              url: `${BASE}/courses`,
+              description: "₹1,30,000/year + GST (35% OFF original ₹1,99,000)",
+            },
+          },
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          item: {
+            "@type": "Course",
+            name: "1-on-1 JEE / NEET Coaching — 2 Year",
+            description: "Comprehensive 2-year JEE/NEET preparation from Class 11 through exam. Long-term mentor relationship, phased curriculum, board integration.",
+            provider: PROVIDER,
+            educationalLevel: "JEE / NEET Preparation (Class 11–12)",
+            courseMode: "online",
+            hasCourseInstance: COURSE_INSTANCE,
+            teaches: ["Physics", "Chemistry", "Mathematics", "Biology"],
+            offers: {
+              "@type": "Offer",
+              price: "230000",
+              priceCurrency: "INR",
+              availability: "https://schema.org/InStock",
+              url: `${BASE}/courses`,
+              description: "₹2,30,000/2 years + GST (23% OFF original ₹2,99,000)",
+            },
+          },
+        },
+        {
+          "@type": "ListItem",
+          position: 4,
+          item: {
+            "@type": "Course",
+            name: "JEE / NEET Crash Course — 6 Months",
+            description: "Intensive 6-month 1-on-1 crash course for JEE/NEET last-mile preparation. Focus on high-weightage topics, weekly mocks, PYQ deep-dive.",
+            provider: PROVIDER,
+            educationalLevel: "JEE / NEET Preparation",
+            courseMode: "online",
+            hasCourseInstance: COURSE_INSTANCE,
+            offers: {
+              "@type": "Offer",
+              price: "75000",
+              priceCurrency: "INR",
+              availability: "https://schema.org/InStock",
+              url: `${BASE}/courses`,
+              description: "₹75,000 + GST (24% OFF original ₹99,000)",
+            },
+          },
+        },
+        {
+          "@type": "ListItem",
+          position: 5,
+          item: {
+            "@type": "Course",
+            name: "Subject Crash Course",
+            description: "Targeted 10–12 week 1-on-1 coaching for a single subject (Physics, Chemistry, Mathematics, or Biology). Diagnose and fix specific weaknesses.",
+            provider: PROVIDER,
+            educationalLevel: "JEE / NEET Preparation",
+            courseMode: "online",
+            hasCourseInstance: COURSE_INSTANCE,
+            teaches: ["Physics", "Chemistry", "Mathematics", "Biology"],
+            offers: {
+              "@type": "Offer",
+              price: "25000",
+              priceCurrency: "INR",
+              availability: "https://schema.org/InStock",
+              url: `${BASE}/courses`,
+              description: "₹25,000/subject + GST",
+            },
+          },
+        },
+      ],
+    },
+  ],
+};
+
+export default function CoursesPage() {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(coursesSchema) }}
+      />
+      <Courses />
+    </>
+  );
+}
