@@ -1,5 +1,5 @@
 # MindPeak Institute — Outreach Tracker
-**Last Updated:** 2026-05-20  
+**Last Updated:** 2026-05-27  
 **Site:** mindpeakinstitute.com  
 **MSME:** UDYAM-HP-04-0042530
 
@@ -49,6 +49,13 @@
 | 36 | 2026-05-20 | brandempower.org | brandempower.org/education-awards.htm + education-leaders-awards.htm | Award Nomination — Education Awards 2026 + Education Leaders Awards 2026 (national + Chandigarh regional) | Via nomination form on site | ❌ | — | NOT STARTED |
 | 37 | 2026-05-20 | emerginghimachal.hp.gov.in | emerginghimachal.hp.gov.in/startup/home/register/ | HP Govt Startup Registration — self-serve portal; use UDYAM-HP-04-0042530 as credential; backlink from govt domain DA ~65+ | startuphimachal@gmail.com (helpdesk) | ❌ | — | NOT STARTED |
 | 38 | 2026-05-20 | wellfound.com | wellfound.com/startups/location/himachal-pradesh | Startup Directory Profile — free company listing on HP startups page; DA ~80 | wellfound.com self-register (free) | ❌ | — | NOT STARTED |
+| 39 | 2026-05-27 | nextos.in | nextos.in/blog/online-coaching-platforms-in-india/ | Listicle Inclusion — "5+ Online Coaching Platforms in India (2026)"; B2B edtech SaaS editorial | blog@nextos.in / contact form on site | ❌ | — | NOT STARTED |
+| 40 | 2026-05-27 | sikarcoachings.com | sikarcoachings.com/best-jee-coaching-institutes-in-india/ | Listicle Inclusion — "Best IIT JEE Coaching in India 2026 – Top 10 Institutes" | Contact form on site | ❌ | — | NOT STARTED |
+| 41 | 2026-05-27 | superprof.co.in | superprof.co.in/tutor/ | Tutor Directory Profile — free Devansh physics tutor listing; DA ~70+; self-serve 20 min | superprof.co.in self-register (free) | ❌ | — | NOT STARTED |
+| 42 | 2026-05-27 | teacheron.com | teacheron.com/tutors/online-jee_physics-tutors | Tutor Directory Profile — free JEE physics tutor profile; DA ~45+; self-serve 15 min | teacheron.com self-register (free) | ❌ | — | NOT STARTED |
+| 43 | 2026-05-27 | dashboard.msme.gov.in | dashboard.msme.gov.in/na/Ent_NA_Admin/Ent_index.aspx | MSME National Awards Nomination — .gov.in backlink + national PR; UDYAM-HP-04-0042530 eligible; self-serve govt portal | Government portal — login with UDYAM number | ❌ | — | NOT STARTED |
+| 44 | 2026-05-27 | brandempower.org | brandempower.org/msme-innovation-awards.htm | MSME Innovation Awards 2026 — EdTech Innovation category; nominations open | brandempower.org nomination form | ❌ | — | NOT STARTED |
+| 45 | 2026-05-27 | brandempower.org | brandempower.org/msme-business-awards.htm | MSME Business Awards 2026 — Service Sector MSME category; send combined with Email #17 & #21 | brandempower.org nomination form | ❌ | — | NOT STARTED |
 
 ---
 
@@ -69,6 +76,18 @@
 ---
 
 ## Notes & Strategy Log
+
+### 2026-05-27 — Week 4 Audit + 7 New Targets Added
+
+- **Zero backlinks for fourth consecutive week.** All 38 prior targets remain at NOT STARTED. Zero outreach has been sent across any of the four audit cycles.
+- **7 new targets added (#39–45):** nextos.in, sikarcoachings.com, superprof.co.in (tutor profile), teacheron.com (tutor profile), MSME National Awards (dashboard.msme.gov.in), MSME Innovation Awards (brandempower.org), MSME Business Awards (brandempower.org)
+- **Top new priority: Superprof.co.in (#41)** — free tutor profile, DA ~70+, self-serve in 20 min. Alongside UrbanPro (#27), this is the fastest possible backlink available to MindPeak right now.
+- **Top new authority opportunity: MSME National Awards (#43)** — `.gov.in` backlink, nomination via govt portal using UDYAM-HP-04-0042530. Highest domain authority opportunity discovered across all four audits.
+- **New listicle targets:** nextos.in (B2B edtech editorial, coaching platform roundup) and sikarcoachings.com (Rajasthan coaching directory, Top 10 ranking)
+- **BrandEmpower scope expanded:** Now covers three separate award programmes (#36 Education Awards, #44 MSME Innovation Awards, #45 MSME Business Awards) — one combined Email #21 covers all three.
+- **Quora gap: 4 consecutive weeks, zero answers.** Now urgent — competitive JEE/NEET Quora threads receive thousands of views/month. Devansh answering 2–3/week is a direct traffic and brand recognition action independent of backlinks.
+- **Google Alerts: 4 weeks overdue.** Set up at google.com/alerts for `"mindpeak institute"` — takes 2 minutes.
+- Emails #18–21 ready to send (in `/seo-reports/backlinks-2026-05-27.md`)
 
 ### 2026-05-20 — Week 3 Audit + 10 New Targets Added
 
@@ -107,9 +126,10 @@
 |---|---|---|---|
 | May 12–18, 2026 | 0 → 3 | Send #1, #2, #8, #11 (new), #27 (UrbanPro — self-serve) | **MISSED — zero sent** |
 | May 19–25, 2026 | 0 → 5 | **URGENT CATCHUP:** Self-serve: UrbanPro (#27), HP Startup (#37), Wellfound (#38). Email: #2 CollegeDekho, #8 CollegeDunia, #13 OriginEducare, #1 AcademyCheck, #14 Notesly, #4 FutureTopper | Clear backlog — minimum 3 self-serve + 3 emails this week |
-| May 26 – Jun 1, 2026 | 5 → 10 | Follow up #2/#8/#13/#14; send #9, #10, #6, #15, #16, #17 | PhysicsPoint + Giraffe + Awards + BestPhysicsTeacher + GauravTiwari + BrandEmpower |
-| Jun 2–8, 2026 | 10 → 15 | Send #7, #11, #12, #5; follow up all first-week emails | ExamCharcha guest post + SCNWire PR + BlogAndJournal + Colleges18 |
-| Jun 9–15, 2026 | 15 → 20 | Start Careers360 + Shiksha; follow up all pending | Critical: chase Shiksha partner portal + Careers360 editorial |
+| May 26 – Jun 1, 2026 | 0 → 5 | **URGENT CATCHUP — AGAIN:** Self-serve: UrbanPro (#41), Superprof (#41), TeacherOn (#42), emerginghimachal (#37), Wellfound (#38), MSME National Awards (#43). Email: #13 OriginEducare, #2 CollegeDekho, #8 CollegeDunia, #14 Notesly | **MISSED — zero sent** |
+| Jun 2–8, 2026 | 5 → 10 | Follow up #2/#8/#13/#14; send #9, #10, #6, #15, #17/#21 (BrandEmpower combined) | PhysicsPoint + Giraffe + FutureTopper + BestPhysicsTeacher + All BrandEmpower awards |
+| Jun 9–15, 2026 | 10 → 15 | Send #7, #11, #12, #5, #18, #19; follow up all prior emails | ExamCharcha + SCNWire PR + Suganta + nextos.in + sikarcoachings.com |
+| Jun 16–22, 2026 | 15 → 20 | Start Careers360 + Shiksha; follow up all pending | Critical: chase Shiksha partner portal + Careers360 editorial |
 
 ## Quora Strategy (Ongoing — Not Tracked as Outreach)
 
