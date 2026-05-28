@@ -104,7 +104,7 @@ const BlogPost = () => {
               '@type': 'WebPage',
               '@id': `https://mindpeakinstitute.com/blog/${post.slug}`,
             },
-            image: 'https://mindpeakinstitute.com/hero-bg.jpg',
+            image: 'https://mindpeakinstitute.com/images/hero-bg.jpg',
             wordCount: post.content ? post.content.split(/\s+/).length : 500,
             articleSection: post.category,
             keywords: post.tags.join(', '),

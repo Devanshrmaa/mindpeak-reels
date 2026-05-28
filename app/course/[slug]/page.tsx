@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url,
       siteName: "MindPeak Institute",
       type: "website",
-      images: [{ url: `${BASE}/hero-bg.jpg`, width: 1200, height: 630 }],
+      images: [{ url: `${BASE}/images/hero-bg.jpg`, width: 1200, height: 630 }],
     },
   };
 }

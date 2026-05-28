@@ -62,8 +62,8 @@ const CourseCard = ({ course, index, onBookDemo, onDownloadBrochure }: { course:
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-center gap-4">
             {course.logo ? (
-              <div className="w-12 h-12 rounded-xl overflow-hidden ring-1 ring-foreground/[0.08] bg-white/5 shrink-0">
-                <img src={course.logo} alt={course.name} className="w-full h-full object-contain" loading="lazy" />
+              <div className="relative w-12 h-12 rounded-xl overflow-hidden ring-1 ring-foreground/[0.08] bg-white/5 shrink-0">
+                <Image src={course.logo} alt={course.name} fill className="object-contain" loading="lazy" sizes="48px" />
               </div>
             ) : (
               <div className="w-12 h-12 rounded-xl bg-foreground/[0.04] flex items-center justify-center shrink-0">

@@ -17,7 +17,7 @@ export const SEOHead = ({ title, description, canonical, ogImage, jsonLd }: SEOH
   const pathname = usePathname();
   const baseUrl = 'https://mindpeakinstitute.com';
   const fullCanonical = canonical || `${baseUrl}${pathname}`;
-  const fullOgImage = ogImage || `${baseUrl}/hero-bg.jpg`;
+  const fullOgImage = ogImage || `${baseUrl}/images/hero-bg.jpg`;
 
   useEffect(() => {
     // Title
