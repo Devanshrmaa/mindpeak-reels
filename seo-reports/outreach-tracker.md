@@ -1,5 +1,5 @@
 # MindPeak Institute — Outreach Tracker
-**Last Updated:** 2026-05-20  
+**Last Updated:** 2026-05-28  
 **Site:** mindpeakinstitute.com  
 **MSME:** UDYAM-HP-04-0042530
 
@@ -49,6 +49,13 @@
 | 36 | 2026-05-20 | brandempower.org | brandempower.org/education-awards.htm + education-leaders-awards.htm | Award Nomination — Education Awards 2026 + Education Leaders Awards 2026 (national + Chandigarh regional) | Via nomination form on site | ❌ | — | NOT STARTED |
 | 37 | 2026-05-20 | emerginghimachal.hp.gov.in | emerginghimachal.hp.gov.in/startup/home/register/ | HP Govt Startup Registration — self-serve portal; use UDYAM-HP-04-0042530 as credential; backlink from govt domain DA ~65+ | startuphimachal@gmail.com (helpdesk) | ❌ | — | NOT STARTED |
 | 38 | 2026-05-20 | wellfound.com | wellfound.com/startups/location/himachal-pradesh | Startup Directory Profile — free company listing on HP startups page; DA ~80 | wellfound.com self-register (free) | ❌ | — | NOT STARTED |
+| 39 | 2026-05-28 | sikarcoachings.com | sikarcoachings.com/best-jee-coaching-institutes-in-india/ | Listicle Inclusion — "Best IIT JEE Coaching in India 2026 – Top 10 Institutes" | sikarcoachings.com contact page | ❌ | — | NOT STARTED |
+| 40 | 2026-05-28 | sikarcoachings.com | sikarcoachings.com/which-coaching-is-best-for-iit-jee-droppers/ | Listicle Inclusion — "Which Coaching Is Best for IIT-JEE Droppers? 2026" (strong 1-on-1 angle for droppers) | sikarcoachings.com contact page (same email as #39) | ❌ | — | NOT STARTED |
+| 41 | 2026-05-28 | exambazaar.com | exambazaar.com/reviews/best-jee-advanced-coaching-classes + exambazaar.com/blogpost/guest-post-editorial-guidelines | Dual: Coaching Review Listing + Guest Post on "1-on-1 vs Batch Coaching for JEE" | exambazaar.com/blogpost/guest-post-editorial-guidelines | ❌ | — | NOT STARTED |
+| 42 | 2026-05-28 | thefamous.in | thefamous.in/write-for-us-education-edtech-guest-articles/ | Education & EdTech guest post — "One Teacher, One Student: Why 1-on-1 Is the Future of JEE Prep" | hello@thefamous.in | ❌ | — | NOT STARTED |
+| 43 | 2026-05-28 | edtechreview.in | edtechreview.in/contribute/write-for-us-edtechreview-edtech-guest-post-blog-post/ | EdTech guest post — India's leading EdTech media; high-authority, education-specific; 3 topic pitches ready | contribute@edtechreview.in | ❌ | — | NOT STARTED |
+| 44 | 2026-05-28 | academycheck.com | academycheck.com/blog/top-5-jee-coaching-institutes-in-india-based-on-online-education-2026 | Listicle Inclusion — 3rd AcademyCheck article (combine with #3 & #4 in one pitch); same contact: Harish Kumawat 08062179896 | Harish Kumawat — 08062179896 (same as #3, #4) | ❌ | — | NOT STARTED |
+| 45 | 2026-05-28 | studynation.in | studynation.in/online-physics-teacher | 1-on-1 physics/JEE tutor marketplace — investigate if Devansh can register as a mentor (like UrbanPro); includes profile page with website link | studynation.in contact (investigate first) | ❌ | — | NOT STARTED |
 
 ---
 
@@ -69,6 +76,17 @@
 ---
 
 ## Notes & Strategy Log
+
+### 2026-05-28 — Week 4 Audit + 7 New Targets Added
+
+- **Zero backlinks for the FOURTH consecutive week.** 45 targets identified. 21 outreach emails pre-written. 4 self-serve registrations (UrbanPro, HP Startup, Wellfound, BlogAndJournal) still not done. Execution remains the sole bottleneck.
+- **7 new targets added (#39–45):** sikarcoachings.com (×2 listicles), exambazaar.com (listing + guest post dual-pitch), thefamous.in (EdTech guest post), edtechreview.in (🔥 India's leading EdTech media — highest-authority new guest post opportunity yet), academycheck.com #44 (3rd AcademyCheck JEE article — combine with #3 & #4 pitch), studynation.in (1-on-1 physics platform — investigate tutor registration)
+- **AcademyCheck now has 3 separate articles** where MindPeak is absent — one email pitch covers all three; Harish Kumawat: 08062179896
+- **EdTechReview.in (#43) is the top new target:** India's most established EdTech journalism platform; guest post here has highest domain authority of any guest post target identified across all 4 audits; Email #18 ready with 3 topic pitches
+- **SikarCoachings dropper article (#40):** particularly strong opportunity — the "best coaching for IIT-JEE droppers" audience are exactly the students who need 1-on-1 after batch coaching failed them
+- **Brand collision unchanged (week 4):** all brand mention searches return zero results for the coaching institute
+- **Google Alerts, Quora: STILL not set up (4 weeks overdue)**
+- Emails #18–21 ready to send (in `/seo-reports/backlinks-2026-05-28.md`)
 
 ### 2026-05-20 — Week 3 Audit + 10 New Targets Added
 
@@ -107,9 +125,11 @@
 |---|---|---|---|
 | May 12–18, 2026 | 0 → 3 | Send #1, #2, #8, #11 (new), #27 (UrbanPro — self-serve) | **MISSED — zero sent** |
 | May 19–25, 2026 | 0 → 5 | **URGENT CATCHUP:** Self-serve: UrbanPro (#27), HP Startup (#37), Wellfound (#38). Email: #2 CollegeDekho, #8 CollegeDunia, #13 OriginEducare, #1 AcademyCheck, #14 Notesly, #4 FutureTopper | Clear backlog — minimum 3 self-serve + 3 emails this week |
-| May 26 – Jun 1, 2026 | 5 → 10 | Follow up #2/#8/#13/#14; send #9, #10, #6, #15, #16, #17 | PhysicsPoint + Giraffe + Awards + BestPhysicsTeacher + GauravTiwari + BrandEmpower |
-| Jun 2–8, 2026 | 10 → 15 | Send #7, #11, #12, #5; follow up all first-week emails | ExamCharcha guest post + SCNWire PR + BlogAndJournal + Colleges18 |
-| Jun 9–15, 2026 | 15 → 20 | Start Careers360 + Shiksha; follow up all pending | Critical: chase Shiksha partner portal + Careers360 editorial |
+| May 26 – Jun 1, 2026 | 0 → 5 | **CATCHUP WEEK:** Self-serve: UrbanPro (#27), HP Startup (#37), Wellfound (#38). Email: #2 CollegeDekho, #13 OriginEducare, #1 AcademyCheck (covers #3+#4+#44), #18 EdTechReview, #19 TheFamous | **All self-serve items overdue — start here** |
+| Jun 2–8, 2026 | 5 → 10 | Follow up #2/#13/#1/#18; send #8, #14, #20 (SikarCoachings), #21 (ExamBazaar), #4 FutureTopper | Giraffe-Learning + Notesly + SikarCoachings + ExamBazaar |
+| Jun 9–15, 2026 | 10 → 15 | Send #9, #10, #6, #15, #16, #17, #11; follow up all first-wave emails | PhysicsPoint + Giraffe + Awards + BestPhysicsTeacher + GauravTiwari + BrandEmpower + SCNWire PR |
+| Jun 16–22, 2026 | 15 → 20 | Send #7, #12, #5; start Careers360 + Shiksha | ExamCharcha + BlogAndJournal + Suganta + Shiksha partner portal |
+| Jun 23–30, 2026 | 20 → 25 | Careers360 editorial + Shiksha follow-up; chase all unanswered | Critical: Shiksha + Careers360 = highest authority directory links |
 
 ## Quora Strategy (Ongoing — Not Tracked as Outreach)
 
