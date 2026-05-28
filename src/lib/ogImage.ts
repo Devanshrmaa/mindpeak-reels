@@ -15,7 +15,7 @@ const OG_IMAGES: Record<PageCategory, string> = {
   coaching: `${BASE}/images/og/coaching.jpg`,
   formula: `${BASE}/images/og/formula.jpg`,
   chapter: `${BASE}/images/og/chapter.jpg`,
-  default: `${BASE}/hero-bg.jpg`,
+  default: `${BASE}/images/hero-bg.jpg`,
 };
 
 export function resolveOgImage(slug: string): string {

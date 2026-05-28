@@ -61,7 +61,7 @@ export const metadata: Metadata = {
       "Achieve AIR <5K with personalized 1-on-1 coaching, adaptive curriculum, and dedicated mentors. 95% success rate. Trusted by 500+ students.",
     images: [
       {
-        url: "https://mindpeakinstitute.com/hero-bg.jpg",
+        url: "https://mindpeakinstitute.com/images/hero-bg.jpg",
         width: 1200,
         height: 630,
       },
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     title: "MindPeak Institute — #1 Personalized JEE & NEET Coaching",
     description:
       "Achieve AIR <5K with personalized 1-on-1 coaching. 95% success rate. Trusted by 500+ students across India.",
-    images: ["https://mindpeakinstitute.com/hero-bg.jpg"],
+    images: ["https://mindpeakinstitute.com/images/hero-bg.jpg"],
   },
   other: {
     "geo.region": "IN-HP",
