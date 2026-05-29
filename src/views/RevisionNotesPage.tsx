@@ -16,6 +16,8 @@ import { getLastUpdated, getCurrentExamYear } from '@/lib/contentFreshness';
 import { TableOfContents, toAnchorId, type TocItem } from '@/components/TableOfContents';
 import { getExamEntities } from '@/lib/seoEntities';
 import { getChapterBySlug, topicToSlug } from '@/data/chapterData';
+import { getAuthorForSubject, buildAuthorPersonLd } from '@/data/authorData';
+import ContentByline from '@/components/ContentByline';
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 import { getTopicContent } from '@/data/topicContent';
 
@@ -49,13 +51,16 @@ const RevisionNotesPage = () => {
     { id: 'practice-resources', label: 'Practice Resources' },
   ];
 
+  const author = getAuthorForSubject(chapter.exam, chapter.subject, slug);
+
   const jsonLd: object[] = [
     {
       '@context': 'https://schema.org',
       '@type': 'Article',
       headline: title,
       description,
-      author: { '@type': 'Organization', name: 'MindPeak Institute' },
+      author: buildAuthorPersonLd(author),
+      reviewedBy: buildAuthorPersonLd(author),
       publisher: { '@type': 'Organization', name: 'MindPeak Institute', logo: { '@type': 'ImageObject', url: 'https://mindpeakinstitute.com/images/logo.jpeg' } },
       datePublished: '2026-01-01',
       dateModified: lastUpdated,
@@ -104,6 +109,7 @@ const RevisionNotesPage = () => {
             <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl">
               Complete revision notes for {chapter.chapter} ({chapter.exam} {chapter.subject}). Covers all {chapter.topics.length} topics with key formulas, common mistakes, and exam tips.
             </p>
+            <ContentByline author={author} className="justify-start mt-5" />
           </div>
         </section>
 

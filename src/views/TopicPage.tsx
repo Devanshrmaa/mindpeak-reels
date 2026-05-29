@@ -20,6 +20,8 @@ import {
   TrendingUp, Route,
 } from 'lucide-react';
 import { getTopicInfo, topicToSlug, TOPIC_PATHS } from '@/data/chapterData';
+import { getAuthorForSubject, buildAuthorPersonLd } from '@/data/authorData';
+import ContentByline from '@/components/ContentByline';
 import { getLastUpdated } from '@/lib/contentFreshness';
 import type { TopicInfo } from '@/data/chapterData';
 import { getTopicContent } from '@/data/topicContent';
@@ -143,12 +145,15 @@ const TopicPage = () => {
 
   const faqSchema = buildFAQSchemaFromQA(topicFaqs);
 
+  const author = getAuthorForSubject(chapter.exam, chapter.subject, `${chapterSlug}/${topicSlug}`);
+
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: pageTitle,
     description: pageDesc,
-    author: { '@type': 'Organization', name: 'MindPeak Institute' },
+    author: buildAuthorPersonLd(author),
+    reviewedBy: buildAuthorPersonLd(author),
     publisher: {
       '@type': 'Organization',
       name: 'MindPeak Institute',
@@ -240,9 +245,11 @@ const TopicPage = () => {
                 <span className="text-gradient-gold"> — {chapter.chapter} for {chapter.exam}</span>
               </h1>
 
-              <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mb-6">
+              <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mb-4">
                 Master {topicName} with MindPeak's 1-on-1 expert coaching. This is topic {topicIndex + 1} of {chapter.topics.length} in {chapter.chapter} ({chapter.weightage} weightage in {examFull}). Your dedicated mentor builds deep conceptual clarity through interactive problem-solving — not passive lectures.
               </p>
+
+              <ContentByline author={author} className="justify-start mb-8" />
 
               {/* Stats */}
               <div className="flex flex-wrap items-center gap-3 mb-8">

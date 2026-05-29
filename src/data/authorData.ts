@@ -105,17 +105,22 @@ export const authors: Author[] = [
     bio: 'My strength is Physical and Inorganic Chemistry — deriving every property from electronic configuration and the periodic table rather than memorising it. I tailor each student\'s revision around the chapters that move their score the most.',
   },
 
-  /* ── Biology (NEET) ──
-     No dedicated Biology writer specified yet; this neutral profile keeps
-     NEET Biology content attributed. Replace the name/details once a real
-     Biology faculty member is confirmed. */
+  /* ── Biology (NEET) ── */
   {
-    slug: 'priya-nair',
-    name: 'Priya Nair',
+    slug: 'muskan',
+    name: 'Muskan',
     credential: 'NEET Biology Faculty, MindPeak Institute',
     exams: ['NEET'],
     subjects: ['Biology'],
     bio: 'I teach NEET Biology with an NCERT-first, exam-pattern-driven approach — connecting each concept to how it is actually tested so retention comes from understanding rather than cramming.',
+  },
+  {
+    slug: 'muskan-singla',
+    name: 'Muskan Singla',
+    credential: 'NEET Biology Faculty, MindPeak Institute',
+    exams: ['NEET'],
+    subjects: ['Biology'],
+    bio: 'My focus in NEET Biology is Botany and the high-yield NCERT lines that NTA repeats — I help students build diagram-level recall and avoid the silly mistakes that cost rank.',
   },
 ];
 
@@ -161,4 +166,28 @@ export function getAuthorForSubject(exam: 'JEE' | 'NEET', subject: string, seed?
 /** Get all authors as a simple list for schema markup */
 export function getAllAuthors(): Author[] {
   return authors;
+}
+
+/**
+ * Build a schema.org Person object for an author, for use as `author` /
+ * `reviewedBy` in Article-type JSON-LD. Omits fields that aren't verified
+ * (alumniOf, sameAs) so we never emit empty/fabricated credentials.
+ */
+export function buildAuthorPersonLd(author: Author) {
+  return {
+    '@type': 'Person' as const,
+    name: author.name,
+    jobTitle: author.credential,
+    worksFor: {
+      '@type': 'Organization' as const,
+      name: 'MindPeak Institute',
+      url: 'https://mindpeakinstitute.com',
+    },
+    description: author.bio,
+    knowsAbout: author.subjects,
+    ...(author.institution
+      ? { alumniOf: { '@type': 'EducationalOrganization' as const, name: author.institution } }
+      : {}),
+    ...(author.linkedIn ? { sameAs: [author.linkedIn] } : {}),
+  };
 }

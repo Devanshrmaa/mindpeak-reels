@@ -16,6 +16,8 @@ import { getExamEntities } from '@/lib/seoEntities';
 import { subjectBanks } from '@/data/practice';
 import { neetSubjectBanks } from '@/data/neet-practice';
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
+import { getAuthorForSubject, buildAuthorPersonLd } from '@/data/authorData';
+import ContentByline from '@/components/ContentByline';
 
 const VALID_SLUGS: Record<string, { exam: 'JEE' | 'NEET'; subject: string; icon: string }> = {
   'jee-physics-important-questions': { exam: 'JEE', subject: 'Physics', icon: '⚛️' },
@@ -52,13 +54,16 @@ const ImportantQuestionsHub = () => {
     { q: `How to use these important questions for revision?`, a: `Start with Easy questions to build confidence, then move to Medium and Hard. Track your accuracy for each chapter — chapters with <70% accuracy need more revision.` },
   ];
 
+  const author = getAuthorForSubject(exam, subject, slug);
+
   const jsonLd: object[] = [
     {
       '@context': 'https://schema.org',
       '@type': 'Article',
       headline: title,
       description,
-      author: { '@type': 'Organization', name: 'MindPeak Institute' },
+      author: buildAuthorPersonLd(author),
+      reviewedBy: buildAuthorPersonLd(author),
       publisher: { '@type': 'Organization', name: 'MindPeak Institute', logo: { '@type': 'ImageObject', url: 'https://mindpeakinstitute.com/images/logo.jpeg' } },
       datePublished: '2026-01-01',
       dateModified: lastUpdated,
@@ -97,9 +102,10 @@ const ImportantQuestionsHub = () => {
             <h1 className="font-display font-black text-foreground mb-6" style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)' }}>
               {icon} {exam} {subject} <span className="text-gradient-gold">Important Questions</span> {CURRENT_EXAM_YEAR}
             </h1>
-            <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mb-8">
+            <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mb-4">
               Chapter-wise collection of the most important {subject} questions for {exam} {CURRENT_EXAM_YEAR}. Curated from 10+ years of previous year papers and expert analysis.
             </p>
+            <ContentByline author={author} className="justify-start mb-8" />
             <div className="flex flex-wrap gap-4">
               <button onClick={openDemoModal} className="px-8 py-4 bg-primary text-primary-foreground font-display font-bold text-sm uppercase tracking-[0.15em] shadow-gold-glow hover:scale-105 transition-transform">
                 Book Free Demo
