@@ -1,5 +1,5 @@
 # MindPeak Institute — Outreach Tracker
-**Last Updated:** 2026-05-20  
+**Last Updated:** 2026-05-29  
 **Site:** mindpeakinstitute.com  
 **MSME:** UDYAM-HP-04-0042530
 
@@ -49,6 +49,11 @@
 | 36 | 2026-05-20 | brandempower.org | brandempower.org/education-awards.htm + education-leaders-awards.htm | Award Nomination — Education Awards 2026 + Education Leaders Awards 2026 (national + Chandigarh regional) | Via nomination form on site | ❌ | — | NOT STARTED |
 | 37 | 2026-05-20 | emerginghimachal.hp.gov.in | emerginghimachal.hp.gov.in/startup/home/register/ | HP Govt Startup Registration — self-serve portal; use UDYAM-HP-04-0042530 as credential; backlink from govt domain DA ~65+ | startuphimachal@gmail.com (helpdesk) | ❌ | — | NOT STARTED |
 | 38 | 2026-05-20 | wellfound.com | wellfound.com/startups/location/himachal-pradesh | Startup Directory Profile — free company listing on HP startups page; DA ~80 | wellfound.com self-register (free) | ❌ | — | NOT STARTED |
+| 39 | 2026-05-29 | trendingonlinenow.in | trendingonlinenow.in/top-10-online-coaching-platforms-jee-2026-2027-exam-preparation | Listicle Inclusion — "Top 10 Online Coaching Platforms for JEE 2026–27" (JEE list; NEET list already #13) | grocat.in contact form / @trendingonlinenow.in social | ❌ | — | NOT STARTED |
+| 40 | 2026-05-29 | shiksharatanindia.org | shiksharatanindia.org/nomination-form/ | Award Nomination — Shiksharatan India Foundation Special Awards 2026 (Best Online Education Initiative) | Nomination form on site | ❌ | — | NOT STARTED |
+| 41 | 2026-05-29 | getnews360.com | getnews360.com/education-write-for-us/ | Guest Post — Education niche, JEE/NEET prep content, 800–1500 words, 1 dofollow link | Submission form on site | ❌ | — | NOT STARTED |
+| 42 | 2026-05-29 | cucetexam.in | cucetexam.in/write-for-us/ | Guest Post — CUET/NEET/JEE education blog, min 1,000 words | Submission form on site | ❌ | — | NOT STARTED |
+| 43 | 2026-05-29 | edtechstartups.org | edtechstartups.org/country/India/ | Startup Directory — "Top 100 EdTech Startups India 2026" free self-serve submission | Self-register on site | ❌ | — | NOT STARTED |
 
 ---
 
@@ -69,6 +74,15 @@
 ---
 
 ## Notes & Strategy Log
+
+### 2026-05-29 — Week 4 Audit + 5 New Targets Added (#39–43)
+
+- **FOURTH consecutive week with zero backlinks. Zero outreach sent since May 14.** All 38 prior targets remain at NOT STARTED. This is now a critical execution failure — not a research or strategy problem.
+- **5 new targets added (#39–43):** trendingonlinenow.in JEE list (sibling to NEET list #13), shiksharatanindia.org Special Awards 2026, getnews360.com guest post, cucetexam.in guest post, edtechstartups.org Top 100 EdTech India directory
+- **New emails ready to send: #18–21** (in `/seo-reports/backlinks-2026-05-29.md`)
+- **Cumulative target count: 43** — all at NOT STARTED
+- **Minimum this week:** UrbanPro tutor profile (30 min) + emerginghimachal.hp.gov.in registration (20 min) + Email #2 CollegeDekho + Email #13 OriginEducare + Email #18 TrendingOnlineNow = under 90 minutes for the 5 highest-ROI actions from 4 weeks of research
+- **If no outreach by June 5, pause weekly audits and create a single execution-only action plan instead**
 
 ### 2026-05-20 — Week 3 Audit + 10 New Targets Added
 
@@ -107,9 +121,11 @@
 |---|---|---|---|
 | May 12–18, 2026 | 0 → 3 | Send #1, #2, #8, #11 (new), #27 (UrbanPro — self-serve) | **MISSED — zero sent** |
 | May 19–25, 2026 | 0 → 5 | **URGENT CATCHUP:** Self-serve: UrbanPro (#27), HP Startup (#37), Wellfound (#38). Email: #2 CollegeDekho, #8 CollegeDunia, #13 OriginEducare, #1 AcademyCheck, #14 Notesly, #4 FutureTopper | Clear backlog — minimum 3 self-serve + 3 emails this week |
-| May 26 – Jun 1, 2026 | 5 → 10 | Follow up #2/#8/#13/#14; send #9, #10, #6, #15, #16, #17 | PhysicsPoint + Giraffe + Awards + BestPhysicsTeacher + GauravTiwari + BrandEmpower |
-| Jun 2–8, 2026 | 10 → 15 | Send #7, #11, #12, #5; follow up all first-week emails | ExamCharcha guest post + SCNWire PR + BlogAndJournal + Colleges18 |
-| Jun 9–15, 2026 | 15 → 20 | Start Careers360 + Shiksha; follow up all pending | Critical: chase Shiksha partner portal + Careers360 editorial |
+| May 26 – Jun 1, 2026 | 0 (MISSED) | 0 sent (emails #13–17 not sent) | **EXECUTION FAILURE — week 3 catchup not done** |
+| Jun 2–8, 2026 | 3 → 7 | **CATCHUP WEEK:** Self-serve UrbanPro + HP Startup + Wellfound + EdTechStartups.org; Email #2, #8, #13, #18, #14 | Minimum 4 self-serve + 5 emails — under 90 min total |
+| Jun 9–15, 2026 | 7 → 12 | Follow up #2/#8/#13/#18; send #1, #9, #10, #15, #21 | AcademyCheck + PhysicsPoint + Giraffe + BestPhysicsTeacher + Shiksharatan |
+| Jun 16–22, 2026 | 12 → 18 | Send #4, #7, #19, #20, #6, #16, #17 | Guest posts: FutureTopper + ExamCharcha + GetNews360 + CucetExam; Awards: EntrepreneurIndia + GauravTiwari + BrandEmpower |
+| Jun 23–30, 2026 | 18 → 25 | Send #11, #12, #5; follow up all pending; start Careers360 + Shiksha | SCNWire PR + Shiksha partner portal + Careers360 editorial |
 
 ## Quora Strategy (Ongoing — Not Tracked as Outreach)
 
