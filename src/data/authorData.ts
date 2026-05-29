@@ -1,12 +1,10 @@
 /**
  * Author / Expert profiles for E-E-A-T signals.
  *
- * These are real MindPeak faculty used as content writers/reviewers, mapped
- * by subject. Credentials are intentionally neutral ("Faculty, MindPeak
- * Institute") rather than fabricated degrees/results — only fill in
- * `institution`, `experienceYears`, `qualifications`, `notableResults`,
- * `linkedIn`, etc. with VERIFIED information. Do not invent specifics:
- * fabricated credentials hurt E-E-A-T and misrepresent real people.
+ * Real MindPeak faculty used as content writers/reviewers, mapped by subject.
+ * Credentials here are user-confirmed; only add further specifics
+ * (experienceYears, notableResults, linkedIn) when verified. Do not invent
+ * details — fabricated credentials hurt E-E-A-T and misrepresent real people.
  */
 
 export interface Author {
@@ -36,7 +34,7 @@ export interface Author {
   image?: string;
   /** Social / verification links */
   linkedIn?: string;
-  /** Subject-specific qualification details */
+  /** Degree(s) / qualification details */
   qualifications?: string[];
 }
 
@@ -45,29 +43,41 @@ export interface Author {
 export const authors: Author[] = [
   /* ── Physics ── */
   {
-    slug: 'devansh-sharma',
-    name: 'Devansh Sharma',
-    credential: 'JEE & NEET Physics Faculty, MindPeak Institute',
+    slug: 'devansh',
+    name: 'Devansh',
+    credential: 'MBBS · JEE & NEET Physics Faculty, MindPeak Institute',
     exams: ['JEE', 'NEET'],
     subjects: ['Physics'],
-    bio: 'I teach JEE and NEET Physics at MindPeak with a concept-first approach — students build physical intuition before reaching for formulas. Most of my 1-on-1 work is about turning "I understand the theory" into "I can solve a problem I have never seen before."',
+    qualifications: ['MBBS'],
+    bio: 'I teach JEE and NEET Physics with a concept-first approach — students build physical intuition before reaching for formulas. Most of my 1-on-1 work is about turning "I understand the theory" into "I can solve a problem I have never seen before."',
+  },
+  {
+    slug: 'devansh-sharma',
+    name: 'Devansh Sharma',
+    credential: 'BDS · JEE & NEET Physics Faculty, MindPeak Institute',
+    exams: ['JEE', 'NEET'],
+    subjects: ['Physics'],
+    qualifications: ['BDS'],
+    bio: 'My focus is making Physics problem-solving systematic — I teach students to read a problem, identify the principle at play, and reach the right equation without guessing. Every session is built around solving problems together, not lecturing.',
   },
   {
     slug: 'nishkresh-mishra',
     name: 'Nishkresh Mishra',
-    credential: 'JEE & NEET Physics Faculty, MindPeak Institute',
+    credential: "Master's in Physics · JEE & NEET Physics Faculty, MindPeak Institute",
     exams: ['JEE', 'NEET'],
     subjects: ['Physics'],
-    bio: 'I focus on the parts of Physics students find hardest — Mechanics, Electrodynamics and Modern Physics — and on diagnosing exactly where a student\'s reasoning breaks down. My sessions are built around solving problems together, not lecturing.',
+    qualifications: ["Master's in Physics"],
+    bio: 'I focus on the parts of Physics students find hardest — Mechanics, Electrodynamics and Modern Physics — and on diagnosing exactly where a student\'s reasoning breaks down so we can fix the root cause, not the symptom.',
   },
 
   /* ── Mathematics ── */
   {
     slug: 'krishnendu-brahmachari',
     name: 'Krishnendu Brahmachari',
-    credential: 'JEE Mathematics Faculty, MindPeak Institute',
+    credential: "Master's in Mathematics · JEE Mathematics Faculty, MindPeak Institute",
     exams: ['JEE'],
     subjects: ['Mathematics'],
+    qualifications: ["Master's in Mathematics"],
     bio: 'I teach JEE Mathematics as pattern recognition rather than rote procedure — a Calculus problem is often a Trigonometry problem in disguise. I work 1-on-1 to map how each student thinks through an unfamiliar problem and where they get stuck.',
   },
   {
@@ -91,28 +101,40 @@ export const authors: Author[] = [
   {
     slug: 'sahil-singh',
     name: 'Sahil Singh',
-    credential: 'JEE & NEET Chemistry Faculty, MindPeak Institute',
+    credential: "Bachelor's in Chemistry · JEE & NEET Chemistry Faculty, MindPeak Institute",
     exams: ['JEE', 'NEET'],
     subjects: ['Chemistry'],
+    qualifications: ["Bachelor's in Chemistry"],
     bio: 'I teach Chemistry as a logical subject, not a list to memorise. In Organic Chemistry I work through reaction mechanisms via electron-flow logic so students can predict products for reactions they have never seen.',
+  },
+  {
+    slug: 'aparna',
+    name: 'Aparna',
+    credential: 'M.Sc. Chemistry · JEE & NEET Chemistry Faculty, MindPeak Institute',
+    exams: ['JEE', 'NEET'],
+    subjects: ['Chemistry'],
+    qualifications: ['M.Sc. Chemistry'],
+    bio: 'My strength is Physical and Inorganic Chemistry — deriving every property from electronic configuration and the periodic table rather than memorising it. I tailor each student\'s revision around the chapters that move their score the most.',
   },
   {
     slug: 'aparna-chandra',
     name: 'Aparna Chandra',
-    credential: 'JEE & NEET Chemistry Faculty, MindPeak Institute',
+    credential: 'Ph.D. in Chemistry · JEE & NEET Chemistry Faculty, MindPeak Institute',
     exams: ['JEE', 'NEET'],
     subjects: ['Chemistry'],
-    bio: 'My strength is Physical and Inorganic Chemistry — deriving every property from electronic configuration and the periodic table rather than memorising it. I tailor each student\'s revision around the chapters that move their score the most.',
+    qualifications: ['Ph.D. in Chemistry', 'M.Sc. Chemistry'],
+    bio: 'My research background in Chemistry shapes how I teach it — every reaction and trend has a reason. Once students see the "why", Organic and Inorganic Chemistry stop being memorisation and start being prediction.',
   },
 
   /* ── Biology (NEET) ── */
   {
     slug: 'muskan',
     name: 'Muskan',
-    credential: 'NEET Biology Faculty, MindPeak Institute',
+    credential: 'MDS (Master of Dental Surgery) · NEET Biology Faculty, MindPeak Institute',
     exams: ['NEET'],
     subjects: ['Biology'],
-    bio: 'I teach NEET Biology with an NCERT-first, exam-pattern-driven approach — connecting each concept to how it is actually tested so retention comes from understanding rather than cramming.',
+    qualifications: ['MDS (Master of Dental Surgery)'],
+    bio: 'I teach NEET Biology with an NCERT-first, exam-pattern-driven approach — connecting each concept to how it is actually tested, and to real clinical context, so retention comes from understanding rather than cramming.',
   },
   {
     slug: 'muskan-singla',
@@ -185,6 +207,9 @@ export function buildAuthorPersonLd(author: Author) {
     },
     description: author.bio,
     knowsAbout: author.subjects,
+    ...(author.qualifications && author.qualifications.length > 0
+      ? { hasCredential: author.qualifications }
+      : {}),
     ...(author.institution
       ? { alumniOf: { '@type': 'EducationalOrganization' as const, name: author.institution } }
       : {}),
