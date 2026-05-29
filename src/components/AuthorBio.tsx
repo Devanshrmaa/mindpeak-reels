@@ -62,7 +62,7 @@ function FullBio({ author }: { author: Author }) {
             {author.credential}
           </p>
           <meta itemProp="worksFor" content="MindPeak Institute" />
-          <meta itemProp="alumniOf" content={author.institution} />
+          {author.institution && <meta itemProp="alumniOf" content={author.institution} />}
           {author.linkedIn && (
             <a
               href={author.linkedIn}
@@ -80,17 +80,21 @@ function FullBio({ author }: { author: Author }) {
         </div>
       </div>
 
-      {/* Stats bar */}
+      {/* Stats bar — only the stats we actually have */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
-        <Stat icon={<GraduationCap className="w-4 h-4" />} label="Experience" value={`${author.experienceYears} years`} />
-        <Stat icon={<Users className="w-4 h-4" />} label="Students" value={`${author.studentsMentored}+`} />
+        {author.experienceYears != null && (
+          <Stat icon={<GraduationCap className="w-4 h-4" />} label="Experience" value={`${author.experienceYears} years`} />
+        )}
+        {author.studentsMentored != null && (
+          <Stat icon={<Users className="w-4 h-4" />} label="Students" value={`${author.studentsMentored}+`} />
+        )}
         <Stat icon={<BookOpen className="w-4 h-4" />} label="Subjects" value={author.subjects.join(', ')} />
         <Stat icon={<Award className="w-4 h-4" />} label="Exams" value={author.exams.join(' & ')} />
       </div>
 
-      {/* Extended bio */}
+      {/* Bio (extended if available, else the short bio) */}
       <div className="space-y-3 mb-6">
-        {author.extendedBio.split('\n\n').map((para, i) => (
+        {(author.extendedBio ?? author.bio).split('\n\n').map((para, i) => (
           <p key={i} className="text-muted-foreground text-sm leading-relaxed" itemProp={i === 0 ? 'description' : undefined}>
             {para}
           </p>
@@ -98,30 +102,34 @@ function FullBio({ author }: { author: Author }) {
       </div>
 
       {/* Qualifications */}
-      <div className="mb-6">
-        <h4 className="font-display font-semibold text-foreground text-sm mb-3">Qualifications & Credentials</h4>
-        <ul className="space-y-2">
-          {author.qualifications.map((q, i) => (
-            <li key={i} className="flex items-start gap-2 text-muted-foreground text-sm">
-              <span className="text-primary mt-0.5">✓</span>
-              {q}
-            </li>
-          ))}
-        </ul>
-      </div>
+      {author.qualifications && author.qualifications.length > 0 && (
+        <div className="mb-6">
+          <h4 className="font-display font-semibold text-foreground text-sm mb-3">Qualifications & Credentials</h4>
+          <ul className="space-y-2">
+            {author.qualifications.map((q, i) => (
+              <li key={i} className="flex items-start gap-2 text-muted-foreground text-sm">
+                <span className="text-primary mt-0.5">✓</span>
+                {q}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {/* Notable results */}
-      <div>
-        <h4 className="font-display font-semibold text-foreground text-sm mb-3">Notable Student Results</h4>
-        <ul className="space-y-2">
-          {author.notableResults.map((r, i) => (
-            <li key={i} className="flex items-start gap-2 text-muted-foreground text-sm">
-              <Award className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-              {r}
-            </li>
-          ))}
-        </ul>
-      </div>
+      {author.notableResults && author.notableResults.length > 0 && (
+        <div>
+          <h4 className="font-display font-semibold text-foreground text-sm mb-3">Notable Student Results</h4>
+          <ul className="space-y-2">
+            {author.notableResults.map((r, i) => (
+              <li key={i} className="flex items-start gap-2 text-muted-foreground text-sm">
+                <Award className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                {r}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </aside>
   );
 }

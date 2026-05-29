@@ -19,17 +19,20 @@ import { CourseLinks } from '@/components/CourseLinks';
 import { getAuthorForSubject, type Author } from '@/data/authorData';
 const logo = '/images/logo.jpeg';
 
-/** Resolve the best expert author for a blog post based on tags/category */
-function resolveExpertAuthor(post: { category: string; tags: string[] }): Author {
+/** Resolve the best expert author for a blog post based on tags/category.
+ *  `post.slug` seeds a stable rotation so posts on the same subject vary
+ *  deterministically between the faculty who cover that subject. */
+function resolveExpertAuthor(post: { category: string; tags: string[]; slug: string }): Author {
   const tags = post.tags.map(t => t.toLowerCase());
   const isNEET = post.category === 'NEET' || tags.includes('neet');
   const exam: 'JEE' | 'NEET' = isNEET ? 'NEET' : 'JEE';
-  if (tags.includes('biology')) return getAuthorForSubject(exam, 'Biology');
-  if (tags.includes('chemistry')) return getAuthorForSubject(exam, 'Chemistry');
-  if (tags.includes('mathematics') || tags.includes('maths')) return getAuthorForSubject(exam, 'Mathematics');
-  if (tags.includes('physics')) return getAuthorForSubject(exam, 'Physics');
+  const seed = post.slug;
+  if (tags.includes('biology')) return getAuthorForSubject(exam, 'Biology', seed);
+  if (tags.includes('chemistry')) return getAuthorForSubject(exam, 'Chemistry', seed);
+  if (tags.includes('mathematics') || tags.includes('maths')) return getAuthorForSubject(exam, 'Mathematics', seed);
+  if (tags.includes('physics')) return getAuthorForSubject(exam, 'Physics', seed);
   // Default: Physics for JEE, Biology for NEET
-  return getAuthorForSubject(exam, isNEET ? 'Biology' : 'Physics');
+  return getAuthorForSubject(exam, isNEET ? 'Biology' : 'Physics', seed);
 }
 
 const BlogPost = () => {
@@ -83,7 +86,7 @@ const BlogPost = () => {
               '@type': 'Person',
               name: expertAuthor.name,
               jobTitle: expertAuthor.credential,
-              alumniOf: expertAuthor.institution,
+              ...(expertAuthor.institution ? { alumniOf: expertAuthor.institution } : {}),
               worksFor: { '@type': 'Organization', name: 'MindPeak Institute' },
               description: expertAuthor.bio,
             },
@@ -91,7 +94,7 @@ const BlogPost = () => {
               '@type': 'Person',
               name: expertAuthor.name,
               jobTitle: expertAuthor.credential,
-              alumniOf: expertAuthor.institution,
+              ...(expertAuthor.institution ? { alumniOf: expertAuthor.institution } : {}),
             },
             publisher: {
               '@type': 'Organization',
