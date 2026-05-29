@@ -16,6 +16,7 @@
  */
 
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
+import { STATE_HUB_SLUG_SET } from '@/data/stateHubData';
 
 const YEAR = CURRENT_EXAM_YEAR;
 
@@ -144,5 +145,6 @@ export function isDoorwayCoachingSlug(slug: string): boolean {
   if (!clean.includes('coaching-in-')) return false;
   if (INDEXABLE_CITY_SLUGS.has(clean)) return false;
   if (INDEXABLE_NATIONAL_COACHING_SLUGS.has(clean)) return false;
+  if (STATE_HUB_SLUG_SET.has(clean)) return false; // regional hubs are indexable
   return true;
 }

@@ -16,6 +16,7 @@ import { getExamInfoPage } from "@/data/examInfoData";
 import { getDifferencePair } from "@/data/differenceBetweenData";
 import { IMPORTANT_Q_SLUGS } from "@/views/ImportantQuestionsHub";
 import { getCounsellingPage } from "@/data/counsellingData";
+import { STATE_HUB_SLUG_SET } from "@/data/stateHubData";
 
 const SubjectPage = dynamic(() => import("@/views/SubjectPage"), { loading: () => <Spinner /> });
 const ChapterPage = dynamic(() => import("@/views/ChapterPage"), { loading: () => <Spinner /> });
@@ -28,6 +29,7 @@ const DifferenceBetweenPage = dynamic(() => import("@/views/DifferenceBetweenPag
 const RevisionNotesPage = dynamic(() => import("@/views/RevisionNotesPage"), { loading: () => <Spinner /> });
 const ImportantQuestionsHub = dynamic(() => import("@/views/ImportantQuestionsHub"), { loading: () => <Spinner /> });
 const CounsellingGuidePage = dynamic(() => import("@/views/CounsellingGuidePage"), { loading: () => <Spinner /> });
+const StateHubPage = dynamic(() => import("@/views/StateHubPage"), { loading: () => <Spinner /> });
 
 const Spinner = () => (
   <div className="min-h-screen bg-[hsl(225,43%,7%)] flex items-center justify-center">
@@ -35,7 +37,7 @@ const Spinner = () => (
   </div>
 );
 
-type PageKind = "subject" | "chapter" | "topic" | "formula" | "seo-landing" | "exam-info" | "difference" | "notes" | "important-q" | "counselling" | "question";
+type PageKind = "subject" | "chapter" | "topic" | "formula" | "seo-landing" | "exam-info" | "difference" | "notes" | "important-q" | "counselling" | "state-hub" | "question";
 
 function resolve(slug: string): PageKind {
   // Two-segment paths
@@ -45,6 +47,8 @@ function resolve(slug: string): PageKind {
     if (TOPIC_PATHS.includes(slug)) return "topic";
     return "question";
   }
+  // State regional hubs (e.g. jee-coaching-in-karnataka) — before generic city handling
+  if (STATE_HUB_SLUG_SET.has(slug)) return "state-hub";
   // One-segment — check static arrays first
   if (SUBJECT_SLUGS.includes(slug)) return "subject";
   if (FORMULA_SLUGS.includes(slug)) return "formula";
@@ -83,6 +87,8 @@ export default function CatchAllClient() {
       return <ImportantQuestionsHub />;
     case "counselling":
       return <CounsellingGuidePage />;
+    case "state-hub":
+      return <StateHubPage />;
     case "question":
       return <QuestionSlugRouter />;
   }

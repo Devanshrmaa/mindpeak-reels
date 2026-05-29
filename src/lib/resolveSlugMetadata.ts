@@ -31,6 +31,7 @@ import { resolveOgImageMeta } from '@/lib/ogImage';
 import { parseStudyGuideSlug, buildStudyGuide } from '@/lib/topicStudyGuides';
 import { isRemovedDoorwaySlug } from '@/lib/removedSlugs';
 import { INDEXABLE_CITY_META } from '@/lib/indexableCities';
+import { parseStateHubSlug } from '@/data/stateHubData';
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 import { getExamInfoPage } from '@/data/examInfoData';
 import { getDifferencePair } from '@/data/differenceBetweenData';
@@ -146,6 +147,36 @@ function _resolve(slugSegments: string[]): Metadata {
   const kind = resolveKind(slug);
   const canonical = `${BASE}/${slug}`;
   const og = resolveOgImageMeta(slug);
+
+  // State regional hubs — indexable, unique per-state metadata (recovery action #4).
+  const stateHub = parseStateHubSlug(slug);
+  if (stateHub) {
+    const { exam, hub } = stateHub;
+    const examFull = exam === 'JEE' ? 'JEE Main & Advanced' : 'NEET UG';
+    const colleges = (exam === 'JEE' ? hub.engColleges : hub.medColleges).slice(0, 2).join(' & ');
+    const title = `Best ${exam} Coaching in ${hub.state} ${YEAR} — 1-on-1 Online | MindPeak`;
+    const description = `1-on-1 online ${exam} coaching for ${hub.state} students. ${hub.board} to ${examFull} bridge, expert mentors, targeting ${colleges}. Book a free demo class.`.slice(0, 160);
+    return {
+      title,
+      description,
+      keywords: [
+        `${exam} coaching in ${hub.state}`,
+        `best ${exam} coaching ${hub.state}`,
+        `online ${exam} coaching ${hub.state}`,
+        `${exam} preparation ${hub.state}`,
+        'MindPeak Institute',
+      ],
+      alternates: { canonical, languages: { 'en-IN': canonical, 'x-default': canonical } },
+      openGraph: { ...og, url: canonical, title, description, locale: 'en_IN', type: 'website' },
+      twitter: { card: 'summary_large_image', title, description },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large', 'max-video-preview': -1 },
+      },
+      other: { 'geo.region': 'IN', 'geo.placename': hub.state },
+    };
+  }
 
   switch (kind) {
     /* ─── Subject Pages ─── */
