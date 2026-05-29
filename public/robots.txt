@@ -29,3 +29,9 @@ Disallow: /*?*
 
 # Sitemap (lean — ~370 high-quality URLs only)
 Sitemap: https://mindpeakinstitute.com/sitemap.xml
+
+# TEMPORARY removal sitemap — confirmed-indexed doorway URLs (serve HTTP 410)
+# listed with fresh lastmod to force a recrawl and accelerate de-indexing
+# (per Google/John Mueller's temporary-removal-sitemap guidance).
+# REMOVE this line once the doorway URLs have dropped from the index.
+Sitemap: https://mindpeakinstitute.com/removal-sitemap.xml
