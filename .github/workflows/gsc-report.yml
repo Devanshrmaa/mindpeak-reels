@@ -1,0 +1,55 @@
+name: GSC Recovery Monitor
+
+# Weekly Google Search Console pull → dated report in seo-reports/gsc/ +
+# a run summary. Requires repo secret GSC_SERVICE_ACCOUNT_JSON (the full
+# service-account JSON for an account with owner/full access on the property).
+# Manual Actions are NOT in the API — check that screen by hand.
+
+on:
+  schedule:
+    - cron: '0 6 * * 1' # every Monday 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gsc-report
+  cancel-in-progress: false
+
+jobs:
+  gsc-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Generate GSC report
+        if: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON != '' }}
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          GSC_SITE: ${{ vars.GSC_SITE || 'sc-domain:mindpeakinstitute.com' }}
+          GSC_ORIGIN: ${{ vars.GSC_ORIGIN || 'https://mindpeakinstitute.com' }}
+        run: node scripts/gsc-report.mjs
+
+      - name: Warn if secret missing
+        if: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON == '' }}
+        run: echo "::warning::GSC_SERVICE_ACCOUNT_JSON secret not set — skipping. Add it in repo Settings → Secrets → Actions."
+
+      - name: Commit report
+        if: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON != '' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add seo-reports/gsc/
+          if git diff --staged --quiet; then
+            echo "No new report to commit."
+          else
+            git commit -m "chore(gsc): weekly Search Console report [skip ci]"
+            git push
+          fi

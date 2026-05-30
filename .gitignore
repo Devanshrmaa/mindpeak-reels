@@ -26,3 +26,8 @@ seo-reports/outreach-sent.json
 
 # Claude Code local agent workspaces (transient worktrees / state)
 .claude/
+
+# Google service-account keys — NEVER commit (use the GSC_SERVICE_ACCOUNT_JSON secret)
+*gsc-sa*.json
+*service-account*.json
+gsc-key*.json
