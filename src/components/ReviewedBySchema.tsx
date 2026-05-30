@@ -41,10 +41,9 @@ function buildPersonSchema(author: Author) {
     '@type': 'Person' as const,
     name: author.name,
     jobTitle: author.credential,
-    alumniOf: {
-      '@type': 'EducationalOrganization' as const,
-      name: author.institution,
-    },
+    ...(author.institution
+      ? { alumniOf: { '@type': 'EducationalOrganization' as const, name: author.institution } }
+      : {}),
     worksFor: {
       '@type': 'Organization' as const,
       name: 'MindPeak Institute',

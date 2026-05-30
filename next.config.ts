@@ -39,8 +39,16 @@ const nextConfig: NextConfig = {
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
           { key: 'Last-Modified', value: new Date().toUTCString() },
-          /* Ensure no accidental noindex on HTML pages */
-          { key: 'X-Robots-Tag', value: 'index, follow' },
+          /*
+           * NOTE: no site-wide `X-Robots-Tag: index, follow` here.
+           * Indexing is Google's default, so the header added nothing for
+           * legitimate pages — but it was sent on EVERY URL, including the
+           * ~472 noindexed doorway pages, where it directly contradicted
+           * their `<meta robots noindex>` ("noindex in the meta + index in
+           * the header" is exactly the conflict Google warns slows
+           * de-indexing). Indexable pages now rely on the default; doorway
+           * pages get `X-Robots-Tag: noindex, follow` from proxy.ts.
+           */
         ],
       },
       {

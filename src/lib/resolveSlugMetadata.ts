@@ -30,6 +30,8 @@ import { chapters, getTopicInfo } from '@/data/chapterData';
 import { resolveOgImageMeta } from '@/lib/ogImage';
 import { parseStudyGuideSlug, buildStudyGuide } from '@/lib/topicStudyGuides';
 import { isRemovedDoorwaySlug } from '@/lib/removedSlugs';
+import { INDEXABLE_CITY_META } from '@/lib/indexableCities';
+import { parseStateHubSlug } from '@/data/stateHubData';
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 import { getExamInfoPage } from '@/data/examInfoData';
 import { getDifferencePair } from '@/data/differenceBetweenData';
@@ -40,102 +42,12 @@ const BASE = 'https://mindpeakinstitute.com';
 const YEAR = CURRENT_EXAM_YEAR;
 
 /**
- * Hand-curated T1 city pages that are safe to index.
- * Each entry has a unique title and description referencing city-specific
- * institutions, localities, and coaching landscape.
- * All 472 auto-generated expansion cities remain noindexed.
+ * Hand-curated T1 city pages that are safe to index live in
+ * `@/lib/indexableCities` — shared with `proxy.ts` so the indexable set
+ * stays identical between the rendered `<meta robots>` tag and the HTTP
+ * `X-Robots-Tag` header. All 472 auto-generated expansion cities and every
+ * subject-city combo remain noindexed.
  */
-const INDEXABLE_CITY_META: Record<string, { title: string; description: string }> = {
-  /* ── South India — Karnataka ── */
-  'jee-coaching-in-bangalore': {
-    title: `Best JEE Coaching in Bangalore ${YEAR} — 1-on-1 with IISc & IIT Alumni | MindPeak`,
-    description: `1-on-1 JEE coaching in Bangalore. IISc & IIT alumni mentors, KCET+JEE integrated prep. Students from Koramangala, Whitefield, HSR Layout. Book free demo class.`,
-  },
-  'neet-coaching-in-bangalore': {
-    title: `Best NEET Coaching in Bangalore ${YEAR} — 1-on-1 for KCET & NEET | MindPeak`,
-    description: `1-on-1 NEET coaching in Bangalore. KCET+NEET integrated, IISc alumni mentors. Students from Indiranagar, Jayanagar, JP Nagar. Target Ramaiah & BMCRI. Free demo.`,
-  },
-  'jee-coaching-in-mangalore': {
-    title: `Best JEE Coaching in Mangalore ${YEAR} — Gateway to NITK Surathkal | MindPeak`,
-    description: `1-on-1 JEE coaching in Mangalore. KCET+JEE integrated, Kannada support, no Bangalore travel. Students from Kadri, Surathkal, Bejai. Target NITK. Free demo.`,
-  },
-  'neet-coaching-in-mangalore': {
-    title: `Best NEET Coaching in Mangalore ${YEAR} — Kasturba Medical College Gateway | MindPeak`,
-    description: `1-on-1 NEET coaching in Mangalore. KCET+NEET integrated, Kannada support. Students from Kadri, Kankanady. Target Kasturba & Father Muller Medical. Free demo.`,
-  },
-
-  /* ── South India — Tamil Nadu ── */
-  'jee-coaching-in-chennai': {
-    title: `Best JEE Coaching in Chennai ${YEAR} — IIT Madras is in Your City | MindPeak`,
-    description: `1-on-1 JEE coaching in Chennai. TN Board-to-JEE transition specialists, IIT Madras alumni mentors. Students from T. Nagar, Adyar, Velachery. Free demo.`,
-  },
-  'neet-coaching-in-chennai': {
-    title: `Best NEET Coaching in Chennai ${YEAR} — Madras Medical College Aspirants | MindPeak`,
-    description: `1-on-1 NEET coaching in Chennai. TN Board-to-NEET specialists. Students from Tambaram, Anna Nagar, OMR. Target MMC & Stanley Medical. Free demo.`,
-  },
-  'jee-coaching-in-coimbatore': {
-    title: `Best JEE Coaching in Coimbatore ${YEAR} — Chennai-Level Coaching, No Relocation | MindPeak`,
-    description: `1-on-1 JEE coaching in Coimbatore. Chennai-quality, TN Board-to-JEE. Tamil mentors. Students from Peelamedu, RS Puram, Saravanampatti. Free demo.`,
-  },
-  'neet-coaching-in-coimbatore': {
-    title: `Best NEET Coaching in Coimbatore ${YEAR} — Top Mentors for TN NEET Students | MindPeak`,
-    description: `1-on-1 NEET coaching in Coimbatore. Amrita alumni mentors, TN Board+NEET integrated, Tamil support. Students from Gandhipuram, Vadavalli, Ukkadam. Free demo.`,
-  },
-
-  /* ── South India — Telangana / Andhra Pradesh ── */
-  'jee-coaching-in-hyderabad': {
-    title: `Best JEE Coaching in Hyderabad ${YEAR} — 1-on-1 vs Sri Chaitanya Batches | MindPeak`,
-    description: `1-on-1 JEE coaching in Hyderabad — not a 150-student batch. TS EAMCET+JEE integrated, Telugu support. Students from Gachibowli, Kukatpally. Free demo.`,
-  },
-  'neet-coaching-in-hyderabad': {
-    title: `Best NEET Coaching in Hyderabad ${YEAR} — 1-on-1 vs Corporate Colleges | MindPeak`,
-    description: `1-on-1 NEET coaching in Hyderabad. TS EAMCET+NEET dual prep, Telugu reports. Ameerpet, Madhapur, Kompally students. Target Osmania Medical. Free demo.`,
-  },
-  'jee-coaching-in-vijayawada': {
-    title: `Best JEE Coaching in Vijayawada ${YEAR} — 1-on-1 vs AP Corporate Colleges | MindPeak`,
-    description: `1-on-1 JEE coaching in Vijayawada. AP EAMCET+JEE integrated, Telugu support. Students from Governorpet, Benz Circle. No corporate batches. Free demo.`,
-  },
-  'neet-coaching-in-vijayawada': {
-    title: `Best NEET Coaching in Vijayawada ${YEAR} — 1-on-1 for AP NEET Aspirants | MindPeak`,
-    description: `1-on-1 NEET coaching in Vijayawada. AP EAMCET+NEET prep, Telugu reports. Students from Gandhinagar, Labbipet, Kanuru. Target Siddhartha Medical. Free demo.`,
-  },
-  'jee-coaching-in-visakhapatnam': {
-    title: `Best JEE Coaching in Visakhapatnam ${YEAR} — No Hyderabad Relocation Needed | MindPeak`,
-    description: `1-on-1 JEE coaching in Visakhapatnam. AP EAMCET+JEE, Telugu support. MVP Colony, Dwaraka Nagar, Madhurawada students. No Hyderabad relocation. Free demo.`,
-  },
-  'neet-coaching-in-visakhapatnam': {
-    title: `Best NEET Coaching in Visakhapatnam ${YEAR} — 1-on-1 for Vizag NEET Aspirants | MindPeak`,
-    description: `1-on-1 NEET coaching in Visakhapatnam. AP EAMCET+NEET, Telugu support. Rushikonda, Seethammadhara, Gajuwaka students. Target Andhra Medical. Free demo.`,
-  },
-
-  /* ── South India — Kerala ── */
-  'jee-coaching-in-kochi': {
-    title: `Best JEE Coaching in Kochi ${YEAR} — 1-on-1 for Kerala's JEE Aspirants | MindPeak`,
-    description: `1-on-1 JEE coaching in Kochi. KEAM+JEE integrated, Malayalam support. Kerala foundations leveraged for JEE. Ernakulam, Edappally students. Free demo.`,
-  },
-  'neet-coaching-in-kochi': {
-    title: `Best NEET Coaching in Kochi ${YEAR} — Kerala's NEET Strategy Gap Solved | MindPeak`,
-    description: `1-on-1 NEET coaching in Kochi. Kerala board MCQ gap bridged by 1-on-1 mentors. KEAM+NEET integrated, Malayalam support. Ernakulam, Aluva students. Free demo.`,
-  },
-
-  /* ── Pan-India T1 anchors ── */
-  'jee-coaching-in-delhi': {
-    title: `Best JEE Coaching in Delhi ${YEAR} — 1-on-1 Online, No Kota Relocation | MindPeak`,
-    description: `1-on-1 JEE coaching in Delhi. IIT alumni mentors, CBSE-integrated. Study from Dwarka, Rohini, Noida — no Kota relocation. Book free demo.`,
-  },
-  'neet-coaching-in-delhi': {
-    title: `Best NEET Coaching in Delhi ${YEAR} — AIIMS Delhi Aspirants | MindPeak`,
-    description: `1-on-1 NEET coaching in Delhi. AIIMS alumni mentors, CBSE integrated. AIIMS Delhi is in your city. Students from South Delhi, Dwarka, Rohini. Free demo.`,
-  },
-  'jee-coaching-in-mumbai': {
-    title: `Best JEE Coaching in Mumbai ${YEAR} — No 3-Hour Local Train Commutes | MindPeak`,
-    description: `1-on-1 JEE coaching in Mumbai. No 3-hour local train commutes — study from Andheri, Thane, Navi Mumbai. MHT-CET+JEE integrated, IIT alumni mentors. Free demo.`,
-  },
-  'neet-coaching-in-mumbai': {
-    title: `Best NEET Coaching in Mumbai ${YEAR} — 1-on-1 for Maharashtra NEET Aspirants | MindPeak`,
-    description: `1-on-1 NEET coaching in Mumbai. MHT-CET+NEET integrated, MH board expertise. Students from Thane, Andheri, Navi Mumbai. No local train commutes. Free demo.`,
-  },
-};
 
 /**
  * Pattern-level check: does this slug match ANY known page type?
@@ -235,6 +147,36 @@ function _resolve(slugSegments: string[]): Metadata {
   const kind = resolveKind(slug);
   const canonical = `${BASE}/${slug}`;
   const og = resolveOgImageMeta(slug);
+
+  // State regional hubs — indexable, unique per-state metadata (recovery action #4).
+  const stateHub = parseStateHubSlug(slug);
+  if (stateHub) {
+    const { exam, hub } = stateHub;
+    const examFull = exam === 'JEE' ? 'JEE Main & Advanced' : 'NEET UG';
+    const colleges = (exam === 'JEE' ? hub.engColleges : hub.medColleges).slice(0, 2).join(' & ');
+    const title = `Best ${exam} Coaching in ${hub.state} ${YEAR} — 1-on-1 Online | MindPeak`;
+    const description = `1-on-1 online ${exam} coaching for ${hub.state} students. ${hub.board} to ${examFull} bridge, expert mentors, targeting ${colleges}. Book a free demo class.`.slice(0, 160);
+    return {
+      title,
+      description,
+      keywords: [
+        `${exam} coaching in ${hub.state}`,
+        `best ${exam} coaching ${hub.state}`,
+        `online ${exam} coaching ${hub.state}`,
+        `${exam} preparation ${hub.state}`,
+        'MindPeak Institute',
+      ],
+      alternates: { canonical, languages: { 'en-IN': canonical, 'x-default': canonical } },
+      openGraph: { ...og, url: canonical, title, description, locale: 'en_IN', type: 'website' },
+      twitter: { card: 'summary_large_image', title, description },
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large', 'max-video-preview': -1 },
+      },
+      other: { 'geo.region': 'IN', 'geo.placename': hub.state },
+    };
+  }
 
   switch (kind) {
     /* ─── Subject Pages ─── */

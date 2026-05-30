@@ -7,6 +7,8 @@ import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 import { motion } from 'framer-motion';
 import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
+import { getAuthorForSubject, buildAuthorPersonLd } from '@/data/authorData';
+import ContentByline from '@/components/ContentByline';
 import { PageFooter } from '@/components/PageFooter';
 import { PageFAQ, buildFAQSchema } from '@/components/PageFAQ';
 import type { FAQItem } from '@/components/PageFAQ';
@@ -565,6 +567,9 @@ const SubjectPage = () => {
 
   const Icon = data.icon;
 
+  /* Subject-expert faculty for this subject (E-E-A-T). */
+  const author = getAuthorForSubject(data.exam, data.subject, data.slug);
+
   /* schemas */
   const courseSchema = {
     '@context': 'https://schema.org',
@@ -573,7 +578,11 @@ const SubjectPage = () => {
     description: data.description,
     provider: { '@type': 'EducationalOrganization', name: 'MindPeak Institute', url: 'https://mindpeakinstitute.com' },
     offers: { '@type': 'Offer', price: '100000', priceCurrency: 'INR', availability: 'https://schema.org/InStock' },
-    hasCourseInstance: { '@type': 'CourseInstance', courseMode: 'online' },
+    hasCourseInstance: {
+      '@type': 'CourseInstance',
+      courseMode: 'online',
+      instructor: buildAuthorPersonLd(author),
+    },
   };
 
   const breadcrumbSchema = {
@@ -625,7 +634,9 @@ const SubjectPage = () => {
               <span className="text-gradient-gold">{data.heroHighlight}</span>
             </h1>
 
-            <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mx-auto mb-6 sm:mb-8">{data.heroParagraph}</p>
+            <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mx-auto mb-4">{data.heroParagraph}</p>
+
+            <ContentByline author={author} className="mb-6 sm:mb-8" />
 
             <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
               <button onClick={openDemoModal} className="w-full sm:w-auto px-6 sm:px-10 py-3.5 sm:py-4 bg-primary text-primary-foreground font-display font-bold text-xs sm:text-sm uppercase tracking-[0.1em] sm:tracking-[0.15em] shadow-gold-glow hover:scale-105 transition-transform text-center">

@@ -20,6 +20,8 @@ import {
 } from 'lucide-react';
 const logo = '/images/logo.jpeg';
 import { getChapterBySlug, chapters, CHAPTER_SLUGS, topicToSlug } from '@/data/chapterData';
+import { getAuthorForSubject, buildAuthorPersonLd } from '@/data/authorData';
+import ContentByline from '@/components/ContentByline';
 import { getLastUpdated } from '@/lib/contentFreshness';
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 import type { ChapterData } from '@/data/chapterData';
@@ -113,12 +115,16 @@ const ChapterPage = () => {
 
   const prepSubjectSlug = `${chapter.exam.toLowerCase()}-${chapter.subject.toLowerCase()}-preparation`;
 
+  // Subject-expert author/reviewer for this chapter (E-E-A-T).
+  const author = getAuthorForSubject(chapter.exam, chapter.subject, chapter.slug);
+
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: pageTitle,
     description: pageDesc,
-    author: { '@type': 'Organization', name: 'MindPeak Institute' },
+    author: buildAuthorPersonLd(author),
+    reviewedBy: buildAuthorPersonLd(author),
     publisher: {
       '@type': 'Organization',
       name: 'MindPeak Institute',
@@ -254,9 +260,11 @@ const ChapterPage = () => {
                 <span className="text-gradient-gold"> — Complete Preparation Guide</span>
               </h1>
 
-              <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mx-auto mb-8">
+              <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mx-auto mb-4">
                 {chapter.description}
               </p>
+
+              <ContentByline author={author} className="mb-8" />
 
               {/* Stats */}
               <div className="flex flex-wrap items-center justify-center gap-3 mb-8">

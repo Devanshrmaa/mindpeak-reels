@@ -31,6 +31,9 @@ export const REMOVED_DOORWAY_SLUGS: ReadonlySet<string> = new Set([
   'jee-physics-coaching-in-dharamshala',
   'neet-physics-coaching-in-hsr-layout',
   'jee-physics-coaching-in-nawada',
+
+  /* Week 3 (2026-05-28) — newly confirmed indexed via live site: search */
+  'jee-coaching-in-andheri', // Mumbai sub-locality doorway, was on no prior list
 ]);
 
 export function isRemovedDoorwaySlug(slug: string): boolean {

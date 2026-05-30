@@ -15,6 +15,7 @@ import { getAllDifferenceSlugs } from '@/data/differenceBetweenData';
 import { getAllCounsellingSlugs } from '@/data/counsellingData';
 import { getAllExamEventBlogSlugs } from '@/lib/examEventBlogs';
 import { ONE_YEAR_TARGET, TWO_YEAR_TARGET } from '@/lib/examYears';
+import { STATE_HUB_SLUGS } from '@/data/stateHubData';
 
 const IMPORTANT_Q_SLUGS = [
   'jee-physics-important-questions',
@@ -128,6 +129,9 @@ export async function GET() {
     '/jee-coaching-in-mumbai', '/neet-coaching-in-mumbai',
   ];
 
+  // Regional state hubs (indexable consolidation targets) — both exams.
+  const STATE_HUB_PAGES = STATE_HUB_SLUGS.map((s) => `/${s}`);
+
   /*
    * REMOVED from sitemap (noindexed or redirected):
    * - Location pages (~640 remaining) → noindexed, canonical → /best-jee-coaching-in-india
@@ -164,6 +168,7 @@ export async function GET() {
     importantQ: importantQSlugs.length,
     counselling: counsellingSlugs.length,
     cities: CITY_PAGES.length,
+    stateHubs: STATE_HUB_PAGES.length,
   };
   const total = Object.values(counts).reduce((a, b) => a + b, 0);
 
@@ -192,6 +197,7 @@ export async function GET() {
 
   // T1 city coaching pages — high commercial intent, genuinely unique content
   for (const p of CITY_PAGES) lines.push(urlEntry(p, '0.85', 'monthly', staggeredLastmod(p, now)));
+  for (const p of STATE_HUB_PAGES) lines.push(urlEntry(p, '0.80', 'monthly', staggeredLastmod(p, now)));
 
   lines.push('</urlset>');
 

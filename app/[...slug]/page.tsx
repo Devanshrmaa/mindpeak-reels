@@ -15,6 +15,7 @@ import type { Metadata } from "next";
 import { notFound, permanentRedirect } from "next/navigation";
 import { resolveSlugMetadata, isKnownSlug } from "@/lib/resolveSlugMetadata";
 import { buildCityJsonLd, buildCityServerContent } from "@/lib/cityJsonLd";
+import { parseStateHubSlug } from "@/data/stateHubData";
 import CatchAllClient from "./CatchAllClient";
 
 interface Props {
@@ -38,6 +39,7 @@ export async function generateStaticParams() {
   const { FORMULA_SLUGS } = await import("@/data/formulaSheetData");
   const { getAllExamInfoSlugs } = await import("@/data/examInfoData");
   const { getAllDifferenceSlugs } = await import("@/data/differenceBetweenData");
+  const { STATE_HUB_SLUGS } = await import("@/data/stateHubData");
 
   const EXAM_INFO_SLUGS = getAllExamInfoSlugs();
   const DIFFERENCE_SLUGS = getAllDifferenceSlugs();
@@ -77,6 +79,7 @@ export async function generateStaticParams() {
     ...EXAM_INFO_SLUGS,
     ...DIFFERENCE_SLUGS,
     ...IMPORTANT_Q_SLUGS,
+    ...STATE_HUB_SLUGS,
   ];
 
   const unique = [...new Set(staticSlugs)];
@@ -129,6 +132,7 @@ export default async function CatchAllPage({ params }: Props) {
   const content = buildServerContent(slug);
   const cityJsonLd = buildCityJsonLd(full);
   const cityContent = buildCityServerContent(full);
+  const stateHub = parseStateHubSlug(full);
 
   return (
     <>
@@ -146,7 +150,37 @@ export default async function CatchAllPage({ params }: Props) {
         aria-hidden="true"
         suppressHydrationWarning
       >
-        {cityContent ? (
+        {stateHub ? (
+          (() => {
+            const { exam, hub } = stateHub;
+            const isJEE = exam === 'JEE';
+            const colleges = isJEE ? hub.engColleges : hub.medColleges;
+            const examRoute = isJEE ? hub.engExam : hub.medRoute;
+            const examFull = isJEE ? 'JEE Main & Advanced' : 'NEET UG';
+            return (
+              <>
+                <h1>Best {exam} Coaching in {hub.state}</h1>
+                <p>{isJEE ? hub.jeeIntro : hub.neetIntro}</p>
+                <section>
+                  <h2>{exam} prep built for {hub.state} students</h2>
+                  <p>From the {hub.board} syllabus to {examFull}, with {examRoute} handled in one 1-on-1 plan.</p>
+                </section>
+                <section>
+                  <h2>Colleges {hub.state} students target</h2>
+                  <ul>{colleges.map((c, i) => <li key={i}>{c}</li>)}</ul>
+                </section>
+                <section>
+                  <h2>Serving students across {hub.state}</h2>
+                  <p>{hub.cities.join(', ')}</p>
+                </section>
+                <section>
+                  <h2>Frequently asked questions</h2>
+                  <dl>{hub.faqs.map((f, i) => (<div key={i}><dt>{f.q}</dt><dd>{f.a}</dd></div>))}</dl>
+                </section>
+              </>
+            );
+          })()
+        ) : cityContent ? (
           <>
             <nav aria-label="Breadcrumb">
               <ol>
