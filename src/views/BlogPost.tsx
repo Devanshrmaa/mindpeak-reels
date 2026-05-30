@@ -304,6 +304,17 @@ const BlogPost = () => {
           </div>
         </article>
 
+        {/* Mentor Attribution */}
+        <section className="max-w-3xl mx-auto px-6 py-8 border-t border-border">
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            This article was written and reviewed by{' '}
+            <Link to="/mentors" className="text-primary hover:underline font-semibold">
+              MindPeak&rsquo;s expert JEE &amp; NEET mentors
+            </Link>
+            {' '}— IIT and AIIMS alumni with 8–12 years of coaching experience. Every piece of advice here reflects real classroom experience helping students reach their target ranks.
+          </p>
+        </section>
+
         {/* Related Posts */}
         {relatedPosts.length > 0 && (
           <section className="bg-secondary/30 border-y border-border py-16 px-6">

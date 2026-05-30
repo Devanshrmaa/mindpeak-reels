@@ -184,9 +184,23 @@ const FreeTrial = () => {
                     <CheckCircle className="w-16 h-16 text-primary mx-auto mb-6" />
                     <h2 className="font-display font-bold text-foreground text-2xl mb-3">You&rsquo;re All Set!</h2>
                     <p className="text-muted-foreground mb-6">Our counselor will call you within 24 hours to schedule your free trial class.</p>
-                    <Link to="/" className="px-8 py-3 bg-primary text-primary-foreground font-display font-bold text-sm rounded-lg hover:scale-105 transition-transform inline-block">
-                      Back to Home
+                    <Link to="/courses" className="px-8 py-3 bg-primary text-primary-foreground font-display font-bold text-sm rounded-lg hover:scale-105 transition-transform inline-block">
+                      Explore our JEE &amp; NEET coaching programs
                     </Link>
+                    <div className="mt-6 flex flex-wrap justify-center gap-3">
+                      {[
+                        { href: '/jee-coaching', label: 'JEE Coaching' },
+                        { href: '/neet-coaching', label: 'NEET Coaching' },
+                        { href: '/mentors', label: 'Meet our mentors' },
+                        { href: '/pricing', label: 'View pricing plans' },
+                        { href: '/methodology', label: 'Our methodology' },
+                      ].map(({ href, label }) => (
+                        <Link key={href} to={href}
+                          className="px-3 py-1.5 rounded-lg border border-border text-xs text-muted-foreground hover:border-primary hover:text-primary transition-colors">
+                          {label}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 ) : (
                   <>

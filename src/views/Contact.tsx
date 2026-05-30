@@ -277,6 +277,27 @@ const Contact = () => {
           </div>
         </section>
 
+        {/* ───── EXPLORE MORE ───── */}
+        <section className="max-w-5xl mx-auto px-6 py-12 border-t border-border">
+          <p className="text-xs text-muted-foreground uppercase tracking-widest mb-6 font-semibold">Explore Further</p>
+          <div className="flex flex-wrap gap-3">
+            {[
+              { href: '/courses', label: 'Browse all JEE & NEET coaching programs' },
+              { href: '/jee-coaching', label: 'JEE Coaching details & curriculum' },
+              { href: '/neet-coaching', label: 'NEET Coaching details & curriculum' },
+              { href: '/mentors', label: 'Meet our IIT & AIIMS alumni mentors' },
+              { href: '/pricing', label: 'View coaching fees & plans' },
+              { href: '/blog', label: 'Free JEE & NEET preparation guides' },
+              { href: '/free-trial', label: 'Book a free 1-on-1 trial class' },
+            ].map(({ href, label }) => (
+              <Link key={href} to={href}
+                className="px-4 py-2 rounded-lg border border-border text-sm text-foreground hover:border-primary hover:text-primary transition-colors">
+                {label}
+              </Link>
+            ))}
+          </div>
+        </section>
+
         <PageFooter />
       </main>
     </>
