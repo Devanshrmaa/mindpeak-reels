@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { REMOVED_DOORWAY_SLUGS } from '@/lib/removedSlugs';
 import { isDoorwayCoachingSlug } from '@/lib/indexableCities';
+import { getCityConsolidation, getSubjectCityRedirect } from '@/data/cityConsolidation';
 
 /**
  * Request proxy (Next.js 16 `proxy.ts` convention — formerly middleware).
@@ -44,23 +45,47 @@ const GONE_BODY = `<!doctype html>
 </body>
 </html>`;
 
+function gone() {
+  return new NextResponse(GONE_BODY, {
+    status: 410,
+    headers: {
+      'Content-Type': 'text/html; charset=utf-8',
+      'X-Robots-Tag': 'noindex, nofollow',
+      'Cache-Control': 'public, max-age=3600, s-maxage=86400',
+    },
+  });
+}
+
 export function proxy(request: NextRequest) {
   const slug = request.nextUrl.pathname.replace(/^\/+|\/+$/g, '');
 
-  // 1. Confirmed-dead doorways → 410 Gone (fastest de-index signal).
-  if (REMOVED_DOORWAY_SLUGS.has(slug)) {
-    return new NextResponse(GONE_BODY, {
-      status: 410,
-      headers: {
-        'Content-Type': 'text/html; charset=utf-8',
-        'X-Robots-Tag': 'noindex, nofollow',
-        'Cache-Control': 'public, max-age=3600, s-maxage=86400',
-      },
-    });
+  // 1. Subject-city doorways (e.g. /jee-physics-coaching-in-jaipur) →
+  //    301 to the genuine subject-intent page.
+  const subjectTarget = getSubjectCityRedirect(slug);
+  if (subjectTarget) {
+    return NextResponse.redirect(new URL(subjectTarget, request.url), 301);
   }
 
-  // 2. Every other doorway coaching page → header-level noindex so Google
-  //    can drop it without rendering the HTML.
+  // 2. City consolidation: 301 into a live regional hub / metro keeper,
+  //    410 foreign cities, or 'keep' (indexable hub/keeper → fall through).
+  const con = getCityConsolidation(slug);
+  if (con) {
+    if (con.action === '301') {
+      return NextResponse.redirect(new URL(con.target, request.url), 301);
+    }
+    if (con.action === '410') {
+      return gone();
+    }
+    // 'keep' → fall through to NextResponse.next() (indexable)
+  }
+
+  // 3. Confirmed-dead doorways not covered above → 410 Gone.
+  if (REMOVED_DOORWAY_SLUGS.has(slug)) {
+    return gone();
+  }
+
+  // 4. Remaining doorway coaching pages (e.g. cities in states without a hub
+  //    yet) → header-level noindex so Google can drop them without rendering.
   if (isDoorwayCoachingSlug(slug)) {
     const res = NextResponse.next();
     res.headers.set('X-Robots-Tag', 'noindex, follow');
