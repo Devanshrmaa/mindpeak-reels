@@ -468,6 +468,7 @@ const NEETCoaching = () => {
                 { label: 'NEET Coaching in Delhi', to: '/neet-coaching-in-delhi' },
                 { label: 'NEET Coaching in Mumbai', to: '/neet-coaching-in-mumbai' },
                 { label: 'NEET Coaching in Bangalore', to: '/neet-coaching-in-bangalore' },
+                { label: 'NEET UG 2026 Cancellation — What It Means for You', to: '/neet-ug-2026-cancelled' },
                 { label: 'Blog — NEET Tips', to: '/blog' },
               ].map((l) => (
                 <Link key={l.to} to={l.to} className="px-4 py-2.5 rounded-full border border-foreground/[0.06] bg-foreground/[0.02] text-foreground/70 text-[11px] tracking-[0.05em] hover:border-primary/15 hover:text-foreground transition-all duration-400 flex items-center gap-1.5">
