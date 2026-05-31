@@ -6,15 +6,32 @@ import { CURRENT_EXAM_YEAR } from "@/lib/examYears";
 /** Fully static — no data fetching. Content only changes on deploy. */
 export const revalidate = false;
 
+const _ogImage = "https://mindpeakinstitute.com/images/og/coaching.jpg";
+
 export const metadata: Metadata = {
   title: `Personalized JEE & NEET Coaching Online — 1-on-1 | MindPeak`,
-  description: `Crack JEE/NEET ${CURRENT_EXAM_YEAR} with personal 1-on-1 mentors from IIT/NIT. Adaptive study plan, 95% success rate, 500+ students. Book your free demo class today — zero commitment.`,
+  description: `Crack JEE/NEET ${CURRENT_EXAM_YEAR} with dedicated 1-on-1 mentors from IIT & AIIMS. Adaptive study plan, 95% success rate, 500+ students. Book a free demo today.`,
   alternates: {
     canonical: "https://mindpeakinstitute.com/",
     languages: {
       "en-IN": "https://mindpeakinstitute.com/",
       "x-default": "https://mindpeakinstitute.com/",
     },
+  },
+  openGraph: {
+    title: "Get 1-on-1 JEE & NEET Coaching — MindPeak Institute",
+    description: `Personalized coaching from IIT & AIIMS mentors. 95% success rate, AIR 42 in JEE Advanced. Book your free demo class today — zero commitment.`,
+    url: "https://mindpeakinstitute.com/",
+    siteName: "MindPeak Institute",
+    type: "website",
+    locale: "en_IN",
+    images: [{ url: _ogImage, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Get 1-on-1 JEE & NEET Coaching — MindPeak Institute",
+    description: "Personalized coaching from IIT & AIIMS mentors. 95% success rate, AIR 42. Book your free demo today.",
+    images: [_ogImage],
   },
 };
 
