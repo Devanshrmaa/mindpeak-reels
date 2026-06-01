@@ -1,5 +1,5 @@
 # MindPeak Institute — Outreach Tracker
-**Last Updated:** 2026-05-20  
+**Last Updated:** 2026-06-01  
 **Site:** mindpeakinstitute.com  
 **MSME:** UDYAM-HP-04-0042530
 
@@ -49,6 +49,15 @@
 | 36 | 2026-05-20 | brandempower.org | brandempower.org/education-awards.htm + education-leaders-awards.htm | Award Nomination — Education Awards 2026 + Education Leaders Awards 2026 (national + Chandigarh regional) | Via nomination form on site | ❌ | — | NOT STARTED |
 | 37 | 2026-05-20 | emerginghimachal.hp.gov.in | emerginghimachal.hp.gov.in/startup/home/register/ | HP Govt Startup Registration — self-serve portal; use UDYAM-HP-04-0042530 as credential; backlink from govt domain DA ~65+ | startuphimachal@gmail.com (helpdesk) | ❌ | — | NOT STARTED |
 | 38 | 2026-05-20 | wellfound.com | wellfound.com/startups/location/himachal-pradesh | Startup Directory Profile — free company listing on HP startups page; DA ~80 | wellfound.com self-register (free) | ❌ | — | NOT STARTED |
+| 39 | 2026-06-01 | studynation.in | studynation.in/online-physics-tutor-job | Tutor Directory Profile (FREE) — 1-on-1 physics tutor listing; IIT-alumni focus; exact match for Devansh's positioning; free self-register | studynation.in self-register (free) | ❌ | — | NOT STARTED |
+| 40 | 2026-06-01 | ksquareinstitute.in | ksquareinstitute.in/blog/neet-online-coaching/ + /neet-online-coaching-features/ | Listicle Inclusion — "Top NEET Online Coaching Platforms 2026" + "NEET Coaching Features" (2 articles, same contact) | ksquareinstitute.in contact form | ❌ | — | NOT STARTED |
+| 41 | 2026-06-01 | cucetexam.in | cucetexam.in/write-for-us/ | Guest Post — accepts JEE/NEET education topics, 1000+ words, info@cucetexam.in | info@cucetexam.in | ❌ | — | NOT STARTED |
+| 42 | 2026-06-01 | mtg.in/blog | blog.mtg.in/write-for-us/ | Guest Post (🔥 HIGH PRIORITY) — 90K+ monthly blog visitors, India's top JEE/NEET study brand; accepts practical preparation articles | blog.mtg.in/write-for-us/ contact form | ❌ | — | NOT STARTED |
+| 43 | 2026-06-01 | academycheck.com (×5 new articles) | academycheck.com/blog/top-5-jee-coaching-institutes-in-india-based-on-online-education-2026 + /top-5-neet-coaching-institutes-in-india-based-on-online-education-2026 + /top-5-jee-advanced-coaching-institutes-in-india-based-on-air-2025 + /top-5-jee-main-coaching-institutes-in-india-based-on-air-2025 + /india-top-5-jee-coaching-institute | Listicle Inclusion ×5 new articles (supplement to #3/#4) — same contact: Harish Kumawat, 08062179896 | Harish Kumawat — 08062179896 (same as #3) | ❌ | — | NOT STARTED |
+| 44 | 2026-06-01 | cosmosiq.ai | cosmosiq.ai/blog/best-edtech-startups-india-2026 | Listicle Inclusion — "Best EdTech Startups India 2026 — Top 20 Companies"; MSME + HP startup angle | cosmosiq.ai contact page | ❌ | — | NOT STARTED |
+| 45 | 2026-06-01 | sikarcoachings.com | sikarcoachings.com/best-jee-coaching-institutes-in-india/ | Listicle Inclusion — "Best IIT JEE Coaching in India 2026 – Top 10 Institutes" | sikarcoachings.com contact form | ❌ | — | NOT STARTED |
+| 46 | 2026-06-01 | ijltemas.in | ijltemas.in/blogs/write-for-us-education/ | Guest Post — Education Write for Us; accepts coaching, career, exam topics | Via Write for Us form | ❌ | — | NOT STARTED |
+| 47 | 2026-06-01 | gyaanarth.com | gyaanarth.com/write-for-us/ | Guest Post — Education, career, courses, India-focused blog | gyaanarth.com/write-for-us/ contact | ❌ | — | NOT STARTED |
 
 ---
 
@@ -69,6 +78,18 @@
 ---
 
 ## Notes & Strategy Log
+
+### 2026-06-01 — Week 4 Audit + 9 New Targets Added (#39–47)
+
+- **Zero backlinks for fourth consecutive audit. Zero outreach sent across 22 days.**
+- **9 new targets added (#39–47):** studynation.in (free tutor profile), ksquareinstitute.in (NEET list ×2 articles), cucetexam.in (guest post), mtg.in/blog (guest post — 90K+ monthly visitors, 🔥 HIGHEST new priority), academycheck.com ×5 new articles (now 7 total articles, same contact as #3), cosmosiq.ai (EdTech startups list), sikarcoachings.com (national JEE list), ijltemas.in (guest post), gyaanarth.com (guest post)
+- **MTG Blog (#42) is the highest-priority new target:** 90K+ monthly visitors, India's top JEE/NEET brand, actively accepting guest posts — a published article here would be the most authoritative education backlink available
+- **AcademyCheck now has 7 relevant articles** (up from 2 in May 14 tracker) — single email #1 to Harish Kumawat (08062179896) covers all 7; this call/email is 22 days overdue
+- **StudyNation.in (#39):** Free self-serve tutor profile, specifically for 1-on-1 IIT-alumni physics tutors — exact match for Devansh; completable in 20 minutes
+- **Emails #18–22 pre-written** in `/seo-reports/backlinks-2026-06-01.md`
+- **Quora still not started (week 4):** becoming critical — brand building + nofollow traffic
+- **Google Alerts:** still not set up — 22 days overdue from May 14
+- Total pipeline: 47 targets (38 carryover + 9 new), 0 executed
 
 ### 2026-05-20 — Week 3 Audit + 10 New Targets Added
 
@@ -103,13 +124,15 @@
 
 ## Weekly Targets
 
-| Week | Target New Links | Outreach Emails | Priority |
-|---|---|---|---|
-| May 12–18, 2026 | 0 → 3 | Send #1, #2, #8, #11 (new), #27 (UrbanPro — self-serve) | **MISSED — zero sent** |
-| May 19–25, 2026 | 0 → 5 | **URGENT CATCHUP:** Self-serve: UrbanPro (#27), HP Startup (#37), Wellfound (#38). Email: #2 CollegeDekho, #8 CollegeDunia, #13 OriginEducare, #1 AcademyCheck, #14 Notesly, #4 FutureTopper | Clear backlog — minimum 3 self-serve + 3 emails this week |
-| May 26 – Jun 1, 2026 | 5 → 10 | Follow up #2/#8/#13/#14; send #9, #10, #6, #15, #16, #17 | PhysicsPoint + Giraffe + Awards + BestPhysicsTeacher + GauravTiwari + BrandEmpower |
-| Jun 2–8, 2026 | 10 → 15 | Send #7, #11, #12, #5; follow up all first-week emails | ExamCharcha guest post + SCNWire PR + BlogAndJournal + Colleges18 |
-| Jun 9–15, 2026 | 15 → 20 | Start Careers360 + Shiksha; follow up all pending | Critical: chase Shiksha partner portal + Careers360 editorial |
+| Week | Target New Links | Outreach Emails | Priority | Status |
+|---|---|---|---|---|
+| May 12–18, 2026 | 0 → 3 | Send #1, #2, #8, #11, #27 (UrbanPro — self-serve) | — | **MISSED — zero sent** |
+| May 19–25, 2026 | 0 → 5 | Self-serve: UrbanPro, HP Startup, Wellfound. Email: #2, #8, #13, #1, #14, #4 | — | **MISSED — zero sent** |
+| May 26 – Jun 1, 2026 | 5 → 10 | Follow up #2/#8/#13/#14; send #9, #10, #6, #15, #16, #17 | — | **MISSED — zero sent** |
+| **Jun 1–7, 2026** | **0 → 5** | **EMERGENCY CATCHUP:** Self-serve all 5 profiles (#27/#37/#38/#39/#23). Email: #2 (CollegeDekho), #8 (CollegeDunia), #13 (OriginEducare), #18 (MTG Blog), #21 (CosmosIQ) | 🔥 CRITICAL | NOT STARTED |
+| Jun 8–14, 2026 | 5 → 10 | Follow up #2/#8/#13; send #1 (AcademyCheck — all 7 articles), #14 (Notesly), #4 (FutureTopper), #19 (KSquare) | HIGH | NOT STARTED |
+| Jun 15–21, 2026 | 10 → 15 | Follow up all first-wave; send #15, #17, #11, #7, #20 (CucetExam), #22 (Sikar) | MEDIUM | NOT STARTED |
+| Jun 22–30, 2026 | 15 → 20 | Send remaining #5, #9, #10, #12, #6, #16; chase Shiksha/Careers360 | MEDIUM | NOT STARTED |
 
 ## Quora Strategy (Ongoing — Not Tracked as Outreach)
 
