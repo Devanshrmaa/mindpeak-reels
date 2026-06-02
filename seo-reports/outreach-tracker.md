@@ -1,5 +1,5 @@
 # MindPeak Institute — Outreach Tracker
-**Last Updated:** 2026-05-20  
+**Last Updated:** 2026-06-02  
 **Site:** mindpeakinstitute.com  
 **MSME:** UDYAM-HP-04-0042530
 
@@ -49,6 +49,15 @@
 | 36 | 2026-05-20 | brandempower.org | brandempower.org/education-awards.htm + education-leaders-awards.htm | Award Nomination — Education Awards 2026 + Education Leaders Awards 2026 (national + Chandigarh regional) | Via nomination form on site | ❌ | — | NOT STARTED |
 | 37 | 2026-05-20 | emerginghimachal.hp.gov.in | emerginghimachal.hp.gov.in/startup/home/register/ | HP Govt Startup Registration — self-serve portal; use UDYAM-HP-04-0042530 as credential; backlink from govt domain DA ~65+ | startuphimachal@gmail.com (helpdesk) | ❌ | — | NOT STARTED |
 | 38 | 2026-05-20 | wellfound.com | wellfound.com/startups/location/himachal-pradesh | Startup Directory Profile — free company listing on HP startups page; DA ~80 | wellfound.com self-register (free) | ❌ | — | NOT STARTED |
+| 39 | 2026-06-02 | supertutor.in | supertutor.in/resources/blog/best-coaching-for-jee/ | Listicle Inclusion — "Best Coaching for JEE 2026 in India — Honest Comparison" | supertutor.in contact page | ❌ | — | NOT STARTED |
+| 40 | 2026-06-02 | supertutor.in | supertutor.in/resources/blog/best-coaching-for-neet/ | Listicle Inclusion — "Best Coaching for NEET 2026 in India — Honest Comparison" (same email as #39) | supertutor.in contact page | ❌ | — | NOT STARTED |
+| 41 | 2026-06-02 | exambazaar.com | exambazaar.com | Directory Listing — "largest coaching admission & discovery website in India"; 400+ cities, 50+ exams | exambazaar.com contact/partner page | ❌ | — | NOT STARTED |
+| 42 | 2026-06-02 | pieawards.in | pieawards.in | FREE Award Nomination — "Best Tutorial Classes for Higher & Senior Secondary Grades" category; zero fee; nomination form on site | pieawards.in nomination form (self-serve, 10 min) | ❌ | — | NOT STARTED |
+| 43 | 2026-06-02 | sarkariresultexams.com | sarkariresultexams.com/write-for-us/ | Guest Post — education/coaching India; 24-hour response turnaround | info@sarkariresultexams.com | ❌ | — | NOT STARTED |
+| 44 | 2026-06-02 | ezyschooling.com | ezyschooling.com/parenting/expert/guest-post-write-for-us | Guest Post — parenting + education angle; "What Parents Need to Know About JEE Online Coaching" | ezyschooling.com contact form | ❌ | — | NOT STARTED |
+| 45 | 2026-06-02 | sikarcoachings.com | sikarcoachings.com/best-jee-coaching-institutes-in-india/ + /which-coaching-is-best-for-iit-jee-droppers/ | Listicle Inclusion — "Best IIT JEE Coaching India 2026" + "Best for JEE Droppers" (two articles) | sikarcoachings.com contact page | ❌ | — | NOT STARTED |
+| 46 | 2026-06-02 | blogandjournal.com | blogandjournal.com/top-jee-coaching-institutes-in-india-for-2026/ | Listicle Inclusion — "Top JEE Coaching Institutes India 2026" (dual angle: listicle + guest post; see also #23) | blogandjournal.com/wp-login.php?action=register | ❌ | — | NOT STARTED |
+| 47 | 2026-06-02 | cyboardschool.com | cyboardschool.com/write-for-us/ | Guest Post — online education / EdTech angle | cyboardschool.com write-for-us form | ❌ | — | NOT STARTED |
 
 ---
 
@@ -69,6 +78,19 @@
 ---
 
 ## Notes & Strategy Log
+
+### 2026-06-02 — Week 5 Audit + 9 New Targets Added
+
+- **Zero backlinks for fifth consecutive week.** All 38 prior targets remain NOT STARTED as of audit date. Outreach backlog now spans 19 days since last audit (May 20). This is an execution crisis, not a strategy deficit — 47 pre-qualified targets with pre-written emails are ready.
+- **9 new targets added (#39–47):** supertutor.in (×2 "honest comparison" articles), exambazaar.com (directory — largest coaching discovery platform in India), pieawards.in (FREE nomination — zero fee, 10 min), sarkariresultexams.com (guest post), ezyschooling.com (guest post), sikarcoachings.com (×2 listicles), blogandjournal.com (listicle — dual angle with existing guest post #23), cyboardschool.com (guest post)
+- **Top new priority: PIE Awards #42** — pieawards.in explicitly charges ZERO nomination fee for coaching institutes. "Best Tutorial Classes for Higher & Senior Secondary Grades" category is a direct fit. Fastest high-value action on the entire 47-target list.
+- **SuperTutor.in (#39/#40):** New AI tutoring platform publishing "honest comparison" coaching articles — ideal frame for MindPeak's personalised model. Emails #18 pre-written.
+- **BlogAndJournal.com dual angle (#46 + #23):** Now has a live "Top JEE Coaching Institutes India 2026" article (not just a guest post channel). Email #19 pre-written covering both angles.
+- **Brand collision persists:** `"mindpeakinstitute.com" -site:mindpeakinstitute.com` still returns only mindpeak.ai (Hamburg AI company). Zero SERPs showing the Indian coaching institute externally.
+- **Quora — 5 weeks overdue.** Devansh has zero Quora answers. This is now a significant missed traffic opportunity.
+- **Google Alerts — still not set up.** Overdue since May 15.
+- Emails #18–19 + self-serve PIE Awards form ready in `/seo-reports/backlinks-2026-06-02.md`
+- **Competitor intelligence:** pracbee.com is actively claiming "first of its kind 1-on-1 JEE coaching" in the same SERP space. Monitor their backlink growth.
 
 ### 2026-05-20 — Week 3 Audit + 10 New Targets Added
 
@@ -106,10 +128,12 @@
 | Week | Target New Links | Outreach Emails | Priority |
 |---|---|---|---|
 | May 12–18, 2026 | 0 → 3 | Send #1, #2, #8, #11 (new), #27 (UrbanPro — self-serve) | **MISSED — zero sent** |
-| May 19–25, 2026 | 0 → 5 | **URGENT CATCHUP:** Self-serve: UrbanPro (#27), HP Startup (#37), Wellfound (#38). Email: #2 CollegeDekho, #8 CollegeDunia, #13 OriginEducare, #1 AcademyCheck, #14 Notesly, #4 FutureTopper | Clear backlog — minimum 3 self-serve + 3 emails this week |
-| May 26 – Jun 1, 2026 | 5 → 10 | Follow up #2/#8/#13/#14; send #9, #10, #6, #15, #16, #17 | PhysicsPoint + Giraffe + Awards + BestPhysicsTeacher + GauravTiwari + BrandEmpower |
-| Jun 2–8, 2026 | 10 → 15 | Send #7, #11, #12, #5; follow up all first-week emails | ExamCharcha guest post + SCNWire PR + BlogAndJournal + Colleges18 |
-| Jun 9–15, 2026 | 15 → 20 | Start Careers360 + Shiksha; follow up all pending | Critical: chase Shiksha partner portal + Careers360 editorial |
+| May 19–25, 2026 | 0 → 5 | Self-serve: UrbanPro (#27), HP Startup (#37), Wellfound (#38). Email: #2, #8, #13, #1, #14, #4 | **MISSED — zero sent** |
+| May 26 – Jun 1, 2026 | 5 → 10 | Follow up #2/#8/#13/#14; send #9, #10, #6, #15, #16, #17 | **MISSED — zero sent** |
+| **Jun 2–8, 2026** | **0 → 3** | **Self-serve: PIE Awards #42 (10 min FREE), UrbanPro #27 (30 min), HP Startup #37 (20 min). Email: #2 CollegeDekho, #13 OriginEducare, #18 SuperTutor** | **URGENT — clear top 6 backlog first** |
+| Jun 9–15, 2026 | 3 → 8 | Email: #8 CollegeDunia, #14 Notesly, #19 BlogAndJournal, #1 AcademyCheck. Follow up: #2, #13, #18. Self-serve: Wellfound #38 | Careers360 contact prep begins |
+| Jun 16–22, 2026 | 8 → 12 | Email: #4 FutureTopper, #11 SCNWire, #15 BestPhysicsTeacher, #9 PhysicsPoint. Follow up all week 1+2 | First links should go live from self-serve actions |
+| Jun 23–30, 2026 | 12 → 18 | Email: #12 Shiksha partner portal, #1 Careers360 editorial, #5 Suganta, #10 Giraffe (JEE). Start Cyboard + EzySchooling guest posts | Shiksha is critical — highest DA directory |
 
 ## Quora Strategy (Ongoing — Not Tracked as Outreach)
 
