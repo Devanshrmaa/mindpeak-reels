@@ -63,7 +63,7 @@ const CourseCard = ({ course, index, onBookDemo, onDownloadBrochure }: { course:
           <div className="flex items-center gap-4">
             {course.logo ? (
               <div className="w-12 h-12 rounded-xl overflow-hidden ring-1 ring-foreground/[0.08] bg-white/5 shrink-0">
-                <img src={course.logo} alt={course.name} className="w-full h-full object-contain" loading="lazy" />
+                <img src={course.logo} alt={course.name} className="w-full h-full object-contain" loading="lazy" width={48} height={48} />
               </div>
             ) : (
               <div className="w-12 h-12 rounded-xl bg-foreground/[0.04] flex items-center justify-center shrink-0">
@@ -255,7 +255,7 @@ const Courses = () => {
             >
               <span className="absolute top-4 right-5 text-[11px] tracking-[0.15em] text-muted-foreground/40 font-medium">{item.num}</span>
               <div className="w-14 h-14 rounded-xl overflow-hidden mx-auto mb-4 ring-1 ring-foreground/[0.08] bg-white/5">
-                <img src={item.logo} alt={item.title} className="w-full h-full object-contain" loading="lazy" />
+                <img src={item.logo} alt={item.title} className="w-full h-full object-contain" loading="lazy" width={56} height={56} />
               </div>
               <h3 className="font-display font-semibold text-foreground text-lg mb-1 tracking-[-0.01em]">{item.title}</h3>
               <p className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground/50 mb-2">{item.classes}</p>
