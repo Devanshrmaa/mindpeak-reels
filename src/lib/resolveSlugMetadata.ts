@@ -30,6 +30,7 @@ import { chapters, getTopicInfo } from '@/data/chapterData';
 import { resolveOgImageMeta } from '@/lib/ogImage';
 import { parseStudyGuideSlug, buildStudyGuide } from '@/lib/topicStudyGuides';
 import { isRemovedDoorwaySlug } from '@/lib/removedSlugs';
+import { isServedCityCoachingSlug } from '@/data/cityConsolidation';
 import { INDEXABLE_CITY_META } from '@/lib/indexableCities';
 import { parseStateHubSlug } from '@/data/stateHubData';
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
@@ -86,7 +87,12 @@ export function isKnownSlug(slugSegments: string[]): boolean {
   if (slug.startsWith('jee-practice-')) return true;
   if (/^jee-(physics|chemistry|mathematics)-/.test(slug)) return true;
   if (/^neet-(biology|physics|chemistry)-/.test(slug)) return true;
-  if (slug.includes('coaching-in-')) return true;
+  // City coaching pages — only REAL cities/hubs are served. A blanket
+  // `includes('coaching-in-')` previously accepted ANY slug, serving a live
+  // HTTP 200 doorway page for fake cities (e.g. /jee-coaching-in-fakecity-xyz)
+  // — the exact soft-404 / scaled-content abuse pattern the March 2026 Spam
+  // Update penalised. Validate against the real city/hub set instead.
+  if (slug.includes('coaching-in-')) return isServedCityCoachingSlug(slug);
   if (/^how-to-study-.+-for-(jee|neet)$/.test(slug)) return true;
 
   return false;

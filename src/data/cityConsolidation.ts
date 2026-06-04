@@ -68,6 +68,30 @@ export function getCityConsolidation(slug: string): ConsolidationAction | null {
   return null;
 }
 
+/** Bare city slugs that exist in our city dataset (e.g. 'mysore', 'jaipur'). */
+const CITY_SLUG_SET: ReadonlySet<string> = new Set(allCities.map(c => c.slug));
+
+/**
+ * Does this `…coaching-in-…` slug correspond to a page we actually serve?
+ *
+ * True for: the national flagship pages, the state regional hubs, the curated
+ * T1 cities, and any `(jee|neet)-coaching-in-<city>` whose `<city>` exists in
+ * our city dataset (those render as noindexed-but-real pages).
+ *
+ * False for arbitrary/fake city slugs (e.g. `jee-coaching-in-fakecity-xyz`).
+ * The catch-all 404 gate uses this so unknown slugs return a real HTTP 404
+ * instead of a soft-404 doorway page at HTTP 200 — the scaled-content pattern
+ * the March 2026 Spam Update penalised and the site is still recovering from.
+ */
+export function isServedCityCoachingSlug(slug: string): boolean {
+  if (INDEXABLE_NATIONAL_COACHING_SLUGS.has(slug)) return true;
+  if (STATE_HUB_SLUG_SET.has(slug)) return true;
+  if (INDEXABLE_CITY_SLUGS.has(slug)) return true;
+  const m = slug.match(/^(?:jee|neet)-coaching-in-(.+)$/);
+  if (m) return CITY_SLUG_SET.has(m[1]);
+  return false;
+}
+
 const SUBJECT_CITY_RE = /^(jee|neet)-(physics|chemistry|mathematics|biology)-coaching-in-.+$/;
 
 /**
