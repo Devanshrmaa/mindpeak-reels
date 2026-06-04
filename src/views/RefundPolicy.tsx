@@ -49,7 +49,7 @@ const RefundPolicy = () => {
 
           <section>
             <h2 className="font-display text-xl font-bold text-foreground mb-3">7. Contact</h2>
-            <p>For any questions regarding this Refund Policy, please contact us at <a href="mailto:mindpeak@mindpeakinstitute.com" className="text-primary hover:underline">mindpeak@mindpeakinstitute.com</a> or call +91 98765 43210.</p>
+            <p>For any questions regarding this Refund Policy, please contact us at <a href="mailto:mindpeak@mindpeakinstitute.com" className="text-primary hover:underline">mindpeak@mindpeakinstitute.com</a> or call +91 82194 57704.</p>
           </section>
         </div>
       </div>
