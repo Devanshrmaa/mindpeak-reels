@@ -49,6 +49,14 @@
 | 36 | 2026-05-20 | brandempower.org | brandempower.org/education-awards.htm + education-leaders-awards.htm | Award Nomination — Education Awards 2026 + Education Leaders Awards 2026 (national + Chandigarh regional) | Via nomination form on site | ❌ | — | NOT STARTED |
 | 37 | 2026-05-20 | emerginghimachal.hp.gov.in | emerginghimachal.hp.gov.in/startup/home/register/ | HP Govt Startup Registration — self-serve portal; use UDYAM-HP-04-0042530 as credential; backlink from govt domain DA ~65+ | startuphimachal@gmail.com (helpdesk) | ❌ | — | NOT STARTED |
 | 38 | 2026-05-20 | wellfound.com | wellfound.com/startups/location/himachal-pradesh | Startup Directory Profile — free company listing on HP startups page; DA ~80 | wellfound.com self-register (free) | ❌ | — | NOT STARTED |
+| 39 | 2026-06-04 | academycheck.com | academycheck.com/blog/best-online-coaching-institutes-for-jee-neet-2027 | Listicle Inclusion — "Best Online Coaching Institutes for JEE & NEET 2027" (new article, fresh, easiest to break into) — contact 08062179896 or site form | 08062179896 (call) or contact form | ❌ | — | NOT STARTED |
+| 40 | 2026-06-04 | academycheck.com | academycheck.com/blog/top-5-jee-coaching-institutes-in-india-based-on-online-education-2026 | Listicle Inclusion — "Top 5 JEE Coaching Institutes: Based on Online Education 2026" | 08062179896 (call) or contact form | ❌ | — | NOT STARTED |
+| 41 | 2026-06-04 | top10-best.com | top10-best.com/education/top-10-best-neet-coaching-in-india/ | Listicle Inclusion — "Top 10 Best NEET Coaching in India 2026" (verified data format, personalised slot empty) | Via top10-best.com contact page | ❌ | — | NOT STARTED |
+| 42 | 2026-06-04 | cosmosiq.ai | cosmosiq.ai/blog/best-edtech-startups-india-2026 | Listicle Inclusion — "Best EdTech Startups India 2026 — Top 20" (EdTech startup angle, boutique 1-on-1 coaching segment missing) | Via cosmosiq.ai contact/blog page | ❌ | — | NOT STARTED |
+| 43 | 2026-06-04 | indian-preneur.com | indian-preneur.com/indian-edtech-startups-to-watch-in-2026/ | Listicle Inclusion — "India's EdTech Leaders 2026" (entrepreneur/startup angle, HP MSME startup story) | Via indian-preneur.com contact form | ❌ | — | NOT STARTED |
+| 44 | 2026-06-04 | cyboardschool.com | cyboardschool.com/write-for-us/ | Guest Post — accepts EdTech/education content from teachers & founders, 1000–2500 words, byline with link | Via write-for-us form on site | ❌ | — | NOT STARTED |
+| 45 | 2026-06-04 | dailysarkariresults.com | dailysarkariresults.com/write-for-us/ | Guest Post — education, study tips, coaching content; high-traffic exam-aware student audience | Via write-for-us form on site | ❌ | — | NOT STARTED |
+| 46 | 2026-06-04 | vidsaga.com | vidsaga.com/top-indian-edtech-startups/ | Listicle Inclusion — "32 Top Indian EdTech Startups 2026" (startup directory angle, MSME + HP startup story) | Via vidsaga.com contact page | ❌ | — | NOT STARTED |
 
 ---
 
@@ -69,6 +77,16 @@
 ---
 
 ## Notes & Strategy Log
+
+### 2026-06-04 — Week 5 Audit + 8 New Targets Added (46 Total)
+
+- **Zero backlinks for FIFTH consecutive week.** All 38 prior targets still at NOT STARTED. This is the most critical pattern in the audit log — the strategy is complete, the emails are written, the bottleneck is purely execution.
+- **8 new targets added (#39–46):** academycheck.com ×2 new articles (incl. 2027-edition), top10-best.com, cosmosiq.ai, indian-preneur.com, cyboardschool.com (guest post), dailysarkariresults.com (guest post), vidsaga.com
+- **⚠️ BRAND CONFUSION RISK identified:** Search for `"devansh" "jee coaching"` returns devanshmittal.in — a different Devansh Mittal at Allen Kota. Devansh (MindPeak) must differentiate: update LinkedIn to link to mindpeakinstitute.com, ensure "About" page has specific credential details.
+- **NEW PRIORITY: Quora thread confirmed active** — "Which coaching institute provides the best one-on-one mentoring for JEE Main preparation?" — 10-minute action, no approval needed.
+- **2027 content window opening:** academycheck.com already published "Best Coaching 2027" article — highest chance of inclusion while fresh. Email #18 should go out before June 11.
+- **CosmosIQ angle is new:** Unlike coaching listicles, cosmosiq.ai and indian-preneur.com cover the EdTech startup ecosystem — MindPeak as HP boutique startup is a different pitch and opens new link categories.
+- Emails #18–21 ready to send (in `/seo-reports/backlinks-2026-06-04.md`)
 
 ### 2026-05-20 — Week 3 Audit + 10 New Targets Added
 
@@ -103,21 +121,26 @@
 
 ## Weekly Targets
 
-| Week | Target New Links | Outreach Emails | Priority |
-|---|---|---|---|
-| May 12–18, 2026 | 0 → 3 | Send #1, #2, #8, #11 (new), #27 (UrbanPro — self-serve) | **MISSED — zero sent** |
-| May 19–25, 2026 | 0 → 5 | **URGENT CATCHUP:** Self-serve: UrbanPro (#27), HP Startup (#37), Wellfound (#38). Email: #2 CollegeDekho, #8 CollegeDunia, #13 OriginEducare, #1 AcademyCheck, #14 Notesly, #4 FutureTopper | Clear backlog — minimum 3 self-serve + 3 emails this week |
-| May 26 – Jun 1, 2026 | 5 → 10 | Follow up #2/#8/#13/#14; send #9, #10, #6, #15, #16, #17 | PhysicsPoint + Giraffe + Awards + BestPhysicsTeacher + GauravTiwari + BrandEmpower |
-| Jun 2–8, 2026 | 10 → 15 | Send #7, #11, #12, #5; follow up all first-week emails | ExamCharcha guest post + SCNWire PR + BlogAndJournal + Colleges18 |
-| Jun 9–15, 2026 | 15 → 20 | Start Careers360 + Shiksha; follow up all pending | Critical: chase Shiksha partner portal + Careers360 editorial |
+| Week | Target New Links | Outreach Emails | Priority | Status |
+|---|---|---|---|---|
+| May 12–18, 2026 | 0 → 3 | Send #1, #2, #8, #11, #27 (UrbanPro self-serve) | — | **MISSED — zero sent** |
+| May 19–25, 2026 | 0 → 5 | Self-serve: UrbanPro (#27), HP Startup (#37), Wellfound (#38). Email: #2, #8, #13, #1, #14, #4 | — | **MISSED — zero sent** |
+| May 26–Jun 1, 2026 | 5 → 10 | Follow up #2/#8/#13/#14; send #9, #10, #6, #15, #16, #17 | — | **MISSED — zero sent** |
+| **Jun 2–8, 2026** | **0 → 5** | **EMERGENCY MINIMUM:** Quora answer (10 min). Self-serve: UrbanPro (#27), Wellfound (#38), HP Startup (#37). Emails: #13 OriginEducare, #2 CollegeDekho | 🔥 CRITICAL WEEK — must act | ⏳ IN PROGRESS |
+| Jun 9–15, 2026 | 5 → 10 | Email: #8 CollegeDunia, #14 Notesly, #18 AcademyCheck 2027, #1 AcademyCheck NEET. Follow up #13/#2 | — | NOT STARTED |
+| Jun 16–22, 2026 | 10 → 15 | Emails: #4 FutureTopper, #6 ExamCharcha, #19 CosmosIQ, #20 Indian-Preneur, #9 PhysicsNavigator | — | NOT STARTED |
+| Jun 23–30, 2026 | 15 → 20 | Emails: #21 CyboardSchool, #11 SCNWire PR, #10 Giraffe-Learning ×2, #5 Suganta. Follow up all pending. Start Shiksha | — | NOT STARTED |
+| Jul 2026 | 20 → 30 | Careers360, Shiksha partner portal, Awards follow-up. Start Quora 2–3/week consistently | — | NOT STARTED |
 
 ## Quora Strategy (Ongoing — Not Tracked as Outreach)
 
-Devansh should answer 2–3 Quora questions per week. Target threads:
+Devansh should answer 2–3 Quora questions per week. Target threads (confirmed active as of June 2026):
+- **"Which coaching institute provides the best one-on-one mentoring for JEE Main preparation?"** ← CONFIRMED ACTIVE — answer NOW
+- **"Which one should I choose for the JEE 2026, online coaching or offline coaching?"** ← CONFIRMED ACTIVE
 - "Which is the best 1-on-1 JEE coaching online?"
 - "Best online NEET coaching for droppers 2026"
 - "How to find a personal Physics tutor for JEE Advanced?"
 - "Is batch coaching enough for JEE Advanced or do I need personal mentoring?"
 - "Best Physics teacher for JEE Advanced online India"
 
-All answers should be genuine, helpful, and mention MindPeak naturally. Quora links are nofollow but drive direct traffic and trust signals.
+All answers should be genuine, helpful, and mention MindPeak naturally at the end. Quora links are nofollow but drive direct traffic and trust signals. 10 minutes per answer — no approval, no waiting, immediate impact.
