@@ -1,0 +1,395 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "generated": "2026-05-30",
+  "cycle": "Bi-weekly follow-up to ai-snippets-2026-05-16.md",
+  "purpose": "Two-part FAQ deliverable: (1) APPENDS — new Q&A pairs to add to existing FAQ arrays on already-shipped pages; (2) NEW_PAGE_BLOCKS — complete FAQ blocks for the 12 P0/P1 net-new pages still to be created. Each entry includes visible-HTML guidance + JSON-LD FAQPage schema. Render every Q&A as visible HTML AND emit the JSON-LD — schema without visible content is treated as spam.",
+  "usage": {
+    "appends": "Open the target view file (e.g., src/views/JEECoaching.tsx). Find the existing `const faqs: FAQItem[] = [ ... ]` or `paaQuestions: PAAQuestion[] = [ ... ]` array. Append the new Q&A objects. Schema emission happens automatically via the existing buildFAQSchema call.",
+    "new_page_blocks": "When creating each net-new page, instantiate `const faqs: FAQItem[] = [ ... ]` from the array below, import PageFAQ and buildFAQSchema from '@/components/PageFAQ', render <PageFAQ items={faqs} /> in the view, and pass buildFAQSchema(faqs) through the JsonLd component."
+  },
+  "appends": [
+    {
+      "page": "src/views/JEECoaching.tsx",
+      "appendTo": "paaQuestions array (line ~92)",
+      "newQuestions": [
+        {
+          "q": "Are JEE Main attempts limited?",
+          "a": "JEE Main has no lifetime attempt limit since 2022 — you can attempt JEE Main any number of years. Each year you can take both January and April sessions, with the better of the two scores used for ranking. JEE Advanced is separately capped at 2 attempts in 2 consecutive years."
+        },
+        {
+          "q": "Is JEE Main 2027 syllabus different from JEE Main 2026?",
+          "a": "There is no announced syllabus change for JEE Main 2027 versus 2026 — the NTA-rationalised syllabus from 2024 continues. Always verify against the official 2027 information bulletin once published at jeemain.nta.nic.in (typically November to December 2026). Plan based on the 2026 syllabus until NTA officially says otherwise."
+        }
+      ]
+    },
+    {
+      "page": "src/views/NEETCoaching.tsx",
+      "appendTo": "paaQuestions array (line ~103)",
+      "newQuestions": [
+        {
+          "q": "How many mock tests are enough for NEET 2027?",
+          "a": "Aim for 25 to 35 full-length NEET mocks in your final 4-6 months of preparation. Mock test count without same-day analysis is wasted effort — every mock should be followed by a 60 to 90 minute analysis session categorising errors by type. Mock-test accuracy is the strongest single predictor of actual NEET score."
+        },
+        {
+          "q": "Can I score 600+ in NEET with NCERT only?",
+          "a": "Yes — NCERT mastery alone can deliver a 580-620 NEET score for serious aspirants. For 650+, NCERT is non-negotiable as the foundation, but Physics needs DC Pandey for numerical practice and Chemistry needs one reference book for Physical Chemistry calculations. NCERT alone hits the ceiling around 620; reference books bridge to 650+."
+        }
+      ]
+    },
+    {
+      "page": "src/data/seoPageData.ts (slug: batch-vs-personal-coaching)",
+      "appendTo": "qa or paa array within the SEO page block",
+      "newQuestions": [
+        {
+          "q": "How is MindPeak one-on-one coaching different from a YouTube tuition?",
+          "a": "YouTube tuitions are pre-recorded one-to-many lectures with no personalisation, no doubt resolution, and no accountability. MindPeak runs live one-on-one online classes with senior mentors who customise pacing, identify your specific weak chapters, and resolve doubts in real time. YouTube is a useful free supplement; one-on-one is the active teaching component that converts knowledge to marks."
+        },
+        {
+          "q": "Is one-on-one coaching worth the money for JEE/NEET?",
+          "a": "One-on-one coaching is worth the money when batch coaching is not closing your subject-specific gaps, when you need pacing flexibility, or when you're in dropper year and need customised intervention. At MindPeak's price point of ₹1,30,000-1,99,000 per year, one-on-one delivers more contact hours per rupee than a private subject tutor and more individual attention than premium batch coaching."
+        },
+        {
+          "q": "When does one-on-one coaching NOT work for a JEE/NEET aspirant?",
+          "a": "One-on-one coaching is not the right format when the student is motivated primarily by peer competition (large batches provide that), when family budget is tight and self-prep with free resources is more sustainable, or when the student is already on track with their existing batch programme. For most other cases — subject gaps, pacing issues, dropper year, or 95+ percentile push — one-on-one outperforms batch coaching."
+        }
+      ]
+    },
+    {
+      "page": "src/views/RankPredictor.tsx",
+      "appendTo": "paaQuestions array",
+      "newQuestions": [
+        {
+          "q": "What is the JEE Main shift normalisation formula?",
+          "a": "JEE Main percentile is calculated per session and per shift using NTA's normalisation formula: your percentile equals 100 times the count of candidates who scored less than or equal to you, divided by the total candidates in that session. The top scorer in any shift gets 100 percentile regardless of raw marks. The better of two-session percentile is used for final ranking."
+        }
+      ]
+    }
+  ],
+  "new_page_blocks": [
+    {
+      "page": "NEW app/jee-main-vs-jee-advanced/page.tsx",
+      "targetQuery": "jee main vs jee advanced difference",
+      "lastUpdated": "2026-05-30",
+      "faqs": [
+        {"q": "What is the difference between JEE Main and JEE Advanced?", "a": "JEE Main is the qualifying exam conducted by NTA for admission to NITs, IIITs and GFTIs. JEE Advanced — open only to the top 2,50,000 JEE Main qualifiers — is the gateway to the 23 IITs. Advanced tests deeper multi-concept reasoning; Main rewards speed and NCERT mastery."},
+        {"q": "Can I appear for JEE Advanced without clearing JEE Main?", "a": "No. JEE Advanced eligibility requires qualifying JEE Main 2027 within the top 2,50,000 ranks. There is no direct entry to JEE Advanced — JEE Main is the mandatory filter for all candidates regardless of category."},
+        {"q": "How many times can I attempt JEE Advanced?", "a": "JEE Advanced allows a maximum of 2 attempts in 2 consecutive years. If you qualified JEE Main in 2027, you can attempt JEE Advanced in 2027 and 2028, but not 2029 or later under the same Class 12 eligibility window."},
+        {"q": "Is JEE Advanced syllabus same as JEE Main?", "a": "JEE Advanced syllabus is roughly 95% the same as JEE Main but tests deeper depth and multi-concept reasoning. Advanced includes a few topics like Errors and Measurements with more weight, while Main has slightly broader coverage of basic NCERT-direct questions."},
+        {"q": "Which is harder — JEE Main or JEE Advanced?", "a": "JEE Advanced is harder than JEE Main on conceptual depth and problem-solving complexity. Advanced questions typically combine 2-3 concepts in a single problem; Main questions usually test one concept per problem. Students who score 200+ in Main often see their Advanced score drop 30-40% relative to Main percentile."},
+        {"q": "Do I need separate coaching for JEE Advanced after JEE Main?", "a": "Yes for most aspirants. After JEE Main April results, top-2.5-lakh-rank candidates need a 10-12 week multi-concept Advanced-focused programme. MindPeak's JEE Advanced module specifically targets the multi-concept jump with PYQ-Advanced problem drills and weekly mock cycles."}
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "What is the difference between JEE Main and JEE Advanced?", "acceptedAnswer": {"@type": "Answer", "text": "JEE Main is the qualifying exam conducted by NTA for admission to NITs, IIITs and GFTIs. JEE Advanced — open only to the top 2,50,000 JEE Main qualifiers — is the gateway to the 23 IITs. Advanced tests deeper multi-concept reasoning; Main rewards speed and NCERT mastery."}},
+          {"@type": "Question", "name": "Can I appear for JEE Advanced without clearing JEE Main?", "acceptedAnswer": {"@type": "Answer", "text": "No. JEE Advanced eligibility requires qualifying JEE Main 2027 within the top 2,50,000 ranks. There is no direct entry to JEE Advanced — JEE Main is the mandatory filter for all candidates regardless of category."}},
+          {"@type": "Question", "name": "How many times can I attempt JEE Advanced?", "acceptedAnswer": {"@type": "Answer", "text": "JEE Advanced allows a maximum of 2 attempts in 2 consecutive years. If you qualified JEE Main in 2027, you can attempt JEE Advanced in 2027 and 2028, but not 2029 or later under the same Class 12 eligibility window."}},
+          {"@type": "Question", "name": "Is JEE Advanced syllabus same as JEE Main?", "acceptedAnswer": {"@type": "Answer", "text": "JEE Advanced syllabus is roughly 95% the same as JEE Main but tests deeper depth and multi-concept reasoning. Advanced includes a few topics like Errors and Measurements with more weight, while Main has slightly broader coverage of basic NCERT-direct questions."}},
+          {"@type": "Question", "name": "Which is harder — JEE Main or JEE Advanced?", "acceptedAnswer": {"@type": "Answer", "text": "JEE Advanced is harder than JEE Main on conceptual depth and problem-solving complexity. Advanced questions typically combine 2-3 concepts in a single problem; Main questions usually test one concept per problem. Students who score 200+ in Main often see their Advanced score drop 30-40% relative to Main percentile."}},
+          {"@type": "Question", "name": "Do I need separate coaching for JEE Advanced after JEE Main?", "acceptedAnswer": {"@type": "Answer", "text": "Yes for most aspirants. After JEE Main April results, top-2.5-lakh-rank candidates need a 10-12 week multi-concept Advanced-focused programme. MindPeak's JEE Advanced module specifically targets the multi-concept jump with PYQ-Advanced problem drills and weekly mock cycles."}}
+        ]
+      }
+    },
+    {
+      "page": "NEW app/jee-main-exam-pattern-2027/page.tsx",
+      "targetQuery": "jee main exam pattern 2027",
+      "lastUpdated": "2026-05-30",
+      "faqs": [
+        {"q": "What is JEE Main 2027 exam pattern?", "a": "JEE Main 2027 has 75 questions across Physics, Chemistry, Mathematics (25 each), conducted in Computer-Based Test mode over 3 hours, with maximum 300 marks. Marking is +4 correct, -1 incorrect for MCQs; numerical-answer questions have no negative marking in 2027."},
+        {"q": "How many sessions of JEE Main 2027 will there be?", "a": "JEE Main 2027 will be conducted in 2 sessions — January 2027 and April 2027. Candidates can appear in one or both sessions; the better percentile score is used for final ranking. There is no penalty for attempting only one session."},
+        {"q": "Is there negative marking in JEE Main 2027 numerical questions?", "a": "JEE Main 2027 has reverted to no negative marking for numerical-answer questions. Negative marking only applies to the 20 MCQ-style questions per subject. The 5 numerical-answer questions per subject can be attempted without risk of mark deduction for incorrect attempts."},
+        {"q": "What is the marking scheme of JEE Main 2027?", "a": "JEE Main 2027 marking is +4 for correct MCQ, -1 for incorrect MCQ, 0 for unattempted. Numerical-answer questions: +4 for correct, 0 for incorrect or unattempted. Maximum aggregate is 300 marks across the 75-question paper."},
+        {"q": "In how many languages is JEE Main 2027 conducted?", "a": "JEE Main 2027 is offered in 13 languages including Hindi, English, Assamese, Bengali, Gujarati, Kannada, Malayalam, Marathi, Odia, Punjabi, Tamil, Telugu and Urdu. The language preference is selected during application; English is the default and most-used medium."},
+        {"q": "What is the minimum eligibility for JEE Main 2027?", "a": "JEE Main 2027 eligibility requires Class 12 pass or appearing in 2027 board exams with Physics, Chemistry and Mathematics. There is no upper age limit since 2022. Maximum attempts: 2 sessions per year, no lifetime cap on years of attempt."}
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "What is JEE Main 2027 exam pattern?", "acceptedAnswer": {"@type": "Answer", "text": "JEE Main 2027 has 75 questions across Physics, Chemistry, Mathematics (25 each), conducted in Computer-Based Test mode over 3 hours, with maximum 300 marks. Marking is +4 correct, -1 incorrect for MCQs; numerical-answer questions have no negative marking in 2027."}},
+          {"@type": "Question", "name": "How many sessions of JEE Main 2027 will there be?", "acceptedAnswer": {"@type": "Answer", "text": "JEE Main 2027 will be conducted in 2 sessions — January 2027 and April 2027. Candidates can appear in one or both sessions; the better percentile score is used for final ranking. There is no penalty for attempting only one session."}},
+          {"@type": "Question", "name": "Is there negative marking in JEE Main 2027 numerical questions?", "acceptedAnswer": {"@type": "Answer", "text": "JEE Main 2027 has reverted to no negative marking for numerical-answer questions. Negative marking only applies to the 20 MCQ-style questions per subject. The 5 numerical-answer questions per subject can be attempted without risk of mark deduction for incorrect attempts."}},
+          {"@type": "Question", "name": "What is the marking scheme of JEE Main 2027?", "acceptedAnswer": {"@type": "Answer", "text": "JEE Main 2027 marking is +4 for correct MCQ, -1 for incorrect MCQ, 0 for unattempted. Numerical-answer questions: +4 for correct, 0 for incorrect or unattempted. Maximum aggregate is 300 marks across the 75-question paper."}},
+          {"@type": "Question", "name": "In how many languages is JEE Main 2027 conducted?", "acceptedAnswer": {"@type": "Answer", "text": "JEE Main 2027 is offered in 13 languages including Hindi, English, Assamese, Bengali, Gujarati, Kannada, Malayalam, Marathi, Odia, Punjabi, Tamil, Telugu and Urdu. The language preference is selected during application; English is the default and most-used medium."}},
+          {"@type": "Question", "name": "What is the minimum eligibility for JEE Main 2027?", "acceptedAnswer": {"@type": "Answer", "text": "JEE Main 2027 eligibility requires Class 12 pass or appearing in 2027 board exams with Physics, Chemistry and Mathematics. There is no upper age limit since 2022. Maximum attempts: 2 sessions per year, no lifetime cap on years of attempt."}}
+        ]
+      }
+    },
+    {
+      "page": "NEW app/neet-vs-jee-comparison/page.tsx",
+      "targetQuery": "neet vs jee which is harder",
+      "lastUpdated": "2026-05-30",
+      "faqs": [
+        {"q": "Which is harder — NEET or JEE?", "a": "JEE Advanced is harder than NEET on conceptual depth and multi-concept problem-solving. NEET is harder on volume and memorisation due to Biology's 360-mark weight. JEE Main and NEET are roughly comparable in raw difficulty but test different skills — analytical reasoning leans JEE; sustained memory leans NEET."},
+        {"q": "Can I prepare for both NEET and JEE simultaneously?", "a": "Not effectively — Biology adds 38 chapters of new content that JEE doesn't test, and JEE Math is irrelevant to NEET. Students attempting both typically end up below 80 percentile in both. Pick one exam by Class 11, second half at the latest, based on career intent (engineering vs medicine)."},
+        {"q": "Can a NEET aspirant switch to JEE in Class 12?", "a": "Switching from NEET to JEE in Class 12 is structurally hard — JEE Math is full year of new content. The switch is feasible only if the student has strong Class 11 Math foundation and can dedicate 4-5 hours daily exclusively to Math from the switch point. Most successful switches happen by August of Class 12, not later."},
+        {"q": "Is NEET easier than JEE Main?", "a": "NEET and JEE Main are comparable in raw difficulty. NEET has higher volume (180 questions in 3 hr 20 min versus 75 questions in 3 hr) and heavy Biology memorisation; JEE Main is calculation-dense in Math and Physics. Neither is universally easier — the easier exam is the one matching your strengths."},
+        {"q": "Which has more competition — NEET or JEE?", "a": "NEET has more total candidates (24+ lakh) versus JEE Main (15+ lakh) and JEE Advanced (2.5 lakh). However, effective competition for top medical seats is ~1 lakh (top government MBBS), while JEE Advanced top IIT seats clear at ~25,000 rank. Both have brutal high-end competition."},
+        {"q": "Which has better career outcomes — engineering or medicine?", "a": "Career outcomes vary by specialisation, not exam. Top IIT engineering grads earn ₹15-50 lakh starting salary; MBBS doctors earn lower starting but reach higher mid-career after specialisation. Both pathways lead to strong outcomes. The choice is interest-driven (problem-solving vs human health), not financial alone."},
+        {"q": "Do I need separate coaching for NEET vs JEE?", "a": "Yes. NEET coaching includes Biology (no JEE coverage); JEE coaching includes Math (no NEET coverage). Coaching that markets 'JEE + NEET combined' typically dilutes both. MindPeak runs separate one-on-one programmes for JEE and NEET with subject-expert faculty matched to the exam."}
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "Which is harder — NEET or JEE?", "acceptedAnswer": {"@type": "Answer", "text": "JEE Advanced is harder than NEET on conceptual depth and multi-concept problem-solving. NEET is harder on volume and memorisation due to Biology's 360-mark weight. JEE Main and NEET are roughly comparable in raw difficulty but test different skills — analytical reasoning leans JEE; sustained memory leans NEET."}},
+          {"@type": "Question", "name": "Can I prepare for both NEET and JEE simultaneously?", "acceptedAnswer": {"@type": "Answer", "text": "Not effectively — Biology adds 38 chapters of new content that JEE doesn't test, and JEE Math is irrelevant to NEET. Students attempting both typically end up below 80 percentile in both. Pick one exam by Class 11, second half at the latest, based on career intent (engineering vs medicine)."}},
+          {"@type": "Question", "name": "Can a NEET aspirant switch to JEE in Class 12?", "acceptedAnswer": {"@type": "Answer", "text": "Switching from NEET to JEE in Class 12 is structurally hard — JEE Math is full year of new content. The switch is feasible only if the student has strong Class 11 Math foundation and can dedicate 4-5 hours daily exclusively to Math from the switch point. Most successful switches happen by August of Class 12, not later."}},
+          {"@type": "Question", "name": "Is NEET easier than JEE Main?", "acceptedAnswer": {"@type": "Answer", "text": "NEET and JEE Main are comparable in raw difficulty. NEET has higher volume (180 questions in 3 hr 20 min versus 75 questions in 3 hr) and heavy Biology memorisation; JEE Main is calculation-dense in Math and Physics. Neither is universally easier — the easier exam is the one matching your strengths."}},
+          {"@type": "Question", "name": "Which has more competition — NEET or JEE?", "acceptedAnswer": {"@type": "Answer", "text": "NEET has more total candidates (24+ lakh) versus JEE Main (15+ lakh) and JEE Advanced (2.5 lakh). However, effective competition for top medical seats is ~1 lakh (top government MBBS), while JEE Advanced top IIT seats clear at ~25,000 rank. Both have brutal high-end competition."}},
+          {"@type": "Question", "name": "Which has better career outcomes — engineering or medicine?", "acceptedAnswer": {"@type": "Answer", "text": "Career outcomes vary by specialisation, not exam. Top IIT engineering grads earn ₹15-50 lakh starting salary; MBBS doctors earn lower starting but reach higher mid-career after specialisation. Both pathways lead to strong outcomes. The choice is interest-driven (problem-solving vs human health), not financial alone."}},
+          {"@type": "Question", "name": "Do I need separate coaching for NEET vs JEE?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. NEET coaching includes Biology (no JEE coverage); JEE coaching includes Math (no NEET coverage). Coaching that markets 'JEE + NEET combined' typically dilutes both. MindPeak runs separate one-on-one programmes for JEE and NEET with subject-expert faculty matched to the exam."}}
+        ]
+      }
+    },
+    {
+      "page": "NEW app/neet-2027-syllabus-changes/page.tsx",
+      "targetQuery": "neet 2027 syllabus changes",
+      "lastUpdated": "2026-05-30",
+      "faqs": [
+        {"q": "Is there a NEET 2027 syllabus change from NEET 2026?", "a": "There is no announced major syllabus change for NEET 2027 versus NEET 2026 — the NMC-rationalised 2024 syllabus continues. Biology remains 38 chapters, Chemistry retains NCERT-rationalised coverage, Physics keeps the 29-chapter NCERT scope. Always verify against the NMC and NTA official 2027 information bulletin once published."},
+        {"q": "Will NEET 2027 be conducted in CBT mode?", "a": "NEET 2027 is currently planned in pen-and-paper (OMR-based) offline mode, following NTA's standard NEET UG format. NMC has discussed shifting NEET to Computer-Based Test mode but no policy change has been confirmed for 2027. Check the official information bulletin once released (typically December 2026)."},
+        {"q": "Has NEET Biology syllabus changed for 2027?", "a": "NEET Biology syllabus for 2027 is unchanged from 2026 — 38 chapters split between Class 11 (22 chapters) and Class 12 (16 chapters). Botany contributes 45 questions and Zoology 45 questions, totalling 360 marks. Plan based on the NCERT Class 11 and Class 12 Biology textbooks."},
+        {"q": "Has NEET Physics syllabus changed for 2027?", "a": "NEET Physics syllabus for 2027 is unchanged from 2026 — 29 chapters spanning Class 11 and Class 12 NCERT. Mechanics, Thermodynamics, Electrodynamics and Modern Physics remain the highest-yield blocks. 45 questions, 180 marks."},
+        {"q": "What was removed from NEET syllabus in the 2024 rationalisation?", "a": "The 2024 NCERT rationalisation removed specific topics in Chemistry (Solid State details, Polymers depth, Surface Chemistry depth) and lightened some Physics derivations. These reductions remain in effect for NEET 2027. Focus only on content present in the current NCERT editions."},
+        {"q": "Where do I find the official NEET 2027 syllabus?", "a": "The official NEET 2027 syllabus is published by the National Medical Commission (NMC) at nmc.org.in and by the National Testing Agency (NTA) at neet.nta.nic.in. The information bulletin is released typically in December 2026 — bookmark both sites and watch for the official notification."}
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "Is there a NEET 2027 syllabus change from NEET 2026?", "acceptedAnswer": {"@type": "Answer", "text": "There is no announced major syllabus change for NEET 2027 versus NEET 2026 — the NMC-rationalised 2024 syllabus continues. Biology remains 38 chapters, Chemistry retains NCERT-rationalised coverage, Physics keeps the 29-chapter NCERT scope. Always verify against the NMC and NTA official 2027 information bulletin once published."}},
+          {"@type": "Question", "name": "Will NEET 2027 be conducted in CBT mode?", "acceptedAnswer": {"@type": "Answer", "text": "NEET 2027 is currently planned in pen-and-paper (OMR-based) offline mode, following NTA's standard NEET UG format. NMC has discussed shifting NEET to Computer-Based Test mode but no policy change has been confirmed for 2027. Check the official information bulletin once released (typically December 2026)."}},
+          {"@type": "Question", "name": "Has NEET Biology syllabus changed for 2027?", "acceptedAnswer": {"@type": "Answer", "text": "NEET Biology syllabus for 2027 is unchanged from 2026 — 38 chapters split between Class 11 (22 chapters) and Class 12 (16 chapters). Botany contributes 45 questions and Zoology 45 questions, totalling 360 marks. Plan based on the NCERT Class 11 and Class 12 Biology textbooks."}},
+          {"@type": "Question", "name": "Has NEET Physics syllabus changed for 2027?", "acceptedAnswer": {"@type": "Answer", "text": "NEET Physics syllabus for 2027 is unchanged from 2026 — 29 chapters spanning Class 11 and Class 12 NCERT. Mechanics, Thermodynamics, Electrodynamics and Modern Physics remain the highest-yield blocks. 45 questions, 180 marks."}},
+          {"@type": "Question", "name": "What was removed from NEET syllabus in the 2024 rationalisation?", "acceptedAnswer": {"@type": "Answer", "text": "The 2024 NCERT rationalisation removed specific topics in Chemistry (Solid State details, Polymers depth, Surface Chemistry depth) and lightened some Physics derivations. These reductions remain in effect for NEET 2027. Focus only on content present in the current NCERT editions."}},
+          {"@type": "Question", "name": "Where do I find the official NEET 2027 syllabus?", "acceptedAnswer": {"@type": "Answer", "text": "The official NEET 2027 syllabus is published by the National Medical Commission (NMC) at nmc.org.in and by the National Testing Agency (NTA) at neet.nta.nic.in. The information bulletin is released typically in December 2026 — bookmark both sites and watch for the official notification."}}
+        ]
+      }
+    },
+    {
+      "page": "NEW app/jee-main-marks-vs-percentile-2027/page.tsx",
+      "targetQuery": "jee main marks vs percentile 2027",
+      "lastUpdated": "2026-05-30",
+      "faqs": [
+        {"q": "How is JEE Main percentile calculated?", "a": "JEE Main percentile is normalised across sessions and shifts. Your percentile equals the percentage of candidates who scored less than or equal to you in your session. The top scorer in any shift gets 100 percentile regardless of raw marks. The better of two-session percentile is used for final ranking."},
+        {"q": "How many marks for 99 percentile in JEE Main 2027?", "a": "99 percentile in JEE Main typically requires 215-235 marks out of 300, varying by shift difficulty. The actual cutoff depends on candidate pool size and shift normalisation. Based on 2024-2026 trends, 225+ marks reliably gives 99+ percentile in the easier shifts."},
+        {"q": "How many marks for 95 percentile in JEE Main?", "a": "95 percentile in JEE Main typically requires 160-180 marks out of 300. This rank range secures admission to most NIT branches outside top-tier CSE and some top IIITs. State engineering options also open up at 95 percentile."},
+        {"q": "What is the minimum percentile for IIT admission?", "a": "JEE Main qualifies you for JEE Advanced if you're in the top 2.5 lakh ranks (roughly 92+ percentile general category). JEE Advanced itself determines IIT admission. Top IIT CSE branches close at JEE Advanced rank ~100-300, while less competitive IIT branches close at ranks 8,000-15,000."},
+        {"q": "How does JEE Main session normalisation work?", "a": "JEE Main normalisation accounts for shift-to-shift difficulty variation. Raw marks in your shift convert to a normalised score using percentile mapping; the normalised score is then used for the All India Rank calculation. The better of your two-session normalised percentile counts for ranking."},
+        {"q": "Can I use a JEE Main marks-to-percentile predictor?", "a": "Yes — MindPeak's JEE rank predictor uses historical 2024-2026 marks-to-percentile mappings to estimate your likely percentile and AIR for any raw mark score. Note that predictors are estimates, not guarantees — actual cutoffs depend on the 2027 candidate pool."}
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "How is JEE Main percentile calculated?", "acceptedAnswer": {"@type": "Answer", "text": "JEE Main percentile is normalised across sessions and shifts. Your percentile equals the percentage of candidates who scored less than or equal to you in your session. The top scorer in any shift gets 100 percentile regardless of raw marks. The better of two-session percentile is used for final ranking."}},
+          {"@type": "Question", "name": "How many marks for 99 percentile in JEE Main 2027?", "acceptedAnswer": {"@type": "Answer", "text": "99 percentile in JEE Main typically requires 215-235 marks out of 300, varying by shift difficulty. The actual cutoff depends on candidate pool size and shift normalisation. Based on 2024-2026 trends, 225+ marks reliably gives 99+ percentile in the easier shifts."}},
+          {"@type": "Question", "name": "How many marks for 95 percentile in JEE Main?", "acceptedAnswer": {"@type": "Answer", "text": "95 percentile in JEE Main typically requires 160-180 marks out of 300. This rank range secures admission to most NIT branches outside top-tier CSE and some top IIITs. State engineering options also open up at 95 percentile."}},
+          {"@type": "Question", "name": "What is the minimum percentile for IIT admission?", "acceptedAnswer": {"@type": "Answer", "text": "JEE Main qualifies you for JEE Advanced if you're in the top 2.5 lakh ranks (roughly 92+ percentile general category). JEE Advanced itself determines IIT admission. Top IIT CSE branches close at JEE Advanced rank ~100-300, while less competitive IIT branches close at ranks 8,000-15,000."}},
+          {"@type": "Question", "name": "How does JEE Main session normalisation work?", "acceptedAnswer": {"@type": "Answer", "text": "JEE Main normalisation accounts for shift-to-shift difficulty variation. Raw marks in your shift convert to a normalised score using percentile mapping; the normalised score is then used for the All India Rank calculation. The better of your two-session normalised percentile counts for ranking."}},
+          {"@type": "Question", "name": "Can I use a JEE Main marks-to-percentile predictor?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — MindPeak's JEE rank predictor uses historical 2024-2026 marks-to-percentile mappings to estimate your likely percentile and AIR for any raw mark score. Note that predictors are estimates, not guarantees — actual cutoffs depend on the 2027 candidate pool."}}
+        ]
+      }
+    },
+    {
+      "page": "NEW /blog/how-to-balance-boards-and-jee",
+      "targetQuery": "how to balance board exams and jee",
+      "snippetOpportunity": "UNCLAIMED",
+      "lastUpdated": "2026-05-30",
+      "faqs": [
+        {"q": "How do I balance boards and JEE in Class 12?", "a": "Balance boards and JEE by exploiting the 70% syllabus overlap: cover NCERT-heavy chapters in JEE depth (they cover boards automatically), schedule 2 board-only blocks per week for English, Hindi and second-language Chemistry-equivalent chapters, and front-load JEE in Class 11 so the last 6 weeks before boards can be boards-revision dominant."},
+        {"q": "Should I do JEE Main or boards first when both are close?", "a": "Boards first when boards and JEE Main are within 4 weeks of each other. After boards, switch immediately to JEE Main April session prep — JEE knowledge stays fresh through boards because 70% of the syllabus overlaps. Most students who try to maintain 8 hours JEE during boards underperform in both."},
+        {"q": "Can I crack JEE if I focus on boards in Class 12?", "a": "Yes — Class 12 board focus can still produce 95+ JEE Main percentile if Class 11 was thoroughly prepared in JEE depth. The risk is starting JEE seriously in Class 12 alone, which typically caps at 80-85 percentile. The dropper year then becomes the high-percentile attempt."},
+        {"q": "How many hours daily for boards plus JEE?", "a": "8 to 10 hours daily during normal Class 12, splitting roughly 70% JEE-style study (which covers boards by overlap) and 30% board-only subjects (English, Hindi, other). During the 6 weeks before boards, shift to 80% boards revision and 20% JEE PYQ to maintain JEE rust prevention."},
+        {"q": "Will I forget JEE concepts while preparing for boards?", "a": "Not significantly — boards Physics, Chemistry and Math revision IS JEE revision, just at lower problem difficulty. Maintain 1 hour of JEE Main PYQ daily during the boards window to keep problem-solving sharp. JEE skills don't degrade in 6 weeks; they degrade in 6 months."},
+        {"q": "Can I clear JEE if I joined coaching late in Class 12?", "a": "Late JEE coaching start in Class 12 typically produces 70-85 percentile in the first attempt unless the student already has strong Class 11 self-study foundation. The realistic plan: take Class 12 as the diagnostic attempt, plan dropper year as the serious JEE attempt with structured 10-hour daily coaching."}
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "How do I balance boards and JEE in Class 12?", "acceptedAnswer": {"@type": "Answer", "text": "Balance boards and JEE by exploiting the 70% syllabus overlap: cover NCERT-heavy chapters in JEE depth (they cover boards automatically), schedule 2 board-only blocks per week for English, Hindi and second-language Chemistry-equivalent chapters, and front-load JEE in Class 11 so the last 6 weeks before boards can be boards-revision dominant."}},
+          {"@type": "Question", "name": "Should I do JEE Main or boards first when both are close?", "acceptedAnswer": {"@type": "Answer", "text": "Boards first when boards and JEE Main are within 4 weeks of each other. After boards, switch immediately to JEE Main April session prep — JEE knowledge stays fresh through boards because 70% of the syllabus overlaps. Most students who try to maintain 8 hours JEE during boards underperform in both."}},
+          {"@type": "Question", "name": "Can I crack JEE if I focus on boards in Class 12?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — Class 12 board focus can still produce 95+ JEE Main percentile if Class 11 was thoroughly prepared in JEE depth. The risk is starting JEE seriously in Class 12 alone, which typically caps at 80-85 percentile. The dropper year then becomes the high-percentile attempt."}},
+          {"@type": "Question", "name": "How many hours daily for boards plus JEE?", "acceptedAnswer": {"@type": "Answer", "text": "8 to 10 hours daily during normal Class 12, splitting roughly 70% JEE-style study (which covers boards by overlap) and 30% board-only subjects (English, Hindi, other). During the 6 weeks before boards, shift to 80% boards revision and 20% JEE PYQ to maintain JEE rust prevention."}},
+          {"@type": "Question", "name": "Will I forget JEE concepts while preparing for boards?", "acceptedAnswer": {"@type": "Answer", "text": "Not significantly — boards Physics, Chemistry and Math revision IS JEE revision, just at lower problem difficulty. Maintain 1 hour of JEE Main PYQ daily during the boards window to keep problem-solving sharp. JEE skills don't degrade in 6 weeks; they degrade in 6 months."}},
+          {"@type": "Question", "name": "Can I clear JEE if I joined coaching late in Class 12?", "acceptedAnswer": {"@type": "Answer", "text": "Late JEE coaching start in Class 12 typically produces 70-85 percentile in the first attempt unless the student already has strong Class 11 self-study foundation. The realistic plan: take Class 12 as the diagnostic attempt, plan dropper year as the serious JEE attempt with structured 10-hour daily coaching."}}
+        ]
+      }
+    },
+    {
+      "page": "NEW /blog/neet-preparation-strategy-average-student",
+      "targetQuery": "neet preparation strategy for average student",
+      "snippetOpportunity": "UNCLAIMED",
+      "lastUpdated": "2026-05-30",
+      "faqs": [
+        {"q": "Can an average student crack NEET 2027?", "a": "Yes — an average student with 60-75% Class 11 baseline can score 500-580 in NEET 2027 through a focused 12-month plan with NCERT mastery and 90 minutes daily Biology study. 500-580 secures government MBBS in most state quotas outside the top central institutions."},
+        {"q": "What is a realistic NEET 2027 target for average baseline?", "a": "A realistic NEET 2027 target for 60-75% Class 11 baseline is 500-580 marks. This range secures most state quota government MBBS seats. Aiming higher (650+) without addressing the baseline gap leads to burnout and often results in worse outcomes than a focused 550-target plan."},
+        {"q": "Is NCERT enough for an average student to crack NEET?", "a": "For NEET Biology, NCERT alone is sufficient for 280-310 marks of the 360 Biology total. For Chemistry, NCERT plus exemplar covers 130-160 marks of 180. For Physics, NCERT is the base but DC Pandey is needed for numerical practice. Total NCERT-only ceiling is around 580 NEET marks."},
+        {"q": "How many hours daily for an average student preparing NEET?", "a": "8 hours of focused study daily across the 12-month plan: 90 minutes Biology (NCERT line-by-line), 75 minutes Chemistry, 60 minutes Physics, plus revision and mock practice. Quality of these 8 hours matters more than pushing to 12-14 hours that fragment focus."},
+        {"q": "Should an average student join coaching or self-study for NEET?", "a": "Structured coaching helps when the student has subject-specific gaps that self-study can't close. For motivated average-baseline students with NCERT discipline, self-study plus a personal mentor (one-on-one online) for weak areas typically outperforms large batch coaching at lower cost."}
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "Can an average student crack NEET 2027?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — an average student with 60-75% Class 11 baseline can score 500-580 in NEET 2027 through a focused 12-month plan with NCERT mastery and 90 minutes daily Biology study. 500-580 secures government MBBS in most state quotas outside the top central institutions."}},
+          {"@type": "Question", "name": "What is a realistic NEET 2027 target for average baseline?", "acceptedAnswer": {"@type": "Answer", "text": "A realistic NEET 2027 target for 60-75% Class 11 baseline is 500-580 marks. This range secures most state quota government MBBS seats. Aiming higher (650+) without addressing the baseline gap leads to burnout and often results in worse outcomes than a focused 550-target plan."}},
+          {"@type": "Question", "name": "Is NCERT enough for an average student to crack NEET?", "acceptedAnswer": {"@type": "Answer", "text": "For NEET Biology, NCERT alone is sufficient for 280-310 marks of the 360 Biology total. For Chemistry, NCERT plus exemplar covers 130-160 marks of 180. For Physics, NCERT is the base but DC Pandey is needed for numerical practice. Total NCERT-only ceiling is around 580 NEET marks."}},
+          {"@type": "Question", "name": "How many hours daily for an average student preparing NEET?", "acceptedAnswer": {"@type": "Answer", "text": "8 hours of focused study daily across the 12-month plan: 90 minutes Biology (NCERT line-by-line), 75 minutes Chemistry, 60 minutes Physics, plus revision and mock practice. Quality of these 8 hours matters more than pushing to 12-14 hours that fragment focus."}},
+          {"@type": "Question", "name": "Should an average student join coaching or self-study for NEET?", "acceptedAnswer": {"@type": "Answer", "text": "Structured coaching helps when the student has subject-specific gaps that self-study can't close. For motivated average-baseline students with NCERT discipline, self-study plus a personal mentor (one-on-one online) for weak areas typically outperforms large batch coaching at lower cost."}}
+        ]
+      }
+    },
+    {
+      "page": "NEW /blog/how-to-score-650-plus-neet",
+      "targetQuery": "how to score 650+ in neet",
+      "lastUpdated": "2026-05-30",
+      "faqs": [
+        {"q": "How many marks needed for 650+ in NEET 2027?", "a": "650+ in NEET 2027 requires roughly 161+ correct answers out of 180 attempted at 90% accuracy. Per subject split: 340+ in Biology (out of 360), 160+ in Chemistry (out of 180), 150+ in Physics (out of 180). Biology is the decisive subject for 650+ scores."},
+        {"q": "What is the minimum NEET score for government MBBS?", "a": "Minimum NEET score for government MBBS varies by state and category. General category typically needs 600+ for state quota MBBS in most states. AIIMS Delhi MBBS closes around 680+. Lower-tier state government colleges admit 500-540 for state quota. Reservation categories have lower cutoffs."},
+        {"q": "Can I score 650+ in NEET without coaching?", "a": "Yes — every year there are 650+ self-prep NEET scorers. Self-study works when you have NCERT discipline, access to quality mock tests, and a method for doubt resolution. A personal mentor (one-on-one) for weak areas significantly compresses the timeline compared to pure self-study."},
+        {"q": "How many mock tests for 650+ in NEET?", "a": "25 to 35 full-length NEET mocks across the final 4-6 months. Mock test count without same-day analysis is wasted effort — every mock needs a 60-90 minute analysis session categorising errors. Mock-test accuracy is the strongest single predictor of actual NEET score."},
+        {"q": "Is 650+ realistic in 12 months from zero?", "a": "650+ in 12 months from zero baseline is hard but possible for highly disciplined aspirants with 10 hours daily study. The realistic 12-month-from-zero ceiling is 580-620. Achieving 650+ in 12 months typically requires either previous strong baseline or dropper-year-level commitment to NCERT depth."},
+        {"q": "What's the difference between 600 and 650 NEET?", "a": "The 600-to-650 jump is almost entirely about NCERT-Biology depth. Students who score 600 know Biology 'well' but miss 15-20 NCERT-line-level details that 650+ students nail. The decisive lever is running a 30-day NCERT-Biology revision cycle four times across the year, each pass with different focus."}
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "How many marks needed for 650+ in NEET 2027?", "acceptedAnswer": {"@type": "Answer", "text": "650+ in NEET 2027 requires roughly 161+ correct answers out of 180 attempted at 90% accuracy. Per subject split: 340+ in Biology (out of 360), 160+ in Chemistry (out of 180), 150+ in Physics (out of 180). Biology is the decisive subject for 650+ scores."}},
+          {"@type": "Question", "name": "What is the minimum NEET score for government MBBS?", "acceptedAnswer": {"@type": "Answer", "text": "Minimum NEET score for government MBBS varies by state and category. General category typically needs 600+ for state quota MBBS in most states. AIIMS Delhi MBBS closes around 680+. Lower-tier state government colleges admit 500-540 for state quota. Reservation categories have lower cutoffs."}},
+          {"@type": "Question", "name": "Can I score 650+ in NEET without coaching?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — every year there are 650+ self-prep NEET scorers. Self-study works when you have NCERT discipline, access to quality mock tests, and a method for doubt resolution. A personal mentor (one-on-one) for weak areas significantly compresses the timeline compared to pure self-study."}},
+          {"@type": "Question", "name": "How many mock tests for 650+ in NEET?", "acceptedAnswer": {"@type": "Answer", "text": "25 to 35 full-length NEET mocks across the final 4-6 months. Mock test count without same-day analysis is wasted effort — every mock needs a 60-90 minute analysis session categorising errors. Mock-test accuracy is the strongest single predictor of actual NEET score."}},
+          {"@type": "Question", "name": "Is 650+ realistic in 12 months from zero?", "acceptedAnswer": {"@type": "Answer", "text": "650+ in 12 months from zero baseline is hard but possible for highly disciplined aspirants with 10 hours daily study. The realistic 12-month-from-zero ceiling is 580-620. Achieving 650+ in 12 months typically requires either previous strong baseline or dropper-year-level commitment to NCERT depth."}},
+          {"@type": "Question", "name": "What's the difference between 600 and 650 NEET?", "acceptedAnswer": {"@type": "Answer", "text": "The 600-to-650 jump is almost entirely about NCERT-Biology depth. Students who score 600 know Biology 'well' but miss 15-20 NCERT-line-level details that 650+ students nail. The decisive lever is running a 30-day NCERT-Biology revision cycle four times across the year, each pass with different focus."}}
+        ]
+      }
+    },
+    {
+      "page": "NEW /blog/is-private-jee-tutor-worth-it",
+      "targetQuery": "worth paying for private jee tutor",
+      "snippetOpportunity": "UNCLAIMED",
+      "lastUpdated": "2026-05-30",
+      "faqs": [
+        {"q": "Is a private JEE tutor worth the money?", "a": "A private JEE tutor is worth the money when the student has clear subject-specific gaps that batch coaching is not closing, when the student is in dropper year and needs customised pacing, or when the student needs accountability beyond what large batches provide. Private tutors typically charge ₹1,500-3,500 per hour."},
+        {"q": "What is the average cost of a private JEE tutor?", "a": "Private JEE tutor rates range from ₹1,500 per hour (entry-level) to ₹3,500 per hour (senior IIT-faculty tutors) in metro cities. A one-hour weekly subject tutor at ₹2,500/hour costs roughly ₹1,30,000 across 52 weeks — for a single subject only."},
+        {"q": "Private tutor or one-on-one online coaching for JEE?", "a": "One-on-one online coaching (₹1,30,000-1,99,000/year covering all 3 subjects daily) delivers more contact hours per rupee than a private subject tutor (₹1,30,000/year for one subject weekly). Choose private tutor only when you already have a primary coaching programme and need targeted subject top-up."},
+        {"q": "When is a private JEE tutor better than coaching?", "a": "Private tutor is better when you need to fix one specific weak subject that your current batch coaching isn't addressing, when you need flexible scheduling around school/boards, or when you want IIT Advanced-tier problem-solving depth that batch coaching pitches at Main level."},
+        {"q": "How do I find a good private JEE tutor?", "a": "Verify the tutor's credentials (IIT or NIT alumnus with subject-specific specialisation), demo a full class, check student outcomes from last 2 years, and confirm whether the tutor records sessions for revision. Reputable tutors are typically referred by current students rather than advertised."}
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "Is a private JEE tutor worth the money?", "acceptedAnswer": {"@type": "Answer", "text": "A private JEE tutor is worth the money when the student has clear subject-specific gaps that batch coaching is not closing, when the student is in dropper year and needs customised pacing, or when the student needs accountability beyond what large batches provide. Private tutors typically charge ₹1,500-3,500 per hour."}},
+          {"@type": "Question", "name": "What is the average cost of a private JEE tutor?", "acceptedAnswer": {"@type": "Answer", "text": "Private JEE tutor rates range from ₹1,500 per hour (entry-level) to ₹3,500 per hour (senior IIT-faculty tutors) in metro cities. A one-hour weekly subject tutor at ₹2,500/hour costs roughly ₹1,30,000 across 52 weeks — for a single subject only."}},
+          {"@type": "Question", "name": "Private tutor or one-on-one online coaching for JEE?", "acceptedAnswer": {"@type": "Answer", "text": "One-on-one online coaching (₹1,30,000-1,99,000/year covering all 3 subjects daily) delivers more contact hours per rupee than a private subject tutor (₹1,30,000/year for one subject weekly). Choose private tutor only when you already have a primary coaching programme and need targeted subject top-up."}},
+          {"@type": "Question", "name": "When is a private JEE tutor better than coaching?", "acceptedAnswer": {"@type": "Answer", "text": "Private tutor is better when you need to fix one specific weak subject that your current batch coaching isn't addressing, when you need flexible scheduling around school/boards, or when you want IIT Advanced-tier problem-solving depth that batch coaching pitches at Main level."}},
+          {"@type": "Question", "name": "How do I find a good private JEE tutor?", "acceptedAnswer": {"@type": "Answer", "text": "Verify the tutor's credentials (IIT or NIT alumnus with subject-specific specialisation), demo a full class, check student outcomes from last 2 years, and confirm whether the tutor records sessions for revision. Reputable tutors are typically referred by current students rather than advertised."}}
+        ]
+      }
+    },
+    {
+      "page": "NEW /blog/how-to-choose-jee-coaching",
+      "targetQuery": "how to choose jee coaching",
+      "lastUpdated": "2026-05-30",
+      "faqs": [
+        {"q": "How do I choose the right JEE coaching?", "a": "Choose JEE coaching by 9 criteria: teacher quality verifiable by demo, batch size under 30 (smaller is better), individual attention frequency, doubt-resolution timeline, current student outcomes, fee transparency, refund policy, study-material quality, and platform infrastructure for online classes. Brand reputation matters less than the specific teacher and batch."},
+        {"q": "What batch size is ideal for JEE coaching?", "a": "Under 30 students per batch is ideal for live JEE classes. 60+ batches dilute doubt resolution significantly. The premium tier is one-on-one (1 student) where every minute of class time is personalised. Mass batches of 100+ students should be avoided regardless of brand reputation."},
+        {"q": "How do I verify a JEE coaching's actual results?", "a": "Ask for last 2 years of student outcome reports including total selection rate, average mark improvement, and dropout count (not just AIR-under-100 toppers). Reputable institutes provide written outcome data; institutes that only share marketing-tier toppers are a red flag."},
+        {"q": "Should I choose JEE coaching based on Kota reputation?", "a": "No — brand reputation often reflects Kota offline batches and doesn't translate to online or non-Kota offline batches. The specific teacher and centre for YOUR batch matters more than the brand. Always demo the actual teacher and check the specific batch's outcome track record."},
+        {"q": "Is online JEE coaching as good as offline?", "a": "Yes for academic teaching — every year since 2022, top-100 JEE Advanced ranks include online-coaching-only students. Online formats add screen-share for problem walkthroughs and recorded sessions for revision. The deciding factor is teacher quality and self-discipline, not delivery format."},
+        {"q": "What's the right JEE coaching for dropper year?", "a": "Dropper-year JEE coaching needs intensive customised intervention, not generic batch programmes. One-on-one online or small-batch (under 20) coaching outperforms large dropper batches because dropper students typically need targeted weak-area drilling rather than syllabus-walk-through."}
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "How do I choose the right JEE coaching?", "acceptedAnswer": {"@type": "Answer", "text": "Choose JEE coaching by 9 criteria: teacher quality verifiable by demo, batch size under 30 (smaller is better), individual attention frequency, doubt-resolution timeline, current student outcomes, fee transparency, refund policy, study-material quality, and platform infrastructure for online classes. Brand reputation matters less than the specific teacher and batch."}},
+          {"@type": "Question", "name": "What batch size is ideal for JEE coaching?", "acceptedAnswer": {"@type": "Answer", "text": "Under 30 students per batch is ideal for live JEE classes. 60+ batches dilute doubt resolution significantly. The premium tier is one-on-one (1 student) where every minute of class time is personalised. Mass batches of 100+ students should be avoided regardless of brand reputation."}},
+          {"@type": "Question", "name": "How do I verify a JEE coaching's actual results?", "acceptedAnswer": {"@type": "Answer", "text": "Ask for last 2 years of student outcome reports including total selection rate, average mark improvement, and dropout count (not just AIR-under-100 toppers). Reputable institutes provide written outcome data; institutes that only share marketing-tier toppers are a red flag."}},
+          {"@type": "Question", "name": "Should I choose JEE coaching based on Kota reputation?", "acceptedAnswer": {"@type": "Answer", "text": "No — brand reputation often reflects Kota offline batches and doesn't translate to online or non-Kota offline batches. The specific teacher and centre for YOUR batch matters more than the brand. Always demo the actual teacher and check the specific batch's outcome track record."}},
+          {"@type": "Question", "name": "Is online JEE coaching as good as offline?", "acceptedAnswer": {"@type": "Answer", "text": "Yes for academic teaching — every year since 2022, top-100 JEE Advanced ranks include online-coaching-only students. Online formats add screen-share for problem walkthroughs and recorded sessions for revision. The deciding factor is teacher quality and self-discipline, not delivery format."}},
+          {"@type": "Question", "name": "What's the right JEE coaching for dropper year?", "acceptedAnswer": {"@type": "Answer", "text": "Dropper-year JEE coaching needs intensive customised intervention, not generic batch programmes. One-on-one online or small-batch (under 20) coaching outperforms large dropper batches because dropper students typically need targeted weak-area drilling rather than syllabus-walk-through."}}
+        ]
+      }
+    },
+    {
+      "page": "NEW /blog/jee-main-6-month-strategy-2027",
+      "targetQuery": "best strategy for jee main in 6 months",
+      "lastUpdated": "2026-05-30",
+      "faqs": [
+        {"q": "Can I crack JEE Main in 6 months from zero?", "a": "Cracking JEE Main in 6 months from zero baseline is hard but possible for highly committed students with 10 hours daily. The realistic 6-month-from-zero ceiling is 80-90 percentile. For 95+ percentile in 6 months, prior Class 11 foundation is essentially required."},
+        {"q": "What is the best 6-month JEE Main strategy?", "a": "A 3-phase plan: foundation (weeks 1-8, NCERT + HC Verma), intensive practice (weeks 9-18, 600+ PYQs + chapter tests), and revision + mocks (weeks 19-24, daily mock + same-day analysis). 8-10 hours daily with no new chapters in the last 2 weeks."},
+        {"q": "How many mock tests in 6 months?", "a": "25-30 full mocks across the 6 months. Most in weeks 17-24 (2 per week). Mock test count without same-day analysis is wasted effort. Each mock needs a 60-90 minute analysis session categorising errors and identifying weak patterns."},
+        {"q": "Which subjects to prioritise in 6 months?", "a": "Chemistry has the highest mark-per-hour return — 35% NCERT-direct, memorisation-friendly Inorganic, predictable Physical. Master Chemistry first. Then Math (high weight + variance). Physics last (concept-heavy, slower returns). This sequence maximises percentile in compressed timelines."}
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "Can I crack JEE Main in 6 months from zero?", "acceptedAnswer": {"@type": "Answer", "text": "Cracking JEE Main in 6 months from zero baseline is hard but possible for highly committed students with 10 hours daily. The realistic 6-month-from-zero ceiling is 80-90 percentile. For 95+ percentile in 6 months, prior Class 11 foundation is essentially required."}},
+          {"@type": "Question", "name": "What is the best 6-month JEE Main strategy?", "acceptedAnswer": {"@type": "Answer", "text": "A 3-phase plan: foundation (weeks 1-8, NCERT + HC Verma), intensive practice (weeks 9-18, 600+ PYQs + chapter tests), and revision + mocks (weeks 19-24, daily mock + same-day analysis). 8-10 hours daily with no new chapters in the last 2 weeks."}},
+          {"@type": "Question", "name": "How many mock tests in 6 months?", "acceptedAnswer": {"@type": "Answer", "text": "25-30 full mocks across the 6 months. Most in weeks 17-24 (2 per week). Mock test count without same-day analysis is wasted effort. Each mock needs a 60-90 minute analysis session categorising errors and identifying weak patterns."}},
+          {"@type": "Question", "name": "Which subjects to prioritise in 6 months?", "acceptedAnswer": {"@type": "Answer", "text": "Chemistry has the highest mark-per-hour return — 35% NCERT-direct, memorisation-friendly Inorganic, predictable Physical. Master Chemistry first. Then Math (high weight + variance). Physics last (concept-heavy, slower returns). This sequence maximises percentile in compressed timelines."}}
+        ]
+      }
+    },
+    {
+      "page": "NEW /blog/how-to-score-99-percentile-jee-main-2027",
+      "targetQuery": "how to score 99 percentile in jee main",
+      "lastUpdated": "2026-05-30",
+      "faqs": [
+        {"q": "How many marks for 99 percentile JEE Main 2027?", "a": "99 percentile in JEE Main 2027 requires 215-235 marks out of 300 (varies by shift difficulty). Per subject target: 80+ Physics, 85+ Chemistry, 70+ Math. The exact mark cutoff depends on candidate pool size and shift normalisation."},
+        {"q": "What is the difference between 95 and 99 percentile in JEE Main?", "a": "The 95-to-99 percentile gap is rarely about content — it's about closing the 50-60 mark gap from careless errors and time pressure. Both 95 and 99 percentile students know the syllabus; 99 percentile students execute mock tests at 90%+ accuracy versus the 95-percentile 72-75% accuracy."},
+        {"q": "How many hours daily for 99 percentile JEE Main?", "a": "8-10 hours of focused daily study for normal Class 11/12 students aiming at 99 percentile. For droppers, 10-12 hours. Quality of these hours matters more than raw count — 8 well-structured deep-work hours outperform 12 fragmented hours."},
+        {"q": "Is 99 percentile possible without coaching?", "a": "Yes — every year there are 99 percentile self-prep JEE Main scorers. Self-study works when you have NCERT discipline, structured mock testing, and a method for doubt resolution. Top self-prep students typically supplement with occasional one-on-one mentor sessions for weak chapters."},
+        {"q": "What's the best mock test strategy for 99 percentile?", "a": "30+ full-length mocks across the final 12 weeks, with same-day analysis categorising every error. Target accuracy improvement from 70% to 90%+. Mock score progression is the most reliable predictor of actual JEE Main score."}
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "How many marks for 99 percentile JEE Main 2027?", "acceptedAnswer": {"@type": "Answer", "text": "99 percentile in JEE Main 2027 requires 215-235 marks out of 300 (varies by shift difficulty). Per subject target: 80+ Physics, 85+ Chemistry, 70+ Math. The exact mark cutoff depends on candidate pool size and shift normalisation."}},
+          {"@type": "Question", "name": "What is the difference between 95 and 99 percentile in JEE Main?", "acceptedAnswer": {"@type": "Answer", "text": "The 95-to-99 percentile gap is rarely about content — it's about closing the 50-60 mark gap from careless errors and time pressure. Both 95 and 99 percentile students know the syllabus; 99 percentile students execute mock tests at 90%+ accuracy versus the 95-percentile 72-75% accuracy."}},
+          {"@type": "Question", "name": "How many hours daily for 99 percentile JEE Main?", "acceptedAnswer": {"@type": "Answer", "text": "8-10 hours of focused daily study for normal Class 11/12 students aiming at 99 percentile. For droppers, 10-12 hours. Quality of these hours matters more than raw count — 8 well-structured deep-work hours outperform 12 fragmented hours."}},
+          {"@type": "Question", "name": "Is 99 percentile possible without coaching?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — every year there are 99 percentile self-prep JEE Main scorers. Self-study works when you have NCERT discipline, structured mock testing, and a method for doubt resolution. Top self-prep students typically supplement with occasional one-on-one mentor sessions for weak chapters."}},
+          {"@type": "Question", "name": "What's the best mock test strategy for 99 percentile?", "acceptedAnswer": {"@type": "Answer", "text": "30+ full-length mocks across the final 12 weeks, with same-day analysis categorising every error. Target accuracy improvement from 70% to 90%+. Mock score progression is the most reliable predictor of actual JEE Main score."}}
+        ]
+      }
+    },
+    {
+      "page": "NEW app/jee-physics-modern-physics/page.tsx",
+      "targetQuery": "modern physics jee weightage",
+      "lastUpdated": "2026-05-30",
+      "faqs": [
+        {"q": "What is the weightage of Modern Physics in JEE Main 2027?", "a": "Modern Physics carries 10-15% weightage in JEE Main — typically 3-4 questions out of 25 Physics questions. The unit covers Dual Nature of Matter, Atoms (Bohr model), Nuclei, X-rays, and Semiconductors. Modern Physics is a high-return block because question types are highly repetitive."},
+        {"q": "Is Modern Physics easy for JEE Main?", "a": "Yes — Modern Physics is among the easiest JEE Main Physics units because question types are highly repetitive and most questions test formula recall plus one conceptual step. Master the 5 core formulas (photoelectric, Bohr energy, half-life, de Broglie wavelength, binding energy) and you solve 80% of Modern Physics questions in under 60 seconds each."},
+        {"q": "Which Modern Physics chapters are most important?", "a": "Most important Modern Physics chapters: Dual Nature of Matter and Radiation (photoelectric effect), Atoms (Bohr model + hydrogen spectrum), and Nuclei (radioactivity + binding energy). These three chapters contribute 80-90% of Modern Physics questions in JEE Main."},
+        {"q": "Are X-rays important for JEE Main?", "a": "X-rays appear in 0-1 question per JEE Main paper, mostly testing production mechanism (Coolidge tube), characteristic vs continuous spectrum, and Moseley's law. It's lower priority than photoelectric or Bohr model but high-yield-per-hour because the content is small."}
+      ],
+      "jsonLd": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "What is the weightage of Modern Physics in JEE Main 2027?", "acceptedAnswer": {"@type": "Answer", "text": "Modern Physics carries 10-15% weightage in JEE Main — typically 3-4 questions out of 25 Physics questions. The unit covers Dual Nature of Matter, Atoms (Bohr model), Nuclei, X-rays, and Semiconductors. Modern Physics is a high-return block because question types are highly repetitive."}},
+          {"@type": "Question", "name": "Is Modern Physics easy for JEE Main?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — Modern Physics is among the easiest JEE Main Physics units because question types are highly repetitive and most questions test formula recall plus one conceptual step. Master the 5 core formulas (photoelectric, Bohr energy, half-life, de Broglie wavelength, binding energy) and you solve 80% of Modern Physics questions in under 60 seconds each."}},
+          {"@type": "Question", "name": "Which Modern Physics chapters are most important?", "acceptedAnswer": {"@type": "Answer", "text": "Most important Modern Physics chapters: Dual Nature of Matter and Radiation (photoelectric effect), Atoms (Bohr model + hydrogen spectrum), and Nuclei (radioactivity + binding energy). These three chapters contribute 80-90% of Modern Physics questions in JEE Main."}},
+          {"@type": "Question", "name": "Are X-rays important for JEE Main?", "acceptedAnswer": {"@type": "Answer", "text": "X-rays appear in 0-1 question per JEE Main paper, mostly testing production mechanism (Coolidge tube), characteristic vs continuous spectrum, and Moseley's law. It's lower priority than photoelectric or Bohr model but high-yield-per-hour because the content is small."}}
+        ]
+      }
+    }
+  ],
+  "implementation": {
+    "componentReference": {
+      "PageFAQ": "@/components/PageFAQ — exports `PageFAQ` (visible HTML) + `buildFAQSchema` (JSON-LD)",
+      "PeopleAlsoAsk": "@/components/PeopleAlsoAsk — exports `PeopleAlsoAsk` + `PAAQuestion` type",
+      "JsonLd": "@/components/SEO/JsonLd — accepts an array of JSON-LD objects to inject into <head>"
+    },
+    "wireUp": "On each new page: const faqs = [...]; const faqSchema = buildFAQSchema(faqs); ... <SEOLandingPage jsonLd={[courseSchema, breadcrumbSchema, faqSchema]} /> ... <PageFAQ items={faqs} heading=\"<Topic>\" highlight=\"FAQs\" />",
+    "validation": "After deployment, validate each new FAQPage schema at https://search.google.com/test/rich-results"
+  }
+}
