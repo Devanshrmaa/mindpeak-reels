@@ -1,5 +1,5 @@
 # MindPeak Institute — Outreach Tracker
-**Last Updated:** 2026-05-20  
+**Last Updated:** 2026-06-05  
 **Site:** mindpeakinstitute.com  
 **MSME:** UDYAM-HP-04-0042530
 
@@ -57,6 +57,20 @@
 | 44 | 2026-06-04 | cyboardschool.com | cyboardschool.com/write-for-us/ | Guest Post — accepts EdTech/education content from teachers & founders, 1000–2500 words, byline with link | Via write-for-us form on site | ❌ | — | NOT STARTED |
 | 45 | 2026-06-04 | dailysarkariresults.com | dailysarkariresults.com/write-for-us/ | Guest Post — education, study tips, coaching content; high-traffic exam-aware student audience | Via write-for-us form on site | ❌ | — | NOT STARTED |
 | 46 | 2026-06-04 | vidsaga.com | vidsaga.com/top-indian-edtech-startups/ | Listicle Inclusion — "32 Top Indian EdTech Startups 2026" (startup directory angle, MSME + HP startup story) | Via vidsaga.com contact page | ❌ | — | NOT STARTED |
+| 47 | 2026-06-05 | academycheck.com | academycheck.com/blog/top-jee-coaching-institutes-producing-jee-advanced-toppers | Listicle Inclusion — "India's Top 10 JEE Coaching Institutes Producing JEE Advanced 2026 Toppers" (result-based article; MindPeak's AIR 42 is the exact credential this needs) | 08062179896 (call) or contact form | ❌ | — | NOT STARTED |
+| 48 | 2026-06-05 | sarkariresultexams.com | sarkariresultexams.com/write-for-us/ | Guest Post — education/coaching 1000+ words; dofollow link available for ₹700; 20K email subscribers; top-10 Google rankings | info@sarkariresultexams.com | ❌ | — | NOT STARTED |
+| 49 | 2026-06-05 | rsisinternational.org | rsisinternational.org/blogs/write-for-us/ | Guest Post — international education/coaching blog; 600+ words; 1–2 links allowed; do-follow in author bio | rsisadvertisement@gmail.com | ❌ | — | NOT STARTED |
+| 50 | 2026-06-05 | coachingreviews.org | coachingreviews.org/write-for-us/ | Guest Post — coaching-specific niche site; highest topical relevance of all guest post targets in tracker | Via write-for-us form | ❌ | — | NOT STARTED |
+| 51 | 2026-06-05 | viestories.com | viestories.com/insight/startup-insight/edtech-startups-in-india-7579418 + viestories.com/top-20-emerging-indian-edtech-startups | Listicle Inclusion — "Best EdTech Startups in India for 2026" + "Top 20 Emerging Indian Edtech Startups" (two articles; boutique 1-on-1 coaching segment missing; HP startup angle) | Via viestories.com contact page | ❌ | — | NOT STARTED |
+| 52 | 2026-06-05 | seedtable.com | seedtable.com/best-educational-technology-startups-in-india | Startup Directory Listing — "69 Best Educational Technology Startups in India to watch in 2026" (European startup intelligence platform; international credibility + high-DA backlink) | Via seedtable.com contact or LinkedIn | ❌ | — | NOT STARTED |
+| 53 | 2026-06-05 | riseupp.com | riseupp.com/blog/top-edtech-companies-india-best-platforms-ranked | Listicle Inclusion — "Top 100 EdTech Companies in India — Best Platforms Ranked" (India #1 course comparison platform; boutique personalised coaching segment missing) | Via riseupp.com contact page | ❌ | — | NOT STARTED |
+| 54 | 2026-06-05 | edtechstartups.org | edtechstartups.org/country/India/ | Directory Listing — "Top 100 EdTech Startups in India 2026" (international edtech startup tracking directory; opt-in submission) | Via edtechstartups.org registration | ❌ | — | NOT STARTED |
+| 55 | 2026-06-05 | iimskills.com | iimskills.com/ed-tech-companies-in-india/ | Listicle Inclusion — "100 Most Trusted & Renowned Ed-Tech Companies in India" (high-DA education site; boutique 1-on-1 coaching category gap; Email #22 ready) | Via iimskills.com contact form | ❌ | — | NOT STARTED |
+| 56 | 2026-06-05 | globaleducationawards.in | globaleducationawards.in | Award Nomination — Global Excellence Awards / Global Education Awards 2026 (edtech/coaching award category; backlink from awards site + PR coverage) | Via nomination form on site | ❌ | — | NOT STARTED |
+| 57 | 2026-06-05 | sikarcoachings.com | sikarcoachings.com/best-jee-coaching-institutes-in-india/ | Listicle Inclusion — "Best IIT JEE Coaching in India 2026 – Top 10 Institutes" (national coverage; all-India list; 1-on-1 online coaching category entirely absent; Email #23 ready) | Via sikarcoachings.com contact page | ❌ | — | NOT STARTED |
+| 58 | 2026-06-05 | linkpublishers.com | linkpublishers.com/blog/education-write-for-us/ | Guest Post — education coaching guest post network; coaching, online courses, study tips | Via site contact | ❌ | — | NOT STARTED |
+| 59 | 2026-06-05 | edumentorpro.com | edumentorpro.com/write-for-us/ | Guest Post — coaching, test preparation, career guidance niche | Via Write for Us form | ❌ | — | NOT STARTED |
+| 60 | 2026-06-05 | exambazaar.com | exambazaar.com/blogpost/guest-post-editorial-guidelines | Guest Post — competitive exam-focused education blog; coaching, careers, competitive exams | Via editorial guidelines page | ❌ | — | NOT STARTED |
 
 ---
 
@@ -77,6 +91,15 @@
 ---
 
 ## Notes & Strategy Log
+
+### 2026-06-05 — Week 6 Audit + 14 New Targets Added (60 Total)
+
+- **Zero backlinks for SIXTH consecutive week.** All 46 prior targets still at NOT STARTED.
+- **🚨 URGENT — Great Indian Business & Startup Awards (#10):** Results announced June 17, 2026. This target was added May 14 and has been untouched for 3 weeks. Free nomination. Takes 10 minutes. Must be done TODAY.
+- **14 new targets added (#47–#60):** AcademyCheck JEE Advanced toppers article (#47), sarkariresultexams.com guest post with paid dofollow option (#48), rsisinternational.org international guest post (#49), coachingreviews.org coaching-niche guest post (#50), viestories.com EdTech startup lists ×2 (#51), seedtable.com startup directory (#52), riseupp.com top-100 EdTech list (#53), edtechstartups.org directory (#54), iimskills.com trusted EdTech list (#55), globaleducationawards.in award (#56), sikarcoachings.com national JEE list (#57), linkpublishers.com guest post (#58), edumentorpro.com guest post (#59), exambazaar.com guest post (#60)
+- **5 new outreach emails ready:** Email #22 (IIMSkills), #23 (SikarCoachings), #24 (AcademyCheck toppers), #25 (RSIS International), #26 (SarkariResultExams) — all in `/seo-reports/backlinks-2026-06-05.md`
+- **No change in backlink counts or outreach sent** — the only path forward is execution.
+- Total emails ready to send (written): **26 emails across 6 weeks of audits — none sent yet**
 
 ### 2026-06-04 — Week 5 Audit + 8 New Targets Added (46 Total)
 
@@ -126,7 +149,7 @@
 | May 12–18, 2026 | 0 → 3 | Send #1, #2, #8, #11, #27 (UrbanPro self-serve) | — | **MISSED — zero sent** |
 | May 19–25, 2026 | 0 → 5 | Self-serve: UrbanPro (#27), HP Startup (#37), Wellfound (#38). Email: #2, #8, #13, #1, #14, #4 | — | **MISSED — zero sent** |
 | May 26–Jun 1, 2026 | 5 → 10 | Follow up #2/#8/#13/#14; send #9, #10, #6, #15, #16, #17 | — | **MISSED — zero sent** |
-| **Jun 2–8, 2026** | **0 → 5** | **EMERGENCY MINIMUM:** Quora answer (10 min). Self-serve: UrbanPro (#27), Wellfound (#38), HP Startup (#37). Emails: #13 OriginEducare, #2 CollegeDekho | 🔥 CRITICAL WEEK — must act | ⏳ IN PROGRESS |
+| **Jun 2–8, 2026** | **0 → 5** | **🚨 AWARDS DEADLINE:** Nominate at startupawardsindia.in (#10) — results June 17. Quora answer (10 min). Self-serve: UrbanPro (#27), Wellfound (#38), HP Startup (#37). Emails: #13 OriginEducare, #2 CollegeDekho | 🔥 CRITICAL — award deadline June 17 | ⏳ IN PROGRESS |
 | Jun 9–15, 2026 | 5 → 10 | Email: #8 CollegeDunia, #14 Notesly, #18 AcademyCheck 2027, #1 AcademyCheck NEET. Follow up #13/#2 | — | NOT STARTED |
 | Jun 16–22, 2026 | 10 → 15 | Emails: #4 FutureTopper, #6 ExamCharcha, #19 CosmosIQ, #20 Indian-Preneur, #9 PhysicsNavigator | — | NOT STARTED |
 | Jun 23–30, 2026 | 15 → 20 | Emails: #21 CyboardSchool, #11 SCNWire PR, #10 Giraffe-Learning ×2, #5 Suganta. Follow up all pending. Start Shiksha | — | NOT STARTED |
