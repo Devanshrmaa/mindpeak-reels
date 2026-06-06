@@ -2,6 +2,7 @@ import { Link } from '@/components/RouterLink';
 import { Instagram, Facebook, Linkedin, Twitter, MessageCircle } from 'lucide-react';
 const logo = '/images/logo.jpeg';
 import { jeeRelatedLinks, neetRelatedLinks, RelatedPages } from './RelatedPages';
+import { stateHubs } from '@/data/stateHubData';
 
 const socialLinks = [
   { icon: Instagram, href: 'https://instagram.com/mindpeakinstitute', label: 'Instagram' },
@@ -132,6 +133,20 @@ const neetCoachingCityLinks = [
   { label: 'NEET Coaching in Mumbai', to: '/neet-coaching-in-mumbai' },
 ];
 
+/* ── State regional hub links (indexable consolidation targets) ──
+ * Derived from stateHubData so the footer always links every live hub.
+ * These are the canonical destinations city doorways 301 into; linking them
+ * site-wide gives Googlebot a crawl path to pages that were otherwise
+ * orphaned and not getting indexed during Spam Update recovery. */
+const jeeStateHubLinks = stateHubs.map((h) => ({
+  label: `JEE Coaching in ${h.state}`,
+  to: `/jee-coaching-in-${h.slug}`,
+}));
+const neetStateHubLinks = stateHubs.map((h) => ({
+  label: `NEET Coaching in ${h.state}`,
+  to: `/neet-coaching-in-${h.slug}`,
+}));
+
 /* ── Competitor comparison links ── */
 const comparisonLinks = [
   { label: 'MindPeak vs Allen', to: '/mindpeak-vs-allen' },
@@ -184,6 +199,8 @@ export const PageFooter = ({ extra }: { extra?: string }) => {
         ))}
         <FooterSection title="JEE Coaching by City" links={jeeCoachingCityLinks} />
         <FooterSection title="NEET Coaching by City" links={neetCoachingCityLinks} />
+        <FooterSection title="JEE Coaching by State" links={jeeStateHubLinks} />
+        <FooterSection title="NEET Coaching by State" links={neetStateHubLinks} />
         <FooterSection title="Compare Coaching" links={comparisonLinks} />
         <div>
           <h3 className="font-display font-bold text-foreground text-xs uppercase tracking-[0.15em] mb-3">Important Links</h3>

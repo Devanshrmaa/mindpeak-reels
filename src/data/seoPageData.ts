@@ -5549,7 +5549,93 @@ const otherExamPages: SEOPageData[] = [
 // EXPORT ALL PAGES
 // ─────────────────────────────────────────────────
 
+// ─────────────────────────────────────────────────
+// REGIONAL LANDING — HIMACHAL PRADESH (home-state authority)
+// ─────────────────────────────────────────────────
+const himachalTuitionPage: SEOPageData = {
+  slug: 'online-tuition-himachal-pradesh',
+  title: 'Best Online Tuition in Himachal Pradesh for JEE & NEET | MindPeak',
+  description: '1-on-1 online tuition for JEE & NEET from Himachal Pradesh\'s own coaching institute. Expert IIT & AIIMS mentors, personalised plans, zero commute from any HP district. Free demo class.',
+  h1: 'Online Tuition in Himachal Pradesh',
+  h1Highlight: 'for JEE & NEET',
+  heroSubtitle: 'MindPeak Institute brings true 1-on-1 online tuition to every district of Himachal Pradesh — from Kangra to Kinnaur. Same expert IIT & AIIMS mentors as the metros, no relocation to Chandigarh or Kota, no daily commute through the hills.',
+  sections: [
+    {
+      heading: 'Why Himachal Pradesh Students Need Online Tuition',
+      content: 'Himachal\'s geography is its biggest coaching challenge. A serious JEE or NEET aspirant in Mandi, Kullu, or Chamba has historically had two bad options: relocate to Chandigarh, Kota, or Dehradun at huge cost, or settle for a local batch that lacks specialised JEE/NEET faculty. Online 1-on-1 tuition removes that trade-off entirely. A student in Hamirpur now gets the same dedicated IIT-alumnus mentor as a student in Delhi — without leaving home, without a three-hour bus ride to the nearest town, and without hostel fees that strain a hill-state family budget.',
+      bullets: [
+        'No relocation to Chandigarh, Kota, or Dehradun — study from your own home in any HP district.',
+        'No risky daily commute on mountain roads, especially through winter and monsoon.',
+        'Specialised JEE/NEET mentors that small-town HP simply does not have locally.',
+        'A fraction of the total cost once hostel, mess, and travel are removed from the equation.',
+      ],
+    },
+    {
+      heading: 'Coverage Across Every Himachal District',
+      content: 'Because our tuition is fully online and 1-on-1, we serve students across all of Himachal Pradesh equally — there are no "centre cities" and no underserved towns. We currently mentor JEE and NEET aspirants from:',
+      bullets: [
+        'Kangra district — Dharamshala, Palampur, Kangra town, Nurpur, Baijnath, Dehra.',
+        'Shimla, Solan, and Sirmaur — including Nahan, Paonta Sahib, and Baddi.',
+        'Mandi, Kullu, and Hamirpur — the central Himachal belt.',
+        'Una, Bilaspur, and Chamba — lower and western Himachal.',
+        'Kinnaur and Lahaul-Spiti — even the remotest tribal districts, over a basic broadband or 4G connection.',
+      ],
+    },
+    {
+      heading: 'JEE & NEET Coaching Built for HPBOSE Students',
+      content: 'Most Himachal aspirants come from the HP Board (HPBOSE) or CBSE schools, and the jump from board-level study to JEE/NEET problem-solving is exactly where students lose a year. Our mentors bridge that gap deliberately: we map the HPBOSE Class 11 and 12 syllabus onto the JEE/NEET requirement, fix the foundational gaps that hill-state schooling often leaves, and then push Physics, Chemistry, Mathematics, and Biology to competitive-exam depth. Hindi-medium comfort is built in — mentors explain in the language the student thinks in.',
+      bullets: [
+        'HPBOSE & CBSE syllabus mapped onto the full JEE / NEET requirement.',
+        'Foundation repair first — algebra, trigonometry, and stoichiometry gaps fixed before advanced topics.',
+        'Bilingual teaching — concepts explained in Hindi where it helps understanding.',
+        'NCERT-anchored, the way both JEE (Chemistry) and NEET (all subjects) reward.',
+      ],
+    },
+    {
+      heading: 'Online Tuition vs Local Coaching vs Relocating',
+      content: 'Here is how 1-on-1 online tuition with MindPeak compares to the two traditional options for a Himachal student:',
+      table: {
+        headers: ['Factor', 'MindPeak Online 1-on-1', 'Local HP Batch', 'Relocating (Kota/Chandigarh)'],
+        rows: [
+          ['Faculty quality', 'IIT & AIIMS mentors', 'Limited specialised faculty', 'Strong, but batch-based'],
+          ['Attention', '1 student per mentor', '40-150 per class', '100-300 per class'],
+          ['Commute', 'None — study from home', 'Daily hill commute', 'Full relocation'],
+          ['Total annual cost', 'Tuition only', 'Low, but lower quality', 'Tuition + hostel + travel'],
+          ['Family proximity', 'Stay at home', 'Stay at home', 'Away from home'],
+        ],
+      },
+    },
+    {
+      heading: 'How Our 1-on-1 Online Tuition Works',
+      content: 'Every MindPeak student in Himachal is paired with one dedicated mentor who teaches every live class, tracks every test, and stays with them for the full course. Classes run on a low-bandwidth video platform that works on a basic HP broadband or 4G connection, with a shared whiteboard, screen-share, and same-day recordings saved to your dashboard.',
+      bullets: [
+        'Daily live 1-on-1 classes at a fixed time you choose — never a pre-recorded lecture.',
+        'Works on low bandwidth — designed for hill-state internet, including 4G.',
+        'Sub-2-hour WhatsApp doubt support, six days a week, from the same faculty who teach you.',
+        'Weekly tests with chapter-wise analytics, plus a Sunday parent update.',
+      ],
+      authorityNote: 'In our one-on-one classes, a student in Kullu and a student in Bengaluru get the exact same mentor quality — that is the whole point of going online.',
+    },
+  ],
+  faqs: [
+    { q: 'Is online tuition effective for JEE and NEET in Himachal Pradesh?', a: 'Yes. For most Himachal students, 1-on-1 online tuition is more effective than local batches because it provides specialised IIT/AIIMS mentors that small-town HP lacks, with personalised attention and no commute through the hills.' },
+    { q: 'Which Himachal Pradesh districts does MindPeak cover?', a: 'All of them. Because the tuition is fully online, we mentor students across Kangra, Shimla, Mandi, Kullu, Hamirpur, Solan, Sirmaur, Una, Bilaspur, Chamba, Kinnaur, and Lahaul-Spiti equally.' },
+    { q: 'Do I need a fast internet connection for online tuition in Himachal?', a: 'No. Our classes run on a low-bandwidth platform that works on basic HP broadband or a 4G connection, so students in remote districts can attend without buffering.' },
+    { q: 'Is the tuition available in Hindi for HP Board students?', a: 'Yes. Our mentors teach bilingually and explain concepts in Hindi wherever it improves understanding, which helps HPBOSE and Hindi-medium students transition to JEE/NEET.' },
+    { q: 'How much does online tuition cost compared to relocating to Kota or Chandigarh?', a: 'Significantly less in total. You pay for tuition only — there are no hostel, mess, or travel costs, which are often the largest part of relocating for coaching.' },
+  ],
+  relatedPages: [
+    { label: 'NEET Coaching', href: '/neet-coaching' },
+    { label: 'JEE Coaching', href: '/jee-coaching' },
+    { label: 'Online vs Offline Coaching', href: '/online-vs-offline-jee-coaching' },
+    { label: 'Kota Coaching Alternative', href: '/kota-coaching-alternative' },
+    { label: 'Free Trial Class', href: '/free-trial' },
+  ],
+  schemaType: 'WebPage',
+};
+
 export const allSEOPages: SEOPageData[] = [
+  himachalTuitionPage,
   aboutPage,
   successStoriesPage,
   methodologyPage,

@@ -23,13 +23,32 @@
 
 import { NextResponse } from 'next/server';
 import { REMOVED_DOORWAY_SLUGS } from '@/lib/removedSlugs';
+import { getCityConsolidation, getSubjectCityRedirect } from '@/data/cityConsolidation';
 
 const BASE = 'https://mindpeakinstitute.com';
+
+/**
+ * A slug only belongs in the removal sitemap if it ACTUALLY serves HTTP 410.
+ *
+ * proxy.ts evaluates subject-city + city-consolidation 301 redirects BEFORE
+ * the 410 branch, so a slug that redirects never reaches the 410 path. Listing
+ * such a slug here was the inaccuracy flagged in
+ * seo-reports/health-check-2026-06-02.md ("16/19 URLs return 301 not 410").
+ * Redirected doorways consolidate into their hub on recrawl and do not need a
+ * removal signal; keeping only the genuine 410s makes this sitemap honest.
+ */
+function actuallyServes410(slug: string): boolean {
+  if (getSubjectCityRedirect(slug)) return false; // 301 → subject-intent page
+  const con = getCityConsolidation(slug);
+  if (con && con.action !== '410') return false; // 301 → hub, or 'keep'
+  return true;
+}
 
 export async function GET() {
   const today = new Date().toISOString().slice(0, 10);
 
   const urls = [...REMOVED_DOORWAY_SLUGS]
+    .filter(actuallyServes410)
     .sort()
     .map(
       (slug) =>
