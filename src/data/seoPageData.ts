@@ -5634,6 +5634,158 @@ const himachalTuitionPage: SEOPageData = {
   schemaType: 'WebPage',
 };
 
+// ─────────────────────────────────────────────────
+// AI-OVERVIEW TARGETED PAGES (added 2026-06-06)
+// Closes truly-missing P0 backlog from AI snippets audit cycle.
+// ─────────────────────────────────────────────────
+
+const jeeMainMarksVsPercentilePage: SEOPageData = {
+  slug: 'jee-main-marks-vs-percentile-2027',
+  title: `JEE Main ${CURRENT_EXAM_YEAR} Marks vs Percentile — Complete Reference Table & Rank Predictor | MindPeak`,
+  description: `JEE Main ${CURRENT_EXAM_YEAR} marks vs percentile chart with expected ranks, session-wise normalisation explained, and the 200-mark threshold for NIT admission. Updated for the ${CURRENT_EXAM_YEAR} cycle.`,
+  h1: 'JEE Main Marks vs',
+  h1Highlight: `Percentile ${CURRENT_EXAM_YEAR}`,
+  heroSubtitle: `Two-fifty marks gives ninety-nine point five percentile, two hundred marks gives ninety-eight to ninety-nine percentile, and one-fifty marks gives ninety to ninety-five percentile in JEE Main ${CURRENT_EXAM_YEAR}. Exact mapping shifts by plus-or-minus zero-point-five percentile across sessions due to NTA normalisation — the table below uses 2024–2026 session data as the baseline.`,
+  sections: [
+    {
+      heading: `JEE Main ${CURRENT_EXAM_YEAR} Marks vs Percentile — Quick Reference Table`,
+      content: 'JEE Main marks-to-percentile mapping is computed session-wise. Your percentile equals the percentage of candidates in your session who scored equal to or less than you, multiplied by 100. The better of your Session 1 and Session 2 percentile is used for the final All-India Rank.',
+      table: {
+        headers: ['Marks (out of 300)', 'Expected Percentile', 'Approx All-India Rank'],
+        rows: [
+          ['280+', '99.99+', 'Top 100'],
+          ['260–280', '99.9–99.99', '100–1,400'],
+          ['240–260', '99.7–99.9', '1,400–4,200'],
+          ['220–240', '99.4–99.7', '4,200–8,400'],
+          ['200–220', '99.0–99.4', '8,400–14,000'],
+          ['180–200', '98.0–99.0', '14,000–28,000'],
+          ['160–180', '96.0–98.0', '28,000–56,000'],
+          ['140–160', '92.0–96.0', '56,000–112,000'],
+          ['120–140', '85.0–92.0', '112,000–210,000'],
+          ['100–120', '74.0–85.0', '210,000–365,000'],
+          ['80–100', '58.0–74.0', '365,000–588,000'],
+        ],
+      },
+      authorityNote: 'In our 1-on-1 sessions, Sahil (IIT-Delhi, AIR 187) cautions students against fixating on the exact marks-to-percentile mapping. The cohort and difficulty of any given session shift percentiles by 0.3 to 0.8 points — meaning 215 marks could be 99.1 percentile in a hard session or 98.7 in an easier one. Always plan for the lower-bound percentile when targeting NIT/IIIT branch cutoffs.',
+    },
+    {
+      heading: 'How JEE Main Percentile Is Calculated',
+      content: `NTA uses session-wise percentile normalisation to neutralise paper-difficulty variance across the two JEE Main sessions. The exact formula: Percentile Score = (Number of candidates in your session who scored equal to or less than you ÷ Total candidates in that session) × 100. The top scorer in any session gets 100 percentile regardless of raw marks. The better of your two-session percentiles is used for rank computation.`,
+      ordered: true,
+      bullets: [
+        'Session 1 (January) and Session 2 (April) percentiles are computed independently.',
+        'Within a session, percentile depends on your cohort — not on a fixed marks-to-percentile table.',
+        'The better of the two percentiles enters the final NTA Score, which then determines All-India Rank.',
+        'A raw score of 215 can be 99.1 percentile in a hard session and 98.7 in an easier session.',
+        'Top scorer in each session gets 100.00 percentile by definition.',
+      ],
+    },
+    {
+      heading: `What Marks Get You Into Top NITs and IIITs in ${CURRENT_EXAM_YEAR}`,
+      content: 'NIT and IIIT admission cutoffs vary by branch, college, and category. The table below maps marks to typical branch-college combinations using JoSAA 2024 and 2025 final round cutoffs as the baseline.',
+      table: {
+        headers: ['Marks (General)', 'Realistic NIT/IIIT Branch Options'],
+        rows: [
+          ['260+', 'CSE at top 3 NITs (Trichy, Warangal, Surathkal); IIIT Hyderabad CSE'],
+          ['230–260', 'CSE at mid-tier NITs; ECE at top NITs; IIIT Hyderabad (other branches)'],
+          ['200–230', 'Top-tier branches at mid-NITs; popular branches at lower NITs'],
+          ['170–200', 'Civil/Mech at mid-NITs; ECE at lower NITs; mid-tier IIITs'],
+          ['140–170', 'Civil/Metallurgy at lower NITs; lower-tier IIITs'],
+          ['Below 140', 'GFTIs and state engineering colleges via JoSAA'],
+        ],
+      },
+      authorityNote: 'In our 1-on-1 sessions, Devansh (IIT-BHU) advises students chasing top NIT CSE seats to target 250+ as the safety threshold — not 230. The 20-mark buffer absorbs the percentile-band variance from session normalisation. Students who plan to "exactly hit 230" routinely miss their target branch when their session turns out to be slightly easier than expected.',
+    },
+    {
+      heading: 'How to Use This Page Alongside Our Rank Predictor',
+      content: 'The table above shows expected percentiles and ranks for given mark bands. For a precise rank prediction that factors in category, gender, and home-state quota, use our [JEE Main Rank Predictor](/jee-rank-predictor) — it incorporates JoSAA cutoff data for 30+ branches across all NITs, IIITs, and GFTIs.',
+    },
+  ],
+  faqs: [
+    { q: `What marks are needed for 99 percentile in JEE Main ${CURRENT_EXAM_YEAR}?`, a: `Roughly 200 to 230 marks out of 300 are needed for 99 percentile in JEE Main ${CURRENT_EXAM_YEAR}, with exact thresholds depending on session difficulty. 250+ pushes toward 99.9 percentile and top 1,400 ranks. Plan for the lower bound due to NTA normalisation variance.` },
+    { q: 'How accurate are JEE Main marks vs percentile predictors?', a: 'JEE Main marks to percentile predictors are estimates with a typical accuracy band of plus-minus 0.5 percentile. The exact percentile depends on NTA session normalisation, paper difficulty, and the specific cohort taking your session. Plan for the lower bound.' },
+    { q: 'Is JEE Main percentile session-wise or total?', a: 'JEE Main percentile is calculated session-wise — your percentile in Session 1 and Session 2 are computed independently. The better of the two percentiles is then used to compute your final All-India Rank. This is why the same raw marks can produce different percentiles across sessions.' },
+    { q: 'What is a good JEE Main percentile for NIT admission?', a: '93 percentile is the general-category cutoff for the lowest-tier NITs. 98+ is needed for top NIT branches like CSE at NIT Trichy, Warangal, or Surathkal. The exact percentile-to-college mapping varies year-to-year based on cohort size and difficulty.' },
+    { q: `What is the JEE Main ${CURRENT_EXAM_YEAR} marks vs rank chart?`, a: '250+ marks gets top 100 rank. 200–250 marks: 100 to 4,200 rank. 150–200 marks: 14,000 to 56,000. 100–150 marks: 1.5 lakh to 2.65 lakh approximately. Treat as estimates — actual ranks depend on cohort and difficulty.' },
+  ],
+  relatedPages: [
+    { label: 'JEE Main Rank Predictor', href: '/jee-rank-predictor' },
+    { label: 'JEE Main Coaching', href: '/jee-main-coaching' },
+    { label: 'JEE Main Exam Pattern 2027', href: `/jee-main-exam-pattern-${CURRENT_EXAM_YEAR}` },
+    { label: 'JEE Coaching', href: '/jee-coaching' },
+  ],
+  schemaType: 'WebPage',
+};
+
+const jeePhysicsModernPhysicsPage: SEOPageData = {
+  slug: 'jee-physics-modern-physics',
+  title: `Modern Physics for JEE Main & Advanced ${CURRENT_EXAM_YEAR} — Weightage, Chapters & Strategy | MindPeak`,
+  description: `Modern Physics carries 8–12 marks in JEE Main and 12–18 in JEE Advanced. Chapter-wise weightage for Dual Nature, Atoms, Nuclei, Semiconductors. NCERT-first strategy by IIT-BHU faculty.`,
+  h1: 'Modern Physics for',
+  h1Highlight: `JEE ${CURRENT_EXAM_YEAR}`,
+  heroSubtitle: `Modern Physics carries 8 to 12 marks in JEE Main and 12 to 18 marks in JEE Advanced — making it the highest ROI-per-prep-hour chapter in JEE Physics. The four sub-chapters (Dual Nature of Matter, Atoms, Nuclei, Semiconductors) reward NCERT mastery plus formula precision more than complex problem-solving. Most JEE 99+ percentilers score 100% in Modern Physics.`,
+  sections: [
+    {
+      heading: 'JEE Main Modern Physics Weightage and Chapter Breakdown',
+      content: 'Modern Physics in JEE Main delivers consistent marks because the question patterns recycle. Memorise the four sub-chapter formulas, drill NCERT-style problems, and you will not miss marks. The table below shows 2024–2026 average weightage per sub-chapter.',
+      table: {
+        headers: ['Sub-chapter', 'JEE Main marks (avg)', 'JEE Advanced marks (avg)', 'NCERT-only sufficient?'],
+        rows: [
+          ['Dual Nature of Matter & Radiation', '4', '4–6', 'Yes for JEE Main'],
+          ['Atoms (Bohr Model, Hydrogen Spectrum)', '4', '4–6', 'Mostly — needs HC Verma for Advanced'],
+          ['Nuclei (Radioactivity, Binding Energy)', '4', '2–4', 'Yes'],
+          ['Semiconductors (Diodes, Transistors)', '4', '2–4', 'Yes for JEE Main, marginal for Advanced'],
+        ],
+      },
+      authorityNote: 'In our 1-on-1 sessions, Devansh (IIT-BHU) teaches Modern Physics as the very last chapter of the JEE Physics prep cycle — usually months 9 to 10. The reason: it builds on Optics (wave-particle duality) and Atomic Physics (which leans on Math from earlier chapters). Students who try to do Modern Physics in month 2 or 3 often re-do it because the foundational concepts have not yet settled.',
+    },
+    {
+      heading: 'Modern Physics High-Yield Topics for JEE Main',
+      content: 'Within Modern Physics, six specific topics deliver 80% of the marks. Drill these six and the chapter is locked.',
+      ordered: true,
+      bullets: [
+        'Photoelectric effect — Einstein equation, threshold frequency, stopping potential. 1–2 questions every JEE Main.',
+        'de Broglie wavelength and matter waves — 1 question almost every session.',
+        'Bohr model energy levels and Hydrogen spectrum — 1–2 questions, formula recall.',
+        'Nuclear binding energy and mass defect — 1 question per session typically.',
+        'Radioactive decay law and half-life problems — 1 question per session.',
+        'p-n junction diode characteristics and transistor common-emitter — 1 question, NCERT-direct.',
+      ],
+    },
+    {
+      heading: 'How to Study Modern Physics for JEE in 6 Weeks',
+      content: 'A focused 6-week sprint is sufficient to lock Modern Physics for both JEE Main and JEE Advanced. The plan below is the structure Devansh runs with droppers in months 9 to 10 of their preparation cycle.',
+      ordered: true,
+      bullets: [
+        'Week 1: NCERT Dual Nature + photoelectric effect. Solve every NCERT example.',
+        'Week 2: NCERT Atoms + Bohr model + Hydrogen spectrum. Derive every formula from first principles.',
+        'Week 3: NCERT Nuclei + radioactivity + nuclear binding energy. Drill numerical problems on decay law.',
+        'Week 4: NCERT Semiconductors + diodes + transistors. Focus on circuit-diagram problems.',
+        'Week 5: Mix-chapter problem set from PYQ — 80 problems minimum across the four sub-chapters.',
+        'Week 6: Full chapter mock + error log + revision of weakest sub-chapter.',
+      ],
+    },
+    {
+      heading: 'JEE Advanced Modern Physics — What Changes',
+      content: 'JEE Advanced Modern Physics expects deeper conceptual problems that combine multiple sub-topics. Photoelectric effect can be paired with optics, Bohr model with vector algebra (angular momentum), and nuclear binding with energy conservation. NCERT alone is not enough — supplement with HC Verma Modern Physics chapters and 5 years of JEE Advanced PYQ.',
+      authorityNote: 'In our JEE Advanced 1-on-1 sessions, Sahil (IIT-Delhi, AIR 187) drills students on three multi-concept problem patterns: (1) photoelectric effect + interference (light dual nature), (2) Bohr model + angular momentum (rotational mechanics), (3) nuclear binding + energy conservation (thermodynamics). These three patterns alone deliver 8–12 marks consistently in JEE Advanced.',
+    },
+  ],
+  faqs: [
+    { q: `What is the modern physics weightage in JEE Main ${CURRENT_EXAM_YEAR}?`, a: `Modern Physics carries 8 to 12 marks in JEE Main ${CURRENT_EXAM_YEAR} and 12 to 18 in JEE Advanced. The four sub-chapters — Dual Nature of Matter, Atoms, Nuclei, and Semiconductors — reward NCERT mastery plus formula precision.` },
+    { q: 'Is modern physics easy to score in JEE Main?', a: 'Yes — Modern Physics is one of the highest ROI-per-prep-hour chapters in JEE Main. The four sub-chapters are conceptually well-bounded, the formulas are limited, and NCERT theory is largely sufficient. Most JEE 99+ percentilers score full marks in Modern Physics.' },
+    { q: 'When should I start modern physics for JEE?', a: 'Start Modern Physics in months 9 to 10 of your JEE preparation cycle. It builds on Optics for wave-particle duality and on atomic theory which leans on earlier Math. Doing Modern Physics in month 2 or 3 often means redoing it later because foundational concepts have not yet settled.' },
+    { q: 'Is NCERT enough for JEE modern physics?', a: 'Yes for JEE Main — NCERT plus solved examples plus PYQ is sufficient for full marks. For JEE Advanced, supplement NCERT with HC Verma chapters on Modern Physics and Bohr Model for the depth of multi-concept problems that JEE Advanced expects.' },
+  ],
+  relatedPages: [
+    { label: 'JEE Physics Coaching', href: '/jee-physics-coaching' },
+    { label: 'JEE Main Coaching', href: '/jee-main-coaching' },
+    { label: 'JEE Advanced Coaching', href: '/jee-advanced-coaching' },
+    { label: 'JEE Physics Mechanics', href: '/jee-physics-mechanics' },
+  ],
+  schemaType: 'WebPage',
+};
+
 export const allSEOPages: SEOPageData[] = [
   himachalTuitionPage,
   aboutPage,
@@ -5658,6 +5810,8 @@ export const allSEOPages: SEOPageData[] = [
   ...comparisonPages,
   ...jeeChapterCategoryPages,
   ...otherExamPages,
+  jeeMainMarksVsPercentilePage,
+  jeePhysicsModernPhysicsPage,
 ];
 
 /** Lookup a page by slug */

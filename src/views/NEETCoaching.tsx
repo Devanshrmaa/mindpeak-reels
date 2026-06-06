@@ -165,6 +165,10 @@ const NEETCoaching = () => {
       'https://mindpeakinstitute.com/courses',
       'https://mindpeakinstitute.com/free-trial',
     ],
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', 'h2', '.hero-subtitle'],
+    },
   };
 
   return (
