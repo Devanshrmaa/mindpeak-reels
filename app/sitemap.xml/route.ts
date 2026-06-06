@@ -69,6 +69,7 @@ export async function GET() {
     '/jee-practice', '/jee-pyq', '/neet-practice', '/neet-pyq',
     '/kota-coaching-alternative', '/online-vs-offline-jee-coaching',
     '/best-jee-coaching-in-india',
+    '/online-tuition-himachal-pradesh',
     '/jee-rank-predictor', '/neet-rank-predictor',
     '/jee-physics-formulas', '/jee-chemistry-formulas', '/jee-maths-formulas',
     '/neet-biology-formulas', '/neet-physics-formulas', '/neet-chemistry-formulas',

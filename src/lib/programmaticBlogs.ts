@@ -3601,5 +3601,11 @@ export function getKeptBlogSlugs(): string[] {
     slugs.push(`blog/${exam.slug}-complete-guide-${year}`);
   }
 
+  // Hand-curated editorial posts that target tracked, high-intent keywords
+  // (kept in the sitemap so Google discovers them — they are not generated
+  // by the programmatic templates above).
+  slugs.push('blog/choosing-between-jee-and-neet');
+  slugs.push('blog/neet-2027-syllabus-changes');
+
   return slugs;
 }
