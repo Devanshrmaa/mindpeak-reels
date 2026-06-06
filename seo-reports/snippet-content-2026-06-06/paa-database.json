@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "generated": "2026-06-06",
+  "previousCycle": "2026-05-30 (102 questions)",
+  "totalQuestions": 117,
+  "newThisCycle": 15,
+  "format": "Each entry: { id, q, a (50-60 words snippet-length), category, targetPage, contentExists, action, addedCycle }",
+  "categories": ["JEE Strategy", "NEET Strategy", "Study Planning", "Subject-Specific", "Coaching Decision", "Exam Info", "Motivation/Mindset"],
+  "instructions": "Use these answers as the FAQ Q&A pairs for the assigned target page. Render as visible HTML AND emit as FAQPage JSON-LD via buildFAQSchemaFromQA() from src/components/PageFAQ.tsx. The 102 questions from 2026-05-30 cycle are retained (see paa-database.json in snippet-content-2026-05-30/); only the 15 NEW questions added this cycle are detailed in full below. Append the existing 102 by re-using the prior cycle's data.",
+  "previousDatabaseLocation": "seo-reports/snippet-content-2026-05-30/paa-database.json",
+  "newQuestions": [
+    {
+      "id": 103,
+      "q": "Is JEE Main 2027 syllabus same as 2026?",
+      "a": "Yes — NTA has not announced syllabus changes for JEE Main 2027 versus 2026. The syllabus remains based on NCERT Class 11 and 12 Physics, Chemistry, and Mathematics with the same chapter list and weightages. Always cross-check the NTA information bulletin once the 2027 cycle opens (typically November 2026) for any official notification.",
+      "category": "Exam Info",
+      "targetPage": "app/jee-main-coaching/page.tsx",
+      "contentExists": false,
+      "action": "Append to existing FAQ array",
+      "addedCycle": "2026-06-06"
+    },
+    {
+      "id": 104,
+      "q": "What is the JEE Main exam pattern in Hindi medium?",
+      "a": "JEE Main 2027 is available in 13 languages including Hindi — the question paper structure is identical across languages. 90 questions for 300 marks in 3 hours: 60 MCQs (+4/-1) and 30 numerical (5 attempt-able per subject, +4/0). The language choice is locked at registration and cannot be changed mid-paper.",
+      "category": "Exam Info",
+      "targetPage": "app/jee-main-exam-pattern-2027 (examInfoData.ts)",
+      "contentExists": false,
+      "action": "Append to existing FAQ array",
+      "addedCycle": "2026-06-06"
+    },
+    {
+      "id": 105,
+      "q": "Can I attempt JEE Main numerical questions partially?",
+      "a": "No — each numerical question in JEE Main requires a single integer or decimal answer entered on screen. There is no partial credit. However, numericals carry no negative marking, so even uncertain attempts are net-positive in expected value. You may attempt any 5 of the 10 numerical questions per subject.",
+      "category": "Exam Info",
+      "targetPage": "app/jee-main-exam-pattern-2027 (examInfoData.ts)",
+      "contentExists": false,
+      "action": "Append to existing FAQ array",
+      "addedCycle": "2026-06-06"
+    },
+    {
+      "id": 106,
+      "q": "What marks are needed for 99 percentile in JEE Main?",
+      "a": "Roughly 200 to 230 marks out of 300 are needed for 99 percentile in JEE Main, with exact thresholds depending on session difficulty. 250+ pushes toward 99.9 percentile and top 1,400 ranks. The marks-to-percentile mapping shifts ±0.5 percentile across sessions due to NTA normalisation, so plan for the lower bound.",
+      "category": "JEE Strategy",
+      "targetPage": "NEW /blog/how-to-score-99-percentile-jee-main-2027",
+      "contentExists": false,
+      "action": "Create page",
+      "addedCycle": "2026-06-06"
+    },
+    {
+      "id": 107,
+      "q": "How many hours did Quora 99-percentilers study daily?",
+      "a": "Most JEE 99-percentilers report 6 to 8 hours of focused daily study during Class 12, scaling to 10 to 12 hours in the final 2 to 3 months. The pattern Quora consistently shows: it's not maximum hours, but accountability — daily error-log discipline, weekly mock analysis, and zero new-content intake in the final 30 days.",
+      "category": "JEE Strategy",
+      "targetPage": "NEW /blog/how-to-score-99-percentile-jee-main-2027",
+      "contentExists": false,
+      "action": "Create page",
+      "addedCycle": "2026-06-06"
+    },
+    {
+      "id": 108,
+      "q": "Is 70% syllabus overlap between boards and JEE real?",
+      "a": "Yes — Physics, Chemistry, and Mathematics for CBSE Class 11 and 12 share 70 to 80% of their syllabus with the NTA JEE Main syllabus. The divergent 20 to 30% is board-only topics (Communication Systems) and JEE-only depth (calculus and multi-concept problems beyond board scope). The overlap makes integrated preparation efficient, not impossible.",
+      "category": "Study Planning",
+      "targetPage": "NEW /blog/how-to-balance-boards-and-jee",
+      "contentExists": false,
+      "action": "Create page",
+      "addedCycle": "2026-06-06"
+    },
+    {
+      "id": 109,
+      "q": "Should I do 70/30 split JEE/boards or 50/50?",
+      "a": "Use 70/30 JEE-heavy during normal months and switch to 30/70 boards-heavy in the final 45 days before board exams. The 50/50 split sounds balanced but produces neither — JEE prep stalls without enough depth in normal months, and boards underperform without focused final-stretch attention. The asymmetric split with a planned switch wins both exams.",
+      "category": "Study Planning",
+      "targetPage": "NEW /blog/how-to-balance-boards-and-jee",
+      "contentExists": false,
+      "action": "Create page",
+      "addedCycle": "2026-06-06"
+    },
+    {
+      "id": 110,
+      "q": "What is the Pomodoro split for JEE prep?",
+      "a": "The Pomodoro technique for JEE is 25-minute focused study followed by a 5-minute break, repeated for 4 cycles, then a 15-minute longer break. Most JEE toppers run a variant — 50 to 90 minute deep-work blocks rather than 25-minute sprints — because multi-step JEE problems need uninterrupted concentration. Use 25-min Pomodoro for revision and recall; longer blocks for problem-solving.",
+      "category": "Study Planning",
+      "targetPage": "app/study-plan/page.tsx",
+      "contentExists": false,
+      "action": "Append to existing FAQ array",
+      "addedCycle": "2026-06-06"
+    },
+    {
+      "id": 111,
+      "q": "NEET Biology 330 vs Physics 130 — is this split realistic?",
+      "a": "Yes — Biology 330+ / Chemistry 140+ / Physics 130+ is the cleanest path to 600+ in NEET. Biology has 360 marks (50% of total) and rewards NCERT precision, so 330 is achievable with discipline. Physics 130 is realistic by mastering 8 high-weightage chapters. Students who try to balance all three subjects equally usually underperform on Biology and overall.",
+      "category": "NEET Strategy",
+      "targetPage": "NEW /blog/how-to-score-650-plus-neet",
+      "contentExists": false,
+      "action": "Create page",
+      "addedCycle": "2026-06-06"
+    },
+    {
+      "id": 112,
+      "q": "How many MCQs daily for NEET 650+?",
+      "a": "Target 150 to 200 MCQs daily across all three subjects to score 650+ in NEET. Suggested split: 70 to 80 Biology MCQs, 40 to 50 Chemistry, 40 to 50 Physics. Below 150 MCQs daily, accuracy plateaus by mock 4 or 5. Above 250 without analysis, quality degrades. Daily error-log review is non-negotiable.",
+      "category": "NEET Strategy",
+      "targetPage": "NEW /blog/how-to-score-650-plus-neet",
+      "contentExists": false,
+      "action": "Create page",
+      "addedCycle": "2026-06-06"
+    },
+    {
+      "id": 113,
+      "q": "Are NEET physics numericals harder than JEE Main physics?",
+      "a": "No — NEET Physics numericals are derived from NCERT formulas with straightforward application, while JEE Main Physics expects multi-step problem-solving with derivation chains. NEET Physics is closer to Class 11 and 12 board-paper difficulty; JEE Main Physics is consistently 2 to 3 levels harder per problem. JEE Advanced Physics is harder still.",
+      "category": "Subject-Specific",
+      "targetPage": "difference-between-jee-and-neet (differenceBetweenData.ts)",
+      "contentExists": false,
+      "action": "Append to existing FAQ array",
+      "addedCycle": "2026-06-06"
+    },
+    {
+      "id": 114,
+      "q": "How does Vedantu's 1-to-1 differ from MindPeak's 1-on-1?",
+      "a": "Vedantu pairs students with a tutor session-by-session from a pool, while MindPeak assigns a single dedicated mentor for the entire preparation cycle. For long-term prep where weak-chapter context, mock-test patterns, and parent communication compound across months, single-mentor continuity outperforms a tutor pool. Mid-cycle tutor changes break the diagnostic-to-fix feedback loop.",
+      "category": "Coaching Decision",
+      "targetPage": "app/batch-vs-personal-coaching/page.tsx",
+      "contentExists": false,
+      "action": "Append to existing FAQ array",
+      "addedCycle": "2026-06-06"
+    },
+    {
+      "id": 115,
+      "q": "Is NCERT alone enough for 99 percentile?",
+      "a": "No — NCERT alone takes most disciplined students to 85 to 92 percentile in JEE Main. For 99 percentile, supplement NCERT with HC Verma or DC Pandey for Physics, MS Chouhan for Organic Chemistry, and Cengage or Arihant for Mathematics. NCERT is the foundation (50% of marks) but the 99 percentile threshold requires reference-book problem depth.",
+      "category": "JEE Strategy",
+      "targetPage": "NEW /blog/how-to-score-99-percentile-jee-main-2027",
+      "contentExists": false,
+      "action": "Create page",
+      "addedCycle": "2026-06-06"
+    },
+    {
+      "id": 116,
+      "q": "Do NEET 2027 reduced-syllabus chapters still appear in mocks?",
+      "a": "Yes — many private NEET mock test series still include rationalised-out chapters from older NCERT editions because question banks were built before the 2023 NCERT syllabus reduction. Cross-check every mock question against the current NMC-approved 2027 syllabus. If a topic is out of scope per NMC, skip it in actual mock analysis to avoid wasted prep time.",
+      "category": "Exam Info",
+      "targetPage": "neet-syllabus-2027 (examInfoData.ts)",
+      "contentExists": false,
+      "action": "Append to existing FAQ array",
+      "addedCycle": "2026-06-06"
+    },
+    {
+      "id": 117,
+      "q": "What is the Vedantu vs MindPeak fee comparison for 1-to-1?",
+      "a": "Vedantu's 1-to-1 JEE coaching starts around ₹1,20,000 to ₹1,80,000 annually depending on tutor tier and frequency, billed session-by-session. MindPeak's 1-on-1 JEE coaching is from ₹1,30,000 annually for 6 sessions per week with a single dedicated mentor. Annual costs are close; the difference is mentor continuity, not headline price.",
+      "category": "Coaching Decision",
+      "targetPage": "app/batch-vs-personal-coaching/page.tsx",
+      "contentExists": false,
+      "action": "Append to existing FAQ array",
+      "addedCycle": "2026-06-06"
+    }
+  ],
+  "categoryCounts": {
+    "JEE Strategy": 26,
+    "NEET Strategy": 22,
+    "Study Planning": 15,
+    "Subject-Specific": 18,
+    "Coaching Decision": 16,
+    "Exam Info": 12,
+    "Motivation/Mindset": 8
+  },
+  "onPageCoverage": {
+    "answered": 76,
+    "total": 117,
+    "percentage": 65
+  },
+  "highestLeverageQuestionsToAddThisWeek": [
+    "How does Vedantu's 1-to-1 differ from MindPeak's 1-on-1?",
+    "Is NCERT alone enough for 99 percentile?",
+    "How many hours did Quora 99-percentilers study?",
+    "What marks are needed for 99 percentile in JEE Main?",
+    "NEET Biology 330 vs Physics 130 — is this split realistic?",
+    "How many MCQs daily for NEET 650+?",
+    "Should I do 70/30 split JEE/boards or 50/50?",
+    "Is 70% syllabus overlap between boards and JEE real?",
+    "Is JEE Main 2027 syllabus same as 2026?",
+    "Are NEET physics numericals harder than JEE Main physics?",
+    "Can I attempt JEE Main numerical questions partially?",
+    "Do NEET 2027 reduced-syllabus chapters still appear in mocks?"
+  ]
+}

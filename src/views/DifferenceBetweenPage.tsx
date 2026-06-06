@@ -42,6 +42,10 @@ const DifferenceBetweenPage = () => {
       dateModified: lastUpdated,
       mainEntityOfPage: { '@type': 'WebPage', '@id': `https://mindpeakinstitute.com/${slug}` },
       about: getExamEntities(pair.exam === 'NEET' ? 'NEET' : 'JEE'),
+      speakable: {
+        '@type': 'SpeakableSpecification',
+        cssSelector: ['h1', 'h2', '.hero-subtitle'],
+      },
     },
   ];
 

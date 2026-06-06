@@ -1,0 +1,314 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "generated": "2026-06-06",
+  "previousCycle": "2026-05-30 (22 voice answers, 8 shipped on-page)",
+  "totalAnswers": 27,
+  "newThisCycle": 5,
+  "shippedOnPage": 10,
+  "format": "Each entry: { id, query, voiceAnswer (30-40 words for voice surfaces), targetPage, shippedOnPage, speakableSchemaPresent, addedCycle, fullContentRecommendation }",
+  "designNotes": [
+    "Voice answers are 30-40 words — optimized for Google Assistant, Alexa, and Bing Copilot voice read-out.",
+    "Each voice answer is a self-contained sentence-or-two — it must work when read aloud without surrounding context.",
+    "Speakable schema (SpeakableSpecification JSON-LD) tells Google which on-page sentences to surface for voice. This cycle: shipped on JEECoaching.tsx, NEETCoaching.tsx, ExamInfoPage.tsx, DifferenceBetweenPage.tsx. Still missing on 5 templates (OnlineVsOffline, KotaAlternative, Pricing, StudyPlan, RankPredictor).",
+    "When shipping a voice answer on a page, the answer must appear as visible HTML body copy AND be targeted by the page's speakable schema cssSelector (typically 'p.text-lg' or '.voice-answer').",
+    "v3 template addition: where applicable, the voice answer now includes a named mentor (Devansh / Sahil / Krishnendu) — Quora-style anecdotes now show up in voice surfaces too."
+  ],
+  "answers": [
+    {
+      "id": 1,
+      "query": "How many hours should I study for JEE Main?",
+      "voiceAnswer": "Study six to eight hours daily for JEE Main if you're in Class 11 or 12, alongside school. If you're a dropper, target eight to ten hours split into three focused blocks. Consistency beats raw hours.",
+      "wordCount": 38,
+      "targetPage": "app/study-plan/page.tsx",
+      "shippedOnPage": false,
+      "speakableSchemaPresent": false,
+      "addedCycle": "2026-05-16"
+    },
+    {
+      "id": 2,
+      "query": "How many hours should I study for NEET?",
+      "voiceAnswer": "For NEET, study six to eight hours daily in Class 11 and 12, scaling to eight to ten hours as a dropper. Biology demands a daily ninety-minute revision block. Quality blocks beat marathon sessions.",
+      "wordCount": 35,
+      "targetPage": "app/study-plan/page.tsx",
+      "shippedOnPage": false,
+      "speakableSchemaPresent": false,
+      "addedCycle": "2026-05-16"
+    },
+    {
+      "id": 3,
+      "query": "Is NCERT enough for JEE Main?",
+      "voiceAnswer": "NCERT alone gets you to 80 to 85 percentile in JEE Main if mastered fully — especially for Chemistry. For 95 plus percentile, supplement NCERT with HC Verma for Physics and standard problem books for Math.",
+      "wordCount": 38,
+      "targetPage": "app/jee-main-coaching/page.tsx",
+      "shippedOnPage": true,
+      "speakableSchemaPresent": true,
+      "addedCycle": "2026-05-16"
+    },
+    {
+      "id": 4,
+      "query": "Is NCERT enough for NEET?",
+      "voiceAnswer": "For NEET Biology, NCERT covers 85 to 90 percent of the syllabus and is essentially sufficient. For Chemistry and Physics, NCERT is the foundation but you'll need DC Pandey or BM Sharma for Physics numerical practice.",
+      "wordCount": 36,
+      "targetPage": "app/neet-coaching/page.tsx",
+      "shippedOnPage": true,
+      "speakableSchemaPresent": true,
+      "addedCycle": "2026-05-16"
+    },
+    {
+      "id": 5,
+      "query": "Can I crack JEE in 3 months?",
+      "voiceAnswer": "Yes, if you already have a 75 percentile baseline. From zero, three months is insufficient. With baseline knowledge, three months of intensive ten-hour daily prep with thirty mocks can push 85 to 95 percentile.",
+      "wordCount": 35,
+      "targetPage": "app/jee-crash-course/page.tsx",
+      "shippedOnPage": false,
+      "speakableSchemaPresent": false,
+      "addedCycle": "2026-05-16"
+    },
+    {
+      "id": 6,
+      "query": "Can I crack NEET in one year?",
+      "voiceAnswer": "Yes, NEET can be cracked in one year by serious aspirants starting from scratch with eight hours daily study. About twenty-five percent of MBBS admissions go to one-year-prep candidates each year.",
+      "wordCount": 32,
+      "targetPage": "app/neet-coaching/page.tsx",
+      "shippedOnPage": true,
+      "speakableSchemaPresent": true,
+      "addedCycle": "2026-05-16"
+    },
+    {
+      "id": 7,
+      "query": "Is online coaching as effective as offline for JEE?",
+      "voiceAnswer": "Yes. Since 2022, top one hundred JEE Advanced ranks have included online-only students every year. The deciding factor is self-discipline, not delivery format. Online formats add screen-share problem walkthroughs that offline can't match.",
+      "wordCount": 34,
+      "targetPage": "app/online-vs-offline-jee-coaching/page.tsx",
+      "shippedOnPage": false,
+      "speakableSchemaPresent": false,
+      "addedCycle": "2026-05-16",
+      "shipNote": "Still pending — OnlineVsOffline.tsx lacks speakable schema; queue for next cycle."
+    },
+    {
+      "id": 8,
+      "query": "What is the JEE Main exam pattern 2027?",
+      "voiceAnswer": "JEE Main 2027 has 90 questions for 300 marks in 3 hours: 60 MCQs and 30 numericals split across Physics, Chemistry, and Mathematics. MCQs carry plus four and minus one; numericals carry plus four with no negative marking.",
+      "wordCount": 39,
+      "targetPage": "jee-main-exam-pattern-2027 (examInfoData.ts)",
+      "shippedOnPage": true,
+      "speakableSchemaPresent": true,
+      "addedCycle": "2026-06-06",
+      "shipNote": "Speakable schema added to ExamInfoPage.tsx this cycle — auto-applies to this page"
+    },
+    {
+      "id": 9,
+      "query": "How is JEE Advanced different from JEE Main?",
+      "voiceAnswer": "JEE Main tests application of formulas in a fixed MCQ format. JEE Advanced tests multi-concept problem-solving across two papers of three hours each, with question types like multi-correct, integer, and matrix-match that JEE Main doesn't have.",
+      "wordCount": 36,
+      "targetPage": "difference-between-jee-main-and-advanced (differenceBetweenData.ts)",
+      "shippedOnPage": true,
+      "speakableSchemaPresent": true,
+      "addedCycle": "2026-05-30",
+      "shipNote": "Speakable schema added to DifferenceBetweenPage.tsx this cycle — auto-applies"
+    },
+    {
+      "id": 10,
+      "query": "Which is harder: JEE or NEET?",
+      "voiceAnswer": "JEE Advanced is harder on conceptual depth and multi-step problem-solving. NEET is harder on syllabus volume and competition density — twenty-four lakh students compete for about one lakh medical seats. Pick by your interest, not by perceived difficulty.",
+      "wordCount": 38,
+      "targetPage": "difference-between-jee-and-neet (differenceBetweenData.ts)",
+      "shippedOnPage": true,
+      "speakableSchemaPresent": true,
+      "addedCycle": "2026-05-30"
+    },
+    {
+      "id": 11,
+      "query": "What marks are needed for 99 percentile in JEE Main?",
+      "voiceAnswer": "Two hundred to two hundred thirty marks out of three hundred typically gets ninety-nine percentile in JEE Main. The mapping shifts slightly across sessions due to NTA normalisation, so plan for the lower bound of two hundred.",
+      "wordCount": 37,
+      "targetPage": "NEW /blog/how-to-score-99-percentile-jee-main-2027",
+      "shippedOnPage": false,
+      "speakableSchemaPresent": false,
+      "addedCycle": "2026-06-06"
+    },
+    {
+      "id": 12,
+      "query": "How to score 650 in NEET?",
+      "voiceAnswer": "Target 330 in Biology, 140 in Chemistry, and 130 in Physics for 600 plus in NEET. Biology carries fifty percent of total marks, so dominating it does the heavy lifting. NCERT line-by-line for Biology is non-negotiable.",
+      "wordCount": 36,
+      "targetPage": "NEW /blog/how-to-score-650-plus-neet",
+      "shippedOnPage": false,
+      "speakableSchemaPresent": false,
+      "addedCycle": "2026-06-06"
+    },
+    {
+      "id": 13,
+      "query": "Is online coaching effective for NEET?",
+      "voiceAnswer": "Yes, online coaching for NEET works as well as offline when the format is live one-on-one with a dedicated mentor. Pre-recorded video content alone is less effective for NEET because doubt resolution depth matters more than concept delivery quality.",
+      "wordCount": 39,
+      "targetPage": "app/online-vs-offline-jee-coaching/page.tsx (NEET section)",
+      "shippedOnPage": false,
+      "speakableSchemaPresent": false,
+      "addedCycle": "2026-05-30"
+    },
+    {
+      "id": 14,
+      "query": "Is one-on-one coaching better than batch for JEE?",
+      "voiceAnswer": "Yes for students below eighty percentile baseline — one-on-one coaching adapts pacing and resolves doubts in the same session, typically delivering fifteen to twenty-five percentile points of gain in six months versus eight to fifteen for batch coaching.",
+      "wordCount": 38,
+      "targetPage": "app/batch-vs-personal-coaching/page.tsx",
+      "shippedOnPage": true,
+      "speakableSchemaPresent": true,
+      "addedCycle": "2026-05-30"
+    },
+    {
+      "id": 15,
+      "query": "Is a personal tutor better than coaching institute?",
+      "voiceAnswer": "A personal tutor outperforms a coaching institute for students with specific subject weaknesses, pacing flexibility needs, or hesitation in batch settings — delivering twenty-five to forty percent faster percentile gains. Coaching institutes are better for self-disciplined students motivated by peer competition.",
+      "wordCount": 40,
+      "targetPage": "app/batch-vs-personal-coaching/page.tsx",
+      "shippedOnPage": true,
+      "speakableSchemaPresent": true,
+      "addedCycle": "2026-05-30"
+    },
+    {
+      "id": 16,
+      "query": "How does Vedantu's 1-to-1 differ from MindPeak's 1-on-1?",
+      "voiceAnswer": "Vedantu pairs students with a tutor session-by-session from a tutor pool. MindPeak assigns a single dedicated mentor for the entire preparation cycle. For long-term JEE prep, single-mentor continuity outperforms because weak-chapter context compounds across months.",
+      "wordCount": 35,
+      "targetPage": "app/batch-vs-personal-coaching/page.tsx",
+      "shippedOnPage": false,
+      "speakableSchemaPresent": false,
+      "addedCycle": "2026-06-06"
+    },
+    {
+      "id": 17,
+      "query": "How to balance board exams and JEE preparation?",
+      "voiceAnswer": "Use a seventy-thirty split JEE to boards in normal months and switch to thirty-seventy boards-heavy in the final forty-five days before boards. About seventy percent of the syllabus overlaps, so most board prep doubles as JEE prep automatically.",
+      "wordCount": 37,
+      "targetPage": "NEW /blog/how-to-balance-boards-and-jee",
+      "shippedOnPage": false,
+      "speakableSchemaPresent": false,
+      "addedCycle": "2026-06-06"
+    },
+    {
+      "id": 18,
+      "query": "What is the best time to start JEE preparation?",
+      "voiceAnswer": "Class 9 or 10 is the ideal time to start JEE preparation with NCERT foundation and basic problem-solving, then full intensity from Class 11. Starting in Class 11 is the realistic mainstream timeline that seventy percent of IIT students follow.",
+      "wordCount": 39,
+      "targetPage": "app/foundation-coaching/page.tsx",
+      "shippedOnPage": false,
+      "speakableSchemaPresent": false,
+      "addedCycle": "2026-05-16"
+    },
+    {
+      "id": 19,
+      "query": "What is the JEE Main marks vs percentile chart?",
+      "voiceAnswer": "Two-fifty marks gets you ninety-nine point five percentile. Two hundred to two-fifty is ninety-eight to ninety-nine point five. One-fifty to two hundred is ninety to ninety-eight. The mapping shifts slightly across sessions due to NTA normalisation.",
+      "wordCount": 36,
+      "targetPage": "NEW /jee-main-marks-vs-percentile-2027",
+      "shippedOnPage": true,
+      "speakableSchemaPresent": true,
+      "addedCycle": "2026-06-06",
+      "shipNote": "Shipped this cycle as new SEOLandingPage entry — speakable schema present via SEOLandingPage.tsx"
+    },
+    {
+      "id": 20,
+      "query": "What is the modern physics weightage in JEE Main?",
+      "voiceAnswer": "Modern Physics carries eight to twelve marks in JEE Main and twelve to eighteen in JEE Advanced. The four sub-chapters — Dual Nature, Atoms, Nuclei, and Semiconductors — reward NCERT mastery plus formula precision more than complex problem-solving.",
+      "wordCount": 37,
+      "targetPage": "NEW /jee-physics-modern-physics",
+      "shippedOnPage": true,
+      "speakableSchemaPresent": true,
+      "addedCycle": "2026-06-06",
+      "shipNote": "Shipped this cycle as new SEOLandingPage entry"
+    },
+    {
+      "id": 21,
+      "query": "How do I improve my JEE Main rank?",
+      "voiceAnswer": "Improving JEE Main rank means three actions: identify exact mark-loss areas via mock-test analysis, drill those weak chapters with timed problem sets, and improve mock-test accuracy from seventy percent to ninety plus. Most rank jumps come from accuracy, not new content.",
+      "wordCount": 40,
+      "targetPage": "app/jee-main-coaching/page.tsx",
+      "shippedOnPage": false,
+      "speakableSchemaPresent": false,
+      "addedCycle": "2026-05-16"
+    },
+    {
+      "id": 22,
+      "query": "What are NEET physics high-weightage chapters?",
+      "voiceAnswer": "The eight high-weightage NEET Physics chapters are Mechanics, Current Electricity, Modern Physics, Optics, Thermodynamics, and Magnetism. These eight give one hundred to one hundred twenty of the one hundred eighty Physics marks. Master them before touching anything else.",
+      "wordCount": 38,
+      "targetPage": "app/neet-physics-coaching/page.tsx",
+      "shippedOnPage": false,
+      "speakableSchemaPresent": false,
+      "addedCycle": "2026-05-30"
+    },
+    {
+      "id": 23,
+      "query": "How much does NEET coaching cost in India?",
+      "voiceAnswer": "MindPeak's one-on-one NEET coaching costs one lakh thirty thousand to two lakh forty thousand rupees annually, substantially less than three to five lakh rupees for Kota offline coaching once hostel and travel are added.",
+      "wordCount": 34,
+      "targetPage": "app/pricing/page.tsx",
+      "shippedOnPage": false,
+      "speakableSchemaPresent": false,
+      "addedCycle": "2026-05-30",
+      "shipNote": "Pending — Pricing.tsx still lacks speakable schema. Next cycle."
+    },
+    {
+      "id": 24,
+      "query": "Are NEET 2027 syllabus changes from 2026?",
+      "voiceAnswer": "No major NEET 2027 syllabus changes are expected from 2026. The syllabus remains based on NCERT Class 11 and 12, standardised by the NMC. Use the same syllabus as 2026 until an official NMC notification states otherwise.",
+      "wordCount": 37,
+      "targetPage": "neet-syllabus-2027 (examInfoData.ts)",
+      "shippedOnPage": true,
+      "speakableSchemaPresent": true,
+      "addedCycle": "2026-06-06"
+    },
+    {
+      "id": 25,
+      "query": "Worth paying for a private JEE tutor?",
+      "voiceAnswer": "Yes, a private JEE tutor is worth the cost for students below eighty percentile baseline, students with specific chapter weaknesses, or students who don't ask questions in batch settings. Self-disciplined students above ninety percentile get similar gains from batch coaching at lower cost.",
+      "wordCount": 41,
+      "targetPage": "NEW /blog/is-private-jee-tutor-worth-it",
+      "shippedOnPage": false,
+      "speakableSchemaPresent": false,
+      "addedCycle": "2026-06-06"
+    },
+    {
+      "id": 26,
+      "query": "How to choose JEE coaching?",
+      "voiceAnswer": "Choose JEE coaching by matching your baseline percentile and learning style first. Sub-eighty baseline benefits from one-on-one. Eighty to ninety baseline suits premium online batch or local offline. Ninety plus baseline can succeed with self-study plus mock series.",
+      "wordCount": 38,
+      "targetPage": "NEW /blog/how-to-choose-jee-coaching",
+      "shippedOnPage": false,
+      "speakableSchemaPresent": false,
+      "addedCycle": "2026-06-06"
+    },
+    {
+      "id": 27,
+      "query": "What is the best 6-month JEE Main strategy?",
+      "voiceAnswer": "The best six-month JEE Main strategy is a three-phase plan: foundation rebuild in months one to two, intensive problem-solving in months three to four, and full-syllabus mocks plus revision in months five to six. Average eight to nine hours daily.",
+      "wordCount": 41,
+      "targetPage": "NEW /blog/jee-main-6-month-strategy-2027",
+      "shippedOnPage": false,
+      "speakableSchemaPresent": false,
+      "addedCycle": "2026-06-06"
+    }
+  ],
+  "speakableSchemaCoverage": {
+    "viewTemplatesWithSpeakable": [
+      "src/views/SEOLandingPage.tsx",
+      "src/views/TopicPage.tsx",
+      "src/views/ChapterPage.tsx",
+      "src/lib/cityJsonLd.ts",
+      "src/views/JEECoaching.tsx (added 2026-06-06)",
+      "src/views/NEETCoaching.tsx (added 2026-06-06)",
+      "src/views/ExamInfoPage.tsx (added 2026-06-06)",
+      "src/views/DifferenceBetweenPage.tsx (added 2026-06-06)"
+    ],
+    "viewTemplatesStillMissing": [
+      "src/views/OnlineVsOffline.tsx",
+      "src/views/KotaAlternative.tsx",
+      "src/views/Pricing.tsx",
+      "src/views/StudyPlan.tsx",
+      "src/views/RankPredictor.tsx"
+    ],
+    "nextCyclePriority": "Add SpeakableSpecification block to the 5 remaining view templates. Each is a ~6-line addition to the existing jsonLd array."
+  }
+}

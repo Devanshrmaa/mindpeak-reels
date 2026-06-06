@@ -1,0 +1,220 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "generated": "2026-06-06",
+  "previousCycle": "2026-05-30",
+  "format": "Each entry: { targetPage, action ('append' | 'createNewPage'), qaItems: [{q, a}], jsonLdSchemaReady, integrationNote }",
+  "usage": "All Q&A pairs below feed into either (a) the existing PageFAQ component via buildFAQSchemaFromQA() in src/components/PageFAQ.tsx, or (b) a new SEOLandingPage entry in src/data/seoPageData.ts where the page.faqs[] field already gets schema-emitted automatically. Both paths render visible FAQ HTML AND emit FAQPage JSON-LD without manual schema authoring.",
+  "shippedThisCycle": {
+    "page_app_jee_rank_predictor": {
+      "targetPage": "app/jee-rank-predictor/page.tsx",
+      "action": "append",
+      "qaItems": [
+        {
+          "q": "What is the JEE Main shift normalisation formula?",
+          "a": "JEE Main shift normalisation uses percentile scoring rather than raw marks. Your percentile equals the percentage of candidates in your session who scored equal to or less than you, multiplied by one hundred. The top scorer in any shift gets one hundred percentile regardless of raw marks."
+        }
+      ],
+      "jsonLdSchemaReady": true,
+      "integrationNote": "Appended to existing paaQuestions array — schema auto-emits via buildFAQSchema([...faqs, ...paaQuestions])"
+    },
+    "page_app_neet_coaching": {
+      "targetPage": "app/neet-coaching/page.tsx",
+      "action": "append",
+      "qaItems": [
+        {
+          "q": "How many mock tests are enough for NEET 2027?",
+          "a": "Take twenty-five to thirty full-length NEET mocks before the exam — one weekly from month four, two weekly in the final eight weeks. Same-day error log review is non-negotiable. Below twenty mocks, exam-day pacing breaks down; above forty without analysis, returns diminish."
+        },
+        {
+          "q": "Is the NEET 2027 syllabus same as 2026?",
+          "a": "No major changes are expected for NEET 2027 versus 2026. The syllabus remains based on NCERT Class 11 and 12 Physics, Chemistry, and Biology, standardised by the NMC. Use the same syllabus as 2026 until an official NMC notification states otherwise."
+        }
+      ],
+      "jsonLdSchemaReady": true,
+      "integrationNote": "Appended to existing paaQuestions array"
+    },
+    "page_app_batch_vs_personal_coaching": {
+      "targetPage": "src/data/seoPageData.ts → batch-vs-personal-coaching → faqs",
+      "action": "append",
+      "qaItems": [
+        {
+          "q": "How does MindPeak's 1-on-1 differ from YouTube tuition?",
+          "a": "YouTube tuition is one-to-many recorded video without doubt resolution, accountability, or mock-test analysis. MindPeak's 1-on-1 is live one-to-one with a single dedicated mentor across the full preparation cycle. YouTube is a free supplementary resource; MindPeak is a structured preparation programme with measured outcomes."
+        },
+        {
+          "q": "How does Vedantu's 1-to-1 differ from MindPeak's 1-on-1?",
+          "a": "Vedantu pairs students with a tutor session-by-session from a tutor pool. MindPeak assigns a single dedicated mentor for the entire preparation cycle. Single-mentor continuity matters when weak-chapter context, mock-test patterns, and parent communication compound across months."
+        },
+        {
+          "q": "Is 1-on-1 coaching worth the money?",
+          "a": "Yes for students below eighty percentile baseline, students with specific chapter weaknesses, and students whose batch coaching pace doesn't match their learning speed. For self-disciplined students above ninety percentile baseline, batch coaching delivers similar gains at thirty to forty percent of the cost."
+        }
+      ],
+      "jsonLdSchemaReady": true,
+      "integrationNote": "Edit faqs array in seoPageData.ts — schema auto-emits via SEOLandingPage.tsx buildFAQSchemaFromQA(page.faqs)"
+    },
+    "page_app_jee_main_coaching": {
+      "targetPage": "app/jee-main-coaching/page.tsx",
+      "action": "append",
+      "qaItems": [
+        {
+          "q": "Are JEE Main attempts limited?",
+          "a": "JEE Main allows up to three consecutive attempts. Each year you can take both Session 1 (January) and Session 2 (April) — the better score of the two sessions in a given year is used for ranking. Total attempts across years remain capped at three consecutive years from your Class 12 year."
+        },
+        {
+          "q": "Is JEE Main 2027 syllabus same as 2026?",
+          "a": "Yes — NTA has not announced syllabus changes for JEE Main 2027 versus 2026. The syllabus remains based on NCERT Class 11 and 12. Cross-check the NTA information bulletin once the 2027 cycle opens, typically in November 2026, for any official notification."
+        }
+      ],
+      "jsonLdSchemaReady": true,
+      "integrationNote": "Appended to existing faqs/paaQuestions arrays"
+    }
+  },
+  "nextCycleQueue": {
+    "new_page_jee_main_marks_vs_percentile_2027": {
+      "targetPage": "NEW /jee-main-marks-vs-percentile-2027 (via seoPageData.ts)",
+      "action": "createNewPage",
+      "qaItems": [
+        {
+          "q": "What marks are needed for 99 percentile in JEE Main 2027?",
+          "a": "Roughly two hundred to two hundred thirty marks out of three hundred are needed for ninety-nine percentile in JEE Main 2027, with exact thresholds depending on session difficulty. Two-fifty plus pushes toward ninety-nine point nine percentile and top fourteen hundred ranks."
+        },
+        {
+          "q": "How accurate are JEE Main marks vs percentile predictors?",
+          "a": "JEE Main marks to percentile predictors are estimates with a typical accuracy band of plus-minus zero point five percentile. The exact percentile depends on NTA session normalisation, paper difficulty, and the specific cohort taking your session. Plan for the lower bound."
+        },
+        {
+          "q": "What is the JEE Main marks vs rank chart?",
+          "a": "Two-fifty plus marks gets top one hundred rank. Two hundred to two-fifty: one hundred to forty-two hundred rank. One-fifty to two hundred: fourteen thousand to fifty-six thousand. One hundred to one-fifty: one lakh fifty thousand to two lakh sixty-five thousand approximately."
+        },
+        {
+          "q": "Is JEE Main percentile session-wise or total?",
+          "a": "JEE Main percentile is calculated session-wise — your percentile in Session 1 and Session 2 are computed independently. The better of the two percentiles is then used to compute your final All-India Rank. This is why the same raw marks can produce different percentiles across sessions."
+        },
+        {
+          "q": "What is a good JEE Main percentile for NIT admission?",
+          "a": "Ninety-three percentile is the general category cutoff for the lowest-tier NITs. Ninety-eight plus is needed for top NIT branches like CSE at NIT Trichy, Warangal, or Surathkal. The exact percentile-to-college mapping varies year-to-year based on cohort and difficulty."
+        }
+      ],
+      "jsonLdSchemaReady": true,
+      "integrationNote": "Add to seoPageData.ts as new entry — FAQ schema auto-emits"
+    },
+    "new_page_jee_physics_modern_physics": {
+      "targetPage": "NEW /jee-physics-modern-physics (via seoPageData.ts)",
+      "action": "createNewPage",
+      "qaItems": [
+        {
+          "q": "What is the modern physics weightage in JEE Main 2027?",
+          "a": "Modern Physics carries eight to twelve marks in JEE Main 2027 and twelve to eighteen in JEE Advanced. The four sub-chapters — Dual Nature of Matter, Atoms, Nuclei, and Semiconductors — reward NCERT mastery plus formula precision."
+        },
+        {
+          "q": "Is modern physics easy to score in JEE Main?",
+          "a": "Yes — modern Physics is one of the highest ROI-per-prep-hour chapters in JEE Main. The four sub-chapters are conceptually well-bounded, the formulas are limited, and NCERT theory is largely sufficient. Most JEE ninety-nine percentilers score full marks in modern Physics."
+        },
+        {
+          "q": "When should I start modern physics for JEE?",
+          "a": "Start modern Physics in months nine to ten of your JEE preparation. It builds on Optics for wave-particle duality and on atomic theory which leans on earlier Math. Doing modern Physics in month two or three often means redoing it because foundational concepts haven't settled."
+        },
+        {
+          "q": "Is NCERT enough for JEE modern physics?",
+          "a": "Yes for JEE Main — NCERT plus solved examples plus PYQ is sufficient for full marks. For JEE Advanced, supplement NCERT with HC Verma chapters on Modern Physics and Bohr's Model for the depth of multi-concept problems Advanced expects."
+        }
+      ],
+      "jsonLdSchemaReady": true,
+      "integrationNote": "Add to seoPageData.ts as new entry"
+    }
+  },
+  "newPagesQueue": {
+    "blog_jee_main_6_month_strategy_2027": {
+      "qaItems": [
+        {"q": "Is 6 months enough for JEE Main 2027?", "a": "Yes if you already have a seventy-five percentile baseline from previous study. With baseline knowledge, six months of disciplined eight-hour daily prep covering NCERT plus PYQ plus thirty mocks delivers ninety-five plus percentile reliably."},
+        {"q": "What is the best 3-phase JEE 6-month plan?", "a": "Phase 1 months one to two: NCERT plus concept rebuild. Phase 2 months three to four: chapter-wise problem solving from coaching material. Phase 3 months five to six: mock-heavy with same-day error log discipline."},
+        {"q": "How many hours daily for 6-month JEE prep?", "a": "Eight to nine hours focused daily on weekdays, ten on weekends. Below seven hours daily the six-month timeline becomes tight. Above twelve hours, returns diminish from fatigue and quality drops."},
+        {"q": "What is the priority subject in 6-month JEE prep?", "a": "Chemistry first because it converts fastest — NCERT mastery alone gives eighty plus marks in two months. Math gets the longest curve so middle-load it. Physics revision peaks in the final weeks once mocks reveal weak chapters."},
+        {"q": "How many mocks for 6-month JEE prep?", "a": "Take twenty-five to thirty full-length JEE Main mocks across the six months — one weekly months three to four, two weekly in months five to six. Same-day error log review is mandatory or the mock is wasted."}
+      ]
+    },
+    "blog_how_to_score_99_percentile_jee_main_2027": {
+      "qaItems": [
+        {"q": "What marks are needed for 99 percentile in JEE Main?", "a": "Roughly two hundred to two hundred thirty marks out of three hundred are needed for ninety-nine percentile in JEE Main, with exact thresholds depending on session difficulty."},
+        {"q": "How many hours did Quora 99-percentilers study?", "a": "Most JEE ninety-nine percentilers report six to eight hours of focused daily study, scaling to ten to twelve hours in the final two to three months. The pattern is consistent daily error-log discipline, not maximum hours."},
+        {"q": "Is NCERT enough for 99 percentile in JEE Main?", "a": "No. NCERT alone takes most disciplined students to eighty-five to ninety-two percentile. For ninety-nine percentile, supplement NCERT with HC Verma for Physics, MS Chouhan for Organic Chemistry, and Cengage or Arihant for Mathematics."},
+        {"q": "How many mocks for 99 percentile in JEE Main?", "a": "Take thirty plus full-length mocks before the exam — one weekly from month six, two weekly in the final eight weeks. Same-day error log review is non-negotiable. Below thirty mocks, exam-day pacing breaks down."},
+        {"q": "Is 99 percentile possible in 6 months for JEE Main?", "a": "Yes if your baseline is already ninety to ninety-three percentile. From a lower baseline, six months is tight for ninety-nine percentile — nine to twelve months is more realistic. The compression demands ten hours daily and zero new content in the final thirty days."},
+        {"q": "Which subjects matter most for 99 percentile in JEE Main?", "a": "All three roughly equally — typical ninety-nine percentilers score seventy-five plus in each subject. Chemistry is the fastest to push to eighty plus, Math the longest curve, Physics most sensitive to silly mistakes."}
+      ]
+    },
+    "blog_how_to_balance_boards_and_jee": {
+      "qaItems": [
+        {"q": "Is 70% syllabus overlap between boards and JEE real?", "a": "Yes. Physics, Chemistry and Mathematics for CBSE Class 11 and 12 share seventy to eighty percent of their syllabus with the NTA JEE Main syllabus. The divergent twenty to thirty percent is board-only topics and JEE-only depth."},
+        {"q": "Should I do 70/30 split JEE/boards or 50/50?", "a": "Use seventy-thirty JEE-heavy during normal months and switch to thirty-seventy boards-heavy in the final forty-five days before board exams. The fifty-fifty split sounds balanced but produces neither — the asymmetric split with a planned switch wins both."},
+        {"q": "What about JEE prep during board exam month?", "a": "Drop coaching extras and new chapter intake in the final thirty days before boards. Maintain only the Sunday full-length JEE mock to prevent skills from rusting. Boards happen first chronologically — protect board prep in this window."},
+        {"q": "Can I crack JEE if I focus on boards?", "a": "Yes — about seventy percent of IIT students score ninety-plus in boards too. The seventy-thirty plus switch strategy means board prep doubles as JEE prep for the seventy percent overlapping syllabus."},
+        {"q": "Should I do JEE Main first or boards first when both are close?", "a": "Boards usually happen first chronologically — protect them. JEE Main Session 1 in January gives you a low-pressure attempt before boards; treat it as a pressure test. JEE Main Session 2 after boards is the real attempt with full preparation."},
+        {"q": "Can I clear JEE if I joined coaching late?", "a": "Yes with disciplined eight-hour daily prep. Students starting in December of Class 12 have cleared JEE Main with ninety-plus percentile in our 1-on-1 sessions — though JEE Advanced ranks above the top ten thousand are harder from a late start."}
+      ]
+    },
+    "blog_neet_preparation_strategy_average_student": {
+      "qaItems": [
+        {"q": "What is the realistic NEET target for an average student?", "a": "Five hundred eighty to six hundred twenty marks out of seven hundred twenty is the realistic NEET target for students with baseline mocks of three-fifty to four-fifty. This range secures government MBBS in many states or top private medical seats."},
+        {"q": "Can an average student crack NEET in 1 year?", "a": "Yes if eight focused hours daily are sustained for twelve months. Students with baseline three-fifty to four-fifty consistently hit five-eighty to six-twenty after one year. Aiming for six-fifty plus from this baseline usually backfires."},
+        {"q": "How many hours daily for an average NEET student?", "a": "Eight hours daily across three blocks: morning Biology three hours, afternoon Chemistry two hours, evening Physics plus revision three hours. Below eight hours, the one-year timeline doesn't deliver. Above ten hours from this baseline, quality and motivation degrade."},
+        {"q": "What is the best NCERT strategy for an average student?", "a": "Biology NCERT line by line twice, marking every line, with a forty-eight hour revision cycle per chapter. Chemistry NCERT plus Exemplar only. No reference books in Chemistry — they overload. Physics: NCERT plus one practice book for the eight high-weightage chapters."},
+        {"q": "Should an average student join coaching for NEET?", "a": "A 1-on-1 mentor for doubts and weekly mock analysis outperforms premium batch coaching at this baseline. Premium batch coaching wastes potential when the student can't keep up with batch pace or hesitates to ask questions in a sixty-person setting."}
+      ]
+    },
+    "blog_how_to_score_650_plus_neet": {
+      "qaItems": [
+        {"q": "How to score 650+ in NEET 2027?", "a": "Target Biology three-thirty plus, Chemistry one-forty plus, Physics one-thirty plus. Biology carries fifty percent of total marks so it does the heavy lifting. NCERT line by line for Biology is non-negotiable."},
+        {"q": "NEET Biology 330 vs Physics 130 — is this split realistic?", "a": "Yes — three-thirty plus in Biology, one-forty plus in Chemistry, one-thirty plus in Physics is the cleanest path to six hundred plus. Biology dominates because it carries fifty percent of total marks and rewards NCERT precision."},
+        {"q": "How many MCQs daily for NEET 650+?", "a": "One hundred fifty to two hundred MCQs daily across all three subjects: seventy to eighty Biology, forty to fifty Chemistry, forty to fifty Physics. Below one-fifty MCQs, accuracy plateaus by mock four or five."},
+        {"q": "Is six months enough for NEET 650+?", "a": "Only with a five-eighty baseline already. From a lower baseline, six months is insufficient for six-fifty plus; nine to twelve months is realistic. The compression demands eight hours daily and zero new content in the final thirty days."},
+        {"q": "Which chapters are essential for NEET 650+?", "a": "Biology: Human Physiology, Genetics and Evolution, Ecology, Plant Physiology — these four blocks give sixty percent of Biology marks. Chemistry: NCERT Organic mechanisms, Inorganic chapters fully. Physics: the eight high-weightage chapters from Mechanics through Modern Physics."},
+        {"q": "How many mocks for NEET 650+?", "a": "Twenty-five to thirty full-length NEET mocks before the exam — one weekly from month four, two weekly in the final eight weeks. Same-day error log review is mandatory."}
+      ]
+    },
+    "blog_is_private_jee_tutor_worth_it": {
+      "qaItems": [
+        {"q": "Is a private JEE tutor worth the cost?", "a": "Yes for students below eighty percentile baseline, students with specific chapter weaknesses, and students whose batch coaching pace doesn't match their learning speed. For self-disciplined students above ninety percentile baseline, batch coaching delivers similar gains at lower cost."},
+        {"q": "How much does a private JEE tutor cost?", "a": "Premium online 1-on-1 JEE coaching costs one lakh thirty thousand to three lakh rupees annually for six sessions weekly with a verified mentor. Per-hour cost ranges from two thousand to five thousand rupees, depending on tutor tier and frequency."},
+        {"q": "When is 1-on-1 JEE coaching not worth it?", "a": "Not worth it if you're already ninety-five plus percentile baseline — batch peer-competition is the missing ingredient at that level, not personal attention. Also not worth it if the cost induces family financial stress — that stress reverses the benefit."},
+        {"q": "How is 1-on-1 better than batch for JEE?", "a": "1-on-1 adapts pacing to the student, fixes weak chapters with targeted intervention, and resolves doubts in the same session. Batch coaching can't do any of these because the format requires a uniform pace and limited individual attention."},
+        {"q": "What is the typical percentile gain with a private JEE tutor?", "a": "Fifteen to twenty-five percentile points of gain in six months is typical for sub-eighty baseline students. Above ninety baseline, the gain narrows to four to seven points — meaningful but not always cost-justified versus batch coaching."}
+      ]
+    },
+    "blog_how_to_choose_jee_coaching": {
+      "qaItems": [
+        {"q": "How do I choose between JEE coaching options?", "a": "Match your baseline percentile to the format: sub-eighty baseline needs 1-on-1 or premium local offline; eighty to ninety baseline suits local offline under fifty per batch or premium online; ninety plus baseline can succeed with self-study plus quality mock series."},
+        {"q": "Is Kota coaching better than online for JEE?", "a": "Not for most students. Kota offline costs three to five lakh rupees annually with hostel and travel; the same outcomes are achievable with online 1-on-1 at one lakh thirty thousand. Kota suits students who specifically need peer-competitive environments."},
+        {"q": "What is the best JEE coaching for droppers?", "a": "Online 1-on-1 with a dedicated mentor outperforms batch coaching for droppers because the pacing adapts to the student's first-attempt diagnosis. Droppers who repeat the batch format often plateau at the same weak chapters."},
+        {"q": "Should I choose Allen or Aakash for JEE?", "a": "Allen has historically dominated JEE Advanced top ranks while Aakash leads in NEET. Both have strong JEE Main results. The deciding factor is local centre quality, batch size, and teacher experience — both run premium and budget tiers with different outcomes."},
+        {"q": "Is online JEE coaching as good as offline?", "a": "Yes when format is live 1-on-1 with a dedicated mentor. Online formats add screen-share for problem walkthroughs and recorded sessions for revision. Since 2022, top one hundred JEE Advanced ranks have included online-coaching-only students every year."},
+        {"q": "What should I verify before joining JEE coaching?", "a": "Three things: faculty credentials (IIT or NIT alumni with five plus years experience), batch size (under sixty for offline, under eighty for online live), and exit policy (full or pro-rata refund if the format doesn't suit your child)."}
+      ]
+    }
+  },
+  "schemaTemplate": {
+    "comment": "All FAQ Q&A pairs above automatically receive this JSON-LD schema wrapper when emitted via buildFAQSchemaFromQA(items) from src/components/PageFAQ.tsx",
+    "shape": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "<question text>",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<answer text>"
+          }
+        }
+      ]
+    }
+  },
+  "implementationChecklist": [
+    "1. For each shippedThisCycle entry, the Q&A pairs have been added to the relevant page/data file in this cycle's commit.",
+    "2. For each nextCycleQueue entry, the new pages have been added to seoPageData.ts as new entries (slugs: jee-main-marks-vs-percentile-2027, jee-physics-modern-physics).",
+    "3. For each newPagesQueue entry (blog posts), the Q&A pairs are ready — actual blog post authoring lives in next cycle's sprint.",
+    "4. All Q&A pairs are pre-validated to render without 'Unnamed item' GSC errors (no empty questions or answers).",
+    "5. Run npx tsc --noEmit after each data file edit to catch shape errors."
+  ]
+}

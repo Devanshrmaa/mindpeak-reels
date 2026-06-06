@@ -106,6 +106,10 @@ const ExamInfoPage = () => {
     dateModified: lastUpdated,
     mainEntityOfPage: { '@type': 'WebPage', '@id': `https://mindpeakinstitute.com/${slug}` },
     about: getExamEntities(page.exam),
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', 'h2', '.hero-subtitle'],
+    },
   });
 
   if (page.faqs.length > 0) jsonLd.push(buildFAQSchemaFromQA(page.faqs));
