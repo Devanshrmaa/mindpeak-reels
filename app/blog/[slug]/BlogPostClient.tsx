@@ -5,6 +5,8 @@ import { Link } from '@/components/RouterLink';
 import { motion } from 'framer-motion';
 import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
+import { PageFooter } from '@/components/PageFooter';
+import { CourseLinks } from '@/components/CourseLinks';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import { Calendar, Clock, ArrowLeft, Share2, Copy, CheckCircle, BookOpen } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
@@ -96,6 +98,10 @@ export default function BlogPostClient({ post }: { post: SerializedPost }) {
                 {post.readTime}
               </span>
               <span className="font-medium text-foreground">By {post.author}</span>
+              <span>·</span>
+              <Link to="/mentors" className="text-primary hover:underline text-sm font-medium">
+                Meet our expert JEE &amp; NEET mentors
+              </Link>
             </div>
 
             <div className="flex flex-wrap gap-2 mb-8">
@@ -150,6 +156,8 @@ export default function BlogPostClient({ post }: { post: SerializedPost }) {
 
             <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mb-12" />
 
+            <CourseLinks category={post.category as 'JEE' | 'NEET' | 'Study Tips' | 'Exam Strategy' | 'General'} />
+
             <div className="rounded-2xl bg-primary/10 border border-primary/20 p-8 sm:p-12 text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <img src={logo} alt="MindPeak" className="w-10 h-10 rounded-full" />
@@ -164,14 +172,7 @@ export default function BlogPostClient({ post }: { post: SerializedPost }) {
           </motion.div>
         </article>
 
-        <footer className="bg-background border-t border-border py-8 px-6 text-center" role="contentinfo">
-          <p className="text-muted-foreground text-xs tracking-wider mb-4">© {new Date().getFullYear()} MindPeak Institute. All rights reserved.</p>
-          <div className="flex justify-center gap-4 text-xs">
-            <Link to="/terms-and-conditions" className="text-muted-foreground hover:text-primary transition-colors">Terms &amp; Conditions</Link>
-            <span className="text-border">|</span>
-            <Link to="/refund-policy" className="text-muted-foreground hover:text-primary transition-colors">Refund Policy</Link>
-          </div>
-        </footer>
+        <PageFooter />
       </main>
     </>
   );
