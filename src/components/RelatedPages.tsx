@@ -91,6 +91,10 @@ export const RelatedPages = ({ title = 'You Might Also Like', links, columns = 3
 
 export const jeeRelatedLinks: RelatedLink[] = [
   { href: '/jee-coaching', label: 'JEE Coaching — 1-on-1', tag: 'Service' },
+  { href: '/jee-physics-coaching', label: 'JEE Physics Coaching — IIT Alumni Mentor', tag: 'Physics' },
+  { href: '/jee-chemistry-coaching', label: 'JEE Chemistry Coaching — All 3 Branches', tag: 'Chemistry' },
+  { href: '/jee-mathematics-coaching', label: 'JEE Mathematics Coaching — Calculus to Algebra', tag: 'Maths' },
+  { href: '/mentors', label: 'Meet Our IIT-Alumni JEE Mentors', tag: 'Faculty' },
   { href: '/jee-rank-predictor', label: `JEE Rank Predictor ${CURRENT_EXAM_YEAR}`, tag: 'Free Tool' },
   { href: '/jee-physics-mechanics', label: 'JEE Physics: Mechanics Guide', tag: 'Chapter' },
   { href: '/jee-math-calculus', label: 'JEE Maths: Calculus Guide', tag: 'Chapter' },
@@ -108,6 +112,10 @@ export const jeeRelatedLinks: RelatedLink[] = [
 
 export const neetRelatedLinks: RelatedLink[] = [
   { href: '/neet-coaching', label: 'NEET Coaching — 1-on-1', tag: 'Service' },
+  { href: '/neet-biology-coaching', label: 'NEET Biology Coaching — AIIMS Alumni', tag: 'Biology' },
+  { href: '/neet-physics-coaching', label: 'NEET Physics Coaching — Concept-First', tag: 'Physics' },
+  { href: '/neet-chemistry-coaching', label: 'NEET Chemistry Coaching — NCERT Deep Dive', tag: 'Chemistry' },
+  { href: '/mentors', label: 'Meet Our AIIMS-Alumni NEET Mentors', tag: 'Faculty' },
   { href: '/neet-rank-predictor', label: `NEET Rank Predictor ${CURRENT_EXAM_YEAR}`, tag: 'Free Tool' },
   { href: '/neet-biology-digestion-absorption', label: 'NEET Bio: Digestion & Absorption', tag: 'Chapter' },
   { href: '/neet-biology-inheritance-variation', label: 'NEET Bio: Genetics & Inheritance', tag: 'Chapter' },

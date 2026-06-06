@@ -289,6 +289,9 @@ const jeeCoachingPage: SEOPageData = {
     { label: 'JEE Physics Coaching', href: '/jee-physics-coaching' },
     { label: 'View All Courses & Pricing', href: '/courses' },
     { label: 'MindPeak vs Allen', href: '/mindpeak-vs-allen' },
+    { label: 'Meet Our IIT-Alumni JEE Mentors', href: '/mentors' },
+    { label: 'Book a Free Trial Class', href: '/free-trial' },
+    { label: 'JEE Preparation Blog & Tips', href: '/blog' },
   ],
   schemaType: 'Course',
 };
@@ -458,6 +461,9 @@ const neetCoachingPage: SEOPageData = {
     { label: 'NEET Biology Coaching', href: '/neet-biology-coaching' },
     { label: 'View All Courses & Pricing', href: '/courses' },
     { label: 'MindPeak vs Allen', href: '/mindpeak-vs-allen' },
+    { label: 'Meet Our AIIMS-Alumni NEET Mentors', href: '/mentors' },
+    { label: 'Book a Free Trial Class', href: '/free-trial' },
+    { label: 'NEET Preparation Blog & Tips', href: '/blog' },
   ],
   schemaType: 'Course',
 };
@@ -3574,6 +3580,8 @@ const successStoriesPage: SEOPageData = {
   relatedPages: [
     { label: 'JEE Coaching Programs', href: '/jee-coaching' },
     { label: 'NEET Coaching Programs', href: '/neet-coaching' },
+    { label: 'Meet Our Expert Mentors', href: '/mentors' },
+    { label: 'Our Teaching Methodology', href: '/methodology' },
     { label: 'Book a Free Trial', href: '/free-trial' },
     { label: 'Pricing & Plans', href: '/pricing' },
   ],
