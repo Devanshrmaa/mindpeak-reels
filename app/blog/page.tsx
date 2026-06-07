@@ -9,7 +9,7 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: `JEE & NEET Study Guides ${CURRENT_EXAM_YEAR} — Expert Tips | MindPeak`,
-  description: `Proven JEE/NEET study strategies, time management hacks, and subject-wise tips from IIT/NIT mentors. Updated for ${CURRENT_EXAM_YEAR}. Read free guides now.`,
+  description: `Expert JEE & NEET guides by IIT/AIIMS mentors — personalized study strategies, paper analysis, cutoff trends & dropper roadmaps. Updated ${CURRENT_EXAM_YEAR}. Free.`,
   alternates: { canonical: "https://mindpeakinstitute.com/blog" },
   openGraph: {
     title: `Free JEE & NEET Study Guides ${CURRENT_EXAM_YEAR} by MindPeak Experts`,

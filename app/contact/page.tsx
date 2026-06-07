@@ -4,11 +4,11 @@ import type { Metadata } from "next";
 export const revalidate = false;
 
 export const metadata: Metadata = {
-  title: "Contact MindPeak — JEE & NEET Coaching Enquiry | MindPeak",
+  title: "Contact Us — JEE & NEET Coaching Enquiry | MindPeak",
   description: "Have questions about JEE/NEET coaching? Call +91 82194 57704, WhatsApp, or email. Get a callback within 30 minutes. Mon-Sat, 9 AM – 8 PM IST.",
   alternates: { canonical: "https://mindpeakinstitute.com/contact" },
   openGraph: {
-    title: "Contact MindPeak Institute — We Reply in 30 Minutes",
+    title: "Contact MindPeak — We Reply in 30 Minutes",
     description: "Call, WhatsApp, or email MindPeak for JEE & NEET coaching enquiries. Mon–Sat, 9 AM–8 PM IST. Book a free demo class on the spot.",
     url: "https://mindpeakinstitute.com/contact",
     siteName: "MindPeak Institute",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact MindPeak — JEE & NEET Coaching Enquiry",
+    title: "Contact Us — JEE & NEET Coaching Enquiry | MindPeak",
     description: "Call, WhatsApp, or email. We reply within 30 minutes. Mon–Sat, 9 AM–8 PM IST.",
     images: ["https://mindpeakinstitute.com/images/og/coaching.jpg"],
   },

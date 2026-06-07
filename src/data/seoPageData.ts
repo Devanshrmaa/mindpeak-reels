@@ -38,7 +38,7 @@ export interface SEOPageData {
 const aboutPage: SEOPageData = {
   slug: 'about',
   title: 'About MindPeak Institute — IIT & AIIMS Faculty | MindPeak',
-  description: 'India\'s leading 1-on-1 JEE & NEET coaching. IIT/AIIMS alumni mentors, 500+ students, AIR 42 in JEE Advanced. Learn our story, faculty credentials & verified results.',
+  description: 'India\'s leading 1-on-1 JEE & NEET coaching by IIT/AIIMS alumni. AIR 42 in JEE Advanced, 500+ students. Learn our story, faculty & verified results.',
   h1: 'About',
   h1Highlight: 'MindPeak Institute',
   heroSubtitle: 'We believe every student deserves a dedicated mentor — not a seat number in a 200-student batch. MindPeak Institute was founded to bring truly personalized coaching to JEE and NEET aspirants across India.',

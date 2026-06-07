@@ -20,9 +20,25 @@ const howToSchema = {
 };
 
 export const metadata: Metadata = {
-  title: `JEE & NEET Study Plan ${CURRENT_EXAM_YEAR} — Free Personalised Roadmap Generator`,
+  title: `JEE & NEET Study Plan ${CURRENT_EXAM_YEAR} — Free Roadmap Generator | MindPeak`,
   description: `Generate your custom month-by-month JEE/NEET study plan for ${CURRENT_EXAM_YEAR}. Includes syllabus scheduling, mock-test timeline & crash course option. 100% free.`,
   alternates: { canonical: "https://mindpeakinstitute.com/study-plan" },
+  openGraph: {
+    title: `Free JEE & NEET Study Planner ${CURRENT_EXAM_YEAR} — Your Custom Roadmap | MindPeak`,
+    description: `Build your personalised month-by-month JEE/NEET study plan in 5 minutes. Syllabus schedule, mock-test calendar & crash course option. 100% free tool.`,
+    url: "https://mindpeakinstitute.com/study-plan",
+    siteName: "MindPeak Institute",
+    type: "website",
+    locale: "en_IN",
+    images: [{ url: "https://mindpeakinstitute.com/images/og/coaching.jpg", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@mindpeakins",
+    title: `Free JEE & NEET Study Planner ${CURRENT_EXAM_YEAR} | MindPeak`,
+    description: `Build your personalised study roadmap in 5 minutes — syllabus, mock tests & crash course option. 100% free.`,
+    images: ["https://mindpeakinstitute.com/images/og/coaching.jpg"],
+  },
   other: {
     'script:ld+json': JSON.stringify(howToSchema),
   },
