@@ -19,7 +19,7 @@ export const competitors: CompetitorData[] = [
     competitorName: 'Allen',
     title: 'MindPeak vs Allen',
     metaTitle: `MindPeak vs Allen — 1-on-1 vs Batch Coaching | MindPeak`,
-    metaDescription: 'Detailed comparison of MindPeak vs Allen coaching for JEE & NEET. Compare teaching format, fees, mentor quality, doubt resolution, and results. See why students switch.',
+    metaDescription: 'MindPeak 1-on-1 vs Allen batch coaching — fees, mentor quality, doubt resolution & results compared honestly. See why students switch to personalized coaching.',
     intro: 'Allen Career Institute is one of India\'s biggest coaching brands, known for mass-scale JEE and NEET preparation in Kota. With batches of 100-200+ students, Allen follows a factory-model where top students thrive but the majority struggle for attention. MindPeak takes the opposite approach: dedicated 1-on-1 mentorship where every student is the entire focus. Here\'s how the two approaches compare.',
     comparisonRows: [
       { feature: 'Teaching Format', mindpeak: '1-on-1 Online (Dedicated Mentor)', competitor: 'Batch (100-200 students)' },

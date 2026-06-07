@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: `Transparent JEE/NEET coaching pricing ${CURRENT_EXAM_YEAR}. 1-year ₹1.3L, 2-year ₹2.3L, crash ₹30K/subject. EMI available, no hidden fees. Try a free demo class first.`,
   alternates: { canonical: "https://mindpeakinstitute.com/pricing" },
   openGraph: {
-    title: `Honest JEE & NEET Coaching Fees — No Hidden Charges | MindPeak ${CURRENT_EXAM_YEAR}`,
+    title: `JEE & NEET Coaching Fees ${CURRENT_EXAM_YEAR} — No Hidden Charges | MindPeak`,
     description: "See exactly what you pay for 1-on-1 JEE & NEET coaching. Starting ₹1.3L/year. EMI options. Compare with Kota costs. Free demo before you commit.",
     url: "https://mindpeakinstitute.com/pricing",
     siteName: "MindPeak Institute",

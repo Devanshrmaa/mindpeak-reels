@@ -5,8 +5,8 @@ import { CURRENT_EXAM_YEAR } from "@/lib/examYears";
 export const revalidate = false;
 
 export const metadata: Metadata = {
-  title: `Free 1-on-1 JEE & NEET Demo Class — Zero Cost | MindPeak`,
-  description: `Experience personalized JEE/NEET coaching free. Meet your mentor, get a custom study plan, see our platform live. No card, no commitment — book in 30 seconds.`,
+  title: `Free 1-on-1 JEE & NEET Trial Class ${CURRENT_EXAM_YEAR} — Zero Cost | MindPeak`,
+  description: `Experience personalized JEE/NEET coaching free. 1-on-1 session with IIT/AIIMS mentor + custom study plan. No card needed — book in 30 seconds.`,
   alternates: { canonical: "https://mindpeakinstitute.com/free-trial" },
   openGraph: {
     title: "Book Your FREE 1-on-1 JEE & NEET Demo Class Today",

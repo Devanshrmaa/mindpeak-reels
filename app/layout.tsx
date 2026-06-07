@@ -24,11 +24,11 @@ const inter = Inter({
 /* ── Metadata (migrated from index.html) ── */
 export const metadata: Metadata = {
   title: {
-    default: `MindPeak Institute — #1 Personalized JEE & NEET Coaching ${CURRENT_EXAM_YEAR} | 95% Success`,
+    default: `MindPeak Institute — Personalized JEE & NEET Coaching`,
     template: "%s",
   },
   description:
-    "Transform your JEE/NEET preparation with personalized 1-on-1 coaching. Achieve AIR <5K with adaptive curriculum, dedicated mentors. Trusted by 500+ students.",
+    "Get personalized 1-on-1 JEE & NEET coaching from IIT/AIIMS mentors. Adaptive curriculum, AIR 42 proven rank, 95% success rate. Book a free demo class.",
   keywords: [
     "jee coaching",
     "neet coaching",

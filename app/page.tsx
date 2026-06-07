@@ -6,15 +6,33 @@ import { CURRENT_EXAM_YEAR } from "@/lib/examYears";
 /** Fully static — no data fetching. Content only changes on deploy. */
 export const revalidate = false;
 
+const _ogImage = "https://mindpeakinstitute.com/images/og/coaching.jpg";
+
 export const metadata: Metadata = {
   title: `Personalized JEE & NEET Coaching Online — 1-on-1 | MindPeak`,
-  description: `Crack JEE/NEET ${CURRENT_EXAM_YEAR} with personal 1-on-1 mentors from IIT/NIT. Adaptive study plan, 95% success rate, 500+ students. Book your free demo class today — zero commitment.`,
+  description: `Get personalized 1-on-1 JEE & NEET coaching from IIT/AIIMS mentors. Adaptive curriculum, AIR 42 proven rank, 95% success rate. Book a free demo class.`,
   alternates: {
     canonical: "https://mindpeakinstitute.com/",
     languages: {
       "en-IN": "https://mindpeakinstitute.com/",
       "x-default": "https://mindpeakinstitute.com/",
     },
+  },
+  openGraph: {
+    title: "India's #1 Personalized JEE & NEET Coaching — 1-on-1 | MindPeak",
+    description: "Dedicated 1-on-1 coaching by IIT/AIIMS alumni. AIR 42 in JEE Advanced, 95% success rate, 500+ students. Book a free demo class today.",
+    url: "https://mindpeakinstitute.com/",
+    siteName: "MindPeak Institute",
+    type: "website",
+    locale: "en_IN",
+    images: [{ url: _ogImage, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@mindpeakins",
+    title: "India's #1 Personalized JEE & NEET Coaching — 1-on-1 | MindPeak",
+    description: "1-on-1 coaching by IIT/AIIMS alumni. AIR 42 JEE Advanced. 95% success rate. Book a FREE demo class today.",
+    images: [_ogImage],
   },
 };
 
