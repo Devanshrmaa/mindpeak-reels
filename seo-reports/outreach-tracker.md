@@ -1,5 +1,5 @@
 # MindPeak Institute — Outreach Tracker
-**Last Updated:** 2026-05-20  
+**Last Updated:** 2026-06-08  
 **Site:** mindpeakinstitute.com  
 **MSME:** UDYAM-HP-04-0042530
 
@@ -20,7 +20,7 @@
 | 7 | 2026-05-14 | examcharcha.in | examcharcha.in/write-for-us-education | Guest Post | Contact form on site | ❌ | — | NOT STARTED |
 | 8 | 2026-05-14 | edustoke.com | edustoke.com/blog/write-for-us | Guest Post | blog@edustoke.com | ❌ | — | NOT STARTED |
 | 9 | 2026-05-14 | entrepreneurindia.com | entrepreneurindia.com/edawards | Award Nomination | prateek@entrepreneurindia.in / +91 6354604762 | ❌ | — | NOT STARTED |
-| 10 | 2026-05-14 | startupawardsindia.in | startupawardsindia.in | Award Nomination | Online nomination form | ❌ | — | NOT STARTED |
+| 10 | 2026-05-14 | startupawardsindia.in | startupawardsindia.in | Award Nomination — ⛔ **DEADLINE JUNE 17** — nominees selected for July 10 Bengaluru event; FREE nomination; 9 days left as of Jun 8 | Online nomination form | ❌ | — | **⛔ URGENT — DUE BY JUN 17** |
 | 11 | 2026-05-14 | physicsnavigator.in | physicsnavigator.in/Blog/top-10-physics-teachers-india-jee-neet-2026 | Listicle Inclusion | physicsnavigator85@gmail.com | ❌ | — | NOT STARTED |
 | 12 | 2026-05-14 | shiksha.com | shiksha.com | Directory Listing | Partner portal (shiksha.com/partner) | ❌ | — | NOT STARTED |
 | 13 | 2026-05-14 | trendingonlinenow.in | trendingonlinenow.in/top-10-neet-online-coaching-institutes-india-2026-rankings-fees-results-expert-guide | Listicle Inclusion | grocat.in contact | ❌ | — | NOT STARTED |
@@ -57,6 +57,13 @@
 | 44 | 2026-06-04 | cyboardschool.com | cyboardschool.com/write-for-us/ | Guest Post — accepts EdTech/education content from teachers & founders, 1000–2500 words, byline with link | Via write-for-us form on site | ❌ | — | NOT STARTED |
 | 45 | 2026-06-04 | dailysarkariresults.com | dailysarkariresults.com/write-for-us/ | Guest Post — education, study tips, coaching content; high-traffic exam-aware student audience | Via write-for-us form on site | ❌ | — | NOT STARTED |
 | 46 | 2026-06-04 | vidsaga.com | vidsaga.com/top-indian-edtech-startups/ | Listicle Inclusion — "32 Top Indian EdTech Startups 2026" (startup directory angle, MSME + HP startup story) | Via vidsaga.com contact page | ❌ | — | NOT STARTED |
+| 47 | 2026-06-08 | teacheron.com | teacheron.com/online-jee_physics-tutors | Tutor Directory Profile (SELF-SERVE, FREE) — 30,000+ JEE Physics tutors; Devansh creates profile with link to mindpeakinstitute.com; high-traffic student audience | teacheron.com self-register | ❌ | — | NOT STARTED |
+| 48 | 2026-06-08 | seedtable.com | seedtable.com/best-educational-technology-startups-in-india | Startup Listing — "69 Best Educational Technology Startups in India 2026"; claim/submit MindPeak via their data correction process; DA ~50+, global credibility | seedtable.com/faq → submission process | ❌ | — | NOT STARTED |
+| 49 | 2026-06-08 | edtechstartups.org | edtechstartups.org/country/India/ | Directory Listing — "Top 100 EdTech Startups in India 2026"; MindPeak not listed; submit via site contact | edtechstartups.org contact/submission form | ❌ | — | NOT STARTED |
+| 50 | 2026-06-08 | riseupp.com | riseupp.com/blog/top-edtech-companies-india-best-platforms-ranked | Listicle Inclusion — "Top 100 EdTech Companies in India — Best Platforms Ranked"; missing boutique 1-on-1 coaching category; Email #25 ready | riseupp.com editorial contact | ❌ | — | NOT STARTED |
+| 51 | 2026-06-08 | xylemlearning.com | xylemlearning.com/the-best-online-neet-coaching-2026/ | Listicle Inclusion — "Best Online NEET Coaching 2026"; ranked on page 1 for NEET coaching searches; Email #23 ready | xylemlearning.com contact form | ❌ | — | NOT STARTED |
+| 52 | 2026-06-08 | viskool.com | viskool.com/achieve-top-neet-scores-with-the-best-online-neet-coaching-for-2026-in-india/ | Listicle Inclusion — "Best Online NEET Coaching for 2026 in India for Top Results"; Email #24 ready | viskool.com contact form | ❌ | — | NOT STARTED |
+| 53 | 2026-06-08 | quora.com | quora.com/Which-online-coaching-is-best-for-the-IIT-JEE-preparation-in-2026 | Quora Thread — "Which online coaching is best for IIT JEE preparation 2026?" — new confirmed active thread; 10 min to answer, zero cost | quora.com (create account if needed) | ❌ | — | NOT STARTED |
 
 ---
 
@@ -77,6 +84,15 @@
 ---
 
 ## Notes & Strategy Log
+
+### 2026-06-08 — Week 6 Audit + 7 New Targets Added (53 Total)
+
+- **Zero backlinks for SIXTH consecutive week.** All 46 prior targets still at NOT STARTED. This is the most critical pattern in the entire audit log.
+- **⛔ DEADLINE ALERT: Great Indian Business & Startup Awards 2026 (target #10)** — nominees announced on or before **June 17, 2026** (9 days from today). Nomination is FREE, takes 15 minutes. This has been in the tracker since May 14 at NOT STARTED. If not submitted today, MindPeak will miss the window entirely. Award coverage typically generates DA 60–80+ editorial backlinks from YourStory, Inc42, EntrepreneurIndia.
+- **7 new targets added (#47–53):** teacheron.com (self-serve JEE Physics tutor profile, 30K+ tutors listed), seedtable.com (global EdTech startup database, claim process), edtechstartups.org (Top 100 India EdTech listing), riseupp.com ("Top 100 EdTech Companies India" blog outreach), xylemlearning.com ("Best Online NEET Coaching 2026" listicle), viskool.com ("Best Online NEET Coaching 2026" listicle), new Quora thread.
+- **5 Quora threads now confirmed active** — zero MindPeak answers on any. The thread "Which coaching institute provides the best one-on-1 mentoring for JEE Main preparation?" is a direct brand match and has been actionable for 6 weeks.
+- **PracBee (pracbee.com) identified as direct competitor** — similar 1-on-1 JEE/NEET coaching model with IITian/Doctor mentors. Appeared in organic search. Worth studying their backlink strategy.
+- Emails #22–26 ready to send (in `/seo-reports/backlinks-2026-06-08.md`)
 
 ### 2026-06-04 — Week 5 Audit + 8 New Targets Added (46 Total)
 
@@ -126,8 +142,8 @@
 | May 12–18, 2026 | 0 → 3 | Send #1, #2, #8, #11, #27 (UrbanPro self-serve) | — | **MISSED — zero sent** |
 | May 19–25, 2026 | 0 → 5 | Self-serve: UrbanPro (#27), HP Startup (#37), Wellfound (#38). Email: #2, #8, #13, #1, #14, #4 | — | **MISSED — zero sent** |
 | May 26–Jun 1, 2026 | 5 → 10 | Follow up #2/#8/#13/#14; send #9, #10, #6, #15, #16, #17 | — | **MISSED — zero sent** |
-| **Jun 2–8, 2026** | **0 → 5** | **EMERGENCY MINIMUM:** Quora answer (10 min). Self-serve: UrbanPro (#27), Wellfound (#38), HP Startup (#37). Emails: #13 OriginEducare, #2 CollegeDekho | 🔥 CRITICAL WEEK — must act | ⏳ IN PROGRESS |
-| Jun 9–15, 2026 | 5 → 10 | Email: #8 CollegeDunia, #14 Notesly, #18 AcademyCheck 2027, #1 AcademyCheck NEET. Follow up #13/#2 | — | NOT STARTED |
+| **Jun 2–8, 2026** | **0 → 5** | **EMERGENCY MINIMUM:** Quora answer (10 min). Self-serve: UrbanPro (#27), Wellfound (#38), HP Startup (#37). Emails: #13 OriginEducare, #2 CollegeDekho | 🔥 CRITICAL WEEK — must act | ⏳ RESULTS UNKNOWN — zero confirmed |
+| **Jun 9–15, 2026** | **0 → 6** | **⛔ STARTUP AWARD NOMINATION DUE JUNE 17 (#10)** — 15 min, free. Self-serve: UrbanPro (#27), TeacherOn (#47), Wellfound (#38), HP Startup (#37). Emails: #13 OriginEducare, #2 CollegeDekho, #8 CollegeDunia, #23 XylemLearning. Seedtable submit (#48). Quora: 2 answers. | 🔥 AWARD DEADLINE WEEK | NOT STARTED |
 | Jun 16–22, 2026 | 10 → 15 | Emails: #4 FutureTopper, #6 ExamCharcha, #19 CosmosIQ, #20 Indian-Preneur, #9 PhysicsNavigator | — | NOT STARTED |
 | Jun 23–30, 2026 | 15 → 20 | Emails: #21 CyboardSchool, #11 SCNWire PR, #10 Giraffe-Learning ×2, #5 Suganta. Follow up all pending. Start Shiksha | — | NOT STARTED |
 | Jul 2026 | 20 → 30 | Careers360, Shiksha partner portal, Awards follow-up. Start Quora 2–3/week consistently | — | NOT STARTED |
