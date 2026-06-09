@@ -1,5 +1,5 @@
 # MindPeak Institute — Outreach Tracker
-**Last Updated:** 2026-05-20  
+**Last Updated:** 2026-06-09  
 **Site:** mindpeakinstitute.com  
 **MSME:** UDYAM-HP-04-0042530
 
@@ -57,6 +57,12 @@
 | 44 | 2026-06-04 | cyboardschool.com | cyboardschool.com/write-for-us/ | Guest Post — accepts EdTech/education content from teachers & founders, 1000–2500 words, byline with link | Via write-for-us form on site | ❌ | — | NOT STARTED |
 | 45 | 2026-06-04 | dailysarkariresults.com | dailysarkariresults.com/write-for-us/ | Guest Post — education, study tips, coaching content; high-traffic exam-aware student audience | Via write-for-us form on site | ❌ | — | NOT STARTED |
 | 46 | 2026-06-04 | vidsaga.com | vidsaga.com/top-indian-edtech-startups/ | Listicle Inclusion — "32 Top Indian EdTech Startups 2026" (startup directory angle, MSME + HP startup story) | Via vidsaga.com contact page | ❌ | — | NOT STARTED |
+| 47 | 2026-06-09 | exambazaar.com | exambazaar.com/blogpost/guest-post-editorial-guidelines | Guest Post — education, careers, student content; JEE/NEET coaching topics accepted | Via guest post form on site | ❌ | — | NOT STARTED |
+| 48 | 2026-06-09 | sarkariresultexams.com | sarkariresultexams.com/write-for-us/ | Guest Post — education, coaching, career content; email info@sarkariresultexams.com — 24h response | info@sarkariresultexams.com | ❌ | — | NOT STARTED |
+| 49 | 2026-06-09 | globaleducationawards.in | globaleducationawards.in | Award Nomination — Global Education Awards 2026; EdTech, coaching centres eligible; nomination form on site | Via nomination form | ❌ | — | NOT STARTED |
+| 50 | 2026-06-09 | worldwide-edtech.org | worldwide-edtech.org/events-awards | Award Nomination — WorldWiDE EdTech Awards 2026; global nominations open; press syndicated on GlobeNewswire | Via nomination form on site | ❌ | — | NOT STARTED |
+| 51 | 2026-06-09 | academycheck.com | academycheck.com/blog/top-jee-coaching-institutes-producing-jee-advanced-toppers | Listicle Inclusion — "India's Top 10 JEE Coaching Institutes Producing JEE Advanced Toppers" — evaluates by actual AIR results (MindPeak AIR 42 directly qualifies) | Harish Kumawat — 08062179896 or site form | ❌ | — | NOT STARTED |
+| 52 | 2026-06-09 | education.economictimes.indiatimes.com | education.economictimes.indiatimes.com/annual-education-summit | **🔥🔥 URGENT — 48 HOURS** ET Education Excellence Awards + EdTech Expo, June 11–12 New Delhi. Economic Times event, 6000+ attendees, press coverage on ANI/Wire/PRNewswire. Register TODAY as delegate/exhibitor. | Via summit registration page | ❌ | — | NOT STARTED |
 
 ---
 
@@ -77,6 +83,15 @@
 ---
 
 ## Notes & Strategy Log
+
+### 2026-06-09 — Week 6 Audit + 6 New Targets Added (52 Total)
+
+- **Zero backlinks for SIXTH consecutive week.** All 46 prior targets still at NOT STARTED. The June 4 report's mandatory 8-action checklist was not executed.
+- **6 new targets added (#47–52):** exambazaar.com (guest post), sarkariresultexams.com (guest post — 24h response), globaleducationawards.in (award nomination), worldwide-edtech.org (award nomination), academycheck.com NEW article "JEE Advanced Toppers" (#51), ET Education Excellence Awards/Expo (#52)
+- **🔥🔥 CRITICAL URGENT: ET Education Summit (June 11–12, New Delhi)** — Economic Times event with press coverage confirmed on ANI, The Wire, PRNewswire. 48-hour window to register/exhibit. This is the highest-authority backlink opportunity in all 6 weeks of audits.
+- **sarkariresultexams.com (#48)** is the fastest-response guest post pipeline found to date: email info@sarkariresultexams.com → 24h response guaranteed per their submission page. Pitch today.
+- **AcademyCheck #51** ("Advanced Toppers") is the strongest AcademyCheck pitch yet — it evaluates institutes specifically by AIR results, and MindPeak's AIR 42 is the exact credential it measures. Bundle with call to Harish (08062179896).
+- **Execution bottleneck confirmed systemic.** All 21 pre-written emails remain unsent. If June 9–15 passes with zero action, recommend hiring a VA (₹5,000–8,000/month) to handle form submissions as MindPeak's emails are already written.
 
 ### 2026-06-04 — Week 5 Audit + 8 New Targets Added (46 Total)
 
@@ -126,8 +141,8 @@
 | May 12–18, 2026 | 0 → 3 | Send #1, #2, #8, #11, #27 (UrbanPro self-serve) | — | **MISSED — zero sent** |
 | May 19–25, 2026 | 0 → 5 | Self-serve: UrbanPro (#27), HP Startup (#37), Wellfound (#38). Email: #2, #8, #13, #1, #14, #4 | — | **MISSED — zero sent** |
 | May 26–Jun 1, 2026 | 5 → 10 | Follow up #2/#8/#13/#14; send #9, #10, #6, #15, #16, #17 | — | **MISSED — zero sent** |
-| **Jun 2–8, 2026** | **0 → 5** | **EMERGENCY MINIMUM:** Quora answer (10 min). Self-serve: UrbanPro (#27), Wellfound (#38), HP Startup (#37). Emails: #13 OriginEducare, #2 CollegeDekho | 🔥 CRITICAL WEEK — must act | ⏳ IN PROGRESS |
-| Jun 9–15, 2026 | 5 → 10 | Email: #8 CollegeDunia, #14 Notesly, #18 AcademyCheck 2027, #1 AcademyCheck NEET. Follow up #13/#2 | — | NOT STARTED |
+| ~~Jun 2–8, 2026~~ | ~~0 → 5~~ | ~~EMERGENCY MINIMUM: Quora, UrbanPro, Wellfound, HP Startup, Email #13, #2~~ | — | **MISSED — zero sent** |
+| **Jun 9–15, 2026** | **0 → 6** | **🔥🔥 URGENT:** ET Summit registration (TODAY). Quora answer (10 min). Email #26 AcademyCheck Toppers, #13 OriginEducare, #23 SarkariResultExams. Self-serve: UrbanPro (#27), Wellfound (#38), HP Startup (#37) | 🔥🔥 CRITICAL — ET Summit window closes June 11 | NOT STARTED |
 | Jun 16–22, 2026 | 10 → 15 | Emails: #4 FutureTopper, #6 ExamCharcha, #19 CosmosIQ, #20 Indian-Preneur, #9 PhysicsNavigator | — | NOT STARTED |
 | Jun 23–30, 2026 | 15 → 20 | Emails: #21 CyboardSchool, #11 SCNWire PR, #10 Giraffe-Learning ×2, #5 Suganta. Follow up all pending. Start Shiksha | — | NOT STARTED |
 | Jul 2026 | 20 → 30 | Careers360, Shiksha partner portal, Awards follow-up. Start Quora 2–3/week consistently | — | NOT STARTED |
