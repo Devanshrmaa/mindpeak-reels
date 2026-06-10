@@ -267,7 +267,14 @@ function buildCutoffPage(exam: 'jee-main' | 'jee-advanced' | 'neet'): ExamInfoPa
       { q: `What is the expected ${examLabel} ${Y} cutoff?`, a: `Based on trend analysis, the ${examLabel} ${Y} cutoff for General category is expected to be similar to ${Y-1}. Exact cutoff depends on paper difficulty and number of candidates.` },
       { q: `How is ${examLabel} cutoff calculated?`, a: `NTA calculates the cutoff based on normalization across sessions, total candidates, difficulty level, and available seats.` },
     ],
-    relatedSlugs: [`${exam}-syllabus-${Y}`, `${exam}-exam-pattern-${Y}`, `${exam}-result-${Y}`, isJEE ? 'jee-coaching' : 'neet-coaching'],
+    relatedSlugs: [
+      `${exam}-syllabus-${Y}`,
+      `${exam}-exam-pattern-${Y}`,
+      // No jee-advanced result page exists — emitting that slug created a
+      // sitewide internal 404 from the jee-advanced cutoff page.
+      ...(exam === 'jee-advanced' ? [] : [`${exam}-result-${Y}`]),
+      isJEE ? 'jee-coaching' : 'neet-coaching',
+    ],
   };
 }
 

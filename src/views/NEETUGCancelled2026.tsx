@@ -488,14 +488,16 @@ export default function NEETUGCancelled2026() {
                   <MessageCircle className="w-4 h-4" />
                   Talk to a NEET mentor
                 </a>
-                <a
-                  href="/downloads/MindPeak_NEET_UG_2026_Cancellation_Briefing.pdf"
-                  download
+                {/* PDF download removed: /downloads/…Briefing.pdf was never
+                    shipped, so this button 404'd on the sitemap's highest
+                    crawl-priority page. Restore only WITH the actual file. */}
+                <Link
+                  to="/neet-coaching"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border text-foreground font-display font-bold text-sm hover:border-primary/50 hover:text-primary transition-colors"
                 >
                   <Download className="w-4 h-4" />
-                  Download official briefing PDF
-                </a>
+                  Explore NEET 2027 preparation plans
+                </Link>
               </div>
             </div>
 

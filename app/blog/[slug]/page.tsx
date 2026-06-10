@@ -7,10 +7,20 @@ const BASE = "https://mindpeakinstitute.com";
 /**
  * Blog posts are ISR-rendered on first visit, then cached for 24 hours.
  * Dynamic imports inside the function body prevent the 20MB blogResolver
- * from being bundled at build time — no generateStaticParams = no build-time render.
+ * from being bundled at build time — no build-time render.
+ *
+ * generateStaticParams returning [] is REQUIRED for ISR here: without it the
+ * route renders fully dynamic (verified in prod: `cache-control: private,
+ * no-store`, x-vercel-cache MISS on every hit), so each request — including
+ * every Googlebot crawl across ~370 blog URLs — re-ran the 20MB resolver.
+ * With [], paths are still rendered on demand but cached per `revalidate`.
  */
 export const dynamicParams = true;
 export const revalidate = 86400;
+
+export function generateStaticParams(): Array<{ slug: string }> {
+  return [];
+}
 
 type Props = { params: Promise<{ slug: string }> };
 

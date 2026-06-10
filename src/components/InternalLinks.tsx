@@ -2,6 +2,7 @@ import { Link } from '@/components/RouterLink';
 import { MapPin, BookOpen, GraduationCap, ArrowRight } from 'lucide-react';
 import { allCities } from '@/data/cityData';
 import { chapters } from '@/data/chapterData';
+import { INDEXABLE_CITY_SLUGS } from '@/lib/indexableCities';
 
 /* ═══════════════════════════════════════════════════════════
    InternalLinks — hub-and-spoke internal linking component.
@@ -16,8 +17,15 @@ interface InternalLinksProps {
   variant?: 'compact' | 'full';
 }
 
-const topCities = allCities.filter(c => c.tier === 1).slice(0, 8);
-const tier2Cities = allCities.filter(c => c.tier === 2).slice(0, 8);
+/* Only link cities whose JEE *and* NEET pages are live and indexable —
+   raw tier-1/2 cityData includes cities whose pages now 410 or redirect
+   (e.g. /neet-coaching-in-chandigarh), and linking dead pages sitewide
+   leaks crawl budget and trust. */
+const isLinkableCity = (c: { slug: string }) =>
+  INDEXABLE_CITY_SLUGS.has(`jee-coaching-in-${c.slug}`) &&
+  INDEXABLE_CITY_SLUGS.has(`neet-coaching-in-${c.slug}`);
+const topCities = allCities.filter(c => c.tier === 1 && isLinkableCity(c)).slice(0, 8);
+const tier2Cities = allCities.filter(c => c.tier === 2 && isLinkableCity(c)).slice(0, 8);
 const popularJEEChapters = chapters.filter(c => c.exam === 'JEE').slice(0, 6);
 const popularNEETChapters = chapters.filter(c => c.exam === 'NEET').slice(0, 6);
 

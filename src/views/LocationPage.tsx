@@ -17,6 +17,7 @@ import { SEOHead } from '@/components/SEOHead';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import { buildFAQSchemaFromQA } from '@/components/PageFAQ';
 import { cities, allCities, getLocationTitle, getLocationDescription } from '@/data/cityData';
+import { INDEXABLE_CITY_SLUGS } from '@/lib/indexableCities';
 import type { CityData, QuickStat, CourseTile, LocalValueProp, CityFAQ, CityTestimonial, CityEvent, TabbedContent } from '@/data/cityData';
 import { cityUniqueContent, type CityUniqueData } from '@/data/cityUniqueContent';
 import { getStateEducation } from '@/data/stateEducationData';
@@ -1128,7 +1129,10 @@ const LocationPage = () => {
           </div>
           <h3 className="font-display font-bold text-foreground text-lg mt-10 mb-4">{examLabel} Coaching in Other Cities</h3>
           <div className="flex flex-wrap gap-2">
-            {cities.filter((c) => c.slug !== city.slug && c.exams.includes(exam)).slice(0, 12).map((c) => (
+            {/* Only indexable city pages — raw cityData includes cities whose
+                pages now 410 or redirect (e.g. chandigarh), and a sitewide
+                "other cities" block linking dead pages leaks crawl budget. */}
+            {cities.filter((c) => c.slug !== city.slug && c.exams.includes(exam) && INDEXABLE_CITY_SLUGS.has(`${exam}-coaching-in-${c.slug}`)).slice(0, 12).map((c) => (
               <Link key={c.slug} to={`/${exam}-coaching-in-${c.slug}`} className="px-4 py-2 rounded-full bg-card border border-border text-muted-foreground text-xs hover:border-primary/40 hover:text-primary transition-colors">
                 {examLabel} Coaching in {c.city}
               </Link>
