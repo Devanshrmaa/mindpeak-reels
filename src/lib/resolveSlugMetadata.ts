@@ -455,9 +455,11 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
     return {
       title: `Best ${exam} Coaching in ${page.title.split('in ').pop()} ${YEAR} — 1-on-1 Online | Free Demo`,
       description: `Top-rated ${exam} coaching in ${page.title.split('in ').pop()} — online 1-on-1 with expert mentors. Book free demo class today.`.slice(0, 160),
-      alternates: {
-        canonical: `${BASE}/best-jee-coaching-in-india`,
-      },
+      // Self-canonical: withHreflang() overrides alternates.canonical with
+      // the page's own URL anyway (verified live), and noindex + cross-page
+      // canonical is a conflicting signal pair Google ignores. Declare what
+      // actually ships.
+      alternates: { canonical },
       openGraph: { ...og, url: canonical },
       robots: { index: false, follow: true },
     };
@@ -542,9 +544,11 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
     return {
       title: `Best ${exam} Coaching in ${city} ${YEAR} — 1-on-1 Online | Free Demo`,
       description: `Top-rated ${exam} coaching in ${city} — personal mentors, adaptive study plans. Book free demo today.`.slice(0, 160),
-      alternates: {
-        canonical: `${BASE}/best-jee-coaching-in-india`,
-      },
+      // Self-canonical: withHreflang() overrides alternates.canonical with
+      // the page's own URL anyway (verified live), and noindex + cross-page
+      // canonical is a conflicting signal pair Google ignores. Declare what
+      // actually ships.
+      alternates: { canonical },
       openGraph: { ...og, url: canonical },
       robots: { index: false, follow: true },
     };
