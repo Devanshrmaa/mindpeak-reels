@@ -1,0 +1,74 @@
+# Daily SEO routine — runs the hygiene/regression checks against production
+# every morning and opens a GitHub issue if anything regresses.
+#
+# Optional: add a repository secret GSC_KEY_JSON (the full service-account
+# JSON) to enable the GSC impression-trend check. Works without it too.
+name: Daily SEO routine
+
+on:
+  schedule:
+    - cron: "30 2 * * *" # 02:30 UTC = 08:00 IST daily
+  workflow_dispatch: {}
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  seo-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Write GSC key (if configured)
+        if: ${{ env.HAS_KEY == 'true' }}
+        env:
+          HAS_KEY: ${{ secrets.GSC_KEY_JSON != '' }}
+          GSC_KEY_JSON: ${{ secrets.GSC_KEY_JSON }}
+        run: printf '%s' "$GSC_KEY_JSON" > /tmp/gsc-key.json
+
+      - name: Run daily SEO routine
+        id: routine
+        env:
+          GSC_KEY_FILE: /tmp/gsc-key.json
+        run: |
+          set -o pipefail
+          node scripts/daily-seo-routine.mjs 2>&1 | tee /tmp/seo-routine.log
+
+      - name: Open issue on regression
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const log = fs.existsSync('/tmp/seo-routine.log')
+              ? fs.readFileSync('/tmp/seo-routine.log', 'utf8')
+              : '(no log captured)';
+            const today = new Date().toISOString().slice(0, 10);
+            const title = `SEO regression detected — ${today}`;
+            // Avoid duplicate issues for the same day
+            const open = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'seo-regression',
+            });
+            if (open.data.some(i => i.title === title)) return;
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              labels: ['seo-regression'],
+              body: [
+                'The daily SEO routine found at least one regression on production.',
+                '',
+                '```',
+                log.slice(-6000),
+                '```',
+                '',
+                'Each ❌ line maps to a guard in `scripts/daily-seo-routine.mjs` —',
+                'see `seo-reports/deep-audit-2026-06-10.md` for why each guard exists.',
+              ].join('\n'),
+            });
