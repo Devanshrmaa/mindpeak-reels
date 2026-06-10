@@ -88,30 +88,17 @@ const Contact = () => {
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': ['EducationalOrganization', 'LocalBusiness'],
-    name: 'MindPeak Institute',
-    url: 'https://mindpeakinstitute.com',
+    '@type': 'ContactPoint',
+    '@id': 'https://mindpeakinstitute.com/#contactpoint',
     telephone: '+91-82194-57704',
     email: 'mindpeak@mindpeakinstitute.com',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'Nehran Pukhar Road',
-      addressLocality: 'Dehra Gopipur',
-      addressRegion: 'Himachal Pradesh',
-      postalCode: '176110',
-      addressCountry: 'IN',
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 32.4394,
-      longitude: 76.5362,
-    },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: '+91-82194-57704',
-      contactType: 'customer service',
-      availableLanguage: ['English', 'Hindi'],
-      hoursAvailable: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], opens: '09:00', closes: '20:00' },
+    contactType: 'customer service',
+    availableLanguage: ['English', 'Hindi'],
+    hoursAvailable: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      opens: '09:00',
+      closes: '20:00',
     },
   };
 
