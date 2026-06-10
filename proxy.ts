@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { REMOVED_DOORWAY_SLUGS } from '@/lib/removedSlugs';
+import { isRemovedBlogDoorwaySlug } from '@/lib/removedBlogDoorways';
 import { isDoorwayCoachingSlug } from '@/lib/indexableCities';
 import { getCityConsolidation, getSubjectCityRedirect } from '@/data/cityConsolidation';
 
@@ -81,6 +82,14 @@ export function proxy(request: NextRequest) {
 
   // 3. Confirmed-dead doorways not covered above → 410 Gone.
   if (REMOVED_DOORWAY_SLUGS.has(slug)) {
+    return gone();
+  }
+
+  // 3b. Killed programmatic blog doorways (best-{exam}-coaching-in-{city},
+  //     cost-of-prep-in-{city}, kota-worth-it-from-{city}, ncert-analysis).
+  //     Their generators return [] but the route streamed an HTTP 200
+  //     soft-404 shell, so ~650 of them are still indexed → hard 410.
+  if (isRemovedBlogDoorwaySlug(slug)) {
     return gone();
   }
 

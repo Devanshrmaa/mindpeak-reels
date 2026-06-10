@@ -3372,50 +3372,14 @@ export function getAllProgrammaticBlogSlugs(): string[] {
     slugs.push(`blog/neet-${y}-paper-analysis`);
   }
 
-  // 6. Parent posts — cost of preparation (~75)
-  const parentCities = [
-    'Delhi', 'Mumbai', 'Bangalore', 'Hyderabad', 'Chennai', 'Kolkata',
-    'Pune', 'Jaipur', 'Kota', 'Lucknow', 'Patna', 'Ahmedabad',
-    'Chandigarh', 'Bhopal', 'Indore', 'Nagpur', 'Surat', 'Dehradun',
-    'Ranchi', 'Guwahati', 'Thiruvananthapuram', 'Bhubaneswar',
-    'Varanasi', 'Kanpur', 'Agra', 'Jodhpur', 'Kochi', 'Mysore',
-    'Coimbatore', 'Visakhapatnam', 'Allahabad', 'Noida', 'Gurgaon',
-    'Faridabad', 'Ghaziabad', 'Thane', 'Navi Mumbai',
-  ];
-  for (const city of parentCities) {
-    for (const exam of ['jee', 'neet']) {
-      slugs.push(`blog/cost-of-${exam}-preparation-in-${slugify(city)}-${year}`);
-    }
-  }
-
-  // 7. Best coaching in city (~50)
-  const coachingCities = [
-    'Delhi', 'Mumbai', 'Bangalore', 'Hyderabad', 'Chennai', 'Kolkata',
-    'Pune', 'Jaipur', 'Kota', 'Lucknow', 'Patna', 'Ahmedabad',
-    'Chandigarh', 'Bhopal', 'Indore', 'Nagpur', 'Surat', 'Dehradun',
-    'Ranchi', 'Guwahati', 'Thiruvananthapuram', 'Bhubaneswar',
-    'Varanasi', 'Kanpur', 'Coimbatore',
-  ];
-  for (const city of coachingCities) {
-    for (const exam of ['jee', 'neet']) {
-      slugs.push(`blog/best-${exam}-coaching-in-${slugify(city)}-${year}`);
-    }
-  }
+  // 6 & 7 & 9 removed: cost-of-preparation-in-city, best-coaching-in-city,
+  // and kota-worth-it-from-city slugs belonged to killed doorway generators
+  // (their content functions return []). Emitting their slugs here put dead
+  // soft-404 URLs into sitemaps; proxy.ts now serves HTTP 410 for them.
 
   // 8. Score strategy (6)
   for (const s of bookSubjects) {
     slugs.push(`blog/how-to-score-99-percentile-in-${s.exam}-${slugify(s.subject)}`);
-  }
-
-  // 9. Kota worth it (~20)
-  const kotaCities = [
-    'Delhi', 'Mumbai', 'Bangalore', 'Hyderabad', 'Chennai', 'Kolkata',
-    'Pune', 'Lucknow', 'Patna', 'Ahmedabad', 'Jaipur', 'Chandigarh',
-    'Bhopal', 'Indore', 'Ranchi', 'Guwahati', 'Dehradun', 'Varanasi',
-    'Bhubaneswar', 'Thiruvananthapuram',
-  ];
-  for (const city of kotaCities) {
-    slugs.push(`blog/is-kota-coaching-worth-it-from-${slugify(city)}`);
   }
 
   // 10. Important questions (~148)
@@ -3476,12 +3440,9 @@ export function getAllProgrammaticBlogSlugs(): string[] {
   ];
   for (const s of cutoffSlugs) slugs.push(`blog/${s}`);
 
-  // 17. NCERT analysis (~60)
-  const neetCh = chapters.filter(ch => ch.exam === 'NEET').slice(0, 30);
-  const jeeCh = chapters.filter(ch => ch.exam === 'JEE').slice(0, 30);
-  for (const ch of [...neetCh, ...jeeCh]) {
-    slugs.push(`blog/ncert-${slugify(ch.chapter)}-analysis-${ch.exam.toLowerCase()}`);
-  }
+  // 17. NCERT analysis — removed: generateNCERTAnalysisPosts() was killed
+  // (overlaps chapter hub pages); slugs here pointed at dead soft-404 URLs.
+  // proxy.ts now serves HTTP 410 for the ncert-*-analysis-* pattern.
 
   // 18. Exam prep guides (~72)
   for (const exam of examRegistry) {
