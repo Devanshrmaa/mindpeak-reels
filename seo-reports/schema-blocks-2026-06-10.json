@@ -1,0 +1,438 @@
+{
+  "generated": "2026-06-10",
+  "site": "https://mindpeakinstitute.com",
+  "note": "All blocks use JSON-LD format. Wrap each in <script type=\"application/ld+json\"> when embedding manually. Blocks marked NEW were added in this audit cycle.",
+  "previousAudit": "schema-blocks-2026-06-03.json",
+  "blocks": {
+    "homepage_organization": {
+      "page": "/",
+      "file": "app/layout.tsx",
+      "status": "PRESENT — unchanged from 2026-06-03",
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": ["EducationalOrganization", "LocalBusiness"],
+            "@id": "https://mindpeakinstitute.com/#organization",
+            "name": "MindPeak Institute",
+            "alternateName": "MindPeak",
+            "url": "https://mindpeakinstitute.com",
+            "logo": {
+              "@type": "ImageObject",
+              "@id": "https://mindpeakinstitute.com/#logo",
+              "url": "https://mindpeakinstitute.com/images/logo.jpeg",
+              "width": 703,
+              "height": 707,
+              "caption": "MindPeak Institute"
+            },
+            "founder": {
+              "@type": "Person",
+              "@id": "https://mindpeakinstitute.com/mentors#devansh",
+              "name": "Devansh",
+              "jobTitle": "Founder & Physics Mentor",
+              "knowsAbout": ["Physics", "JEE Preparation", "NEET Preparation"],
+              "url": "https://mindpeakinstitute.com/mentors"
+            },
+            "description": "India's #1 personalized 1-on-1 JEE and NEET online coaching. Himachal Pradesh's own coaching institute with a 95%+ success rate.",
+            "telephone": "+91-82194-57704",
+            "email": "mindpeak@mindpeakinstitute.com",
+            "foundingDate": "2018",
+            "priceRange": "₹₹",
+            "areaServed": { "@type": "Country", "name": "India" },
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Nehran Pukhar Road",
+              "addressLocality": "Dehra Gopipur",
+              "addressRegion": "Himachal Pradesh",
+              "postalCode": "176110",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 32.4394,
+              "longitude": 76.5362
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                "opens": "09:00",
+                "closes": "20:00"
+              }
+            ],
+            "identifier": {
+              "@type": "PropertyValue",
+              "name": "UDYAM",
+              "value": "UDYAM-HP-04-0042530"
+            },
+            "sameAs": [
+              "https://instagram.com/mindpeakinstitute",
+              "https://www.facebook.com/profile.php?id=61584805776923",
+              "https://www.linkedin.com/company/mindpeak-institute/",
+              "https://x.com/mindpeakins",
+              "https://www.youtube.com/@mindpeakinstitute"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://mindpeakinstitute.com/#website",
+            "url": "https://mindpeakinstitute.com",
+            "name": "MindPeak Institute",
+            "publisher": { "@id": "https://mindpeakinstitute.com/#organization" },
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://mindpeakinstitute.com/blog?q={search_term_string}"
+              },
+              "query-input": "required name=search_term_string"
+            },
+            "inLanguage": ["en-IN", "hi-IN"]
+          }
+        ]
+      }
+    },
+    "contact_page": {
+      "page": "/contact",
+      "file": "app/contact/page.tsx",
+      "status": "NEW — added 2026-06-10",
+      "changes": [
+        "Added ContactPage schema with @id reference to root org",
+        "Added two ContactPoint blocks (phone+hours and email)",
+        "Added BreadcrumbList (Home → Contact)",
+        "Fixed duplicate EducationalOrganization in Contact.tsx view"
+      ],
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ContactPage",
+            "@id": "https://mindpeakinstitute.com/contact",
+            "name": "Contact MindPeak Institute",
+            "url": "https://mindpeakinstitute.com/contact",
+            "description": "Contact MindPeak Institute for JEE & NEET coaching enquiries. Call, WhatsApp, or email — we reply within 30 minutes.",
+            "about": { "@id": "https://mindpeakinstitute.com/#organization" },
+            "mainEntity": {
+              "@type": "Organization",
+              "@id": "https://mindpeakinstitute.com/#organization",
+              "contactPoint": [
+                {
+                  "@type": "ContactPoint",
+                  "telephone": "+91-82194-57704",
+                  "contactType": "customer service",
+                  "availableLanguage": ["English", "Hindi"],
+                  "hoursAvailable": {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                    "opens": "09:00",
+                    "closes": "20:00"
+                  }
+                },
+                {
+                  "@type": "ContactPoint",
+                  "contactType": "sales",
+                  "contactOption": "TollFree",
+                  "availableLanguage": ["English", "Hindi"],
+                  "email": "mindpeak@mindpeakinstitute.com"
+                }
+              ]
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mindpeakinstitute.com" },
+              { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://mindpeakinstitute.com/contact" }
+            ]
+          }
+        ]
+      }
+    },
+    "pricing_page": {
+      "page": "/pricing",
+      "file": "app/pricing/page.tsx",
+      "status": "NEW — added 2026-06-10",
+      "changes": [
+        "Added WebPage schema referencing root org",
+        "Added ItemList of 7 Offer/PriceSpecification blocks",
+        "Added BreadcrumbList (Home → Pricing)"
+      ],
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://mindpeakinstitute.com/pricing",
+            "name": "JEE & NEET Coaching Fees 2027 — MindPeak Institute",
+            "url": "https://mindpeakinstitute.com/pricing",
+            "description": "Transparent JEE/NEET coaching pricing 2027. 1-year ₹1.3L, 2-year ₹2.3L, crash ₹30K/subject. EMI available, no hidden fees.",
+            "isPartOf": { "@id": "https://mindpeakinstitute.com/#website" },
+            "about": { "@id": "https://mindpeakinstitute.com/#organization" },
+            "mainEntity": {
+              "@type": "ItemList",
+              "name": "JEE & NEET Coaching Pricing Plans",
+              "numberOfItems": 7,
+              "itemListElement": [
+                {
+                  "@type": "ListItem", "position": 1,
+                  "item": {
+                    "@type": "Offer",
+                    "name": "JEE 2027 Final Ascent (8-Month Sprint)",
+                    "description": "Personalised 1-on-1 intensive coaching for JEE Main + Advanced, 8-month program with daily mentoring 6 days/week.",
+                    "price": "110000", "priceCurrency": "INR",
+                    "priceSpecification": { "@type": "PriceSpecification", "price": "110000", "priceCurrency": "INR", "valueAddedTaxIncluded": false },
+                    "availability": "https://schema.org/InStock",
+                    "seller": { "@id": "https://mindpeakinstitute.com/#organization" },
+                    "url": "https://mindpeakinstitute.com/course/jee-target-2027"
+                  }
+                },
+                {
+                  "@type": "ListItem", "position": 2,
+                  "item": {
+                    "@type": "Offer",
+                    "name": "JEE 1-Year Intensive Program",
+                    "description": "Comprehensive 1-year 1-on-1 JEE coaching for Class 12 students and droppers.",
+                    "price": "130000", "priceCurrency": "INR",
+                    "priceSpecification": { "@type": "PriceSpecification", "price": "130000", "priceCurrency": "INR", "valueAddedTaxIncluded": false },
+                    "availability": "https://schema.org/InStock",
+                    "seller": { "@id": "https://mindpeakinstitute.com/#organization" }
+                  }
+                },
+                {
+                  "@type": "ListItem", "position": 3,
+                  "item": {
+                    "@type": "Offer",
+                    "name": "JEE 2-Year Program",
+                    "description": "Complete 2-year 1-on-1 JEE coaching for Class 11 students targeting JEE Main + Advanced.",
+                    "price": "230000", "priceCurrency": "INR",
+                    "priceSpecification": { "@type": "PriceSpecification", "price": "230000", "priceCurrency": "INR", "valueAddedTaxIncluded": false },
+                    "availability": "https://schema.org/InStock",
+                    "seller": { "@id": "https://mindpeakinstitute.com/#organization" }
+                  }
+                },
+                {
+                  "@type": "ListItem", "position": 4,
+                  "item": {
+                    "@type": "Offer",
+                    "name": "NEET 2027 Final Ascent (8-Month Sprint)",
+                    "description": "Personalised 1-on-1 intensive coaching for NEET UG, 8-month program with daily mentoring.",
+                    "price": "110000", "priceCurrency": "INR",
+                    "priceSpecification": { "@type": "PriceSpecification", "price": "110000", "priceCurrency": "INR", "valueAddedTaxIncluded": false },
+                    "availability": "https://schema.org/InStock",
+                    "seller": { "@id": "https://mindpeakinstitute.com/#organization" },
+                    "url": "https://mindpeakinstitute.com/course/neet-target-2027"
+                  }
+                },
+                {
+                  "@type": "ListItem", "position": 5,
+                  "item": {
+                    "@type": "Offer",
+                    "name": "1-on-1 Crash Course (per subject)",
+                    "description": "Intensive 60-day crash course for a single JEE/NEET subject, personalised 1-on-1.",
+                    "price": "30000", "priceCurrency": "INR",
+                    "priceSpecification": { "@type": "PriceSpecification", "price": "30000", "priceCurrency": "INR", "valueAddedTaxIncluded": false },
+                    "availability": "https://schema.org/InStock",
+                    "seller": { "@id": "https://mindpeakinstitute.com/#organization" }
+                  }
+                },
+                {
+                  "@type": "ListItem", "position": 6,
+                  "item": {
+                    "@type": "Offer",
+                    "name": "JEE/NEET Test Series — 1 Year",
+                    "description": "Computer-based JEE/NEET test series with full-length mocks in CBT format, 1-year access.",
+                    "price": "6000", "priceCurrency": "INR",
+                    "priceSpecification": { "@type": "PriceSpecification", "price": "6000", "priceCurrency": "INR", "valueAddedTaxIncluded": false },
+                    "availability": "https://schema.org/InStock",
+                    "seller": { "@id": "https://mindpeakinstitute.com/#organization" }
+                  }
+                },
+                {
+                  "@type": "ListItem", "position": 7,
+                  "item": {
+                    "@type": "Offer",
+                    "name": "Free Demo Class",
+                    "description": "Free 1-on-1 live demo class with a dedicated JEE/NEET mentor. Zero cost, no commitment.",
+                    "price": "0", "priceCurrency": "INR",
+                    "availability": "https://schema.org/InStock",
+                    "seller": { "@id": "https://mindpeakinstitute.com/#organization" },
+                    "url": "https://mindpeakinstitute.com/free-trial"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mindpeakinstitute.com" },
+              { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://mindpeakinstitute.com/pricing" }
+            ]
+          }
+        ]
+      }
+    },
+    "free_trial_page": {
+      "page": "/free-trial",
+      "file": "app/free-trial/page.tsx",
+      "status": "NEW — added 2026-06-10",
+      "changes": [
+        "Added Event schema for demo class (OnlineEventAttendanceMode, isAccessibleForFree: true)",
+        "Added Service schema with OfferCatalog linking JEE/NEET courses",
+        "Added BreadcrumbList (Home → Free Demo Class)"
+      ],
+      "schema": {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Event",
+            "@id": "https://mindpeakinstitute.com/free-trial#demo-class",
+            "name": "Free 1-on-1 JEE & NEET Demo Class — MindPeak Institute 2027",
+            "description": "Experience personalised JEE/NEET coaching for free. Meet your dedicated IIT/AIIMS mentor, get a custom study roadmap, and see our live 1-on-1 platform — zero cost, zero commitment.",
+            "eventStatus": "https://schema.org/EventScheduled",
+            "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+            "location": {
+              "@type": "VirtualLocation",
+              "url": "https://mindpeakinstitute.com/free-trial"
+            },
+            "organizer": {
+              "@type": "EducationalOrganization",
+              "@id": "https://mindpeakinstitute.com/#organization",
+              "name": "MindPeak Institute",
+              "url": "https://mindpeakinstitute.com"
+            },
+            "offers": {
+              "@type": "Offer",
+              "name": "Free Demo Class",
+              "price": "0",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "validFrom": "2024-01-01",
+              "url": "https://mindpeakinstitute.com/free-trial"
+            },
+            "audience": {
+              "@type": "EducationalAudience",
+              "educationalRole": "student",
+              "audienceType": "JEE and NEET aspirants"
+            },
+            "inLanguage": ["en", "hi"],
+            "isAccessibleForFree": true
+          },
+          {
+            "@type": "Service",
+            "@id": "https://mindpeakinstitute.com/free-trial#service",
+            "name": "Free JEE & NEET Coaching Demo Class",
+            "description": "Book a free 1-on-1 demo class with an expert JEE/NEET mentor. Includes a personalised diagnostic assessment and custom study plan — completely free.",
+            "provider": { "@id": "https://mindpeakinstitute.com/#organization" },
+            "serviceType": "Educational Coaching",
+            "category": "JEE NEET Preparation",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://mindpeakinstitute.com/free-trial"
+            },
+            "areaServed": { "@type": "Country", "name": "India" },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Free Demo + Coaching Programs",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "JEE Coaching", "provider": { "@id": "https://mindpeakinstitute.com/#organization" } } },
+                { "@type": "Offer", "itemOffered": { "@type": "Course", "name": "NEET Coaching", "provider": { "@id": "https://mindpeakinstitute.com/#organization" } } }
+              ]
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mindpeakinstitute.com" },
+              { "@type": "ListItem", "position": 2, "name": "Free Demo Class", "item": "https://mindpeakinstitute.com/free-trial" }
+            ]
+          }
+        ]
+      }
+    },
+    "mentors_page": {
+      "page": "/mentors",
+      "file": "src/components/FacultySchema.tsx + app/mentors/page.tsx",
+      "status": "PRESENT — unchanged from 2026-06-03",
+      "faculty": [
+        {
+          "slug": "devansh",
+          "name": "Devansh",
+          "jobTitle": "Founder & Physics Mentor",
+          "qualifications": ["MBBS"],
+          "subjects": ["Physics"],
+          "exams": ["JEE", "NEET"]
+        },
+        {
+          "slug": "sahil-singh",
+          "name": "Sahil Singh",
+          "jobTitle": "JEE & NEET Chemistry Faculty, MindPeak Institute",
+          "qualifications": ["Bachelor's in Chemistry"],
+          "subjects": ["Chemistry"],
+          "exams": ["JEE", "NEET"]
+        },
+        {
+          "slug": "krishnendu-brahmachari",
+          "name": "Krishnendu Brahmachari",
+          "jobTitle": "JEE Mathematics Faculty, MindPeak Institute",
+          "qualifications": ["Master's in Mathematics"],
+          "subjects": ["Mathematics"],
+          "exams": ["JEE"]
+        },
+        {
+          "slug": "aparna-chandra",
+          "name": "Aparna Chandra",
+          "jobTitle": "JEE & NEET Chemistry Faculty, MindPeak Institute",
+          "qualifications": ["Ph.D. in Chemistry", "M.Sc. Chemistry"],
+          "subjects": ["Chemistry"],
+          "exams": ["JEE", "NEET"]
+        },
+        {
+          "slug": "nishkresh-mishra",
+          "name": "Nishkresh Mishra",
+          "jobTitle": "JEE & NEET Physics Faculty, MindPeak Institute",
+          "qualifications": ["Master's in Physics"],
+          "subjects": ["Physics"],
+          "exams": ["JEE", "NEET"]
+        },
+        {
+          "slug": "muskan-singla",
+          "name": "Muskan Singla",
+          "jobTitle": "NEET Biology Faculty, MindPeak Institute",
+          "subjects": ["Biology"],
+          "exams": ["NEET"]
+        }
+      ]
+    },
+    "about_page": {
+      "page": "/about",
+      "file": "app/about/page.tsx",
+      "status": "PRESENT — unchanged from 2026-06-03",
+      "note": "Contains: EducationalOrganization (via SEOLandingPage), FAQPage (6 FAQs), Article, BreadcrumbList, Founder Person (Devansh)"
+    },
+    "courses_catalog": {
+      "page": "/courses",
+      "file": "app/courses/page.tsx",
+      "status": "PRESENT — unchanged from 2026-06-03",
+      "note": "Contains: ItemList of 12+ Course objects each with Offer, CourseInstance, BreadcrumbList"
+    }
+  },
+  "page_schema_map": {
+    "/": ["EducationalOrganization", "LocalBusiness", "WebSite", "SearchAction", "FAQPage"],
+    "/about": ["EducationalOrganization", "Article", "FAQPage", "BreadcrumbList", "Person (Devansh)"],
+    "/contact": ["ContactPage", "ContactPoint x2", "BreadcrumbList"],
+    "/courses": ["ItemList", "Course x12+", "BreadcrumbList"],
+    "/course/[slug]": ["Course", "BreadcrumbList", "FAQPage (if available)"],
+    "/mentors": ["Article", "BreadcrumbList", "Person x6"],
+    "/pricing": ["WebPage", "ItemList (Offer x7)", "BreadcrumbList"],
+    "/free-trial": ["Event", "Service", "BreadcrumbList"],
+    "/blog": ["CollectionPage (recommended, not yet added)"],
+    "/blog/[slug]": ["BlogPosting/Article", "BreadcrumbList", "ReviewedBy (Person)"],
+    "/jee-coaching/[city]": ["EducationalOrganization", "FAQPage", "Course", "WebPage", "Review x5", "BreadcrumbList"],
+    "/jee-practice/[chapter]/[slug]": ["LearningResource", "FAQPage", "BreadcrumbList"],
+    "/[seo-landing-slug]": ["EducationalOrganization OR Course OR WebPage", "Article", "FAQPage", "BreadcrumbList"]
+  }
+}
