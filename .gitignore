@@ -25,4 +25,6 @@ seo-reports/outreach-sent.json
 *.sw?
 
 # Claude Code local agent workspaces (transient worktrees / state)
-.claude/
+# Claude Code: share project commands, keep local settings/state private
+.claude/*
+!.claude/commands/

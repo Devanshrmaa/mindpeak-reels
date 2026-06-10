@@ -62,8 +62,31 @@ const comparisonTable = [
   { feature: 'Effectiveness', online1on1: 'Highest (proven by research)', onlineBatch: 'Moderate', offline: 'Varies widely' },
 ];
 
+/* Realistic 2-year totals incl. the costs brochures omit (hostel, commute,
+   private tuition top-up that 40-60% of batch students end up hiring). */
+const costTable = [
+  { component: 'Tuition fee', online: '₹2.4L – ₹3.6L (all-inclusive)', offline: '₹2.5L – ₹4.5L' },
+  { component: 'Hostel + mess (if relocating)', online: '₹0', offline: '₹2.4L – ₹3.6L (₹10–15K/month)' },
+  { component: 'Commute / travel home', online: '₹0', offline: '₹30K – ₹60K' },
+  { component: 'Extra books & test series', online: 'Included', offline: '₹25K – ₹50K' },
+  { component: 'Private tuition top-up', online: 'Not needed (already 1-on-1)', offline: '₹60K – ₹1.5L (40–60% of students)' },
+  { component: 'Realistic 2-year total', online: '₹2.4L – ₹3.6L', offline: '₹6L – ₹10L+' },
+];
+
+const decisionChecklist = [
+  'Is there a genuinely top-tier coaching centre within 45 minutes of home?',
+  'Does your child ask doubts confidently in a class of 60+ students?',
+  'Can your family absorb ₹6L+ over two years without financial stress?',
+  'Has your child lived away from home before (if relocation is the plan)?',
+  'Does your child already follow a self-made study routine?',
+  'Is reliable internet a problem at home?',
+];
+
 const faqs: FAQItem[] = [
   { question: 'Is online coaching as effective as offline for JEE/NEET?', answer: 'Research consistently shows that 1-on-1 online tutoring produces better outcomes than group classroom instruction. The key differentiator is the format: 1-on-1 online coaching is more effective than offline batch coaching because every minute is personalized. Online batch coaching is generally less effective than good offline coaching.' },
+  { question: 'Is online JEE coaching cheaper than offline coaching?', answer: 'Per brochure the fees look similar, but realistic 2-year totals differ 2–3×. Offline coaching in a hub city adds hostel and mess (₹10–15K/month), commute, separate test series, and — for 40–60% of batch students — private tuition because they cannot keep pace in a 100-student class. A realistic offline total is ₹6L–10L+ over two years vs ₹2.4L–3.6L all-inclusive for online 1-on-1.' },
+  { question: 'Is online coaching good for JEE droppers?', answer: 'Often better than offline. A dropper has exactly one year and already knows the syllabus — what they need is targeted repair of weak chapters and ruthless test analysis, not a second full pass through batch lectures. 1-on-1 online coaching builds the year around their specific gap list and saves the 2–3 hours daily that commuting or hostel life consumes.' },
+  { question: 'Can I combine offline and online coaching for JEE?', answer: 'Only in a primary + supplementary arrangement: one full program plus targeted support — for example, an offline batch plus online 1-on-1 for doubt resolution and weak chapters. Running two full parallel programs destroys self-study time, and self-study is where marks are actually made.' },
   { question: 'What about the social environment of offline coaching?', answer: 'While offline coaching provides peer interaction, this can be supplemented through online study groups, forums, and competitive test series. What matters most for JEE/NEET success is quality of teaching and personal attention — not where you sit.' },
   { question: 'Do I need expensive equipment for online coaching?', answer: 'No. A basic laptop or tablet with a stable internet connection is all you need. Our platform works on mobile data and low-bandwidth connections too. Students can use a phone as backup for any connectivity issues.' },
   { question: 'Can online coaching maintain student discipline?', answer: 'In 1-on-1 coaching, discipline is inherently maintained — your mentor notices if you\'re distracted, tracks daily attendance, and adjusts the approach if motivation drops. It\'s more accountable than a batch classroom where you can hide in the back row.' },
@@ -225,6 +248,69 @@ const OnlineVsOffline = () => {
               </table>
             </div>
           </motion.div>
+        </section>
+
+        {/* Real cost comparison — the numbers brochures omit */}
+        <section id="online-vs-offline-jee-coaching-fees" className="max-w-5xl mx-auto px-6 pb-20 scroll-mt-24">
+          <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl mb-4">
+            The Real Cost: <span className="text-gradient-gold">2-Year Fee Comparison</span>
+          </h2>
+          <p className="text-foreground/85 text-sm sm:text-base leading-relaxed max-w-3xl mb-8">
+            Most comparisons skip the numbers, so here they are. Offline batch coaching looks cheaper on the brochure,
+            but the brochure never includes hostel, mess, commute, and the private tuition top-up that 40–60% of batch
+            students end up hiring because they can&rsquo;t keep pace in a 100-student class.
+          </p>
+          <div className="overflow-x-auto rounded-xl border border-border">
+            <table className="w-full text-sm min-w-[550px]">
+              <thead>
+                <tr className="bg-secondary/50">
+                  <th className="text-left px-5 py-3 text-foreground font-display">Cost Component (2 years)</th>
+                  <th className="text-center px-5 py-3 text-primary font-display font-bold">Online 1-on-1 (from home)</th>
+                  <th className="text-center px-5 py-3 text-muted-foreground font-display">Offline Batch (coaching hub)</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border">
+                {costTable.map((row, i) => (
+                  <tr key={i} className={i === costTable.length - 1 ? 'bg-secondary/30 font-semibold' : 'bg-background'}>
+                    <td className="px-5 py-3 text-foreground font-medium">{row.component}</td>
+                    <td className="px-5 py-3 text-center text-primary">{row.online}</td>
+                    <td className="px-5 py-3 text-center text-muted-foreground">{row.offline}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* Decision framework */}
+        <section className="bg-secondary/30 border-y border-border py-16 px-6">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl mb-4">
+              A 60-Second <span className="text-gradient-gold">Decision Framework</span>
+            </h2>
+            <p className="text-muted-foreground text-base leading-relaxed mb-6">
+              Answer these six questions honestly. Mostly &ldquo;no&rdquo; to 1–5 (and &ldquo;no&rdquo; to 6) →
+              online 1-on-1 is the better fit. Mostly &ldquo;yes&rdquo; to 1–5 → a good offline batch can work.
+              Mixed answers → consider the hybrid setup below, or book demo classes in both formats and compare —
+              a one-hour demo reveals more than any article.
+            </p>
+            <ol className="space-y-3">
+              {decisionChecklist.map((q, i) => (
+                <li key={i} className="flex items-start gap-3 text-sm text-foreground/90">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/15 text-primary text-xs font-bold flex items-center justify-center mt-0.5">{i + 1}</span>
+                  {q}
+                </li>
+              ))}
+            </ol>
+            <h3 className="font-display font-bold text-foreground text-lg mt-10 mb-3">Can you combine both? The hybrid reality</h3>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              A growing number of students run a hybrid setup: school or a local offline class for routine and peer
+              contact, plus online 1-on-1 for the heavy lifting — weak-chapter surgery, doubt resolution, and test
+              analysis. This works when one program stays primary and the other strictly supplementary. What does NOT
+              work is stacking two full programs: a 6-day offline batch plus a full online course leaves zero time for
+              self-study, and self-study is where marks are actually made.
+            </p>
+          </div>
         </section>
 
         {/* The Verdict */}
