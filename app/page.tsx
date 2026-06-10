@@ -1,5 +1,6 @@
 import Index from "@/views/Index";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { PageFooter } from "@/components/PageFooter";
 import type { Metadata } from "next";
 import { CURRENT_EXAM_YEAR } from "@/lib/examYears";
 
@@ -114,6 +115,17 @@ export default function HomePage() {
       <Index>
         <HeroSection />
       </Index>
+
+      {/*
+       * Server-rendered footer link hub. Every other page renders PageFooter,
+       * but the homepage lazy-loaded ALL sections client-side and never
+       * mounted a footer at all — its initial HTML contained only 10 internal
+       * links, so the site's highest-authority page passed almost no link
+       * equity. GSC URL Inspection (2026-06-10) showed 120 chapter/subject
+       * pages "Crawled — currently not indexed"; this is their primary crawl
+       * path from the homepage.
+       */}
+      <PageFooter />
     </>
   );
 }
