@@ -14,6 +14,10 @@ import { parseSubjectCitySlug, buildSubjectCityPage } from '@/data/subjectCityDa
 const SUBJECT_SLUGS: string[] = [
   'jee-physics-preparation', 'jee-chemistry-preparation', 'jee-mathematics-preparation',
   'neet-physics-preparation', 'neet-chemistry-preparation', 'neet-biology-preparation',
+  // Rendered by SubjectPage (see SUBJECTS map in src/views/SubjectPage.tsx);
+  // they were dropped from this list at some point, which 404'd two real,
+  // sitemap-listed, internally-linked pages.
+  'jee-mock-test-strategy', 'neet-mock-test-strategy',
 ];
 const IMPORTANT_Q_SLUGS: string[] = [
   'jee-physics-important-questions', 'jee-chemistry-important-questions',
@@ -181,6 +185,68 @@ function _resolve(slugSegments: string[]): Metadata {
         googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large', 'max-video-preview': -1 },
       },
       other: { 'geo.region': 'IN', 'geo.placename': hub.state },
+    };
+  }
+
+  /*
+   * Indexable reference-content families. These pages are listed in
+   * sitemap.xml, but previously had no branch here and fell through to the
+   * noindex fallback — GSC URL Inspection (2026-06-10) showed all 50+ of
+   * them "Excluded by 'noindex' tag" while being advertised as priority
+   * 0.6–0.75 sitemap URLs. Omitting `robots` = indexable default.
+   */
+  const examInfo = getExamInfoPage(slug);
+  if (examInfo) {
+    return {
+      title: examInfo.title,
+      description: examInfo.description.slice(0, 160),
+      alternates: { canonical },
+      openGraph: { ...og, url: canonical, title: examInfo.title },
+    };
+  }
+
+  const diffPair = getDifferencePair(slug);
+  if (diffPair) {
+    const examLabel = diffPair.exam === 'Both' ? 'JEE & NEET' : diffPair.exam;
+    const title = `Difference Between ${diffPair.term1} and ${diffPair.term2} — ${diffPair.subject} (${examLabel}) | MindPeak`;
+    return {
+      title,
+      description: diffPair.intro.slice(0, 160),
+      alternates: { canonical },
+      openGraph: { ...og, url: canonical, title },
+    };
+  }
+
+  const counselling = getCounsellingPage(slug);
+  if (counselling) {
+    return {
+      title: counselling.title,
+      description: counselling.description.slice(0, 160),
+      alternates: { canonical },
+      openGraph: { ...og, url: canonical, title: counselling.title },
+    };
+  }
+
+  if (IMPORTANT_Q_SLUGS.includes(slug)) {
+    const exam = examFromSlug(slug);
+    const subj = slug.replace(/^(jee|neet)-/, '').replace(/-important-questions$/, '').replace(/\b\w/g, c => c.toUpperCase());
+    const title = `${exam} ${subj} Important Questions ${YEAR} — Chapter-wise with Solutions | MindPeak`;
+    return {
+      title,
+      description: `Most important ${exam} ${subj} questions for ${YEAR}, selected chapter-wise from PYQ trends. Free practice with step-by-step solutions.`.slice(0, 160),
+      alternates: { canonical },
+      openGraph: { ...og, url: canonical, title },
+    };
+  }
+
+  if (slug === 'jee-mock-test-strategy' || slug === 'neet-mock-test-strategy') {
+    const exam = examFromSlug(slug);
+    const title = `${exam} Mock Test Strategy — How to Analyze & Improve Scores | MindPeak`;
+    return {
+      title,
+      description: `Master ${exam} mock test strategy. Learn how to analyze mistakes, manage time, and improve scores. Expert tips from MindPeak mentors.`.slice(0, 160),
+      alternates: { canonical },
+      openGraph: { ...og, url: canonical, title },
     };
   }
 

@@ -18,6 +18,16 @@ function slugify(s: string): string {
 
 const year = CURRENT_EXAM_YEAR;
 
+/**
+ * Years with actual paper-analysis content (see generatePaperAnalysisPosts —
+ * its difficulty data is hardcoded for these years). The sitemap slug lists
+ * MUST use the same array: they previously derived years from
+ * CURRENT_EXAM_YEAR, so when the exam-year rolled over the sitemap
+ * advertised /blog/jee-2026-paper-analysis (404 — no content generated)
+ * while the real /blog/jee-2016-paper-analysis was missing from it.
+ */
+export const PAPER_ANALYSIS_YEARS = [2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016];
+
 /** Deterministic seeded pseudo-random (no Math.random) */
 function seededRand(seed: number): number {
   const x = Math.sin(seed * 9301 + 49297) * 233280;
@@ -598,7 +608,7 @@ A: Track your problem-solving accuracy weekly. If accuracy isn't improving after
    ═══════════════════════════════════════════════════ */
 
 function generatePaperAnalysisPosts(): BlogPost[] {
-  const years = [2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016];
+  const years = PAPER_ANALYSIS_YEARS;
   const posts: BlogPost[] = [];
 
   // Deterministic difficulty distribution based on year + exam
@@ -3366,7 +3376,7 @@ export function getAllProgrammaticBlogSlugs(): string[] {
   }
 
   // 5. Paper analysis (20)
-  const years = [year - 1, year - 2, year - 3, year - 4, year - 5, year - 6, year - 7, year - 8, year - 9, year - 10];
+  const years = PAPER_ANALYSIS_YEARS;
   for (const y of years) {
     slugs.push(`blog/jee-${y}-paper-analysis`);
     slugs.push(`blog/neet-${y}-paper-analysis`);
@@ -3503,7 +3513,7 @@ export function getKeptBlogSlugs(): string[] {
   }
 
   // Paper analysis (20)
-  const years = [year - 1, year - 2, year - 3, year - 4, year - 5, year - 6, year - 7, year - 8, year - 9, year - 10];
+  const years = PAPER_ANALYSIS_YEARS;
   for (const y of years) {
     slugs.push(`blog/jee-${y}-paper-analysis`);
     slugs.push(`blog/neet-${y}-paper-analysis`);

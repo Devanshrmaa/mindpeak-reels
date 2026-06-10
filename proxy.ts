@@ -4,6 +4,7 @@ import { REMOVED_DOORWAY_SLUGS } from '@/lib/removedSlugs';
 import { isRemovedBlogDoorwaySlug } from '@/lib/removedBlogDoorways';
 import { isDoorwayCoachingSlug } from '@/lib/indexableCities';
 import { getCityConsolidation, getSubjectCityRedirect } from '@/data/cityConsolidation';
+import { allTopics, TOPIC_PATHS, CHAPTER_SLUGS } from '@/data/chapterData';
 
 /**
  * Request proxy (Next.js 16 `proxy.ts` convention — formerly middleware).
@@ -57,6 +58,10 @@ function gone() {
   });
 }
 
+/* Chapter-consolidation lookup sets (topic sub-pages + notes → parent chapter). */
+const TOPIC_PATH_SET = new Set(TOPIC_PATHS);
+const CHAPTER_SLUG_SET = new Set(CHAPTER_SLUGS);
+
 export function proxy(request: NextRequest) {
   const slug = request.nextUrl.pathname.replace(/^\/+|\/+$/g, '');
 
@@ -99,6 +104,33 @@ export function proxy(request: NextRequest) {
     const res = NextResponse.next();
     res.headers.set('X-Robots-Tag', 'noindex, follow');
     return res;
+  }
+
+  // 5. Chapter consolidation: topic sub-pages, /notes, and how-to-study
+  //    guides 301 to their parent chapter. app/[...slug]/page.tsx has the
+  //    same redirects, but production was observed serving prerendered
+  //    HTTP 200 topic pages (index,follow) despite them — 1,184 thin
+  //    template pages, the exact scaled-content pattern behind the March
+  //    penalty. Middleware runs before the prerender cache, so the 301 is
+  //    unconditional.
+  const parts = slug.split('/');
+  if (
+    parts.length === 2 &&
+    CHAPTER_SLUG_SET.has(parts[0]) &&
+    (parts[1] === 'notes' || TOPIC_PATH_SET.has(slug))
+  ) {
+    return NextResponse.redirect(new URL(`/${parts[0]}`, request.url), 301);
+  }
+  if (slug.startsWith('how-to-study-')) {
+    const m = slug.match(/^how-to-study-(.+)-for-(jee|neet)$/);
+    const topic = m
+      ? allTopics.find(
+          (t) => t.topicSlug === m[1] && t.chapter.exam.toLowerCase() === m[2],
+        )
+      : null;
+    if (topic) {
+      return NextResponse.redirect(new URL(`/${topic.chapter.slug}`, request.url), 301);
+    }
   }
 
   return NextResponse.next();

@@ -32,7 +32,7 @@ AI assistant context for the **mindpeak-reels** codebase. Read this before makin
 # Development (Turbopack hot reload)
 npm run dev
 
-# Production build (generates sitemaps, then next build)
+# Production build
 npm run build
 
 # Start production server
@@ -48,7 +48,7 @@ npx vitest run
 npm run update-sitemap
 ```
 
-**Build order matters:** `npm run build` runs `generate-topic-sitemap.mjs` and `update-sitemap.mjs` before `next build`. Never skip those steps manually.
+**Sitemaps are dynamic routes, not files:** the only live sitemaps are `app/sitemap.xml/route.ts` (lean, ~507 curated URLs) and `app/removal-sitemap.xml/route.ts` (temporary, 410'd doorways). The legacy static sitemaps (`public/sitemaps/**`, `public/sitemap-topics.xml`, `public/final.xml`) were deleted during the March 2026 spam-update recovery — do NOT regenerate them (the `scripts/gen-*` generators are retained for reference only).
 
 ---
 
@@ -197,7 +197,7 @@ Tests live in `src/test/`. Run with `npx vitest run`.
 ### Adding a New Landing Page
 1. Create `app/<slug>/page.tsx` with `generateMetadata()` and a view component
 2. Add metadata entry to `src/data/seoPageData.ts` if using the programmatic SEO system
-3. Add the URL to the appropriate sitemap XML file in `app/` or `public/`
+3. Add the URL to the appropriate list in `app/sitemap.xml/route.ts`
 
 ### Adding Blog Posts
 - Add entry to `src/data/blogData.ts`
@@ -250,7 +250,8 @@ No `.env` file in the repo. Secrets are managed via Vercel environment settings 
 - **Don't run `npm run build` to type-check** — `ignoreBuildErrors: true` means it won't catch type errors; use `npx tsc --noEmit` instead
 - **Don't modify `src/polyfills/empty-next-polyfill-module.js`** — it's an intentional empty shim for performance
 - **Don't add `console.log`** — it's stripped in production; use `console.warn` or `console.error` for anything that should persist
-- **Don't skip sitemap updates** when adding new pages — run `npm run update-sitemap` after adding URLs
+- **Don't add new pages without updating `app/sitemap.xml/route.ts`** — it's the single source of truth for indexable URLs
+- **Don't regenerate the legacy static sitemaps** (`public/sitemaps/**`, `sitemap-topics.xml`, `final.xml`) — they advertised thousands of redirected/noindexed URLs and were removed during penalty recovery
 
 ---
 
