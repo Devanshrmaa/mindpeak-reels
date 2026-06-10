@@ -43,15 +43,19 @@ export const metadata: Metadata = {
     "1-on-1 coaching",
   ],
   authors: [{ name: "MindPeak Institute" }],
-  robots: { index: true, follow: true },
+  /*
+   * No `robots` here: an explicit sitewide "index, follow" meta conflicts
+   * with the `noindex` Next.js injects on not-found pages (Google saw BOTH
+   * tags on soft-404s). Indexable is the default; pages that need noindex
+   * set it themselves.
+   *
+   * No `alternates.canonical` here either: a root-layout canonical is
+   * inherited by every page that doesn't define its own, silently
+   * canonicalising stray URLs to the homepage (confirmed via GSC URL
+   * Inspection). Each page sets its own canonical; the homepage's lives
+   * in app/page.tsx.
+   */
   metadataBase: new URL("https://mindpeakinstitute.com"),
-  alternates: {
-    canonical: "https://mindpeakinstitute.com/",
-    languages: {
-      "en-in": "https://mindpeakinstitute.com/",
-      "x-default": "https://mindpeakinstitute.com/",
-    },
-  },
   manifest: "/manifest.json",
   openGraph: {
     type: "website",

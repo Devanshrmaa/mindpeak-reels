@@ -23,6 +23,7 @@
 
 import { NextResponse } from 'next/server';
 import { REMOVED_DOORWAY_SLUGS } from '@/lib/removedSlugs';
+import { INDEXED_BLOG_DOORWAYS } from '@/lib/removedBlogDoorways';
 import { getCityConsolidation, getSubjectCityRedirect } from '@/data/cityConsolidation';
 
 const BASE = 'https://mindpeakinstitute.com';
@@ -47,8 +48,12 @@ function actuallyServes410(slug: string): boolean {
 export async function GET() {
   const today = new Date().toISOString().slice(0, 10);
 
-  const urls = [...REMOVED_DOORWAY_SLUGS]
-    .filter(actuallyServes410)
+  const urls = [
+    ...[...REMOVED_DOORWAY_SLUGS].filter(actuallyServes410),
+    // Blog doorways confirmed still indexed via GSC API (2026-06-10).
+    // proxy.ts serves HTTP 410 for these; fresh lastmod forces recrawl.
+    ...INDEXED_BLOG_DOORWAYS,
+  ]
     .sort()
     .map(
       (slug) =>

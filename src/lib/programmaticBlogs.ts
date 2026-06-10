@@ -18,6 +18,16 @@ function slugify(s: string): string {
 
 const year = CURRENT_EXAM_YEAR;
 
+/**
+ * Years with actual paper-analysis content (see generatePaperAnalysisPosts —
+ * its difficulty data is hardcoded for these years). The sitemap slug lists
+ * MUST use the same array: they previously derived years from
+ * CURRENT_EXAM_YEAR, so when the exam-year rolled over the sitemap
+ * advertised /blog/jee-2026-paper-analysis (404 — no content generated)
+ * while the real /blog/jee-2016-paper-analysis was missing from it.
+ */
+export const PAPER_ANALYSIS_YEARS = [2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016];
+
 /** Deterministic seeded pseudo-random (no Math.random) */
 function seededRand(seed: number): number {
   const x = Math.sin(seed * 9301 + 49297) * 233280;
@@ -598,7 +608,7 @@ A: Track your problem-solving accuracy weekly. If accuracy isn't improving after
    ═══════════════════════════════════════════════════ */
 
 function generatePaperAnalysisPosts(): BlogPost[] {
-  const years = [2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016];
+  const years = PAPER_ANALYSIS_YEARS;
   const posts: BlogPost[] = [];
 
   // Deterministic difficulty distribution based on year + exam
@@ -3366,56 +3376,20 @@ export function getAllProgrammaticBlogSlugs(): string[] {
   }
 
   // 5. Paper analysis (20)
-  const years = [year - 1, year - 2, year - 3, year - 4, year - 5, year - 6, year - 7, year - 8, year - 9, year - 10];
+  const years = PAPER_ANALYSIS_YEARS;
   for (const y of years) {
     slugs.push(`blog/jee-${y}-paper-analysis`);
     slugs.push(`blog/neet-${y}-paper-analysis`);
   }
 
-  // 6. Parent posts — cost of preparation (~75)
-  const parentCities = [
-    'Delhi', 'Mumbai', 'Bangalore', 'Hyderabad', 'Chennai', 'Kolkata',
-    'Pune', 'Jaipur', 'Kota', 'Lucknow', 'Patna', 'Ahmedabad',
-    'Chandigarh', 'Bhopal', 'Indore', 'Nagpur', 'Surat', 'Dehradun',
-    'Ranchi', 'Guwahati', 'Thiruvananthapuram', 'Bhubaneswar',
-    'Varanasi', 'Kanpur', 'Agra', 'Jodhpur', 'Kochi', 'Mysore',
-    'Coimbatore', 'Visakhapatnam', 'Allahabad', 'Noida', 'Gurgaon',
-    'Faridabad', 'Ghaziabad', 'Thane', 'Navi Mumbai',
-  ];
-  for (const city of parentCities) {
-    for (const exam of ['jee', 'neet']) {
-      slugs.push(`blog/cost-of-${exam}-preparation-in-${slugify(city)}-${year}`);
-    }
-  }
-
-  // 7. Best coaching in city (~50)
-  const coachingCities = [
-    'Delhi', 'Mumbai', 'Bangalore', 'Hyderabad', 'Chennai', 'Kolkata',
-    'Pune', 'Jaipur', 'Kota', 'Lucknow', 'Patna', 'Ahmedabad',
-    'Chandigarh', 'Bhopal', 'Indore', 'Nagpur', 'Surat', 'Dehradun',
-    'Ranchi', 'Guwahati', 'Thiruvananthapuram', 'Bhubaneswar',
-    'Varanasi', 'Kanpur', 'Coimbatore',
-  ];
-  for (const city of coachingCities) {
-    for (const exam of ['jee', 'neet']) {
-      slugs.push(`blog/best-${exam}-coaching-in-${slugify(city)}-${year}`);
-    }
-  }
+  // 6 & 7 & 9 removed: cost-of-preparation-in-city, best-coaching-in-city,
+  // and kota-worth-it-from-city slugs belonged to killed doorway generators
+  // (their content functions return []). Emitting their slugs here put dead
+  // soft-404 URLs into sitemaps; proxy.ts now serves HTTP 410 for them.
 
   // 8. Score strategy (6)
   for (const s of bookSubjects) {
     slugs.push(`blog/how-to-score-99-percentile-in-${s.exam}-${slugify(s.subject)}`);
-  }
-
-  // 9. Kota worth it (~20)
-  const kotaCities = [
-    'Delhi', 'Mumbai', 'Bangalore', 'Hyderabad', 'Chennai', 'Kolkata',
-    'Pune', 'Lucknow', 'Patna', 'Ahmedabad', 'Jaipur', 'Chandigarh',
-    'Bhopal', 'Indore', 'Ranchi', 'Guwahati', 'Dehradun', 'Varanasi',
-    'Bhubaneswar', 'Thiruvananthapuram',
-  ];
-  for (const city of kotaCities) {
-    slugs.push(`blog/is-kota-coaching-worth-it-from-${slugify(city)}`);
   }
 
   // 10. Important questions (~148)
@@ -3476,12 +3450,9 @@ export function getAllProgrammaticBlogSlugs(): string[] {
   ];
   for (const s of cutoffSlugs) slugs.push(`blog/${s}`);
 
-  // 17. NCERT analysis (~60)
-  const neetCh = chapters.filter(ch => ch.exam === 'NEET').slice(0, 30);
-  const jeeCh = chapters.filter(ch => ch.exam === 'JEE').slice(0, 30);
-  for (const ch of [...neetCh, ...jeeCh]) {
-    slugs.push(`blog/ncert-${slugify(ch.chapter)}-analysis-${ch.exam.toLowerCase()}`);
-  }
+  // 17. NCERT analysis — removed: generateNCERTAnalysisPosts() was killed
+  // (overlaps chapter hub pages); slugs here pointed at dead soft-404 URLs.
+  // proxy.ts now serves HTTP 410 for the ncert-*-analysis-* pattern.
 
   // 18. Exam prep guides (~72)
   for (const exam of examRegistry) {
@@ -3542,7 +3513,7 @@ export function getKeptBlogSlugs(): string[] {
   }
 
   // Paper analysis (20)
-  const years = [year - 1, year - 2, year - 3, year - 4, year - 5, year - 6, year - 7, year - 8, year - 9, year - 10];
+  const years = PAPER_ANALYSIS_YEARS;
   for (const y of years) {
     slugs.push(`blog/jee-${y}-paper-analysis`);
     slugs.push(`blog/neet-${y}-paper-analysis`);
