@@ -1,5 +1,5 @@
 # MindPeak Institute — Outreach Tracker
-**Last Updated:** 2026-05-20  
+**Last Updated:** 2026-06-10  
 **Site:** mindpeakinstitute.com  
 **MSME:** UDYAM-HP-04-0042530
 
@@ -57,6 +57,14 @@
 | 44 | 2026-06-04 | cyboardschool.com | cyboardschool.com/write-for-us/ | Guest Post — accepts EdTech/education content from teachers & founders, 1000–2500 words, byline with link | Via write-for-us form on site | ❌ | — | NOT STARTED |
 | 45 | 2026-06-04 | dailysarkariresults.com | dailysarkariresults.com/write-for-us/ | Guest Post — education, study tips, coaching content; high-traffic exam-aware student audience | Via write-for-us form on site | ❌ | — | NOT STARTED |
 | 46 | 2026-06-04 | vidsaga.com | vidsaga.com/top-indian-edtech-startups/ | Listicle Inclusion — "32 Top Indian EdTech Startups 2026" (startup directory angle, MSME + HP startup story) | Via vidsaga.com contact page | ❌ | — | NOT STARTED |
+| 47 | 2026-06-10 | onlinehimachal.com | onlinehimachal.com/blog/top-10-coaching-centre-in-himachal-pradesh/ | HP Regional Listicle — "Top 10 Coaching Centre in Himachal Pradesh NEET JEE UPSC" — MindPeak is only online 1-on-1 JEE/NEET institute from HP | Via onlinehimachal.com contact/footer | ❌ | — | NOT STARTED |
+| 48 | 2026-06-10 | oureducation.in | blog.oureducation.in/top-10-coaching-institutions-for-jee-main-and-advancein-himachal-pradesh/ | HP Regional Listicle — "Top 10 Coaching Institutions For JEE in Himachal Pradesh" — HP MSME startup story | Via oureducation.in contact form | ❌ | — | NOT STARTED |
+| 49 | 2026-06-10 | toppersacademy.app | toppersacademy.app/best-iit-jee-coaching-in-himachal-pradesh/ | HP Regional Listicle — "Best 10 IIT JEE Coaching in Himachal Pradesh" — only online 1-on-1 option missing | Via toppersacademy.app contact form | ❌ | — | NOT STARTED |
+| 50 | 2026-06-10 | targetstudy.com | targetstudy.com/coaching/jee-coaching-in-himachal-pradesh.htm | HP Coaching Directory — "JEE 2026 Coaching Centres in Himachal Pradesh" — check for self-serve submission form | Via targetstudy.com contact page | ❌ | — | NOT STARTED |
+| 51 | 2026-06-10 | globaleducationawards.in | globaleducationawards.in | Award Nomination — "Global Education Awards 2026" — international edtech recognition platform; distinct from BrandEmpower (#36) | Via nomination form on site | ❌ | — | NOT STARTED |
+| 52 | 2026-06-10 | edtechstartups.org | edtechstartups.org/country/India/ | EdTech Startup Directory — "Top 100 EdTech Startups in India 2026" — check for self-submit listing | Via edtechstartups.org contact/submit | ❌ | — | NOT STARTED |
+| 53 | 2026-06-10 | cucetexam.in | cucetexam.in/write-for-us/ | Guest Post — education, exam prep, JEE/NEET coaching topics; min 1000 words; active Write For Us page | info@cucetexam.in | ❌ | — | NOT STARTED |
+| 54 | 2026-06-10 | sarkariresultexams.com | sarkariresultexams.com/write-for-us/ | Guest Post — education, coaching, study tips; min 1000 words; coaching angle fits | info@sarkariresultexams.com | ❌ | — | NOT STARTED |
 
 ---
 
@@ -77,6 +85,17 @@
 ---
 
 ## Notes & Strategy Log
+
+### 2026-06-10 — Week 6 Audit + 8 New Targets Added (54 Total)
+
+- **Zero backlinks for SIXTH consecutive week.** All 46 prior targets still at NOT STARTED. 27 days of zero execution.
+- **8 new targets added (#47–54):** onlinehimachal.com (HP regional), oureducation.in (HP regional), toppersacademy.app (HP regional), targetstudy.com (HP directory), globaleducationawards.in (award), edtechstartups.org (directory), cucetexam.in (guest post), sarkariresultexams.com (guest post)
+- **🔥 NEW STRATEGIC ANGLE — HP Regional Listings:** MindPeak is the ONLY online, 1-on-1, IIT/NIT-alumni JEE/NEET coaching institute from Himachal Pradesh. Four HP-specific coaching listicles found where MindPeak is absent. These are EASIER to break into than national lists (ALLEN/PW don't compete here).
+- **🔥 UNANSWERED QUORA THREAD FOUND:** `quora.com/unanswered/Which-online-coaching-is-best-for-the-IIT-JEE-preparation-in-2026` — Quora-marked unanswered. Devansh can be FIRST and ONLY response. 10 minutes. Zero barrier.
+- **Brand collision with mindpeak.ai persists** — will only be resolved by building external backlinks that establish MindPeak Institute (coaching) as the indexed entity for "mindpeak institute" queries.
+- **Google Alerts still not set up** — now 8 weeks overdue from May 15 recommendation.
+- Emails #22–25 ready to send (in `/seo-reports/backlinks-2026-06-10.md`)
+- **Strategic warning:** If no actions are taken by June 17, recommend consolidating tracker to top 10 only and treating as a daily sprint rather than continuing to add new targets to an untouched list.
 
 ### 2026-06-04 — Week 5 Audit + 8 New Targets Added (46 Total)
 
@@ -126,17 +145,22 @@
 | May 12–18, 2026 | 0 → 3 | Send #1, #2, #8, #11, #27 (UrbanPro self-serve) | — | **MISSED — zero sent** |
 | May 19–25, 2026 | 0 → 5 | Self-serve: UrbanPro (#27), HP Startup (#37), Wellfound (#38). Email: #2, #8, #13, #1, #14, #4 | — | **MISSED — zero sent** |
 | May 26–Jun 1, 2026 | 5 → 10 | Follow up #2/#8/#13/#14; send #9, #10, #6, #15, #16, #17 | — | **MISSED — zero sent** |
-| **Jun 2–8, 2026** | **0 → 5** | **EMERGENCY MINIMUM:** Quora answer (10 min). Self-serve: UrbanPro (#27), Wellfound (#38), HP Startup (#37). Emails: #13 OriginEducare, #2 CollegeDekho | 🔥 CRITICAL WEEK — must act | ⏳ IN PROGRESS |
-| Jun 9–15, 2026 | 5 → 10 | Email: #8 CollegeDunia, #14 Notesly, #18 AcademyCheck 2027, #1 AcademyCheck NEET. Follow up #13/#2 | — | NOT STARTED |
-| Jun 16–22, 2026 | 10 → 15 | Emails: #4 FutureTopper, #6 ExamCharcha, #19 CosmosIQ, #20 Indian-Preneur, #9 PhysicsNavigator | — | NOT STARTED |
-| Jun 23–30, 2026 | 15 → 20 | Emails: #21 CyboardSchool, #11 SCNWire PR, #10 Giraffe-Learning ×2, #5 Suganta. Follow up all pending. Start Shiksha | — | NOT STARTED |
-| Jul 2026 | 20 → 30 | Careers360, Shiksha partner portal, Awards follow-up. Start Quora 2–3/week consistently | — | NOT STARTED |
+| **Jun 2–8, 2026** | **0 → 5** | **EMERGENCY MINIMUM:** Quora answer (10 min). Self-serve: UrbanPro (#27), Wellfound (#38), HP Startup (#37). Emails: #13 OriginEducare, #2 CollegeDekho | 🔥 CRITICAL WEEK — must act | **MISSED — zero sent** |
+| **Jun 9–15, 2026** | **0 → 5** | **UNANSWERED Quora (10 min, be first!). Self-serve: UrbanPro (#27), Wellfound (#38), HP Startup (#37). Emails: #13 OriginEducare, #22 OnlineHimachal, #23 OurEducation, #2 CollegeDekho, #18 AcademyCheck 2027** | 🔥 CRITICAL — HP regional angle is new this week | ⏳ IN PROGRESS |
+| Jun 16–22, 2026 | 5 → 12 | Email: #8 CollegeDunia, #24 ToppersAcademy, #14 Notesly, #1 AcademyCheck NEET, #19 CosmosIQ. Follow up #13/#22/#23. Submit #50 TargetStudy HP | — | NOT STARTED |
+| Jun 23–30, 2026 | 12 → 20 | Emails: #20 Indian-Preneur, #4 FutureTopper, #6 ExamCharcha, #9 PhysicsNavigator, #25 CUCETExam. Nominate: #51 GlobalEdAwards, #36 BrandEmpower. Follow up all pending | — | NOT STARTED |
+| Jul 1–15, 2026 | 20 → 28 | Emails: #21 CyboardSchool, #10 Giraffe-Learning ×2, #11 SCNWire PR, #5 Suganta, #54 SarkariResultExams. Follow up all pending. Start Shiksha (#12) | — | NOT STARTED |
+| Jul 16–31, 2026 | 28 → 35 | Careers360 (#1), Shiksha partner portal (#12), Awards follow-up (#9, #10, #16, #51). Submit #52 EdTechStartups.org. Quora: 2–3/week consistently | — | NOT STARTED |
 
 ## Quora Strategy (Ongoing — Not Tracked as Outreach)
 
-Devansh should answer 2–3 Quora questions per week. Target threads (confirmed active as of June 2026):
-- **"Which coaching institute provides the best one-on-one mentoring for JEE Main preparation?"** ← CONFIRMED ACTIVE — answer NOW
-- **"Which one should I choose for the JEE 2026, online coaching or offline coaching?"** ← CONFIRMED ACTIVE
+Devansh should answer 2–3 Quora questions per week. Target threads (confirmed active as of June 10, 2026):
+
+- 🔥 **UNANSWERED — be first:** `quora.com/unanswered/Which-online-coaching-is-best-for-the-IIT-JEE-preparation-in-2026` ← MARKED UNANSWERED BY QUORA — ACT NOW
+- **"Which coaching institute provides the best one-on-one mentoring for JEE Main preparation?"** ← CONFIRMED ACTIVE — 6 WEEKS OVERDUE
+- **"Which one should I choose for the JEE 2026, online coaching or offline coaching?"** ← CONFIRMED ACTIVE — 6 WEEKS OVERDUE
+- `quora.com/Which-is-the-best-coaching-for-the-IIT-JEE-in-India-2024-for-the-JEE-2026` — active
+- `quora.com/Which-online-coaching-is-best-for-the-JEE-2026-in-the-drop-year` — active, dropper audience highly relevant
 - "Which is the best 1-on-1 JEE coaching online?"
 - "Best online NEET coaching for droppers 2026"
 - "How to find a personal Physics tutor for JEE Advanced?"
