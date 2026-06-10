@@ -1,5 +1,4 @@
-import Index from "@/views/Index";
-import { HeroSection } from "@/components/sections/HeroSection";
+import HomeRedesign from "@/views/HomeRedesign";
 import { PageFooter } from "@/components/PageFooter";
 import type { Metadata } from "next";
 import { CURRENT_EXAM_YEAR } from "@/lib/examYears";
@@ -20,15 +19,14 @@ export const metadata: Metadata = {
 };
 
 /**
- * The <Index /> component lazy-loads all subcomponents with Next.js
- * dynamic imports, so the page progressively enhances into a fully
- * interactive experience on the client. SEO metadata is handled by
- * the server-side metadata export above.
+ * The <HomeRedesign /> component renders the v2 cream-on-navy homepage
+ * (ported from the Claude Design handoff). It is a client component; SEO
+ * metadata is handled by the server-side metadata export above.
  *
  * NOTE: The sr-only section below is a server-rendered content shell
- * for Googlebot. The animated hero in <Index /> is client-rendered;
- * this section ensures 200+ words of core content are in the initial
- * HTML so Google can index the page without JS execution.
+ * for Googlebot. The redesigned homepage is client-rendered; this section
+ * ensures 200+ words of core content are in the initial HTML so Google can
+ * index the page without JS execution.
  */
 export default function HomePage() {
   return (
@@ -112,18 +110,15 @@ export default function HomePage() {
         </span>
       </section>
 
-      <Index>
-        <HeroSection />
-      </Index>
+      <HomeRedesign />
 
       {/*
-       * Server-rendered footer link hub. Every other page renders PageFooter,
-       * but the homepage lazy-loaded ALL sections client-side and never
-       * mounted a footer at all — its initial HTML contained only 10 internal
-       * links, so the site's highest-authority page passed almost no link
-       * equity. GSC URL Inspection (2026-06-10) showed 120 chapter/subject
-       * pages "Crawled — currently not indexed"; this is their primary crawl
-       * path from the homepage.
+       * Server-rendered footer link hub. The redesigned homepage closes with a
+       * navy contact CTA but no link directory of its own, so PageFooter remains
+       * the site's highest-authority internal-link surface. Its initial HTML
+       * carries 120+ chapter/subject/city links — the primary crawl path from
+       * the homepage. GSC URL Inspection (2026-06-10) showed those pages
+       * "Crawled — currently not indexed"; do not remove this.
        */}
       <PageFooter />
     </>
