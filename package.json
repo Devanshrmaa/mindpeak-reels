@@ -9,6 +9,8 @@
     "build:dev": "vite build --mode development",
     "start": "next start",
     "update-sitemap": "node scripts/update-sitemap.mjs",
+    "seo:daily": "node scripts/daily-seo-routine.mjs",
+    "seo:health": "node scripts/gsc-health.mjs",
     "lint": "next lint",
     "outreach": "node --env-file=.env.local scripts/send-outreach.mjs",
     "outreach:dry": "DRY_RUN=true node --env-file=.env.local scripts/send-outreach.mjs"
