@@ -13,6 +13,7 @@ import { useDemoModal } from '@/components/DemoBookingModal';
 import { FeaturedSnippet } from '@/components/FeaturedSnippet';
 import { FreshnessBadge } from '@/components/FreshnessBadge';
 import { FadeInView } from '@/components/FadeInView';
+import { CtaBanner } from '@/components/CtaBanner';
 import { getLastUpdated, getCurrentExamYear } from '@/lib/contentFreshness';
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 import { PeopleAlsoAsk } from '@/components/PeopleAlsoAsk';
@@ -188,7 +189,8 @@ const NEETCoaching = () => {
         </nav>
 
         {/* ───── HERO ───── */}
-        <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-12 sm:pb-20">
+        <section className="relative max-w-4xl mx-auto px-4 sm:px-6 pb-12 sm:pb-20">
+          <div aria-hidden className="absolute -top-28 -right-44 w-[480px] h-[480px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, hsl(var(--gold-light) / 0.16) 0%, transparent 65%)' }} />
           <FadeInView>
             <FreshnessBadge lastUpdated={lastUpdated} verifiedFor={examYear} />
 
@@ -211,13 +213,13 @@ const NEETCoaching = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <button onClick={openDemoModal} className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-3.5 sm:py-4 bg-primary text-primary-foreground text-[12px] uppercase tracking-[0.15em] font-medium rounded-full hover:shadow-[0_0_40px_-8px_hsl(var(--primary)/0.5)] transition-all duration-500">
+              <button onClick={openDemoModal} className="group w-full sm:w-auto btn-pill btn-pill-gold px-8 sm:px-10 py-3.5 sm:py-4 text-[12px] uppercase tracking-[0.15em]">
                 Start Your Free Trial
                 <span className="w-5 h-5 rounded-full border border-current grid place-items-center transition-transform duration-500 group-hover:rotate-45">
                   <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H2M9 1V8" stroke="currentColor" strokeWidth="1.2" /></svg>
                 </span>
               </button>
-              <a href="tel:+918219457704" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 sm:py-4 border border-foreground/[0.1] text-foreground/80 text-[12px] uppercase tracking-[0.15em] font-medium rounded-full hover:border-primary/20 hover:text-foreground transition-all duration-400">
+              <a href="tel:+918219457704" className="w-full sm:w-auto btn-pill btn-pill-outline px-7 sm:px-8 py-3.5 sm:py-4 text-[12px] uppercase tracking-[0.15em]">
                 <Phone className="w-3.5 h-3.5" strokeWidth={1.5} /> +91 82194 57704
               </a>
             </div>
@@ -257,7 +259,7 @@ const NEETCoaching = () => {
           <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
             {stats.map((s, i) => (
               <FadeInView key={s.label} delay={i * 60}>
-                <div className="font-display font-bold text-primary text-2xl md:text-3xl mb-1 tracking-tight">{s.value}</div>
+                <div className="font-display font-bold text-primary text-3xl md:text-4xl mb-1 tracking-tight">{s.value}</div>
                 <div className="text-muted-foreground text-[10px] uppercase tracking-[0.2em]">{s.label}</div>
               </FadeInView>
             ))}
@@ -270,10 +272,7 @@ const NEETCoaching = () => {
         {/* ───── WHY BATCH FAILS ───── */}
         <section className="max-w-4xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
           <FadeInView>
-            <div className="flex items-center gap-3 mb-4">
-              <span className="h-px w-8 bg-destructive/20" />
-              <span className="text-[11px] uppercase tracking-[0.3em] text-destructive/60 font-medium">The Problem</span>
-            </div>
+            <div className="eyebrow eyebrow-danger mb-4">The Problem</div>
             <h2 className="font-display font-bold text-foreground text-xl sm:text-2xl md:text-3xl mb-4 tracking-[-0.02em]">
               Why Traditional NEET <span className="text-gradient-gold">Batch Coaching Fails</span>
             </h2>
@@ -283,7 +282,7 @@ const NEETCoaching = () => {
             <div className="grid md:grid-cols-3 gap-4">
               {batchProblems.map((p, i) => (
                 <FadeInView key={i} delay={i * 80}
-                  className="rounded-2xl border border-destructive/10 bg-destructive/[0.03] p-7 hover:border-destructive/20 transition-all duration-500">
+                  className="card-lift p-7 border-destructive/15 hover:border-destructive/30">
                   <p.icon className="w-5 h-5 text-destructive/60 mb-5" strokeWidth={1.5} />
                   <h3 className="font-display font-semibold text-foreground text-base mb-2 tracking-[-0.01em]">{p.title}</h3>
                   <p className="text-muted-foreground/70 text-sm leading-[1.7]">{p.desc}</p>
@@ -298,10 +297,7 @@ const NEETCoaching = () => {
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-foreground/[0.06] to-transparent" />
           <div className="max-w-4xl mx-auto">
             <FadeInView>
-              <div className="flex items-center gap-3 mb-4">
-                <span className="h-px w-8 bg-primary/20" />
-                <span className="text-[11px] uppercase tracking-[0.3em] text-primary/60 font-medium">NEET Methodology</span>
-              </div>
+              <div className="eyebrow mb-4">NEET Methodology</div>
               <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl mb-4 tracking-[-0.02em]">
                 The MindPeak <span className="text-gradient-gold">NEET Advantage</span>
               </h2>
@@ -311,7 +307,7 @@ const NEETCoaching = () => {
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {methodology.map((m, i) => (
                   <FadeInView key={i} delay={i * 60}
-                    className="group rounded-2xl border border-foreground/[0.06] bg-foreground/[0.02] p-7 hover:border-primary/15 hover:bg-foreground/[0.04] transition-all duration-500">
+                    className="group card-lift p-7">
                     <span className="text-[11px] tracking-[0.15em] text-muted-foreground/40 font-medium">{String(i + 1).padStart(2, '0')}</span>
                     <m.icon className="w-5 h-5 text-primary/60 mt-4 mb-4" strokeWidth={1.5} />
                     <h3 className="font-display font-semibold text-foreground text-sm mb-2 tracking-[-0.01em]">{m.title}</h3>
@@ -326,17 +322,14 @@ const NEETCoaching = () => {
         {/* ───── SUCCESS STORIES ───── */}
         <section className="max-w-4xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
           <FadeInView>
-            <div className="flex items-center gap-3 mb-4">
-              <span className="h-px w-8 bg-foreground/10" />
-              <span className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground font-medium">Stories</span>
-            </div>
+            <div className="eyebrow mb-4">Stories</div>
             <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl mb-10 tracking-[-0.02em]">
               NEET <span className="text-gradient-gold">Success Stories</span>
             </h2>
             <div className="grid md:grid-cols-3 gap-4">
               {testimonials.map((t, i) => (
                 <FadeInView key={i} delay={i * 80}
-                  className="rounded-2xl border border-foreground/[0.06] bg-foreground/[0.02] p-7">
+                  className="card-lift p-7">
                   <div className="flex items-center justify-between mb-5">
                     <div>
                       <h3 className="font-display font-semibold text-foreground text-sm">{t.name}</h3>
@@ -345,12 +338,12 @@ const NEETCoaching = () => {
                     <span className="text-primary/70 text-[11px] tracking-[0.1em] font-medium">{t.rank}</span>
                   </div>
                   <div className="flex items-center gap-3 mb-5">
-                    <div className="flex-1 text-center p-3 rounded-xl bg-foreground/[0.02] border border-foreground/[0.04]">
+                    <div className="flex-1 text-center p-3 rounded-xl bg-secondary/50 border border-border">
                       <div className="text-destructive/70 font-display font-bold text-lg">{t.before}</div>
                       <div className="text-muted-foreground/80 text-[10px] uppercase tracking-[0.1em]">Before</div>
                     </div>
                     <ArrowRight className="w-3.5 h-3.5 text-primary/50 flex-shrink-0" />
-                    <div className="flex-1 text-center p-3 rounded-xl bg-foreground/[0.02] border border-foreground/[0.04]">
+                    <div className="flex-1 text-center p-3 rounded-xl bg-secondary/50 border border-border">
                       <div className="text-primary/80 font-display font-bold text-lg">{t.after}</div>
                       <div className="text-muted-foreground/80 text-[10px] uppercase tracking-[0.1em]">After</div>
                     </div>
@@ -367,10 +360,7 @@ const NEETCoaching = () => {
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-foreground/[0.06] to-transparent" />
           <div className="max-w-4xl mx-auto">
             <FadeInView>
-              <div className="flex items-center gap-3 mb-4">
-                <BookOpen className="w-4 h-4 text-primary/60" strokeWidth={1.5} />
-                <span className="text-[11px] uppercase tracking-[0.3em] text-primary/60 font-medium">Syllabus</span>
-              </div>
+              <div className="eyebrow mb-4">Syllabus</div>
               <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl mb-4 tracking-[-0.02em]">
                 Complete NEET <span className="text-gradient-gold">Syllabus Coverage</span>
               </h2>
@@ -380,7 +370,7 @@ const NEETCoaching = () => {
               <div className="grid md:grid-cols-3 gap-4">
                 {syllabus.map((s, i) => (
                   <FadeInView key={i} delay={i * 60}
-                    className="rounded-2xl border border-foreground/[0.06] bg-foreground/[0.02] p-7">
+                    className="card-lift p-7">
                     <div className="flex items-center justify-between mb-1">
                       <h3 className="font-display font-semibold text-foreground text-base tracking-[-0.01em]">{s.subject}</h3>
                     </div>
@@ -403,22 +393,19 @@ const NEETCoaching = () => {
         {/* ───── PRICING COMPARISON ───── */}
         <section className="max-w-4xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
           <FadeInView>
-            <div className="flex items-center gap-3 mb-4">
-              <span className="h-px w-8 bg-foreground/10" />
-              <span className="text-[11px] uppercase tracking-[0.3em] text-muted-foreground font-medium">Compare</span>
-            </div>
+            <div className="eyebrow mb-4">Compare</div>
             <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl mb-4 tracking-[-0.02em]">
               NEET Coaching <span className="text-gradient-gold">Pricing Comparison</span>
             </h2>
             <p className="text-muted-foreground/70 text-sm sm:text-base leading-[1.8] max-w-3xl mb-10">
               Compare MindPeak&rsquo;s personalized NEET coaching with traditional batch coaching.
             </p>
-            <div className="overflow-x-auto rounded-2xl border border-foreground/[0.06]">
+            <div className="overflow-x-auto rounded-2xl border border-border bg-card shadow-[0_10px_30px_hsl(224_40%_22%/0.06)]">
               <table className="w-full text-sm min-w-[600px]">
                 <thead>
-                  <tr className="bg-foreground/[0.03]">
+                  <tr className="bg-secondary/60">
                     <th className="text-left px-5 py-4 text-muted-foreground text-[11px] uppercase tracking-[0.15em] font-medium">Feature</th>
-                    <th className="text-center px-5 py-4 text-primary/70 text-[11px] uppercase tracking-[0.15em] font-medium">MindPeak</th>
+                    <th className="text-center px-5 py-4 text-primary text-[11px] uppercase tracking-[0.15em] font-bold bg-primary/[0.07]">MindPeak</th>
                     <th className="text-center px-5 py-4 text-muted-foreground text-[11px] uppercase tracking-[0.15em] font-medium">Allen</th>
                     <th className="text-center px-5 py-4 text-muted-foreground text-[11px] uppercase tracking-[0.15em] font-medium">Aakash</th>
                     <th className="text-center px-5 py-4 text-muted-foreground text-[11px] uppercase tracking-[0.15em] font-medium">BYJU&rsquo;S</th>
@@ -426,9 +413,9 @@ const NEETCoaching = () => {
                 </thead>
                 <tbody>
                   {pricingComparison.map((row, i) => (
-                    <tr key={i} className="border-t border-foreground/[0.04] hover:bg-foreground/[0.02] transition-colors duration-300">
+                    <tr key={i} className="border-t border-border/60 hover:bg-secondary/30 transition-colors duration-300">
                       <td className="px-5 py-3.5 text-foreground/80 font-medium text-xs sm:text-sm">{row.feature}</td>
-                      <td className="px-5 py-3.5 text-center text-primary/80 font-medium text-xs sm:text-sm">{row.mindpeak}</td>
+                      <td className="px-5 py-3.5 text-center text-foreground font-semibold text-xs sm:text-sm bg-primary/[0.06]">{row.mindpeak}</td>
                       <td className="px-5 py-3.5 text-center text-muted-foreground text-xs sm:text-sm">{row.allen}</td>
                       <td className="px-5 py-3.5 text-center text-muted-foreground text-xs sm:text-sm">{row.aakash}</td>
                       <td className="px-5 py-3.5 text-center text-muted-foreground text-xs sm:text-sm">{row.byjus}</td>
@@ -444,7 +431,7 @@ const NEETCoaching = () => {
         <section className="py-12 sm:py-16 px-4 sm:px-6 relative">
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-foreground/[0.06] to-transparent" />
           <div className="max-w-4xl mx-auto">
-            <h3 className="font-display font-semibold text-foreground text-sm mb-5 tracking-[-0.01em]">Explore More</h3>
+            <h3 className="eyebrow mb-5">Explore More</h3>
             <div className="flex flex-wrap gap-2">
               {[
                 { label: 'NEET Biology Coaching', to: '/neet-biology-coaching' },
@@ -471,7 +458,7 @@ const NEETCoaching = () => {
                 { label: 'NEET UG 2026 Cancellation — What It Means for You', to: '/neet-ug-2026-cancelled' },
                 { label: 'Blog — NEET Tips', to: '/blog' },
               ].map((l) => (
-                <Link key={l.to} to={l.to} className="px-4 py-2.5 rounded-full border border-foreground/[0.06] bg-foreground/[0.02] text-foreground/70 text-[11px] tracking-[0.05em] hover:border-primary/15 hover:text-foreground transition-all duration-400 flex items-center gap-1.5">
+                <Link key={l.to} to={l.to} className="px-4 py-2.5 rounded-full border border-border bg-card text-foreground/70 text-[11px] tracking-[0.05em] hover:border-primary/40 hover:text-foreground hover:-translate-y-0.5 hover:shadow-[0_8px_20px_hsl(224_40%_22%/0.08)] transition-all duration-300 flex items-center gap-1.5">
                   <ArrowRight className="w-3 h-3 text-primary/50" strokeWidth={1.5} /> {l.label}
                 </Link>
               ))}
@@ -492,23 +479,12 @@ const NEETCoaching = () => {
         <PageFAQ items={faqs} heading="NEET Coaching" highlight="FAQs" />
 
         {/* ───── FINAL CTA ───── */}
-        <section className="py-20 sm:py-28 px-4 sm:px-6 text-center relative">
-          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-foreground/[0.06] to-transparent" />
-          <FadeInView>
-            <h2 className="font-display font-bold text-foreground text-xl sm:text-2xl md:text-3xl mb-4 tracking-[-0.02em]">
-              Your Medical Dream Starts <span className="text-gradient-gold">Today</span>
-            </h2>
-            <p className="text-muted-foreground/70 text-sm sm:text-base mb-8 sm:mb-10 max-w-lg mx-auto">
-              Join 500+ students who transformed their NEET preparation with personalized 1-on-1 coaching.
-            </p>
-            <button onClick={openDemoModal} className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-4 bg-primary text-primary-foreground text-[13px] uppercase tracking-[0.15em] font-medium rounded-full hover:shadow-[0_0_40px_-8px_hsl(var(--primary)/0.5)] transition-all duration-500">
-              Book Free Trial Class
-              <span className="w-5 h-5 rounded-full border border-current grid place-items-center transition-transform duration-500 group-hover:rotate-45">
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H2M9 1V8" stroke="currentColor" strokeWidth="1.2" /></svg>
-              </span>
-            </button>
-          </FadeInView>
-        </section>
+        <CtaBanner
+          heading="Your Medical Dream Starts"
+          highlight="Today"
+          sub="Join 500+ students who transformed their NEET preparation with personalized 1-on-1 coaching."
+          buttonLabel="Book Free Trial Class"
+        />
 
         <PageFooter extra="NEET Online Coaching." />
       </main>

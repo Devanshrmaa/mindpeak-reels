@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, HelpCircle } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 export interface FAQItem {
   question: string;
@@ -30,11 +30,8 @@ export const PageFAQ = ({ items, heading = 'Frequently Asked', highlight = 'Ques
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
-            <HelpCircle className="w-4 h-4 text-primary" />
-            <span className="text-primary text-xs font-semibold uppercase tracking-widest">FAQ</span>
-          </div>
-          <h2 className="font-display font-bold text-foreground text-3xl sm:text-4xl">
+          <div className="eyebrow eyebrow-center mb-5">Straight answers</div>
+          <h2 className="font-display font-bold text-foreground text-3xl sm:text-4xl tracking-[-0.02em]">
             {heading} <span className="text-gradient-gold">{highlight}</span>
           </h2>
         </motion.div>
@@ -52,10 +49,10 @@ export const PageFAQ = ({ items, heading = 'Frequently Asked', highlight = 'Ques
                 transition={{ delay: i * 0.05 }}
               >
                 <div
-                  className={`rounded-xl border transition-all duration-300 ${
+                  className={`border transition-all duration-300 ${
                     isOpen
-                      ? 'bg-background/50 backdrop-blur-xl border-primary/30 shadow-card'
-                      : 'bg-background/25 backdrop-blur-lg border-border/40 hover:border-border/70 hover:bg-background/35'
+                      ? 'bg-card border-primary/25 rounded-2xl shadow-[0_12px_34px_hsl(224_40%_22%/0.08)]'
+                      : 'bg-transparent border-transparent border-b-border rounded-none hover:bg-card/60'
                   }`}
                 >
                   <button
@@ -66,8 +63,14 @@ export const PageFAQ = ({ items, heading = 'Frequently Asked', highlight = 'Ques
                     <span className={`text-sm font-semibold transition-colors ${isOpen ? 'text-foreground' : 'text-foreground/80'}`}>
                       {faq.question}
                     </span>
-                    <motion.div animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.25 }} className="flex-shrink-0">
-                      <ChevronDown className={`w-4 h-4 ${isOpen ? 'text-primary' : 'text-muted-foreground'}`} />
+                    <motion.div
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.25 }}
+                      className={`flex-shrink-0 w-7 h-7 rounded-full border grid place-items-center transition-colors ${
+                        isOpen ? 'border-primary/50 bg-primary/10' : 'border-border'
+                      }`}
+                    >
+                      <ChevronDown className={`w-3.5 h-3.5 ${isOpen ? 'text-primary' : 'text-muted-foreground'}`} />
                     </motion.div>
                   </button>
                   <AnimatePresence>
