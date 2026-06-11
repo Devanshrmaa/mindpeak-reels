@@ -22,7 +22,8 @@ export const PeopleAlsoAsk = ({ questions, heading = 'People Also Ask' }: PAAPro
   return (
     <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6" aria-label="Related questions">
       <div className="max-w-3xl mx-auto">
-        <h2 className="font-display text-foreground text-xl sm:text-2xl md:text-3xl font-bold mb-5 sm:mb-8 text-center">
+        <div className="eyebrow eyebrow-center mb-4">From the search results</div>
+        <h2 className="font-display text-foreground text-xl sm:text-2xl md:text-3xl font-bold mb-5 sm:mb-8 text-center tracking-[-0.02em]">
           {heading}
         </h2>
 
@@ -33,7 +34,11 @@ export const PeopleAlsoAsk = ({ questions, heading = 'People Also Ask' }: PAAPro
               <div
                 key={i}
                 role="listitem"
-                className="rounded-xl border border-border bg-card/50 overflow-hidden"
+                className={`rounded-xl border overflow-hidden transition-all duration-300 ${
+                  isOpen
+                    ? 'border-primary/25 bg-card shadow-[0_10px_28px_hsl(224_40%_22%/0.07)]'
+                    : 'border-border bg-card/60 hover:border-primary/20 hover:bg-card'
+                }`}
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : i)}

@@ -393,3 +393,115 @@ html::-webkit-scrollbar {
     }
   }
 }
+
+/* ── Design language v2 — shared atoms from the homepage redesign ──
+   Editorial eyebrow labels, gold-gradient pill CTAs, lifted cards and
+   animated nav underlines, so inner pages speak the same visual language
+   as the cream/navy/gold homepage. */
+@layer components {
+  /* Uppercase section label with a gold rule */
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: hsl(var(--gold));
+  }
+  .eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    flex-shrink: 0;
+  }
+  .eyebrow-center { justify-content: center; }
+  .eyebrow-danger { color: hsl(var(--destructive) / 0.75); }
+
+  /* Pill button system (mirror of the homepage .mp-btn rules) */
+  .btn-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    transition:
+      transform 0.25s var(--ease-out-expo),
+      box-shadow 0.25s var(--ease-out-expo),
+      background-color 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease;
+  }
+  .btn-pill:hover { transform: translateY(-2px); }
+  .btn-pill:active { transform: translateY(0) scale(0.99); }
+
+  .btn-pill-gold {
+    background: var(--gradient-gold);
+    color: hsl(222 53% 16%);
+    font-weight: 700;
+    box-shadow: 0 12px 30px hsl(var(--gold) / 0.32);
+  }
+  .btn-pill-gold:hover { box-shadow: 0 18px 42px hsl(var(--gold) / 0.42); }
+
+  .btn-pill-navy {
+    background: hsl(var(--foreground));
+    color: hsl(var(--background));
+    box-shadow: 0 10px 26px hsl(var(--foreground) / 0.2);
+  }
+  .btn-pill-navy:hover { box-shadow: 0 16px 38px hsl(var(--foreground) / 0.3); }
+
+  .btn-pill-outline {
+    background: transparent;
+    color: hsl(var(--foreground) / 0.85);
+    border-color: hsl(var(--foreground) / 0.25);
+  }
+  .btn-pill-outline:hover {
+    border-color: hsl(var(--gold));
+    color: hsl(var(--foreground));
+    box-shadow: 0 10px 24px hsl(var(--foreground) / 0.1);
+  }
+
+  /* White card that lifts with a gold border on hover */
+  .card-lift {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 1.25rem;
+    box-shadow: 0 10px 30px hsl(224 40% 22% / 0.06);
+    transition:
+      transform 0.4s var(--ease-out-expo),
+      box-shadow 0.4s var(--ease-out-expo),
+      border-color 0.3s ease;
+  }
+  .card-lift:hover {
+    transform: translateY(-5px);
+    border-color: hsl(var(--gold) / 0.45);
+    box-shadow: 0 24px 54px hsl(224 40% 22% / 0.12);
+  }
+
+  /* Nav link with the gold underline sweep */
+  .nav-underline { position: relative; }
+  .nav-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 100%;
+    bottom: -5px;
+    height: 2px;
+    border-radius: 2px;
+    background: hsl(var(--gold));
+    transition: right 0.3s var(--ease-out-expo);
+  }
+  .nav-underline:hover::after { right: 0; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn-pill, .card-lift, .nav-underline::after { transition: none; }
+    .btn-pill:hover, .card-lift:hover { transform: none; }
+  }
+}
