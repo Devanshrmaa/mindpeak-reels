@@ -25,7 +25,7 @@ export function MpLedger() {
       ))}
       <div style={{ borderTop: `1px solid ${S.line}`, paddingTop: 18, display: "flex", justifyContent: "space-between", fontSize: 13.5, color: S.inkSoft, gap: 24, flexWrap: "wrap" }}>
         <span>+ 50 more students under AIR 5,000 — full list published yearly</span>
-        <a href="/results" style={{ fontWeight: 600, color: S.navy, textDecoration: "none" }}>Read all success stories →</a>
+        <a href="/success-stories" style={{ fontWeight: 600, color: S.navy, textDecoration: "none" }}>Read all success stories →</a>
       </div>
     </section>
   );

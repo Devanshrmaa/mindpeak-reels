@@ -13,14 +13,14 @@ export function MpNav({ onCta }: { onCta: () => void }) {
   const link: CSSProperties = { fontSize: 14, fontWeight: 500, color: S.inkSoft, cursor: "pointer", textDecoration: "none" };
   return (
     <nav className="mp-x mp-nav" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "18px 48px", position: "sticky", top: 0, zIndex: 50, background: S.bgTranslucent, backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", borderBottom: `1px solid ${S.line}` }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+      <a href="/" aria-label="MindPeak Institute home" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
         <img src="/images/logo.jpeg" alt="MindPeak Institute" style={{ width: 34, height: 34, borderRadius: "50%" }} />
         <span style={{ fontFamily: S.disp, fontWeight: 700, fontSize: 17, color: S.navy }}>MindPeak</span>
-      </div>
+      </a>
       <div className="mp-nav-links" style={{ display: "flex", gap: 26 }}>
-        <a href="#programs" style={link}>JEE</a>
-        <a href="#programs" style={link}>NEET</a>
-        <a href="#programs" style={link}>Foundation</a>
+        <a href="/jee-coaching" style={link}>JEE</a>
+        <a href="/neet-coaching" style={link}>NEET</a>
+        <a href="/courses" style={link}>Foundation</a>
         <a href="#results" style={link}>Results</a>
         <a href="#faq" style={link}>FAQ</a>
         <a href="#contact" style={link}>Contact</a>

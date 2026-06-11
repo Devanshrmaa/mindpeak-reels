@@ -25,6 +25,7 @@ export default function HomeRedesign() {
     <div className="mp-home" style={{ background: S.bg, color: S.navy, fontFamily: S.body, minHeight: "100vh" }}>
       <style>{`
         .mp-home { overflow-x: hidden; }
+        .mp-home section[id] { scroll-margin-top: 80px; }
         @media (max-width: 900px) {
           .mp-home .mp-2col { grid-template-columns: 1fr !important; }
           .mp-home .mp-3col { grid-template-columns: 1fr 1fr !important; }
