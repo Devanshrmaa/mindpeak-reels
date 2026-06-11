@@ -207,8 +207,8 @@ export default function RootLayout({
         <style
           dangerouslySetInnerHTML={{
             __html: [
-              ':root{--background:225 43% 7%;--foreground:210 40% 98%;--primary:43 72% 52%;--muted-foreground:215 20% 65%;--gradient-gold:linear-gradient(135deg,hsl(43 80% 65%),hsl(43 72% 52%),hsl(43 65% 42%));--font-display:"Space Grotesk",sans-serif;--font-body:"Inter",system-ui,sans-serif}',
-              'body{background:hsl(225,43%,7%);color:hsl(210,40%,98%);margin:0;font-family:var(--font-body);-webkit-font-smoothing:antialiased}',
+              ':root{--background:43 60% 96%;--foreground:224 44% 22%;--primary:43 72% 46%;--muted-foreground:222 16% 42%;--gradient-gold:linear-gradient(135deg,hsl(43 80% 60%),hsl(43 72% 46%),hsl(43 65% 40%));--font-display:"Space Grotesk",sans-serif;--font-body:"Inter",system-ui,sans-serif}',
+              'body{background:hsl(43,60%,96%);color:hsl(224,44%,22%);margin:0;font-family:var(--font-body);-webkit-font-smoothing:antialiased}',
               'h1,h2,h3{font-family:var(--font-display);letter-spacing:-0.02em}',
               '#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background-image:url(/images/hero-bg.jpg);background-size:cover;background-position:center top}',
               '.relative{position:relative}.absolute{position:absolute}.inset-0{inset:0}',
@@ -247,7 +247,7 @@ export default function RootLayout({
       </head>
       <body
         className="bg-background text-foreground antialiased"
-        style={{ backgroundColor: "hsl(225, 43%, 7%)", color: "hsl(210, 40%, 98%)" }}
+        style={{ backgroundColor: "hsl(43, 60%, 96%)", color: "hsl(224, 44%, 22%)" }}
       >
         <ScrollToTop />
         <Providers>{children}</Providers>

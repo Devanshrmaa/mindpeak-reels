@@ -50,7 +50,7 @@ const SUBJECT_CITY_RE = /^(jee|neet)-(physics|chemistry|mathematics|biology)-coa
 const STUDY_GUIDE_RE = /^how-to-study-.+-for-(jee|neet)$/;
 
 const LazyFallback = () => (
-  <div className="min-h-screen bg-[hsl(225,43%,7%)] flex items-center justify-center">
+  <div className="min-h-screen bg-background flex items-center justify-center">
     <div className="w-8 h-8 border-2 border-amber-500 border-t-transparent rounded-full animate-spin" />
   </div>
 );
