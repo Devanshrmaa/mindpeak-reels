@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { S } from "./theme";
-import { MpButton } from "./MpButton";
+import { MpButton, MpEyebrow } from "./MpButton";
 
 /* FAQ copy is verbatim from the production site (FAQSection). */
 const mpFaqs = [
@@ -21,23 +21,29 @@ const mpFaqs = [
 export function MpFAQ() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section id="faq" className="mp-x" style={{ padding: "0 48px 88px" }}>
+    <section id="faq" className="mp-x" style={{ padding: "0 48px 96px" }}>
       <div style={{ maxWidth: 760, margin: "0 auto" }}>
-        <h2 style={{ fontFamily: S.disp, fontSize: 38, fontWeight: S.dispWeight, letterSpacing: "-0.02em", textAlign: "center", margin: "0 0 36px", color: S.navy }}>
-          Questions parents ask us
-        </h2>
-        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+        <div data-reveal style={{ textAlign: "center", marginBottom: 40 }}>
+          <MpEyebrow style={{ justifyContent: "center" }}>Straight answers</MpEyebrow>
+          <h2 style={{ fontFamily: S.disp, fontSize: "clamp(30px, 3.4vw, 40px)", fontWeight: S.dispWeight, letterSpacing: "-0.02em", margin: 0, color: S.navy }}>
+            Questions parents ask us
+          </h2>
+        </div>
+        <div data-reveal style={{ display: "flex", flexDirection: "column", gap: 10 }}>
           {mpFaqs.map((f, i) => {
             const isOpen = open === i;
             return (
-              <div key={i} style={{ background: isOpen ? "#FFFFFF" : "transparent", border: `1px solid ${isOpen ? S.line : "transparent"}`, borderBottom: `1px solid ${S.line}`, borderRadius: isOpen ? 14 : 0, boxShadow: isOpen ? "0 10px 30px rgba(19,32,63,0.07)" : "none", transition: "all 250ms cubic-bezier(0.16,1,0.3,1)" }}>
+              <div key={i} className="mp-faq-item" style={{ background: isOpen ? "#FFFFFF" : "transparent", border: `1px solid ${isOpen ? S.line : "transparent"}`, borderBottom: `1px solid ${S.line}`, borderRadius: isOpen ? 16 : 0, boxShadow: isOpen ? "0 12px 34px rgba(19,32,63,0.08)" : "none" }}>
                 <button onClick={() => setOpen(isOpen ? null : i)} aria-expanded={isOpen} style={{ width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16, padding: "18px 20px", background: "none", border: "none", cursor: "pointer", textAlign: "left" }}>
                   <span style={{ fontFamily: S.body, fontSize: 15.5, fontWeight: 600, color: S.navy }}>{f.q}</span>
-                  <span style={{ flexShrink: 0, width: 26, height: 26, borderRadius: "50%", border: `1px solid ${S.line}`, display: "grid", placeItems: "center", color: isOpen ? S.gold : S.inkSoft, transform: isOpen ? "rotate(45deg)" : "none", transition: "transform 250ms cubic-bezier(0.16,1,0.3,1)", fontSize: 15, lineHeight: 1 }}>+</span>
+                  <span aria-hidden style={{ flexShrink: 0, width: 28, height: 28, borderRadius: "50%", border: `1px solid ${isOpen ? S.gold : S.line}`, background: isOpen ? S.goldSoft : "transparent", display: "grid", placeItems: "center", color: isOpen ? "#7A5B0E" : S.inkSoft, transform: isOpen ? "rotate(45deg)" : "none", transition: "all 300ms cubic-bezier(0.16,1,0.3,1)", fontSize: 16, lineHeight: 1 }}>+</span>
                 </button>
-                {isOpen && (
-                  <p style={{ fontSize: 14.5, lineHeight: 1.75, color: S.inkSoft, margin: 0, padding: "0 20px 20px" }}>{f.a}</p>
-                )}
+                {/* Answer stays in the DOM (SEO/a11y); the grid-rows trick animates height. */}
+                <div className={`mp-faq-body${isOpen ? " mp-open" : ""}`}>
+                  <div>
+                    <p style={{ fontSize: 14.5, lineHeight: 1.75, color: S.inkSoft, margin: 0, padding: "0 20px 20px" }}>{f.a}</p>
+                  </div>
+                </div>
               </div>
             );
           })}
@@ -54,30 +60,38 @@ export function MpContact({ onCta }: { onCta: () => void }) {
     { Icon: MapPin, label: "Dehra Gopipur, Himachal Pradesh", href: null as string | null },
   ];
   return (
-    <section id="contact" className="mp-x" style={{ padding: "0 48px 64px" }}>
-      <div className="mp-contact-card" style={{ background: S.navy, borderRadius: 24, padding: "56px 56px 48px", color: S.cream }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 48, marginBottom: 40, flexWrap: "wrap" }}>
+    <section id="contact" className="mp-x" style={{ padding: "0 48px 72px" }}>
+      <div data-reveal className="mp-contact-card" style={{ position: "relative", overflow: "hidden", background: S.gradNavy, borderRadius: 26, padding: "60px 56px 50px", color: S.cream, boxShadow: "0 34px 80px rgba(19,32,63,0.30)" }}>
+        {/* ambient glow + ring ornaments */}
+        <div aria-hidden style={{ position: "absolute", top: -150, right: -120, width: 440, height: 440, borderRadius: "50%", background: "radial-gradient(circle, rgba(227,190,85,0.20) 0%, rgba(227,190,85,0) 65%)", pointerEvents: "none" }} />
+        <div aria-hidden style={{ position: "absolute", bottom: -180, left: -110, width: 400, height: 400, borderRadius: "50%", border: "1px solid rgba(251,247,239,0.08)", pointerEvents: "none" }} />
+        <div aria-hidden style={{ position: "absolute", bottom: -120, left: -50, width: 280, height: 280, borderRadius: "50%", border: "1px solid rgba(251,247,239,0.06)", pointerEvents: "none" }} />
+
+        <div style={{ position: "relative", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 48, marginBottom: 42, flexWrap: "wrap" }}>
           <div>
-            <h2 style={{ fontFamily: S.disp, fontSize: 38, fontWeight: S.dispWeight, letterSpacing: "-0.02em", margin: "0 0 10px" }}>Try one class. Meet your mentor.</h2>
-            <p style={{ fontSize: 16, color: "rgba(251,247,239,0.65)", margin: 0, maxWidth: 480 }}>
-              Free demo, zero commitment — a live 1-on-1 session, a personalized assessment of your current level, and a study plan sketch you keep either way.
+            <MpEyebrow light>Free demo · zero commitment</MpEyebrow>
+            <h2 style={{ fontFamily: S.disp, fontSize: "clamp(30px, 3.4vw, 42px)", fontWeight: S.dispWeight, letterSpacing: "-0.02em", margin: "0 0 12px" }}>Try one class. Meet your mentor.</h2>
+            <p style={{ fontSize: 16, lineHeight: 1.65, color: S.creamSoft, margin: 0, maxWidth: 480 }}>
+              A live 1-on-1 session, a personalized assessment of your current level, and a study plan sketch you keep either way.
             </p>
           </div>
           <MpButton kind="gold" onClick={onCta} style={{ padding: "17px 34px" }}>Book my free demo class</MpButton>
         </div>
-        <div className="mp-3col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12 }}>
+        <div className="mp-3col" style={{ position: "relative", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12 }}>
           {cards.map((c, i) => {
             const inner = (
               <>
-                <c.Icon style={{ width: 16, height: 16, color: "#E3BE55", flexShrink: 0 }} />
+                <span style={{ display: "grid", placeItems: "center", width: 32, height: 32, borderRadius: "50%", background: "rgba(227,190,85,0.14)", flexShrink: 0 }}>
+                  <c.Icon style={{ width: 15, height: 15, color: S.goldBtn }} />
+                </span>
                 {c.label}
               </>
             );
-            const cardStyle = { display: "flex", alignItems: "center", gap: 10, padding: "14px 18px", background: "rgba(251,247,239,0.06)", border: "1px solid rgba(251,247,239,0.12)", borderRadius: 12, color: "rgba(251,247,239,0.85)", fontSize: 13.5, textDecoration: "none" } as const;
+            const cardStyle = { display: "flex", alignItems: "center", gap: 12, padding: "13px 16px", background: S.creamFaint, border: `1px solid ${S.lineLight}`, borderRadius: 14, color: "rgba(251,247,239,0.88)", fontSize: 13.5, textDecoration: "none" } as const;
             return c.href ? (
-              <a key={i} href={c.href} style={cardStyle}>{inner}</a>
+              <a key={i} href={c.href} className="mp-contact-chip" style={cardStyle}>{inner}</a>
             ) : (
-              <div key={i} style={cardStyle}>{inner}</div>
+              <div key={i} className="mp-contact-chip" style={cardStyle}>{inner}</div>
             );
           })}
         </div>
