@@ -1,5 +1,5 @@
 # MindPeak Institute — Outreach Tracker
-**Last Updated:** 2026-05-20  
+**Last Updated:** 2026-06-11  
 **Site:** mindpeakinstitute.com  
 **MSME:** UDYAM-HP-04-0042530
 
@@ -57,6 +57,14 @@
 | 44 | 2026-06-04 | cyboardschool.com | cyboardschool.com/write-for-us/ | Guest Post — accepts EdTech/education content from teachers & founders, 1000–2500 words, byline with link | Via write-for-us form on site | ❌ | — | NOT STARTED |
 | 45 | 2026-06-04 | dailysarkariresults.com | dailysarkariresults.com/write-for-us/ | Guest Post — education, study tips, coaching content; high-traffic exam-aware student audience | Via write-for-us form on site | ❌ | — | NOT STARTED |
 | 46 | 2026-06-04 | vidsaga.com | vidsaga.com/top-indian-edtech-startups/ | Listicle Inclusion — "32 Top Indian EdTech Startups 2026" (startup directory angle, MSME + HP startup story) | Via vidsaga.com contact page | ❌ | — | NOT STARTED |
+| 47 | 2026-06-11 | scoonews.com | scoonews.com/global-education-awards | **Award Nomination — ScooNews Global Education Awards 2026** — coaching institutes & EdTech eligible; **DEADLINE JULY 15, 2026**; ceremony Aug 8 Jaipur; high-auth edu media backlink if shortlisted | Online nomination form on site | ❌ | — | NOT STARTED |
+| 48 | 2026-06-11 | globaleducationawards.in | globaleducationawards.in | Award Nomination — Global Excellence Awards 2026 — EdTech companies & coaching institutes eligible; international platform | Online nomination form on site | ❌ | — | NOT STARTED |
+| 49 | 2026-06-11 | sarkariresultexams.com | sarkariresultexams.com/write-for-us/ | Guest Post — education/career/exam content, 1000+ words, dofollow backlink; distinct from dailysarkariresults.com (#45) | info@sarkariresultexams.com | ❌ | — | NOT STARTED |
+| 50 | 2026-06-11 | studynation.in | studynation.in/online-physics-tutor | Tutor Listing — "Best Online Physics Tutor India" page lists IIT alumni 1-on-1 tutors; Devansh exact fit | Via studynation.in contact/tutor registration | ❌ | — | NOT STARTED |
+| 51 | 2026-06-11 | ksquareinstitute.in | ksquareinstitute.in/blog/neet-online-coaching/ | Listicle Inclusion — "Top NEET Online Coaching Platforms 2026"; no 1-on-1 boutique category; pitch as gap-fill | Via ksquareinstitute.in contact form | ❌ | — | NOT STARTED |
+| 52 | 2026-06-11 | blogandjournal.com | blogandjournal.com/top-jee-coaching-institutes-in-india-for-2026/ | Listicle Inclusion — specific JEE coaching article confirmed (updates prior tracker entry #23 which was generic guest post only) — dual: listicle inclusion + guest post | blogandjournal.com/wp-login.php?action=register or contact form | ❌ | — | NOT STARTED |
+| 53 | 2026-06-11 | seedtable.com | seedtable.com/best-educational-technology-startups-in-india | Startup Directory — "69 Best EdTech Startups India 2026"; DA ~65–70; self-submit; EdTech startup angle for MindPeak | Via seedtable.com submit/contact | ❌ | — | NOT STARTED |
+| 54 | 2026-06-11 | physicpoint.wordpress.com | physicpoint.wordpress.com/2026/03/16/best-physics-teachers-in-india-for-online-classes/ | Listicle Inclusion — "Best Physics Teachers in India for Online Classes" (Mar 2026, indexed); Devansh IIT/NIT Physics mentor exact match | Via WordPress comment or contact on blog | ❌ | — | NOT STARTED |
 
 ---
 
@@ -77,6 +85,15 @@
 ---
 
 ## Notes & Strategy Log
+
+### 2026-06-11 — Week 6 Audit + 8 New Targets Added (54 Total)
+
+- **Zero backlinks for SIXTH consecutive week.** All 46 prior targets still NOT STARTED. June 4 escalation list was not actioned.
+- **8 new targets added (#47–54):** scoonews.com award (JULY 15 HARD DEADLINE), globaleducationawards.in, sarkariresultexams.com (Write for Us), studynation.in (physics tutor listing), ksquareinstitute.in (NEET listicle), blogandjournal.com (specific JEE article confirmed), seedtable.com (India EdTech startups), physicpoint.wordpress.com (physics teachers list)
+- **⚠️ FIRST HARD DEADLINE IN CAMPAIGN:** ScooNews Global Education Awards — nominations close July 15, 2026 (34 days). This is the highest-urgency single action this week.
+- **Brand collision persists:** `"mindpeakinstitute.com" -site:mindpeakinstitute.com` still returns zero relevant results. mindpeak.ai continues to dominate brand-name searches.
+- **Google Alerts still not set up** — 7 weeks since first requested. Any new mention of MindPeak will be missed without it.
+- Emails #22–27 ready to send (in `/seo-reports/backlinks-2026-06-11.md`)
 
 ### 2026-06-04 — Week 5 Audit + 8 New Targets Added (46 Total)
 
@@ -126,8 +143,8 @@
 | May 12–18, 2026 | 0 → 3 | Send #1, #2, #8, #11, #27 (UrbanPro self-serve) | — | **MISSED — zero sent** |
 | May 19–25, 2026 | 0 → 5 | Self-serve: UrbanPro (#27), HP Startup (#37), Wellfound (#38). Email: #2, #8, #13, #1, #14, #4 | — | **MISSED — zero sent** |
 | May 26–Jun 1, 2026 | 5 → 10 | Follow up #2/#8/#13/#14; send #9, #10, #6, #15, #16, #17 | — | **MISSED — zero sent** |
-| **Jun 2–8, 2026** | **0 → 5** | **EMERGENCY MINIMUM:** Quora answer (10 min). Self-serve: UrbanPro (#27), Wellfound (#38), HP Startup (#37). Emails: #13 OriginEducare, #2 CollegeDekho | 🔥 CRITICAL WEEK — must act | ⏳ IN PROGRESS |
-| Jun 9–15, 2026 | 5 → 10 | Email: #8 CollegeDunia, #14 Notesly, #18 AcademyCheck 2027, #1 AcademyCheck NEET. Follow up #13/#2 | — | NOT STARTED |
+| Jun 2–8, 2026 | 0 → 5 | EMERGENCY MINIMUM: Quora answer, UrbanPro, Wellfound, HP Startup, Emails #13/#2 | 🔥 CRITICAL | **MISSED — zero sent** |
+| **Jun 9–15, 2026** | **0 → 5** | **⚠️ ScooNews award nomination (#47).** Quora answer. Self-serve: UrbanPro (#27), Wellfound (#38), Seedtable (#53). Emails: #13 OriginEducare, #2 CollegeDekho, #22 StudyNation, #18 AcademyCheck 2027 | 🔥 CRITICAL — ScooNews deadline approaching | ⏳ IN PROGRESS |
 | Jun 16–22, 2026 | 10 → 15 | Emails: #4 FutureTopper, #6 ExamCharcha, #19 CosmosIQ, #20 Indian-Preneur, #9 PhysicsNavigator | — | NOT STARTED |
 | Jun 23–30, 2026 | 15 → 20 | Emails: #21 CyboardSchool, #11 SCNWire PR, #10 Giraffe-Learning ×2, #5 Suganta. Follow up all pending. Start Shiksha | — | NOT STARTED |
 | Jul 2026 | 20 → 30 | Careers360, Shiksha partner portal, Awards follow-up. Start Quora 2–3/week consistently | — | NOT STARTED |
