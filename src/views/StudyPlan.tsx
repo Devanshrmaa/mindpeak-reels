@@ -126,17 +126,17 @@ function tierIcon(tier: StudyPlanType['tier']) {
 function phaseRing(phase: string) {
   switch (phase) {
     case 'Crash':
-      return 'border-red-500 bg-red-500/10 text-red-400';
+      return 'border-red-500 bg-red-500/10 text-red-600';
     case 'Foundation':
-      return 'border-blue-500 bg-blue-500/10 text-blue-400';
+      return 'border-blue-500 bg-blue-500/10 text-blue-600';
     case 'Intensive':
-      return 'border-amber-500 bg-amber-500/10 text-amber-400';
+      return 'border-amber-500 bg-amber-500/10 text-amber-600';
     case 'Revision':
-      return 'border-green-500 bg-green-500/10 text-green-400';
+      return 'border-green-500 bg-green-500/10 text-green-600';
     case 'Mock Test & Fine-tuning':
-      return 'border-purple-500 bg-purple-500/10 text-purple-400';
+      return 'border-purple-500 bg-purple-500/10 text-purple-600';
     default:
-      return 'border-gray-500 bg-gray-500/10 text-gray-400';
+      return 'border-gray-500 bg-gray-500/10 text-muted-foreground';
   }
 }
 
@@ -160,15 +160,15 @@ function phaseBorder(phase: string) {
 function scheduleTypeBg(type: DailyScheduleBlock['type']) {
   switch (type) {
     case 'study':
-      return 'bg-blue-500/10 text-blue-400 border-blue-500/20';
+      return 'bg-blue-500/10 text-blue-600 border-blue-500/20';
     case 'break':
-      return 'bg-green-500/10 text-green-400 border-green-500/20';
+      return 'bg-green-500/10 text-green-600 border-green-500/20';
     case 'test':
-      return 'bg-red-500/10 text-red-400 border-red-500/20';
+      return 'bg-red-500/10 text-red-600 border-red-500/20';
     case 'revision':
-      return 'bg-amber-500/10 text-amber-400 border-amber-500/20';
+      return 'bg-amber-500/10 text-amber-600 border-amber-500/20';
     case 'self-study':
-      return 'bg-purple-500/10 text-purple-400 border-purple-500/20';
+      return 'bg-purple-500/10 text-purple-600 border-purple-500/20';
   }
 }
 
@@ -182,7 +182,7 @@ const MonthCard = ({ block, index }: { block: MonthBlock; index: number }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.35, delay: index * 0.05 }}
-      className={`bg-white/[0.04] border border-white/10 border-l-4 ${phaseBorder(block.phase)} rounded-2xl overflow-hidden hover:border-amber-500/30 hover:bg-white/[0.06] transition-all group`}
+      className={`bg-card border border-border border-l-4 ${phaseBorder(block.phase)} rounded-2xl overflow-hidden hover:border-amber-500/30 hover:bg-card transition-all group`}
     >
       {/* Header — always visible */}
       <button
@@ -196,8 +196,8 @@ const MonthCard = ({ block, index }: { block: MonthBlock; index: number }) => {
             {block.month}
           </span>
           <div className="min-w-0">
-            <p className="text-white font-semibold truncate">{block.label}</p>
-            <div className="flex items-center gap-3 text-gray-400 text-sm">
+            <p className="text-foreground font-semibold truncate">{block.label}</p>
+            <div className="flex items-center gap-3 text-muted-foreground text-sm">
               <span className="flex items-center gap-1">
                 <Clock className="w-3.5 h-3.5" />
                 {block.weeklyHours} hrs/week
@@ -213,7 +213,7 @@ const MonthCard = ({ block, index }: { block: MonthBlock; index: number }) => {
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ duration: 0.2 }}
         >
-          <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />
+          <ChevronDown className="w-5 h-5 text-muted-foreground flex-shrink-0" />
         </motion.div>
       </button>
 
@@ -227,12 +227,12 @@ const MonthCard = ({ block, index }: { block: MonthBlock; index: number }) => {
             transition={{ duration: 0.25 }}
             className="overflow-hidden"
           >
-            <div className="px-5 pb-5 space-y-4 border-t border-white/5 pt-4">
+            <div className="px-5 pb-5 space-y-4 border-t border-border pt-4">
               {/* Subject-wise topics */}
               <div className="grid sm:grid-cols-3 gap-4">
                 {block.subjects.map((subj) => (
                   <div key={subj.name} className="bg-white/[0.03] rounded-xl p-3">
-                    <p className="text-amber-400 font-medium text-sm mb-2 flex items-center gap-1.5">
+                    <p className="text-amber-600 font-medium text-sm mb-2 flex items-center gap-1.5">
                       <BookOpen className="w-3.5 h-3.5" />
                       {subj.name}
                     </p>
@@ -257,7 +257,7 @@ const MonthCard = ({ block, index }: { block: MonthBlock; index: number }) => {
                 <ul className="space-y-1.5">
                   {block.tips.map((tip, i) => (
                     <li key={i} className="text-gray-300 text-sm flex items-start gap-2">
-                      <Brain className="w-4 h-4 mt-0.5 text-amber-400 flex-shrink-0" />
+                      <Brain className="w-4 h-4 mt-0.5 text-amber-600 flex-shrink-0" />
                       {tip}
                     </li>
                   ))}
@@ -320,7 +320,7 @@ const StudyPlan = () => {
         ]}
       />
 
-      <div className="min-h-screen bg-[hsl(225,43%,7%)]">
+      <div className="min-h-screen bg-background">
         <Navbar />
 
         {/* ── Hero ── */}
@@ -329,8 +329,8 @@ const StudyPlan = () => {
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-20 left-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl" />
             <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-white/[0.02] rounded-full" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-white/[0.03] rounded-full" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-border rounded-full" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-border rounded-full" />
           </div>
 
           <div className="max-w-4xl mx-auto text-center relative z-10">
@@ -341,7 +341,7 @@ const StudyPlan = () => {
 
             <motion.h1
               animate={{ opacity: 1, y: 0 }}
-              className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight"
+              className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-5 leading-tight"
             >
               Your Personalised{' '}
               <span className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
@@ -373,8 +373,8 @@ const StudyPlan = () => {
                   }}
                   className={`px-8 py-3 rounded-full font-semibold text-sm transition-all ${
                     examType === e
-                      ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-lg shadow-amber-500/25 scale-105'
-                      : 'bg-white/5 text-gray-400 hover:bg-white/10 border border-white/10 hover:border-white/20'
+                      ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-foreground shadow-lg shadow-amber-500/25 scale-105'
+                      : 'bg-card text-muted-foreground hover:bg-secondary border border-border hover:border-white/20'
                   }`}
                 >
                   {e === 'JEE' ? 'JEE Main & Advanced' : 'NEET UG'}
@@ -387,11 +387,11 @@ const StudyPlan = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="bg-white/[0.04] backdrop-blur-sm border border-white/10 rounded-2xl p-6 max-w-md mx-auto shadow-xl shadow-black/10"
+              className="bg-card backdrop-blur-sm border border-border rounded-2xl p-6 max-w-md mx-auto shadow-xl shadow-black/10"
             >
               <label className="flex items-center justify-between text-sm text-gray-300 mb-3">
                 <span className="flex items-center gap-2 font-medium">
-                  <Calendar className="w-4 h-4 text-amber-400" /> Months remaining
+                  <Calendar className="w-4 h-4 text-amber-600" /> Months remaining
                 </span>
                 <input
                   type="text"
@@ -426,13 +426,13 @@ const StudyPlan = () => {
                     }
                     setMonthsInput('');
                   }}
-                  className={`w-16 bg-white/[0.06] border rounded-lg text-center text-amber-400 font-bold text-lg py-1.5 focus:outline-none transition ${
+                  className={`w-16 bg-card border rounded-lg text-center text-amber-600 font-bold text-lg py-1.5 focus:outline-none transition ${
                     inputError ? 'border-red-500' : 'border-white/20 focus:border-amber-500'
                   }`}
                 />
               </label>
               {inputError && (
-                <p className="text-red-400 text-xs mt-1 text-right">{inputError}</p>
+                <p className="text-red-600 text-xs mt-1 text-right">{inputError}</p>
               )}
               <input
                 type="range"
@@ -446,7 +446,7 @@ const StudyPlan = () => {
                 }}
                 className="w-full accent-amber-500 cursor-pointer"
               />
-              <div className="flex justify-between text-xs text-gray-500 mt-1">
+              <div className="flex justify-between text-xs text-muted-foreground mt-1">
                 <span>1 month</span>
                 <span>12 months</span>
                 <span>24 months</span>
@@ -454,7 +454,7 @@ const StudyPlan = () => {
               {customMonths !== null && customMonths !== autoMonths && (
                 <button
                   onClick={() => { setCustomMonths(null); setMonthsInput(''); setInputError(''); }}
-                  className="mt-2 text-xs text-amber-500 underline hover:text-amber-400 transition"
+                  className="mt-2 text-xs text-amber-500 underline hover:text-amber-600 transition"
                 >
                   Reset to auto ({autoMonths} months)
                 </button>
@@ -504,13 +504,13 @@ const StudyPlan = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className={`relative bg-gradient-to-br ${card.gradient} border border-white/10 rounded-2xl p-5 text-center overflow-hidden group hover:border-amber-500/30 transition-colors`}
+                className={`relative bg-gradient-to-br ${card.gradient} border border-border rounded-2xl p-5 text-center overflow-hidden group hover:border-amber-500/30 transition-colors`}
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 <div className="relative">
-                  <card.icon className="w-7 h-7 mx-auto mb-2 text-amber-400 group-hover:scale-110 transition-transform" />
-                  <p className="text-[10px] text-gray-400 uppercase tracking-widest font-medium">{card.label}</p>
-                  <p className="text-white font-bold mt-1 text-sm md:text-base">{card.value}</p>
+                  <card.icon className="w-7 h-7 mx-auto mb-2 text-amber-600 group-hover:scale-110 transition-transform" />
+                  <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-medium">{card.label}</p>
+                  <p className="text-foreground font-bold mt-1 text-sm md:text-base">{card.value}</p>
                 </div>
               </motion.div>
             ))}
@@ -527,13 +527,13 @@ const StudyPlan = () => {
               className={`relative bg-gradient-to-r ${tierColor(plan.tier)} rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center gap-6 overflow-hidden`}
             >
               <div className="absolute inset-0 bg-black/20" />
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
-              <div className="relative flex-shrink-0 w-20 h-20 bg-white/10 rounded-2xl flex items-center justify-center">
-                <TierIcon className="w-10 h-10 text-white" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-card rounded-full blur-3xl" />
+              <div className="relative flex-shrink-0 w-20 h-20 bg-secondary rounded-2xl flex items-center justify-center">
+                <TierIcon className="w-10 h-10 text-foreground" />
               </div>
               <div className="relative text-center md:text-left flex-1">
-                <h2 className="text-2xl md:text-3xl font-bold text-white">{plan.tierLabel}</h2>
-                <p className="text-white/80 mt-2 text-sm md:text-base leading-relaxed max-w-xl">
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground">{plan.tierLabel}</h2>
+                <p className="text-muted-foreground mt-2 text-sm md:text-base leading-relaxed max-w-xl">
                   {plan.tier === 'crash'
                     ? 'Maximum marks in minimum time — focuses on top 40-50 high-weightage chapters with daily mocks.'
                     : plan.tier === 'intensive'
@@ -544,8 +544,8 @@ const StudyPlan = () => {
                 </p>
               </div>
               <div className="relative flex flex-col items-center gap-3">
-                <span className="text-white/60 text-xs uppercase tracking-wider">Fee</span>
-                <span className="text-white font-bold text-2xl">{plan.fee}</span>
+                <span className="text-muted-foreground text-xs uppercase tracking-wider">Fee</span>
+                <span className="text-foreground font-bold text-2xl">{plan.fee}</span>
                 <button
                   onClick={openDemoModal}
                   className="mt-1 px-6 py-2.5 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition flex items-center gap-2 shadow-lg"
@@ -566,10 +566,10 @@ const StudyPlan = () => {
               viewport={{ once: true }}
               className="text-center mb-8"
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                Phase-Wise <span className="text-amber-400">Breakdown</span>
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                Phase-Wise <span className="text-amber-600">Breakdown</span>
               </h2>
-              <p className="text-gray-400 text-sm">Your {months}-month journey at a glance</p>
+              <p className="text-muted-foreground text-sm">Your {months}-month journey at a glance</p>
             </motion.div>
 
             {/* Phase bar */}
@@ -588,7 +588,7 @@ const StudyPlan = () => {
                   style={{ width: `${phase.percentage}%`, backgroundColor: phase.color }}
                   title={`${phase.name}: ${phase.months} month${phase.months > 1 ? 's' : ''}`}
                 >
-                  <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap pointer-events-none z-10">
+                  <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-foreground text-background text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition whitespace-nowrap pointer-events-none z-10">
                     {phase.name}: {phase.months}mo
                   </div>
                 </div>
@@ -604,19 +604,19 @@ const StudyPlan = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="bg-white/[0.04] border border-white/10 rounded-2xl p-5 hover:border-white/20 transition-colors"
+                  className="bg-card border border-border rounded-2xl p-5 hover:border-white/20 transition-colors"
                 >
                   <div className="flex items-center gap-3 mb-3">
                     <div
                       className="w-4 h-4 rounded-full flex-shrink-0"
                       style={{ backgroundColor: phase.color }}
                     />
-                    <h3 className="text-white font-semibold">{phase.name}</h3>
-                    <span className="ml-auto text-gray-400 text-sm font-medium">
+                    <h3 className="text-foreground font-semibold">{phase.name}</h3>
+                    <span className="ml-auto text-muted-foreground text-sm font-medium">
                       {phase.months} mo · {phase.percentage}%
                     </span>
                   </div>
-                  <p className="text-gray-400 text-sm leading-relaxed">{phase.description}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{phase.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -636,11 +636,11 @@ const StudyPlan = () => {
                       className="flex items-start gap-4 pl-0"
                     >
                       <div className="relative flex-shrink-0 w-12 h-12 bg-amber-500/10 border-2 border-amber-500/30 rounded-full flex items-center justify-center z-10">
-                        <span className="text-amber-400 font-bold text-sm">M{ms.month}</span>
+                        <span className="text-amber-600 font-bold text-sm">M{ms.month}</span>
                       </div>
                       <div className="pt-1">
-                        <p className="text-white font-semibold text-sm">{ms.title}</p>
-                        <p className="text-gray-400 text-sm">{ms.description}</p>
+                        <p className="text-foreground font-semibold text-sm">{ms.title}</p>
+                        <p className="text-muted-foreground text-sm">{ms.description}</p>
                       </div>
                     </motion.div>
                   ))}
@@ -659,10 +659,10 @@ const StudyPlan = () => {
               viewport={{ once: true }}
               className="text-center mb-8"
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                {examType} <span className="text-amber-400">Exam Pattern</span> & Weightage
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                {examType} <span className="text-amber-600">Exam Pattern</span> & Weightage
               </h2>
-              <p className="text-gray-400 text-sm">
+              <p className="text-muted-foreground text-sm">
                 {weightage.examPattern} · {weightage.examDuration}
               </p>
             </motion.div>
@@ -680,11 +680,11 @@ const StudyPlan = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.08 }}
-                  className="bg-white/[0.04] border border-white/10 rounded-xl p-4 text-center"
+                  className="bg-card border border-border rounded-xl p-4 text-center"
                 >
-                  <stat.icon className="w-5 h-5 mx-auto mb-1.5 text-amber-400" />
-                  <p className="text-white font-bold text-lg">{stat.value}</p>
-                  <p className="text-gray-400 text-xs uppercase tracking-wider">{stat.label}</p>
+                  <stat.icon className="w-5 h-5 mx-auto mb-1.5 text-amber-600" />
+                  <p className="text-foreground font-bold text-lg">{stat.value}</p>
+                  <p className="text-muted-foreground text-xs uppercase tracking-wider">{stat.label}</p>
                 </motion.div>
               ))}
             </div>
@@ -698,14 +698,14 @@ const StudyPlan = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="bg-white/[0.04] border border-white/10 rounded-2xl p-5 hover:border-amber-500/20 transition-colors"
+                  className="bg-card border border-border rounded-2xl p-5 hover:border-amber-500/20 transition-colors"
                 >
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-white font-semibold text-lg">{subj.subject}</h3>
-                    <span className="text-amber-400 font-bold text-2xl">{subj.percentage}%</span>
+                    <h3 className="text-foreground font-semibold text-lg">{subj.subject}</h3>
+                    <span className="text-amber-600 font-bold text-2xl">{subj.percentage}%</span>
                   </div>
                   {/* Visual bar */}
-                  <div className="w-full bg-white/10 rounded-full h-2 mb-3">
+                  <div className="w-full bg-secondary rounded-full h-2 mb-3">
                     <motion.div
                       initial={{ width: 0 }}
                       whileInView={{ width: `${subj.percentage}%` }}
@@ -714,11 +714,11 @@ const StudyPlan = () => {
                       className="h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full"
                     />
                   </div>
-                  <div className="flex items-center gap-4 text-sm text-gray-400 mb-3">
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
                     <span>{subj.totalQuestions} Qs</span>
                     <span>{subj.totalMarks} marks</span>
                   </div>
-                  <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">Key Topics</p>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider mb-2">Key Topics</p>
                   <ul className="space-y-1">
                     {subj.keyTopics.map((topic, j) => (
                       <li key={j} className="text-gray-300 text-sm flex items-center gap-2">
@@ -742,10 +742,10 @@ const StudyPlan = () => {
               viewport={{ once: true }}
               className="text-center mb-8"
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                Month-by-Month <span className="text-amber-400">Roadmap</span>
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                Month-by-Month <span className="text-amber-600">Roadmap</span>
               </h2>
-              <p className="text-gray-400 text-sm">
+              <p className="text-muted-foreground text-sm">
                 Click any month to see the detailed syllabus, topics & pro tips
               </p>
             </motion.div>
@@ -767,10 +767,10 @@ const StudyPlan = () => {
               viewport={{ once: true }}
               className="text-center mb-8"
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                Your Typical <span className="text-amber-400">Day</span>
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                Your Typical <span className="text-amber-600">Day</span>
               </h2>
-              <p className="text-gray-400 text-sm">
+              <p className="text-muted-foreground text-sm">
                 {plan.tierLabel} — {plan.months[0]?.weeklyHours ?? 20} hours/week schedule
               </p>
             </motion.div>
@@ -805,9 +805,9 @@ const StudyPlan = () => {
                 >
                   <span className="text-sm font-mono font-semibold w-16 flex-shrink-0">{block.time}</span>
                   <div className="flex-1 min-w-0">
-                    <p className="text-white text-sm font-medium truncate">{block.activity}</p>
+                    <p className="text-foreground text-sm font-medium truncate">{block.activity}</p>
                   </div>
-                  <span className="text-xs text-gray-400 flex-shrink-0">{block.duration}</span>
+                  <span className="text-xs text-muted-foreground flex-shrink-0">{block.duration}</span>
                 </motion.div>
               ))}
             </div>
@@ -823,10 +823,10 @@ const StudyPlan = () => {
               viewport={{ once: true }}
               className="text-center mb-8"
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                What's <span className="text-amber-400">Included</span> in Every Plan
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                What's <span className="text-amber-600">Included</span> in Every Plan
               </h2>
-              <p className="text-gray-400 text-sm">Everything you need to crack {examType} — nothing extra to buy</p>
+              <p className="text-muted-foreground text-sm">Everything you need to crack {examType} — nothing extra to buy</p>
             </motion.div>
             <div className="grid md:grid-cols-3 gap-4">
               {[
@@ -891,16 +891,16 @@ const StudyPlan = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.06 }}
-                  className="bg-white/[0.04] border border-white/10 rounded-2xl p-5 hover:border-amber-500/20 transition-all group"
+                  className="bg-card border border-border rounded-2xl p-5 hover:border-amber-500/20 transition-all group"
                 >
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 bg-amber-500/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500/20 transition-colors">
-                      <item.icon className="w-5 h-5 text-amber-400" />
+                      <item.icon className="w-5 h-5 text-amber-600" />
                     </div>
                     <div className="min-w-0">
-                      <h3 className="text-white font-semibold mb-1">{item.title}</h3>
-                      <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
-                      <span className="inline-block mt-2 text-xs text-amber-400/80 bg-amber-500/10 px-2 py-0.5 rounded-full">
+                      <h3 className="text-foreground font-semibold mb-1">{item.title}</h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+                      <span className="inline-block mt-2 text-xs text-amber-600/80 bg-amber-500/10 px-2 py-0.5 rounded-full">
                         {item.highlight}
                       </span>
                     </div>
@@ -920,10 +920,10 @@ const StudyPlan = () => {
               viewport={{ once: true }}
               className="text-center mb-8"
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                Why <span className="text-amber-400">MindPeak</span> Study Plan?
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                Why <span className="text-amber-600">MindPeak</span> Study Plan?
               </h2>
-              <p className="text-gray-400 text-sm">See the difference 1-on-1 mentorship makes</p>
+              <p className="text-muted-foreground text-sm">See the difference 1-on-1 mentorship makes</p>
             </motion.div>
 
             <div className="grid md:grid-cols-2 gap-6">
@@ -934,7 +934,7 @@ const StudyPlan = () => {
                 viewport={{ once: true }}
                 className="bg-red-500/5 border border-red-500/20 rounded-2xl p-6"
               >
-                <h3 className="text-red-400 font-semibold text-lg mb-4 flex items-center gap-2">
+                <h3 className="text-red-600 font-semibold text-lg mb-4 flex items-center gap-2">
                   <AlertCircle className="w-5 h-5" />
                   Self-Study / Generic Coaching
                 </h3>
@@ -948,8 +948,8 @@ const StudyPlan = () => {
                     'One-size-fits-all mock schedule',
                     'No mentor accountability',
                   ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-gray-400 text-sm">
-                      <span className="text-red-400 mt-0.5 flex-shrink-0">✗</span>
+                    <li key={i} className="flex items-start gap-2 text-muted-foreground text-sm">
+                      <span className="text-red-600 mt-0.5 flex-shrink-0">✗</span>
                       {item}
                     </li>
                   ))}
@@ -964,11 +964,11 @@ const StudyPlan = () => {
                 className="bg-green-500/5 border border-green-500/20 rounded-2xl p-6 relative overflow-hidden"
               >
                 <div className="absolute top-3 right-3">
-                  <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full font-medium flex items-center gap-1">
+                  <span className="text-xs bg-green-500/20 text-green-600 px-2 py-1 rounded-full font-medium flex items-center gap-1">
                     <Star className="w-3 h-3" /> Recommended
                   </span>
                 </div>
-                <h3 className="text-green-400 font-semibold text-lg mb-4 flex items-center gap-2">
+                <h3 className="text-green-600 font-semibold text-lg mb-4 flex items-center gap-2">
                   <Flame className="w-5 h-5" />
                   MindPeak 1-on-1 Mentorship
                 </h3>
@@ -1000,10 +1000,10 @@ const StudyPlan = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-br from-white/[0.04] to-white/[0.02] border border-white/10 rounded-3xl p-8 md:p-10"
+              className="bg-gradient-to-br from-white/[0.04] to-white/[0.02] border border-border rounded-3xl p-8 md:p-10"
             >
-              <h2 className="text-2xl font-bold text-white text-center mb-8">
-                Our <span className="text-amber-400">Track Record</span>
+              <h2 className="text-2xl font-bold text-foreground text-center mb-8">
+                Our <span className="text-amber-600">Track Record</span>
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 {[
@@ -1020,9 +1020,9 @@ const StudyPlan = () => {
                     transition={{ delay: i * 0.1 }}
                     className="text-center"
                   >
-                    <stat.icon className="w-6 h-6 mx-auto mb-2 text-amber-400" />
-                    <p className="text-2xl md:text-3xl font-bold text-white">{stat.value}</p>
-                    <p className="text-gray-400 text-sm mt-1">{stat.label}</p>
+                    <stat.icon className="w-6 h-6 mx-auto mb-2 text-amber-600" />
+                    <p className="text-2xl md:text-3xl font-bold text-foreground">{stat.value}</p>
+                    <p className="text-muted-foreground text-sm mt-1">{stat.label}</p>
                   </motion.div>
                 ))}
               </div>
@@ -1044,7 +1044,7 @@ const StudyPlan = () => {
               <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-orange-500/10 rounded-full blur-3xl" />
 
               <div className="relative">
-                <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
+                <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4">
                   Start Your {plan.totalMonths}-Month {examType} Journey
                 </h2>
                 <p className="text-gray-300 mb-8 text-lg max-w-lg mx-auto">
@@ -1054,18 +1054,18 @@ const StudyPlan = () => {
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <button
                     onClick={openDemoModal}
-                    className="px-10 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-full hover:shadow-xl hover:shadow-amber-500/25 transition-all hover:scale-105 flex items-center gap-2 text-lg"
+                    className="px-10 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-foreground font-semibold rounded-full hover:shadow-xl hover:shadow-amber-500/25 transition-all hover:scale-105 flex items-center gap-2 text-lg"
                   >
                     Book Free Trial <ArrowRight className="w-5 h-5" />
                   </button>
                   <Link
                     to={`/course/${plan.courseSlug}`}
-                    className="px-8 py-4 bg-white/5 border border-white/10 text-white rounded-full hover:bg-white/10 transition flex items-center gap-2"
+                    className="px-8 py-4 bg-card border border-border text-foreground rounded-full hover:bg-secondary transition flex items-center gap-2"
                   >
                     View Full Course <ArrowRight className="w-5 h-5" />
                   </Link>
                 </div>
-                <p className="text-gray-500 text-sm mt-6">
+                <p className="text-muted-foreground text-sm mt-6">
                   Plan fee: {plan.fee} for {plan.totalMonths} months · EMI options available · 7-day refund policy
                 </p>
               </div>

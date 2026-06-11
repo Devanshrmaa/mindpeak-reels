@@ -20,50 +20,53 @@ html::-webkit-scrollbar {
 
 @layer base {
   :root {
-    --background: 225 43% 7%;
-    --foreground: 210 40% 98%;
+    /* Light cream theme (matches the homepage redesign).
+       Semantic tokens are light; the structural navy/gold custom tokens
+       below stay dark for image overlays and dark feature bands. */
+    --background: 43 60% 96%;
+    --foreground: 224 44% 22%;
 
-    --card: 225 40% 10%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 44% 22%;
 
-    --popover: 225 40% 10%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 44% 22%;
 
-    --primary: 43 72% 52%;
-    --primary-foreground: 225 43% 7%;
+    --primary: 43 72% 46%;
+    --primary-foreground: 224 44% 15%;
 
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 43 38% 90%;
+    --secondary-foreground: 224 44% 22%;
 
-    --muted: 220 30% 15%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 40 32% 91%;
+    --muted-foreground: 222 16% 42%;
 
-    --accent: 217 91% 60%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 217 80% 52%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 48%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 220 30% 18%;
-    --input: 220 30% 18%;
-    --ring: 43 72% 52%;
+    --border: 224 26% 87%;
+    --input: 224 26% 85%;
+    --ring: 43 72% 46%;
 
     --radius: 0.5rem;
 
-    /* Custom tokens */
+    /* Custom tokens (structural — stay dark navy / gold) */
     --navy-deep: 225 43% 7%;
     --navy-mid: 225 40% 12%;
-    --gold: 43 72% 52%;
-    --gold-light: 43 80% 65%;
-    --gold-dark: 43 65% 42%;
-    --blue-accent: 217 91% 60%;
-    --blue-soft: 214 60% 75%;
+    --gold: 43 72% 46%;
+    --gold-light: 43 80% 60%;
+    --gold-dark: 43 65% 40%;
+    --blue-accent: 217 80% 52%;
+    --blue-soft: 214 60% 70%;
 
-    --gradient-gold: linear-gradient(135deg, hsl(43 80% 65%), hsl(43 72% 52%), hsl(43 65% 42%));
+    --gradient-gold: linear-gradient(135deg, hsl(43 80% 60%), hsl(43 72% 46%), hsl(43 65% 40%));
     --gradient-navy: linear-gradient(180deg, hsl(225 43% 7%) 0%, hsl(225 40% 12%) 100%);
     --gradient-overlay: linear-gradient(180deg, hsl(225 43% 7% / 0.8) 0%, hsl(225 43% 7% / 0.5) 40%, hsl(225 43% 7% / 0.85) 100%);
-    --shadow-gold: 0 0 40px hsl(43 72% 52% / 0.15);
-    --shadow-card: 0 8px 32px hsl(225 43% 7% / 0.5);
+    --shadow-gold: 0 0 40px hsl(43 72% 46% / 0.18);
+    --shadow-card: 0 12px 40px hsl(224 40% 22% / 0.10);
 
     --font-display: 'Space Grotesk', sans-serif;
     --font-body: 'Inter', system-ui, sans-serif;
