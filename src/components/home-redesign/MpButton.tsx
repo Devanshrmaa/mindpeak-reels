@@ -10,39 +10,50 @@ interface MpButtonProps {
   children: ReactNode;
   onClick?: () => void;
   style?: CSSProperties;
+  className?: string;
 }
 
 /**
  * Pill button used across the redesigned homepage. Variants mirror the design
  * handoff: solid navy (primary), gold CTA, and two outline treatments.
+ * Hover lift / shadow / focus-visible behaviour lives in the scoped CSS block
+ * in `src/views/HomeRedesign.tsx` (`.mp-btn*` rules) so it can use transitions
+ * and pseudo-classes that inline styles cannot express.
  */
-export function MpButton({ kind = "primary", children, onClick, style }: MpButtonProps) {
-  const base: CSSProperties = {
-    fontFamily: S.body,
-    fontSize: 15,
-    fontWeight: 600,
-    padding: "14px 28px",
-    borderRadius: S.btnRadius,
-    cursor: "pointer",
-    border: "1.5px solid transparent",
-    transition: "opacity 120ms ease",
-    display: "inline-block",
-    whiteSpace: "nowrap",
-  };
-  const kinds: Record<Kind, CSSProperties> = {
-    primary: { background: S.navy, color: S.cream },
-    gold: { background: S.goldBtn, color: S.navyDeep, fontWeight: 700 },
-    outline: { background: "transparent", color: S.navy, borderColor: S.navy },
-    outlineLight: { background: "transparent", color: S.cream, borderColor: "rgba(251,247,239,0.4)" },
-  };
+export function MpButton({ kind = "primary", children, onClick, style, className }: MpButtonProps) {
   return (
     <button
       onClick={onClick}
-      onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.88"; }}
-      onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
-      style={{ ...base, ...kinds[kind], ...style }}
+      className={`mp-btn mp-btn-${kind}${className ? ` ${className}` : ""}`}
+      style={style}
     >
       {children}
     </button>
+  );
+}
+
+/**
+ * Small uppercase section label with a gold rule — the editorial "eyebrow"
+ * that opens each major section of the redesigned homepage.
+ */
+export function MpEyebrow({ children, light = false, style }: { children: ReactNode; light?: boolean; style?: CSSProperties }) {
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: 12,
+        fontSize: 12,
+        fontWeight: 700,
+        letterSpacing: "0.2em",
+        textTransform: "uppercase",
+        color: light ? S.goldBtn : S.gold,
+        marginBottom: 18,
+        ...style,
+      }}
+    >
+      <span aria-hidden style={{ width: 28, height: 2, background: light ? S.goldBtn : S.gold, borderRadius: 2 }} />
+      {children}
+    </div>
   );
 }
