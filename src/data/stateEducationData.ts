@@ -464,6 +464,28 @@ export const stateEducationData: Record<string, StateEducationData> = {
     regionalChallenge: 'Rural Haryana has limited educational awareness about competitive exam strategies. The state\'s emphasis on government jobs means some families deprioritize engineering/medical in favour of SSC/bank exam preparation. However, first-generation aspirants from rural Haryana show exceptional determination.',
     careerEcosystem: 'Gurgaon\'s massive IT/corporate ecosystem (DLF Cyber City, Unitech) provides among India\'s highest engineering placement opportunities. NIT Kurukshetra graduates receive ₹10-25 LPA packages. PGIMS Rohtak offers excellent medical specialisation training. Haryana\'s proximity to Delhi ensures broad career access.',
   },
+  'Himachal Pradesh': {
+    state: 'Himachal Pradesh',
+    topEnggColleges: [
+      { name: 'IIT Mandi', cutoff: 'JEE Advanced AIR < 6,000', branch: 'CSE/DS/EE' },
+      { name: 'NIT Hamirpur', cutoff: 'JEE Main 92+ percentile', branch: 'CSE/ECE' },
+      { name: 'UIT HPU Shimla', cutoff: 'JEE Main 70+ percentile / HP counselling', branch: 'CSE/CE' },
+      { name: 'JNGEC Sundernagar', cutoff: 'HP state counselling', branch: 'CSE/ME' },
+    ],
+    topMedColleges: [
+      { name: 'IGMC Shimla', cutoff: 'NEET AIR < 15,000' },
+      { name: 'Dr. RPGMC Tanda (Kangra)', cutoff: 'NEET AIR < 20,000' },
+      { name: 'AIIMS Bilaspur', cutoff: 'NEET AIR < 8,000' },
+      { name: 'GMC Hamirpur', cutoff: 'NEET AIR < 35,000' },
+    ],
+    boardTransitionChallenges: 'HPBOSE (Himachal Pradesh Board) is broadly NCERT-aligned, but problem-solving depth in Physics numericals and Organic Chemistry mechanisms is well below JEE/NEET level. Many hill-district schools teach in a Hindi-English mix, so students need targeted work on English exam terminology. The bigger gap is exposure: most HP students never sit a full-length mock series before the real exam because no local institute runs one.',
+    educationFact: 'Himachal Pradesh hosts both a new-generation IIT (IIT Mandi, est. 2009) and AIIMS Bilaspur (operational 2021), yet has one of India\'s thinnest coaching markets — there is no major national coaching chain campus in the entire state. HP students who crack JEE/NEET overwhelmingly prepare via Chandigarh relocation or online programs.',
+    aspirantCount: '~0.5 lakh JEE + NEET aspirants',
+    competitionContext: 'HP\'s small aspirant pool means state-quota NEET cutoffs for IGMC Shimla and Dr. RPGMC Tanda are more attainable than equivalent seats in Punjab or Haryana — a genuine structural advantage for well-prepared HP students. The constraint is preparation quality, not competition volume: with coaching concentrated in Chandigarh (outside the state), most students prepare with school-level support only.',
+    nearbyPremierInstitutes: ['IIT Mandi', 'NIT Hamirpur', 'AIIMS Bilaspur', 'IGMC Shimla'],
+    regionalChallenge: 'Mountain geography is the defining constraint — a student in Kullu, Chamba or Kinnaur may be 6+ hours from the nearest serious coaching centre, and winter snowfall cuts off travel entirely in upper districts. Online 1-on-1 coaching removes the commute variable completely, though students should plan around occasional winter power and connectivity disruptions.',
+    careerEcosystem: 'IIT Mandi graduates command ₹12-35 LPA packages and the institute\'s focus on AI/data science is producing strong tech placements. Most HP engineering graduates work in Chandigarh, Delhi NCR or Bangalore. On the medical side, AIIMS Bilaspur and IGMC Shimla anchor a growing state health system, and HP\'s doctor-to-population targets mean strong government recruitment for MBBS graduates.',
+  },
   'Uttarakhand': {
     state: 'Uttarakhand',
     topEnggColleges: [
