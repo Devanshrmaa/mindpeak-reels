@@ -162,20 +162,39 @@ function _resolve(slugSegments: string[]): Metadata {
   const stateHub = parseStateHubSlug(slug);
   if (stateHub) {
     const { exam, hub } = stateHub;
-    const examFull = exam === 'JEE' ? 'JEE Main & Advanced' : 'NEET UG';
-    const colleges = (exam === 'JEE' ? hub.engColleges : hub.medColleges).slice(0, 2).join(' & ');
-    const title = `Best ${exam} Coaching in ${hub.state} ${YEAR} — 1-on-1 Online | MindPeak`;
-    const description = `1-on-1 online ${exam} coaching for ${hub.state} students. ${hub.board} to ${examFull} bridge, expert mentors, targeting ${colleges}. Book a free demo class.`.slice(0, 160);
+    const isJEE = exam === 'JEE';
+    const boardShort = hub.board.split(' &')[0];
+    const colleges = (isJEE ? hub.engColleges : hub.medColleges).slice(0, 2).join(' & ');
+    // Dual-exam states get the state exam in the title (real CTR query: "MHT-CET coaching", "KCET and JEE")
+    const title = isJEE && hub.stateExamName
+      ? `Best JEE Coaching in ${hub.state} ${YEAR} — ${hub.stateExamName} + JEE 1-on-1 | MindPeak`
+      : `Best ${exam} Coaching in ${hub.state} ${YEAR} — 1-on-1 Online | MindPeak`;
+    const clampWord = (s: string) => (s.length <= 160 ? s : s.slice(0, 160).replace(/\s+\S*$/, ''));
+    const description = clampWord(
+      isJEE
+        ? hub.stateExamName
+          ? `1-on-1 online JEE coaching for ${hub.state} students. ${hub.stateExamName} + JEE Main in one plan, ${boardShort} to JEE bridge, targeting ${colleges}. Free demo.`
+          : `1-on-1 online JEE coaching for ${hub.state} students. ${boardShort} to JEE Main & Advanced bridge, targeting ${colleges}. Book a free demo class.`
+        : `1-on-1 online NEET coaching for ${hub.state} students. ${boardShort} biology to NCERT precision, targeting ${colleges}. State-quota strategy included. Free demo.`,
+    );
+    const topCities = hub.cities.slice(0, 3);
+    const keywords = [
+      `${exam} coaching in ${hub.state}`,
+      `best ${exam} coaching ${hub.state}`,
+      `online ${exam} coaching ${hub.state}`,
+      `1-on-1 ${exam} coaching ${hub.state}`,
+      `${exam} preparation ${hub.state}`,
+      ...(isJEE && hub.stateExamName
+        ? [`${hub.stateExamName} coaching`, `${hub.stateExamName} and JEE preparation`]
+        : []),
+      `${boardShort} to ${exam} preparation`,
+      ...topCities.map((c) => `${exam} coaching ${c}`),
+      'MindPeak Institute',
+    ];
     return {
       title,
       description,
-      keywords: [
-        `${exam} coaching in ${hub.state}`,
-        `best ${exam} coaching ${hub.state}`,
-        `online ${exam} coaching ${hub.state}`,
-        `${exam} preparation ${hub.state}`,
-        'MindPeak Institute',
-      ],
+      keywords,
       alternates: { canonical, languages: { 'en-IN': canonical, 'x-default': canonical } },
       openGraph: { ...og, url: canonical, title, description, locale: 'en_IN', type: 'website' },
       twitter: { card: 'summary_large_image', title, description },

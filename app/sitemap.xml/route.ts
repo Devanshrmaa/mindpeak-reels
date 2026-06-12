@@ -198,7 +198,9 @@ export async function GET() {
 
   // T1 city coaching pages — high commercial intent, genuinely unique content
   for (const p of CITY_PAGES) lines.push(urlEntry(p, '0.85', 'monthly', staggeredLastmod(p, now)));
-  for (const p of STATE_HUB_PAGES) lines.push(urlEntry(p, '0.80', 'monthly', staggeredLastmod(p, now)));
+  // State hubs carry deep differentiated content (cutoff tables, board-bridge
+  // analysis, exam-specific FAQs) — same tier as T1 city pages.
+  for (const p of STATE_HUB_PAGES) lines.push(urlEntry(p, '0.85', 'weekly', staggeredLastmod(p, now)));
 
   lines.push('</urlset>');
 
