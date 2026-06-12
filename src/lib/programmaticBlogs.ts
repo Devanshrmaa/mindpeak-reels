@@ -3572,6 +3572,29 @@ export function getKeptBlogSlugs(): string[] {
     slugs.push(`blog/${exam.slug}-complete-guide-${year}`);
   }
 
+  // Exam comparison posts (~30) — the site's strongest proven non-brand
+  // theme in GSC ("cuet vs jee" pos 2, "is kcet easier than jee" pos 4,
+  // "is cuet easier than jee" pos 2.2). They render live but were missing
+  // from the sitemap, so Google had no discovery path after the exam-year
+  // slug rollover 404'd the previous URLs.
+  const comparisonBaseExams = ['jee-main', 'jee-advanced', 'neet'];
+  for (const exam of examRegistry) {
+    for (const base of comparisonBaseExams) {
+      if (exam.overlapsWith === 'neet' && base === 'jee-advanced') continue;
+      if (exam.overlapsWith === 'jee' && base === 'neet') continue;
+      if (exam.category === 'olympiad' && base !== 'jee-advanced') continue;
+      slugs.push(`blog/${exam.slug}-vs-${base}-comparison-${year}`);
+    }
+  }
+
+  // Exam strategy posts (~46) — earned rankings pre-rollover
+  // ("ts eamcet mathematics strategy" family: ~950 impressions in 90d).
+  for (const exam of examRegistry) {
+    for (const subj of exam.subjects) {
+      slugs.push(`blog/${exam.slug}-${slugify(subj.name)}-strategy-score-high-${year}`);
+    }
+  }
+
   // Hand-curated editorial posts that target tracked, high-intent keywords
   // (kept in the sitemap so Google discovers them — they are not generated
   // by the programmatic templates above).

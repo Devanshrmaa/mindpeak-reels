@@ -5,6 +5,7 @@ import { isRemovedBlogDoorwaySlug } from '@/lib/removedBlogDoorways';
 import { isDoorwayCoachingSlug } from '@/lib/indexableCities';
 import { getCityConsolidation, getSubjectCityRedirect } from '@/data/cityConsolidation';
 import { allTopics, TOPIC_PATHS, CHAPTER_SLUGS } from '@/data/chapterData';
+import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 
 /**
  * Request proxy (Next.js 16 `proxy.ts` convention — formerly middleware).
@@ -62,6 +63,11 @@ function gone() {
 const TOPIC_PATH_SET = new Set(TOPIC_PATHS);
 const CHAPTER_SLUG_SET = new Set(CHAPTER_SLUGS);
 
+/* Month-stamped auto-blog slugs (e.g. formula-memorization-june-2026) keep
+   their original month+year and must not be year-rolled. */
+const MONTH_SUFFIX_RE =
+  /-(january|february|march|april|may|june|july|august|september|october|november|december)$/;
+
 export function proxy(request: NextRequest) {
   const slug = request.nextUrl.pathname.replace(/^\/+|\/+$/g, '');
 
@@ -96,6 +102,27 @@ export function proxy(request: NextRequest) {
   //     soft-404 shell, so ~650 of them are still indexed → hard 410.
   if (isRemovedBlogDoorwaySlug(slug)) {
     return gone();
+  }
+
+  // 3c. Exam-year slug rollover: year-suffixed blog guides regenerate under
+  //     the next CURRENT_EXAM_YEAR slug every May (…-comparison-2026 →
+  //     …-comparison-2027), which left the old URLs as 404s and stranded
+  //     their accrued rankings (GSC: "cuet vs jee" pos 2, "is kcet easier
+  //     than jee" pos 4, "aiims delhi cut off" pos 10 — all landing on the
+  //     dead -2026 slugs). 301 any stale trailing-year blog slug to its
+  //     current-year equivalent. Month-stamped auto posts (…-june-2026)
+  //     don't roll over and are excluded; killed doorway families never
+  //     reach here (410'd in 3b above).
+  const staleYear = slug.match(/^blog\/(.+)-(20\d{2})$/);
+  if (
+    staleYear &&
+    Number(staleYear[2]) !== CURRENT_EXAM_YEAR &&
+    !MONTH_SUFFIX_RE.test(staleYear[1])
+  ) {
+    return NextResponse.redirect(
+      new URL(`/blog/${staleYear[1]}-${CURRENT_EXAM_YEAR}`, request.url),
+      301,
+    );
   }
 
   // 4. Remaining doorway coaching pages (e.g. cities in states without a hub
