@@ -1,5 +1,5 @@
 # MindPeak Institute — Outreach Tracker
-**Last Updated:** 2026-05-20  
+**Last Updated:** 2026-06-12  
 **Site:** mindpeakinstitute.com  
 **MSME:** UDYAM-HP-04-0042530
 
@@ -57,6 +57,14 @@
 | 44 | 2026-06-04 | cyboardschool.com | cyboardschool.com/write-for-us/ | Guest Post — accepts EdTech/education content from teachers & founders, 1000–2500 words, byline with link | Via write-for-us form on site | ❌ | — | NOT STARTED |
 | 45 | 2026-06-04 | dailysarkariresults.com | dailysarkariresults.com/write-for-us/ | Guest Post — education, study tips, coaching content; high-traffic exam-aware student audience | Via write-for-us form on site | ❌ | — | NOT STARTED |
 | 46 | 2026-06-04 | vidsaga.com | vidsaga.com/top-indian-edtech-startups/ | Listicle Inclusion — "32 Top Indian EdTech Startups 2026" (startup directory angle, MSME + HP startup story) | Via vidsaga.com contact page | ❌ | — | NOT STARTED |
+| 47 | 2026-06-12 | trendingonlinenow.in | trendingonlinenow.in/top-10-online-coaching-platforms-for-neet-2026-2027-exam-preparation/ | Listicle Inclusion — "Top 10 NEET Online Coaching Platforms 2026–2027" (separate from JEE version; 1-on-1 slot empty) | Via trendingonlinenow.in contact page (bundle with #13 email) | ❌ | — | NOT STARTED |
+| 48 | 2026-06-12 | trendingonlinenow.in | trendingonlinenow.in/complete-guide-to-choosing-the-best-online-coaching-for-jee-neet-in-india-2026 | Listicle Inclusion — "Complete Guide: Choosing Best Online Coaching for JEE & NEET India 2026" (guide format, evergreen, high SEO value) | Via trendingonlinenow.in contact page (bundle with #13/#47 email) | ❌ | — | NOT STARTED |
+| 49 | 2026-06-12 | businessoutreach.in | businessoutreach.in/top-neet-coaching-institutes-in-india/ | Listicle Inclusion — "Top NEET Coaching Institutes in India 2026" (Aakash, PW, Resonance covered — 1-on-1 personalised slot empty; use startup + MSME angle) | Via businessoutreach.in contact page | ❌ | — | NOT STARTED |
+| 50 | 2026-06-12 | academycheck.com | academycheck.com/blog/top-jee-coaching-institutes-producing-jee-advanced-toppers | Listicle Inclusion — "India's Top 10 JEE Coaching Institutes Producing JEE Advanced 2026 Toppers" (results-focused; MindPeak AIR 42 directly qualifies — strongest credential fit across all audits) | 08062179896 (call) or AcademyCheck contact form | ❌ | — | NOT STARTED |
+| 51 | 2026-06-12 | ezyschooling.com | ezyschooling.com/parenting/expert/guest-post-write-for-us | Guest Post — 300K+ monthly visitors; education/parenting/EdTech; accepts posts from professionals; pre-approval email required; parent-audience angle (highest-traffic guest post site found across all audits) | pro@ezyschooling.com (topic proposal first) | ❌ | — | NOT STARTED |
+| 52 | 2026-06-12 | sarkariresultexams.com | sarkariresultexams.com/write-for-us/ | Guest Post — education, study tips, exam prep content; exam-aware student audience (distinct from dailysarkariresults.com #45) | Via write-for-us form on site | ❌ | — | NOT STARTED |
+| 53 | 2026-06-12 | globaleducationawards.in | globaleducationawards.in | Award Nomination — Global Education Awards 2026 by Prime Time Research Media; honours EdTech companies; nomination form active; independent jury; use UDYAM-HP-04-0042530 + results data | Via nomination form on site | ❌ | — | NOT STARTED |
+| 54 | 2026-06-12 | worldwide-edtech.org | worldwide-edtech.org/events-awards | Award Nomination — WorldWiDE EdTech Awards 2026 (global, India-eligible); open nominations; finalist status generates high-DA international press coverage | Via nomination form on site | ❌ | — | NOT STARTED |
 
 ---
 
@@ -77,6 +85,17 @@
 ---
 
 ## Notes & Strategy Log
+
+### 2026-06-12 — Week 6 Audit + 8 New Targets Added (54 Total)
+
+- **Zero backlinks for SIXTH consecutive week.** All 46 prior targets still at NOT STARTED. June 2–8 "emergency minimum" block was missed again.
+- **⚡ NEET 2026 WINDOW:** NEET 2026 exam was cancelled and rescheduled to June 21, 2026. Search interest for NEET coaching is at a seasonal peak RIGHT NOW. Quora answers on NEET coaching threads placed before June 21 capture this traffic spike.
+- **8 new targets added (#47–54):** trendingonlinenow.in ×2 new articles (NEET 2026–27, Complete Guide), businessoutreach.in (NEET coaching India), academycheck.com (JEE Advanced 2026 Toppers article — AIR 42 directly qualifies), ezyschooling.com (guest post, 300K monthly visitors — highest-traffic guest post site found), sarkariresultexams.com (guest post), globaleducationawards.in (award nomination), worldwide-edtech.org (global award)
+- **Competitive pressure escalating:** JEE Carnot (jeecarnot.com), JEE Tneeti (jeetneeti.com), and Exprto (exprto.com) are now appearing in "best 1-on-1 JEE coaching 2026" searches — direct competitors being listed in the same articles MindPeak should occupy.
+- **2nd Devansh name collision found:** teacheron.com/tutor/d0F — "Devansh Gupta Maths tutor" — Devansh should create his own TeacherOn profile to claim this namespace (20 min, free, also provides a backlink).
+- **Emails #22–28 ready to send** (in `/seo-reports/backlinks-2026-06-12.md`)
+- **ezyschooling.com is the highest-priority new target:** 300K+ monthly visitors, parent audience, accepts expert guest posts — submit topic proposal to pro@ezyschooling.com
+- **AcademyCheck Toppers article (#50) is the strongest credential fit:** MindPeak's AIR 42 JEE Advanced directly matches the article's thesis — clearest merit-based inclusion case in all six audits
 
 ### 2026-06-04 — Week 5 Audit + 8 New Targets Added (46 Total)
 
@@ -126,11 +145,12 @@
 | May 12–18, 2026 | 0 → 3 | Send #1, #2, #8, #11, #27 (UrbanPro self-serve) | — | **MISSED — zero sent** |
 | May 19–25, 2026 | 0 → 5 | Self-serve: UrbanPro (#27), HP Startup (#37), Wellfound (#38). Email: #2, #8, #13, #1, #14, #4 | — | **MISSED — zero sent** |
 | May 26–Jun 1, 2026 | 5 → 10 | Follow up #2/#8/#13/#14; send #9, #10, #6, #15, #16, #17 | — | **MISSED — zero sent** |
-| **Jun 2–8, 2026** | **0 → 5** | **EMERGENCY MINIMUM:** Quora answer (10 min). Self-serve: UrbanPro (#27), Wellfound (#38), HP Startup (#37). Emails: #13 OriginEducare, #2 CollegeDekho | 🔥 CRITICAL WEEK — must act | ⏳ IN PROGRESS |
-| Jun 9–15, 2026 | 5 → 10 | Email: #8 CollegeDunia, #14 Notesly, #18 AcademyCheck 2027, #1 AcademyCheck NEET. Follow up #13/#2 | — | NOT STARTED |
-| Jun 16–22, 2026 | 10 → 15 | Emails: #4 FutureTopper, #6 ExamCharcha, #19 CosmosIQ, #20 Indian-Preneur, #9 PhysicsNavigator | — | NOT STARTED |
-| Jun 23–30, 2026 | 15 → 20 | Emails: #21 CyboardSchool, #11 SCNWire PR, #10 Giraffe-Learning ×2, #5 Suganta. Follow up all pending. Start Shiksha | — | NOT STARTED |
-| Jul 2026 | 20 → 30 | Careers360, Shiksha partner portal, Awards follow-up. Start Quora 2–3/week consistently | — | NOT STARTED |
+| Jun 2–8, 2026 | 0 → 5 | EMERGENCY MINIMUM: Quora answer (10 min). Self-serve: UrbanPro (#27), Wellfound (#38), HP Startup (#37). Emails: #13 OriginEducare, #2 CollegeDekho | 🔥 CRITICAL WEEK | **MISSED — zero sent** |
+| **Jun 9–21, 2026** | **0 → 5** | **⚡ NEET WINDOW:** Quora answers on NEET threads (10 min each). Self-serve: TeacherOn (#new), UrbanPro (#27), HP Startup (#37), Wellfound (#38). Emails: #13 OriginEducare, #25 Ezyschooling, #24 AcademyCheck Toppers | 🔥 CRITICAL — NEET exam June 21 | ⏳ IN PROGRESS |
+| Jun 22–30, 2026 | 5 → 12 | Emails: #2 CollegeDekho, #28 CollegeDunia, #18 AcademyCheck 2027, #22 TrendingOnlineNow, #23 BusinessOutreach. Follow up #13/#25. Awards: #53 GlobalEdAwards, #54 WorldWiDE | — | NOT STARTED |
+| Jul 1–15, 2026 | 12 → 20 | Emails: #4 FutureTopper, #6 ExamCharcha, #19 CosmosIQ, #20 Indian-Preneur, #9 PhysicsNavigator. Follow up all pending May/June emails | — | NOT STARTED |
+| Jul 16–31, 2026 | 20 → 28 | Emails: #21 CyboardSchool, #26 SarkariResultExams, #11 SCNWire PR, #10 Giraffe-Learning ×2, #5 Suganta. Start Shiksha (#12) partner portal | — | NOT STARTED |
+| Aug 2026 | 28 → 40 | Careers360 (#1), Shiksha follow-up, Awards follow-up. Quora 2–3/week consistently. Start Startup India (#17) portal | — | NOT STARTED |
 
 ## Quora Strategy (Ongoing — Not Tracked as Outreach)
 
