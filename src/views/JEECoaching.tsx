@@ -18,6 +18,7 @@ import { getLastUpdated, getCurrentExamYear } from '@/lib/contentFreshness';
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 import { getLiveStat, formatStat } from '@/lib/liveStats';
 import { PeopleAlsoAsk } from '@/components/PeopleAlsoAsk';
+import { RelatedPages } from '@/components/RelatedPages';
 import type { PAAQuestion } from '@/components/PeopleAlsoAsk';
 import {
   GraduationCap, Users, BarChart3, Target, CheckCircle, ArrowRight, BookOpen,
@@ -495,6 +496,22 @@ const JEECoaching = () => {
         <section className="max-w-5xl mx-auto px-4 sm:px-6 py-10 space-y-6">
           <MonthlySuccessStory exam="JEE" />
           <WeeklyTip exam="JEE" />
+        </section>
+
+        {/* ───── EXAM COMPARISON GUIDES (GSC-proven non-brand entry points) ───── */}
+        <section className="max-w-5xl mx-auto px-4 sm:px-6">
+          <RelatedPages
+            title="Comparing JEE With Other Exams?"
+            links={[
+              { href: `/blog/kcet-vs-jee-advanced-comparison-${CURRENT_EXAM_YEAR}`, label: 'Is KCET easier than JEE Advanced?', tag: 'Compare' },
+              { href: `/blog/cuet-vs-jee-main-comparison-${CURRENT_EXAM_YEAR}`, label: 'CUET vs JEE Main — which to pick?', tag: 'Compare' },
+              { href: `/blog/bitsat-vs-jee-main-comparison-${CURRENT_EXAM_YEAR}`, label: 'BITSAT vs JEE Main syllabus overlap', tag: 'Compare' },
+              { href: `/blog/viteee-vs-jee-main-comparison-${CURRENT_EXAM_YEAR}`, label: 'Is VITEEE easier than JEE Main?', tag: 'Compare' },
+              { href: `/blog/comedk-vs-jee-main-comparison-${CURRENT_EXAM_YEAR}`, label: 'COMEDK vs JEE Main compared', tag: 'Compare' },
+              { href: '/online-vs-offline-jee-coaching', label: 'Online vs offline JEE coaching', tag: 'Guide' },
+            ]}
+            columns={3}
+          />
         </section>
 
         {/* ───── PEOPLE ALSO ASK ───── */}
