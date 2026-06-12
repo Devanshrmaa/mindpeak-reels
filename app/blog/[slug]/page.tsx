@@ -21,15 +21,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return { title: "Blog | MindPeak Institute" };
   const canonical = `${BASE}/blog/${post.slug}`;
   const ogImage = "https://mindpeakinstitute.com/images/og/coaching.jpg";
-  const desc = post.excerpt.slice(0, 155);
+  const { getBlogSeoOverride } = await import("@/lib/blogSeoOverrides");
+  const override = getBlogSeoOverride(post.slug);
+  const title = override ? override.title : `${post.title} | MindPeak Institute`;
+  const desc = (override?.description ?? post.excerpt).slice(0, 155);
   return {
-    title: `${post.title} | MindPeak Institute`,
+    title,
     description: desc,
     alternates: { canonical },
     openGraph: {
       type: "article",
       url: canonical,
-      title: post.title,
+      title: override ? override.title : post.title,
       description: desc,
       publishedTime: post.publishDate,
       authors: [post.author],
@@ -39,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: post.title,
+      title: override ? override.title : post.title,
       description: desc,
       images: [ogImage],
     },

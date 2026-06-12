@@ -17,6 +17,7 @@ import { CtaBanner } from '@/components/CtaBanner';
 import { getLastUpdated, getCurrentExamYear } from '@/lib/contentFreshness';
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 import { PeopleAlsoAsk } from '@/components/PeopleAlsoAsk';
+import { RelatedPages } from '@/components/RelatedPages';
 import type { PAAQuestion } from '@/components/PeopleAlsoAsk';
 import {
   Users, BarChart3, Target, ArrowRight, BookOpen,
@@ -470,6 +471,22 @@ const NEETCoaching = () => {
         <section className="max-w-5xl mx-auto px-4 sm:px-6 py-10 space-y-6">
           <MonthlySuccessStory exam="NEET" />
           <WeeklyTip exam="NEET" />
+        </section>
+
+        {/* ───── EXAM COMPARISON GUIDES (GSC-proven non-brand entry points) ───── */}
+        <section className="max-w-5xl mx-auto px-4 sm:px-6">
+          <RelatedPages
+            title="Comparing NEET With Other Exams?"
+            links={[
+              { href: `/blog/ap-eamcet-vs-neet-comparison-${CURRENT_EXAM_YEAR}`, label: 'Difference between NEET and AP EAMCET', tag: 'Compare' },
+              { href: `/blog/ts-eamcet-vs-neet-comparison-${CURRENT_EXAM_YEAR}`, label: 'TS EAMCET vs NEET — dual prep guide', tag: 'Compare' },
+              { href: `/blog/cuet-vs-neet-comparison-${CURRENT_EXAM_YEAR}`, label: 'CUET vs NEET — which to prioritise?', tag: 'Compare' },
+              { href: `/blog/kcet-vs-neet-comparison-${CURRENT_EXAM_YEAR}`, label: 'KCET vs NEET for Karnataka students', tag: 'Compare' },
+              { href: '/neet-pyq-biology-cell-division', label: 'Cell cycle & cell division NEET PYQs', tag: 'PYQ' },
+              { href: '/neet-pyq-chemistry-haloalkanes', label: 'Haloalkanes & haloarenes NEET PYQs', tag: 'PYQ' },
+            ]}
+            columns={3}
+          />
         </section>
 
         {/* ───── PEOPLE ALSO ASK ───── */}
