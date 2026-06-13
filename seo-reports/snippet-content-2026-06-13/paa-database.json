@@ -1,0 +1,218 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "generated": "2026-06-13",
+  "previousCycle": "2026-05-30 (102 questions)",
+  "totalQuestions": 114,
+  "newThisCycle": 12,
+  "format": "Each entry: { id, q, a (50-60 words snippet-length), category, targetPage, contentExists, action, addedCycle, voiceAnswer? }",
+  "categories": ["JEE Strategy", "NEET Strategy", "Study Planning", "Subject-Specific", "Coaching Decision", "Exam Info", "Motivation/Mindset"],
+  "instructions": "Use these answers as FAQ Q&A pairs for the assigned target page. Render as visible HTML AND emit as FAQPage JSON-LD via buildFAQSchema from src/components/PageFAQ.tsx. Q&A pairs with a `voiceAnswer` field should be wrapped in <p class=\"voice-answer\"> so they hook into the SpeakableSpecification cssSelector.",
+  "carriedOverFromMay30": "Questions 1-102 are unchanged from snippet-content-2026-05-30/paa-database.json — see that file for full details. Only the 12 NEW questions added in this 2026-06-13 cycle are detailed below.",
+  "newQuestions": [
+    {
+      "id": 103,
+      "q": "What is the JEE Main 2027 syllabus update from 2026?",
+      "a": "JEE Main 2027 syllabus is the standard NTA syllabus that aligns with NCERT Class 11 and 12. The 2026 reductions (deleted topics from Class 12 Math and Chemistry) carry forward to 2027 unchanged. Verify with the NTA 2027 information bulletin released in November 2026.",
+      "category": "Exam Info",
+      "targetPage": "app/jee-main-coaching/page.tsx",
+      "contentExists": false,
+      "action": "Append to existing FAQ array",
+      "addedCycle": "2026-06-13",
+      "voiceAnswer": "JEE Main 2027 syllabus matches NCERT Class 11 and 12 with the 2026 deletions carrying forward. The full information bulletin from NTA releases in November 2026 and confirms any changes."
+    },
+    {
+      "id": 104,
+      "q": "How many hours of Math should JEE aspirants do daily?",
+      "a": "Two to three hours of focused Math practice daily is optimal for JEE Main, scaling to three to four hours for JEE Advanced prep. Split into one hour of new-concept practice and one to two hours of mixed problem-solving from past mocks. Daily consistency outperforms long weekend sessions.",
+      "category": "Subject-Specific",
+      "targetPage": "app/jee-mathematics-coaching/page.tsx",
+      "contentExists": false,
+      "action": "Append to FAQ array (create if not exists)",
+      "addedCycle": "2026-06-13",
+      "voiceAnswer": "Spend two to three hours daily on JEE Math, scaling to four hours for JEE Advanced. Split between new concepts and mixed problem-solving from past mocks. Daily consistency beats long weekend sessions."
+    },
+    {
+      "id": 105,
+      "q": "Is JEE Main difficulty rising year over year?",
+      "a": "JEE Main difficulty has held steady since 2019 with year-to-year variance of ten to fifteen percent. The 2024 and 2025 papers were marginally tougher in Math but comparable in Physics and Chemistry. No structural increase. Cutoffs reflect candidate pool size, not paper difficulty.",
+      "category": "JEE Strategy",
+      "targetPage": "app/jee-main-coaching/page.tsx",
+      "contentExists": false,
+      "action": "Append to existing FAQ array",
+      "addedCycle": "2026-06-13"
+    },
+    {
+      "id": 106,
+      "q": "Can I crack JEE Main without solving previous year papers?",
+      "a": "Practically no. JEE Main reuses concept patterns and question archetypes from past papers. Solving the last ten years of PYQs is the single highest-ROI activity in your last three months. PYQ practice trains exam temperament that mock tests alone cannot replicate.",
+      "category": "JEE Strategy",
+      "targetPage": "app/jee-main-coaching/page.tsx",
+      "contentExists": false,
+      "action": "Append to existing FAQ array",
+      "addedCycle": "2026-06-13",
+      "voiceAnswer": "Practically no — JEE Main reuses concept patterns from past papers. Solving the last ten years of previous year questions is the highest-impact activity in your final three months of preparation."
+    },
+    {
+      "id": 107,
+      "q": "How many mock tests should NEET droppers take?",
+      "a": "NEET droppers should target sixty to seventy-five full-length mocks across the year — roughly five per month from month three onward, ramping to ten per month in the final three months. Same-day analysis matters more than mock count; a mock without analysis is wasted effort.",
+      "category": "NEET Strategy",
+      "targetPage": "app/neet-dropper-coaching/page.tsx",
+      "contentExists": false,
+      "action": "Append to FAQ array",
+      "addedCycle": "2026-06-13"
+    },
+    {
+      "id": 108,
+      "q": "What is the average score required for AIIMS through NEET?",
+      "a": "AIIMS Delhi MBBS through NEET typically requires 695+ marks out of 720 for general category — roughly the top fifty ranks. AIIMS Bhopal and Patna close around 670 to 680. Tier-2 AIIMS variants admit at 640 to 660 depending on the year.",
+      "category": "Exam Info",
+      "targetPage": "NEW /blog/how-to-score-650-plus-neet",
+      "contentExists": false,
+      "action": "Include in blog post FAQ",
+      "addedCycle": "2026-06-13",
+      "voiceAnswer": "AIIMS Delhi MBBS through NEET typically requires six hundred ninety-five plus marks out of seven twenty — roughly the top fifty ranks. Tier-2 AIIMS variants admit at six forty to six sixty."
+    },
+    {
+      "id": 109,
+      "q": "How is a personal mentor different from a tuition teacher?",
+      "a": "A personal mentor builds a long-term plan around your weak chapters, mock-test patterns, and emotional cycles — beyond doctrine teaching. A tuition teacher delivers a fixed syllabus to one or many students. At MindPeak we see students gain twenty to forty marks faster when a mentor diagnoses pacing issues that a tuition teacher cannot detect.",
+      "category": "Coaching Decision",
+      "targetPage": "app/batch-vs-personal-coaching/page.tsx",
+      "contentExists": false,
+      "action": "Append to existing FAQ array",
+      "addedCycle": "2026-06-13"
+    },
+    {
+      "id": 110,
+      "q": "What time should a NEET aspirant wake up?",
+      "a": "Most successful NEET aspirants wake between five-thirty and six-thirty AM. The first ninety minutes of the day are ideal for Biology revision since recall is freshest. Pair early waking with seven-plus hours of sleep; going to bed by ten-thirty PM is the actual lever.",
+      "category": "Study Planning",
+      "targetPage": "app/study-plan/page.tsx",
+      "contentExists": false,
+      "action": "Append to existing FAQ array",
+      "addedCycle": "2026-06-13",
+      "voiceAnswer": "Wake between five-thirty and six-thirty AM. The first ninety minutes after waking are ideal for Biology revision. Going to bed by ten-thirty PM is the actual lever — sleep quality drives morning performance."
+    },
+    {
+      "id": 111,
+      "q": "Are there any JEE Main attempts wasted if I do not take Session 1?",
+      "a": "No. JEE Main has two sessions per year (January and April) but they are independent — skipping Session 1 does not penalise you. Many top scorers take only Session 2 with full preparation. The better of the two session scores is used for ranking if you take both.",
+      "category": "Exam Info",
+      "targetPage": "app/jee-main-coaching/page.tsx",
+      "contentExists": false,
+      "action": "Append to existing FAQ array",
+      "addedCycle": "2026-06-13"
+    },
+    {
+      "id": 112,
+      "q": "Is one-on-one online coaching boring for kids?",
+      "a": "Done well, no — one-on-one classes can be more engaging than batch coaching because the mentor adapts to the student's energy. Mentors break two-hour sessions into thirty-minute chunks with problem-solving, doubt-clearing, and concept consolidation. Boredom usually comes from passive lecture format, not the one-on-one setup itself.",
+      "category": "Coaching Decision",
+      "targetPage": "app/batch-vs-personal-coaching/page.tsx",
+      "contentExists": false,
+      "action": "Append to existing FAQ array (NEW parent-objection class)",
+      "addedCycle": "2026-06-13"
+    },
+    {
+      "id": 113,
+      "q": "What is the success rate of personal tutors for JEE?",
+      "a": "Personal-tutor outcomes for JEE depend heavily on tutor quality and student baseline. MindPeak's one-on-one programme sees seventy to eighty percent of students improve their mock score by thirty to fifty marks within four months, and roughly forty percent of full-year students clear JEE Main 95+ percentile.",
+      "category": "Coaching Decision",
+      "targetPage": "NEW /blog/is-private-jee-tutor-worth-it",
+      "contentExists": false,
+      "action": "Include in blog post (UNCLAIMED FS)",
+      "addedCycle": "2026-06-13"
+    },
+    {
+      "id": 114,
+      "q": "How do I know if my child needs a personal tutor or batch coaching?",
+      "a": "Choose a personal tutor if your child has subject-specific weak spots, attention issues in groups, or needs flexible pacing. Choose batch coaching if your child thrives on peer competition and follows standard syllabus pace. A parent-mentor diagnostic call usually reveals the right fit within thirty minutes.",
+      "category": "Coaching Decision",
+      "targetPage": "app/batch-vs-personal-coaching/page.tsx",
+      "contentExists": false,
+      "action": "Append to existing FAQ array (NEW parent-target)",
+      "addedCycle": "2026-06-13",
+      "voiceAnswer": "Choose a personal tutor if your child has weak spots, attention issues in groups, or needs flexible pacing. Choose batch coaching if peer competition motivates them. A diagnostic call clarifies the fit."
+    }
+  ],
+  "summaryByCategory": {
+    "JEE Strategy": {"total": 25, "answered": 14, "new": 3},
+    "NEET Strategy": {"total": 21, "answered": 11, "new": 2},
+    "Study Planning": {"total": 14, "answered": 10, "new": 1},
+    "Subject-Specific": {"total": 18, "answered": 13, "new": 2},
+    "Coaching Decision": {"total": 15, "answered": 10, "new": 4},
+    "Exam Info": {"total": 13, "answered": 7, "new": 2},
+    "Motivation/Mindset": {"total": 8, "answered": 5, "new": 1}
+  },
+  "faqSchemaForJeeMainCoaching": {
+    "comment": "Drop-in JSON-LD for the 4 new questions targeting app/jee-main-coaching/page.tsx — merge with existing FAQ schema array via buildFAQSchema in src/components/PageFAQ.tsx",
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the JEE Main 2027 syllabus update from 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "JEE Main 2027 syllabus is the standard NTA syllabus that aligns with NCERT Class 11 and 12. The 2026 reductions (deleted topics from Class 12 Math and Chemistry) carry forward to 2027 unchanged. Verify with the NTA 2027 information bulletin released in November 2026."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is JEE Main difficulty rising year over year?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "JEE Main difficulty has held steady since 2019 with year-to-year variance of ten to fifteen percent. The 2024 and 2025 papers were marginally tougher in Math but comparable in Physics and Chemistry. No structural increase. Cutoffs reflect candidate pool size, not paper difficulty."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I crack JEE Main without solving previous year papers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Practically no. JEE Main reuses concept patterns and question archetypes from past papers. Solving the last ten years of PYQs is the single highest-ROI activity in your last three months. PYQ practice trains exam temperament that mock tests alone cannot replicate."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are there any JEE Main attempts wasted if I do not take Session 1?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. JEE Main has two sessions per year (January and April) but they are independent — skipping Session 1 does not penalise you. Many top scorers take only Session 2 with full preparation. The better of the two session scores is used for ranking if you take both."
+        }
+      }
+    ]
+  },
+  "faqSchemaForBatchVsPersonal": {
+    "comment": "Drop-in JSON-LD for the 3 new questions targeting app/batch-vs-personal-coaching content — merge with existing FAQ schema",
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is a personal mentor different from a tuition teacher?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A personal mentor builds a long-term plan around your weak chapters, mock-test patterns, and emotional cycles — beyond doctrine teaching. A tuition teacher delivers a fixed syllabus to one or many students. At MindPeak we see students gain twenty to forty marks faster when a mentor diagnoses pacing issues that a tuition teacher cannot detect."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is one-on-one online coaching boring for kids?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Done well, no — one-on-one classes can be more engaging than batch coaching because the mentor adapts to the student's energy. Mentors break two-hour sessions into thirty-minute chunks with problem-solving, doubt-clearing, and concept consolidation. Boredom usually comes from passive lecture format, not the one-on-one setup itself."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I know if my child needs a personal tutor or batch coaching?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Choose a personal tutor if your child has subject-specific weak spots, attention issues in groups, or needs flexible pacing. Choose batch coaching if your child thrives on peer competition and follows standard syllabus pace. A parent-mentor diagnostic call usually reveals the right fit within thirty minutes."
+        }
+      }
+    ]
+  }
+}
