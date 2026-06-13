@@ -8,15 +8,23 @@ type PostCategory = 'JEE' | 'NEET' | 'Study Tips' | 'Exam Strategy' | 'General';
 const jeeLinks = [
   { to: '/jee-coaching', label: 'JEE 1-on-1 Coaching — Dedicated Mentor', tag: 'Main Course' },
   { to: '/jee-physics-coaching', label: 'JEE Physics Coaching — IIT Alumni Mentor', tag: 'Physics' },
+  { to: '/jee-chemistry-coaching', label: 'JEE Chemistry Coaching — Organic & Physical', tag: 'Chemistry' },
+  { to: '/jee-mathematics-coaching', label: 'JEE Maths Coaching — Calculus & Algebra', tag: 'Maths' },
   { to: '/jee-practice', label: 'Free JEE Practice Questions', tag: 'Free Tool' },
   { to: '/jee-rank-predictor', label: 'JEE Rank Predictor', tag: 'Free Tool' },
+  { to: '/mentors', label: 'Meet Our IIT-Alumni JEE Mentors', tag: 'Team' },
+  { to: '/free-trial', label: 'Book a Free Demo Class', tag: 'Try Free' },
 ];
 
 const neetLinks = [
   { to: '/neet-coaching', label: 'NEET 1-on-1 Coaching — Dedicated Mentor', tag: 'Main Course' },
   { to: '/neet-biology-coaching', label: 'NEET Biology Coaching — NCERT Deep Dive', tag: 'Biology' },
+  { to: '/neet-chemistry-coaching', label: 'NEET Chemistry Coaching — Physical & Organic', tag: 'Chemistry' },
+  { to: '/neet-physics-coaching', label: 'NEET Physics Coaching — Score 155+', tag: 'Physics' },
   { to: '/neet-practice', label: 'Free NEET Practice Questions', tag: 'Free Tool' },
   { to: '/neet-rank-predictor', label: 'NEET Rank Predictor', tag: 'Free Tool' },
+  { to: '/mentors', label: 'Meet Our AIIMS-Alumni NEET Mentors', tag: 'Team' },
+  { to: '/free-trial', label: 'Book a Free Demo Class', tag: 'Try Free' },
 ];
 
 const generalLinks = [
@@ -24,6 +32,8 @@ const generalLinks = [
   { to: '/neet-coaching', label: 'NEET Personalized Coaching Program', tag: 'NEET' },
   { to: '/study-plan', label: 'Free Study Plan Generator', tag: 'Free Tool' },
   { to: '/courses', label: 'All Coaching Programs & Pricing', tag: 'Explore' },
+  { to: '/mentors', label: 'Meet Our Expert JEE & NEET Mentors', tag: 'Team' },
+  { to: '/free-trial', label: 'Book a Free Demo Class', tag: 'Try Free' },
 ];
 
 export function CourseLinks({ category }: { category: PostCategory }) {

@@ -7,6 +7,8 @@ import { Link } from '@/components/RouterLink';
 import { useRouter } from 'next/navigation';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import { NCERTDownloadModal } from '@/components/NCERTDownloadModal';
+import { Navbar } from '@/components/sections/Navbar';
+import { PageFooter } from '@/components/PageFooter';
 import { courses, testSeriesData, type Course } from '@/data/coursesData';
 import { getCourseYearFromSlug, getMonthsToCourseTarget } from '@/lib/examYears';
 import Image from 'next/image';
@@ -162,24 +164,11 @@ const Courses = () => {
   return (
     <>
     <NCERTDownloadModal isOpen={brochureModalOpen} onClose={() => setBrochureModalOpen(false)} book={brochureBook} />
+    <Navbar />
     <div className="min-h-screen bg-background">
-      {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-2xl backdrop-saturate-[180%] border-b border-foreground/[0.06]">
-        <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3 group">
-            <Image src={logo} alt="MindPeak Institute" className="w-9 h-9 rounded-full ring-1 ring-foreground/[0.08] group-hover:ring-primary/30 transition-all duration-500" width={36} height={36} priority />
-            <span className="font-display font-semibold text-foreground text-sm tracking-[0.1em]">MINDPEAK</span>
-          </Link>
-          <div className="hidden md:flex items-center gap-8">
-            <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-[12px] font-medium tracking-[0.15em] uppercase">Home</Link>
-            <Link to="/courses" className="text-foreground text-[12px] font-medium tracking-[0.15em] uppercase">Courses</Link>
-            <button onClick={openDemoModal} className="px-6 py-2 bg-primary text-primary-foreground text-[11px] uppercase tracking-[0.15em] font-medium rounded-full hover:shadow-[0_0_30px_-8px_hsl(var(--primary)/0.4)] transition-all duration-500">Book Demo</button>
-          </div>
-        </div>
-      </nav>
 
       {/* Hero */}
-      <section className="pt-36 pb-20 md:pb-28 px-6 relative">
+      <section className="pt-24 sm:pt-28 pb-20 md:pb-28 px-6 relative">
         <div className="max-w-4xl mx-auto text-center">
           <div>
             <div className="flex items-center justify-center gap-3 mb-6">
@@ -431,17 +420,8 @@ const Courses = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-10 px-6 text-center">
-        <div className="h-px bg-gradient-to-r from-transparent via-foreground/[0.06] to-transparent mb-8 max-w-4xl mx-auto" />
-          <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground/70 hover:text-foreground/80 transition-colors duration-300 text-[11px] tracking-[0.15em] uppercase mb-4">
-          <ArrowLeft className="w-3 h-3" /> Back to Home
-        </Link>
-        <p className="text-muted-foreground/70 text-[11px] tracking-[0.1em]">
-          © {new Date().getFullYear()} MindPeak Institute. All rights reserved.
-        </p>
-      </footer>
     </div>
+    <PageFooter />
     </>
   );
 };
