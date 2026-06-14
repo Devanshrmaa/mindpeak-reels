@@ -6,7 +6,7 @@ import { S } from "@/components/home-redesign/theme";
 import { MpNav, MpHero, MpMarquee, MpWeek } from "@/components/home-redesign/HomeTop";
 import { MpLedger, MpReportProof, MpPrograms } from "@/components/home-redesign/HomeMid";
 import { MpFAQ, MpContact } from "@/components/home-redesign/HomeBottom";
-import { MpCompare, MpMethod, MpVoices } from "@/components/home-redesign/HomeExtras";
+import { MpCompare, MpMethod, MpVoices, MpStats } from "@/components/home-redesign/HomeExtras";
 
 /**
  * Redesigned homepage (v2.1) — a warm cream-on-navy editorial layout, evolved
@@ -62,6 +62,40 @@ export default function HomeRedesign() {
     );
     targets.forEach((el) => io.observe(el));
     return () => io.disconnect();
+  }, []);
+
+  /* Interactive layer: a single delegated pointer listener drives the
+     cursor-follow spotlight on every [.mp-spot] card, plus a slim scroll
+     progress bar. Both are cheap (one listener each) and pointer/scroll
+     driven, so they stay out of the initial render path. */
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root || typeof window === "undefined") return;
+
+    const onMove = (e: PointerEvent) => {
+      const target = e.target as HTMLElement | null;
+      const card = target?.closest?.(".mp-spot") as HTMLElement | null;
+      if (!card) return;
+      const r = card.getBoundingClientRect();
+      card.style.setProperty("--mx", `${e.clientX - r.left}px`);
+      card.style.setProperty("--my", `${e.clientY - r.top}px`);
+    };
+    root.addEventListener("pointermove", onMove, { passive: true });
+
+    const bar = document.getElementById("mp-progress");
+    const onScroll = () => {
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - doc.clientHeight;
+      const p = max > 0 ? doc.scrollTop / max : 0;
+      if (bar) bar.style.transform = `scaleX(${p})`;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    return () => {
+      root.removeEventListener("pointermove", onMove);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   return (
@@ -174,6 +208,48 @@ export default function HomeRedesign() {
         .mp-home .mp-pillar-ic { transition: transform 0.4s var(--mp-ease); }
         .mp-home .mp-lift:hover .mp-pillar-ic { transform: rotate(-8deg) scale(1.08); }
 
+        /* ---------- scroll progress bar ---------- */
+        .mp-home #mp-progress {
+          position: fixed; top: 0; left: 0; height: 3px; width: 100%;
+          transform-origin: 0 50%; transform: scaleX(0);
+          background: ${S.gradGold}; z-index: 100; will-change: transform;
+        }
+
+        /* ---------- film grain (editorial texture) ---------- */
+        .mp-home #mp-grain {
+          position: fixed; inset: 0; z-index: 8; pointer-events: none; opacity: 0.05;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+          background-size: 140px 140px;
+        }
+
+        /* ---------- hero aurora drift ---------- */
+        @keyframes mpAuroraA { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-40px, 30px) scale(1.12); } }
+        @keyframes mpAuroraB { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(36px, -26px) scale(1.1); } }
+        .mp-home .mp-aurora { will-change: transform; }
+        .mp-home .mp-aurora-a { animation: mpAuroraA 16s ease-in-out infinite; }
+        .mp-home .mp-aurora-b { animation: mpAuroraB 19s ease-in-out infinite; }
+
+        /* ---------- headline gold shimmer ---------- */
+        @keyframes mpShimmer { to { background-position: 200% center; } }
+        .mp-home .mp-shimmer {
+          background: ${S.gradGoldText}; background-size: 200% auto;
+          -webkit-background-clip: text; background-clip: text;
+          -webkit-text-fill-color: transparent; color: transparent;
+          animation: mpShimmer 5.5s linear infinite;
+        }
+
+        /* ---------- pointer spotlight on cards (cursor-follow glow) ---------- */
+        .mp-home .mp-spot { position: relative; isolation: isolate; }
+        .mp-home .mp-spot::before {
+          content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+          opacity: 0; transition: opacity 0.4s ease; z-index: -1;
+          background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 0%), ${S.spotCream}, transparent 62%);
+        }
+        .mp-home .mp-spot.mp-spot-dark::before {
+          background: radial-gradient(280px circle at var(--mx, 50%) var(--my, 0%), ${S.spotNavy}, transparent 62%);
+        }
+        .mp-home .mp-spot:hover::before { opacity: 1; }
+
         /* ---------- responsive collapse ---------- */
         @media (max-width: 900px) {
           .mp-home .mp-2col { grid-template-columns: 1fr !important; }
@@ -201,12 +277,17 @@ export default function HomeRedesign() {
         }
       `}</style>
 
+      {/* slim scroll-progress bar (top) + subtle film-grain texture overlay */}
+      <div id="mp-progress" aria-hidden />
+      <div id="mp-grain" aria-hidden />
+
       <MpNav onCta={onCta} />
       <MpHero onCta={onCta} />
       <MpMarquee />
       <MpCompare />
       <MpWeek />
       <MpMethod />
+      <MpStats />
       <MpLedger />
       <MpReportProof />
       <MpVoices />

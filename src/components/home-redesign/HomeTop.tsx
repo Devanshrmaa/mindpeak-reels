@@ -3,6 +3,7 @@
 import type { CSSProperties } from "react";
 import { S } from "./theme";
 import { MpButton, MpEyebrow } from "./MpButton";
+import { MpDivider } from "./HomeExtras";
 
 const scrollToResults = () => {
   const el = document.getElementById("results");
@@ -37,9 +38,9 @@ export function MpHero({ onCta }: { onCta: () => void }) {
   const d = (s: string) => ({ "--d": s } as CSSProperties);
   return (
     <header className="mp-x mp-2col" style={{ position: "relative", display: "grid", gridTemplateColumns: "1.05fr 1fr", gap: 56, padding: "64px 48px 96px", alignItems: "center" }}>
-      {/* ambient backdrop: warm gold glow top-right, cool navy wash bottom-left */}
-      <div aria-hidden style={{ position: "absolute", top: -160, right: -180, width: 560, height: 560, borderRadius: "50%", background: "radial-gradient(circle, rgba(227,190,85,0.26) 0%, rgba(227,190,85,0) 65%)", pointerEvents: "none" }} />
-      <div aria-hidden style={{ position: "absolute", bottom: -200, left: -160, width: 520, height: 520, borderRadius: "50%", background: "radial-gradient(circle, rgba(27,42,82,0.08) 0%, rgba(27,42,82,0) 65%)", pointerEvents: "none" }} />
+      {/* ambient backdrop: warm gold glow top-right, cool navy wash bottom-left — slowly drifting (aurora) */}
+      <div aria-hidden className="mp-aurora mp-aurora-a" style={{ position: "absolute", top: -160, right: -180, width: 560, height: 560, borderRadius: "50%", background: "radial-gradient(circle, rgba(227,190,85,0.26) 0%, rgba(227,190,85,0) 65%)", pointerEvents: "none" }} />
+      <div aria-hidden className="mp-aurora mp-aurora-b" style={{ position: "absolute", bottom: -200, left: -160, width: 520, height: 520, borderRadius: "50%", background: "radial-gradient(circle, rgba(27,42,82,0.08) 0%, rgba(27,42,82,0) 65%)", pointerEvents: "none" }} />
 
       <div style={{ position: "relative" }}>
         <div className="mp-rise" style={{ display: "flex", gap: 8, marginBottom: 28, flexWrap: "wrap", ...d("0s") }}>
@@ -49,7 +50,7 @@ export function MpHero({ onCta }: { onCta: () => void }) {
         </div>
         <h1 className="mp-rise" style={{ fontFamily: S.disp, fontSize: "clamp(40px, 5.2vw, 66px)", lineHeight: 1.04, fontWeight: S.dispWeight, letterSpacing: "-0.028em", margin: 0, color: S.navy, ...d("0.08s") }}>
           The mentor who knows your name, your weak chapters, and your{" "}
-          <span className="mp-underline">rank goal.</span>
+          <span className="mp-shimmer">rank goal.</span>
         </h1>
         <p className="mp-rise" style={{ fontSize: 18, lineHeight: 1.65, color: S.inkSoft, maxWidth: 490, margin: "26px 0 34px", ...d("0.16s") }}>
           Daily live 1-on-1 classes with a personal IIT/NIT/AIIMS mentor — not a seat in a
@@ -137,8 +138,10 @@ export function MpWeek() {
   ];
   const dd = (i: number) => ({ "--d": `${i * 0.09}s` } as CSSProperties);
   return (
-    <section className="mp-x" style={{ position: "relative", overflow: "hidden", background: S.gradNavy, color: S.cream, padding: "72px 48px 80px" }}>
-      <div aria-hidden style={{ position: "absolute", top: -180, right: -120, width: 520, height: 520, borderRadius: "50%", background: "radial-gradient(circle, rgba(227,190,85,0.14) 0%, rgba(227,190,85,0) 65%)", pointerEvents: "none" }} />
+    <section className="mp-x" style={{ position: "relative", overflow: "hidden", background: S.gradNavy, color: S.cream, padding: "108px 48px 104px" }}>
+      <MpDivider side="top" />
+      <MpDivider side="bottom" />
+      <div aria-hidden className="mp-aurora mp-aurora-a" style={{ position: "absolute", top: -180, right: -120, width: 520, height: 520, borderRadius: "50%", background: "radial-gradient(circle, rgba(227,190,85,0.14) 0%, rgba(227,190,85,0) 65%)", pointerEvents: "none" }} />
       <div aria-hidden style={{ position: "absolute", bottom: -240, left: -140, width: 480, height: 480, borderRadius: "50%", border: "1px solid rgba(251,247,239,0.07)", pointerEvents: "none" }} />
 
       <div data-reveal style={{ position: "relative", display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 44, gap: 24, flexWrap: "wrap" }}>
@@ -150,7 +153,7 @@ export function MpWeek() {
       </div>
       <div className="mp-4col" style={{ position: "relative", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 14 }}>
         {days.map((w, i) => (
-          <div key={i} data-reveal className="mp-week-card" style={{ background: S.creamFaint, border: `1px solid ${S.lineLight}`, borderRadius: 18, padding: "26px 24px", ...dd(i) }}>
+          <div key={i} data-reveal className="mp-week-card mp-spot mp-spot-dark" style={{ background: S.creamFaint, border: `1px solid ${S.lineLight}`, borderRadius: 18, padding: "26px 24px", ...dd(i) }}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
               <span style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: S.goldBtn }}>{w.d}</span>
               <span aria-hidden style={{ fontFamily: S.disp, fontSize: 13, fontWeight: 700, color: "rgba(251,247,239,0.28)" }}>0{i + 1}</span>

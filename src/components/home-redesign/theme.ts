@@ -36,6 +36,24 @@ export const S = {
   dispWeight: 700,
   body: "var(--font-inter), 'Inter', sans-serif",
   btnRadius: 999,
+
+  /* ---- v2.2 creative extensions ----
+   * Added for the "living editorial" pass: shimmer text, aurora light,
+   * grain texture, pointer-spotlight and a richer accent + shadow scale.
+   * Purely additive — none of the originals above changed. */
+  green: "#3E8E5A",
+  terracotta: "#C25B3F",
+  /* moving gold gradient for shimmer headlines (animated via background-position) */
+  gradGoldText: "linear-gradient(100deg, #C9971F 0%, #B5841A 18%, #F0D684 42%, #FFF6DD 50%, #F0D684 58%, #B5841A 82%, #C9971F 100%)",
+  /* drifting hero "aurora" blobs */
+  auroraGold: "radial-gradient(circle, rgba(227,190,85,0.30) 0%, rgba(227,190,85,0) 62%)",
+  auroraNavy: "radial-gradient(circle, rgba(27,42,82,0.12) 0%, rgba(27,42,82,0) 62%)",
+  auroraGoldSoft: "radial-gradient(circle, rgba(237,203,110,0.16) 0%, rgba(237,203,110,0) 62%)",
+  /* pointer-spotlight tints (cream cards vs navy cards) */
+  spotCream: "rgba(227,190,85,0.18)",
+  spotNavy: "rgba(237,203,110,0.20)",
+  /* gold glow elevation */
+  shadowGold: "0 20px 52px rgba(201,151,31,0.28)",
 } as const;
 
 export type Theme = typeof S;

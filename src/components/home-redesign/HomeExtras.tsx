@@ -1,11 +1,52 @@
 "use client";
 
-import type { CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { UserCheck, Compass, Target, TrendingUp, Check, X } from "lucide-react";
 import { S } from "./theme";
 import { MpEyebrow } from "./MpButton";
 
 const dd = (i: number, base = 0.09) => ({ "--d": `${i * base}s` } as CSSProperties);
+
+/* A gentle cream wave that flows the navy bands into the cream sections
+   above/below them. Rendered inside the (relative, overflow-hidden) navy
+   section; sits in the top/bottom 54px strip, clear of the padded content. */
+export function MpDivider({ side, color = S.bg }: { side: "top" | "bottom"; color?: string }) {
+  const base: CSSProperties = { position: "absolute", left: 0, width: "100%", height: 54, display: "block", pointerEvents: "none" };
+  return side === "top" ? (
+    <svg aria-hidden viewBox="0 0 1440 54" preserveAspectRatio="none" style={{ ...base, top: -1 }}>
+      <path d="M0,0 L1440,0 L1440,30 C1180,54 980,6 720,30 C470,53 250,10 0,34 Z" fill={color} />
+    </svg>
+  ) : (
+    <svg aria-hidden viewBox="0 0 1440 54" preserveAspectRatio="none" style={{ ...base, bottom: -1 }}>
+      <path d="M0,54 L1440,54 L1440,24 C1180,0 980,48 720,24 C470,1 250,44 0,20 Z" fill={color} />
+    </svg>
+  );
+}
+
+/* Count-up that fires once the value scrolls into view. Honours
+   prefers-reduced-motion by jumping straight to the final number. */
+function useCountUp(target: number, active: boolean, duration = 1500) {
+  const [val, setVal] = useState(0);
+  useEffect(() => {
+    if (!active) return;
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setVal(target);
+      return;
+    }
+    let raf = 0;
+    const start = performance.now();
+    const ease = (t: number) => 1 - Math.pow(1 - t, 3);
+    const tick = (now: number) => {
+      const p = Math.min(1, (now - start) / duration);
+      setVal(target * ease(p));
+      if (p < 1) raf = requestAnimationFrame(tick);
+      else setVal(target);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [active, target, duration]);
+  return val;
+}
 
 /* ------------------------------------------------------------------ *
  * MpCompare — the core differentiator, visualised.
@@ -53,7 +94,7 @@ export function MpCompare() {
 
       <div className="mp-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, alignItems: "stretch" }}>
         {/* Batch coaching — muted */}
-        <div data-reveal className="mp-cmp-card" style={{ ...dd(0), background: "#FFFFFF", border: `1px solid ${S.line}`, borderRadius: 22, padding: "34px 32px 26px" }}>
+        <div data-reveal className="mp-cmp-card mp-spot" style={{ ...dd(0), background: "#FFFFFF", border: `1px solid ${S.line}`, borderRadius: 22, padding: "34px 32px 26px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
             <span aria-hidden style={{ width: 9, height: 9, borderRadius: "50%", background: S.inkSoft, opacity: 0.5 }} />
             <span style={{ fontFamily: S.disp, fontSize: 13, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: S.inkSoft }}>Traditional batch coaching</span>
@@ -71,7 +112,7 @@ export function MpCompare() {
         </div>
 
         {/* MindPeak — elevated navy */}
-        <div data-reveal className="mp-cmp-card mp-lift" style={{ ...dd(1), position: "relative", overflow: "hidden", background: S.gradNavy, border: `1px solid rgba(227,190,85,0.45)`, borderRadius: 22, padding: "34px 32px 30px", color: S.cream, boxShadow: "0 26px 60px rgba(19,32,63,0.26)" }}>
+        <div data-reveal className="mp-cmp-card mp-lift mp-spot mp-spot-dark" style={{ ...dd(1), position: "relative", overflow: "hidden", background: S.gradNavy, border: `1px solid rgba(227,190,85,0.45)`, borderRadius: 22, padding: "34px 32px 30px", color: S.cream, boxShadow: "0 26px 60px rgba(19,32,63,0.26)" }}>
           <div aria-hidden style={{ position: "absolute", top: -120, right: -90, width: 320, height: 320, borderRadius: "50%", background: "radial-gradient(circle, rgba(227,190,85,0.22) 0%, rgba(227,190,85,0) 65%)", pointerEvents: "none" }} />
           <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20, gap: 12, flexWrap: "wrap" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -121,7 +162,7 @@ export function MpMethod() {
 
       <div className="mp-4col" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 18 }}>
         {pillars.map((p, i) => (
-          <div key={i} data-reveal className="mp-lift" style={{ ...dd(i), position: "relative", background: "#FFFFFF", border: `1px solid ${S.line}`, borderRadius: 20, padding: "30px 26px 28px", boxShadow: S.shadowSoft }}>
+          <div key={i} data-reveal className="mp-lift mp-spot" style={{ ...dd(i), position: "relative", background: "#FFFFFF", border: `1px solid ${S.line}`, borderRadius: 20, padding: "30px 26px 28px", boxShadow: S.shadowSoft }}>
             <span aria-hidden style={{ position: "absolute", top: 22, right: 24, fontFamily: S.disp, fontSize: 13, fontWeight: 700, color: "rgba(27,42,82,0.16)" }}>0{i + 1}</span>
             <span className="mp-pillar-ic" style={{ display: "grid", placeItems: "center", width: 52, height: 52, borderRadius: 16, background: S.gradGold, marginBottom: 20, boxShadow: "0 10px 24px rgba(201,151,31,0.28)" }}>
               <p.Icon style={{ width: 24, height: 24, color: S.navyDeep }} strokeWidth={2.2} />
@@ -161,7 +202,9 @@ export function MpVoices() {
     },
   ];
   return (
-    <section className="mp-x" style={{ position: "relative", overflow: "hidden", background: S.gradNavy, color: S.cream, padding: "84px 48px 92px" }}>
+    <section className="mp-x" style={{ position: "relative", overflow: "hidden", background: S.gradNavy, color: S.cream, padding: "104px 48px 112px" }}>
+      <MpDivider side="top" />
+      <MpDivider side="bottom" />
       <div aria-hidden style={{ position: "absolute", top: -160, left: -120, width: 480, height: 480, borderRadius: "50%", background: "radial-gradient(circle, rgba(227,190,85,0.14) 0%, rgba(227,190,85,0) 65%)", pointerEvents: "none" }} />
       <div aria-hidden style={{ position: "absolute", bottom: -220, right: -140, width: 460, height: 460, borderRadius: "50%", border: "1px solid rgba(251,247,239,0.07)", pointerEvents: "none" }} />
 
@@ -175,7 +218,7 @@ export function MpVoices() {
 
       <div className="mp-3col" style={{ position: "relative", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 18 }}>
         {voices.map((v, i) => (
-          <figure key={i} data-reveal className="mp-week-card" style={{ ...dd(i), margin: 0, background: S.creamFaint, border: `1px solid ${S.lineLight}`, borderRadius: 20, padding: "30px 28px 26px", display: "flex", flexDirection: "column" }}>
+          <figure key={i} data-reveal className="mp-week-card mp-spot mp-spot-dark" style={{ ...dd(i), margin: 0, background: S.creamFaint, border: `1px solid ${S.lineLight}`, borderRadius: 20, padding: "30px 28px 26px", display: "flex", flexDirection: "column" }}>
             <span aria-hidden style={{ fontFamily: S.disp, fontSize: 56, fontWeight: 700, lineHeight: 0.7, color: S.goldBtn, opacity: 0.55, marginBottom: 14 }}>&ldquo;</span>
             <blockquote style={{ margin: 0, fontSize: 16, lineHeight: 1.62, color: "rgba(251,247,239,0.94)", flexGrow: 1 }}>{v.q}</blockquote>
             <figcaption style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 22, paddingTop: 20, borderTop: `1px solid ${S.lineLight}` }}>
@@ -187,6 +230,91 @@ export function MpVoices() {
             </figcaption>
           </figure>
         ))}
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ *
+ * MpStats — a kinetic "by the numbers" band: a count-up SVG progress
+ * ring for the success rate, plus three count-up figures. Numbers run
+ * once the band scrolls into view (reduced-motion jumps to final).
+ * ------------------------------------------------------------------ */
+export function MpStats() {
+  const ref = useRef<HTMLElement>(null);
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (!("IntersectionObserver" in window)) {
+      setActive(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) if (e.isIntersecting) { setActive(true); io.disconnect(); }
+      },
+      { threshold: 0.3 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const success = useCountUp(95, active);
+  const students = useCountUp(500, active);
+  const air = useCountUp(42, active);
+  const cities = useCountUp(120, active);
+
+  const R = 60, STROKE = 9, SIZE = (R + STROKE) * 2;
+  const CIRC = 2 * Math.PI * R;
+  const dash = CIRC * (1 - success / 100);
+
+  const numStats = [
+    { v: `${Math.round(students)}+`, k: "students mentored across India" },
+    { v: `AIR ${Math.round(air)}`, k: "best JEE Advanced rank to date" },
+    { v: `${Math.round(cities)}+`, k: "cities reached — no relocation" },
+  ];
+
+  return (
+    <section ref={ref} className="mp-x" style={{ position: "relative", overflow: "hidden", background: S.gradNavy, color: S.cream, padding: "104px 48px 112px" }}>
+      <MpDivider side="top" />
+      <MpDivider side="bottom" />
+      <div aria-hidden style={{ position: "absolute", top: -150, right: -120, width: 460, height: 460, borderRadius: "50%", background: S.auroraGoldSoft, pointerEvents: "none" }} />
+
+      <div data-reveal style={{ position: "relative", textAlign: "center", maxWidth: 680, margin: "0 auto 52px" }}>
+        <MpEyebrow light style={{ justifyContent: "center" }}>By the numbers</MpEyebrow>
+        <h2 style={{ fontFamily: S.disp, fontSize: "clamp(30px, 3.6vw, 42px)", fontWeight: S.dispWeight, letterSpacing: "-0.02em", margin: 0 }}>Proof you can count</h2>
+      </div>
+
+      <div className="mp-2col" style={{ position: "relative", display: "grid", gridTemplateColumns: "auto 1fr", gap: 56, alignItems: "center" }}>
+        <div data-reveal style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 16 }}>
+          <div style={{ position: "relative", width: SIZE, height: SIZE }}>
+            <svg width={SIZE} height={SIZE} style={{ transform: "rotate(-90deg)" }} aria-hidden>
+              <defs>
+                <linearGradient id="mpRingGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="#EDCB6E" />
+                  <stop offset="100%" stopColor="#D2A52F" />
+                </linearGradient>
+              </defs>
+              <circle cx={R + STROKE} cy={R + STROKE} r={R} fill="none" stroke="rgba(251,247,239,0.14)" strokeWidth={STROKE} />
+              <circle cx={R + STROKE} cy={R + STROKE} r={R} fill="none" stroke="url(#mpRingGrad)" strokeWidth={STROKE} strokeLinecap="round" strokeDasharray={CIRC} strokeDashoffset={dash} />
+            </svg>
+            <div style={{ position: "absolute", inset: 0, display: "grid", placeItems: "center" }}>
+              <span style={{ fontFamily: S.disp, fontSize: 40, fontWeight: 700, color: S.cream, letterSpacing: "-0.02em" }}>{Math.round(success)}%</span>
+            </div>
+          </div>
+          <div style={{ fontSize: 13.5, lineHeight: 1.5, color: S.creamSoft, textAlign: "center", maxWidth: 190 }}>overall success rate across JEE &amp; NEET</div>
+        </div>
+
+        <div className="mp-3col" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 18 }}>
+          {numStats.map((s, i) => (
+            <div key={i} data-reveal className="mp-spot mp-spot-dark" style={{ ...dd(i), background: S.creamFaint, border: `1px solid ${S.lineLight}`, borderRadius: 18, padding: "28px 24px" }}>
+              <div style={{ fontFamily: S.disp, fontSize: "clamp(30px, 3vw, 40px)", fontWeight: 700, color: S.goldBtn, letterSpacing: "-0.01em" }}>{s.v}</div>
+              <div style={{ fontSize: 13.5, lineHeight: 1.5, color: S.creamSoft, marginTop: 8 }}>{s.k}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
