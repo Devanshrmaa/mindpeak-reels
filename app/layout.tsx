@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description:
-    "Transform your JEE/NEET preparation with personalized 1-on-1 coaching. Achieve AIR <5K with adaptive curriculum, dedicated mentors. Trusted by 500+ students.",
+    "Transform your JEE/NEET prep with personalized 1-on-1 coaching. Achieve AIR <5K with adaptive curriculum, dedicated mentors. Trusted by 500+ students.",
   keywords: [
     "jee coaching",
     "neet coaching",
