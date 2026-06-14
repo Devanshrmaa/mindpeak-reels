@@ -3598,6 +3598,8 @@ const successStoriesPage: SEOPageData = {
   relatedPages: [
     { label: 'JEE Coaching Programs', href: '/jee-coaching' },
     { label: 'NEET Coaching Programs', href: '/neet-coaching' },
+    { label: 'Meet Our Expert Mentors', href: '/mentors' },
+    { label: 'Our Teaching Methodology', href: '/methodology' },
     { label: 'Book a Free Trial', href: '/free-trial' },
     { label: 'Pricing & Plans', href: '/pricing' },
   ],
@@ -3700,6 +3702,8 @@ const methodologyPage: SEOPageData = {
     { q: 'How many hours per day does MindPeak recommend?', a: 'We recommend 6-8 hours of total study per day for serious aspirants: 1.5 hours of 1-on-1 session + 4-5 hours of guided self-study + 1 hour of revision. The exact schedule is customised based on the student\'s capacity and timeline.' },
   ],
   relatedPages: [
+    { label: 'JEE Coaching Programs', href: '/jee-coaching' },
+    { label: 'NEET Coaching Programs', href: '/neet-coaching' },
     { label: 'About MindPeak', href: '/about' },
     { label: 'Success Stories', href: '/success-stories' },
     { label: 'Meet Our Mentors', href: '/mentors' },

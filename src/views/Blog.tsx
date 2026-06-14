@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { getAllPosts } from '@/lib/blogResolver';
 import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
+import { PageFooter } from '@/components/PageFooter';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import { Search, Clock, Calendar, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
@@ -259,17 +260,7 @@ const Blog = () => {
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="bg-background border-t border-border py-8 px-6 text-center" role="contentinfo">
-          <p className="text-muted-foreground text-xs tracking-wider mb-4">
-            © {new Date().getFullYear()} MindPeak Institute. All rights reserved.
-          </p>
-          <div className="flex justify-center gap-4 text-xs">
-            <Link to="/terms-and-conditions" className="text-muted-foreground hover:text-primary transition-colors">Terms &amp; Conditions</Link>
-            <span className="text-border">|</span>
-            <Link to="/refund-policy" className="text-muted-foreground hover:text-primary transition-colors">Refund Policy</Link>
-          </div>
-        </footer>
+        <PageFooter />
       </main>
     </>
   );
