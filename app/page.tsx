@@ -8,7 +8,7 @@ export const revalidate = false;
 
 export const metadata: Metadata = {
   title: `Personalized JEE & NEET Coaching Online — 1-on-1 | MindPeak`,
-  description: `Crack JEE/NEET ${CURRENT_EXAM_YEAR} with personal 1-on-1 mentors from IIT/NIT. Adaptive study plan, 95% success rate, 500+ students. Book your free demo class today — zero commitment.`,
+  description: `Crack JEE/NEET ${CURRENT_EXAM_YEAR} with personal 1-on-1 mentors from IIT/NIT. Adaptive study plan, 95% success rate, 500+ students. Book your free demo today.`,
   alternates: {
     canonical: "https://mindpeakinstitute.com/",
     languages: {

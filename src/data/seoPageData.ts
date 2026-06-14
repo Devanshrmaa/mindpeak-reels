@@ -38,7 +38,7 @@ export interface SEOPageData {
 const aboutPage: SEOPageData = {
   slug: 'about',
   title: 'About MindPeak Institute — IIT & AIIMS Faculty | MindPeak',
-  description: 'India\'s leading 1-on-1 JEE & NEET coaching. IIT/AIIMS alumni mentors, 500+ students, AIR 42 in JEE Advanced. Learn our story, faculty credentials & verified results.',
+  description: 'India\'s leading 1-on-1 JEE & NEET coaching. IIT/AIIMS alumni mentors, 500+ students, AIR 42 in JEE Advanced. See our faculty, results & story.',
   h1: 'About',
   h1Highlight: 'MindPeak Institute',
   heroSubtitle: 'We believe every student deserves a dedicated mentor — not a seat number in a 200-student batch. MindPeak Institute was founded to bring truly personalized coaching to JEE and NEET aspirants across India.',
@@ -119,8 +119,8 @@ const aboutPage: SEOPageData = {
 
 const jeeCoachingPage: SEOPageData = {
   slug: 'jee-coaching',
-  title: `Best JEE Coaching Online ${CURRENT_EXAM_YEAR} — 1-on-1 Mentoring by IIT Alumni | MindPeak`,
-  description: `India's #1 online JEE coaching. Dedicated 1-on-1 IIT-alumnus mentor, daily classes, adaptive curriculum. AIR 42 achieved. 95% selection rate. Start free trial!`,
+  title: `Online JEE Coaching ${CURRENT_EXAM_YEAR} — 1-on-1 by IIT Alumni | MindPeak`,
+  description: `India's #1 online JEE coaching. Dedicated 1-on-1 IIT-alumnus mentor, daily classes, adaptive curriculum. AIR 42 achieved. 95% selection rate. Book free demo.`,
   h1: `Best JEE Coaching Online ${CURRENT_EXAM_YEAR}`,
   h1Highlight: '1-on-1 by IIT Alumni — AIR 42 Achieved',
   heroSubtitle: 'From JEE Main to Advanced — our dedicated mentors guide you through every concept, every doubt, every mock test. Daily 1-on-1 classes, 6 days a week, with a personalised study roadmap crafted just for you.',
@@ -295,8 +295,8 @@ const jeeCoachingPage: SEOPageData = {
 
 const neetCoachingPage: SEOPageData = {
   slug: 'neet-coaching',
-  title: `Best NEET Coaching Online ${CURRENT_EXAM_YEAR} — 1-on-1 by AIIMS Alumni | MindPeak`,
-  description: `India's #1 online NEET coaching. Dedicated AIIMS-alumnus mentor, NCERT-first approach, daily sessions. AIR 156 achieved. 95% selection rate. Book free demo!`,
+  title: `Online NEET Coaching ${CURRENT_EXAM_YEAR} — 1-on-1 AIIMS Mentors | MindPeak`,
+  description: `India's #1 online NEET coaching. AIIMS-alumnus mentor, NCERT-first approach, daily 1-on-1 sessions. AIR 156 achieved. 95% selection rate. Book free demo.`,
   h1: `Best NEET Coaching Online ${CURRENT_EXAM_YEAR}`,
   h1Highlight: '1-on-1 by AIIMS Alumni — NCERT Mastery',
   heroSubtitle: 'Your dream of AIIMS, JIPMER, or a top government medical college starts with the right mentor. MindPeak\'s NEET coaching combines NCERT mastery, dedicated 1-on-1 sessions, and intelligent performance tracking to maximise your NEET score.',
