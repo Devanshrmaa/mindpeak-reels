@@ -1,4 +1,5 @@
 import type { BlogPost } from '@/data/blogData';
+import { getBlogContentEnrichment } from '@/lib/blogContentEnrichments';
 
 export const HARD_MIN_BLOG_WORD_COUNT = 1200;
 
@@ -372,6 +373,14 @@ export function improveBlogContent(post: BlogPost): BlogPost {
   content = dedupeSentences(content);
   content = dedupeParagraphs(content);
   content = dedupeBulletItems(content);
+
+  // Hand-written, page-specific enrichment (real cutoffs / weightage / pattern
+  // data) for the highest-value posts. Added before the generic depth sections
+  // so the genuine, query-matching content leads. Guarded against double-append.
+  const enrichment = getBlogContentEnrichment(post.slug);
+  if (enrichment && !content.includes(enrichment.split('\n')[0])) {
+    content += `\n\n${enrichment}`;
+  }
 
   if (!hasSection(content, 'Key Takeaways')) {
     content += buildKeyTakeaways(post);
