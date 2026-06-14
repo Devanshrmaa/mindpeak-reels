@@ -1,6 +1,7 @@
 "use client";
 
 import type { CSSProperties } from "react";
+import { Atom, Stethoscope, GraduationCap } from "lucide-react";
 import { S } from "./theme";
 import { MpButton, MpEyebrow } from "./MpButton";
 
@@ -102,9 +103,9 @@ export function MpReportProof() {
 
 export function MpPrograms({ onCta }: { onCta: () => void }) {
   const programs = [
-    { no: "01", t: "JEE Main + Advanced", d: "1-year and 2-year programs with personal IIT/NIT mentors, weekly CBT mocks, a roadmap built around your target rank.", best: "Best result: AIR 42" },
-    { no: "02", t: "NEET UG", d: "NCERT line-by-line mastery first, Biology specialists from AIIMS, NTA-pattern computer-based mocks.", best: "Best result: AIR 156" },
-    { no: "03", t: "Foundation · Class 6–10", d: "Boards + Olympiad + NTSE, building scientific habits before the competitive years.", best: "95%+ board scores" },
+    { no: "01", Icon: Atom, t: "JEE Main + Advanced", d: "1-year and 2-year programs with personal IIT/NIT mentors, weekly CBT mocks, a roadmap built around your target rank.", best: "Best result: AIR 42" },
+    { no: "02", Icon: Stethoscope, t: "NEET UG", d: "NCERT line-by-line mastery first, Biology specialists from AIIMS, NTA-pattern computer-based mocks.", best: "Best result: AIR 156" },
+    { no: "03", Icon: GraduationCap, t: "Foundation · Class 6–10", d: "Boards + Olympiad + NTSE, building scientific habits before the competitive years.", best: "95%+ board scores" },
   ];
   return (
     <section id="programs" className="mp-x" style={{ padding: "0 48px 96px" }}>
@@ -113,9 +114,12 @@ export function MpPrograms({ onCta }: { onCta: () => void }) {
         <MpEyebrow style={{ marginBottom: 30 }}>Programs — choose your exam</MpEyebrow>
         <div className="mp-3col mp-programs-grid" style={{ position: "relative", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 0 }}>
           {programs.map((p, i) => (
-            <div key={i} data-reveal className="mp-program" style={{ padding: i ? "0 36px" : "0 36px 0 0", borderLeft: i ? `1px solid ${S.line}` : "none", ...dd(i) }}>
-              <div aria-hidden style={{ display: "inline-grid", placeItems: "center", width: 34, height: 34, borderRadius: "50%", border: `1.5px solid ${S.gold}`, fontSize: 12, color: S.gold, fontWeight: 700, fontFamily: S.disp }}>{p.no}</div>
-              <h3 style={{ fontFamily: S.disp, fontSize: 25, fontWeight: 600, margin: "16px 0 12px", color: S.navy }}>{p.t}</h3>
+            <div key={i} data-reveal className="mp-program" style={{ position: "relative", padding: i ? "0 36px" : "0 36px 0 0", borderLeft: i ? `1px solid ${S.line}` : "none", ...dd(i) }}>
+              <span aria-hidden style={{ position: "absolute", top: -6, right: i ? 0 : 36, fontFamily: S.disp, fontSize: 13, fontWeight: 700, color: "rgba(27,42,82,0.16)" }}>{p.no}</span>
+              <span aria-hidden className="mp-pillar-ic" style={{ display: "grid", placeItems: "center", width: 48, height: 48, borderRadius: 14, background: S.gradGold, boxShadow: "0 10px 24px rgba(201,151,31,0.26)" }}>
+                <p.Icon style={{ width: 22, height: 22, color: S.navyDeep }} strokeWidth={2.2} />
+              </span>
+              <h3 style={{ fontFamily: S.disp, fontSize: 25, fontWeight: 600, margin: "18px 0 12px", color: S.navy }}>{p.t}</h3>
               <p style={{ fontSize: 15, lineHeight: 1.6, color: S.inkSoft, margin: "0 0 18px" }}>{p.d}</p>
               <div style={{ display: "inline-block", fontSize: 11.5, letterSpacing: "0.1em", textTransform: "uppercase", color: "#7A5B0E", fontWeight: 700, background: S.goldSoft, borderRadius: 999, padding: "6px 13px" }}>{p.best}</div>
             </div>

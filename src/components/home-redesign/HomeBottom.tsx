@@ -1,47 +1,79 @@
 "use client";
 
 import { useState } from "react";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 import { S } from "./theme";
 import { MpButton, MpEyebrow } from "./MpButton";
 
 /* FAQ copy is verbatim from the production site (FAQSection). */
 const mpFaqs = [
-  { q: "Are the classes conducted online or offline?", a: "All our classes are conducted online via live 1-on-1 video sessions. The best part? Every live class is recorded, so you can revisit any session anytime for revision. This means you never miss a concept — even if you couldn’t attend a class, the recording is always available." },
-  { q: "What makes MindPeak different from other coaching institutes?", a: "We offer personalized 1-on-1 live online classes 6 days a week with dedicated mentors — not crowded batch classes. Every student gets a customized study plan, regular performance analytics, and direct access to faculty for doubt resolution. Plus, all sessions are recorded for later revision." },
-  { q: "How are the demo classes conducted?", a: "Demo classes are free, live 1-on-1 sessions with our faculty. You’ll experience our teaching methodology firsthand, get a personalized assessment of your current level, and receive a tailored roadmap for your preparation." },
-  { q: "Can I join mid-session or do I have to wait for a new batch?", a: "Since our classes are 1-on-1, you can join anytime! There’s no batch dependency. We’ll create a customized schedule that works for you and align the curriculum to your exam timeline." },
-  { q: "Who are the mentors at MindPeak?", a: "Our mentors are graduates from IIT, NIT, and AIIMS with proven teaching experience. Each mentor is carefully selected for both subject expertise and the ability to connect with students. They undergo regular training to stay updated with the latest exam patterns and NTA guidelines." },
-  { q: "How quickly are doubts resolved?", a: "Doubts raised during live sessions are cleared instantly. For doubts outside class hours, our average response time is under 30 minutes via our dedicated doubt-resolution channel. Unlike batch coaching where students wait days, at MindPeak no question goes unanswered." },
-  { q: "Is MindPeak suitable for dropper students?", a: "Absolutely. We have dedicated dropper programs for both JEE and NEET. Your mentor will evaluate your previous attempt, identify specific gaps, and build a focused plan to maximize your score improvement. Many of our top results — including AIR 89 — came from dropper students." },
-  { q: "What is the fee structure?", a: "Our fees vary by program and duration. Book a free demo class and our counselor will walk you through all available plans, including any ongoing scholarships or installment options." },
-  { q: "Do you offer any study material or do students need to buy separately?", a: "Comprehensive study material, practice problem sets, and NCERT-aligned notes are included with every program. We also provide free downloadable NCERT textbooks on our website. No need to purchase additional books — our curated resources cover the full JEE and NEET syllabus." },
+  { tag: "Format", q: "Are the classes conducted online or offline?", a: "All our classes are conducted online via live 1-on-1 video sessions. The best part? Every live class is recorded, so you can revisit any session anytime for revision. This means you never miss a concept — even if you couldn’t attend a class, the recording is always available." },
+  { tag: "Why us", q: "What makes MindPeak different from other coaching institutes?", a: "We offer personalized 1-on-1 live online classes 6 days a week with dedicated mentors — not crowded batch classes. Every student gets a customized study plan, regular performance analytics, and direct access to faculty for doubt resolution. Plus, all sessions are recorded for later revision." },
+  { tag: "Demo", q: "How are the demo classes conducted?", a: "Demo classes are free, live 1-on-1 sessions with our faculty. You’ll experience our teaching methodology firsthand, get a personalized assessment of your current level, and receive a tailored roadmap for your preparation." },
+  { tag: "Joining", q: "Can I join mid-session or do I have to wait for a new batch?", a: "Since our classes are 1-on-1, you can join anytime! There’s no batch dependency. We’ll create a customized schedule that works for you and align the curriculum to your exam timeline." },
+  { tag: "Mentors", q: "Who are the mentors at MindPeak?", a: "Our mentors are graduates from IIT, NIT, and AIIMS with proven teaching experience. Each mentor is carefully selected for both subject expertise and the ability to connect with students. They undergo regular training to stay updated with the latest exam patterns and NTA guidelines." },
+  { tag: "Doubts", q: "How quickly are doubts resolved?", a: "Doubts raised during live sessions are cleared instantly. For doubts outside class hours, our average response time is under 30 minutes via our dedicated doubt-resolution channel. Unlike batch coaching where students wait days, at MindPeak no question goes unanswered." },
+  { tag: "Droppers", q: "Is MindPeak suitable for dropper students?", a: "Absolutely. We have dedicated dropper programs for both JEE and NEET. Your mentor will evaluate your previous attempt, identify specific gaps, and build a focused plan to maximize your score improvement. Many of our top results — including AIR 89 — came from dropper students." },
+  { tag: "Fees", q: "What is the fee structure?", a: "Our fees vary by program and duration. Book a free demo class and our counselor will walk you through all available plans, including any ongoing scholarships or installment options." },
+  { tag: "Material", q: "Do you offer any study material or do students need to buy separately?", a: "Comprehensive study material, practice problem sets, and NCERT-aligned notes are included with every program. We also provide free downloadable NCERT textbooks on our website. No need to purchase additional books — our curated resources cover the full JEE and NEET syllabus." },
 ];
 
-export function MpFAQ() {
+export function MpFAQ({ onCta }: { onCta: () => void }) {
   const [open, setOpen] = useState<number | null>(0);
+  const contactLink = { display: "flex", alignItems: "center", gap: 9, padding: "10px 14px", background: S.creamFaint, border: `1px solid ${S.lineLight}`, borderRadius: 12, color: "rgba(251,247,239,0.9)", fontSize: 13, fontWeight: 600, textDecoration: "none" } as const;
+
   return (
     <section id="faq" className="mp-x" style={{ padding: "0 48px 96px" }}>
-      <div style={{ maxWidth: 760, margin: "0 auto" }}>
-        <div data-reveal style={{ textAlign: "center", marginBottom: 40 }}>
-          <MpEyebrow style={{ justifyContent: "center" }}>Straight answers</MpEyebrow>
-          <h2 style={{ fontFamily: S.disp, fontSize: "clamp(30px, 3.4vw, 40px)", fontWeight: S.dispWeight, letterSpacing: "-0.02em", margin: 0, color: S.navy }}>
-            Questions parents ask us
+      <div className="mp-2col mp-faq-grid" style={{ display: "grid", gridTemplateColumns: "0.82fr 1.18fr", gap: 56, alignItems: "start" }}>
+        {/* LEFT — sticky intro + "still have a question" CTA panel */}
+        <div data-reveal className="mp-faq-aside" style={{ position: "sticky", top: 96 }}>
+          <MpEyebrow>Straight answers</MpEyebrow>
+          <h2 style={{ fontFamily: S.disp, fontSize: "clamp(30px, 3.4vw, 42px)", fontWeight: S.dispWeight, letterSpacing: "-0.02em", lineHeight: 1.08, margin: "0 0 16px", color: S.navy }}>
+            Questions parents<br />ask us
           </h2>
+          <p style={{ fontSize: 16, lineHeight: 1.65, color: S.inkSoft, margin: "0 0 26px", maxWidth: 360 }}>
+            Everything about classes, mentors, doubts and fees — answered plainly. Still unsure about something? A counsellor is one message away.
+          </p>
+
+          <div className="mp-spot mp-spot-dark" style={{ position: "relative", overflow: "hidden", background: S.gradNavy, color: S.cream, borderRadius: 20, padding: "26px 26px 24px", boxShadow: "0 24px 56px rgba(19,32,63,0.24)" }}>
+            <div aria-hidden style={{ position: "absolute", top: -90, right: -70, width: 240, height: 240, borderRadius: "50%", background: S.auroraGoldSoft, pointerEvents: "none" }} />
+            <div style={{ position: "relative" }}>
+              <div style={{ fontFamily: S.disp, fontSize: 20, fontWeight: 700, marginBottom: 8 }}>Still have a question?</div>
+              <p style={{ fontSize: 14, lineHeight: 1.6, color: S.creamSoft, margin: "0 0 20px" }}>
+                Book a free 1-on-1 demo or message us on WhatsApp — we usually reply within the hour.
+              </p>
+              <MpButton kind="gold" onClick={onCta} style={{ width: "100%", padding: "14px 22px", marginBottom: 12 }}>Book a free demo</MpButton>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 9 }}>
+                <a href="https://wa.me/918219457704" target="_blank" rel="noopener noreferrer" className="mp-contact-chip" style={contactLink}>
+                  <span style={{ display: "grid", placeItems: "center", width: 28, height: 28, borderRadius: "50%", background: "rgba(227,190,85,0.14)", flexShrink: 0 }}><MessageCircle style={{ width: 14, height: 14, color: S.goldBtn }} /></span>
+                  Chat with us on WhatsApp
+                </a>
+                <a href="tel:+918219457704" className="mp-contact-chip" style={contactLink}>
+                  <span style={{ display: "grid", placeItems: "center", width: 28, height: 28, borderRadius: "50%", background: "rgba(227,190,85,0.14)", flexShrink: 0 }}><Phone style={{ width: 14, height: 14, color: S.goldBtn }} /></span>
+                  +91 82194 57704
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div data-reveal style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+
+        {/* RIGHT — accordion of rounded, tagged, spotlight cards */}
+        <div data-reveal style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           {mpFaqs.map((f, i) => {
             const isOpen = open === i;
             return (
-              <div key={i} className="mp-faq-item" style={{ background: isOpen ? "#FFFFFF" : "transparent", border: `1px solid ${isOpen ? S.line : "transparent"}`, borderBottom: `1px solid ${S.line}`, borderRadius: isOpen ? 16 : 0, boxShadow: isOpen ? "0 12px 34px rgba(19,32,63,0.08)" : "none" }}>
-                <button onClick={() => setOpen(isOpen ? null : i)} aria-expanded={isOpen} style={{ width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16, padding: "18px 20px", background: "none", border: "none", cursor: "pointer", textAlign: "left" }}>
-                  <span style={{ fontFamily: S.body, fontSize: 15.5, fontWeight: 600, color: S.navy }}>{f.q}</span>
-                  <span aria-hidden style={{ flexShrink: 0, width: 28, height: 28, borderRadius: "50%", border: `1px solid ${isOpen ? S.gold : S.line}`, background: isOpen ? S.goldSoft : "transparent", display: "grid", placeItems: "center", color: isOpen ? "#7A5B0E" : S.inkSoft, transform: isOpen ? "rotate(45deg)" : "none", transition: "all 300ms cubic-bezier(0.16,1,0.3,1)", fontSize: 16, lineHeight: 1 }}>+</span>
+              <div key={i} className="mp-faq-item mp-spot" style={{ background: isOpen ? "#FFFFFF" : "rgba(255,255,255,0.5)", border: `1px solid ${isOpen ? "rgba(227,190,85,0.5)" : S.line}`, borderRadius: 16, boxShadow: isOpen ? "0 16px 40px rgba(19,32,63,0.10)" : "none" }}>
+                <button onClick={() => setOpen(isOpen ? null : i)} aria-expanded={isOpen} style={{ width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16, padding: "18px 22px", background: "none", border: "none", cursor: "pointer", textAlign: "left" }}>
+                  <span style={{ display: "flex", flexDirection: "column", gap: 7, flex: 1 }}>
+                    <span style={{ alignSelf: "flex-start", fontSize: 10, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#7A5B0E", background: S.goldSoft, borderRadius: 999, padding: "3px 9px" }}>{f.tag}</span>
+                    <span style={{ fontFamily: S.body, fontSize: 15.5, fontWeight: 600, color: S.navy, lineHeight: 1.4 }}>{f.q}</span>
+                  </span>
+                  <span aria-hidden style={{ flexShrink: 0, width: 30, height: 30, borderRadius: "50%", border: `1px solid ${isOpen ? S.gold : S.line}`, background: isOpen ? S.goldSoft : "#FFFFFF", display: "grid", placeItems: "center", color: isOpen ? "#7A5B0E" : S.inkSoft, transform: isOpen ? "rotate(45deg)" : "none", transition: "all 300ms cubic-bezier(0.16,1,0.3,1)", fontSize: 18, lineHeight: 1 }}>+</span>
                 </button>
                 {/* Answer stays in the DOM (SEO/a11y); the grid-rows trick animates height. */}
                 <div className={`mp-faq-body${isOpen ? " mp-open" : ""}`}>
                   <div>
-                    <p style={{ fontSize: 14.5, lineHeight: 1.75, color: S.inkSoft, margin: 0, padding: "0 20px 20px" }}>{f.a}</p>
+                    <p style={{ fontSize: 14.5, lineHeight: 1.75, color: S.inkSoft, margin: 0, padding: "0 22px 20px" }}>{f.a}</p>
                   </div>
                 </div>
               </div>
