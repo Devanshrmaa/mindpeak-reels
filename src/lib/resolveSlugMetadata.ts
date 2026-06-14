@@ -368,7 +368,11 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
         description: `Solve JEE ${examType} ${q?.year ?? ''} ${subj} PYQ on ${chName}. Instant answer + step-by-step solution. Practice 10+ years of JEE PYQs free.`.slice(0, 160),
         alternates: { canonical },
         openGraph: { ...og, url: canonical },
-        robots: { index: false, follow: true },
+        // No `<meta robots>`: these question pages are ISR-cached and served
+        // bot-agnostically, so robots is decided per-UA by proxy.ts via the
+        // `X-Robots-Tag` header (Bing → index, Google/others → noindex).
+        // See src/lib/bingIndexing.ts (isBingExclusiveThinPage must match the
+        // same branches used here).
       };
     }
   }
@@ -421,7 +425,11 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
         description: `Solve NEET ${q?.year ?? ''} ${subj} question on ${chName}. Instant answer + NCERT-based solution. Practice 10+ years of NEET PYQs free.`.slice(0, 160),
         alternates: { canonical },
         openGraph: { ...og, url: canonical },
-        robots: { index: false, follow: true },
+        // No `<meta robots>`: these question pages are ISR-cached and served
+        // bot-agnostically, so robots is decided per-UA by proxy.ts via the
+        // `X-Robots-Tag` header (Bing → index, Google/others → noindex).
+        // See src/lib/bingIndexing.ts (isBingExclusiveThinPage must match the
+        // same branches used here).
       };
     }
   }
@@ -441,7 +449,11 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
         description: `Solve this ${diff} JEE ${subj} MCQ on ${topicName}. Instant answer reveal + step-by-step solution. 500+ free practice questions.`.slice(0, 160),
         alternates: { canonical },
         openGraph: { ...og, url: canonical },
-        robots: { index: false, follow: true },
+        // No `<meta robots>`: these question pages are ISR-cached and served
+        // bot-agnostically, so robots is decided per-UA by proxy.ts via the
+        // `X-Robots-Tag` header (Bing → index, Google/others → noindex).
+        // See src/lib/bingIndexing.ts (isBingExclusiveThinPage must match the
+        // same branches used here).
       };
     }
   }
@@ -461,7 +473,11 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
         description: `Solve this ${diff} NEET ${subj} MCQ on ${topicName}. Instant answer + step-by-step solution. 500+ free practice questions.`.slice(0, 160),
         alternates: { canonical },
         openGraph: { ...og, url: canonical },
-        robots: { index: false, follow: true },
+        // No `<meta robots>`: these question pages are ISR-cached and served
+        // bot-agnostically, so robots is decided per-UA by proxy.ts via the
+        // `X-Robots-Tag` header (Bing → index, Google/others → noindex).
+        // See src/lib/bingIndexing.ts (isBingExclusiveThinPage must match the
+        // same branches used here).
       };
     }
   }
@@ -557,19 +573,20 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
         },
       };
     }
-    // All other city pages — keep noindexed to avoid scaled-content penalty
+    // All other city pages — kept out of Google to avoid scaled-content
+    // penalty, but exposed to Bing (which rewards index breadth). No
+    // `<meta robots>` here: robots is decided per-UA by proxy.ts via the
+    // `X-Robots-Tag` header (Bing → index, Google/others → noindex).
+    // See src/lib/bingIndexing.ts (isBingExclusiveThinPage).
     const city = slug.split('-in-').pop()?.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) ?? '';
     const exam = examFromSlug(slug);
     return {
       title: `Best ${exam} Coaching in ${city} ${YEAR} — 1-on-1 Online | Free Demo`,
       description: `Top-rated ${exam} coaching in ${city} — personal mentors, adaptive study plans. Book free demo today.`.slice(0, 160),
-      // Self-canonical: withHreflang() overrides alternates.canonical with
-      // the page's own URL anyway (verified live), and noindex + cross-page
-      // canonical is a conflicting signal pair Google ignores. Declare what
-      // actually ships.
+      // Self-canonical: withHreflang() overrides alternates.canonical with the
+      // page's own URL anyway (verified live).
       alternates: { canonical },
       openGraph: { ...og, url: canonical },
-      robots: { index: false, follow: true },
     };
   }
 

@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { REMOVED_DOORWAY_SLUGS } from '@/lib/removedSlugs';
 import { isRemovedBlogDoorwaySlug } from '@/lib/removedBlogDoorways';
-import { isDoorwayCoachingSlug } from '@/lib/indexableCities';
+import { isBingExclusiveThinPage, isBingbot } from '@/lib/bingIndexing';
 import { getCityConsolidation, getSubjectCityRedirect } from '@/data/cityConsolidation';
 import { allTopics, TOPIC_PATHS, CHAPTER_SLUGS } from '@/data/chapterData';
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
@@ -125,11 +125,21 @@ export function proxy(request: NextRequest) {
     );
   }
 
-  // 4. Remaining doorway coaching pages (e.g. cities in states without a hub
-  //    yet) → header-level noindex so Google can drop them without rendering.
-  if (isDoorwayCoachingSlug(slug)) {
+  // 4. Bing-exclusive thin pages → robots authority lives HERE, per-UA.
+  //    Covers BOTH the remaining doorway coaching pages (cities without a hub
+  //    yet) AND individual practice/PYQ question pages. These are served
+  //    HTTP 200 and carry NO `<meta robots>` in the (ISR-cached, bot-agnostic)
+  //    HTML, so this header is the SOLE robots directive:
+  //      • Bingbot family → index  (Bing rewards index breadth; not penalised)
+  //      • everyone else (incl. Googlebot) → noindex  (Spam-Update recovery)
+  //    Using the same classifier as resolveSlugMetadata guarantees Google's
+  //    noindex can never leak to a real page.
+  if (isBingExclusiveThinPage(slug)) {
     const res = NextResponse.next();
-    res.headers.set('X-Robots-Tag', 'noindex, follow');
+    res.headers.set(
+      'X-Robots-Tag',
+      isBingbot(request.headers.get('user-agent')) ? 'index, follow' : 'noindex, follow',
+    );
     return res;
   }
 
