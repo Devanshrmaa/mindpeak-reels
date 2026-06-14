@@ -6,6 +6,7 @@ import { S } from "@/components/home-redesign/theme";
 import { MpNav, MpHero, MpMarquee, MpWeek } from "@/components/home-redesign/HomeTop";
 import { MpLedger, MpReportProof, MpPrograms } from "@/components/home-redesign/HomeMid";
 import { MpFAQ, MpContact } from "@/components/home-redesign/HomeBottom";
+import { MpCompare, MpMethod, MpVoices } from "@/components/home-redesign/HomeExtras";
 
 /**
  * Redesigned homepage (v2.1) — a warm cream-on-navy editorial layout, evolved
@@ -169,6 +170,10 @@ export default function HomeRedesign() {
         .mp-home .mp-arrow-link { display: inline-flex; align-items: center; gap: 6px; transition: gap 0.25s var(--mp-ease), color 0.25s ease; }
         .mp-home .mp-arrow-link:hover { gap: 11px; color: ${S.gold}; }
 
+        /* ---------- method pillars (icon flourish on card hover) ---------- */
+        .mp-home .mp-pillar-ic { transition: transform 0.4s var(--mp-ease); }
+        .mp-home .mp-lift:hover .mp-pillar-ic { transform: rotate(-8deg) scale(1.08); }
+
         /* ---------- responsive collapse ---------- */
         @media (max-width: 900px) {
           .mp-home .mp-2col { grid-template-columns: 1fr !important; }
@@ -199,9 +204,12 @@ export default function HomeRedesign() {
       <MpNav onCta={onCta} />
       <MpHero onCta={onCta} />
       <MpMarquee />
+      <MpCompare />
       <MpWeek />
+      <MpMethod />
       <MpLedger />
       <MpReportProof />
+      <MpVoices />
       <MpPrograms onCta={onCta} />
       <MpFAQ />
       <MpContact onCta={onCta} />
