@@ -13,8 +13,7 @@ import { Navbar } from "@/components/sections/Navbar";
 import { PageFooter } from "@/components/PageFooter";
 import { cn } from "@/lib/utils";
 
-const GOOGLE_SHEET_URL =
-  "https://script.google.com/macros/s/AKfycbynDEbMQqfStBwK-sJa5UoLuZtBDNvSPZ4HLvcpuZxTSe6lUy7nuIbxWbQ3QOPovG6N/exec";
+const SUBMIT_URL = "/api/submit-lead";
 const WHATSAPP_URL =
   "https://wa.me/918219457704?text=Hi%2C%20I%20need%20guidance%20on%20NEET%20UG%202026%20cancellation%20and%20re-exam%20preparation";
 
@@ -206,10 +205,10 @@ function LeadFormSection() {
     }
     setLoading(true);
     try {
-      await fetch(GOOGLE_SHEET_URL, {
+      const res = await fetch(SUBMIT_URL, {
         method: "POST",
-        mode: "no-cors",
-        body: new URLSearchParams({
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
           name: form.name.trim(),
           phone: form.phone.trim(),
           class: form.studentClass,
@@ -218,6 +217,7 @@ function LeadFormSection() {
           created_at: new Date().toISOString(),
         }),
       });
+      if (!res.ok) throw new Error("submit_failed");
       setSubmitted(true);
       fireConversion();
     } catch {

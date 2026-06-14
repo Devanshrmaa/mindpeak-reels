@@ -138,19 +138,21 @@ function LeadCaptureForm({ city, openDemoModal }: { city: CityData; openDemoModa
     if (!name || !phone || !course) return;
 
     setLoading(true);
-    const params = new URLSearchParams({
-      name,
-      phone,
-      course,
-      city: city.city,
-      source: 'location-page',
-      timestamp: new Date().toISOString(),
+    fetch('/api/submit-lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name,
+        phone,
+        course,
+        city: city.city,
+        source: 'location-page',
+        timestamp: new Date().toISOString(),
+      }),
+    }).finally(() => {
+      setLoading(false);
+      setSubmitted(true);
     });
-    fetch(`https://script.google.com/macros/s/AKfycbynDEbMQqfStBwK-sJa5UoLuZtBDNvSPZ4HLvcpuZxTSe6lUy7nuIbxWbQ3QOPovG6N/exec?${params.toString()}`, { method: 'GET', mode: 'no-cors' })
-      .finally(() => {
-        setLoading(false);
-        setSubmitted(true);
-      });
   }, [city.city]);
 
   if (submitted) {

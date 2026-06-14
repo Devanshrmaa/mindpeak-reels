@@ -14,7 +14,7 @@ import { toast } from 'sonner';
 import Image from 'next/image';
 const logo = '/images/logo.jpeg';
 
-const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbynDEbMQqfStBwK-sJa5UoLuZtBDNvSPZ4HLvcpuZxTSe6lUy7nuIbxWbQ3QOPovG6N/exec';
+const SUBMIT_URL = '/api/submit-lead';
 
 const contactInfo = [
   { icon: Phone, label: '+91 82194 57704', href: 'tel:+918219457704', desc: 'Mon-Sat, 9 AM – 8 PM IST' },
@@ -74,10 +74,12 @@ const Contact = () => {
     if (error) { toast.error(error); return; }
     setLoading(true);
     try {
-      await fetch(GOOGLE_SHEET_URL, {
-        method: 'POST', mode: 'no-cors',
-        body: new URLSearchParams({ ...form, source: 'contact-page', timestamp: new Date().toISOString() }),
+      const res = await fetch(SUBMIT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, source: 'contact-page', timestamp: new Date().toISOString() }),
       });
+      if (!res.ok) throw new Error('submit_failed');
       setSubmitted(true);
       fireConversion();
       toast.success('Message sent! We\'ll get back to you within 24 hours.');

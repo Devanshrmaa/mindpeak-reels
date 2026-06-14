@@ -4,7 +4,7 @@ import { X, User, Phone, Mail, Loader2, CheckCircle, Download, FileText } from '
 import { toast } from 'sonner';
 import type { FormulaSheetData } from '@/data/formulaSheetData';
 
-const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbynDEbMQqfStBwK-sJa5UoLuZtBDNvSPZ4HLvcpuZxTSe6lUy7nuIbxWbQ3QOPovG6N/exec';
+const SUBMIT_URL = '/api/submit-lead';
 
 interface Props {
   isOpen: boolean;
@@ -38,11 +38,11 @@ export const FormulaDownloadModal = ({ isOpen, onClose, formulaData }: Props) =>
 
     setLoading(true);
     try {
-      // Send lead to Google Sheets
-      await fetch(GOOGLE_SHEET_URL, {
+      // Fire lead capture without blocking the PDF download
+      fetch(SUBMIT_URL, {
         method: 'POST',
-        mode: 'no-cors',
-        body: new URLSearchParams({
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
           name: form.name.trim(),
           phone: form.phone.trim(),
           email: form.email.trim(),
@@ -51,7 +51,7 @@ export const FormulaDownloadModal = ({ isOpen, onClose, formulaData }: Props) =>
           timestamp: new Date().toISOString(),
           source: 'Formula Sheet Download',
         }),
-      });
+      }).catch(() => {});
 
       setSubmitted(true);
 

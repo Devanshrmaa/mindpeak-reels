@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 
-const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbynDEbMQqfStBwK-sJa5UoLuZtBDNvSPZ4HLvcpuZxTSe6lUy7nuIbxWbQ3QOPovG6N/exec';
+const SUBMIT_URL = '/api/submit-lead';
 
 /* ═══════════════════════════════════════════════════════════
    COLLEGE DATA — Real cutoff-based data (JoSAA / MCC)
@@ -327,9 +327,10 @@ const RankPredictor = () => {
     if (!validate()) return;
     setSubmitting(true);
     try {
-      await fetch(GOOGLE_SHEET_URL, {
-        method: 'POST', mode: 'no-cors',
-        body: new URLSearchParams({
+      fetch(SUBMIT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
           name: name.trim(),
           email: email.trim(),
           phone: phone.replace(/[\s-]/g, ''),
@@ -338,7 +339,7 @@ const RankPredictor = () => {
           source: 'rank-predictor',
           timestamp: new Date().toISOString(),
         }),
-      });
+      }).catch(() => {});
     } catch {
       // silent — don't block the user from seeing results
     } finally {
