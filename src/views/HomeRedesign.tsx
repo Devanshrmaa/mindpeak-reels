@@ -204,9 +204,13 @@ export default function HomeRedesign() {
         .mp-home .mp-arrow-link { display: inline-flex; align-items: center; gap: 6px; transition: gap 0.25s var(--mp-ease), color 0.25s ease; }
         .mp-home .mp-arrow-link:hover { gap: 11px; color: ${S.gold}; }
 
-        /* ---------- method pillars (icon flourish on card hover) ---------- */
+        /* ---------- method pillars + program icons (flourish on card hover) ---------- */
         .mp-home .mp-pillar-ic { transition: transform 0.4s var(--mp-ease); }
-        .mp-home .mp-lift:hover .mp-pillar-ic { transform: rotate(-8deg) scale(1.08); }
+        .mp-home .mp-lift:hover .mp-pillar-ic,
+        .mp-home .mp-program:hover .mp-pillar-ic { transform: rotate(-8deg) scale(1.08); }
+
+        /* ---------- FAQ: drop the sticky aside on narrow viewports ---------- */
+        @media (max-width: 900px) { .mp-home .mp-faq-aside { position: static !important; } }
 
         /* ---------- scroll progress bar ---------- */
         .mp-home #mp-progress {
@@ -292,7 +296,7 @@ export default function HomeRedesign() {
       <MpReportProof />
       <MpVoices />
       <MpPrograms onCta={onCta} />
-      <MpFAQ />
+      <MpFAQ onCta={onCta} />
       <MpContact onCta={onCta} />
       {/* The design's slim footer (MpFooter) is intentionally not rendered here:
           the page closes with the production <PageFooter /> link directory in
