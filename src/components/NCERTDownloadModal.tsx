@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, User, Phone, Mail, Loader2, CheckCircle, Download } from 'lucide-react';
 import { toast } from 'sonner';
 
-const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbynDEbMQqfStBwK-sJa5UoLuZtBDNvSPZ4HLvcpuZxTSe6lUy7nuIbxWbQ3QOPovG6N/exec';
+const SUBMIT_URL = '/api/submit-lead';
 
 interface NCERTBook {
   title: string;
@@ -42,10 +42,11 @@ export const NCERTDownloadModal = ({ isOpen, onClose, book }: Props) => {
 
     setLoading(true);
     try {
-      await fetch(GOOGLE_SHEET_URL, {
+      // Fire lead capture without blocking the file download
+      fetch(SUBMIT_URL, {
         method: 'POST',
-        mode: 'no-cors',
-        body: new URLSearchParams({
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
           name: form.name.trim(),
           phone: form.phone.trim(),
           email: form.email.trim(),
@@ -54,7 +55,7 @@ export const NCERTDownloadModal = ({ isOpen, onClose, book }: Props) => {
           timestamp: new Date().toISOString(),
           source: 'PDF Download',
         }),
-      });
+      }).catch(() => {});
       setSubmitted(true);
 
       // Trigger download

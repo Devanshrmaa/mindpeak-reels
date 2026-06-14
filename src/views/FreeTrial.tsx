@@ -13,7 +13,7 @@ import { toast } from 'sonner';
 import Image from 'next/image';
 const logo = '/images/logo.jpeg';
 
-const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbynDEbMQqfStBwK-sJa5UoLuZtBDNvSPZ4HLvcpuZxTSe6lUy7nuIbxWbQ3QOPovG6N/exec';
+const SUBMIT_URL = '/api/submit-lead';
 
 const examOptions = [
   'JEE Main + Advanced (2 Year)',
@@ -89,10 +89,12 @@ const FreeTrial = () => {
     if (error) { toast.error(error); return; }
     setLoading(true);
     try {
-      await fetch(GOOGLE_SHEET_URL, {
-        method: 'POST', mode: 'no-cors',
-        body: new URLSearchParams({ ...form, source: 'free-trial-page', timestamp: new Date().toISOString() }),
+      const res = await fetch(SUBMIT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, source: 'free-trial-page', timestamp: new Date().toISOString() }),
       });
+      if (!res.ok) throw new Error('submit_failed');
       setSubmitted(true);
       fireConversion();
       toast.success('Your free trial has been booked! We\'ll call you within 24 hours.');
