@@ -462,12 +462,12 @@ export const neetBiologyChapters: ChapterData[] = [
     exam: 'NEET', subject: 'Biology', chapter: 'Environmental Issues',
     icon: TreePine,
     weightage: '2-3%', difficulty: 'Easy', pyqCount: 15,
-    description: 'Pollution, ozone depletion, global warming, and waste management — socially relevant NEET content. MindPeak connects environmental issues to current events for engaging and memorable learning.',
+    description: 'Pollution, ozone depletion, global warming, and waste management. Note: this chapter was removed from the NEET syllabus in the NCERT rationalisation (2024–25 onward) and is no longer examinable — these notes are retained for board (Class 12) study. MindPeak connects environmental issues to current events for engaging and memorable learning.',
     topics: ['Air Pollution & Control', 'Water Pollution (BOD, Eutrophication)', 'Solid Waste Management', 'Radioactive Waste', 'Greenhouse Effect & Global Warming', 'Ozone Depletion', 'Deforestation', 'Waste Water Treatment', 'Integrated Organic Farming', 'Case Study: Chipko Movement'],
     keyFormulas: ['BOD: Biochemical Oxygen Demand (higher = more polluted)', 'Eutrophication: nutrient enrichment → algal bloom → O₂ depletion', 'Ozone: CFCs → Cl + O₃ → ClO + O₂', 'Greenhouse gases: CO₂, CH₄, N₂O, CFCs'],
     commonMistakes: ['Confusing BOD and COD', 'Wrong greenhouse gas contributions', 'Mixing up primary and secondary pollutants', 'Wrong ozone depletion mechanism details'],
     faqs: [
-      { q: 'How important is Environmental Issues for NEET?', a: '2-3% with straightforward NCERT-based questions. Focus on BOD, eutrophication, greenhouse effect, and ozone depletion. Quick marks — MindPeak includes this in the last-week revision module.' },
+      { q: 'Is Environmental Issues still in the NEET syllabus?', a: 'No. The chapter was removed in the NCERT rationalisation and is not part of the current NEET syllabus (2024–25 onward). It is retained here for board (Class 12) preparation only. For NEET, redirect your Ecology time to Organisms & Populations, Ecosystem, and Biodiversity & Conservation, which remain examinable and contribute roughly 8–10 questions a year. Always verify against the latest official NMC syllabus.' },
     ],
   },
 ];
