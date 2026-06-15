@@ -285,6 +285,273 @@ biggest difference from JEE, where boards don't affect rank.
 A: Because it unlocks the IITs, which KCET cannot. Difficulty and reward go together
 — Advanced is harder precisely because the seat it offers is one KCET doesn't. Choose
 based on the college you actually want, not on which exam is easier.`,
+
+  /* ───────────────────────── CUET vs JEE Main ─────────────────────────────────
+     Query: "cuet vs jee" (pos ~7). Every SERP leader says "CUET is easier" and
+     stops there. The gap none of them front-load: the two exams open *different*
+     colleges — CUET is not a back-door to NIT/IIIT — so "easier" is the wrong
+     question. Lead with the colleges intent + an honest decision rule. */
+  'cuet-vs-jee-main-comparison': `## CUET vs JEE Main — "Easier" Is the Wrong Question
+
+Yes, CUET UG is easier than JEE Main: it is drawn only from the **Class 12 NCERT
+syllabus**, it is **MCQ-only** (no numerical-answer questions), and it skips the
+experimental/depth topics JEE loves. But difficulty is not the decision — the two
+exams unlock **completely different colleges**, and that is what most comparisons
+bury. Pick the exam that opens the door you actually want.
+
+| | CUET UG | JEE Main |
+|---|---|---|
+| Syllabus scope | Class 12 NCERT only | Class 11 **and** 12 |
+| Question type | MCQ only | MCQ + numerical-answer |
+| Negative marking | Yes (recent cycles +5 / −1) | Yes (−1 on MCQs; 0 on numerical) |
+| Difficulty | Moderate, textbook-direct | High, multi-concept |
+| Unlocks | Central-university B.Tech/integrated programs | NITs, IIITs, GFTIs (+ JEE Advanced gateway to IITs) |
+
+### The detail that actually decides it: which colleges accept each
+
+This is what "CUET is easier" pages never tell you plainly:
+
+- **CUET UG does NOT get you into the IITs, NITs, IIITs or GFTIs.** Those are JEE
+  Main only (and JEE Advanced for the IITs). If your goal is an NIT or IIT, CUET is
+  not a shortcut to it — it cannot be.
+- **CUET engineering seats are at central universities** — DU, BHU, Tezpur
+  University, Pondicherry University, Central University of Rajasthan/Haryana/Punjab,
+  HNBGU Garhwal, AMU, and similar. These are genuinely good government institutions,
+  but they are a *different* set from the JEE ecosystem.
+
+So the honest framing is: if you want NIT/IIIT/IIT, you must clear JEE Main — there
+is no CUET route to those, however much easier CUET is. If you are aiming at a
+central-university B.Tech or a non-engineering degree (the bulk of what CUET is
+built for), CUET is the right and far less brutal exam.
+
+### A 30-second decision rule
+
+1. **Target is an IIT/NIT/IIIT?** → JEE Main is non-negotiable. Treat CUET only as a
+   low-effort safety net (your JEE prep already covers its Class 12 portion).
+2. **Target is a central-university engineering or B.Sc./integrated programme?** →
+   CUET is your main exam; don't burn a year on JEE Advanced-grade depth you won't
+   use.
+3. **Genuinely unsure?** → Prepare JEE Main properly. It is the strictly harder
+   syllabus, so anyone JEE-ready can walk into CUET, but the reverse is not true.
+
+### FAQ — CUET vs JEE Main
+
+**Q: Is CUET easier than JEE Main?**
+A: Yes. CUET covers only Class 12 NCERT, is MCQ-only, and is pitched at textbook
+level, while JEE Main spans Class 11 and 12 with deeper, multi-step problems. A
+JEE-prepared student usually finds CUET's PCM sections comfortable.
+
+**Q: Can I get into an NIT or IIT through CUET?**
+A: No. NITs, IIITs and GFTIs admit through JEE Main; the IITs through JEE Advanced.
+CUET is accepted by central universities, not the JEE-counselling institutes. If
+those are your target, CUET cannot substitute for JEE Main.
+
+**Q: Can my JEE Main preparation cover CUET too?**
+A: Largely yes for the Class 12 portion, since CUET is a subset of the JEE syllabus.
+The only adjustments are practising CUET's strictly-MCQ format and its negative
+marking. Many students sit both — JEE for the premier institutes, CUET as a backup.`,
+
+  /* ───────────────────────── BITSAT vs JEE Main ───────────────────────────────
+     Query cluster: "bitsat vs jee mains" + "...syllabus overlap" (pos ~7–9).
+     SERP leaders give the overlap % but omit (a) the two extra sections JEE
+     students never prepare and (b) the real BITS cutoff scores. Add both. */
+  'bitsat-vs-jee-main-comparison': `## BITSAT vs JEE Main — Pattern, Overlap & the Scores BITS Actually Wants
+
+The syllabus overlap is **~85%** — Physics, Chemistry and Maths in BITSAT are the
+same NCERT Class 11–12 you already do for JEE Main. So the differences that matter
+are *structural*, not topical, and there are two JEE students consistently miss.
+Here is the current BITSAT pattern beside JEE Main:
+
+| Parameter | BITSAT | JEE Main |
+|---|---|---|
+| Total questions | 130 (+12 optional bonus) | 90 |
+| Sections | Physics 30 · Chemistry 30 · Maths/Bio 40 · **English + Logical Reasoning 30** | Physics 30 · Chemistry 30 · Maths 30 |
+| Marking | +3 / −1 | +4 / −1 (MCQ); 0 on numerical |
+| Total marks | 390 (max 426 with bonus) | 300 |
+| Duration | 3 hours | 3 hours |
+| Time per question | ~1.4 min | ~2.4 min |
+| Question type | MCQ only | MCQ + numerical |
+
+### What JEE students underestimate #1: the English + Logical Reasoning section
+
+30 of BITSAT's 130 questions — nearly a quarter of the paper — are **English
+Proficiency and Logical Reasoning**, which simply do not exist in JEE Main. They are
+not hard, but they are unfamiliar, and a JEE aspirant who walks in cold can drop 40+
+easy marks here. A week of practice on series, analogies, figure-completion and basic
+grammar/vocabulary is the single highest-return BITSAT-specific prep you can do.
+
+### What JEE students underestimate #2: speed, not depth
+
+You get **~1.4 minutes per question against JEE Main's ~2.4**. BITSAT questions are
+individually *easier* than JEE Main's, but you must solve them almost twice as fast,
+with no numerical-answer breathers. The skill BITSAT rewards is rapid, accurate,
+single-pass MCQ solving — train with strict per-question timers, not untimed sets.
+
+### The real numbers: what score gets you BITS CSE
+
+Most comparison pages stop at "it's competitive." The concrete targets (out of 390):
+
+| Campus | CSE cutoff (recent years) |
+|---|---|
+| BITS Pilani | ~304–331 |
+| BITS Goa / Hyderabad | ~275–300 |
+
+If you finish all 130 questions confidently, attempt the **12 bonus questions** — but
+only then, because choosing them locks you out of revisiting the main paper. They can
+add up to 36 marks (taking the max to 426), which is exactly the cushion that pushes a
+borderline score over a campus cutoff.
+
+### Should you sit both? (honest take)
+
+For most JEE Main aspirants, **yes** — the 85% overlap means BITSAT costs you only a
+few days of format-specific prep (English/LR + timed practice) for a shot at BITS,
+which for CSE/EEE rivals the better NITs. The case *against* is if your JEE prep is
+shaky: don't let BITSAT's extra sections or a second exam centre split a focus that
+your primary target still needs.
+
+### FAQ — BITSAT vs JEE Main
+
+**Q: Is BITSAT easier than JEE Main?**
+A: The questions are easier and the syllabus overlaps ~85%, but BITSAT is harder on
+*time* (~1.4 min/question vs ~2.4) and adds English + Logical Reasoning that JEE
+doesn't test. Easier content, tougher pace.
+
+**Q: How much syllabus overlap is there between BITSAT and JEE Main?**
+A: About 85%. The PCM is essentially the same NCERT Class 11–12. The non-overlap is
+BITSAT's English Proficiency and Logical Reasoning section (30 questions) and JEE
+Main's numerical-answer questions.
+
+**Q: What BITSAT score do I need for CSE at BITS Pilani?**
+A: Roughly 304–331 out of 390 in recent years for Pilani CSE; about 275–300 for Goa
+and Hyderabad CSE. Use the optional 12 bonus questions only after finishing the main
+130 — they can add the marks that clear a cutoff.`,
+
+  /* ───────────────────────── KCET Physics preparation ─────────────────────────
+     Query: "important chapters for kcet physics" (pos ~6). Gap: a concrete
+     chapter-weightage table + the no-negative-marking attempt-all consequence +
+     the board-marks-are-50%-of-rank reminder specific to KCET. */
+  'how-to-prepare-physics-for-kcet': `## KCET Physics — Where the 60 Marks Actually Sit
+
+KCET Physics is **60 questions, 1 mark each, no negative marking, ~80 minutes**, and
+roughly **80% of it comes from 2nd PUC (Class 12)** and 20% from 1st PUC (Class 11).
+About half the paper is numerical, so formula fluency matters more than wordy theory.
+Here is where the marks concentrate, so you study in the right order:
+
+| Area | Approx. share of the Physics section | Priority |
+|---|---|---|
+| Mechanics (kinematics, laws, work-energy, rotation, gravitation) | ~30% | Do first |
+| Electricity & Magnetism (Current Electricity is the single top chapter) | ~28% | Do first |
+| Optics (Ray + Wave) | ~12–15% | High |
+| Modern Physics (dual nature, atoms, nuclei, semiconductors) | ~12–15% | High |
+| Heat & Thermodynamics, Oscillations & Waves | ~10–12% | Medium |
+
+**The takeaway:** Mechanics + Electricity & Magnetism together are nearly **60% of
+the section.** If you are short on time, secure these two to high accuracy before
+touching anything else — Current Electricity, Electrostatics and Mechanics are the
+chapters that decide a KCET Physics score.
+
+### The strategy "important chapters" lists never mention: no negative marking
+
+KCET has **no negative marking**, which changes how you play the paper. Unlike JEE,
+where a wrong answer costs you, here a blind guess has only upside. So: solve every
+question you know, then **attempt all 60** — never leave a blank. On the toughest
+numericals, eliminate two options and guess; even a 1-in-2 has positive expected
+value. Carrying JEE's "skip if unsure" habit into KCET silently throws away marks.
+
+### Don't forget: your board marks are half your rank
+
+KCET engineering rank is computed **50% from KCET + 50% from your 2nd PUC PCM board
+marks.** That means a brilliant Physics paper is only half the battle — neglecting
+your PU board Physics caps your rank no matter how well you do here. Prepare the
+NCERT/PU concepts once, well, and they pay off in *both* the board exam and KCET.
+
+### A focused 6-week Physics plan
+
+| Weeks | Focus |
+|---|---|
+| 1–2 | Mechanics end to end + daily numerical sets |
+| 3–4 | Current Electricity, Electrostatics, Magnetism & EMI |
+| 5 | Optics + Modern Physics |
+| 6 | Heat/Thermo, Waves + full timed KCET PYQ papers (attempt all 60) |
+
+### FAQ — KCET Physics
+
+**Q: Which are the most important chapters for KCET Physics?**
+A: Mechanics (~30%) and Electricity & Magnetism (~28%) — together nearly 60% of the
+section, with Current Electricity the single highest-yield chapter. Then Optics and
+Modern Physics. Around 80% of the paper is Class 12.
+
+**Q: Is there negative marking in KCET Physics?**
+A: No. Every question is +1 for correct, 0 for wrong — so attempt all 60 and never
+leave a blank, guessing intelligently on the ones you're unsure of.
+
+**Q: How much of KCET Physics is numerical?**
+A: Roughly half. KCET rewards fast, accurate formula application over long theory, so
+practise timed numerical sets rather than only reading concepts.`,
+
+  /* ─────────────────── Environmental Issues (NEET Biology) ────────────────────
+     Query: "environmental issues neet" (pos ~8). Gap: an exact NCERT subtopic
+     checklist + honest "low-weightage, high-ROI, last-week chapter" framing +
+     the specific factual hooks (BOD, eutrophication, ozone) that get tested. */
+  'how-to-prepare-environmental-issues-for-neet': `## Environmental Issues for NEET — A Small, High-ROI Chapter (Don't Over-Invest)
+
+Let's be honest about weightage: Environmental Issues is a **small chapter — about
+2–3% of NEET Biology, typically 1–2 questions.** It is **100% from NCERT**, almost
+entirely **factual or assertion-reason** in style, with essentially no problem-solving.
+That makes it a *high-return, low-effort* chapter: a couple of focused revisions can
+near-guarantee those marks, but it does **not** deserve days of study at the expense
+of high-weightage units like Genetics, Ecology proper, or Human Physiology.
+
+### The exact NCERT sub-topics that get tested
+
+Don't read it as a story — memorise this checklist, because questions come straight
+off these facts:
+
+| Topic | The facts NEET actually asks |
+|---|---|
+| Air pollution & control | Electrostatic precipitator, scrubber, catalytic converter (needs unleaded petrol) |
+| Water pollution | **BOD** (higher BOD = more pollution), **eutrophication**, algal bloom, biomagnification (DDT in food chains) |
+| Case studies | Integrated waste-water treatment (Arcata), ecological sanitation |
+| Solid & e-waste | Sanitary landfills, e-waste recycling concerns |
+| Agrochemicals | Eutrophication from fertilisers, organic farming/IPM as alternatives |
+| Greenhouse effect & global warming | Order of greenhouse gases (CO₂ > CH₄ > others), consequences |
+| Ozone depletion | UV-B effects, **CFCs**, the Montreal Protocol, "Bad Ozone vs Good Ozone" |
+| Deforestation | Slash-and-burn (jhum), reforestation, Chipko/Joint Forest Management |
+
+### The classic high-yield hooks (worth a permanent place on your revision sheet)
+
+- **BOD**: the amount of oxygen microbes need to break down organic matter — *higher
+  BOD means more organic pollution.* A perennial one-liner.
+- **Eutrophication**: nutrient enrichment (nitrogen/phosphorus) → algal bloom → oxygen
+  depletion → fish death. Know the *sequence*, not just the word.
+- **Biomagnification**: pollutant concentration increases up the trophic levels (classic
+  example: DDT, highest in fish-eating birds).
+- **Montreal Protocol** = ozone (CFCs); **Kyoto Protocol** = greenhouse gases. NEET
+  loves to swap these in assertion-reason questions.
+
+### How to actually prepare it
+
+Read the NCERT chapter once for understanding, then convert it into the table above
+and revise it twice — ideally in the **last week** before the exam, alongside the
+other short Ecology chapters. That timing is deliberate: it's pure recall, so it
+benefits most from being fresh, and it frees your earlier weeks for the units that
+carry real weight.
+
+### FAQ — Environmental Issues for NEET
+
+**Q: How important is Environmental Issues for NEET?**
+A: Low individual weightage — about 2–3% of Biology, usually 1–2 questions — but it's
+100% NCERT and factual, so it's among the easiest marks in the paper. Worth securing,
+not worth over-studying.
+
+**Q: What are the most asked topics from Environmental Issues?**
+A: BOD and eutrophication (water pollution), the greenhouse effect/global warming,
+ozone depletion and CFCs (Montreal Protocol), and biomagnification. These recur across
+NEET PYQs as direct or assertion-reason questions.
+
+**Q: When should I study Environmental Issues in my NEET prep?**
+A: Late — it's a recall-heavy chapter, so it pays to revise it in the final week with
+the other short Ecology topics rather than early in your schedule.`,
 };
 
 /**
