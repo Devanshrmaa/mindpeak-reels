@@ -1,5 +1,5 @@
 # MindPeak Institute — Outreach Tracker
-**Last Updated:** 2026-05-20  
+**Last Updated:** 2026-06-15  
 **Site:** mindpeakinstitute.com  
 **MSME:** UDYAM-HP-04-0042530
 
@@ -22,7 +22,7 @@
 | 9 | 2026-05-14 | entrepreneurindia.com | entrepreneurindia.com/edawards | Award Nomination | prateek@entrepreneurindia.in / +91 6354604762 | ❌ | — | NOT STARTED |
 | 10 | 2026-05-14 | startupawardsindia.in | startupawardsindia.in | Award Nomination | Online nomination form | ❌ | — | NOT STARTED |
 | 11 | 2026-05-14 | physicsnavigator.in | physicsnavigator.in/Blog/top-10-physics-teachers-india-jee-neet-2026 | Listicle Inclusion | physicsnavigator85@gmail.com | ❌ | — | NOT STARTED |
-| 12 | 2026-05-14 | shiksha.com | shiksha.com | Directory Listing | Partner portal (shiksha.com/partner) | ❌ | — | NOT STARTED |
+| 12 | 2026-05-14 | shiksha.com | shiksha.com / enterprise.shiksha.com | Directory Listing | **Rana@Shiksha.Com** ✅ DIRECT CONTACT CONFIRMED (updated 2026-06-15) | ❌ | — | NOT STARTED |
 | 13 | 2026-05-14 | trendingonlinenow.in | trendingonlinenow.in/top-10-neet-online-coaching-institutes-india-2026-rankings-fees-results-expert-guide | Listicle Inclusion | grocat.in contact | ❌ | — | NOT STARTED |
 | 14 | 2026-05-14 | collegedisha.com | collegedisha.com/write-for-us | Guest Post | Write for Us form | ❌ | — | NOT STARTED |
 | 15 | 2026-05-14 | colleges18.com | colleges18.com/write-for-us | Guest Post | Write for Us form | ❌ | — | NOT STARTED |
@@ -57,6 +57,12 @@
 | 44 | 2026-06-04 | cyboardschool.com | cyboardschool.com/write-for-us/ | Guest Post — accepts EdTech/education content from teachers & founders, 1000–2500 words, byline with link | Via write-for-us form on site | ❌ | — | NOT STARTED |
 | 45 | 2026-06-04 | dailysarkariresults.com | dailysarkariresults.com/write-for-us/ | Guest Post — education, study tips, coaching content; high-traffic exam-aware student audience | Via write-for-us form on site | ❌ | — | NOT STARTED |
 | 46 | 2026-06-04 | vidsaga.com | vidsaga.com/top-indian-edtech-startups/ | Listicle Inclusion — "32 Top Indian EdTech Startups 2026" (startup directory angle, MSME + HP startup story) | Via vidsaga.com contact page | ❌ | — | NOT STARTED |
+| 47 | 2026-06-15 | blogandjournal.com | blogandjournal.com/top-jee-coaching-institutes-in-india-for-2026/ | Listicle Inclusion — "Top JEE Coaching Institutes India 2026" (pub. May 1 2026; all big-batch players; no boutique 1-on-1 slot; previously tracked only as Guest Post site) | Via blogandjournal.com contact/Write for Us form | ❌ | — | NOT STARTED |
+| 48 | 2026-06-15 | inventiva.co.in | inventiva.co.in/trends/digital-coaching-platforms-in-2026/ + /top-10-edtech-startups-in-2026/ + 2 more | Listicle Inclusion — Multiple: "Top 10 Digital Coaching Platforms 2026", "Top 10 EdTech Startups 2026" etc (DA 66, DR 74; no boutique coaching category in any article) | Via inventiva.co.in contact page | ❌ | — | NOT STARTED |
+| 49 | 2026-06-15 | edtechstartups.org | edtechstartups.org/country/India/ | Self-Serve Directory — "Top 100 EdTech Startups India 2026"; ADD STARTUP button live; editor: neveu@edtechstartups.com | ADD STARTUP form at edtechstartups.org + neveu@edtechstartups.com | ❌ | — | NOT STARTED |
+| 50 | 2026-06-15 | teacheron.com | teacheron.com/tutors/online-jee_physics-tutors | Tutor Directory Profile (FREE self-serve) — JEE Physics, JEE Advanced Physics, NEET categories; 30 min to create Devansh's profile with mindpeakinstitute.com link | teacheron.com/teach (self-register) | ❌ | — | NOT STARTED |
+| 51 | 2026-06-15 | sarkariresultexams.com | sarkariresultexams.com/write-for-us/ | Guest Post — Education, coaching, study tips; DIFFERENT site from dailysarkariresults.com (#45) | info@sarkariresultexams.com | ❌ | — | NOT STARTED |
+| 52 | 2026-06-15 | origineducare.com | origineducare.com/best-online-platforms-for-iit-jee-preparation/ | Listicle Inclusion — THIRD OriginEducare article (MindPeak absent); mention all 3 URLs in Email #26 (supersedes single-article Email #13) | origineducare.com/contact-us/ | ❌ | — | NOT STARTED |
 
 ---
 
@@ -77,6 +83,16 @@
 ---
 
 ## Notes & Strategy Log
+
+### 2026-06-15 — Week 6 Audit + 6 New Targets Added (52 Total)
+
+- **Zero backlinks for SIXTH consecutive week.** Jun 2–8 "emergency minimum" week missed in full. Jun 9–15 window also missed. All 46 prior targets remain NOT STARTED.
+- **6 new targets added (#47–52):** blogandjournal.com (new JEE listicle, May 2026), inventiva.co.in (DA 66/DR 74 — 4 relevant listicles), edtechstartups.org (self-serve ADD STARTUP portal, 5 min), teacheron.com (free tutor directory, 30 min), sarkariresultexams.com (guest post), origineducare.com 3rd article
+- **⚠️ Shiksha.com contact CONFIRMED:** Direct email is Rana@Shiksha.Com — entry #12 updated. This removes the main friction point for one of the highest-impact directory listings.
+- **OriginEducare now has 3 articles:** The single most overdue email (#13, now superseded by Email #26) can request inclusion in all 3 simultaneously with one send.
+- **Two new self-serve platforms (no email needed):** edtechstartups.org ADD STARTUP button (5 min) and teacheron.com tutor profile (30 min) — both can be done today with zero outreach dependency.
+- **Emails #22–26 ready to send** (in /seo-reports/backlinks-2026-06-15.md)
+- **Google Alert:** Still not set up — now 7 weeks overdue since May 15 recommendation
 
 ### 2026-06-04 — Week 5 Audit + 8 New Targets Added (46 Total)
 
@@ -126,8 +142,9 @@
 | May 12–18, 2026 | 0 → 3 | Send #1, #2, #8, #11, #27 (UrbanPro self-serve) | — | **MISSED — zero sent** |
 | May 19–25, 2026 | 0 → 5 | Self-serve: UrbanPro (#27), HP Startup (#37), Wellfound (#38). Email: #2, #8, #13, #1, #14, #4 | — | **MISSED — zero sent** |
 | May 26–Jun 1, 2026 | 5 → 10 | Follow up #2/#8/#13/#14; send #9, #10, #6, #15, #16, #17 | — | **MISSED — zero sent** |
-| **Jun 2–8, 2026** | **0 → 5** | **EMERGENCY MINIMUM:** Quora answer (10 min). Self-serve: UrbanPro (#27), Wellfound (#38), HP Startup (#37). Emails: #13 OriginEducare, #2 CollegeDekho | 🔥 CRITICAL WEEK — must act | ⏳ IN PROGRESS |
-| Jun 9–15, 2026 | 5 → 10 | Email: #8 CollegeDunia, #14 Notesly, #18 AcademyCheck 2027, #1 AcademyCheck NEET. Follow up #13/#2 | — | NOT STARTED |
+| **Jun 2–8, 2026** | **0 → 5** | **EMERGENCY MINIMUM:** Quora answer (10 min). Self-serve: UrbanPro (#27), Wellfound (#38), HP Startup (#37). Emails: #13 OriginEducare, #2 CollegeDekho | 🔥 CRITICAL WEEK — must act | ⛔ **MISSED — zero sent** |
+| Jun 9–15, 2026 | 5 → 10 | Email: #8 CollegeDunia, #14 Notesly, #18 AcademyCheck 2027, #1 AcademyCheck NEET. Follow up #13/#2 | — | ⛔ **MISSED — zero sent** |
+| **Jun 16–22, 2026** | **0 → 5** | **SELF-SERVE FIRST:** edtechstartups.org ADD STARTUP (#49, 5 min), TeacherOn profile (#50, 30 min), UrbanPro (#27, 30 min), Wellfound (#38, 15 min), HP Startup (#37, 20 min), Google Alert (5 min). **THEN EMAILS:** #26 OriginEducare×3, #25 Shiksha (Rana@Shiksha.Com), #22 Blog&Journal. Quora answer (10 min). | 🔥 WEEK 7 — MUST ACT | NOT STARTED |
 | Jun 16–22, 2026 | 10 → 15 | Emails: #4 FutureTopper, #6 ExamCharcha, #19 CosmosIQ, #20 Indian-Preneur, #9 PhysicsNavigator | — | NOT STARTED |
 | Jun 23–30, 2026 | 15 → 20 | Emails: #21 CyboardSchool, #11 SCNWire PR, #10 Giraffe-Learning ×2, #5 Suganta. Follow up all pending. Start Shiksha | — | NOT STARTED |
 | Jul 2026 | 20 → 30 | Careers360, Shiksha partner portal, Awards follow-up. Start Quora 2–3/week consistently | — | NOT STARTED |
