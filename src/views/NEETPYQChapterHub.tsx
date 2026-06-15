@@ -16,6 +16,7 @@ import {
   getNEETPYQChapter,
   getNEETPYQSlugByParams,
 } from '@/data/neet-pyq';
+import { getPYQChapterEnrichment } from '@/data/neet-pyq/chapterEnrichments';
 
 const NEETPYQChapterHub = () => {
   const pathname = usePathname();
@@ -33,6 +34,7 @@ const NEETPYQChapterHub = () => {
   const unit = getUnitForChapter(hubInfo.subjectSlug, hubInfo.chapterSlug!);
   const chapterName = chapter.name;
   const subj = bank.subject;
+  const enrichment = getPYQChapterEnrichment(hubInfo.subjectSlug, hubInfo.chapterSlug!);
 
   // Get unique years
   const years = [...new Set(chapter.questions.map(q => q.year))].sort((a, b) => b - a);
@@ -50,6 +52,13 @@ const NEETPYQChapterHub = () => {
       ...(unit ? [{ '@type': 'ListItem', position: 4, name: unit.unitName, item: `https://mindpeakinstitute.com/neet-pyq-${hubInfo.subjectSlug}-unit-${unit.unitSlug}` }] : []),
       { '@type': 'ListItem', position: unit ? 5 : 4, name: chapterName, item: `https://mindpeakinstitute.com/${slug}` },
     ] },
+    ...(enrichment ? [{
+      '@context': 'https://schema.org', '@type': 'FAQPage',
+      mainEntity: enrichment.faqs.map(f => ({
+        '@type': 'Question', name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    }] : []),
   ];
 
   return (
@@ -147,6 +156,63 @@ const NEETPYQChapterHub = () => {
             <p className="text-center text-muted-foreground py-12">No questions found for the selected year.</p>
           )}
         </section>
+
+        {/* Curated chapter analysis — renders only for chapters with a hand-written entry */}
+        {enrichment && (
+          <section className="mx-auto max-w-4xl px-4 pb-12">
+            <div className="rounded-2xl border border-border bg-card/40 p-6 sm:p-8 space-y-8">
+              <div>
+                <h2 className="font-display font-bold text-2xl text-foreground mb-3">{chapterName} in NEET — Weightage & What Actually Gets Asked</h2>
+                <p className="text-muted-foreground leading-relaxed">{enrichment.overview}</p>
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm border-collapse">
+                  <tbody>
+                    {enrichment.facts.map((f) => (
+                      <tr key={f.label} className="border-b border-border/60">
+                        <td className="py-2 pr-4 font-medium text-foreground/90 whitespace-nowrap">{f.label}</td>
+                        <td className="py-2 text-muted-foreground">{f.value}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              <div>
+                <h3 className="font-display font-semibold text-lg text-foreground mb-3">High-Yield Sub-Topics (most-asked first)</h3>
+                <ol className="space-y-3 list-decimal list-inside">
+                  {enrichment.highYield.map((h) => (
+                    <li key={h.topic} className="text-muted-foreground leading-relaxed">
+                      <span className="font-semibold text-foreground">{h.topic}.</span> {h.detail}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+
+              <div>
+                <h3 className="font-display font-semibold text-lg text-foreground mb-3">Common Mistakes Students Make</h3>
+                <ul className="space-y-2 list-disc list-inside">
+                  {enrichment.traps.map((t, i) => (
+                    <li key={i} className="text-muted-foreground leading-relaxed">{t}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-display font-semibold text-lg text-foreground mb-3">Frequently Asked Questions</h3>
+                <div className="space-y-4">
+                  {enrichment.faqs.map((f) => (
+                    <div key={f.q}>
+                      <p className="font-semibold text-foreground mb-1">{f.q}</p>
+                      <p className="text-muted-foreground leading-relaxed text-sm">{f.a}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Related chapters in same unit */}
         {unit && (

@@ -493,6 +493,105 @@ biggest difference from JEE, where boards don't affect rank.
 A: Because it unlocks the IITs, which KCET cannot. Difficulty and reward go together
 — Advanced is harder precisely because the seat it offers is one KCET doesn't. Choose
 based on the college you actually want, not on which exam is easier.`,
+
+  /* ───────────────────────── BITSAT vs JEE Main ──────────────────────────────
+     Query: "bitsat vs jee main" / "is bitsat easier than jee" / "bitsat syllabus
+     overlap" (pos 7–9, 55 impr). SERP leaders (shiksha, pw, getmyuni) assert
+     "BITSAT is easier" but carry NO quantitative admission data, never mention the
+     board-topper route that skips the exam entirely, and don't frame the decision
+     of whether the extra exam is worth it. Those are the gaps below. */
+  'bitsat-vs-jee-main-comparison': `## BITSAT Score → Branch → Campus (the table every "BITSAT vs JEE Main" article skips)
+
+"BITSAT is easier" is the headline everyone repeats, but it answers the wrong
+question. JEE Main gives you a percentile and a rank across the NIT/IIIT system;
+BITSAT gives you a raw score out of 390 that maps to exactly one private system —
+the three BITS campuses. Here is what a given BITSAT score actually buys, using
+recent-cycle (2024–25) closing scores. Treat these as bands, not promises — they
+drift 5–15 marks each year with paper difficulty:
+
+| Branch | BITS Pilani | BITS Goa | BITS Hyderabad |
+|---|---|---|---|
+| Computer Science | ~327–331 | ~295–300 | ~284–290 |
+| Electronics & Comm. (ECE) | ~310–315 | ~277–282 | ~268–274 |
+| Electrical & Electronics (EEE) | ~290–295 | ~262–268 | ~252–258 |
+| Mechanical | ~262–270 | ~240–248 | ~230–238 |
+| Chemical / Civil | ~238–250 | ~225–235 | ~215–225 |
+
+**Read it honestly:** a score that lands you CS at Hyderabad (~285) is *below* the
+Pilani CS bar (~328). So "I cleared BITSAT" means little on its own — the campus
+and branch are decided entirely by where your score sits in that grid. A 300 is a
+fantastic Goa/Hyderabad score and a near-miss for Pilani CS in the same year.
+
+## The route nobody mentions: board toppers skip BITSAT entirely
+
+This is the single most useful fact missing from every "BITSAT vs JEE Main" page,
+and it can change your whole plan. **If you secure the first rank in your Class 12
+board** (any central or state board, PCM stream), BITS offers you **direct
+admission to any first-degree programme at any campus — your BITSAT score is not
+considered at all.** You don't even have to sit the exam. (PCB first-rankers get
+direct B.Pharm admission.) Separately, the baseline eligibility for the BITSAT
+route itself is strict: **75% aggregate in PCM *and* at least 60% in each of
+Physics, Chemistry and Maths individually** — a 74% PCM average locks you out even
+with a great BITSAT score. JEE Main's eligibility (75% board aggregate OR top-20
+percentile) is more forgiving, so check your board numbers before you bank on BITS.
+
+## The 12 bonus questions — the mechanic, and the trap
+
+BITSAT's signature feature is genuinely an edge, but it is widely misunderstood.
+You answer the 130 questions in order; **only if you submit all 130 with time left
+do 12 bonus questions unlock — and once you enter the bonus round you cannot go
+back** to review the first 130. The bonus questions carry the same +3/−1 marking.
+
+The decision rule that actually matters:
+- **Take the bonus only if you've genuinely attempted all 130 with confidence.**
+  An extra 12 questions = up to 36 marks, which is the gap between Goa CS and Pilani
+  CS. Worth chasing.
+- **Do NOT rush 130 just to unlock the bonus.** Three guessed answers (−3) wipe out
+  one correct bonus answer (+3). Students lose more in the bonus chase than they gain.
+- The skill this rewards is **finishing your real attempt fast and clean**, not gambling.
+
+## Is the extra exam worth it for you? A 30-second decision
+
+BITSAT costs roughly ₹3,400 for one session (₹2,900 for female candidates), a
+separate application, one more exam day in May–June, and ~3 months of part-time
+English + Logical Reasoning prep (25 questions JEE Main never tests). Be honest:
+
+**Worth it if** — you want a strong CS/ECE seat and aren't certain of a top-10 NIT
+through JEE Main; you're a fast, accurate solver who thrives under time pressure
+(1.4 min/question vs JEE Main's 2.4); or you simply want a high-quality private
+backup that isn't dependent on JEE rank volatility.
+
+**Probably skip it if** — your JEE Main mocks already point to a top-tier NIT/IIIT
+branch you'd happily take; you melt under speed pressure (BITSAT punishes slow,
+deep solvers far more than JEE Main does); or you can't spare the English/LR prep
+without denting your core PCM revision in the final months. There's no shame in
+this — BITS is excellent, but it is one private system, and JEE Main opens a much
+wider government college map. The right answer is the college you'd actually attend.
+
+### FAQ — BITSAT vs JEE Main
+
+**Q: Is BITSAT really easier than JEE Main?**
+A: Question-by-question, yes — BITSAT problems are mostly JEE Main level or a notch
+below, with no integer/numerical types. But the *exam* is not easier: you get 1.4
+minutes per question against JEE Main's 2.4, plus 25 English + Logical Reasoning
+questions JEE Main doesn't have. It rewards speed and breadth over depth, so a
+strong-but-slow JEE student can underperform on BITSAT.
+
+**Q: How much of my JEE Main prep covers BITSAT?**
+A: About 80%. The Physics, Chemistry and Maths are the same NCERT-based syllabus.
+What's left is BITSAT-only: English Proficiency and Logical Reasoning (~40 marks)
+plus dedicated speed training. Budget 30 minutes a day for those starting ~3 months out.
+
+**Q: What BITSAT score do I need for BITS Pilani CSE?**
+A: Recent cycles closed around 327–331/390 for Pilani Computer Science. Goa CS sat
+near 295–300 and Hyderabad CS near 284–290. Aim for 330+ if Pilani CS is the goal;
+300+ keeps Goa/Hyderabad CS realistic.
+
+**Q: Should I give BITSAT if I'm already preparing for JEE?**
+A: If you want a top private CS/ECE option and you're a fast solver, yes — the 80%
+overlap makes the marginal effort small. If your JEE mocks already secure a branch
+you'd happily accept and you struggle with time pressure, the extra exam, fee and
+English/LR prep may not earn their keep. Decide on the seat you'd actually take.`,
 };
 
 /**
