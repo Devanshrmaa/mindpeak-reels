@@ -285,6 +285,175 @@ biggest difference from JEE, where boards don't affect rank.
 A: Because it unlocks the IITs, which KCET cannot. Difficulty and reward go together
 — Advanced is harder precisely because the seat it offers is one KCET doesn't. Choose
 based on the college you actually want, not on which exam is easier.`,
+
+  /* ───────────────────── CUET vs JEE Main comparison ─────────────────────────
+     Query: "cuet vs jee" / "is cuet easier than jee" (pos ~2–3, near-zero CTR —
+     the templated intro buries the answer). Gap the SERP leaders miss: they treat
+     it purely as a difficulty contest, when the honest answer is that the two
+     exams unlock *different* colleges, so "which is easier" is the wrong question. */
+  'cuet-vs-jee-main-comparison': `## Is CUET Easier Than JEE Main? Yes — But That's the Wrong Question
+
+Straight answer first: **yes, CUET (UG) is easier than JEE Main.** CUET domain
+papers are pinned to the NCERT Class 12 syllabus and ask direct, single-concept
+questions; JEE Main draws on Class 11 *and* 12 and rewards multi-step application
+that goes beyond the textbook. A student who knows their Class 12 NCERT cold can
+clear CUET comfortably, while JEE Main needs months of problem-solving practice on
+top of that.
+
+But comparing their difficulty is slightly beside the point, because **the two
+exams open different doors:**
+
+| | CUET (UG) | JEE Main |
+|---|---|---|
+| Conducting body | NTA | NTA |
+| Primarily for | Central universities (DU, BHU, JNU, Jamia, Allahabad…) | Engineering — NITs, IIITs, GFTIs, state B.Tech |
+| Typical courses | B.A., B.Sc., B.Com., a few B.Tech seats | B.Tech / B.E. only |
+| Syllabus | Class 12 NCERT (per domain subject) | Class 11 + 12 PCM |
+| Question style | Direct, NCERT-line MCQs | Application-heavy, multi-concept |
+| Extra papers JEE prep doesn't cover | General Test (GK/aptitude/reasoning) + a language paper | — |
+| Negative marking | −1 | −1 |
+
+### The honest decision (not "which is easier")
+
+- **If your goal is engineering (a B.Tech at an NIT/IIIT), JEE Main is not
+  optional — CUET cannot get you there.** A handful of central universities (DU,
+  Jamia) admit B.Tech through CUET, but they are a small, specific set of seats, not
+  a substitute for the NIT/IIIT system.
+- **If you want a B.Sc./B.A./B.Com. at a top central university** (Hindu/St.
+  Stephen's-type DU colleges, BHU, JNU), **CUET is your exam** and JEE Main is
+  irrelevant to that goal.
+- **Doing both is genuinely reasonable** and common: keep JEE Main as your primary
+  engineering route, and sit CUET as a backup for a B.Sc. at a strong central
+  university if engineering doesn't work out. Because the PCM domain papers are pure
+  Class 12 NCERT, your JEE preparation already covers ~all of the *theory* CUET
+  tests — the extra work is mostly the **General Test and language paper**, which
+  JEE prep never touches.
+
+### Don't let "easier" fool you — CUET cutoffs are brutal
+
+CUET questions are easier, but the **cutoffs for top DU colleges run at 99+
+percentile**, often demanding a near-perfect score because thousands of students
+all find the paper easy. Easy paper + huge applicant pool = tiny margin for error.
+So "CUET is easier" does not mean "CUET is a soft option" for the colleges most
+students actually want.
+
+### FAQ — CUET vs JEE Main
+
+**Q: Is CUET easier than JEE Main?**
+A: Yes, the questions are easier — CUET is NCERT Class 12 level with direct MCQs,
+while JEE Main is application-based across Class 11 and 12. But CUET's top-college
+cutoffs (99+ percentile for premier DU colleges) make it competitive despite the
+easier paper.
+
+**Q: Can I get into an NIT or IIIT through CUET?**
+A: No. NITs, IIITs and GFTIs admit through JEE Main only. CUET is for central
+university programmes; a few central universities offer B.Tech via CUET, but the
+mainstream engineering route is JEE Main.
+
+**Q: Can I prepare for both CUET and JEE Main together?**
+A: Largely yes for the PCM theory — CUET's science papers are a subset of what JEE
+Main already demands, so your JEE prep covers the concepts. Budget separate time for
+CUET's General Test (aptitude, GK, reasoning) and language section, which have no
+overlap with JEE.
+
+**Q: Should I drop JEE Main and just do CUET because it's easier?**
+A: Only if you don't want engineering. If a B.Tech at an NIT/IIIT is your goal,
+CUET can't replace JEE Main. Pick the exam that unlocks the degree you actually
+want, then prepare for *that* — don't choose on difficulty alone.`,
+
+  /* ───────────────────── BITSAT vs JEE Main comparison ───────────────────────
+     Query: "bitsat vs jee mains" / "is bitsat easier than jee main" (pos ~4–9).
+     Gap none of the SERP leaders front-load: the two non-PCM sections (English +
+     Logical Reasoning = ~23% of the paper) that JEE prep gives you zero help with,
+     and that BITSAT is a single-institute exam — worth it only if BITS is a target. */
+  'bitsat-vs-jee-main-comparison': `## Is BITSAT Easier Than JEE Main? Easier Questions, Harder Clock
+
+The honest answer has two halves. **Question by question, BITSAT is easier than JEE
+Main** — its Physics, Chemistry and Maths problems are pitched below JEE Main's in
+conceptual depth. But **BITSAT is harder on speed:** you get roughly **1.4 minutes
+per question versus ~2.4 minutes in JEE Main**, so the challenge shifts from "can I
+solve this?" to "can I solve it fast enough?" BITSAT rewards accuracy at pace; JEE
+Main rewards depth.
+
+| Parameter | BITSAT | JEE Main |
+|---|---|---|
+| Conducting body | BITS Pilani | NTA |
+| Sections | Physics 30 · Chemistry 30 · **English 10 · Logical Reasoning 20** · Maths 40 | Physics 25 · Chemistry 25 · Maths 25 |
+| Total questions | 130 (+12 optional bonus) | 75 to attempt (90 shown) |
+| Marking | +3 correct, −1 wrong | +4 correct, −1 wrong |
+| Duration | 3 hours | 3 hours |
+| Time per question | ~1.4 min | ~2.4 min |
+| Syllabus overlap | ~85% with JEE Main (PCM) | — |
+| Unlocks | **Only BITS Pilani / Goa / Hyderabad** | NITs, IIITs, GFTIs, state B.Tech |
+
+### The hidden 23% JEE prep does nothing for
+
+Every BITSAT-vs-JEE article repeats "85% syllabus overlap" and stops there. Here is
+what that statistic hides: **30 of BITSAT's 130 questions — English Proficiency (10)
+and Logical Reasoning (20) — have no counterpart in JEE Main at all.** That's ~23%
+of the paper your entire JEE preparation leaves you unprepared for. Logical
+Reasoning in particular (series, analogies, figure patterns) is very scoring with a
+week or two of targeted practice, and students who ignore it because "it's mostly
+PCM anyway" routinely leave 60–90 easy marks on the table. If you're sitting BITSAT,
+budget dedicated time for these two sections — they are the cheapest marks in the
+exam.
+
+### The decision most articles skip: is BITS even your target?
+
+BITSAT unlocks exactly **three campuses — BITS Pilani, Goa and Hyderabad — and
+nothing else.** JEE Main unlocks the entire NIT/IIIT/GFTI system plus most state
+engineering colleges. So the real question isn't "which is easier," it's **"do I
+actually want a BITS seat?"**
+
+- **Sit BITSAT if** BITS Pilani (or Goa/Hyderabad) is a genuine target for you —
+  it's an excellent private institute with strong placements, flexible dual-degree
+  options and no board-marks-in-rank complication. Given the ~85% overlap, the extra
+  cost is low: speed practice + the two non-PCM sections.
+- **Skip BITSAT if** BITS isn't on your list. It's a single-institute exam; there's
+  no point adding an exam day and a registration fee for a college you won't join.
+- **JEE Main is the non-negotiable one** for almost everyone, because it's the
+  gateway to far more seats. Treat BITSAT as a high-overlap add-on to JEE prep, never
+  as a replacement.
+
+### Real BITSAT cutoffs (so "easier" doesn't mislead you)
+
+Easier questions don't mean a low bar — BITS cutoffs are high precisely because the
+paper is scoring:
+
+| BITS Pilani branch | Approx. BITSAT cutoff (/390) |
+|---|---|
+| Computer Science | ~327+ |
+| Electronics & Communication | ~314+ |
+| Electrical & Electronics | ~290+ |
+| Mechanical | ~247+ |
+
+(Goa and Hyderabad campuses close ~15–30 marks lower than Pilani for the same
+branch.) Clearing BITSAT comfortably means a near-flawless run through easy
+questions — there's little room for silly errors when everyone around you is also
+finding the paper doable.
+
+### FAQ — BITSAT vs JEE Main
+
+**Q: Is BITSAT easier than JEE Main?**
+A: The individual questions are easier (less conceptual depth), but BITSAT is harder
+on time — ~1.4 minutes per question vs ~2.4 in JEE Main. It tests speed and
+accuracy more than problem-solving depth.
+
+**Q: Can I clear BITSAT with only JEE Main preparation?**
+A: For the PCM portion, mostly yes — ~85% overlaps. But BITSAT adds English
+Proficiency and Logical Reasoning (30 questions, ~23% of the paper) that JEE prep
+doesn't cover, plus a faster clock. Add a couple of weeks for those two sections and
+timed full-length practice.
+
+**Q: How many questions and how much negative marking in BITSAT?**
+A: 130 questions (Physics 30, Chemistry 30, English 10, Logical Reasoning 20, Maths
+40), +3 for correct, −1 for wrong, 3 hours. You can opt for 12 bonus questions if
+you finish all 130 with time left — but you can't go back after choosing them.
+
+**Q: Should I prepare for BITSAT or JEE Main?**
+A: JEE Main for almost everyone — it unlocks NITs, IIITs and many more colleges.
+Add BITSAT only if a BITS Pilani/Goa/Hyderabad seat is genuinely on your wishlist;
+otherwise the extra exam isn't worth it.`,
 };
 
 /**
