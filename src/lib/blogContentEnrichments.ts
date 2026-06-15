@@ -218,6 +218,214 @@ the marks. Secure those to high accuracy first, then expand.`,
   /* ───────────────────── KCET vs JEE Advanced comparison ──────────────────────
      Query: "is kcet easier than jee" (pos ~4). Gap: a direct yes/no up top + the
      Karnataka-specific 50:50 rank quirk national pages miss. */
+  /* ───────────────────── KCET Physics — important chapters ───────────────────
+     Query: "important chapters for kcet physics" (pos ~6). Gap: the templated body
+     used auto-generated weightage %; this is real, section-level weightage with the
+     1st-vs-2nd-PUC split and an honest "the per-chapter tables online don't add up"
+     warning. Section shares are labelled approximate on purpose. */
+  'how-to-prepare-physics-for-kcet': `## KCET Physics — Where the 60 Marks Actually Sit (and what to study first)
+
+KCET Physics is **60 one-mark MCQs in 70 minutes, no negative marking**, drawn from
+the Karnataka 1st & 2nd PUC syllabus. Before chasing a chapter list, fix the two
+numbers that decide your strategy:
+
+- **~65–70% of questions come from 2nd PUC (Class 12); ~30–35% from 1st PUC (Class 11).**
+  Class 12 is where most of your marks live — but the Class 11 mechanics base is
+  what those Class 12 chapters are built on, so you can't skip it.
+- **No negative marking ⇒ attempt all 60.** Even a blind guess has positive expected
+  value. Leaving questions blank is the single most common KCET Physics mistake.
+
+### Section-level weightage (approximate, from recent papers)
+
+A warning first: most "chapter-wise weightage" tables floating around online add up to
+80–90 questions for a 60-question paper — they are counting appearances *across several
+years*, not one paper. Use **section shares**, which actually sum sensibly:
+
+| Section | Approx. share of paper | ~Questions (of 60) |
+|---|---|---|
+| Mechanics (Motion, Laws of Motion, Work-Energy, Gravitation, Rotation, Oscillations) | ~30% | 17–19 |
+| Electricity & Magnetism (Current Electricity, Electrostatics, Magnetism, EMI, AC) | ~28% | 16–18 |
+| Modern Physics (Atoms, Nuclei, Dual Nature, Semiconductors) | ~14% | 8–9 |
+| Heat & Thermodynamics (incl. Kinetic Theory) | ~12% | 7–8 |
+| Optics & Waves | ~10% | 6–7 |
+| Units, Measurement, Communication, EM Waves | ~6% | 3–4 |
+
+**The headline:** Mechanics + Electricity & Magnetism alone are roughly **58–60% of the
+paper**. If your time is short, these two blocks are non-negotiable before anything else.
+
+### The high-yield chapters that reliably repeat
+
+Within those blocks, the chapters that show up with multiple questions almost every year:
+**Current Electricity, Gravitation, Oscillations, Thermodynamics, Magnetism & Matter,
+Alternating Current, Electromagnetic Induction, and Atoms/Nuclei.** If you can only
+deep-revise eight chapters in the final fortnight, revise these eight.
+
+### Priority order for a student short on time
+
+1. **Current Electricity + Electrostatics** — densest, most predictable, formula-driven.
+2. **Mechanics core** (Laws of Motion, Work-Energy, Gravitation, Rotation).
+3. **Magnetism, EMI, AC** — finish the full E&M block while the formulas are fresh.
+4. **Thermodynamics + Kinetic Theory**, then **Modern Physics** (high return for low effort —
+   mostly direct, definition/formula questions).
+5. **Optics & Waves** last; secure the standard ray-optics and SHM-wave formula questions.
+
+**Honest note:** KCET Physics is pitched at PU-board level — direct, single-step,
+formula-recall questions, *easier than JEE Main*. If you are already on a JEE track, you
+do not need new theory for KCET; you need **OMR speed and full-attempt discipline** (it is
+an offline pen-paper OMR exam). Practise timed 60-question sets and never leave a bubble blank.
+
+### FAQ — KCET Physics
+
+**Q: Which chapters are most important for KCET Physics?**
+A: At the section level, Mechanics (~30%) and Electricity & Magnetism (~28%) together make
+up close to 60% of the paper. The individual chapters that repeat most are Current
+Electricity, Gravitation, Oscillations, Thermodynamics, Magnetism, Alternating Current,
+EMI and Modern Physics (Atoms/Nuclei).
+
+**Q: Is KCET Physics from 1st PUC or 2nd PUC?**
+A: Both, but weighted toward 2nd PUC — roughly 65–70% of questions come from Class 12
+chapters and 30–35% from Class 11. Don't drop Class 11 mechanics; the Class 12 chapters
+assume it.
+
+**Q: Is there negative marking in KCET Physics?**
+A: No. Every question is +1 for correct and 0 for wrong, so you must attempt all 60 —
+guess the ones you're unsure of in the last few minutes.
+
+**Q: Is KCET Physics harder than JEE Main Physics?**
+A: No — it's noticeably easier. KCET asks direct, formula-based, single-step questions at
+PU-board level. A JEE-track student's main adjustment is speed and OMR full-attempt
+discipline, not new concepts.`,
+
+  /* ───────────────────── CUET vs JEE Main — engineering reality ───────────────
+     Query: "cuet vs jee" (~85 impr, pos ~7). Gap none of the SERP leaders make
+     unmissable: CUET will NOT get you into IITs/NITs/IIITs for B.Tech, and exactly
+     which institutions a CUET score *can* unlock for engineering. */
+  'cuet-vs-jee-main-comparison': `## CUET vs JEE Main for Engineering — Read This Before You Choose
+
+The single most important thing to understand, and the thing comparison pages bury under
+"both test PCM": **CUET and JEE Main are not interchangeable routes to the same colleges.**
+They open *different doors*. If your goal is a B.Tech at the institutions most aspirants
+actually mean by "engineering college," JEE Main is not optional.
+
+### What each exam actually unlocks for B.Tech
+
+| | JEE Main | CUET (UG) |
+|---|---|---|
+| IITs (via Advanced) | ✅ (Main → Advanced) | ❌ Never |
+| NITs, IIITs, GFTIs (JoSAA) | ✅ | ❌ |
+| Most top private engineering (BITS/VIT have own tests; others take JEE) | ✅ | Rarely |
+| Central-university B.Tech (DU, BHU, AMU, Jamia, Tezpur, central univ. of Rajasthan/Haryana/Punjab/Jammu…) | Some | ✅ |
+| State & many private/deemed univ. B.Tech | Some | ✅ (250+ universities) |
+
+**The honest bottom line:** CUET *can* get you a B.Tech — at 40+ central universities and
+200+ state/private/deemed universities (DU, BHU, AMU, Jamia Millia, Tezpur, several Central
+Universities offer it). What CUET **cannot** do is get you into an IIT, NIT or IIIT. For
+those, the only route is JEE (Main, then Advanced for IITs). So:
+
+- If you want an IIT/NIT/IIIT seat → **JEE Main is mandatory; CUET is not a substitute.**
+- If you'd be happy with a B.Tech from a good central or state university (and value the
+  lighter, NCERT-level prep) → **CUET is a genuinely reasonable, lower-pressure path.**
+
+### A 30-second decision framework
+
+1. **Is an IIT/NIT/IIIT your real target?** → Prepare JEE Main. Add CUET only as a low-cost
+   backup (your JEE PCM prep already covers CUET's domain subjects).
+2. **Do you want a non-engineering degree** (BA Eco, B.Com, B.Sc, BBA, BCA, integrated law)?
+   → CUET is the *primary* exam; JEE is irrelevant.
+3. **Do you want engineering but find JEE-level prep unrealistic** for your timeline? → A
+   central/state-university B.Tech via CUET is an honest, achievable goal — just go in
+   knowing it is not the IIT/NIT pool.
+
+### The smart combined play for a science student
+
+Because CUET domain subjects are strictly **NCERT Class 12 level**, a student already
+preparing JEE Main is ~70–80% ready for CUET PCM with zero extra theory. The *only* extra
+work is CUET's **Language section and General Test** (current affairs, reasoning, quantitative
+aptitude) — areas JEE never touches. Sitting both costs little and gives you a
+central-university B.Tech as a safety net behind your JEE attempt. Always confirm the current
+participating-university list on the official CUET portal, since it is revised each year.
+
+### FAQ — CUET vs JEE Main
+
+**Q: Can I get into an IIT or NIT through CUET?**
+A: No. IITs admit only through JEE Advanced (which requires JEE Main first); NITs and IIITs
+admit through JEE Main via JoSAA. CUET does not feed any of them. If those are your targets,
+you must write JEE.
+
+**Q: Can I do B.Tech through CUET at all?**
+A: Yes — at 40+ central universities and 200+ state/private/deemed universities (DU, BHU,
+AMU, Jamia Millia, Tezpur and others offer CUET-based B.Tech). It just won't include the
+IIT/NIT/IIIT system.
+
+**Q: Is CUET easier than JEE Main?**
+A: Yes, clearly. CUET domain subjects stay at NCERT Class 12 level; JEE Main tests
+application well beyond NCERT. But top central-university cutoffs run 95+ percentile, so
+easy questions still demand near-perfect accuracy.
+
+**Q: I'm preparing for JEE — should I also write CUET?**
+A: Usually yes, as a backup. Your JEE PCM prep already covers CUET's domain papers; you only
+need to add the Language and General Test sections. It's a cheap insurance policy for a
+central-university seat.`,
+
+  /* ───────────────── Environmental Issues for NEET — syllabus removal ──────────
+     Query: "environmental issues neet" (pos ~8). Gap that is actually URGENT for the
+     searcher and that no "important topics" page leads with: this chapter has been
+     removed from the NEET syllabus in the NCERT rationalisation. Honest reframe +
+     where to redirect Ecology effort. */
+  'how-to-prepare-environmental-issues-for-neet': `## Important: Environmental Issues Has Been Removed From the NEET Syllabus
+
+Before you spend a single hour here, the fact that matters most: **the "Environmental
+Issues" chapter (old NCERT Class 12 Biology, Chapter 16) was deleted in the NCERT
+rationalisation and is no longer part of the NEET syllabus** (from the 2024–25 cycle
+onward). It was dropped alongside chapters like *Reproduction in Organisms* and
+*Strategies for Enhancement in Food Production*. Topics that used to live here — air and
+water pollution, BOD, eutrophication, ozone depletion, the greenhouse effect, solid-waste
+management, the Chipko movement — are **not examinable in current NEET.**
+
+**What this means for your prep:**
+
+- **Do not allocate dedicated NEET revision time to Environmental Issues.** The marks that
+  used to come from here have been redistributed to the rest of the Ecology unit.
+- **If your school still teaches it,** that's for your board syllabus, not NEET — keep the
+  two separate so you don't over-study a deboarded topic.
+- **Always cross-check the latest official NMC NEET syllabus** before finalising your plan;
+  syllabi are revised periodically and the authority's notification is the only source that
+  overrides this.
+
+### Where your Ecology time should actually go
+
+Ecology remains one of the highest-return units in NEET Biology — roughly **8–10 questions
+a year**, and almost entirely NCERT-line, direct-recall material. With Environmental Issues
+gone, the unit is effectively **three chapters**, and that is where to put the hours:
+
+| Ecology chapter (still in NEET) | Why it pays off |
+|---|---|
+| **Organisms & Populations** | Population growth (exponential vs logistic), age pyramids, interactions (mutualism, predation, competition) — repeat every year, very NCERT-direct. |
+| **Ecosystem** | Energy flow, ecological pyramids, productivity, nutrient cycling, ecological succession — diagram- and definition-heavy, high accuracy possible. |
+| **Biodiversity & Conservation** | Patterns of biodiversity, species-area relationship, hotspots, in-situ vs ex-situ, IUCN categories — pure recall, fast marks. |
+
+**Honest framing:** treat Ecology as a *scoring* unit, not a tough one. The questions are
+straightforward if you've read NCERT line-by-line; the only real trap is mixing up
+definitions (exponential vs logistic growth, in-situ vs ex-situ). A focused last-fortnight
+NCERT re-read of these three chapters typically converts to near-full marks.
+
+### FAQ — Environmental Issues / Ecology for NEET
+
+**Q: Is Environmental Issues still in the NEET syllabus?**
+A: No. The chapter was removed in the NCERT rationalisation and is not part of the current
+NEET syllabus (2024–25 onward). Don't spend NEET prep time on pollution, BOD, ozone
+depletion or global warming as standalone topics. Verify against the latest NMC syllabus.
+
+**Q: Then what should I study from Ecology for NEET?**
+A: The three chapters that remain and are tested: Organisms & Populations, Ecosystem, and
+Biodiversity & Conservation. Together they contribute roughly 8–10 questions a year and are
+among the most scoring, NCERT-direct topics in Biology.
+
+**Q: My coaching material still has Environmental Issues — should I ignore it?**
+A: For NEET, yes — it's deboarded. If the material is shared with board preparation, study
+it for boards but don't count it toward NEET. Keep your NEET syllabus aligned to the current
+official NMC list.`,
+
   'kcet-vs-jee-advanced-comparison': `## Is KCET Easier Than JEE Advanced? Short Answer: Yes — Significantly
 
 Let's not bury it. **KCET is far easier than JEE Advanced**, and it isn't close.
