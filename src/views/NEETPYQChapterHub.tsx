@@ -9,8 +9,10 @@ import { BookOpen, ChevronRight, ArrowRight, Calendar, FileText, Filter } from '
 import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
 import { PageFooter } from '@/components/PageFooter';
+import { PageFAQ, buildFAQSchema } from '@/components/PageFAQ';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import { parseNEETPYQHubSlug, getUnitForChapter } from '@/data/neet-pyq/hierarchy';
+import { getNEETPYQChapterInsight } from '@/data/neet-pyq/chapterInsights';
 import {
   neetPyqSubjectBanks,
   getNEETPYQChapter,
@@ -33,6 +35,7 @@ const NEETPYQChapterHub = () => {
   const unit = getUnitForChapter(hubInfo.subjectSlug, hubInfo.chapterSlug!);
   const chapterName = chapter.name;
   const subj = bank.subject;
+  const insight = getNEETPYQChapterInsight(hubInfo.subjectSlug, hubInfo.chapterSlug!);
 
   // Get unique years
   const years = [...new Set(chapter.questions.map(q => q.year))].sort((a, b) => b - a);
@@ -50,6 +53,7 @@ const NEETPYQChapterHub = () => {
       ...(unit ? [{ '@type': 'ListItem', position: 4, name: unit.unitName, item: `https://mindpeakinstitute.com/neet-pyq-${hubInfo.subjectSlug}-unit-${unit.unitSlug}` }] : []),
       { '@type': 'ListItem', position: unit ? 5 : 4, name: chapterName, item: `https://mindpeakinstitute.com/${slug}` },
     ] },
+    ...(insight ? [buildFAQSchema(insight.faqs)] : []),
   ];
 
   return (
@@ -88,6 +92,32 @@ const NEETPYQChapterHub = () => {
             </div>
           </div>
         </section>
+
+        {/* Chapter insight: weightage, high-yield topics, common trap (page-specific) */}
+        {insight && (
+          <section className="mx-auto max-w-4xl px-4 pt-12">
+            <div className="rounded-xl border border-green-500/20 bg-green-500/5 px-5 py-4 mb-8">
+              <p className="text-sm text-foreground/90"><span className="font-semibold text-green-400">NEET weightage:</span> {insight.weightage}</p>
+            </div>
+            <div className="prose-sm max-w-none space-y-4 mb-8">
+              {insight.intro.map((para, i) => (
+                <p key={i} className="text-muted-foreground leading-relaxed">{para}</p>
+              ))}
+            </div>
+            <h2 className="font-display font-bold text-xl text-foreground mb-3">High-Yield Topics in {chapterName} for NEET</h2>
+            <ul className="space-y-2 mb-8">
+              {insight.highYield.map((item, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm text-foreground/85">
+                  <ChevronRight className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 px-5 py-4 mb-2">
+              <p className="text-sm text-foreground/90"><span className="font-semibold text-amber-400">Common NEET mistake:</span> {insight.commonTrap}</p>
+            </div>
+          </section>
+        )}
 
         <section className="mx-auto max-w-6xl px-4 py-12">
           {/* Year filter */}
@@ -207,6 +237,10 @@ const NEETPYQChapterHub = () => {
             ))}
           </div>
         </section>
+
+        {insight && (
+          <PageFAQ items={insight.faqs} heading={`${chapterName} NEET PYQ`} highlight="FAQ" />
+        )}
 
         <PageFooter extra={`NEET ${subj} PYQ — ${chapterName} — ${chapter.questions.length} Questions.`} />
       </main>
