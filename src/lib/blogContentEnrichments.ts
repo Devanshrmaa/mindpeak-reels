@@ -285,6 +285,237 @@ biggest difference from JEE, where boards don't affect rank.
 A: Because it unlocks the IITs, which KCET cannot. Difficulty and reward go together
 — Advanced is harder precisely because the seat it offers is one KCET doesn't. Choose
 based on the college you actually want, not on which exam is easier.`,
+
+  /* ───────────────────────── CUET vs JEE Main ────────────────────────────────
+     Query: "cuet vs jee" (pos ~7). SERP leaders (Careers360, Shiksha) settle for
+     a vague "JEE is more competitive, CUET is easier" line. Gaps none front-load:
+     (1) exactly which 40% of CUET your JEE prep does NOT cover, in marks;
+     (2) the percentile-not-rank trap that makes an "easy" paper still brutal at DU;
+     (3) an honest verdict on whether a serious JEE aspirant should bother. */
+  'cuet-vs-jee-main-comparison': `## CUET vs JEE Main — The Part Comparison Pages Skip: What's Actually Different
+
+Most "CUET vs JEE" pages stop at "JEE is harder, CUET is NCERT-level." True, but
+useless for planning. The decision that matters is: **if you're already preparing
+for JEE Main, what extra does CUET actually cost you?** Here is the honest breakdown.
+
+CUET-UG is a 3-section exam scored out of varying totals (each subject is 50
+questions / 250 marks, normalised to a percentile). Your JEE Physics, Chemistry and
+Maths preparation already covers the **domain subjects** — that's roughly 60% of a
+science student's CUET load and needs almost no extra work. What it does **not**
+cover is the other ~40%:
+
+| CUET section | Covered by your JEE prep? | Extra work needed |
+|---|---|---|
+| Domain (Physics / Chemistry / Maths) | ✅ Yes — and CUET is easier than JEE here | Just practise NCERT-direct MCQs for speed |
+| Section IA — Language (English) | ❌ No | Reading comprehension, vocabulary, verbal ability |
+| Section III — General Test | ❌ No | GK, current affairs, quantitative & logical reasoning |
+
+**So the real "cost" of adding CUET to a JEE plan is the Language + General Test
+sections, not the science.** That's the honest headline most pages bury.
+
+### The trap: CUET is "easy" but the cutoffs are not
+
+Here is what trips students up. CUET questions are strictly Class 12 NCERT level —
+genuinely easier than JEE Main. But CUET is scored on **percentile after
+normalisation**, and the top Delhi University / BHU / Hindu / SRCC-type seats
+routinely close at **95–99 percentile** for science and commerce courses. An easy
+paper means *everyone* scores high, so a few wrong answers cost you far more
+percentile than they would in JEE. The skill CUET rewards is not depth — it's
+**near-zero careless errors at speed.** Treat it as an accuracy exam, not an easy one.
+
+### Honest verdict — should a JEE aspirant even write CUET?
+
+- **Write CUET as a backup if** you want a strong central-university degree (DU,
+  BHU, Hyderabad) as insurance against a below-target JEE rank. The marginal effort
+  is small because your science is already done — you only add Language + General Test.
+- **Make CUET your primary exam if** your real goal is economics, B.Sc, B.Com or a
+  research-university BA/B.Sc rather than an engineering seat. In that case CUET is
+  not a "downgrade" — it's the correct door, and JEE is the distraction.
+- **Skip CUET if** you are a focused IIT/NIT aspirant late in the cycle and adding
+  GK + English revision would dilute your JEE mock discipline in the final months.
+  Spreading thin to chase a backup you won't use is a real, common mistake.
+
+The two exams are not really competitors — they open different doors. Choose by the
+**degree you actually want**, then decide whether the other is worth the add-on.
+
+### FAQ — CUET vs JEE Main
+
+**Q: Is CUET easier than JEE Main?**
+A: Yes, clearly — CUET domain questions are Class 12 NCERT level while JEE Main tests
+application well beyond NCERT. But "easier paper" does not mean "easier admission":
+top DU/BHU cutoffs sit at 95–99 percentile, so CUET demands very high accuracy.
+
+**Q: If I'm preparing for JEE, am I already prepared for CUET?**
+A: For the science (domain) section, ~60% — yes. You still need to prepare CUET's
+Language (English) and General Test (GK, current affairs, reasoning) sections, which
+JEE doesn't test at all. Budget those, not the physics.
+
+**Q: Can I prepare for both CUET and JEE Main together?**
+A: Yes, and many students do. Keep JEE as your primary track for PCM, and add ~30
+minutes a day for English + General Test from a few months out. Don't let backup
+prep eat into your JEE mock-test routine in the last 8 weeks.
+
+**Q: Which CUET subjects should a science student pick?**
+A: Your three domain subjects (Physics, Chemistry, and Maths or Biology), one
+language (usually English), and the General Test. That combination keeps the top
+science and dual-degree courses at central universities open.`,
+
+  /* ───────────────────────── BITSAT vs JEE Main ──────────────────────────────
+     Query cluster: "bitsat vs jee mains" + "syllabus overlap" (pos ~7–9). Every
+     SERP leader repeats "80% overlap, BITSAT is faster, has English + LR." Gaps:
+     (1) what the English + Logical Reasoning section concretely requires, in marks;
+     (2) the 12-bonus-question mechanic and how to actually unlock it;
+     (3) real BITS score→branch cutoffs; (4) honest BITS-vs-NIT call. */
+  'bitsat-vs-jee-main-comparison': `## BITSAT vs JEE Main — Beyond "80% Overlap": The Parts That Actually Decide Your Score
+
+Every comparison page tells you BITSAT shares ~80% of its syllabus with JEE Main and
+is "faster." Correct, but that's not where students lose seats. The two things that
+actually decide a BITSAT score — and that JEE prep does *not* give you — are the
+non-PCM sections and the bonus-question mechanic. Here's the part the SERP skips.
+
+### The "20% that isn't JEE": English + Logical Reasoning (don't underestimate it)
+
+BITSAT is 130 questions; **25 of them (Physics 30, Chemistry 30, Maths 45, then
+English 15 + Logical Reasoning 10) sit outside your JEE syllabus entirely.** That's
+roughly 75 marks on a 390 paper — enough to swing you a full branch at BITS. JEE
+toppers routinely leak marks here by treating it as an afterthought:
+
+| Non-PCM section | Questions | What it tests | How to prep (low effort, high return) |
+|---|---|---|---|
+| English Proficiency | 15 | Grammar, vocabulary, reading comprehension, verbal ability | 20 min/day of vocab + one RC passage; past BITSAT papers |
+| Logical Reasoning | 10 | Verbal & non-verbal reasoning, series, analogies, figures | RS Aggarwal Verbal & Non-Verbal; pattern-recognition drills |
+
+The honest framing: these 25 questions are *easy marks* if you spend ~30 min/day on
+them for the final 2–3 months, and *thrown-away marks* if you don't. A JEE aspirant
+who ignores them is voluntarily competing for a lower branch.
+
+### The bonus-question rule almost no comparison page explains
+
+BITSAT has a feature JEE Main does not: **if you answer all 130 questions before time
+runs out, you unlock 12 extra "bonus" questions (3 each in PCM + English).** These
+can only *raise* your score — there is no penalty for the bonus set. So the optimal
+BITSAT strategy is the opposite of JEE: **finish fast, leave nothing, and earn the
+bonus.** Students who carry JEE's "linger on hard problems" habit never reach the
+bonus round and lose a quiet 10–15 marks to peers who did. Practise to finish the
+core 130 in ~2 hr 40 min so the bonus 12 are always on the table.
+
+### Real score → BITS branch map (recent cycles, approximate)
+
+Unlike JEE's rank-to-college, BITS admits on a raw score out of 390:
+
+| BITSAT score (/390) | Realistic BITS Pilani branch |
+|---|---|
+| 320+ | Computer Science |
+| 300–320 | Electronics & Communication / EEE |
+| 280–300 | Mechanical / Chemical / other core |
+| 250–280 | Pilani borderline; comfortable at Goa / Hyderabad campuses |
+
+BITS Goa and Hyderabad close roughly 15–30 marks below Pilani for the same branch,
+so a 295 that misses Pilani CS can still land CS at Goa.
+
+### Honest call: BITS Pilani or the NIT your JEE rank gets you?
+
+- **BITS Pilani CS/ECE is genuinely top-tier** — broadly comparable to the top 4–5
+  NITs (Trichy, Warangal, Surathkal) on placements and brand, with a more flexible,
+  practice-school-driven academic culture. If you clear BITSAT for Pilani CS, it's a
+  strong choice, not a consolation prize.
+- **But BITS is fully self-financed** (no central-government fee subsidy), so it is
+  noticeably more expensive than an NIT. For core branches like Mechanical or Civil,
+  a top NIT often matches or beats BITS on placement value at lower cost.
+- **The reasonable play:** sit both exams (80% shared prep makes this nearly free),
+  then choose on the final table — BITS Pilani CS over a mid-NIT is usually worth it;
+  BITS Goa Mechanical over NIT Trichy Mechanical is a closer, cost-sensitive call.
+
+### FAQ — BITSAT vs JEE Main
+
+**Q: How much of BITSAT overlaps with JEE Main?**
+A: About 80% — the entire Physics, Chemistry and Maths content is shared NCERT
+Class 11–12. The non-overlapping ~20% is BITSAT's English Proficiency and Logical
+Reasoning sections (25 questions, ~75 marks), which JEE Main does not test at all.
+
+**Q: Is BITSAT easier than JEE Main?**
+A: The questions are slightly easier, but the exam is harder to *finish*: 130
+questions in 180 minutes (~1.4 min each) versus JEE Main's ~2.4 min per question.
+BITSAT rewards speed and accuracy; JEE Main rewards depth.
+
+**Q: What are the bonus questions in BITSAT?**
+A: If you complete all 130 questions before time ends, you're offered 12 extra
+questions that can only increase your score. Aim to finish the main paper in ~2 hr
+40 min so you can attempt them — it's free marks JEE-style pacing makes you miss.
+
+**Q: What BITSAT score do I need for BITS Pilani CSE?**
+A: In recent cycles, roughly 320+/390 for Pilani Computer Science; ECE/EEE around
+300–320, and core branches 280–300. Goa and Hyderabad campuses close 15–30 marks
+lower for the same branch.`,
+
+  /* ─────────────────── How to Prepare Physics for KCET ───────────────────────
+     Query: "important chapters for kcet physics" (pos ~6). The templated body uses
+     seeded/placeholder weightage %; this replaces it with the real recent-paper
+     distribution and the KCET-specific 1st-PUC/2nd-PUC split + 50:50 rank rule. */
+  'how-to-prepare-physics-for-kcet': `## KCET Physics — Real Chapter-wise Weightage (the table you searched for)
+
+KCET Physics is **60 one-mark MCQs in 80 minutes, no negative marking**, drawn from
+the Karnataka 1st & 2nd PUC syllabus. Before any study plan, you need the actual
+mark distribution from recent papers — not a generic "all chapters matter" list:
+
+| Physics area | Approx. share of the 60 marks | Priority |
+|---|---|---|
+| Mechanics (kinematics, laws of motion, work-energy, rotation, gravitation) | ~30–32% | Do first |
+| Electricity & Magnetism (current electricity, electrostatics, EMI, magnetism) | ~28% | Do first |
+| Modern Physics (atoms, nuclei, dual nature, semiconductors) | ~10% | High ROI |
+| Waves & Optics (ray + wave optics, oscillations, waves) | ~10% | High ROI |
+| Heat & Thermodynamics | ~10% | Medium |
+| Units, Measurement & Errors | ~5% | Quick wins |
+| Properties of Matter / Fluids | ~5% | Quick wins |
+
+**Mechanics + Electricity & Magnetism alone are ~60% of the section.** If your time
+is limited, securing those two blocks to high accuracy is the single fastest route
+to a 45+/60.
+
+### The KCET-specific split JEE-focused guides miss: 1st PUC vs 2nd PUC
+
+A detail national prep pages never mention: in recent KCET papers, roughly **65–70%
+of Physics questions come from the 2nd PUC (Class 12) syllabus and 30–35% from 1st
+PUC (Class 11).** Don't drop Class 11 — Mechanics (mostly 1st PUC) is the single
+biggest block — but when you're triaging in the final weeks, weight your revision
+toward 2nd PUC chapters (Current Electricity, EMI, Optics, Modern Physics), which
+carry more of the paper.
+
+### No negative marking changes your exam-day rule
+
+KCET has **no negative marking**, so the strategy is simple and non-negotiable:
+**attempt all 60 questions.** After solving everything you know, make educated
+guesses on the rest in the last few minutes — every guess has positive expected
+value. Students who carry JEE's "skip if unsure" instinct leave easy marks behind.
+
+### Don't forget: your 2nd PUC board marks are 50% of your KCET rank
+
+KCET Physics prep is only half the rank equation. Your **KCET engineering rank is
+computed 50:50 from your KCET score and your 2nd PUC PCM board marks.** A strong
+KCET Physics paper can be capped by a weak board result — so revise the same Physics
+deeply enough to score in *both* the entrance and your PU board exam. They test the
+same NCERT/PU concepts; treat board prep as KCET prep, not a separate task.
+
+### FAQ — KCET Physics preparation
+
+**Q: Which are the most important chapters for KCET Physics?**
+A: Mechanics and Electricity & Magnetism — together ~60% of the 60 marks. Add Modern
+Physics, Optics and Thermodynamics (~10% each) next. Units/Measurement and Properties
+of Matter are smaller but quick to secure.
+
+**Q: Is KCET Physics from Class 11 or Class 12?**
+A: Both, but skewed to Class 12 — recent papers draw ~65–70% from 2nd PUC and ~30–35%
+from 1st PUC. Mechanics (largely 1st PUC) is still the biggest single block, so don't
+skip Class 11.
+
+**Q: Is there negative marking in KCET Physics?**
+A: No. Every question is +1 for correct and 0 for wrong, so attempt all 60 — never
+leave a blank.
+
+**Q: How many marks should I target in KCET Physics?**
+A: For a top Karnataka engineering seat, aim for 50+/60 in Physics. Locking down
+Mechanics and Electricity to high accuracy gets you most of the way; remember your
+2nd PUC board marks count for half your final rank, so keep them strong too.`,
 };
 
 /**
