@@ -4407,6 +4407,28 @@ const jeeMathGeometry: SEOPageData = {
       },
     },
     {
+      heading: 'JEE Main vs JEE Advanced Weightage — Where Geometry Marks Actually Sit',
+      content: 'Most weightage pages quote a single "~20-25% of Maths" figure and stop there. The number that actually helps you plan is how the questions split between JEE Main and JEE Advanced, because the two exams reward different chapters within geometry. The counts below are approximate, from recent papers — JEE Main Maths is 25 questions; JEE Advanced Maths is roughly 34 questions across Paper 1 + Paper 2.',
+      table: {
+        headers: ['Topic', 'JEE Main (~25 Q)', 'JEE Advanced (~34 Q)', 'Where it matters more'],
+        rows: [
+          ['Straight Lines', '~1', '0-1', 'Foundation; rarely standalone in Advanced'],
+          ['Circles', '~1', '1-2', 'Advanced (often fused with conics/tangents)'],
+          ['Parabola', '~1', '1-2', 'Advanced — the most-asked conic'],
+          ['Ellipse', '~1', '~1', 'Main (clean, formula-direct questions)'],
+          ['Hyperbola', '0-1', '~1', 'Advanced (asymptotes, rectangular hyperbola)'],
+          ['Vectors', '~1', '1-2', 'Advanced (dot/cross products in 3D problems)'],
+          ['3D Geometry', '1-2', '1-2', 'Both — lines, planes, shortest distance'],
+        ],
+      },
+      bullets: [
+        'Coordinate Geometry + Vectors + 3D together: ~6-8 of 25 Maths questions in JEE Main (~25-30%), and ~6-9 of ~34 in JEE Advanced (~20-25%) — a top-3 block either way.',
+        'In JEE Main the conics are asked as clean, single-property questions (find the tangent, the eccentricity, the focal distance) — high accuracy is achievable.',
+        'In JEE Advanced conics rarely come alone: a parabola question often resolves through a circle\'s director-circle property or a calculus maximisation, so half-preparing the block leaks marks.',
+        'Parabola is the single highest-yield conic for Advanced; Ellipse is the friendlier one for Main. Hyperbola repays the effort in Advanced (asymptotes, rectangular hyperbola, conjugate hyperbola).',
+      ],
+    },
+    {
       heading: 'Geometry Mastery Tips from MindPeak Mentors',
       content: 'Our top strategies for acing Geometry in JEE:',
       bullets: [
@@ -4419,6 +4441,8 @@ const jeeMathGeometry: SEOPageData = {
     },
   ],
   faqs: [
+    { q: 'What is the weightage of coordinate geometry and conic sections in JEE Advanced?', a: 'Coordinate (analytical) geometry is one of the heaviest Maths blocks in JEE Advanced — roughly 20-25% of the Maths marks, typically 4-6 questions across Paper 1 and Paper 2, of which conics (parabola, ellipse, hyperbola) are the largest share. Parabola is the most frequently asked conic in Advanced; hyperbola and circles often appear fused with it. Add Vectors and 3D Geometry and the whole block is around 6-9 of ~34 Maths questions. In JEE Main the same block is about 6-8 of the 25 Maths questions, but asked as cleaner, single-property problems.' },
+    { q: 'Is parabola or ellipse more important for JEE Advanced?', a: 'Parabola — by a clear margin. Its focal-chord results, parametric form (at², 2at) and tangent/normal properties power the majority of Advanced conic questions, including comprehension and match-the-column formats. Ellipse appears more often in JEE Main as direct eccentricity/tangent questions. A practical split for an Advanced-targeting student is roughly 60% of conics time on parabola and hyperbola, with ellipse standard results at instant recall for Main.' },
     { q: 'Which conic section is most important for JEE?', a: 'Parabola and Ellipse are the most frequently tested conics. Hyperbola appears less often but carries similar marks when it does. MindPeak recommends mastering all three — they share similar problem-solving patterns.' },
     { q: 'Is 3D Geometry tough in JEE?', a: '3D Geometry can feel challenging because students struggle to visualise 3D scenarios on paper. MindPeak mentors use interactive 3D visualisations in 1-on-1 sessions to build spatial intuition.' },
   ],

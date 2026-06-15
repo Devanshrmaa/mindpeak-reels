@@ -493,6 +493,108 @@ biggest difference from JEE, where boards don't affect rank.
 A: Because it unlocks the IITs, which KCET cannot. Difficulty and reward go together
 — Advanced is harder precisely because the seat it offers is one KCET doesn't. Choose
 based on the college you actually want, not on which exam is easier.`,
+
+  /* ───────────────────── BITSAT vs JEE Main — the real differences ────────────
+     Query cluster: "bitsat vs jee mains" + "...syllabus overlap" (pos ~7-9). The
+     SERP leaders quote an outdated 150-question / 450-mark pattern, omit the
+     bonus-question mechanic, give no BITS campus cutoffs and no decision rule.
+     Gaps filled here: current (130-Q/390-mark) pattern, the 23% English+LR reality,
+     the bonus-round trade-off, campus-wise cutoff bands, and a decision framework. */
+  'bitsat-vs-jee-main-comparison': `## BITSAT vs JEE Main — What's Actually Different (and what you already know)
+
+If you are preparing for JEE Main, you are already ~85% prepared for BITSAT: the
+Physics, Chemistry and Mathematics are the same NCERT Class 11–12 base. The real
+differences are three — **speed, two extra sections, and which colleges each opens** —
+and they are exactly what the generic comparison pages gloss over (several still quote
+the old 150-question / 450-mark pattern; the current paper is 130 questions / 390 marks).
+
+| | JEE Main | BITSAT ({Y}) |
+|---|---|---|
+| Questions | 90 (you answer 75) | 130 |
+| Total marks | 300 | 390 |
+| Marking | +4 / −1 (no negative on numericals) | +3 / −1 (all questions) |
+| Time per question | ~2.0 min | ~1.4 min |
+| Sections | Physics, Chemistry, Maths | Physics, Chemistry, Maths/Bio, **English**, **Logical Reasoning** |
+| Mode | Online CBT | Online CBT |
+| What it unlocks | NITs, IIITs, GFTIs (JoSAA) + gateway to JEE Advanced → IITs | BITS Pilani, Goa, Hyderabad only |
+
+### The 23% of BITSAT that JEE never tests
+
+Thirty of BITSAT's 130 questions — **English Proficiency (10) + Logical Reasoning (20),
+worth 90 of 390 marks (≈23%)** — cover ground JEE never touches. For a JEE student these
+are either free marks or a silent rank-killer. English Proficiency needs almost no study
+(grammar, vocabulary, reading). Logical Reasoning rewards ~1–2 weeks of pattern practice:
+series, analogies, figure completion, coding-decoding. Skipping these because "my PCM is
+strong" is the most common way good JEE students underperform on BITSAT.
+
+### The bonus-question mechanic competitors leave out
+
+Finish all 130 questions before time runs out and BITSAT unlocks **12 bonus questions**
+(3 each from Physics, Chemistry, Maths/Bio and Logical Reasoning), worth up to **+36**.
+The catch nobody mentions: **the moment you opt into the bonus round you can no longer go
+back and change any of your first 130 answers.** So opt in only if you are genuinely
+confident in your 130; if several are shaky, that spare time is better spent reviewing
+them than gambling on the bonus.
+
+### Cutoffs — the number that decides whether BITSAT is worth it for you
+
+BITSAT only matters if the score you can realistically hit clears the branch you want.
+Approximate recent BITSAT cutoffs (out of 390 — treat as moving bands, not fixed lines):
+
+| Campus & branch | Approx. BITSAT score |
+|---|---|
+| BITS Pilani — CSE | ~327–333+ |
+| BITS Pilani — EEE / ECE / Mechanical | ~295–315 |
+| BITS Goa / Hyderabad — CSE | ~290–305 |
+| BITS Goa / Hyderabad — other core branches | ~250–290 |
+
+BITS Pilani CSE is one of the highest per-seat bars in the country — comparable in
+selectivity to a top-NIT CSE seat, just reached through a different exam.
+
+### A 30-second decision framework
+
+1. **Want an IIT, NIT or IIIT?** → JEE Main is mandatory; BITSAT cannot reach any of them.
+   Treat BITSAT as a *parallel* shot at BITS, never a substitute for JEE.
+2. **Specifically want BITS Pilani/Goa/Hyderabad?** → BITSAT is the *only* route. There is
+   no JEE-score-based admission to BITS, so you must write BITSAT.
+3. **Already preparing JEE Main?** → Add BITSAT cheaply: ~2–3 weeks of English + Logical
+   Reasoning practice plus timed full-length mocks for speed. Don't start new PCM theory —
+   you already have it.
+
+**Honest note:** BITSAT's individual questions are easier and more NCERT-direct than JEE
+Main's. But the 1.4-minute clock and the two unfamiliar sections make it its own exam. A
+strong JEE student who never sits a timed BITSAT mock routinely scores below their true
+PCM ability on the day — the gap is speed and stamina, not concepts.
+
+### FAQ — BITSAT vs JEE Main
+
+**Q: Is BITSAT easier than JEE Main?**
+A: Concept-wise, yes — BITSAT questions are more direct and NCERT-aligned. But it is
+faster (130 questions in 180 minutes ≈ 1.4 min each, versus ~2 min in JEE Main) and adds
+English and Logical Reasoning, which JEE never tests. "Easier questions, harder clock, two
+extra sections" is the honest one-line summary.
+
+**Q: How much of my JEE Main preparation covers BITSAT?**
+A: About 85%. Physics, Chemistry and Maths share the same NCERT Class 11–12 base. The
+remaining ~15% is English Proficiency, Logical Reasoning and speed training — roughly 2–3
+weeks of focused work on top of your JEE prep.
+
+**Q: Can I get into an IIT or NIT through BITSAT?**
+A: No. BITSAT admits only to BITS Pilani, Goa and Hyderabad. IITs require JEE Advanced
+(via JEE Main); NITs and IIITs require JEE Main through JoSAA. BITSAT is a separate,
+parallel exam — write it for BITS, not as a route into the IIT/NIT system.
+
+**Q: What BITSAT score do I need for BITS Pilani CSE?**
+A: Realistically around 327–333+ out of 390 in recent years — one of the toughest
+per-seat bars in India. CSE at Goa/Hyderabad closes a little lower (~290–305), and
+non-CSE branches at all three campuses are more reachable. Treat these as bands that move
+each year, and check the live iteration cutoffs during admissions.
+
+**Q: Should I attempt the 12 bonus questions?**
+A: Only if you are confident in your first 130. Finishing all 130 before time unlocks 12
+bonus questions (up to +36), but once you opt in you cannot return to revise earlier
+answers. If several questions are shaky, the spare time is better spent reviewing them
+than gambling on the bonus round.`,
 };
 
 /**
