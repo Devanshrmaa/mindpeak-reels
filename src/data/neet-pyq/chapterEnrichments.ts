@@ -32,6 +32,128 @@ export interface PYQChapterEnrichment {
 
 /** Keyed by `${subjectSlug}/${chapterSlug}` to avoid cross-subject slug clashes. */
 const ENRICHMENTS: Record<string, PYQChapterEnrichment> = {
+  'chemistry/haloalkanes': {
+    overview:
+      'Haloalkanes & Haloarenes (NCERT Class 12 Chemistry) is a short, high-return Organic chapter: NEET has historically pulled ~2–3 questions from it almost every year (roughly 3–4% of the Chemistry section). Most of those marks come from a small, predictable set of ideas — SN1 vs SN2 behaviour, reactivity orders, and a handful of named reactions — so working past papers converts almost directly into marks. The mechanisms repeat with new molecules, which is exactly why PYQ practice beats re-reading the theory.',
+    facts: [
+      { label: 'NEET question frequency', value: '~2–3 questions most years (≈3–4% of Chemistry)' },
+      { label: 'NCERT source', value: 'Class 12, Ch. Haloalkanes & Haloarenes' },
+      { label: 'Difficulty', value: 'Easy–Moderate; mostly mechanism + reactivity-order recall' },
+      { label: 'Best use of time', value: 'High — short chapter, reliable single-fact marks' },
+    ],
+    highYield: [
+      {
+        topic: 'SN1 vs SN2 — stereochemistry & rate',
+        detail:
+          'The single most-repeated theme. SN2 is one-step, bimolecular, and gives inversion of configuration (Walden inversion) — a chiral substrate flips. SN1 is two-step, goes through a planar carbocation, and gives racemisation (≈50:50 mixture, NOT retention). SN1 rate depends only on the substrate; SN2 rate depends on both substrate and nucleophile. Expect a "which mechanism / what is the product stereochemistry" question almost every year.',
+      },
+      {
+        topic: 'Reactivity orders',
+        detail:
+          'Toward SN1: 3° > 2° > 1° (carbocation stability). Toward SN2: 1° > 2° > 3° (steric hindrance). Leaving-group / overall reactivity of the C–X bond: R–I > R–Br > R–Cl > R–F (weaker bond breaks easier). Allyl/benzyl halides are extra reactive; vinyl and aryl halides are the LEAST reactive toward nucleophilic substitution.',
+      },
+      {
+        topic: 'Why haloarenes resist nucleophilic substitution',
+        detail:
+          'Chlorobenzene is far less reactive than chloromethane because of (i) partial double-bond character from resonance, (ii) the sp² carbon holding the C–Cl bond tighter, and (iii) an unstable phenyl cation. NEET loves a "least reactive toward SN" question — the answer is usually the aryl or vinyl halide.',
+      },
+      {
+        topic: 'Named reactions',
+        detail:
+          'Finkelstein (R–Cl/Br + NaI in dry acetone → R–I), Swarts (R–X + AgF/Hg₂F₂ → R–F), Wurtz (2 R–X + Na → R–R), Wurtz–Fittig (alkyl + aryl halide → alkylarene), Fittig (2 aryl halides → biaryl), Sandmeyer and Gattermann (from diazonium salts). Knowing the exact reagent/solvent (e.g. "dry acetone" for Finkelstein) is the trick the question tests.',
+      },
+      {
+        topic: 'Polyhalogen compounds & uses',
+        detail:
+          'Direct-recall marks: CHCl₃ is stored in dark bottles with a little ethanol (to stop phosgene, COCl₂, formation); CCl₄, DDT, freons (CFCs, ozone-depleting) and iodoform are common single-fact questions on uses and environmental effects.',
+      },
+    ],
+    traps: [
+      'Saying SN1 gives retention of configuration. SN1 goes through a planar carbocation, so it gives racemisation (≈50:50). Inversion is the SN2 outcome (Walden inversion).',
+      'Thinking aryl/vinyl halides are MORE reactive because the carbon is sp². They are the LEAST reactive toward nucleophilic substitution — resonance and bond strength lock the halogen in.',
+      'Flipping the reactivity orders: 3° is fastest for SN1 but slowest for SN2. Read whether the question asks about SN1 or SN2 before ranking.',
+      'Forgetting the solvent condition in Finkelstein (dry acetone) — it is there to keep NaCl/NaBr insoluble and drive the equilibrium. The reagent alone is not the full answer.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Haloalkanes and Haloarenes in NEET?',
+        a: 'Typically 2–3 questions almost every year — roughly 3–4% of the Chemistry section. Since the chapter is short and the same mechanisms recur, the marks-per-hour of study is among the best in Class 12 Organic Chemistry, which is why drilling PYQs pays off.',
+      },
+      {
+        q: 'What is the most important topic in Haloalkanes and Haloarenes for NEET?',
+        a: 'The SN1 vs SN2 comparison — mechanism, rate dependence, and especially stereochemistry (SN2 inversion, SN1 racemisation). After that, the reactivity orders (3°>2°>1° for SN1, the reverse for SN2; R–I>R–Br>R–Cl>R–F) and the named reactions (Finkelstein, Swarts, Wurtz, Sandmeyer) cover most past questions.',
+      },
+      {
+        q: 'Does SN1 give inversion or retention of configuration?',
+        a: 'Neither cleanly — SN1 gives racemisation. It proceeds through a flat (planar) carbocation that the nucleophile can attack from either face, producing a roughly 50:50 mixture of both enantiomers. Inversion of configuration (Walden inversion) is the SN2 result, not SN1.',
+      },
+      {
+        q: 'Why is chlorobenzene less reactive than chloromethane toward nucleophiles?',
+        a: 'Because of resonance (the C–Cl bond gets partial double-bond character and is harder to break), the sp² hybridised carbon holding the halogen more tightly, and the instability of the phenyl cation. So aryl halides — and vinyl halides for similar reasons — are the least reactive toward nucleophilic substitution, a frequent NEET "odd one out" answer.',
+      },
+    ],
+  },
+  'biology/locomotion-movement': {
+    overview:
+      'Locomotion & Movement (NCERT Class 11 Biology, Unit "Human Physiology") is a steady scorer in NEET — about 2–3 questions most years (often 4 if you count overlap with muscle physiology). The concept pool is small and finite, so PYQs cover the large majority of what gets asked. The marks cluster around three areas: the sliding-filament mechanism, the human skeleton (bone counts and the axial/appendicular split), and joint types — plus one disorder question that asks for the cause, not just the name.',
+    facts: [
+      { label: 'NEET question frequency', value: '~2–3 questions most years (occasionally 4)' },
+      { label: 'NCERT source', value: 'Class 11, Ch. Locomotion & Movement' },
+      { label: 'Difficulty', value: 'Easy–Moderate; mostly direct recall + one diagram-based Q' },
+      { label: 'Best use of time', value: 'High — finite fact pool, PYQs repeat heavily' },
+    ],
+    highYield: [
+      {
+        topic: 'Sliding-filament theory — what shortens, what stays constant',
+        detail:
+          'The most-repeated question in the chapter. During contraction the sarcomere shortens, the I-band (light, actin-only) shortens, and the H-zone shortens, while the A-band (dark, myosin length) stays CONSTANT and the Z-lines move closer. The filaments themselves do not shorten — they slide. "Which band remains unchanged during contraction?" → A-band is a near-guaranteed mark.',
+      },
+      {
+        topic: 'Muscle proteins & the cross-bridge cycle',
+        detail:
+          'Thin filament = actin (with regulatory troponin and tropomyosin); thick filament = myosin. Ca²⁺ binds troponin → exposes actin binding sites → myosin heads form cross-bridges → power stroke (ATP-driven). Red fibres are aerobic, myoglobin-rich with many mitochondria (sustained work); white fibres are anaerobic with few mitochondria (fast, fatigue-prone).',
+      },
+      {
+        topic: 'Human skeleton — 206 bones and the axial/appendicular split',
+        detail:
+          'Total 206 bones = 80 axial + 126 appendicular. Axial: skull 22 (8 cranial + 14 facial) + 6 ear ossicles + 1 hyoid + vertebral column 26 + sternum 1 + ribs 24 = 80. Appendicular: 126 (limbs + pectoral and pelvic girdles). NEET regularly asks for one of these counts or to classify a given bone as axial vs appendicular.',
+      },
+      {
+        topic: 'Joints — match the type to its example',
+        detail:
+          'Fibrous (immovable, e.g. skull sutures); cartilaginous (slightly movable, e.g. between adjacent vertebrae); synovial (freely movable). Within synovial: ball-and-socket (shoulder, hip), hinge (knee, elbow), pivot (atlas–axis), gliding (between carpals/tarsals), saddle (carpal–metacarpal of thumb), condyloid. Matching the joint to its body location is a classic PYQ format.',
+      },
+      {
+        topic: 'Disorders — know the cause, not just the name',
+        detail:
+          'Myasthenia gravis (autoimmune, antibodies block the ACh receptor → fatigue); muscular dystrophy (genetic, progressive degeneration); tetany (low blood Ca²⁺ → rapid spasms); gout (uric-acid crystals inflame joints); osteoporosis (low bone mass, linked to decreased oestrogen, common post-menopause); arthritis (joint inflammation). NEET typically asks for the mechanism or cause.',
+      },
+    ],
+    traps: [
+      'Saying the A-band shortens during contraction. The A-band length is CONSTANT — it equals the myosin filament length. The I-band and H-zone shorten; the sarcomere shortens because filaments slide, not shrink.',
+      'Confusing the bone counts: 80 axial + 126 appendicular = 206. A common mix-up is the skull total (22, of which 8 are cranial and 14 facial) and forgetting the 6 ear ossicles and 1 hyoid sit in the axial skeleton.',
+      'Mixing up red and white muscle fibres. Red = aerobic, myoglobin- and mitochondria-rich, fatigue-resistant; white = anaerobic, few mitochondria, fast but quick to tire.',
+      'Naming a disorder without its cause. NEET phrases it as "deficiency of Ca²⁺ causes ___" (tetany) or "autoimmune blockage of ACh receptors" (myasthenia gravis) — learn the mechanism, not just the label.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Locomotion and Movement in NEET?',
+        a: 'Usually 2–3 questions most years, occasionally 4 if muscle-physiology overlap is counted. The fact pool is small and finite, so past-year questions cover the large majority of what NEET asks — making PYQ practice unusually efficient for this chapter.',
+      },
+      {
+        q: 'Which band does not change during muscle contraction?',
+        a: 'The A-band stays constant — its length equals the myosin (thick) filament, which does not shorten. During contraction the I-band and H-zone shorten and the Z-lines come closer, so the whole sarcomere shortens, but the filaments slide past each other rather than shrinking. This "which band is unchanged" question appears almost every year.',
+      },
+      {
+        q: 'How many bones are in the human body for NEET, and how are they split?',
+        a: '206 bones total: 80 axial (skull 22, ear ossicles 6, hyoid 1, vertebral column 26, sternum 1, ribs 24) and 126 appendicular (the two limbs plus the pectoral and pelvic girdles). Questions often give a single bone and ask you to classify it as axial or appendicular.',
+      },
+      {
+        q: 'What are the most important topics in Locomotion and Movement for NEET?',
+        a: 'In priority order: the sliding-filament theory (which bands shorten vs stay constant), the muscle proteins and cross-bridge cycle, the human skeleton (206 bones, axial vs appendicular), joint types matched to examples, and the locomotory disorders by cause (myasthenia gravis, tetany, gout, osteoporosis).',
+      },
+    ],
+  },
   'biology/cell-division': {
     overview:
       'Cell Cycle & Cell Division (NCERT Class 11 Biology, Unit "Cell Structure & Function") is one of the best return-on-effort chapters in NEET Biology: the NCERT chapter is short, yet NEET has asked from it almost every year — typically 2–3 questions, occasionally more. The questions are concept-stable (they repeat the same handful of ideas in new wording), so working through past papers is the single fastest way to lock these marks.',
