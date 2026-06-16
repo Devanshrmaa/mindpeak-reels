@@ -493,6 +493,123 @@ biggest difference from JEE, where boards don't affect rank.
 A: Because it unlocks the IITs, which KCET cannot. Difficulty and reward go together
 — Advanced is harder precisely because the seat it offers is one KCET doesn't. Choose
 based on the college you actually want, not on which exam is easier.`,
+
+  /* ───────────────────────── BITSAT vs JEE Main ─────────────────────────
+     Query: "bitsat vs jee mains" / "is bitsat easier than jee mains" (pos 7–9).
+     Gap the SERP leaders bury: BITSAT's bonus-question mechanic, the 75% board
+     gate, no reservation/quota, private-fee reality, and real CSE cutoffs. */
+  'bitsat-vs-jee-main-comparison': `## BITSAT vs JEE Main — The Differences That Actually Decide It
+
+Both exams test the same NCERT Class 11–12 Physics, Chemistry and Maths, and about
+**85% of the syllabus overlaps** — if you are preparing for JEE Main you are already
+most of the way to BITSAT. So the choice is rarely about syllabus. It is about four
+things competitor articles skip: the marking format, the eligibility gate, who gets a
+seat, and what it costs. Here is the honest version.
+
+### Exam pattern at a glance
+
+| | BITSAT {Y} | JEE Main {Y} |
+|---|---|---|
+| Questions | 130 | 90 (75 counted) |
+| Total marks | 390 (+ 36 bonus) | 300 |
+| Time | 3 hours | 3 hours |
+| Time per question | ~1.38 min | ~2.4 min |
+| Marking | +3 / −1 | +4 / −1 |
+| Extra sections | English (10) + Logical Reasoning (20) | None |
+| Conducting body | BITS Pilani (private university) | NTA (national) |
+| Unlocks | BITS Pilani, Goa, Hyderabad | NITs, IIITs, GFTIs + gateway to JEE Advanced/IITs |
+
+**BITSAT section split:** Physics 30, Chemistry 30, Maths (or Biology) 40, English
+Proficiency 10, Logical Reasoning 20 = 130 questions.
+
+### The bonus-question rule no one warns you about
+
+This is BITSAT's single biggest difference from JEE Main, and it is a genuine trap.
+If you answer **all 130 questions before time runs out**, you may opt for **12 bonus
+questions** (3 each, 36 extra marks — taking the maximum to 426). But the moment you
+choose the bonus round, **you cannot go back to review or change any of your earlier
+130 answers.** So the speed pressure is real: at ~1.38 minutes per question you have
+almost a full minute less per question than in JEE Main, and rushing to "unlock" the
+bonus while leaving silly mistakes behind you is how good students lose marks. Decide
+your strategy in advance — most toppers only take the bonus if they are genuinely
+confident in all 130, not just to chase the extra 36.
+
+### The eligibility gate that disqualifies many JEE aspirants
+
+BITSAT has a hard board-marks requirement that JEE Main does not: you need **at least
+75% aggregate in Physics, Chemistry and Maths/Biology in Class 12, with a minimum 60%
+in each of the three subjects**, and you must be among the top scorers. A student who
+is brilliant at the entrance but scored 68% in boards can sit JEE Main and still get an
+NIT — but is **simply not eligible for BITS**. Check your board trajectory before you
+bank on BITSAT.
+
+### Who actually gets a seat — and what it costs
+
+Two facts that should weigh heavily in the decision:
+
+- **BITS has no caste-based reservation.** Admission is purely on BITSAT merit — there
+  is no SC/ST/OBC/EWS quota. For a reserved-category student this can make a government
+  NIT seat (via JEE Main, with reservation) considerably more reachable than a BITS seat.
+- **BITS is a private university.** Fees are roughly **₹5–6 lakh per year** (~₹20–24
+  lakh for the 4-year B.E.), against roughly **₹1.25–1.5 lakh per year** at most NITs.
+  That is a real, recurring difference families should plan for, not an afterthought.
+
+### What CSE actually costs in marks (BITS Pilani)
+
+BITS Pilani Computer Science is one of the most sought-after private seats in India.
+Recent closing scores:
+
+| Year | BITS Pilani CSE closing score (/390) |
+|---|---|
+| 2024 | ~327 |
+| 2023 | ~331 |
+| 2022 | ~320 |
+
+Pilani CSE has hovered around **325–331** for three years. Goa and Hyderabad campuses
+close roughly **25–40 marks lower** for CSE, so a score in the high-280s/290s can still
+land CSE at Goa or Hyderabad. Treat these as targets, not guarantees — the cutoff drifts
+each year with paper difficulty.
+
+### 30-second decision framework
+
+- **Your board % is comfortably above 75% AND you specifically want BITS Pilani CSE/ENI
+  AND private fees are affordable** → BITSAT is well worth the 2–3 extra weeks of English
+  + Logical Reasoning + speed practice.
+- **You are a fast, accurate solver who rarely needs the full 2.4 min/question** →
+  BITSAT's format actually suits you; the speed is an advantage, not a wall.
+- **You need a low-fee government seat, you are a reserved-category candidate, or your
+  board score is borderline** → JEE Main (NITs/IIITs) is the more dependable path, and
+  it is also the only route to JEE Advanced and the IITs.
+
+**Honest bottom line:** BITSAT is *not* "easier than JEE Main" — it trades JEE's
+conceptual depth for brutal time pressure. But because the syllabus overlap is so high,
+the right answer for most JEE aspirants is **not either/or — sit both.** BITSAT becomes
+a strong second option that costs only a few extra weeks of targeted prep, provided your
+board marks clear the gate and the fees fit your plan.
+
+### FAQ — BITSAT vs JEE Main
+
+**Q: Is BITSAT easier than JEE Main?**
+A: Question-for-question BITSAT is usually a little less conceptually deep, but the exam
+as a whole is *not* easier — you face 130 questions in 3 hours (~1.38 min each) versus
+90 in JEE Main (~2.4 min each). BITSAT is harder on speed; JEE Main is harder on depth.
+Which feels easier depends on whether your weakness is accuracy-under-time or tough
+multi-step problems.
+
+**Q: If I prepare for JEE Main, how much extra do I need for BITSAT?**
+A: About 85% of the syllabus is shared, so the extra load is the English Proficiency and
+Logical Reasoning sections plus speed training — realistically **2–3 weeks** of focused
+practice. You do not prepare for BITSAT separately; you add a thin layer on top of JEE Main.
+
+**Q: What BITSAT score do I need for CSE at BITS Pilani?**
+A: Around **325–331/390** in recent years for the Pilani campus. Goa and Hyderabad CSE
+close roughly 25–40 marks lower. Aim for 330+ if Pilani CSE is the goal, and have Goa/
+Hyderabad as realistic backups in the 290s.
+
+**Q: Can I get BITS through JEE Main marks?**
+A: No. BITS Pilani admits **only through BITSAT** — your JEE Main score is irrelevant for
+BITS. They are separate admission systems, which is exactly why sitting both widens your
+options instead of duplicating effort.`,
 };
 
 /**
