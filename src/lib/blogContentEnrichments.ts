@@ -592,6 +592,70 @@ A: If you want a top private CS/ECE option and you're a fast solver, yes — the
 overlap makes the marginal effort small. If your JEE mocks already secure a branch
 you'd happily accept and you struggle with time pressure, the extra exam, fee and
 English/LR prep may not earn their keep. Decide on the seat you'd actually take.`,
+
+  /* ───────────────────── 99 percentile in NEET (overall) ─────────────────────
+     Query: "99 percentile in neet" (pos ~4–7). The templated body talks about
+     "99 percentile in Biology" — but NEET has no official subject-wise percentile,
+     so the searcher's real question (total marks + AIR for 99 percentile overall)
+     goes unanswered. This block front-loads the honest score→percentile→rank map
+     and the subject-vs-overall distinction the SERP leaders blur. */
+  'how-to-score-99-percentile-in-neet-biology': `## "99 Percentile in NEET" — What It Means in Marks and Rank (the honest version)
+
+First, a distinction the question hides: **NEET reports one overall percentile, not a
+subject-wise percentile.** Your NTA scorecard gives a single percentile on your total
+out of 720 — there is no official "99 percentile in Biology" figure. So when someone
+searches "99 percentile in NEET", they're really asking: *what total score, and what
+All India Rank, does the top 1% correspond to?* Here is the realistic mapping based on
+recent (2024–2025) NEET cycles, where cutoffs ran historically high:
+
+| Percentile | Approx. NEET score /720 | Approx. All India Rank |
+|---|---|---|
+| 99.9+ | ~690+ | top ~2,000 |
+| 99+ | ~670–685 | ~13,000–20,000 |
+| 98+ | ~640–660 | ~27,000–45,000 |
+| 95+ | ~590–620 | ~70,000–1,10,000 |
+
+**Read the table honestly.** Percentile is *relative* — it is recalculated every year
+against that year's candidates, so the marks for 99 percentile drift with paper
+difficulty and the number of test-takers (NEET 2024 had ~24 lakh candidates). Treat
+670–685 as a target band, not a fixed line.
+
+**A 99 percentile is excellent — but it does not by itself guarantee a government MBBS
+seat.** With ~24 lakh aspirants, the top 1% is still ~20,000+ students chasing far
+fewer government MBBS seats. A 99 percentile (AIR ~13k–20k) typically secures a
+government seat through state counselling in many states, but the most competitive
+states and colleges close higher. If a government MBBS seat is the goal, aim for
+**99.5+ percentile / ~660+** rather than treating 99 flat as "safe".
+
+### Where Biology fits into a 99-percentile total
+
+Biology is 360 of the 720 marks — literally half the paper and the highest-scoring,
+most NCERT-faithful section. The students who clear 670+ almost all do it by treating
+Biology as the *anchor*: target **330–350/360 in Biology** (a near-clean Botany +
+Zoology run), then add ~150–170 from Physics + Chemistry combined. It is far easier to
+push Biology from 320 to 345 than to claw the same 25 marks out of Physics. That is why
+"99 percentile in NEET" almost always rests on a Biology-led score structure.
+
+### FAQ — 99 percentile in NEET
+
+**Q: 99 percentile in NEET is how many marks?**
+A: Roughly **670–685 out of 720** in recent cycles. It is not a fixed number — percentile
+is computed relative to that year's candidates, so the exact mark moves with paper
+difficulty. Use 670–685 as a planning band.
+
+**Q: What rank is 99 percentile in NEET?**
+A: Approximately **All India Rank 13,000–20,000**, since 99 percentile means you beat 99%
+of the ~24 lakh candidates (the top 1% is still a large group in NEET).
+
+**Q: Will 99 percentile get me a government MBBS seat?**
+A: Often yes through state quota counselling, but not guaranteed everywhere — the most
+competitive states and colleges close above it. For a comfortable government MBBS chance,
+target 99.5+ percentile (~660+ marks / AIR under ~13,000).
+
+**Q: Is there a separate Biology percentile in NEET?**
+A: No. NTA publishes only an overall percentile on your total of 720. "99 percentile in
+Biology" is informal — what counts for admission is your overall percentile and All India
+Rank. Biology matters because it is half the marks, not because it has its own percentile.`,
 };
 
 /**
