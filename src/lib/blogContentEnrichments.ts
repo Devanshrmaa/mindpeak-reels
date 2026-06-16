@@ -592,6 +592,82 @@ A: If you want a top private CS/ECE option and you're a fast solver, yes — the
 overlap makes the marginal effort small. If your JEE mocks already secure a branch
 you'd happily accept and you struggle with time pressure, the extra exam, fee and
 English/LR prep may not earn their keep. Decide on the seat you'd actually take.`,
+
+  /* ──────────────── "99 percentile in NEET" — what it really means ────────────────
+     Query: "99 percentile in neet" (pos ~4–7). Gap the SERP and our own templated
+     body bury: 99 percentile in NEET is NOT elite — it is ~AIR 22,000, the borderline
+     of the All-India-Quota govt MBBS cutoff. The number that decides a seat is
+     marks → rank, not percentile. Biology (half the paper) is the rank-decider. */
+  'how-to-score-99-percentile-in-neet-biology': `## What "99 Percentile in NEET" Actually Means (read this before you set it as your goal)
+
+Most students who search "99 percentile in NEET" picture an elite, AIIMS-level
+score. It isn't. **99 percentile means you beat 99% of candidates — i.e. you are in
+the top 1%.** With roughly **22–24 lakh** people writing NEET, the top 1% is about
+**All India Rank 22,000**. And in NEET ${Y}, the All-India-Quota *general*-category
+MBBS seats closed around **AIR 26,000 (~525 marks)** — so a 99-percentile rank only
+*just* clears the line for a government MBBS seat. It is the floor, not a safe target.
+
+The deeper point: **NEET decides your seat from marks → rank, not from a percentile.**
+Unlike JEE Main, NEET is a single paper with no multi-shift normalisation, so your
+All India Rank comes straight from your marks (with a fixed tie-break order). The
+percentile shown on the scorecard is informational; counselling runs on your AIR.
+Chasing "99 percentile" is chasing the wrong number.
+
+### NEET marks → rank → percentile (NEET ${Y}, approximate)
+
+| Marks (/720) | Approx. All India Rank | Approx. percentile | What it realistically gets |
+|---|---|---|---|
+| 705–720 | 1–150 | 99.99+ | AIIMS Delhi, top government colleges |
+| 680–704 | ~200–800 | 99.95+ | AIIMS, MAMC, top state government |
+| 650–679 | ~800–5,000 | 99.8+ | A comfortable government MBBS seat |
+| 600–649 | ~5,000–22,000 | ~99.2–99.7 | Mid government / state quota |
+| ~595–600 | **~22,000** | **~99.0 (the real "99 percentile")** | Borderline AIQ general MBBS |
+| ~525 | ~26,000 | ~98.8 | Last AIQ general government seat (${Y}) |
+
+Rank bands shift a little each year with the number of candidates and paper
+difficulty, but the shape holds: **99 percentile ≈ ~600 marks ≈ rank ~22,000** —
+borderline for a government seat. If you genuinely want a *safe* government MBBS seat,
+aim for **99.9 percentile (top ~2,500, roughly 650+ marks)**, and for AIIMS Delhi /
+the top colleges you need to be inside the top few hundred ranks (≈690+).
+
+### Why Biology is the chapter that decides this
+
+Biology is **360 of the 720 marks — exactly half the paper — and it is the rank-decider.**
+It is also the most "protectable" subject: most questions are direct from NCERT with
+little calculation, so toppers treat near-perfect Biology as non-negotiable and use it
+to absorb a weaker Physics section. A realistic Biology target for a top-2,500 rank is
+**around 340+/360** — that means getting all but a handful of the 90 Biology questions
+right, so accuracy and NCERT line-by-line recall matter more than speed here.
+
+Where those Biology marks actually sit: **Human Physiology, Genetics & Evolution,
+Ecology, Cell Biology and Plant Physiology** dominate the paper. Lock NCERT for these
+units first, drill chapter-wise PYQs (NEET re-asks the same ideas in new wording), and
+keep negative marking in mind — at +4/−1, a wild guess costs you, so leave a question
+blank rather than guessing when you cannot eliminate at least two options.
+
+### FAQ — 99 percentile in NEET
+
+**Q: How many marks is 99 percentile in NEET?**
+A: Roughly **600 out of 720**, which corresponds to about **All India Rank 22,000**
+(the top 1% of ~22–24 lakh candidates). The exact mark moves a little each year with
+difficulty and the number of test-takers.
+
+**Q: Is 99 percentile enough for a government MBBS seat?**
+A: It is borderline. In NEET ${Y} the All-India-Quota general MBBS cutoff closed near
+AIR 26,000 (~525 marks), so a 99-percentile rank (~22,000) *may* get you an AIQ or
+state-quota government seat — but it is not safe, and the college choice will be
+limited. For a comfortable government seat, target **99.9 percentile (650+ marks)**.
+
+**Q: Does NEET use percentile the way JEE Main does?**
+A: No. JEE Main runs across many shifts and uses normalised percentile scores; NEET
+is one paper on one day, so your **rank is derived directly from your marks** with a
+fixed tie-breaking rule. The percentile on your scorecard is informational — admission
+counselling uses your marks and All India Rank.
+
+**Q: How many marks in Biology do I need for a 99+ percentile rank?**
+A: Aim for about **340+/360 in Biology**. Because Biology is half the paper and the
+most NCERT-direct subject, a near-perfect Biology score is how most top-rankers create
+the cushion that protects them when Physics is tough.`,
 };
 
 /**
