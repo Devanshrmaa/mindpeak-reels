@@ -1,5 +1,5 @@
 # MindPeak Institute — Outreach Tracker
-**Last Updated:** 2026-05-20  
+**Last Updated:** 2026-06-16  
 **Site:** mindpeakinstitute.com  
 **MSME:** UDYAM-HP-04-0042530
 
@@ -57,6 +57,14 @@
 | 44 | 2026-06-04 | cyboardschool.com | cyboardschool.com/write-for-us/ | Guest Post — accepts EdTech/education content from teachers & founders, 1000–2500 words, byline with link | Via write-for-us form on site | ❌ | — | NOT STARTED |
 | 45 | 2026-06-04 | dailysarkariresults.com | dailysarkariresults.com/write-for-us/ | Guest Post — education, study tips, coaching content; high-traffic exam-aware student audience | Via write-for-us form on site | ❌ | — | NOT STARTED |
 | 46 | 2026-06-04 | vidsaga.com | vidsaga.com/top-indian-edtech-startups/ | Listicle Inclusion — "32 Top Indian EdTech Startups 2026" (startup directory angle, MSME + HP startup story) | Via vidsaga.com contact page | ❌ | — | NOT STARTED |
+| 47 | 2026-06-16 | academycheck.com | academycheck.com/blog/best-jee-online-coaching-institutes-in-india | Listicle Inclusion — "Top 5 Best JEE Online Coaching Institutes in India for 2027 Aspirants" (AcademyCheck's 6th relevant article; lists Vedantu, PW, Motion, Aakash, ALLEN — no 1-on-1 category) | 08062179896 (call) or contact form | ❌ | — | NOT STARTED |
+| 48 | 2026-06-16 | academycheck.com | academycheck.com/blog/top-jee-coaching-institutes-producing-jee-advanced-toppers | Listicle Inclusion — "India's Top 10 JEE Coaching Institutes Producing JEE Advanced 2026 Toppers" (AIR 42 result is directly citable; pitch: boutique 1-on-1 produced AIR 42) | 08062179896 (call) or contact form | ❌ | — | NOT STARTED |
+| 49 | 2026-06-16 | rsisinternational.org | rsisinternational.org/blogs/write-for-us/ | Guest Post — easiest in tracker: only 600 words min, 1–2 day approval, accepts JEE/NEET coaching content, author bio with link allowed | Via write-for-us submission form | ❌ | — | NOT STARTED |
+| 50 | 2026-06-16 | sarkariresultexams.com | sarkariresultexams.com/write-for-us/ | Guest Post — education/career focus, 1000+ words, plagiarism-checked; high-traffic exam-aware student audience (different site from #45 dailysarkariresults.com) | Via write-for-us form | ❌ | — | NOT STARTED |
+| 51 | 2026-06-16 | puronodiary.in | puronodiary.in/whose-coaching-is-best-for-neet-2026-a-realistic-comparison | Listicle Inclusion — "Whose Coaching is Best for NEET 2026: A Realistic Comparison" (covers Allen/Aakash/PW only, no 1-on-1 personalised option; pitch: add "Best for Personalised 1-on-1" category) | Via puronodiary.in contact page | ❌ | — | NOT STARTED |
+| 52 | 2026-06-16 | supertutor.in | supertutor.in/resources/blog/best-coaching-for-neet/ | Listicle Inclusion — "Best Coaching for NEET 2026 in India — Honest Comparison" (tutor-focused brand, no 1-on-1 personalised coaching featured; "honest comparison" format welcomes niche additions) | Via supertutor.in contact page | ❌ | — | NOT STARTED |
+| 53 | 2026-06-16 | ezyschooling.com | ezyschooling.com/parenting/expert/guest-post-write-for-us | Guest Post — education, parenting, career, study content; active editorial; relevant angle: "What Parents Don't Know About Choosing a JEE/NEET Coach" | Via guest-post-write-for-us form | ❌ | — | NOT STARTED |
+| 54 | 2026-06-16 | himachalheadlines.com / thenewshimachal.com / yugmarg.com | himachalheadlines.com / thenewshimachal.com / yugmarg.com | HP Local News PR — all three covered DPIIT "Top Performer HP Startup" story Jan 2026; pitch MindPeak as HP EdTech startup success story; use UDYAM-HP-04-0042530 as credibility anchor | Contact/editorial forms on each site | ❌ | — | NOT STARTED |
 
 ---
 
@@ -77,6 +85,25 @@
 ---
 
 ## Notes & Strategy Log
+
+### 2026-06-16 — Week 6 Audit + 8 New Targets Added (54 Total)
+
+- **Zero backlinks for SIXTH consecutive week.** All 46 prior targets still at NOT STARTED. Jun 2–8 and Jun 9–15 weekly targets both missed.
+- **2026 content window closing.** Mid-June is the turning point — "best coaching 2026" articles will lose editorial flexibility in ~4–6 weeks. 2027 editions (AcademyCheck #47, #39) are the freshest entry points.
+- **8 new targets added (#47–54):**
+  - #47: AcademyCheck "Top 5 Best JEE Online for 2027 Aspirants" (6th AcademyCheck article)
+  - #48: AcademyCheck "India's Top 10 JEE Institutes Producing Advanced 2026 Toppers" (AIR 42 angle)
+  - #49: **rsisinternational.org** — easiest guest post in tracker: 600 words min, 1–2 day approval
+  - #50: sarkariresultexams.com — guest post, 1000+ words
+  - #51: puronodiary.in — NEET comparison, no 1-on-1 category
+  - #52: supertutor.in — NEET comparison, no 1-on-1 category
+  - #53: ezyschooling.com — guest post, parenting/education angle
+  - #54: HP local news (himachalheadlines.com, thenewshimachal.com, yugmarg.com) — PR pitch using DPIIT Top Performer HP angle
+- **Emails #22–27 ready to send** (in `/seo-reports/backlinks-2026-06-16.md`)
+- **HP DPIIT Top Performer angle (NEW):** HP named "Top Performer" in DPIIT Startup Ranking 5.0 (Jan 2026). Three HP news outlets covered the story. MindPeak can pitch these as a regional HP startup success story — dofollow news-domain backlinks possible.
+- **AcademyCheck now has 6 tracked articles** — a single phone call (08062179896) could unlock inclusion across all six simultaneously. This is the single highest-leverage action in the tracker.
+- **rsisinternational.org (#49) is the fastest path to a published backlink** — 600 words of original content + a 1–2 day review = a live link within the week if submitted today.
+- Cumulative targets: **54 total, 0 contacted.**
 
 ### 2026-06-04 — Week 5 Audit + 8 New Targets Added (46 Total)
 
@@ -126,9 +153,9 @@
 | May 12–18, 2026 | 0 → 3 | Send #1, #2, #8, #11, #27 (UrbanPro self-serve) | — | **MISSED — zero sent** |
 | May 19–25, 2026 | 0 → 5 | Self-serve: UrbanPro (#27), HP Startup (#37), Wellfound (#38). Email: #2, #8, #13, #1, #14, #4 | — | **MISSED — zero sent** |
 | May 26–Jun 1, 2026 | 5 → 10 | Follow up #2/#8/#13/#14; send #9, #10, #6, #15, #16, #17 | — | **MISSED — zero sent** |
-| **Jun 2–8, 2026** | **0 → 5** | **EMERGENCY MINIMUM:** Quora answer (10 min). Self-serve: UrbanPro (#27), Wellfound (#38), HP Startup (#37). Emails: #13 OriginEducare, #2 CollegeDekho | 🔥 CRITICAL WEEK — must act | ⏳ IN PROGRESS |
-| Jun 9–15, 2026 | 5 → 10 | Email: #8 CollegeDunia, #14 Notesly, #18 AcademyCheck 2027, #1 AcademyCheck NEET. Follow up #13/#2 | — | NOT STARTED |
-| Jun 16–22, 2026 | 10 → 15 | Emails: #4 FutureTopper, #6 ExamCharcha, #19 CosmosIQ, #20 Indian-Preneur, #9 PhysicsNavigator | — | NOT STARTED |
+| **Jun 2–8, 2026** | **0 → 5** | **EMERGENCY MINIMUM:** Quora answer (10 min). Self-serve: UrbanPro (#27), Wellfound (#38), HP Startup (#37). Emails: #13 OriginEducare, #2 CollegeDekho | 🔥 CRITICAL WEEK — must act | ❌ MISSED — zero sent |
+| **Jun 9–15, 2026** | **0 → 5** | Email: #8 CollegeDunia, #14 Notesly, #18 AcademyCheck 2027, #1 AcademyCheck NEET. Follow up #13/#2 | 🔥 CRITICAL | ❌ MISSED — zero sent |
+| **Jun 16–22, 2026** | **0 → 5 (minimum)** | **ABSOLUTE MINIMUM (3.5 hrs total):** Call AcademyCheck 08062179896 (5 min). Send Email #13 OriginEducare (5 min). Send Email #22 rsisinternational.org + write 600-word article (2–3 hrs). Self-serve: UrbanPro #27 (30 min), Wellfound #38 (15 min), Emerging Himachal #37 (20 min). Email #2 CollegeDekho (5 min). Quora answer (10 min). | 🚨 CRITICAL WEEK 6 | NOT STARTED |
 | Jun 23–30, 2026 | 15 → 20 | Emails: #21 CyboardSchool, #11 SCNWire PR, #10 Giraffe-Learning ×2, #5 Suganta. Follow up all pending. Start Shiksha | — | NOT STARTED |
 | Jul 2026 | 20 → 30 | Careers360, Shiksha partner portal, Awards follow-up. Start Quora 2–3/week consistently | — | NOT STARTED |
 
