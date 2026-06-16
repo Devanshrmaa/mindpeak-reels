@@ -296,6 +296,85 @@ A: No — it's noticeably easier. KCET asks direct, formula-based, single-step q
 PU-board level. A JEE-track student's main adjustment is speed and OMR full-attempt
 discipline, not new concepts.`,
 
+  /* ───────────────────────── KCET Biology preparation ────────────────────────
+     Query: "important chapters for kcet biology" (489 impr, pos ~4.9, page-1).
+     Gap the SERP leaders miss: KCET Biology is a near-subset of NEET Biology, so
+     a NEET-track student over-prepares. Real unit-level question counts + the
+     no-negative-marking attempt-all rule + the PUC-wording caveat. */
+  'how-to-prepare-biology-for-kcet': `## KCET Biology — Where the 60 Marks Actually Sit (and what NOT to over-study)
+
+KCET Biology is **60 one-mark MCQs in 70 minutes, no negative marking**, set from the
+Karnataka 1st & 2nd PUC syllabus (which is NCERT-aligned). Two numbers decide your strategy:
+
+- **~60% of questions come from 2nd PUC (Class 12); ~40% from 1st PUC (Class 11).**
+  Biology is more balanced toward Class 11 than KCET Physics is, because Class 11
+  carries the heavy Botany — Plant Kingdom, Morphology/Anatomy of Flowering Plants,
+  Cell Biology and Plant Physiology all sit there.
+- **No negative marking ⇒ attempt all 60.** A blank is a guaranteed zero; a guess has
+  positive expected value. Leaving bubbles empty is the most common KCET Biology mistake.
+
+### Unit-level weightage (approximate, from recent papers)
+
+Ignore the online "chapter-wise" tables that add up to 80-90 questions for a 60-question
+paper — they count appearances *across several years*, not one paper. Unit shares sum
+sensibly:
+
+| Unit | Source | ~Questions (of 60) |
+|---|---|---|
+| Human Physiology (Digestion, Breathing, Circulation, Excretion, Locomotion, Neural & Chemical Coordination) | 1st & 2nd PUC | 10-12 |
+| Diversity, Morphology & Anatomy (Plant & Animal Kingdom, Flowering Plants, Animal Tissues) | 1st PUC | 7-8 |
+| Reproduction (Human + Flowering Plants + Reproductive Health) | 2nd PUC | 6-7 |
+| Plant Physiology (Photosynthesis, Respiration, Plant Growth, Transport) | 1st PUC | 6-7 |
+| Biology in Human Welfare + Biotechnology | 2nd PUC | 6-7 |
+| Genetics & Evolution | 2nd PUC | 5-6 |
+| Cell Biology, Cell Cycle & Biomolecules | 1st PUC | 4-5 |
+| Ecology (Organisms & Populations, Ecosystem, Biodiversity) | 2nd PUC | 4-5 |
+
+**The headline:** Human Physiology + Genetics & Evolution + Reproduction alone are close to
+**half the paper (~22-25 questions)**. Within them, Neural Control & Coordination is the
+single most reliable 1st-PUC topic (~3-4 questions) and Genetics & Evolution the heaviest
+2nd-PUC unit (~5-6). Botany and Zoology each take roughly 30 of the 60 — do not neglect plants.
+
+### The honest part: if you are a NEET aspirant, do NOT re-study for KCET Biology
+
+KCET Biology is **essentially a subset of NEET Biology.** Same NCERT-aligned content, fewer
+chapters, and the questions are easier — direct, single-line factual recall rather than NEET's
+assertion-reason, multi-statement and match-the-column formats. For a student already on a
+NEET track, KCET Biology needs **almost no new study**; it needs revision and attempt
+discipline. The real trap is over-preparing it and stealing time from Physics/Maths.
+
+Two caveats that genuinely differ:
+
+- **Follow the Karnataka PUC textbook wording for the last lap.** ~95% overlaps with NCERT,
+  but a handful of definitions, diagrams and example species follow the PU text. If you have
+  studied only from NCERT, skim the 1st & 2nd PUC Biology texts once before the exam.
+- **It rewards line-by-line reading, not problem-drilling.** Unlike Physics, most marks come
+  from recall, so re-reading NCERT/PUC carefully beats solving hundreds of application
+  problems. A disciplined NEET-track student can realistically target **55+/60**.
+
+### FAQ — KCET Biology
+
+**Q: Which chapters are most important for KCET Biology?**
+A: At the unit level, Human Physiology (~10-12 questions), Genetics & Evolution (~5-6) and
+Reproduction (~6-7) together make up nearly half the paper. The single most reliable topics
+are Neural Control & Coordination (1st PUC) and Genetics & Evolution (2nd PUC). Don't drop
+Botany — Plant Physiology, Morphology and Plant Kingdom are another ~13-15 questions.
+
+**Q: How many questions are in KCET Biology and is there negative marking?**
+A: 60 one-mark questions, 60 marks, and **no negative marking**, so you must attempt all 60 —
+guess anything you're unsure of in the final minutes rather than leaving it blank.
+
+**Q: Is KCET Biology the same as NEET Biology?**
+A: Nearly — it's a subset. The content is NCERT-aligned and KCET asks easier, direct recall
+questions instead of NEET's assertion-reason and multi-statement style. A NEET aspirant needs
+little extra study; just revise, follow the Karnataka PUC textbook wording for the final lap,
+and practise full-attempt OMR speed.
+
+**Q: Is KCET Biology from 1st PUC or 2nd PUC?**
+A: Both, weighted ~60% to 2nd PUC (Class 12) and ~40% to 1st PUC (Class 11). Class 11 carries
+most of the Botany — Plant Kingdom, Morphology, Cell Biology and Plant Physiology — so it
+cannot be skipped.`,
+
   /* ───────────────────── CUET vs JEE Main — engineering reality ───────────────
      Query: "cuet vs jee" (~85 impr, pos ~7). Gap none of the SERP leaders make
      unmissable: CUET will NOT get you into IITs/NITs/IIITs for B.Tech, and exactly
