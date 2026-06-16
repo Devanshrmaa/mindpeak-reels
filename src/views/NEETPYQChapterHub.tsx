@@ -10,12 +10,15 @@ import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
 import { PageFooter } from '@/components/PageFooter';
 import { useDemoModal } from '@/components/DemoBookingModal';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { parseNEETPYQHubSlug, getUnitForChapter } from '@/data/neet-pyq/hierarchy';
 import {
   neetPyqSubjectBanks,
   getNEETPYQChapter,
   getNEETPYQSlugByParams,
 } from '@/data/neet-pyq';
+import { getNEETPYQChapterInsight } from '@/data/neet-pyq/chapterInsights';
 
 const NEETPYQChapterHub = () => {
   const pathname = usePathname();
@@ -33,6 +36,7 @@ const NEETPYQChapterHub = () => {
   const unit = getUnitForChapter(hubInfo.subjectSlug, hubInfo.chapterSlug!);
   const chapterName = chapter.name;
   const subj = bank.subject;
+  const insight = getNEETPYQChapterInsight(slug);
 
   // Get unique years
   const years = [...new Set(chapter.questions.map(q => q.year))].sort((a, b) => b - a);
@@ -147,6 +151,37 @@ const NEETPYQChapterHub = () => {
             <p className="text-center text-muted-foreground py-12">No questions found for the selected year.</p>
           )}
         </section>
+
+        {/* Chapter-specific PYQ strategy (only for hand-written chapters) */}
+        {insight && (
+          <section className="mx-auto max-w-4xl px-4 pb-12">
+            <div className="rounded-2xl border border-border bg-card/40 p-6 sm:p-8">
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                components={{
+                  h2: ({ ...props }) => <h2 className="font-display font-bold text-foreground text-2xl mt-2 mb-4" {...props} />,
+                  h3: ({ ...props }) => <h3 className="font-display font-semibold text-green-400 text-lg mt-8 mb-3" {...props} />,
+                  p: ({ ...props }) => <p className="text-muted-foreground leading-relaxed mb-4" {...props} />,
+                  ul: ({ ...props }) => <ul className="list-disc list-outside ml-6 mb-4 space-y-2" {...props} />,
+                  ol: ({ ...props }) => <ol className="list-decimal list-outside ml-6 mb-4 space-y-2" {...props} />,
+                  li: ({ ...props }) => <li className="text-muted-foreground leading-relaxed" {...props} />,
+                  strong: ({ ...props }) => <strong className="font-bold text-foreground" {...props} />,
+                  em: ({ ...props }) => <em className="italic text-muted-foreground" {...props} />,
+                  table: ({ ...props }) => (
+                    <div className="overflow-x-auto my-6 rounded-xl border border-border">
+                      <table className="min-w-full" {...props} />
+                    </div>
+                  ),
+                  thead: ({ ...props }) => <thead className="bg-secondary/50" {...props} />,
+                  th: ({ ...props }) => <th className="px-4 py-2.5 text-left text-foreground font-display text-sm" {...props} />,
+                  td: ({ ...props }) => <td className="px-4 py-2.5 text-muted-foreground text-sm border-t border-border align-top" {...props} />,
+                }}
+              >
+                {insight}
+              </ReactMarkdown>
+            </div>
+          </section>
+        )}
 
         {/* Related chapters in same unit */}
         {unit && (

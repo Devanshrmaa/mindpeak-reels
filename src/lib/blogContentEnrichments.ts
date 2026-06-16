@@ -493,6 +493,125 @@ biggest difference from JEE, where boards don't affect rank.
 A: Because it unlocks the IITs, which KCET cannot. Difficulty and reward go together
 — Advanced is harder precisely because the seat it offers is one KCET doesn't. Choose
 based on the college you actually want, not on which exam is easier.`,
+
+  /* ───────────────────────── BITSAT vs JEE Main ──────────────────────────────
+     Query: "bitsat vs jee main" / "is bitsat easier than jee" / "bitsat jee
+     syllabus overlap" (pos 7–9, 28+27 impr). The SERP leaders (Motion, Shiksha,
+     PW, getmyuni) all cover difficulty + pattern + the "85% overlap" line well.
+     What every one of them omits, and what actually changes a decision: BITS has
+     ZERO reservation and high fees, so the "which is easier" question is the wrong
+     one for many students. Lead with what each exam unlocks, the no-quota reality,
+     and a score→branch map. */
+  'bitsat-vs-jee-main-comparison': `## BITSAT vs JEE Main — The Part Comparison Pages Skip
+
+Almost every "BITSAT vs JEE Main" article answers one question — *which is harder?* —
+and stops there. The honest answer (BITSAT questions are individually easier, but you
+get ~1.4 minutes per question instead of 2.4, so the difficulty is **speed, not depth**)
+is true but incomplete. The decision that actually matters is not difficulty; it is that
+**BITSAT and JEE Main open completely different doors, and one of those doors has no
+reservation and a much higher fee.** Here is what changes your choice.
+
+### What each exam actually unlocks
+
+| | JEE Main | BITSAT |
+|---|---|---|
+| Admits to | NITs, IIITs, GFTIs (via JoSAA); gateway to JEE Advanced → IITs | BITS Pilani, Goa, Hyderabad — **only** |
+| Reservation (SC/ST/OBC/EWS) | ✅ Yes, full central quota | ❌ **None — pure BITSAT-score merit** |
+| Home-state quota | ✅ At NITs (50% state quota) | ❌ None |
+| Approx. B.Tech fee (4 yr) | ₹5–8 lakh (NIT) | **₹20–22 lakh** (~₹5–5.5 L/year) |
+| Can the *other* exam's score get you in? | A JEE Main score **cannot** admit you to BITS | A BITSAT score **cannot** admit you to any NIT/IIT |
+
+The single most under-reported fact: **BITS Pilani has no reservation of any kind.**
+Admission is purely your BITSAT score. For a general-category student this is neutral;
+for an SC/ST/OBC/EWS student it is decisive — your category rank at JEE Main may earn an
+NIT seat at one-third the fee that the same profile cannot reach at BITS. That is not a
+reason to skip BITSAT; it is a reason to compare *your* JEE category rank against BITS's
+₹20-lakh open-merit seat before deciding which one you'd actually accept.
+
+### The syllabus overlap is real — here's the exact extra work
+
+About **85% of BITSAT is identical to JEE Main**: Physics, Chemistry and Maths are the
+same NCERT Class 11–12 base. If you are preparing JEE Main, you are already most of the
+way to BITSAT. The genuinely new work is small and specific:
+
+| BITSAT section | Questions | Already in JEE Main? |
+|---|---|---|
+| Physics | 30 | ✅ Yes |
+| Chemistry | 30 | ✅ Yes |
+| Mathematics | 40 | ✅ Yes |
+| English Proficiency | 10 | ❌ New — grammar, vocabulary, comprehension |
+| Logical Reasoning | 20 | ❌ New — series, analogies, figures |
+| **Total** | **130 in 3 hrs** | + 12 optional bonus Qs if you finish all 130 |
+
+Marking is **+3 / −1** (vs JEE Main's +4 / −1), all MCQ — BITSAT has **no integer/numerical
+type** questions, unlike JEE Main. The two add-on sections (English + Logical Reasoning, 30
+questions) are coachable in **2–3 weeks** of timed practice. The harder adjustment is speed:
+practise full 130-question mocks against the clock, because losing the paper to time, not to
+tough concepts, is how most JEE-ready students underperform on BITSAT.
+
+### Rough BITSAT score → branch guide (out of 390)
+
+Cutoffs move every year with paper difficulty, so treat these as the *recent* ballpark and
+confirm against the official iterate list for your year:
+
+| Score band | Realistic outcomes |
+|---|---|
+| 320+ | CSE at BITS Pilani (the most competitive seat) |
+| 300–320 | CSE at Goa/Hyderabad; EEE / ENI / Maths-track at Pilani |
+| 280–300 | Core branches (Mechanical, Chemical, Civil, Manufacturing) at Pilani |
+| 250–280 | Core branches at Goa/Hyderabad |
+| Below ~250 | Difficult to convert a preferred branch; weigh against your JEE/NIT options |
+
+For reference, CSE at Pilani closed around **304/390 in 2025** — a softer year than 2024.
+
+### A 30-second decision framework
+
+1. **You want an IIT/NIT/IIIT seat** → JEE Main is mandatory (and Advanced for IITs). Write
+   BITSAT as a strong backup — your PCM prep already covers 85% of it.
+2. **You're general category, can afford ~₹20 lakh, and want CS without IIT-level risk** →
+   BITS is an excellent, genuinely reasonable target. Its Practice School internships and
+   dual-degree options are real strengths NITs don't replicate.
+3. **You're a reserved-category student with a strong JEE category rank** → compare your
+   likely NIT seat (with quota, ~₹5–8 lakh total) against BITS's open-merit ₹20-lakh seat
+   *before* you bank on BITSAT. Often the NIT seat is the better value.
+4. **Tight timeline / weak at speed** → keep BITSAT as backup but don't let its English +
+   Logical Reasoning + speed drills eat your core JEE Main revision in the final weeks.
+
+**Honest bottom line:** BITSAT is not "JEE Main but easier." It is a faster, all-MCQ exam to
+three specific (excellent, expensive, no-reservation) institutes. If you're already prepping
+JEE Main, adding BITSAT costs you only the two extra sections and speed practice — so for
+most JEE aspirants the smart move is to write both, and let your *score and your finances*,
+not the difficulty label, decide which seat you take.
+
+### FAQ — BITSAT vs JEE Main
+
+**Q: Is BITSAT easier than JEE Main?**
+A: The questions are individually easier and more direct, but BITSAT gives you ~1.4 minutes
+per question vs 2.4 in JEE Main. So it is easier in *concept depth* and harder in *speed*.
+A JEE-ready student who hasn't done timed BITSAT mocks often runs out of time.
+
+**Q: Can I get into BITS Pilani through JEE Main?**
+A: No. BITS admits **only** through BITSAT — there is no JEE Main, board-percentage or
+management route. Likewise, a BITSAT score cannot get you into any NIT or IIT. They are
+separate admission systems.
+
+**Q: How much extra do I need to prepare for BITSAT if I'm doing JEE Main?**
+A: About 15% — the English Proficiency (10 Qs) and Logical Reasoning (20 Qs) sections, plus
+speed practice. The Physics/Chemistry/Maths is the same NCERT base. Two to three weeks of
+focused practice on the two new sections and full timed mocks is usually enough.
+
+**Q: Does BITS have SC/ST/OBC reservation?**
+A: No. BITS Pilani has no caste-based or state reservation at all — admission is purely on
+your BITSAT score. This is a key difference from NITs (via JEE Main), which have full central
+and state-quota reservation. Reserved-category students should compare their JEE category
+rank against BITS's open-merit cutoff before committing.
+
+**Q: Is BITS worth the higher fee over an NIT?**
+A: It depends on your priorities, and an NIT is a perfectly reasonable choice. BITS costs
+roughly ₹20–22 lakh for the B.E. vs ₹5–8 lakh at an NIT. BITS offers strong Practice School
+internships, dual-degree flexibility and a private-campus ecosystem; NITs offer brand value,
+lower cost and reservation benefits. Neither is universally "better" — match it to your
+branch, budget and category.`,
 };
 
 /**
