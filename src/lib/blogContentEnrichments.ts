@@ -493,6 +493,195 @@ biggest difference from JEE, where boards don't affect rank.
 A: Because it unlocks the IITs, which KCET cannot. Difficulty and reward go together
 — Advanced is harder precisely because the seat it offers is one KCET doesn't. Choose
 based on the college you actually want, not on which exam is easier.`,
+
+  /* ───────────────────────── BITSAT vs JEE Main ─────────────────────────
+     Query: "bitsat vs jee mains" / "bitsat jee main syllabus overlap" (pos ~7–9).
+     Gap the SERP leaders (getmyuni, masterclassspace) all leave open: real BITS
+     cutoff scores by branch, the actual BITS fee in ₹ (it is a private institute —
+     4–5× an NIT), the score-based "iterations" admission system, and a straight
+     answer to "I already have a decent JEE rank — is BITSAT even worth sitting?" */
+  'bitsat-vs-jee-main-comparison': `## BITSAT vs JEE Main — The Numbers the Comparison Pages Leave Out
+
+The PCM syllabus is ~80% shared, so most "BITSAT vs JEE Main" articles stop at
+"prepare both, it's efficient." True — but it skips the three things that actually
+decide whether BITSAT is worth your time: **what score gets you which branch, what BITS
+costs, and how its admission process differs from JoSAA.** Here are the real numbers.
+
+### BITS Pilani cutoff scores (out of 390) — what each branch needs
+
+Cutoffs move a few marks each year with difficulty and applicant count; these are the
+recent BITSAT closing-score bands for the **Pilani** campus (Goa and Hyderabad run
+roughly 15–30 marks lower for the same branch):
+
+| Branch (BITS Pilani) | Recent BITSAT cutoff /390 |
+|---|---|
+| Computer Science | ~327–340+ |
+| Electronics & Communication (ECE) | ~290–310 |
+| Electronics & Instrumentation (ENI) | ~270–290 |
+| Mechanical | ~250–270 |
+| Chemical / Civil | ~230–250 |
+| B.Pharm | ~200–220 |
+
+For context, a 290+/390 is roughly the "I can get a core branch at Pilani or CS at
+Goa/Hyderabad" line. Below ~250, your realistic BITS options are the newer-campus or
+non-circuit branches.
+
+### What BITS actually costs (and why this matters before you commit)
+
+BITS Pilani is a **private deemed university** — there is no government fee subsidy, so
+the sticker price is several times an NIT's:
+
+| | BITS Pilani (B.E., 4 yr) | Typical NIT (B.Tech, 4 yr) |
+|---|---|---|
+| Tuition (approx) | ~₹22–25 lakh | ~₹5–6 lakh |
+| With hostel + mess | **~₹28–31 lakh total** | ~₹7–9 lakh total |
+| Fee structure | Flat private fee, no reservation-based concession | Subsidised; further concessions by category/income |
+
+There is real relief at the top: **the top ~500 BITSAT rankers** (family income up to
+₹20 lakh) get a **100% tuition waiver**, and BITS runs merit-cum-need scholarships
+covering 10–100% of tuition. But plan around the full figure unless you're confident of
+a top-500 score. (Always confirm the current year's fee on the official BITS admissions
+page — it is revised annually.)
+
+### The admission process is NOT JoSAA — know this before you bank on a "safe" score
+
+- BITS admits **purely on your BITSAT score** (plus the 75%-in-PCM board eligibility and
+  a 12th board top-rankers' direct-admission rule). There is **no JoSAA, no category
+  reservation, and no state quota** — it's open merit only.
+- Admission runs in **iterations** (successive rounds) on a single all-India merit list.
+  You submit campus + branch preferences once and are allotted as the list moves; a score
+  that misses round 1 can clear in a later iteration as higher rankers firm up other seats.
+- Because there's no reservation, a given BITSAT score behaves the same for every
+  applicant — which is exactly why the cutoff bands above are so reliable year to year.
+
+### "I already have a decent JEE rank — should I even sit BITSAT?"
+
+Honest answer, by situation:
+
+1. **You're confident of a top-NIT/IIT CS seat already** → BITSAT is optional. BITS
+   Pilani CS is genuinely comparable to a top-5 NIT, but you'd be paying ~4× the fee for
+   a lateral move. Sit it only as insurance, not as an upgrade.
+2. **You're in the "good NIT for a non-CS branch, but I want CS" zone** → BITSAT is very
+   worth it. BITS Pilani/Goa CS is often a better outcome than a mid-NIT non-circuit
+   branch, and the 80% syllabus overlap means low marginal effort.
+3. **Your JEE Main rank is borderline for any good NIT** → definitely sit BITSAT. It's a
+   second, independent shot at a top private institute, and the speed-based pattern suits
+   some students better than JEE's deep multi-step problems.
+
+The one cost everyone underrates: BITSAT's **two extra sections (English Proficiency +
+Logical Reasoning, 25 questions)** and its **1.4 min/question** speed. That's the real
+15–20% of "non-JEE" work — not new physics, but new exam skills you can't cram the night
+before.
+
+### FAQ — BITSAT vs JEE Main
+
+**Q: How much of the BITSAT syllabus overlaps with JEE Main?**
+A: About 80% — Physics, Chemistry and Maths are the same NCERT Class 11–12 base. The
+non-overlapping part is BITSAT's English Proficiency and Logical Reasoning sections
+(25 questions) plus its speed format, not extra PCM theory.
+
+**Q: Is BITSAT easier than JEE Main?**
+A: The questions are slightly easier and more direct than JEE Main's, but the exam is
+harder to *finish*: 130 questions in 180 minutes (~1.4 min each) vs JEE Main's ~2.4 min
+per question. Speed-accuracy, not conceptual depth, is what BITSAT tests hardest.
+
+**Q: Is BITS Pilani worth ₹28–31 lakh when an NIT costs a fraction?**
+A: For CS/ECE at Pilani — for many students, yes: placements and the alumni network rival
+top NITs. For core branches (Mechanical/Civil), a top NIT often gives comparable outcomes
+at a quarter of the cost, so the value case is weaker. Decide branch-by-branch, not on the
+"BITS" brand alone.
+
+**Q: I'm preparing for JEE — when should I start BITSAT-specific prep?**
+A: Your PCM is already covered. Add ~30 minutes a day for English + Logical Reasoning and
+2–3 full timed BITSAT mocks in the last 3–4 weeks before the exam. That's usually enough
+to convert JEE readiness into a competitive BITSAT score.`,
+
+  /* ───────────────────── 99 percentile in NEET (Biology) ─────────────────────
+     Query: "99 percentile in neet" (pos ~4–7) lands on this subject page. Gap the
+     SERP leaders (pw.live, careers360) bury: seats are allotted by RANK, not
+     percentile, and 99 percentile (~top 1%, AIR ~20k–26k) is the *borderline* for a
+     General-category government MBBS seat — not the comfortable margin students assume.
+     Plus the Biology-specific score (340+/360) the total actually rides on. */
+  'how-to-score-99-percentile-in-neet-biology': `## "99 Percentile in NEET" — What It Really Means for a Government MBBS Seat
+
+Read this before you set 99 percentile as your goal, because the number is more
+slippery than it sounds. NEET *does* report a percentile (NTA computes it), but
+**MBBS seats are allotted by your All India Rank, not your percentile** — and the
+two don't map the way most aspirants assume.
+
+### The honest reality of 99 percentile
+
+99 percentile means you're in the **top 1%**. With ~22–24 lakh candidates, the top 1%
+is still **~AIR 20,000–26,000**. And here's the part the "how many marks for 99
+percentile" pages don't front-load: in 2025 the **General-category All-India-Quota
+closing rank for a government MBBS seat was around AIR 26,000.** So 99 percentile isn't a
+comfortable cushion — it's roughly the *last* General-category government seat, in the
+final rounds, often at a less-preferred college.
+
+| You want… | Realistic target (General) |
+|---|---|
+| Any government MBBS (AIQ/state, last rounds) | ~99 percentile (AIR ≤ ~26,000) — **borderline** |
+| A *comfortable* government MBBS seat | **~99.8 percentile, ~600+/720** |
+| A top government college (MAMC, GMC, top state colleges) | ~99.9+ percentile, ~650+/720 |
+| AIIMS Delhi / top AIIMS | ~99.99 percentile, ~700+/720, AIR < ~100 |
+
+(Percentile bands compress brutally at the top — a 30-mark difference near the ceiling can
+move you 15,000+ ranks. Treat the marks as approximate; the rank is what gets allotted.
+Category cutoffs sit lower: OBC/SC/ST closing ranks run well beyond the General figure.)
+
+### Why this page is about Biology specifically
+
+Biology is **360 of the 720 marks — half your score and half your rank.** The totals
+above (600+, 650+, 700+) are not reachable without a near-perfect Biology paper, because
+Physics and Chemistry are where most students bleed marks. The working target for a
+serious government-MBBS aspirant is:
+
+- **Biology: 340+/360** (ideally 350+). This is the most *scoring* of the three — it's
+  almost entirely NCERT-line recall, so the ceiling is genuinely hittable.
+- Physics: 150+/180 and Chemistry: 160+/180 to convert a strong Biology score into a
+  600+ total.
+
+In other words: you don't chase "99 percentile" — you chase **Biology 340+, and the
+percentile follows.** A student scoring 320/360 in Biology has effectively capped their
+total ~30 marks below where the safe government cutoff sits.
+
+### How to get Biology from "good" (300) to "seat-winning" (340+)
+
+The last 40 marks in Biology are lost almost entirely to **NCERT-line precision**, not to
+hard concepts:
+
+1. **Read NCERT Biology line-by-line, twice — including the lines in the boxes, tables,
+   and example captions.** A large share of NEET Biology PYQs are direct statements from
+   exactly these "skippable" parts.
+2. **Botany is the silent rank-decider.** Most students are stronger at Zoology and let
+   Plant Physiology / Genetics-in-plants slide. Closing that gap is worth 15–20 marks.
+3. **Drill assertion-reasoning and "which of the following is correct" formats** — Biology's
+   trap questions hinge on one wrong word in an otherwise true statement.
+4. **PYQ-first revision in the last 60 days:** Biology repeats heavily. Working 8–10 years
+   of chapter-wise PYQs surfaces the recycled facts far faster than re-reading notes.
+
+### FAQ — 99 Percentile in NEET (Biology)
+
+**Q: How many marks is 99 percentile in NEET?**
+A: Roughly 600+ out of 720 in a typical year, but it varies with paper difficulty and
+candidate count, and the percentile band is non-linear near the top. More useful than the
+mark: 99 percentile is about **AIR 20,000–26,000** — and seats are allotted by rank.
+
+**Q: Is 99 percentile enough for a government MBBS seat?**
+A: Borderline for General category. The 2025 General AIQ government-MBBS closing rank was
+about AIR 26,000, so 99 percentile lands you in the *last* rounds at less-preferred
+colleges. For a comfortable government seat, aim for ~99.8 percentile (~600+ marks).
+Category cutoffs (OBC/SC/ST) are more forgiving.
+
+**Q: What Biology score do I need for 99 percentile in NEET?**
+A: Practically, 340+/360 in Biology. Biology is half the paper and the most scoring
+section; without 340+ it's very hard to reach the ~600+ total that 99-percentile-and-above
+requires, because Physics and Chemistry rarely make up the shortfall.
+
+**Q: Is NEET scored by percentile or marks?**
+A: Both are reported, but **counselling and seat allotment use your All India Rank**, which
+comes from your marks (with a tie-break order). Treat percentile as a rough position
+indicator, not the thing that gets you a seat — the rank is.`,
 };
 
 /**
