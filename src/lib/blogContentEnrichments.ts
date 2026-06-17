@@ -747,6 +747,67 @@ counselling uses your marks and All India Rank.
 A: Aim for about **340+/360 in Biology**. Because Biology is half the paper and the
 most NCERT-direct subject, a near-perfect Biology score is how most top-rankers create
 the cushion that protects them when Physics is tough.`,
+
+  /* ───────────────────────── JEE vs NEET — which is harder ─────────────────────
+     Query: "jee vs neet which is harder" (pos >10, crawled-not-indexed). The page
+     already gives a verdict + decision framework; the SERP-wide gap (incl. our own
+     page) is QUANTIFYING the "harder race" claim with real seat/applicant numbers. */
+  'choosing-between-jee-and-neet': `## JEE vs NEET By the Numbers — the "race" most comparisons never quantify
+
+Almost every "which is harder" article tells you NEET is *more competitive* and JEE is
+*more conceptual*, then stops. Here is the selectivity that one sentence is hiding, using
+the most recent admission cycle (2025). These are the numbers that actually decide how
+hard each path is to convert into a seat:
+
+| Metric | JEE → IITs | NEET → Govt MBBS |
+|---|---|---|
+| Candidates (2025) | ~14 lakh (JEE Main) | ~22 lakh |
+| The "dream" seats | ~18,160 IIT B.Tech seats | ~41,000–56,000 govt MBBS seats |
+| Rough odds of the dream seat | about 1 in 75 for an IIT seat | about 1 in 40–50 for a govt MBBS seat |
+| The strong next tier | ~24,000 NIT + ~8,000 IIIT/GFTI seats | mostly private/deemed MBBS (₹60L–1Cr+ fees) |
+| Reality check | JEE Advanced 2025: only ~33% of *qualifiers* finally got an IIT seat | a 640/720 in NEET 2025 was still a ~30,000+ rank — outside most govt MBBS |
+
+**How to read this honestly.** On raw "dream seat" odds, a government MBBS seat is actually
+*less* of a long shot than an IIT seat. The reason NEET still feels like the harder race is
+the **tail**: below the IITs, engineering has a deep funnel of genuinely good outcomes — NITs,
+IIITs, strong state and private colleges — where a respectable JEE Main rank still lands you
+somewhere you can build a career. In NEET, once you fall outside the ~56,000 government seats,
+the next option is largely private/deemed MBBS at ₹60 lakh–1 crore+ for the degree. So the
+honest framing is: *JEE punishes you with a lower-ranked engineering college; NEET punishes
+you with a far bigger fee bill or another year of dropping.*
+
+**The marks-to-rank cliff (the part that shocks NEET aspirants).** Because ~22 lakh students
+sit one paper, NEET ranks are brutally compressed near the top: in 2025, ~640/720 was already
+outside most government MBBS, and a 690+ could still mean a five-figure rank. JEE spreads its
+candidates across multiple shifts and a much harder, lower-attempt Advanced paper, so a given
+percentile band maps to a wider, more forgiving rank range. One careless NEET mistake (−4 net)
+can move your rank by *hundreds*; the same slip in JEE Advanced rarely does, because nobody is
+scoring near-full anyway.
+
+### FAQ — JEE vs NEET, by the numbers
+
+**Q: Is it true that a 700 in NEET can still give a bad rank?**
+A: "Bad" is relative, but yes — the compression is real. With ~22 lakh candidates, even ~690–700
+can land a five-figure All India Rank, and ~640 in 2025 was already outside most government MBBS.
+A 700/720 will get you a government seat somewhere, but possibly not in your home state or
+preferred college. There is no equivalent crowding at the very top of JEE because the Advanced
+paper is built so that almost nobody scores near-full.
+
+**Q: Which has better odds of a good government college — JEE or NEET?**
+A: For the very top seat (IIT vs govt MBBS), govt MBBS odds are actually a bit better (~1 in 40–50
+vs ~1 in 75). But "a good government college" is easier in engineering overall, because NITs,
+IIITs and GFTIs add ~30,000+ more strong, low-fee seats below the IITs. In medicine, falling
+short of the ~56,000 government seats usually means expensive private MBBS. Engineering has the
+softer landing; medicine has the higher floor for "free/affordable + prestigious".
+
+**Q: If I'm genuinely equally interested in both, which is the safer bet?**
+A: Be honest about two things first — your tolerance for fees and your appetite for risk. If
+paying ₹60L–1Cr for private MBBS is off the table and you cannot picture a happy gap year,
+engineering is statistically the safer bet because its "still good" outcomes are far wider. If
+you are certain you want to be a doctor and can either hit a top rank or accept the dropper/private
+route, NEET is reasonable — but go in with eyes open about the cliff above. Neither exam is the
+"easy" choice; pick the subject you can study for 10–12 hours a day without resenting it, because
+that stamina, not the exam's difficulty rating, decides the result.`,
 };
 
 /**
