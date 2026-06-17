@@ -747,6 +747,318 @@ counselling uses your marks and All India Rank.
 A: Aim for about **340+/360 in Biology**. Because Biology is half the paper and the
 most NCERT-direct subject, a near-perfect Biology score is how most top-rankers create
 the cushion that protects them when Physics is tough.`,
+
+  /* ───────────────────── AP EAMCET vs NEET — the MBBS confusion ─────────────────
+     Query: "difference between neet and eamcet" (pos ~8.4, the ONLY comparison still
+     earning impressions in the 28-day window). The gap every SERP leader buries: AP
+     EAMCET's "Medical" stream does NOT include MBBS — that has been NEET-only since
+     2017. BiPC students searching this need that answer first, not a syllabus table. */
+  'ap-eamcet-vs-neet-comparison': `## The One Thing to Get Straight First: EAMCET Does NOT Give You MBBS
+
+If you are a BiPC student in Andhra Pradesh asking "should I do NEET or EAMCET for
+medical," here is the answer no comparison page leads with: **since 2017, MBBS and
+BDS seats in every Indian college — government and private, in AP and TS included —
+are filled only through NEET-UG.** EAMCET cannot admit you to MBBS. Full stop.
+
+So what is the "M" in EAMCET (Engineering, **Agriculture & Medical** Common Entrance
+Test)? It is the Agriculture & Medical *stream*, which fills BiPC seats that are **not**
+MBBS/BDS:
+
+| What you want | Exam you actually need |
+|---|---|
+| MBBS / BDS (govt or private, anywhere) | **NEET-UG only** |
+| BVSc (Veterinary), BSc Agriculture, B.Pharm, Pharm.D | AP EAMCET (Agriculture & Medical stream) |
+| BSc Nursing, Horticulture, Fisheries, Food Tech | AP EAMCET (Agri & Medical stream) |
+| B.Tech / B.E. in AP engineering colleges | AP EAMCET (Engineering stream) |
+| B.Tech at IITs / NITs / IIITs | JEE (Main → Advanced) |
+
+**Read that honestly.** If your goal is to become a doctor, EAMCET is irrelevant to
+that goal — NEET is the only door, and there is no AP/TS shortcut around it. EAMCET's
+medical stream is a genuinely good route to veterinary, agriculture, pharmacy and
+allied-health degrees, and many BiPC students sensibly write *both*: NEET for the MBBS
+attempt, EAMCET as the agriculture/pharmacy safety net.
+
+## Head-to-head: where the two exams really differ
+
+| | NEET-UG | AP EAMCET |
+|---|---|---|
+| Decides admission to | MBBS, BDS, AYUSH, BSc Nursing (all-India) | Engineering + Agriculture/Pharmacy in AP |
+| Questions / Marks | 180 Q / 720 marks | 160 Q / 160 marks |
+| Negative marking | **−1 per wrong answer** | **None — attempt all 160** |
+| Difficulty | Application-level, NCERT-plus, tough Biology | Intermediate (AP board) to mild JEE-Main level |
+| Syllabus base | NCERT Class 11–12 (CBSE) | AP Intermediate (≈80% NCERT overlap) |
+| Competition pool | All-India (~22–24 lakh) | AP/TS domicile students |
+| Counselling | MCC (15% AIQ) + state | AP state (APSCHE) |
+
+The two practical differences that change how you study: **NEET punishes guessing
+(−1), EAMCET rewards attempting everything (no negative marking)**, and NEET's Biology
+is meaningfully harder and more application-heavy than EAMCET's. A student comfortable
+with EAMCET-level Biology is usually *not* yet at NEET level — don't mistake one for the
+other.
+
+## A 30-second decision framework for a BiPC student
+
+1. **Is becoming a doctor (MBBS/BDS) your real goal?** → NEET is mandatory and
+   non-negotiable. Make it your primary exam.
+2. **Would you be happy with veterinary, agriculture, pharmacy or allied-health in AP?**
+   → EAMCET (Agri & Medical) is the right exam, it's easier, and it has no negative
+   marking. Write it regardless, as your safety net.
+3. **Open to engineering too?** → Add the EAMCET Engineering stream; your NEET PCB won't
+   cover Maths, so plan that separately.
+
+Most well-advised AP medical aspirants write **both NEET and EAMCET** — they have a
+~80% syllabus overlap, so the extra EAMCET prep is mostly speed practice and getting
+used to no-negative-marking strategy, not relearning theory.
+
+### FAQ — NEET vs AP EAMCET
+
+**Q: Can I get MBBS through EAMCET instead of NEET?**
+A: No. MBBS and BDS admissions across all of India — including AP and TS, government and
+private — run only through NEET-UG since 2017. EAMCET's medical stream gives veterinary,
+agriculture, pharmacy and nursing seats, not MBBS.
+
+**Q: Is EAMCET easier than NEET?**
+A: Yes. EAMCET sits around AP Intermediate to mild JEE-Main level, has no negative
+marking, and its Biology is less application-heavy than NEET's. But it leads to a
+different set of seats — easier does not mean "use it for MBBS."
+
+**Q: What is the difference between the NEET and EAMCET syllabus?**
+A: They overlap ~80% because both are built on Class 11–12 PCB. EAMCET follows the AP
+Intermediate framing and tends to ask more direct, formula-based questions; NEET follows
+NCERT closely and tests deeper application, especially in Biology.
+
+**Q: Should a BiPC student write both NEET and EAMCET?**
+A: Usually yes. Make NEET your primary exam for the MBBS attempt and write EAMCET as an
+agriculture/pharmacy/veterinary safety net. The syllabus overlap means the second exam is
+mostly speed and pattern practice.`,
+
+  /* ──────────────── CUET vs JEE Advanced — different leagues, no overlap ─────────
+     Query: "is cuet tougher than jee advanced" / "cuet vs jee advanced" (pos ~2.4,
+     2,042 impr/90d). Distinct from the cuet-vs-jee-MAIN enrichment: here the angle is
+     that JEE Advanced exists ONLY for IITs and is in a different difficulty universe —
+     these two are almost never a real either/or. */
+  'cuet-vs-jee-advanced-comparison': `## Is CUET Tougher Than JEE Advanced? No — They Are in Different Universes
+
+Let's answer the search directly: **CUET is dramatically easier than JEE Advanced.**
+This isn't a close call, and pretending it's a balanced "which is harder" debate does
+students a disservice. JEE Advanced is widely regarded as the single hardest undergraduate
+entrance exam in India; CUET domain papers stay at strict NCERT Class 12 level. The two
+were built for completely different purposes.
+
+| | JEE Advanced | CUET (UG) |
+|---|---|---|
+| Exists to admit you to | **The 23 IITs — and nothing else** | Central/state/private universities (mostly non-engineering) |
+| Difficulty | India's hardest UG exam — multi-concept, novel problems | NCERT Class 12 level, direct |
+| Question types | Single + multiple-correct, integer, paragraph, matching | Single-correct MCQ |
+| Negative marking | Yes, and partial/full marking varies by section | −1 per wrong answer |
+| Calculator | Not allowed | Not needed |
+| Prep depth | Years of problem-solving beyond NCERT | Thorough NCERT reading |
+
+## Why this is almost never a real "either/or"
+
+The crucial fact both the templated guides and most SERP results skip: **JEE Advanced is
+the only gateway to the IITs, and CUET cannot get you into an IIT under any circumstance.**
+You don't choose between them the way you'd choose between two similar exams — they unlock
+different worlds:
+
+- **JEE Advanced** → IIT B.Tech/B.Arch/dual degrees. To even sit it you must first clear
+  JEE Main and rank in the top ~2.5 lakh.
+- **CUET** → BA, B.Com, B.Sc, BBA, integrated law, and *some* B.Tech at central
+  universities (DU, Jamia, AMU, Hyderabad Central) — never at an IIT, NIT or IIIT.
+
+So the honest framing is not "pick the easier one." It is: **if you are targeting an IIT,
+JEE Advanced is your exam, and CUET is a sensible low-cost backup** (a central-university
+B.Sc or B.Tech behind your IIT attempt). If you have no interest in an IIT/engineering and
+want a central-university degree, CUET is your primary exam and JEE Advanced is simply not
+relevant to you.
+
+## The smart combined play for an IIT aspirant
+
+Because CUET domain subjects are NCERT-level, a student already grinding for JEE Advanced
+is *over-prepared* for CUET's PCM/PCB papers — the depth gap runs entirely in your favour.
+The only genuinely new work is CUET's **Language section and General Test** (reasoning,
+current affairs, quantitative aptitude), which JEE never touches. Writing CUET alongside
+costs little effort and buys a central-university safety net if the IIT attempt doesn't
+land. Confirm the current participating-university list on the official CUET portal each
+year, since it changes.
+
+### FAQ — CUET vs JEE Advanced
+
+**Q: Is CUET tougher than JEE Advanced?**
+A: No — it is vastly easier. CUET domain papers are NCERT Class 12 level with single-correct
+MCQs; JEE Advanced is India's hardest UG exam with multi-concept, multi-correct and
+integer-type problems. They aren't in the same difficulty league.
+
+**Q: Can I get into an IIT through CUET?**
+A: No. The IITs admit only through JEE Advanced (which itself requires clearing JEE Main).
+CUET does not feed any IIT, NIT or IIIT. If an IIT is your target, CUET cannot substitute.
+
+**Q: Should a JEE Advanced aspirant also write CUET?**
+A: It's worth it as a backup. Your Advanced-level prep already buries CUET's domain
+syllabus, so the only extra work is the Language and General Test sections — cheap insurance
+for a central-university seat.
+
+**Q: Do CUET and JEE Advanced share syllabus?**
+A: The PCM content overlaps at the NCERT base (~60%), but the resemblance ends there. JEE
+Advanced tests that base at a depth and in question formats CUET never approaches, and CUET
+adds language and general-awareness sections JEE has nothing of.`,
+
+  /* ──────────────── VITEEE vs JEE Main — score→branch→campus, and the fee math ───
+     Query: "is viteee easier than jee main" / "viteee vs jee main" (pos ~5.3, 418
+     impr). Gap the SERP leaders skip: a concrete VITEEE score→branch→campus map, the
+     scholarship-by-rank structure, and an honest VIT-fee vs NIT-via-JEE comparison. */
+  'viteee-vs-jee-main-comparison': `## Is VITEEE Easier Than JEE Main? Yes — But the Cutoff Still Bites
+
+Straight answer: **VITEEE is noticeably easier than JEE Main.** Questions sit at NCERT to
+slightly-above-NCERT level, the problems are more direct and formula-based, and there is
+**no negative marking** — so you attempt all 125 questions. JEE Main, by contrast, tests
+application well beyond NCERT under harder time pressure. A student prepared for JEE Main is
+automatically over-prepared for VITEEE's PCM.
+
+But "easier exam" does not mean "easy seat." VIT Vellore CS is genuinely competitive because
+of the sheer applicant volume, so the real question isn't difficulty — it's **what score
+gets you which branch on which campus.**
+
+## VITEEE Score → Branch → Campus (the map the comparison pages skip)
+
+VITEEE is scored out of 125. Counselling rank bands shift slightly each year, but the
+recent pattern looks like this:
+
+| Approx. VITEEE score (/125) | What it typically gets you |
+|---|---|
+| 115+ | CSE at VIT Vellore + top merit scholarship (often full/large tuition waiver) |
+| 108–115 | CSE / CSE-specialisations at VIT Vellore |
+| 100–108 | ECE / EEE at Vellore; CSE at VIT Chennai |
+| 90–100 | Core branches (Mech, Civil, Biotech) at Vellore; CSE at Chennai/AP/Bhopal |
+| 75–90 | Core branches at Chennai / AP / Bhopal campuses |
+
+Chennai, AP and Bhopal campuses generally run **5–8 marks below** Vellore for the same
+branch, so a score that just misses CSE-Vellore can still land CSE on a newer campus.
+
+## Two things JEE prep does NOT cover
+
+1. **The Aptitude + English section (~20 marks).** VITEEE has a Quantitative/Logical
+   Reasoning and English block that JEE Main has nothing equivalent to. Two to three weeks of
+   targeted aptitude practice before the exam is enough — don't ignore it, it's free marks.
+2. **No-negative-marking strategy.** With no penalty, leaving a question blank is a wasted
+   mark. Build the speed to genuinely attempt all 125 in the 2.5 hours.
+
+## The honest part: VITEEE vs an NIT through JEE Main
+
+VIT is a strong private university (top-15-to-20 range, good placements). But it is a
+*private* fee — B.Tech tuition runs roughly **₹1.95–2.0 lakh per year (~₹8 lakh for the
+degree)** before the scholarship slabs (100/75/50/25% tuition waivers by VITEEE rank). If
+your JEE Main rank can fetch a comparable branch at an **NIT/IIIT/GFTI** (where fees are far
+lower and the brand is government), that is usually the better-value seat. So:
+
+- **Use VITEEE as a strong, reliable backup** to JEE Main — write it regardless, since your
+  JEE prep already covers it and a good VITEEE rank can mean a big scholarship.
+- **Don't drop JEE Main effort for it.** If JEE Main lands you an NIT/IIIT, weigh that
+  against VIT's fee before committing — a comparable branch at an NIT is typically the
+  higher-value, lower-cost option.
+
+### FAQ — VITEEE vs JEE Main
+
+**Q: Is VITEEE easier than JEE Main?**
+A: Yes, clearly. VITEEE questions are NCERT to moderate level, more direct, and have no
+negative marking. JEE Main tests deeper application under tighter time pressure. Strong JEE
+Main prep covers VITEEE comfortably.
+
+**Q: What VITEEE score do I need for CSE at VIT Vellore?**
+A: Realistically about **108–115/125**, and 115+ for CSE plus a top scholarship slab. ECE/EEE
+at Vellore sit around 100–108; VIT Chennai cutoffs run roughly 5–8 marks lower.
+
+**Q: Does VITEEE have negative marking?**
+A: No. There is no negative marking, so attempt all 125 questions — leaving any blank simply
+forfeits possible marks.
+
+**Q: Should I prepare separately for VITEEE if I'm doing JEE Main?**
+A: Not for PCM — your JEE Main preparation already covers it. The only extra work is 2–3 weeks
+of Aptitude/Logical-Reasoning and English practice for VITEEE's unique section.
+
+**Q: Is VIT worth it over an NIT?**
+A: If your JEE Main rank gets you a comparable branch at an NIT/IIIT, that's usually better
+value — government brand and far lower fees. VIT is an excellent option in its own right and a
+strong backup, but weigh its ~₹8 lakh tuition against an NIT seat before deciding.`,
+
+  /* ──────────────── TS EAMCET Mathematics — chapter weightage + the 25% quirk ────
+     Query: "ts eamcet maths weightage" / "ts eamcet mathematics important chapters"
+     (pos ~4.6, 478 impr). Gap: lead with real per-chapter question counts, the
+     "Maths is half the paper" rank logic, and the 75:25 EAMCET:Intermediate rank
+     quirk that national strategy guides miss. */
+  'ts-eamcet-mathematics-strategy-score-high': `## TS EAMCET Maths Weightage — Where the 80 Marks Actually Sit
+
+TS EAMCET Mathematics is **80 questions out of the 160-question paper** — literally half the
+exam, and the section that decides your rank. There is **no negative marking**, so the goal is
+simple: attempt all 80 and convert the high-frequency chapters first. Here is the recent
+chapter-wise distribution:
+
+| Chapter group | Expected questions (of 80) |
+|---|---|
+| Algebra (theory of equations, matrices, permutations & combinations, complex numbers, binomial) | ~25 |
+| Calculus (limits, differentiation, integration, definite integrals, differential equations) | ~20 |
+| Coordinate Geometry (straight lines, circles, conics) | ~14 |
+| Trigonometry (ratios, equations, properties of triangles, inverse) | ~11 |
+| Vectors & 3D Geometry (product of vectors, 3D) | ~10 |
+
+**Algebra + Calculus alone is ~45 of 80 questions** — roughly 55–60% of the Maths paper, and
+nearly 28% of your *entire* rank. If you secure those two branches, you've locked the largest
+block of marks in the exam before touching anything else.
+
+### The highest-yield individual topics
+
+Within those groups, these repeat year after year and deserve first priority:
+**Matrices, Integration & Definite Integrals, Straight Line & Circle, Product of Vectors,
+Permutations & Combinations, Theory of Equations, and Probability.** Each tends to be worth
+~4 questions (≈5% of the section). Master this cluster and you've covered a disproportionate
+share of the paper with a small list of chapters.
+
+## A study order that matches the weightage
+
+1. **Algebra core** — Matrices, Theory of Equations, Permutations & Combinations, Complex
+   Numbers, Binomial. Biggest block; mostly direct, formula-driven, fast to score.
+2. **Calculus** — Differentiation rules → Integration → Definite Integrals. High volume and
+   reliable once the standard forms are automatic.
+3. **Coordinate Geometry** — Straight Line and Circle first (most questions), then conics.
+4. **Vectors & 3D** — Product of vectors is the scoring sub-topic; lock it before 3D.
+5. **Trigonometry** — Properties of triangles and inverse-trig questions are the recurring
+   ones.
+
+Because there's **no negative marking, attempt every one of the 80** — even an educated guess
+on your two weakest chapters has positive expected value. Build the speed (through timed
+sectional practice on past papers) to clear Maths in about 80–85 minutes so Physics and
+Chemistry get their fair share of the 3 hours.
+
+## The rank quirk most strategy guides miss
+
+TS EAMCET does **not** rank you on the exam alone. Your final rank is computed as **75%
+weightage to your EAMCET marks + 25% weightage to your Intermediate (Class 12) group-subject
+marks**. National "how to score in EAMCET" guides routinely skip this. Two implications:
+
+- Your Intermediate board performance is a quarter of your rank — don't treat the boards as a
+  distraction from EAMCET; they *are* part of your EAMCET rank.
+- A near-perfect Maths section plus strong Intermediate marks compounds: you're stacking the
+  75% you fully control with the 25% national aspirants often neglect.
+
+### FAQ — TS EAMCET Mathematics
+
+**Q: What is the chapter-wise weightage for TS EAMCET Maths?**
+A: Of the 80 Maths questions, roughly Algebra ~25, Calculus ~20, Coordinate Geometry ~14,
+Trigonometry ~11, and Vectors & 3D ~10. Algebra and Calculus together are about 45 questions —
+the bulk of the section.
+
+**Q: Which Maths chapters are most important for TS EAMCET?**
+A: Prioritise Matrices, Integration & Definite Integrals, Straight Line & Circle, Product of
+Vectors, Permutations & Combinations, Theory of Equations, and Probability — each tends to
+carry ~4 questions and together they cover a large slice of the paper.
+
+**Q: Does TS EAMCET Maths have negative marking?**
+A: No. There is no negative marking anywhere in TS EAMCET, so attempt all 80 Maths questions —
+leaving any blank only forfeits possible marks.
+
+**Q: Do my Intermediate marks affect my TS EAMCET rank?**
+A: Yes. The final rank uses 75% weightage for your EAMCET score and 25% for your Intermediate
+(Class 12) marks, so strong board marks directly improve your rank.`,
 };
 
 /**
