@@ -4417,8 +4417,38 @@ const jeeMathGeometry: SEOPageData = {
         'Conics problems often reduce to solving the tangent/normal equation — practice these forms',
       ],
     },
+    {
+      heading: 'JEE Main vs JEE Advanced — Where the Geometry Marks Actually Sit',
+      content: 'The same chapters behave very differently across the two papers. In JEE Main, Coordinate Geometry and Vectors together are ~13-17% of the Maths paper — about 4-5 of the 25 questions — and roughly half of them (Straight Lines and Circles) are direct, formula-plug-in questions, which makes this the highest marks-per-hour branch in JEE Main Maths. In JEE Advanced the question count drops but the difficulty jumps: conics get welded onto calculus, vectors and locus in multi-correct and paragraph questions, so you are tested on properties and derivations, not on remembering a formula.',
+      table: {
+        headers: ['Topic', 'JEE Main (typical)', 'JEE Advanced', 'Nature of questions'],
+        rows: [
+          ['Straight Lines', '~1 Q (~5%)', 'Rare standalone; used as a tool', 'Direct / formula'],
+          ['Circles', '~1 Q (~5%)', 'Often fused with conics', 'Direct / formula'],
+          ['Parabola', 'Part of the conics 1-2 Q', '1-2 Q (highest of the conics)', 'Conceptual'],
+          ['Ellipse & Hyperbola', 'Conics ~6-7% combined', 'Inside the conics block', 'Conceptual'],
+          ['3D Geometry', '~1-2 Q (~6-7%)', 'Reliable, scoreable', 'Formula + visualisation'],
+          ['Vectors', '~1 Q (~3%)', 'Combined with 3D & products', 'Conceptual'],
+        ],
+      },
+    },
+    {
+      heading: 'Study Order That Maximises Marks-per-Hour',
+      content: 'These chapters share machinery, so the sequence you learn them in changes how fast you become exam-ready. MindPeak mentors use this order:',
+      bullets: [
+        'Start with Straight Lines, then Circles — they share the same algebra and are the fastest to make exam-ready, locking ~2 near-guaranteed JEE Main questions',
+        'Then Parabola, Ellipse, Hyperbola in that order — parabola appears most often, and all three share the focus-directrix-tangent-normal toolkit, so a deep parabola makes ellipse and hyperbola ~60% revision',
+        'Do Vectors before 3D Geometry — 3D Geometry is written in vector language, so vectors first removes half the difficulty of planes and lines in space',
+        'If your realistic target is JEE Main only (NIT / state college): secure Straight Lines + Circles + 3D Geometry for ~3 formula-based questions before spending time on hard conic-property problems',
+        'If you are targeting JEE Advanced: do not stop at formulas — drill conic problems that combine tangents from an external point, locus and parametric coordinates, because that is the form Advanced actually uses',
+      ],
+    },
   ],
   faqs: [
+    { q: 'What is the weightage of coordinate geometry in JEE?', a: 'In JEE Main, Coordinate Geometry plus Vectors is about 13-17% of the Maths paper — roughly 4-5 of the 25 questions every year. The rough internal split is Straight Lines ~5%, Circles ~5%, Conic Sections ~6-7%, 3D Geometry ~6-7% and Vectors ~3%. In JEE Advanced the count is lower but the questions are much harder, often combining conics with calculus or vectors.' },
+    { q: 'How many questions come from conic sections in JEE Advanced?', a: 'Conic sections (Parabola, Ellipse, Hyperbola) carry roughly 7-10% in JEE Advanced — about 2-3 questions — and they are rated hard. Parabola is the most frequently tested of the three, and Advanced usually asks property-based or multi-concept questions (tangents, normals, locus, parametric points) rather than direct formula questions.' },
+    { q: 'Is coordinate geometry easy to score in JEE Main?', a: 'Relatively, yes. Straight Lines and Circles are direct, formula-driven questions, so about half of the 4-5 Main geometry questions are quick marks once you have memorised the standard forms. That makes geometry one of the highest marks-per-hour branches in JEE Main Maths — which is exactly why it should be locked early.' },
+    { q: 'Should I study vectors or 3D geometry first for JEE?', a: 'Vectors first. JEE 3D Geometry (lines and planes in space) is expressed in vector language — direction ratios, dot and cross products, scalar triple product — so building vector fluency first removes most of the difficulty of 3D Geometry. MindPeak sequences the two together in 1-on-1 sessions for this reason.' },
     { q: 'Which conic section is most important for JEE?', a: 'Parabola and Ellipse are the most frequently tested conics. Hyperbola appears less often but carries similar marks when it does. MindPeak recommends mastering all three — they share similar problem-solving patterns.' },
     { q: 'Is 3D Geometry tough in JEE?', a: '3D Geometry can feel challenging because students struggle to visualise 3D scenarios on paper. MindPeak mentors use interactive 3D visualisations in 1-on-1 sessions to build spatial intuition.' },
   ],
