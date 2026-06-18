@@ -16,7 +16,7 @@ export function MpNav({ onCta }: { onCta: () => void }) {
     <nav className="mp-x mp-nav" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "16px 48px", position: "sticky", top: 0, zIndex: 50, background: S.bgTranslucent, backdropFilter: "blur(14px)", WebkitBackdropFilter: "blur(14px)", borderBottom: `1px solid ${S.line}` }}>
       <a href="/" aria-label="MindPeak Institute home" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
         <span style={{ display: "grid", placeItems: "center", width: 38, height: 38, borderRadius: "50%", background: S.gradGold, flexShrink: 0 }}>
-          <img src="/images/logo.jpeg" alt="MindPeak Institute" style={{ width: 32, height: 32, borderRadius: "50%", display: "block" }} />
+          <img src="/images/logo.jpeg" alt="MindPeak Institute" width={32} height={32} style={{ width: 32, height: 32, borderRadius: "50%", display: "block" }} />
         </span>
         <span style={{ fontFamily: S.disp, fontWeight: 700, fontSize: 17.5, color: S.navy, letterSpacing: "-0.01em" }}>MindPeak</span>
       </a>
@@ -63,7 +63,7 @@ export function MpHero({ onCta }: { onCta: () => void }) {
         <div className="mp-rise" style={{ display: "flex", alignItems: "center", gap: 14, marginTop: 32, ...d("0.32s") }}>
           <div style={{ display: "flex" }}>
             {["student-1", "student-2", "student-3", "student-4"].map((s, i) => (
-              <img key={s} src={`/images/${s}.jpg`} alt="MindPeak student" style={{ width: 38, height: 38, borderRadius: "50%", objectFit: "cover", border: `2px solid ${S.bg}`, boxShadow: "0 4px 12px rgba(19,32,63,0.18)", marginLeft: i ? -11 : 0 }} />
+              <img key={s} src={`/images/${s}.jpg`} alt="MindPeak student" width={38} height={38} style={{ width: 38, height: 38, borderRadius: "50%", objectFit: "cover", border: `2px solid ${S.bg}`, boxShadow: "0 4px 12px rgba(19,32,63,0.18)", marginLeft: i ? -11 : 0 }} />
             ))}
           </div>
           <span style={{ fontSize: 13.5, color: S.inkSoft }}>
@@ -75,7 +75,18 @@ export function MpHero({ onCta }: { onCta: () => void }) {
       <div className="mp-rise" style={{ position: "relative", ...d("0.2s") }}>
         {/* offset gold frame behind the photo */}
         <div aria-hidden style={{ position: "absolute", inset: 0, borderRadius: 22, border: `2px solid ${S.goldBtn}`, transform: "translate(16px, 16px)", opacity: 0.5, pointerEvents: "none" }} />
-        <img src="/images/mentoring-session-2.jpg" alt="MindPeak mentor session" style={{ position: "relative", width: "100%", height: 480, objectFit: "cover", borderRadius: 22, display: "block", boxShadow: "0 30px 70px rgba(19,32,63,0.22)" }} />
+        {/* LCP element — fetchPriority + explicit dims prevent layout shift and tell
+            the browser to prioritise this fetch over everything else on the page. */}
+        <img
+          src="/images/mentoring-session-2.jpg"
+          alt="MindPeak mentor and student in a live 1-on-1 online session"
+          fetchPriority="high"
+          loading="eager"
+          decoding="sync"
+          width={720}
+          height={480}
+          style={{ position: "relative", width: "100%", height: 480, objectFit: "cover", borderRadius: 22, display: "block", boxShadow: "0 30px 70px rgba(19,32,63,0.22)" }}
+        />
         <div style={{ position: "absolute", top: 18, left: 18, display: "flex", alignItems: "center", gap: 8, background: "rgba(19,32,63,0.78)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", color: S.cream, borderRadius: 999, padding: "8px 15px", fontSize: 11.5, fontWeight: 700, letterSpacing: "0.1em" }}>
           <span className="mp-pulse" style={{ width: 8, height: 8, borderRadius: "50%", background: "#4ADE80", flexShrink: 0 }} />
           LIVE 1-ON-1 CLASS

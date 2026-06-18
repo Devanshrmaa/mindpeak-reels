@@ -28,7 +28,7 @@ export function MpLedger() {
             <div style={{ fontFamily: S.disp, fontSize: 46, fontWeight: 700, color: S.gold, letterSpacing: "-0.02em" }}>{r.rank}</div>
             <div style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: S.inkSoft, fontWeight: 600 }}>{r.exam}</div>
             <div style={{ fontSize: 19, color: S.navy, fontWeight: 500 }}>{r.name} <span style={{ color: S.inkSoft, fontSize: 16, fontWeight: 400 }}>— {r.note}</span></div>
-            <img src={r.img} alt={r.name} style={{ width: 58, height: 58, borderRadius: "50%", objectFit: "cover", border: `2px solid ${S.goldSoft}`, boxShadow: "0 6px 16px rgba(19,32,63,0.14)" }} />
+            <img src={r.img} alt={r.name} width={58} height={58} loading="lazy" style={{ width: 58, height: 58, borderRadius: "50%", objectFit: "cover", border: `2px solid ${S.goldSoft}`, boxShadow: "0 6px 16px rgba(19,32,63,0.14)" }} />
           </div>
         </div>
       ))}

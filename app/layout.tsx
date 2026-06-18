@@ -229,14 +229,27 @@ export default function RootLayout({
           }}
         />
         {/*
-          Hero background preload — the hero now uses CSS background-image (not
-          next/image), so we preload the raw JPEG here.  This is the only consumer
-          of this URL so there is no duplicate-download risk.
+          Hero background preload — the CSS background on the old hero section.
+          Kept for any pages still using the dark-navy hero layout.
         */}
         <link
           rel="preload"
           as="image"
           href="/images/hero-bg.jpg"
+          // @ts-expect-error fetchpriority is valid HTML but not yet in TS types
+          fetchpriority="high"
+        />
+        {/*
+          Homepage redesign LCP preload — mentoring-session-2.jpg is the largest
+          above-fold <img> in MpHero and is the browser's LCP candidate. Preloading
+          it here eliminates the discovery delay that would otherwise push LCP past 3s
+          on mobile (the image is only discovered when the JS bundle runs and renders
+          the component tree).
+        */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/mentoring-session-2.jpg"
           // @ts-expect-error fetchpriority is valid HTML but not yet in TS types
           fetchpriority="high"
         />
