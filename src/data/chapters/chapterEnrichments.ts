@@ -292,6 +292,262 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
       },
     ],
   },
+
+  'jee-chemistry-electrochemistry': {
+    overview:
+      'Electrochemistry is one of the most predictable scorers in Physical Chemistry because the same four question types recur: the Nernst equation, cell EMF (E°cell), electrolysis with Faraday\'s laws, and conductance/Kohlrausch. In JEE Main it is reliably about one question per shift, and they are formula-direct — plug into the equation and read off the answer. In JEE Advanced it appears once or twice and is usually fused with thermodynamics (ΔG° = −nFE°) and equilibrium (E° = (0.0591/n)logK), so a single Advanced question can hop between EMF, ΔG° and the equilibrium constant. Because the chapter is rule- and formula-based rather than reaction-memorisation, it gives a high marks-per-hour return.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~3–4% of Chemistry', questions: '~1 per shift', nature: 'Formula-direct: Nernst, E°cell, electrolysis (w = ZIt), molar conductivity & Kohlrausch' },
+      { exam: 'JEE Advanced', weightage: '~2–3% of Chemistry', questions: '1–2 per year', nature: 'Fused with thermodynamics & equilibrium: concentration cells, ΔG°↔E°↔K, multi-step' },
+    ],
+    correction:
+      'Many weightage tables fold this into a single "Physical Chemistry" band or pair it with redox; on its own the chapter is about one question per JEE Main shift. One genuine accuracy point the SERP rarely states: at 298 K the Nernst factor is 0.0591/n only when you use log base 10. If you write the equation with ln, the factor is 0.0257/n — mixing the two is the single most common numerical error in this chapter.',
+    studyOrder: [
+      { step: 'Redox & electrode potential basics', detail: 'Sign convention, the standard hydrogen electrode (SHE) as the zero reference, and reading the electrochemical series. Getting anode/cathode and the sign of E° right is the gate to everything else.' },
+      { step: 'Galvanic cell & E°cell', detail: 'Cell notation, E°cell = E°cathode − E°anode, and spontaneity (E°cell > 0 ⇒ ΔG° < 0). Direct Main marks.' },
+      { step: 'Nernst equation', detail: 'E = E° − (0.0591/n)logQ at 298 K, and its two bridges: E° = (0.0591/n)logK and ΔG° = −nFE°. This trio is the most-asked Main numerical and the core of Advanced.' },
+      { step: 'Electrolysis & Faraday\'s laws', detail: 'Moles of electrons = It/F (F = 96500 C), mass deposited = (equivalent weight × It)/96500, and predicting products at each electrode. Pure numerical marks.' },
+      { step: 'Conductance & Kohlrausch', detail: 'Specific vs molar conductivity (Λm = κ×1000/M), Λ°m from Kohlrausch\'s law (essential for weak electrolytes), and degree of dissociation α = Λm/Λ°m. Least-asked but recurs.' },
+    ],
+    highYield: [
+      {
+        topic: 'Nernst equation at 298 K',
+        detail:
+          'E = E° − (0.0591/n)logQ. Memorise 0.0591/n for n = 1, 2, 3 (≈ 0.0591, 0.0296, 0.0197). For a concentration cell E° = 0, so E = (0.0591/n)log([conc]_high/[conc]_low) — a frequent one-line question.',
+      },
+      {
+        topic: 'The ΔG°–E°cell–K bridge',
+        detail:
+          'ΔG° = −nFE° and E° = (0.0591/n)logK link the three quantities. A worked check: E°cell = +0.295 V with n = 2 gives logK = (2 × 0.295)/0.0591 = 10, so K = 10¹⁰. Advanced loves to give one of these three and ask for another.',
+      },
+      {
+        topic: 'Faraday\'s laws of electrolysis',
+        detail:
+          'Charge Q = It; moles of electrons = Q/96500. Mass deposited = (M/n) × (It/96500), where n is electrons per ion (Cu²⁺ → 2, Al³⁺ → 3). "How long to deposit x grams" and "compare masses across cells in series (same Q)" are the standard asks.',
+      },
+      {
+        topic: 'Conductivity & Kohlrausch\'s law',
+        detail:
+          'Molar conductivity Λm = κ × 1000/molarity. For weak electrolytes Λ°m cannot be measured directly — get it by Kohlrausch\'s law (sum of limiting ionic conductivities), then α = Λm/Λ°m gives the degree of dissociation.',
+      },
+    ],
+    traps: [
+      'Mixing the log and ln forms of the Nernst equation. At 298 K the 0.0591/n factor already absorbs 2.303RT/F and goes with log₁₀; with ln the factor is 0.0257/n. Using 0.0591 with ln (or vice versa) is the commonest slip.',
+      'Using the wrong n. n is the number of electrons transferred in the balanced cell reaction, not the number of ions or species. Cu → Cu²⁺ is n = 2.',
+      'Anode/cathode sign confusion. In a galvanic cell the anode is negative; in an electrolytic cell the anode is positive — but oxidation is at the anode in both. Decide oxidation/reduction first, label the sign after.',
+      'Reading electrode potentials backwards. A more positive standard reduction potential means a stronger oxidising agent (greater tendency to be reduced), i.e. a weaker tendency to be oxidised.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Electrochemistry in JEE Main and Advanced?',
+        a: 'About one question per shift in JEE Main (~3–4% of Chemistry) — across the January and April 2025 sessions there were roughly 9–14 Electrochemistry questions in each session counting all shifts. JEE Advanced asks 1–2, usually fused with thermodynamics or equilibrium.',
+      },
+      {
+        q: 'Is Electrochemistry a scoring chapter for JEE?',
+        a: 'Yes — the question types repeat (Nernst, E°cell, electrolysis, conductivity) and most are formula-direct numericals. If you lock down the Nernst/ΔG°/K trio and Faraday\'s laws, you bank roughly one question per shift with little risk.',
+      },
+      {
+        q: 'What is the most common mistake in Electrochemistry numericals?',
+        a: 'Mixing the log and ln forms of the Nernst equation and using the wrong n. At 298 K use E = E° − (0.0591/n)logQ with log base 10, and let n be the electrons transferred in the balanced cell reaction.',
+      },
+      {
+        q: 'How is Electrochemistry linked to Thermodynamics in JEE?',
+        a: 'Through ΔG° = −nFE° and E° = (0.0591/n)logK. JEE Advanced frequently gives an E° and asks for the equilibrium constant K or ΔG° (or the reverse), so practise moving freely between EMF, free energy and K.',
+      },
+    ],
+  },
+
+  'jee-chemistry-chemical-kinetics': {
+    overview:
+      'Chemical Kinetics is a small chapter with an outsized hit-rate: the first-order integrated rate law, half-life, the Arrhenius equation and order-vs-molecularity recur almost every JEE Main shift. In Main it is reliably about one formula-direct question per shift. In JEE Advanced it usually contributes one question, more often graph-based (identify the order from a plot) or mechanism-based (rate-determining step, pseudo-first-order). The chapter rewards a small, well-drilled formula set far more than it rewards heavy theory.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~3–4% of Chemistry', questions: '~1 per shift', nature: 'Direct: first-order integrated rate law, half-life, Arrhenius two-temperature form, units of k' },
+      { exam: 'JEE Advanced', weightage: '~2–3% of Chemistry', questions: '0–2 (typically 1)', nature: 'Graph-to-order, reaction mechanism / rate-determining step, pseudo-first-order' },
+    ],
+    correction:
+      'Older guides treat collision theory and full mechanism derivations as heavy topics. For JEE Main the bankable questions are the first-order integrated rate law, half-life and the Arrhenius two-temperature form — not collision-theory derivations. Don\'t over-invest in mechanism theory unless you are specifically targeting JEE Advanced.',
+    studyOrder: [
+      { step: 'Rate, rate law, order vs molecularity', detail: 'Order is experimental (the power of concentration in the rate law); molecularity is mechanistic (species in an elementary step). The units of k change with order — a recurring direct question.' },
+      { step: 'Integrated rate laws (zero & first order)', detail: 'k = (2.303/t)log([A]₀/[A]) for first order; [A] = [A]₀ − kt for zero order. The first-order form is the single most-asked numerical.' },
+      { step: 'Half-life', detail: 't½ = 0.693/k (first order, independent of concentration); t½ = [A]₀/2k (zero order). The concentration-independence of first-order half-life is a favourite conceptual test.' },
+      { step: 'Arrhenius equation', detail: 'k = Ae^(−Ea/RT); the two-temperature log form gives Ea from two rate constants, and a plot of ln k vs 1/T has slope −Ea/R.' },
+      { step: 'Pseudo-first-order & mechanisms', detail: 'Last — relevant mainly to JEE Advanced (acid hydrolysis of esters, inversion of sucrose; rate-determining step in a multi-step mechanism).' },
+    ],
+    highYield: [
+      {
+        topic: 'First-order integrated rate law & half-life',
+        detail:
+          'k = (2.303/t)log([A]₀/[A]); t½ = 0.693/k, independent of starting concentration. Radioactive-decay questions are first-order kinetics in disguise, so the same formulas apply.',
+      },
+      {
+        topic: 'Arrhenius two-temperature form',
+        detail:
+          'log(k₂/k₁) = (Ea/2.303R)(1/T₁ − 1/T₂). Used to find Ea from two rate constants, or to find how much the rate changes for a given temperature rise (the classic "rate doubles per 10 K" question).',
+      },
+      {
+        topic: 'Units of the rate constant',
+        detail:
+          'Zero order: mol L⁻¹ s⁻¹; first order: s⁻¹; second order: L mol⁻¹ s⁻¹. "Given the units of k, state the order" is a free mark — and a rate constant in s⁻¹ instantly tells you the reaction is first order.',
+      },
+      {
+        topic: 'Graphical identification of order',
+        detail:
+          'First order: ln[A] vs t is a straight line (slope −k). Zero order: [A] vs t is linear. Matching a given plot to its order (and reading k from the slope) is a recurring Main and Advanced ask.',
+      },
+    ],
+    traps: [
+      'Assuming half-life always depends on concentration. First order: t½ is constant; zero order: t½ ∝ [A]₀; second order: t½ ∝ 1/[A]₀. Applying the first-order rule to a zero-order reaction is the classic error.',
+      'Confusing order and molecularity. Order is experimental and can be zero or fractional; molecularity comes from an elementary step, is a whole number, and cannot exceed three. An overall reaction has order but no single molecularity.',
+      'Switching inconsistently between ln and 2.303 log in the integrated and Arrhenius forms. Pick one convention and keep the 2.303 factor wherever you use log₁₀.',
+      'Forgetting that k\'s units encode the order — so you can verify your assumed order against the units given in the problem.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Chemical Kinetics in JEE?',
+        a: 'Roughly one per shift in JEE Main (~3–4% of Chemistry; the January and April 2025 sessions each carried about 12–13 across all shifts). JEE Advanced usually asks one, more often graph- or mechanism-based.',
+      },
+      {
+        q: 'Is Chemical Kinetics a scoring chapter?',
+        a: 'Yes — one of the most reliable single-question scorers. The first-order integrated rate law, half-life and the Arrhenius equation repeat almost every year and are pure formula application, so the marks-per-hour return is high.',
+      },
+      {
+        q: 'What is the difference between order and molecularity in JEE?',
+        a: 'Order is the experimentally determined sum of the powers of concentration in the rate law (can be 0, fractional, etc.). Molecularity is the number of species colliding in a single elementary step (a whole number ≤ 3). An overall multi-step reaction has an order but no single molecularity.',
+      },
+      {
+        q: 'Does first-order half-life depend on concentration?',
+        a: 'No. For a first-order reaction t½ = 0.693/k is independent of the starting concentration — that is why radioactive decay (always first order) has a fixed half-life. Zero- and second-order half-lives do depend on the initial concentration.',
+      },
+    ],
+  },
+
+  'jee-maths-complex-numbers': {
+    overview:
+      'Complex Numbers is a JEE Advanced favourite because it merges algebra with geometry — and that is precisely the angle weightage tables miss by lumping it with Quadratic Equations. In JEE Main it is about 1–2 questions, mostly direct: modulus-argument, conjugate properties, cube roots of unity and simple loci. In JEE Advanced it is 2–3 questions, and there it stops being algebra and becomes a geometry tool — rotation, loci that turn into conics in the Argand plane, and roots of unity inside summations. The practical lesson: don\'t under-prepare it for Advanced based on the modest Main count.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~3–4% alone (the "Complex Numbers & Quadratic Equations" unit is ~7–9% combined)', questions: '1–2 per year', nature: 'Direct: modulus-argument, conjugate properties, cube roots of unity, basic locus' },
+      { exam: 'JEE Advanced', weightage: 'High for a single chapter — among the most reliable 2–3 question topics', questions: '2–3 per year', nature: 'Geometric: rotation, loci as conics, nth roots of unity, fused with coordinate geometry' },
+    ],
+    correction:
+      'Most "weightage" tables report a combined "Complex Numbers & Quadratic Equations" figure (~7–9% / ~3 questions in JEE Main). Complex Numbers on its own is about 1–2 Main questions — but it punches well above that in JEE Advanced, where it is one of the most dependable 2–3 question chapters. Reading only the Main number leads students to under-prepare it for Advanced.',
+    studyOrder: [
+      { step: 'Algebra & conjugate', detail: 'Powers of i, addition/multiplication, and the conjugate/modulus properties — especially |z|² = z·z̄. This arithmetic must be automatic before anything geometric.' },
+      { step: 'Modulus-argument (polar) form', detail: 'z = r(cosθ + i sinθ) = re^{iθ}, with the principal argument in (−π, π]. The argument of a negative real number is π (not 0) — a perennial trap to settle here.' },
+      { step: 'De Moivre\'s theorem & roots of unity', detail: '(cosθ + i sinθ)ⁿ = cos nθ + i sin nθ; for cube roots of unity 1 + ω + ω² = 0 and ω³ = 1. The n nth-roots lie equally spaced on the unit circle — learn the geometric picture, not just the algebra.' },
+      { step: 'Rotation & geometry', detail: 'Multiplying by e^{iα} rotates a point; (z₂ − z₀)/(z₁ − z₀) encodes both the angle and the ratio of lengths. This is the single most powerful Advanced tool.' },
+      { step: 'Loci in the Argand plane', detail: '|z − z₁| = |z − z₂| is a perpendicular bisector, |z − z₁| + |z − z₂| = k is an ellipse, and arg conditions give rays/arcs. This is where complex numbers meet coordinate geometry.' },
+    ],
+    highYield: [
+      {
+        topic: 'Cube roots of unity (ω)',
+        detail:
+          'ω³ = 1, 1 + ω + ω² = 0, and ω̄ = ω². These three facts simplify a large class of expressions and summations and are the most common single appearance in JEE Main.',
+      },
+      {
+        topic: 'The rotation formula',
+        detail:
+          'To rotate z₁ about z₀ by angle θ (anticlockwise), z₂ − z₀ = (z₁ − z₀)e^{iθ}. It converts geometry problems — proving points form an equilateral triangle or a square — into a single algebraic equation. Pure Advanced gold.',
+      },
+      {
+        topic: 'Modulus-argument & De Moivre',
+        detail:
+          'Computing (1 + i)ⁿ, finding the nth roots of a complex number, and using the triangle inequality |z₁ + z₂| ≤ |z₁| + |z₂| (with equality conditions) to find the maximum/minimum of a modulus.',
+      },
+      {
+        topic: 'Loci as conics',
+        detail:
+          'Translating |z − a| = |z − b| (perpendicular bisector), |z − a|/|z − b| = k (Apollonius circle), and arg((z − a)/(z − b)) = constant (an arc) into Cartesian curves — the bridge between this chapter and coordinate geometry that Advanced exploits.',
+      },
+    ],
+    traps: [
+      'Taking the argument of a negative real number as 0. arg(−5) = π (principal value in (−π, π]). Getting the quadrant of the argument wrong is the number-one error in the chapter.',
+      'Writing |z|² = z² instead of |z|² = z·z̄. For z = a + ib, |z|² = a² + b² while z² = a² − b² + 2abi — completely different.',
+      'Misapplying the rotation formula: anticlockwise is positive, and you must subtract the centre of rotation z₀ from both points before multiplying by e^{iθ}.',
+      'Assuming the nth roots of unity "spread out from 0". They sit equally spaced on the unit circle starting at 1, separated by 2π/n — and their sum is 0.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Complex Numbers in JEE Main and Advanced?',
+        a: 'Most weightage tables combine "Complex Numbers & Quadratic Equations" (~7–9%, about 3 questions in JEE Main). Complex Numbers alone is roughly 1–2 in Main, but 2–3 in JEE Advanced, where it is used as a geometry tool — so it matters more for Advanced than the Main count suggests.',
+      },
+      {
+        q: 'Is Complex Numbers important for JEE Advanced?',
+        a: 'Yes — it is one of the most reliable 2–3 question chapters. Advanced rarely tests plain algebra; it tests complex numbers as geometry (rotation, loci as conics, roots of unity in summations). Skipping it surrenders guaranteed Advanced marks.',
+      },
+      {
+        q: 'What is the rotation formula and why does it matter?',
+        a: 'To rotate z₁ about a point z₀ by angle θ anticlockwise, z₂ − z₀ = (z₁ − z₀)e^{iθ}. It turns "prove these points form an equilateral triangle / square" problems into a single equation — the highest-leverage tool in the chapter for JEE Advanced.',
+      },
+      {
+        q: 'What is the most common mistake in Complex Numbers?',
+        a: 'Getting the argument\'s quadrant wrong — especially taking the argument of a negative real number as 0 instead of π. Always plot z in the correct quadrant of the Argand plane and keep the principal argument in (−π, π].',
+      },
+    ],
+  },
+
+  'jee-physics-electromagnetic-induction': {
+    overview:
+      'Electromagnetic Induction (EMI) is the conceptually hardest of the electricity chapters and one of JEE Advanced\'s favourites for creative problems. In JEE Main it is about 1–2 questions, mostly motional EMF, flux-change and LR-circuit time-constant numericals. In JEE Advanced it is 1–2, where EMI fuses with mechanics (a rod sliding on rails until magnetic braking gives terminal velocity), with circuits, and with alternating current. The physics is short but demands tracking flux change, induced-current direction and the resulting force at the same time — which is why it feels hard.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~3–4% alone (EMI + Alternating Current together is the ~12–15% figure often quoted)', questions: '1–2 per year', nature: 'Direct: Faraday/Lenz flux change, motional EMF (Blv), self-inductance, LR time constant' },
+      { exam: 'JEE Advanced', weightage: '~5–7% within the wider electromagnetism block', questions: '1–2 per year', nature: 'Creative: rod-on-rails with terminal velocity, mutual inductance, EMI + AC, energy methods' },
+    ],
+    correction:
+      'The "12–15% / 3–4 questions" figure you see online is Electromagnetic Induction AND Alternating Current counted together. EMI on its own is closer to ~3–4% (1–2 JEE Main questions). It is still high-value, because the same ideas feed directly into AC and because JEE Advanced reuses them inside multi-step problems.',
+    studyOrder: [
+      { step: 'Magnetic flux & Faraday\'s law', detail: 'Φ = B·A·cosθ and emf = −dΦ/dt. The first move in every problem is to identify which of B, A or θ is changing.' },
+      { step: 'Lenz\'s law (direction)', detail: 'Induced effects oppose the CHANGE in flux. Build direction discipline here before attempting numericals.' },
+      { step: 'Motional EMF', detail: 'emf = Blv for a rod cutting field lines, plus the force/power/heat bookkeeping: retarding force F = BIL, dissipated power P = Fv = I²R.' },
+      { step: 'Self & mutual inductance', detail: 'L = NΦ/I, energy stored U = ½LI², and mutual inductance M for coupled coils. The emf is −L dI/dt (self) or −M dI/dt (mutual).' },
+      { step: 'LR circuits → bridge to AC', detail: 'Growth/decay I = I₀(1 − e^(−t/τ)) with τ = L/R, then connect to inductive reactance X_L = ωL as the entry point to Alternating Current.' },
+    ],
+    highYield: [
+      {
+        topic: 'The rod-on-rails problem',
+        detail:
+          'A rod of length l moving at speed v gives emf = Blv, current I = Blv/R and a retarding force F = B²l²v/R. Setting net force to zero gives terminal velocity — e.g. on a vertical/inclined rail, v_term = mgR/(B²l²) (use the component along the rail). This one setup spans Main and Advanced.',
+      },
+      {
+        topic: 'Faraday + Lenz, and the rotating coil',
+        detail:
+          'emf magnitude = |dΦ/dt|, direction from Lenz. A coil of N turns rotating at ω gives emf = NBAω sin(ωt), peak value NBAω — the natural bridge from EMI into Alternating Current.',
+      },
+      {
+        topic: 'LR-circuit transients',
+        detail:
+          'τ = L/R; the current reaches about 63% of its final value in one time constant, and the energy stored is ½LI². "Time to reach x% of the steady current" is a standard Main numerical.',
+      },
+      {
+        topic: 'Self & mutual inductance',
+        detail:
+          'A solenoid has L = μ₀n²(Al); induced emf = −L dI/dt; coupled coils have M = k√(L₁L₂) with coupling coefficient k ≤ 1. These drive transformer-adjacent and coupled-coil questions.',
+      },
+    ],
+    traps: [
+      'Getting the induced-current direction wrong. Lenz\'s law opposes the CHANGE in flux, not the flux itself: increasing flux ⇒ induced field opposes it; decreasing flux ⇒ induced field supports it.',
+      'Using emf = Blv when v is not perpendicular to both the rod and B. Only the component of velocity that actually cuts field lines counts.',
+      'Confusing self- and mutual-inductance emfs: −L dI/dt is the back-emf in the same coil, −M dI/dt is the emf induced in the other coil.',
+      'Using the wrong time constant. For an LR circuit τ = L/R (not RC). During growth the current lags: the inductor behaves like an open circuit at t = 0 (I = 0) and like a plain wire as t → ∞.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Electromagnetic Induction in JEE Main and Advanced?',
+        a: 'EMI alone is about 1–2 in JEE Main (~3–4% of Physics). The "12–15% / 3–4 question" figure quoted online is Electromagnetic Induction AND Alternating Current combined. In JEE Advanced expect 1–2 EMI questions, usually fused with mechanics or circuits.',
+      },
+      {
+        q: 'Why is Electromagnetic Induction considered hard?',
+        a: 'Because it combines a sign rule (Lenz\'s law), calculus (emf = −dΦ/dt) and often mechanics (a rod accelerating until magnetic braking produces terminal velocity). The physics is short, but you must track the flux change, the induced-current direction and the resulting force all at once.',
+      },
+      {
+        q: 'What is the most important EMI problem type for JEE?',
+        a: 'The conducting rod sliding on rails in a magnetic field. From emf = Blv you get current Blv/R, a retarding force B²l²v/R, and a terminal velocity when the net force is zero — one setup that appears, with variations, in both Main and Advanced.',
+      },
+      {
+        q: 'How do I get the direction of the induced current right every time?',
+        a: 'Apply Lenz\'s law in order: first decide whether the flux through the loop is increasing or decreasing, then the induced current flows so its own magnetic field opposes that change, and finally fix the actual direction with the right-hand rule.',
+      },
+    ],
+  },
 };
 
 /** Returns the curated enrichment for a chapter slug, or undefined if none exists. */
