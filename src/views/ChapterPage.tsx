@@ -738,7 +738,7 @@ const ChapterPage = () => {
                   <div className="flex items-center gap-3 mb-3">
                     <BarChart3 className="w-7 h-7 text-primary" />
                     <h2 className="font-display font-bold text-foreground text-xl sm:text-2xl md:text-3xl">
-                      {chapter.chapter} — <span className="text-gradient-gold">Weightage, Main vs Advanced &amp; What Actually Gets Asked</span>
+                      {chapter.chapter} — <span className="text-gradient-gold">{chapter.exam === 'JEE' ? 'Weightage, Main vs Advanced & What Actually Gets Asked' : 'Weightage, Year-by-Year & What Actually Gets Asked'}</span>
                     </h2>
                   </div>
                   <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">{enrichment.overview}</p>
@@ -749,7 +749,7 @@ const ChapterPage = () => {
                   <table className="w-full text-sm border-collapse min-w-[560px]">
                     <thead>
                       <tr className="bg-secondary/50 text-left text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                        <th className="py-2.5 px-3 rounded-l-lg">Exam</th>
+                        <th className="py-2.5 px-3 rounded-l-lg">{chapter.exam === 'JEE' ? 'Exam' : 'Focus area'}</th>
                         <th className="py-2.5 px-3">Weightage</th>
                         <th className="py-2.5 px-3">Questions</th>
                         <th className="py-2.5 px-3 rounded-r-lg">Nature of questions</th>

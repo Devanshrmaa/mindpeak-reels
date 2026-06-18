@@ -548,6 +548,210 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
       },
     ],
   },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // NEET chapter pages — high-weight, "Crawled – currently not indexed"
+  // (seo-reports/index-state-2026-06-10.csv). NEET has ONE paper, so the table
+  // below carries the sub-topic / year reality instead of a Main-vs-Advanced
+  // split. SERP leaders (collegedunia, pw.live, medicneet, testbook) quote one
+  // weightage % and a topic list but never give the sub-topic question share,
+  // the NCERT-vs-over-study honesty, comparison rules, or the traps. Researched
+  // per chapter June 2026; cross-checked against the NEET 2024 NCERT-rationalised
+  // syllabus. Seed slowly — not a 34-chapter template.
+  // ─────────────────────────────────────────────────────────────────────────
+
+  'neet-biology-human-health-diseases': {
+    overview:
+      'Human Health & Disease is a pure-NCERT, factual chapter that reliably gives 3–4 questions in NEET (about 4–5% of the 180-mark Biology section, ~16 marks). The part most weightage articles skip is WHERE inside the chapter the marks sit: Immunity is by far the highest-asked sub-block, followed by the disease–pathogen–vector table, and then one near-guaranteed direct question from AIDS, Cancer or Drugs & Alcohol Abuse. Because almost every question is lifted from NCERT lines, this is one of the best marks-per-hour chapters in Biology — the skill is recall accuracy, not problem-solving.',
+    examSplit: [
+      { exam: 'Immunity', weightage: 'Highest sub-share', questions: '~1–2 Q/yr', nature: 'Innate vs adaptive, antibody structure (H₂L₂), active vs passive, primary vs secondary response, vaccines' },
+      { exam: 'Diseases & pathogens', weightage: 'Frequent', questions: '~1 Q/yr', nature: 'Pathogen → disease → vector matching; one-line symptoms straight from the NCERT table' },
+      { exam: 'AIDS · Cancer · Drugs', weightage: '1 Q most years', questions: '~1 Q/yr', nature: 'HIV/CD4 & ELISA, proto-oncogene→oncogene & metastasis, source plants of heroin/cannabis/cocaine — direct recall' },
+    ],
+    correction:
+      'Some sites quote "~10% weightage" for this chapter. That figure is for the whole "Biology in Human Welfare / Human Physiology overlap" grouping, not the chapter. On its own, Human Health & Disease is ~4–5% — a dependable 3–4 questions, no more. Prepare it for accuracy, not for volume.',
+    studyOrder: [
+      { step: 'Immunity first', detail: 'It is the highest-yield sub-topic AND the only conceptual part. Lock innate (non-specific, no memory) vs adaptive (specific, with memory), the antibody H₂L₂ structure and the five classes (IgG, IgA, IgM, IgE, IgD), and active vs passive immunity before anything else.' },
+      { step: 'The disease–pathogen–vector table', detail: 'Make ONE table: disease → causative organism → vector/mode → one diagnostic symptom. NEET asks "match the following" and "which is caused by a protozoan" almost every year. This is rote, so build the table once and revise it.' },
+      { step: 'AIDS', detail: 'HIV is a retrovirus that attacks helper T-lymphocytes (CD4⁺); diagnosed by ELISA; spreads through blood/sexual contact/mother-to-child, NOT casual contact. Short, high-return.' },
+      { step: 'Cancer', detail: 'Proto-oncogene → oncogene, benign (no metastasis) vs malignant (metastasis), contact inhibition loss, carcinogens (physical/chemical/biological). A few NCERT lines, often one direct question.' },
+      { step: 'Drugs & alcohol abuse last', detail: 'Pure recall: source plant and active principle for opioids (Papaver somniferum), cannabinoids (Cannabis sativa) and cocaine (Erythroxylum coca). Quick to revise on the last lap.' },
+    ],
+    highYield: [
+      {
+        topic: 'Immunity types & antibody structure',
+        detail:
+          'Antibody = 2 heavy + 2 light chains (H₂L₂). Innate immunity is non-specific (skin, phagocytes, interferons, inflammation) with NO memory; adaptive is specific and has memory. Active immunity = your body makes the antibodies (vaccine/infection, slow but lasting); passive = ready-made antibodies given to you (colostrum, anti-tetanus serum, fast but temporary). Primary vs secondary response (faster, stronger second time) is a NEET favourite.',
+      },
+      {
+        topic: 'Disease–pathogen–vector recall',
+        detail:
+          'Malaria (Plasmodium, female Anopheles), Filariasis (Wuchereria, Culex), Typhoid (Salmonella typhi, Widal test), Pneumonia (Streptococcus pneumoniae / Haemophilus influenzae), Amoebiasis (Entamoeba histolytica, houseflies as carrier), Ascariasis (Ascaris), Ringworm (Microsporum/Trichophyton/Epidermophyton). Know the group (bacterial/viral/protozoan/helminth/fungal) for each.',
+      },
+      {
+        topic: 'AIDS & cancer one-liners',
+        detail:
+          'HIV: retrovirus → reverse transcriptase → viral DNA into host → attacks helper T-cells (CD4⁺) → immunity collapses; ELISA for diagnosis. Cancer: malignant tumours show metastasis and loss of contact inhibition; oncogenic transformation comes from cellular proto-oncogenes. These exact facts recur as single-statement MCQs.',
+      },
+      {
+        topic: 'Drugs of abuse — source & action',
+        detail:
+          'Opioids (heroin/smack = diacetylmorphine, from latex of Papaver somniferum) → depressant, bind CNS receptors. Cannabinoids (from inflorescences of Cannabis sativa: marijuana, hashish, ganja) → affect cardiovascular system. Cocaine (from Erythroxylum coca) → dopamine interference, potent stimulant. NEET asks the plant-to-drug match directly.',
+      },
+    ],
+    traps: [
+      'Active vs passive immunity reversed. Passive = ready-made antibodies handed to you (colostrum, anti-venom, anti-tetanus serum); active = your own body produces them after a vaccine or infection. The "fast-acting but no memory" option is always passive.',
+      'B-cells vs T-cells: B-cells drive humoral (antibody-mediated) immunity; T-cells drive cell-mediated immunity. Mixing these is the single most common immunity error.',
+      'Innate immunity has no memory. Only adaptive immunity remembers (which is why the secondary response is faster). Any option crediting innate immunity with "memory" is wrong.',
+      'In malaria the infective stage entering humans from the mosquito is the sporozoite, and the recurring fever is caused by haemozoin released when infected RBCs rupture — not by the mosquito bite itself.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Human Health and Disease in NEET?',
+        a: 'About 3–4 questions most years (roughly 4–5% of the Biology section, ~16 marks). Immunity contributes the largest share, followed by the disease–pathogen table and one direct question from AIDS, cancer or drug abuse. It is almost entirely NCERT-based, so it is a high-accuracy scoring chapter.',
+      },
+      {
+        q: 'Which topic in Human Health and Disease is most important for NEET?',
+        a: 'Immunity — it is both the highest-asked sub-topic and the only conceptual one. Master innate vs adaptive, antibody structure, active vs passive immunity, and the primary vs secondary response. After that, the disease–pathogen–vector table is the next most reliable source of marks.',
+      },
+      {
+        q: 'Is NCERT enough for Human Health and Disease for NEET?',
+        a: 'Yes. This chapter is one of the most NCERT-faithful in Biology — the disease table, immunity section and drug source-plants are lifted line-for-line. Read NCERT twice, build the disease and immunity comparison tables yourself, and practise PYQs; extra reference books add little here.',
+      },
+      {
+        q: 'What is the difference between active and passive immunity for NEET?',
+        a: 'Active immunity is produced by your own body in response to an antigen (a vaccine or an actual infection) — it develops slowly but lasts long and generates memory. Passive immunity is the transfer of ready-made antibodies from outside (mother\'s colostrum, anti-tetanus serum, anti-venom) — it acts immediately but is short-lived and has no memory.',
+      },
+    ],
+  },
+
+  'neet-chemistry-coordination-compounds': {
+    overview:
+      'Coordination Compounds is a high-yield but tightly bounded chapter for NEET: expect 1–2 questions almost every year (~3–4% of Chemistry), and they are direct, NCERT-level — IUPAC naming, isomer type, spin-only magnetic moment, and crystal field colour/magnetism. The reason it feels "hard" is that the question types are rule-based and stack on each other (oxidation state → hybridisation → spin → magnetism), so a small gap early breaks the whole chain. Get the chain right and it becomes one of the best marks-per-hour chapters in Inorganic Chemistry.',
+    examSplit: [
+      { exam: 'NEET', weightage: '~3–4% of Chemistry', questions: '1–2 per year', nature: 'Direct, NCERT-line: IUPAC name, isomer type, spin-only μ, CFT colour & magnetism, bonding in carbonyls' },
+      { exam: 'Depth needed', weightage: '—', questions: '—', nature: 'NCERT-level only — NEET does NOT push CFSE numericals or heavy organometallics the way JEE Advanced does; do not over-study' },
+    ],
+    correction:
+      'Some chapter-weightage charts list Coordination Compounds at ~9% for NEET. That over-counts — it is closer to 3–4% (1–2 questions). It is genuinely high-yield per hour, but plan your revision around 1–2 questions, and resist going down the JEE-Advanced CFSE rabbit hole.',
+    studyOrder: [
+      { step: 'Werner\'s theory & terminology', detail: 'Ligand, denticity, coordination number, and the oxidation state of the central metal. Getting the oxidation state right is the gate to magnetic moment and CFT, so nail it first (remember neutral ligands like NH₃, H₂O, CO contribute 0).' },
+      { step: 'IUPAC nomenclature', detail: 'Ligands named alphabetically (ignoring di/tri prefixes), then the metal with its oxidation state in roman numerals; anionic complexes take the "-ate" suffix. Practise naming ~25 complexes — these are pure recall marks in NEET.' },
+      { step: 'Isomerism', detail: 'Structural (linkage –NO₂/–ONO, ionisation, coordination, hydrate) and stereo (geometrical cis/trans, optical). NEET usually asks you to identify the TYPE rather than count, so focus on recognising each from a formula.' },
+      { step: 'VBT → geometry', detail: 'Hybridisation predicts shape: d²sp³ (inner-orbital, low-spin) vs sp³d² (outer-orbital, high-spin) for octahedral, dsp² for square planar, sp³ for tetrahedral.' },
+      { step: 'CFT — colour & magnetism last', detail: 'Octahedral d-splitting into t₂g/e_g, the spectrochemical series (weak I⁻…strong CN⁻, CO), and colour from d–d transitions. This ties hybridisation, spin and magnetic moment together.' },
+    ],
+    highYield: [
+      {
+        topic: 'Spin-only magnetic moment μ = √(n(n+2)) BM',
+        detail:
+          'The most-asked numeric in the chapter. First decide high- vs low-spin from the ligand on the spectrochemical series (CN⁻/CO strong → pairing → low spin; H₂O/F⁻/Cl⁻ weak → high spin), then count unpaired electrons. The ladder is worth memorising: n = 0,1,2,3,4,5 → μ ≈ 0, 1.73, 2.83, 3.87, 4.90, 5.92 BM.',
+      },
+      {
+        topic: 'IUPAC nomenclature',
+        detail:
+          'Pure recall marks. Cation named before anion; within the complex, ligands in alphabetical order (multiplying prefixes di/tri don\'t affect alphabetising), then the metal with oxidation state in roman numerals; anionic complex ends in "-ate" (e.g. ferrate, cuprate). NEET asks both "name this" and "which formula matches this name".',
+      },
+      {
+        topic: 'Isomerism — identify the type',
+        detail:
+          'Linkage (–SCN vs –NCS, –NO₂ vs –ONO), ionisation ([Co(NH₃)₅Br]SO₄ vs [Co(NH₃)₅SO₄]Br give different precipitate tests), geometrical (cis/trans in MA₄B₂, MA₂B₂), and optical (non-superimposable mirror images, common in tris-chelates). NEET typically wants you to name the isomerism shown, not count isomers.',
+      },
+      {
+        topic: 'VBT/CFT geometry & magnetism chain',
+        detail:
+          '[Ni(CN)₄]²⁻ is dsp², square planar and diamagnetic; [NiCl₄]²⁻ is sp³, tetrahedral and paramagnetic — same Ni²⁺ (d⁸), opposite answers because of ligand strength. Recognising this ligand → geometry → spin → magnetism chain answers most "predict the magnetic behaviour" MCQs.',
+      },
+    ],
+    traps: [
+      'Counting unpaired electrons before checking the ligand. A strong-field ligand pairs electrons first: [Fe(CN)₆]³⁻ is low-spin (1 unpaired) while [FeF₆]³⁻ is high-spin (5 unpaired) — same Fe³⁺ (d⁵), opposite magnetic moment.',
+      'Naming ligands by size or charge instead of alphabetically. IUPAC alphabetises ligand names and ignores the di/tri multiplying prefixes when ordering.',
+      'Forgetting that neutral ligands (NH₃, H₂O, CO) add nothing to the metal\'s oxidation state — a common slip when computing the central-atom oxidation number.',
+      'Applying octahedral splitting logic to tetrahedral complexes. Tetrahedral splitting is inverted (e below t₂) and only ~4/9 as large, so tetrahedral complexes are almost always high-spin.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Coordination Compounds in NEET?',
+        a: 'Usually 1–2 questions per year (~3–4% of the Chemistry section). They are direct and NCERT-level — IUPAC naming, isomer type, spin-only magnetic moment, or a crystal-field colour/magnetism fact. It is high marks-per-hour because the question types repeat.',
+      },
+      {
+        q: 'How do I calculate magnetic moment for NEET coordination compounds?',
+        a: 'Use the spin-only formula μ = √(n(n+2)) Bohr Magnetons, where n is the number of unpaired electrons. First fix high- vs low-spin from the ligand (strong-field CN⁻/CO cause pairing → fewer unpaired; weak-field H₂O/F⁻ don\'t), count the unpaired electrons, then plug in. Memorise the ladder 0, 1.73, 2.83, 3.87, 4.90, 5.92 BM for n = 0–5.',
+      },
+      {
+        q: 'Is crystal field theory important for NEET?',
+        a: 'Yes, but only at NCERT level — you need octahedral vs tetrahedral splitting, the spectrochemical series, high- vs low-spin, and how these explain colour and magnetism. NEET does not ask the detailed CFSE numericals or organometallic depth that JEE Advanced does, so don\'t over-invest there.',
+      },
+      {
+        q: 'Is Coordination Compounds hard to score in NEET?',
+        a: 'It is rated conceptually hard, but it is reliably scoring because the same question types repeat. The trick is the chain: oxidation state → hybridisation/geometry → high- or low-spin → magnetic moment. Lock IUPAC naming, the μ = √(n(n+2)) calculation and the spectrochemical series, and you bank the chapter\'s 1–2 questions.',
+      },
+    ],
+  },
+
+  'neet-physics-current-electricity': {
+    overview:
+      'Current Electricity is one of the highest-weight and most reliably scoring chapters in NEET Physics: 3–4 questions in most years (~8–10% of the Physics section, ~12–16 marks). The questions are mostly formula-direct — Ohm\'s law, series/parallel combinations, Kirchhoff\'s rules, Wheatstone/meter bridge and potentiometer — so it rewards speed and clean circuit-reduction over heavy derivation. Together with Electrostatics, Magnetism and EMI it forms the "electricity & magnetism" block that decides a large slice of the Physics rank.',
+    examSplit: [
+      { exam: 'NEET (3-yr avg)', weightage: '~8–10% of Physics', questions: '3–4 per year (~12–16 marks)', nature: 'Mostly formula-direct circuit problems + 1–2 conceptual (drift velocity, instruments)' },
+      { exam: 'Recent trend', weightage: '—', questions: '2023: ~5 · 2024: ~3 · 2025: ~3', nature: 'Stable high-weight scorer; rarely drops below 3 questions' },
+    ],
+    correction:
+      'Potentiometer and meter bridge are still in the NEET syllabus and questions appear most years — don\'t skip them assuming they were cut. What did thin out across the wider electricity grouping is overlap with Electrostatics/EMI; treat Current Electricity as its own 3–4-question chapter, not as part of one blended "25% electricity" figure some charts quote.',
+    studyOrder: [
+      { step: 'Ohm\'s law, resistivity & drift velocity', detail: 'V = IR, R = ρl/A, and the microscopic picture I = neAv_d with v_d = eEτ/m. Build the link between the macroscopic and microscopic forms — NEET asks a conceptual drift-velocity question most years.' },
+      { step: 'Combinations of resistors & cells', detail: 'Series/parallel reduction, and cells in series/parallel with emf and internal resistance: terminal voltage V = emf − Ir while discharging. Most numericals start by reducing the network cleanly.' },
+      { step: 'Kirchhoff\'s laws', detail: 'KCL (junction rule, charge conservation) and KVL (loop rule, energy conservation). The skill is sign convention — fix a loop direction and stick to it for every element.' },
+      { step: 'Wheatstone & meter bridge', detail: 'Balanced bridge condition P/Q = R/S with NO current through the galvanometer. The meter bridge is just a Wheatstone bridge used to find an unknown resistance from balancing lengths.' },
+      { step: 'Potentiometer last', detail: 'Why it beats a voltmeter (draws no current at balance, so it reads true emf), and its uses: comparing emfs, finding internal resistance, measuring small potential differences.' },
+    ],
+    highYield: [
+      {
+        topic: 'Kirchhoff\'s laws + Wheatstone bridge',
+        detail:
+          'KCL: sum of currents into a junction = 0; KVL: sum of potential changes around a loop = 0. At Wheatstone balance, P/Q = R/S and the galvanometer carries no current — so you cannot include that arm\'s resistance in the balanced-state equation. This pair drives the most common numerical type.',
+      },
+      {
+        topic: 'Cells: emf vs terminal voltage & internal resistance',
+        detail:
+          'Terminal voltage V = emf − Ir when a cell discharges (so V < emf), and V = emf + Ir while charging. Cells in series add emfs; in parallel the combined internal resistance drops. Maximum power is delivered to the external load when external R equals internal r.',
+      },
+      {
+        topic: 'Drift velocity & microscopic Ohm\'s law',
+        detail:
+          'I = neAv_d, v_d = eEτ/m, resistivity ρ = m/(ne²τ). Drift velocity is tiny (~mm/s) even though the bulb lights instantly, because the electric field is established along the whole wire almost immediately — a recurring conceptual MCQ.',
+      },
+      {
+        topic: 'Potentiometer vs meter bridge',
+        detail:
+          'Potentiometer: a uniform wire with constant potential gradient, draws zero current at balance, so it measures TRUE emf and compares two cells\' emfs or finds internal resistance. Meter bridge: a Wheatstone bridge on a 1 m wire to find an unknown resistance via the balancing-length ratio. Know which instrument does which.',
+      },
+    ],
+    traps: [
+      'Treating the potentiometer like a voltmeter. At balance it draws no current, so it reads the cell\'s true emf — a voltmeter draws current and reads the (lower) terminal voltage. This "why is a potentiometer more accurate" question appears repeatedly.',
+      'Including the galvanometer arm in a balanced Wheatstone/meter bridge. At balance no current flows through it, so it plays no part in the P/Q = R/S relation.',
+      'Confusing the charging and discharging cases: terminal voltage is less than emf when the cell supplies current (V = emf − Ir) but greater than emf when it is being charged (V = emf + Ir).',
+      'Assuming a larger drift velocity means a faster-lighting bulb. The bulb lights almost instantly because the field propagates near light-speed along the wire; drift velocity itself is only of the order of millimetres per second.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Current Electricity in NEET?',
+        a: 'Typically 3–4 questions per year (about 8–10% of the Physics section, ~12–16 marks). The recent trend is roughly 5 in 2023 and 3 each in 2024 and 2025 — it rarely drops below three, which makes it one of the highest-weight, most dependable chapters in NEET Physics.',
+      },
+      {
+        q: 'Is Current Electricity easy to score in NEET?',
+        a: 'Yes — most questions are formula-direct (Ohm\'s law, series/parallel, Kirchhoff, bridge and potentiometer), so with clean circuit-reduction practice it is fast, high-return marks. A couple of conceptual questions (drift velocity, why a potentiometer beats a voltmeter) reward understanding over plug-and-chug.',
+      },
+      {
+        q: 'Which topics in Current Electricity are most important for NEET?',
+        a: 'Kirchhoff\'s laws with the Wheatstone/meter bridge, cells with emf and internal resistance, the potentiometer, and the drift-velocity/microscopic-Ohm\'s-law concept. Together these cover almost every question the chapter has asked in recent NEET papers.',
+      },
+      {
+        q: 'What is the difference between a potentiometer and a voltmeter in NEET?',
+        a: 'A potentiometer draws no current from the cell at the balance point, so it measures the cell\'s true emf and can compare emfs or find internal resistance. A voltmeter has finite resistance and draws some current, so it reads the terminal voltage (which is less than the emf when the cell supplies current). That is why the potentiometer is treated as the more accurate instrument.',
+      },
+    ],
+  },
 };
 
 /** Returns the curated enrichment for a chapter slug, or undefined if none exists. */
