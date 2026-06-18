@@ -5,7 +5,7 @@ import { Navigate } from '@/components/Navigate';
 import { Link } from '@/components/RouterLink';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ArrowRight, Phone, CheckCircle, Scale } from 'lucide-react';
+import { ChevronDown, ArrowRight, Phone, CheckCircle, Scale, Zap, AlertTriangle, BarChart3 } from 'lucide-react';
 import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
 import { useDemoModal } from '@/components/DemoBookingModal';
@@ -15,6 +15,7 @@ import { FreshnessBadge } from '@/components/FreshnessBadge';
 import { getLastUpdated, getCurrentExamYear } from '@/lib/contentFreshness';
 import { getExamEntities } from '@/lib/seoEntities';
 import { getDifferencePair } from '@/data/differenceBetweenData';
+import { getDiffEnrichment } from '@/data/diffEnrichments';
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 
 const DifferenceBetweenPage = () => {
@@ -25,6 +26,9 @@ const DifferenceBetweenPage = () => {
 
   const pair = getDifferencePair(slug);
   if (!pair) return <Navigate to="/" replace />;
+
+  const enrichment = getDiffEnrichment(slug);
+  const allFaqs = [...pair.faqs, ...(enrichment?.faqs ?? [])];
 
   const lastUpdated = getLastUpdated(slug);
   const title = `Difference Between ${pair.term1} and ${pair.term2} — Key Comparisons for ${pair.exam === 'Both' ? 'JEE & NEET' : pair.exam} ${CURRENT_EXAM_YEAR}`;
@@ -45,7 +49,7 @@ const DifferenceBetweenPage = () => {
     },
   ];
 
-  if (pair.faqs.length > 0) jsonLd.push(buildFAQSchemaFromQA(pair.faqs));
+  if (allFaqs.length > 0) jsonLd.push(buildFAQSchemaFromQA(allFaqs));
 
   jsonLd.push({
     '@context': 'https://schema.org',
@@ -135,6 +139,78 @@ const DifferenceBetweenPage = () => {
           </div>
         </section>
 
+        {/* Enrichment: exam weightage + fast tip (hand-written, per-slug) */}
+        {enrichment && (enrichment.examWeightage || enrichment.fastTip) && (
+          <section className="max-w-4xl mx-auto px-6 pb-12 space-y-4">
+            {enrichment.examWeightage && (
+              <div className="flex items-start gap-3 p-5 rounded-xl border border-border bg-card/30">
+                <BarChart3 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                <div>
+                  <h2 className="font-display font-bold text-foreground text-lg mb-2">How much this is worth in the exam</h2>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{enrichment.examWeightage}</p>
+                </div>
+              </div>
+            )}
+            {enrichment.fastTip && (
+              <div className="flex items-start gap-3 p-5 rounded-xl border border-primary/30 bg-primary/10">
+                <Zap className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                <div>
+                  <h2 className="font-display font-bold text-foreground text-lg mb-2">{enrichment.fastTip.title}</h2>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{enrichment.fastTip.body}</p>
+                </div>
+              </div>
+            )}
+          </section>
+        )}
+
+        {/* Enrichment: extra worked/bookkeeping table */}
+        {enrichment?.extraTable && (
+          <section className="max-w-4xl mx-auto px-6 pb-12">
+            <h2 className="font-display font-bold text-foreground text-xl sm:text-2xl mb-3">{enrichment.extraTable.title}</h2>
+            {enrichment.extraTable.intro && (
+              <p className="text-muted-foreground text-sm leading-relaxed mb-5 max-w-3xl">{enrichment.extraTable.intro}</p>
+            )}
+            <div className="overflow-x-auto rounded-xl border border-border">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-secondary/50">
+                    {enrichment.extraTable.headers.map((h, i) => (
+                      <th key={i} className={`text-left px-4 py-3 font-display font-semibold ${i === 0 ? 'text-foreground' : 'text-primary'}`}>{h}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border">
+                  {enrichment.extraTable.rows.map(([c1, c2, c3], i) => (
+                    <tr key={i} className={i % 2 === 0 ? 'bg-card/30' : 'bg-card/10'}>
+                      <td className="px-4 py-3 text-foreground font-medium">{c1}</td>
+                      <td className="px-4 py-3 text-muted-foreground">{c2}</td>
+                      <td className="px-4 py-3 text-muted-foreground">{c3}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        )}
+
+        {/* Enrichment: common mistakes / traps */}
+        {enrichment?.traps && enrichment.traps.length > 0 && (
+          <section className="max-w-4xl mx-auto px-6 pb-12">
+            <h2 className="font-display font-bold text-foreground text-xl mb-4">Common mistakes students make</h2>
+            <div className="space-y-3">
+              {enrichment.traps.map((t, i) => (
+                <div key={i} className="p-4 rounded-xl border border-border bg-card/30">
+                  <div className="flex items-start gap-3 mb-2">
+                    <AlertTriangle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-foreground text-sm font-semibold">{t.mistake}</span>
+                  </div>
+                  <p className="text-muted-foreground text-sm leading-relaxed pl-7">{t.correction}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
         {/* Exam Relevance */}
         {pair.chapter && (
           <section className="max-w-4xl mx-auto px-6 pb-12">
@@ -167,13 +243,13 @@ const DifferenceBetweenPage = () => {
         </section>
 
         {/* FAQs */}
-        {pair.faqs.length > 0 && (
+        {allFaqs.length > 0 && (
           <section className="max-w-3xl mx-auto px-6 py-16">
             <h2 className="font-display font-bold text-foreground text-2xl text-center mb-10">
               Frequently Asked <span className="text-gradient-gold">Questions</span>
             </h2>
             <div className="space-y-3">
-              {pair.faqs.map((faq, i) => {
+              {allFaqs.map((faq, i) => {
                 const isOpen = openFaq === i;
                 return (
                   <div key={i} className={`rounded-xl border transition-all duration-300 ${isOpen ? 'bg-background/50 backdrop-blur-xl border-primary/30 shadow-card' : 'bg-background/25 backdrop-blur-lg border-border/40 hover:border-border/70'}`}>
