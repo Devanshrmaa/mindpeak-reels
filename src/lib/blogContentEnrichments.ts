@@ -977,6 +977,173 @@ A: If a government Indian seat is within reach of a focused drop year, that usua
 beats an abroad degree you might struggle to licence. Go abroad when a government seat
 is genuinely out of reach, private India is unaffordable, and you've picked an
 FMGE-strong, NMC-recognised country — not as an escape from one disappointing result.`,
+  /* ───────────────────────── NEET vs AP EAMCET (EAPCET) ─────────────────────────
+     Query: "difference between neet and eamcet" (pos ~8–10). Gap the SERP buries:
+     EAPCET — even its medical-side stream — cannot give MBBS; the no-negative-marking
+     rule; and the honest "you sit both, they're complementary" framing. */
+  'ap-eamcet-vs-neet-comparison': `## NEET vs AP EAMCET (AP EAPCET) — The Difference That Actually Decides Your Course
+
+This is the point most Andhra Pradesh students get wrong: NEET and AP EAMCET (now
+officially **AP EAPCET**) are **not two routes to the same seat**, and they are not really
+an "either/or". They unlock different colleges, so for most students the honest answer is
+*you sit both* — NEET for an MBBS/BDS dream and EAPCET as the route to engineering,
+pharmacy, agriculture and allied courses.
+
+### What each exam actually unlocks
+
+| You want to study… | The exam that gets you in |
+|---|---|
+| MBBS / BDS | **NEET only** — there is no other route anywhere in India |
+| AYUSH (BAMS / BHMS / BUMS) | **NEET** (counselling conducted in AP) |
+| B.Tech / B.E. (engineering) | **AP EAPCET — Engineering (MPC) stream** |
+| B.Pharm / Pharm.D | AP EAPCET |
+| B.Sc (Hons) Agriculture, B.V.Sc, B.F.Sc, B.Tech (Dairy/Food/Ag-Eng) | **AP EAPCET — Agriculture & Medical (AgriBiPC) stream** |
+
+**The single most important takeaway:** AP EAPCET — including its "Agriculture & Medical"
+stream — **cannot** get you an MBBS or BDS seat. If a medical degree is the goal, NEET is
+the *only* door. The EAPCET medical-side stream is for agriculture, veterinary, pharmacy and
+allied-health courses, not for MBBS.
+
+### Exam pattern — side by side (the gaps most comparison pages skip)
+
+| Parameter | NEET (UG) | AP EAPCET |
+|---|---|---|
+| Questions | 180 to be answered | 160 |
+| Total marks | 720 (+4 each) | 160 (+1 each) |
+| Negative marking | **Yes, −1 per wrong answer** | **No negative marking** |
+| Mode | Offline (OMR, pen-paper) | Computer-based (online) |
+| Duration | 3 hr 20 min | 3 hours |
+| Subjects | Physics 45 · Chemistry 45 · Botany 45 · Zoology 45 | *Engg:* Maths 80 · Phy 40 · Chem 40 — *Agri/Med:* Biology 80 · Phy 40 · Chem 40 |
+| Pool | National (~20+ lakh aspirants) | State (AP/TS domicile) |
+| Syllabus base | NCERT (CBSE) | AP Intermediate (IPE), closely aligned to NCERT |
+
+The **no-negative-marking** rule is the most exploitable difference and almost no comparison
+page leads with it: in EAPCET you should **attempt all 160 questions** — a blind guess has
+only upside. In NEET the −1 penalty means you skip a question you cannot narrow to two options.
+
+### Which is harder — an honest answer
+
+NEET is the tougher exam for most students, and that is not a knock on EAPCET. NEET pulls a
+national pool of 20-lakh-plus aspirants for limited MBBS seats, and its questions lean more
+conceptual and application-heavy. EAPCET draws a state pool and stays closer to direct,
+formula-based questions on the Intermediate syllabus — so the same student usually scores a
+higher *percentage* in EAPCET. But "easier paper" does not mean "easier seat": a good
+engineering or agriculture seat through EAPCET is still very competitive.
+
+### Should you prepare separately?
+
+Mostly no — the syllabi overlap heavily (both ride on the 11th–12th science core), so most of
+your NEET Biology/Physics/Chemistry prep already covers EAPCET. The real differences are:
+(1) **board phrasing** — EAPCET follows AP Intermediate wording, so revise from your IPE
+textbooks for the last lap; and (2) **format drill** — practise EAPCET in computer-based mock
+mode with the attempt-everything mindset, separately from your NEET OMR practice.
+
+### FAQ — NEET vs AP EAMCET
+
+**Q: Can I get an MBBS seat through AP EAMCET / EAPCET?**
+A: No. MBBS and BDS admissions across India run through **NEET** only. AP EAPCET (even its
+Agriculture & Medical stream) leads to agriculture, veterinary, pharmacy and allied-health
+courses — not MBBS. If medicine is your goal, NEET is non-negotiable.
+
+**Q: Is EAMCET easier than NEET?**
+A: Generally yes for the same student — EAPCET is a state exam closer to the Intermediate
+syllabus with more direct, formula-based questions and **no negative marking**, whereas NEET
+is national, more conceptual and penalises wrong answers. An easier paper, though, does not
+mean an easier seat.
+
+**Q: Does AP EAMCET have negative marking?**
+A: No. AP EAPCET has no negative marking, so you should attempt all 160 questions. NEET
+penalises wrong answers at −1, so the guessing strategy is the opposite in the two exams.
+
+**Q: Should an AP medical aspirant take both NEET and EAPCET?**
+A: Usually yes. Take NEET for MBBS/BDS, and use the EAPCET Agriculture & Medical stream as a
+backup for B.Pharm, B.Sc Agriculture, veterinary and allied courses if a government MBBS seat
+does not come through. The preparation overlaps, so the extra cost is mostly format practice,
+not fresh study.`,
+
+  /* ───────────────────────── ISI entrance vs JEE Main ─────────────────────────
+     Query: "is isi and jee syllabus same" (was 234 impr at pos ~2.9 before the
+     year-rollover 404; now restored). Gap: ISI is maths-only with a proof paper and
+     points at a research track, not engineering — not "JEE but harder". */
+  'isi-entrance-vs-jee-main-comparison': `## Is the ISI Entrance Syllabus the Same as JEE? — The Short Answer Is No
+
+Students often assume the Indian Statistical Institute (ISI) admission test is "JEE but
+harder". It is not. The two exams share a 10+2 *topic list* on paper, but they test almost
+opposite skills, lead to different degrees, and point at different careers. If you are
+deciding where to spend your prep hours, this is the distinction that matters.
+
+### What ISI is — and what it is not
+
+The ISI Admission Test is the entrance for ISI's **B.Stat (Hons)** and **B.Math (Hons)**
+degrees. It is a **mathematics-only** exam — there is no Physics or Chemistry at all. JEE
+Main, by contrast, is the gateway to **B.Tech/B.E.** at NITs, IIITs and GFTIs (and to JEE
+Advanced for the IITs) and tests **Physics, Chemistry and Maths**.
+
+So the first honest filter: ISI and JEE are not substitutes. ISI leads to a
+research-and-statistics track (academia, data science, economics, actuarial, quant); JEE
+leads to an engineering track. Choose by the career you want, not by "which is more prestigious".
+
+### Syllabus & pattern — same topics, different exam
+
+| Parameter | ISI Admission Test (B.Stat/B.Math) | JEE Main |
+|---|---|---|
+| Subjects | **Mathematics only** | Physics + Chemistry + Maths |
+| Topic base | 10+2 maths: algebra, number theory, combinatorics, geometry, trigonometry, calculus | Full 10+2 PCM |
+| Paper 1 | ~30 objective (MCQ) problems, 2 hours | 75 questions (MCQ + numerical), 3 hours |
+| Paper 2 | ~8 subjective, **proof-writing** problems, 2 hours | — (no subjective paper) |
+| What it rewards | Ingenuity, rigorous proofs, unfamiliar problem types | Speed and accuracy on standard problem types |
+| After qualifying | Often an **interview** before final selection | Direct to JoSAA counselling by rank |
+
+The overlap is real but shallow: both draw from 10+2 maths, yet ISI questions are pitched at
+**olympiad depth** — many are styled after contest/olympiad problems — and the subjective
+paper asks you to *prove*, not just compute. JEE rewards a student who can solve a known
+problem type fast; ISI rewards a student who can crack an unfamiliar problem from first
+principles.
+
+### So is ISI "harder" than JEE?
+
+For pure mathematics, yes — the ceiling is higher and the intake is tiny, so the bar is
+brutal. But it is not "JEE plus more chapters"; it is a different *kind* of hard. A JEE topper
+who has never written a proof can struggle with the ISI subjective paper, while a strong
+olympiad student with no Physics can clear ISI and never touch JEE's cutoff. They measure
+different muscles.
+
+### Who should actually target ISI?
+
+- You genuinely enjoy maths for its own sake and like problems with no obvious method.
+- You are aiming at research, statistics, data science, economics or quantitative finance — not core engineering.
+- You have done (or can do) olympiad-style problem solving and proof-writing.
+
+If you want an IIT/NIT engineering seat, ISI is the wrong exam — prepare for JEE. If you are
+torn, the practical move is to keep JEE as your main track (far broader options) and attempt
+ISI only if you are already strong at contest maths; the two prep styles do not substitute for
+each other, so dabbling in both half-heartedly helps neither.
+
+### FAQ — ISI entrance vs JEE
+
+**Q: Is the ISI entrance syllabus the same as JEE?**
+A: The topic list overlaps (both use 10+2 maths), but the exams are not the same. ISI is
+**maths only** (no Physics/Chemistry), tests at olympiad depth, and includes a **proof-based
+subjective paper** plus an interview. JEE Main covers all three PCM subjects and rewards speed
+on standard problem types.
+
+**Q: Is ISI harder than JEE Main?**
+A: For mathematics, generally yes — the problems demand creativity and rigorous proofs, and
+the intake is very small. But it is a different kind of difficulty: ISI is deeper in maths, JEE
+is broader across PCM. A strong JEE rank does not guarantee an ISI selection, and vice-versa.
+
+**Q: Can I prepare for ISI and JEE together?**
+A: Up to a point — the maths topics overlap, so foundational practice helps both. But the
+*style* differs sharply (proof-writing and olympiad problems for ISI vs fast standard problems
+for JEE), so you will need dedicated ISI practice on subjective, contest-style questions. Most
+students keep JEE as the main track and add focused ISI prep only if they already enjoy
+olympiad maths.
+
+**Q: What can I study at ISI versus through JEE?**
+A: ISI's entrance leads to **B.Stat (Hons)** and **B.Math (Hons)** — degrees pointing at
+statistics, mathematics, research and data-science careers. JEE Main leads to **B.Tech/B.E.**
+at NITs, IIITs and GFTIs (and is the gateway to JEE Advanced for the IITs). Choose by the
+career path, not by exam prestige.`,
 };
 
 /**
