@@ -93,6 +93,25 @@ const ENRICHMENTS: Record<string, PYQChapterEnrichment> = {
       },
     ],
   },
+  'chemistry/haloalkanes': {
+    overview:
+      'Haloalkanes & Haloarenes (NCERT Class 12 Organic Chemistry) is a reliable scorer in NEET — most years carry 2–3 questions, and recent papers (2022–2024) pushed that to 5–6. The chapter rewards memory more than derivation: the bulk of NEET marks here come from named reactions and direct-recall facts about polyhalogen compounds, so it is one of the fastest organic chapters to convert into guaranteed marks once you have drilled the past papers.',
+    facts: [
+      { label: 'NEET question frequency', value: '~2–3 most years; 5–6 in 2022, 2023, 2024' },
+      { label: 'NCERT source', value: 'Class 12, Ch. Haloalkanes & Haloarenes' },
+      { label: 'Difficulty', value: 'Easy–Moderate; mostly recall + named reactions' },
+      { label: 'Best use of time', value: 'High — fact-dense chapter, low conceptual depth' },
+    ],
+    highYield: [
+      {
+        topic: 'Named reactions (the single biggest mark source)',
+        detail:
+          'Learn name → product → reagent as one block: Wurtz (2R–X + Na/dry ether → symmetrical alkane), Finkelstein (R–Cl + NaI/acetone → R–I), Swarts (R–Cl + AgF → R–F), Sandmeyer (ArN₂⁺ + CuX → Ar–X), Williamson ether (R–X + R′ONa → ether), and the Grignard reagent (RMgX). NEET almost always asks at least one "which reaction does X" question.',
+      },
+      {
+        topic: 'SN1 vs SN2 — substrate order and solvent',
+        detail:
+          'SN2 reactivity is 1° > 2° > 3° (backside attack, steric hindrance dominates) and is favoured by polar aprotic solvents. SN1 is the reverse — 3° > 2° > 1° (via the more stable carbocation) — favoured by polar protic solvents. AgNO₃ in ethanol (SN1 conditions) distinguishes the three: 3° gives an immediate precipitate, 1° the slowest.',
 
   'chemistry/haloalkanes': {
     overview:
@@ -117,6 +136,24 @@ const ENRICHMENTS: Record<string, PYQChapterEnrichment> = {
       {
         topic: 'Why aryl & vinyl halides are unreactive',
         detail:
+          'The halogen lone pair delocalises into the ring/double bond, giving the C–X bond partial double-bond character — so it is shorter and stronger and resists nucleophilic substitution. A perennial "why is chlorobenzene less reactive than chloroethane" question.',
+      },
+      {
+        topic: 'Polyhalogen compounds — direct-recall facts',
+        detail:
+          'Chloroform is stored in dark bottles because light oxidises it to toxic phosgene (COCl₂); Freon-12 (CCl₂F₂) is the ozone-depleting refrigerant banned under the Montreal Protocol; DDT is a persistent organochlorine insecticide; CCl₄ was a fire-extinguisher solvent. These are free marks if memorised.',
+      },
+      {
+        topic: 'Elimination & Zaitsev',
+        detail:
+          'Dehydrohalogenation (alcoholic KOH) removes HX to give an alkene; by Zaitsev\'s rule the major product is the more substituted alkene — e.g. 2-bromobutane gives mainly 2-butene, not 1-butene.',
+      },
+    ],
+    traps: [
+      'Reversing the SN2 order. SN2 is 1° > 2° > 3° (opposite of SN1). The most-missed single fact in this chapter.',
+      'Saying aryl halides are unreactive because the C–X bond is longer — it is actually shorter and stronger due to resonance/partial double-bond character.',
+      'Using Lucas reagent for alkyl halides. Lucas (conc. HCl + ZnCl₂) distinguishes alcohols; AgNO₃/ethanol distinguishes 1°/2°/3° alkyl halides.',
+      'Swapping Finkelstein (Cl → I, NaI/acetone) with Swarts (Cl → F, AgF). Both are halogen-exchange reactions but in opposite directions of the group.',
           'The halogen lone pair delocalises into the ring (or the C=C), giving the C–X bond partial double-bond character — so it is shorter and stronger than in an alkyl halide and resists nucleophilic substitution. Expect a direct "aryl halides are less reactive because…" question.',
       },
       {
@@ -139,6 +176,63 @@ const ENRICHMENTS: Record<string, PYQChapterEnrichment> = {
     faqs: [
       {
         q: 'How many questions come from Haloalkanes and Haloarenes in NEET?',
+        a: 'Typically 2–3 questions most years, but recent papers ran hot — 2022, 2023 and 2024 each carried roughly 5–6 questions across the broader organic block. It is worth roughly 3–4% of the Chemistry section, and the questions are repetitive, so PYQs give a high return per hour.',
+      },
+      {
+        q: 'Which reactions are most important in Haloalkanes and Haloarenes for NEET?',
+        a: 'The named reactions: Wurtz, Finkelstein, Swarts, Sandmeyer, Williamson ether synthesis, and the Grignard reagent. Learn each as "name → what it converts → reagent". After that, the SN1 vs SN2 reactivity orders and the polyhalogen facts (chloroform/phosgene, Freon, DDT) account for most of the remaining marks.',
+      },
+      {
+        q: 'What is the reactivity order of alkyl halides in SN1 and SN2?',
+        a: 'SN2: 1° > 2° > 3° (steric hindrance blocks backside attack). SN1: 3° > 2° > 1° (the reaction goes through a carbocation, and 3° carbocations are most stable). They are exact opposites — mixing them up is the classic NEET mistake here.',
+      },
+      {
+        q: 'Is Haloalkanes and Haloarenes an easy chapter for NEET?',
+        a: 'Yes, relatively — it is fact-dense rather than calculation-heavy, so it rewards memorisation of named reactions and polyhalogen facts. The only real traps are the SN1/SN2 order and the aryl-halide resonance reasoning. Solving past papers locks in these marks quickly.',
+      },
+    ],
+  },
+  'biology/locomotion-movement': {
+    overview:
+      'Locomotion & Movement (NCERT Class 11, Human Physiology unit) is a steady NEET scorer — about 2–4 questions almost every year. The marks split predictably: muscle contraction (sliding filament theory and the sarcomere) is the heaviest theme, followed by joint classification and straight bone-count recall. Almost every question is directly traceable to NCERT lines, so it is a high-return chapter for PYQ practice.',
+    facts: [
+      { label: 'NEET question frequency', value: '~2–4 questions almost every year' },
+      { label: 'NCERT source', value: 'Class 11 Biology, Ch. Locomotion & Movement' },
+      { label: 'Difficulty', value: 'Easy–Moderate; almost entirely NCERT recall' },
+      { label: 'Best use of time', value: 'High — short, factual, repeats every year' },
+    ],
+    highYield: [
+      {
+        topic: 'Sliding filament theory & sarcomere bands',
+        detail:
+          'The single most-asked theme. The sarcomere (Z-line to Z-line) is the contractile unit. During contraction the A band stays the SAME length, while the I band and H zone shorten as actin slides over myosin. Huxley & Hanson proposed the theory; expect a "which band changes" question almost every year.',
+      },
+      {
+        topic: 'Cross-bridge cycle — Ca²⁺, troponin, tropomyosin, ATP',
+        detail:
+          'At rest, tropomyosin covers the myosin-binding sites on actin. Ca²⁺ released from the sarcoplasmic reticulum binds troponin, shifting tropomyosin to expose those sites. ATP is needed for the myosin head to DETACH and re-cock — which is why rigor mortis (ATP depletion + Ca²⁺ flooding) locks the muscle.',
+      },
+      {
+        topic: 'Bone counts — quick recall table',
+        detail:
+          'Direct-recall favourites: total 206 bones in an adult = axial 80 (skull, vertebral column, ribs, sternum) + appendicular 126 (limbs and girdles). Skull = 22 bones; vertebral column = 26; each pelvic half = ilium + ischium + pubis. Infants start with ~300 bones that later fuse.',
+      },
+      {
+        topic: 'Joint classification',
+        detail:
+          'Ball-and-socket (shoulder, hip) = multiaxial; hinge (elbow, knee) = flexion/extension only; pivot (atlas–axis); gliding (carpals); saddle (thumb); fibrous sutures (skull, immovable); cartilaginous (between vertebrae). The synovial sub-types and their examples are the second-most-tested area.',
+      },
+      {
+        topic: 'Skeletal-muscular disorders',
+        detail:
+          'Gout = uric-acid (urate) crystal deposition in joints; osteoporosis = reduced bone density (post-menopausal, low oestrogen); tetany = rapid spasms from low Ca²⁺; myasthenia gravis = autoimmune attack on ACh receptors; muscular dystrophy = genetic muscle degeneration. One disorder question recurs regularly.',
+      },
+    ],
+    traps: [
+      'Thinking the A band shortens during contraction. Only the I band and H zone shorten; the A band length is constant — this is the most-missed sliding-filament fact.',
+      'Swapping tendon and ligament. Tendon connects muscle to bone; ligament connects bone to bone.',
+      'Forgetting that ATP is needed for myosin to DETACH (not just to contract) — which is exactly why a muscle stiffens (rigor mortis) when ATP runs out.',
+      'Confusing red (slow, myoglobin-rich, aerobic) with white (fast, fewer mitochondria, anaerobic) muscle fibres.',
         a: 'Typically 2–3 questions almost every year — about 4% of the NEET Chemistry paper. Because the chapter is short and the questions are mostly direct recall of named reactions and uses, it is one of the best marks-per-hour chapters in Organic Chemistry.',
       },
       {
@@ -201,6 +295,19 @@ const ENRICHMENTS: Record<string, PYQChapterEnrichment> = {
     faqs: [
       {
         q: 'How many questions come from Locomotion and Movement in NEET?',
+        a: 'Usually 2–4 questions every year (an average close to 3 across recent papers). Because the chapter is short and almost entirely NCERT-recall, the marks-per-hour of study is high — it is one of the safest chapters to bank by drilling PYQs.',
+      },
+      {
+        q: 'What is the most important topic in Locomotion and Movement for NEET?',
+        a: 'The sliding filament theory and sarcomere structure — especially which bands change during contraction (A band constant; I band and H zone shorten) and the roles of Ca²⁺, troponin, tropomyosin and ATP in the cross-bridge cycle. Joint classification and bone counts come next.',
+      },
+      {
+        q: 'Which bands of the sarcomere shorten during muscle contraction?',
+        a: 'The I band (light) and the H zone shorten as actin filaments slide toward the centre. The A band (dark) stays the same length because the thick myosin filaments do not change length — the filaments slide, they do not contract.',
+      },
+      {
+        q: 'Is Locomotion and Movement an easy chapter for NEET?',
+        a: 'Yes — it is short and mostly direct NCERT recall, with predictable themes (muscle contraction, joints, bone counts, disorders). The few traps are the A-band-constant rule and the tendon-vs-ligament distinction. Past-year practice almost guarantees these marks.',
         a: 'Usually 2–3 questions per year (about 2.7 on average across recent papers), and it is one of the higher-weightage Human Physiology chapters. Because so much of it is recall plus one core mechanism, it is reliable marks if you have drilled the PYQs.',
       },
       {
