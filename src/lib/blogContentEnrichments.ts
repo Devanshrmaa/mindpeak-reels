@@ -808,6 +808,713 @@ you are certain you want to be a doctor and can either hit a top rank or accept 
 route, NEET is reasonable — but go in with eyes open about the cliff above. Neither exam is the
 "easy" choice; pick the subject you can study for 10–12 hours a day without resenting it, because
 that stamina, not the exam's difficulty rating, decides the result.`,
+  /* ───────────────────── AP EAMCET vs NEET — the MBBS confusion ─────────────────
+     Query: "difference between neet and eamcet" (pos ~8.4, the ONLY comparison still
+     earning impressions in the 28-day window). The gap every SERP leader buries: AP
+     EAMCET's "Medical" stream does NOT include MBBS — that has been NEET-only since
+     2017. BiPC students searching this need that answer first, not a syllabus table. */
+  'ap-eamcet-vs-neet-comparison': `## The One Thing to Get Straight First: EAMCET Does NOT Give You MBBS
+
+If you are a BiPC student in Andhra Pradesh asking "should I do NEET or EAMCET for
+medical," here is the answer no comparison page leads with: **since 2017, MBBS and
+BDS seats in every Indian college — government and private, in AP and TS included —
+are filled only through NEET-UG.** EAMCET cannot admit you to MBBS. Full stop.
+
+So what is the "M" in EAMCET (Engineering, **Agriculture & Medical** Common Entrance
+Test)? It is the Agriculture & Medical *stream*, which fills BiPC seats that are **not**
+MBBS/BDS:
+
+| What you want | Exam you actually need |
+|---|---|
+| MBBS / BDS (govt or private, anywhere) | **NEET-UG only** |
+| BVSc (Veterinary), BSc Agriculture, B.Pharm, Pharm.D | AP EAMCET (Agriculture & Medical stream) |
+| BSc Nursing, Horticulture, Fisheries, Food Tech | AP EAMCET (Agri & Medical stream) |
+| B.Tech / B.E. in AP engineering colleges | AP EAMCET (Engineering stream) |
+| B.Tech at IITs / NITs / IIITs | JEE (Main → Advanced) |
+
+**Read that honestly.** If your goal is to become a doctor, EAMCET is irrelevant to
+that goal — NEET is the only door, and there is no AP/TS shortcut around it. EAMCET's
+medical stream is a genuinely good route to veterinary, agriculture, pharmacy and
+allied-health degrees, and many BiPC students sensibly write *both*: NEET for the MBBS
+attempt, EAMCET as the agriculture/pharmacy safety net.
+
+## Head-to-head: where the two exams really differ
+
+| | NEET-UG | AP EAMCET |
+|---|---|---|
+| Decides admission to | MBBS, BDS, AYUSH, BSc Nursing (all-India) | Engineering + Agriculture/Pharmacy in AP |
+| Questions / Marks | 180 Q / 720 marks | 160 Q / 160 marks |
+| Negative marking | **−1 per wrong answer** | **None — attempt all 160** |
+| Difficulty | Application-level, NCERT-plus, tough Biology | Intermediate (AP board) to mild JEE-Main level |
+| Syllabus base | NCERT Class 11–12 (CBSE) | AP Intermediate (≈80% NCERT overlap) |
+| Competition pool | All-India (~22–24 lakh) | AP/TS domicile students |
+| Counselling | MCC (15% AIQ) + state | AP state (APSCHE) |
+
+The two practical differences that change how you study: **NEET punishes guessing
+(−1), EAMCET rewards attempting everything (no negative marking)**, and NEET's Biology
+is meaningfully harder and more application-heavy than EAMCET's. A student comfortable
+with EAMCET-level Biology is usually *not* yet at NEET level — don't mistake one for the
+other.
+
+## A 30-second decision framework for a BiPC student
+
+1. **Is becoming a doctor (MBBS/BDS) your real goal?** → NEET is mandatory and
+   non-negotiable. Make it your primary exam.
+2. **Would you be happy with veterinary, agriculture, pharmacy or allied-health in AP?**
+   → EAMCET (Agri & Medical) is the right exam, it's easier, and it has no negative
+   marking. Write it regardless, as your safety net.
+3. **Open to engineering too?** → Add the EAMCET Engineering stream; your NEET PCB won't
+   cover Maths, so plan that separately.
+
+Most well-advised AP medical aspirants write **both NEET and EAMCET** — they have a
+~80% syllabus overlap, so the extra EAMCET prep is mostly speed practice and getting
+used to no-negative-marking strategy, not relearning theory.
+
+### FAQ — NEET vs AP EAMCET
+
+**Q: Can I get MBBS through EAMCET instead of NEET?**
+A: No. MBBS and BDS admissions across all of India — including AP and TS, government and
+private — run only through NEET-UG since 2017. EAMCET's medical stream gives veterinary,
+agriculture, pharmacy and nursing seats, not MBBS.
+
+**Q: Is EAMCET easier than NEET?**
+A: Yes. EAMCET sits around AP Intermediate to mild JEE-Main level, has no negative
+marking, and its Biology is less application-heavy than NEET's. But it leads to a
+different set of seats — easier does not mean "use it for MBBS."
+
+**Q: What is the difference between the NEET and EAMCET syllabus?**
+A: They overlap ~80% because both are built on Class 11–12 PCB. EAMCET follows the AP
+Intermediate framing and tends to ask more direct, formula-based questions; NEET follows
+NCERT closely and tests deeper application, especially in Biology.
+
+**Q: Should a BiPC student write both NEET and EAMCET?**
+A: Usually yes. Make NEET your primary exam for the MBBS attempt and write EAMCET as an
+agriculture/pharmacy/veterinary safety net. The syllabus overlap means the second exam is
+mostly speed and pattern practice.`,
+
+  /* ──────────────── CUET vs JEE Advanced — different leagues, no overlap ─────────
+     Query: "is cuet tougher than jee advanced" / "cuet vs jee advanced" (pos ~2.4,
+     2,042 impr/90d). Distinct from the cuet-vs-jee-MAIN enrichment: here the angle is
+     that JEE Advanced exists ONLY for IITs and is in a different difficulty universe —
+     these two are almost never a real either/or. */
+  'cuet-vs-jee-advanced-comparison': `## Is CUET Tougher Than JEE Advanced? No — They Are in Different Universes
+
+Let's answer the search directly: **CUET is dramatically easier than JEE Advanced.**
+This isn't a close call, and pretending it's a balanced "which is harder" debate does
+students a disservice. JEE Advanced is widely regarded as the single hardest undergraduate
+entrance exam in India; CUET domain papers stay at strict NCERT Class 12 level. The two
+were built for completely different purposes.
+
+| | JEE Advanced | CUET (UG) |
+|---|---|---|
+| Exists to admit you to | **The 23 IITs — and nothing else** | Central/state/private universities (mostly non-engineering) |
+| Difficulty | India's hardest UG exam — multi-concept, novel problems | NCERT Class 12 level, direct |
+| Question types | Single + multiple-correct, integer, paragraph, matching | Single-correct MCQ |
+| Negative marking | Yes, and partial/full marking varies by section | −1 per wrong answer |
+| Calculator | Not allowed | Not needed |
+| Prep depth | Years of problem-solving beyond NCERT | Thorough NCERT reading |
+
+## Why this is almost never a real "either/or"
+
+The crucial fact both the templated guides and most SERP results skip: **JEE Advanced is
+the only gateway to the IITs, and CUET cannot get you into an IIT under any circumstance.**
+You don't choose between them the way you'd choose between two similar exams — they unlock
+different worlds:
+
+- **JEE Advanced** → IIT B.Tech/B.Arch/dual degrees. To even sit it you must first clear
+  JEE Main and rank in the top ~2.5 lakh.
+- **CUET** → BA, B.Com, B.Sc, BBA, integrated law, and *some* B.Tech at central
+  universities (DU, Jamia, AMU, Hyderabad Central) — never at an IIT, NIT or IIIT.
+
+So the honest framing is not "pick the easier one." It is: **if you are targeting an IIT,
+JEE Advanced is your exam, and CUET is a sensible low-cost backup** (a central-university
+B.Sc or B.Tech behind your IIT attempt). If you have no interest in an IIT/engineering and
+want a central-university degree, CUET is your primary exam and JEE Advanced is simply not
+relevant to you.
+
+## The smart combined play for an IIT aspirant
+
+Because CUET domain subjects are NCERT-level, a student already grinding for JEE Advanced
+is *over-prepared* for CUET's PCM/PCB papers — the depth gap runs entirely in your favour.
+The only genuinely new work is CUET's **Language section and General Test** (reasoning,
+current affairs, quantitative aptitude), which JEE never touches. Writing CUET alongside
+costs little effort and buys a central-university safety net if the IIT attempt doesn't
+land. Confirm the current participating-university list on the official CUET portal each
+year, since it changes.
+
+### FAQ — CUET vs JEE Advanced
+
+**Q: Is CUET tougher than JEE Advanced?**
+A: No — it is vastly easier. CUET domain papers are NCERT Class 12 level with single-correct
+MCQs; JEE Advanced is India's hardest UG exam with multi-concept, multi-correct and
+integer-type problems. They aren't in the same difficulty league.
+
+**Q: Can I get into an IIT through CUET?**
+A: No. The IITs admit only through JEE Advanced (which itself requires clearing JEE Main).
+CUET does not feed any IIT, NIT or IIIT. If an IIT is your target, CUET cannot substitute.
+
+**Q: Should a JEE Advanced aspirant also write CUET?**
+A: It's worth it as a backup. Your Advanced-level prep already buries CUET's domain
+syllabus, so the only extra work is the Language and General Test sections — cheap insurance
+for a central-university seat.
+
+**Q: Do CUET and JEE Advanced share syllabus?**
+A: The PCM content overlaps at the NCERT base (~60%), but the resemblance ends there. JEE
+Advanced tests that base at a depth and in question formats CUET never approaches, and CUET
+adds language and general-awareness sections JEE has nothing of.`,
+
+  /* ──────────────── VITEEE vs JEE Main — score→branch→campus, and the fee math ───
+     Query: "is viteee easier than jee main" / "viteee vs jee main" (pos ~5.3, 418
+     impr). Gap the SERP leaders skip: a concrete VITEEE score→branch→campus map, the
+     scholarship-by-rank structure, and an honest VIT-fee vs NIT-via-JEE comparison. */
+  'viteee-vs-jee-main-comparison': `## Is VITEEE Easier Than JEE Main? Yes — But the Cutoff Still Bites
+
+Straight answer: **VITEEE is noticeably easier than JEE Main.** Questions sit at NCERT to
+slightly-above-NCERT level, the problems are more direct and formula-based, and there is
+**no negative marking** — so you attempt all 125 questions. JEE Main, by contrast, tests
+application well beyond NCERT under harder time pressure. A student prepared for JEE Main is
+automatically over-prepared for VITEEE's PCM.
+
+But "easier exam" does not mean "easy seat." VIT Vellore CS is genuinely competitive because
+of the sheer applicant volume, so the real question isn't difficulty — it's **what score
+gets you which branch on which campus.**
+
+## VITEEE Score → Branch → Campus (the map the comparison pages skip)
+
+VITEEE is scored out of 125. Counselling rank bands shift slightly each year, but the
+recent pattern looks like this:
+
+| Approx. VITEEE score (/125) | What it typically gets you |
+|---|---|
+| 115+ | CSE at VIT Vellore + top merit scholarship (often full/large tuition waiver) |
+| 108–115 | CSE / CSE-specialisations at VIT Vellore |
+| 100–108 | ECE / EEE at Vellore; CSE at VIT Chennai |
+| 90–100 | Core branches (Mech, Civil, Biotech) at Vellore; CSE at Chennai/AP/Bhopal |
+| 75–90 | Core branches at Chennai / AP / Bhopal campuses |
+
+Chennai, AP and Bhopal campuses generally run **5–8 marks below** Vellore for the same
+branch, so a score that just misses CSE-Vellore can still land CSE on a newer campus.
+
+## Two things JEE prep does NOT cover
+
+1. **The Aptitude + English section (~20 marks).** VITEEE has a Quantitative/Logical
+   Reasoning and English block that JEE Main has nothing equivalent to. Two to three weeks of
+   targeted aptitude practice before the exam is enough — don't ignore it, it's free marks.
+2. **No-negative-marking strategy.** With no penalty, leaving a question blank is a wasted
+   mark. Build the speed to genuinely attempt all 125 in the 2.5 hours.
+
+## The honest part: VITEEE vs an NIT through JEE Main
+
+VIT is a strong private university (top-15-to-20 range, good placements). But it is a
+*private* fee — B.Tech tuition runs roughly **₹1.95–2.0 lakh per year (~₹8 lakh for the
+degree)** before the scholarship slabs (100/75/50/25% tuition waivers by VITEEE rank). If
+your JEE Main rank can fetch a comparable branch at an **NIT/IIIT/GFTI** (where fees are far
+lower and the brand is government), that is usually the better-value seat. So:
+
+- **Use VITEEE as a strong, reliable backup** to JEE Main — write it regardless, since your
+  JEE prep already covers it and a good VITEEE rank can mean a big scholarship.
+- **Don't drop JEE Main effort for it.** If JEE Main lands you an NIT/IIIT, weigh that
+  against VIT's fee before committing — a comparable branch at an NIT is typically the
+  higher-value, lower-cost option.
+
+### FAQ — VITEEE vs JEE Main
+
+**Q: Is VITEEE easier than JEE Main?**
+A: Yes, clearly. VITEEE questions are NCERT to moderate level, more direct, and have no
+negative marking. JEE Main tests deeper application under tighter time pressure. Strong JEE
+Main prep covers VITEEE comfortably.
+
+**Q: What VITEEE score do I need for CSE at VIT Vellore?**
+A: Realistically about **108–115/125**, and 115+ for CSE plus a top scholarship slab. ECE/EEE
+at Vellore sit around 100–108; VIT Chennai cutoffs run roughly 5–8 marks lower.
+
+**Q: Does VITEEE have negative marking?**
+A: No. There is no negative marking, so attempt all 125 questions — leaving any blank simply
+forfeits possible marks.
+
+**Q: Should I prepare separately for VITEEE if I'm doing JEE Main?**
+A: Not for PCM — your JEE Main preparation already covers it. The only extra work is 2–3 weeks
+of Aptitude/Logical-Reasoning and English practice for VITEEE's unique section.
+
+**Q: Is VIT worth it over an NIT?**
+A: If your JEE Main rank gets you a comparable branch at an NIT/IIIT, that's usually better
+value — government brand and far lower fees. VIT is an excellent option in its own right and a
+strong backup, but weigh its ~₹8 lakh tuition against an NIT seat before deciding.`,
+
+  /* ──────────────── TS EAMCET Mathematics — chapter weightage + the 25% quirk ────
+     Query: "ts eamcet maths weightage" / "ts eamcet mathematics important chapters"
+     (pos ~4.6, 478 impr). Gap: lead with real per-chapter question counts, the
+     "Maths is half the paper" rank logic, and the 75:25 EAMCET:Intermediate rank
+     quirk that national strategy guides miss. */
+  'ts-eamcet-mathematics-strategy-score-high': `## TS EAMCET Maths Weightage — Where the 80 Marks Actually Sit
+
+TS EAMCET Mathematics is **80 questions out of the 160-question paper** — literally half the
+exam, and the section that decides your rank. There is **no negative marking**, so the goal is
+simple: attempt all 80 and convert the high-frequency chapters first. Here is the recent
+chapter-wise distribution:
+
+| Chapter group | Expected questions (of 80) |
+|---|---|
+| Algebra (theory of equations, matrices, permutations & combinations, complex numbers, binomial) | ~25 |
+| Calculus (limits, differentiation, integration, definite integrals, differential equations) | ~20 |
+| Coordinate Geometry (straight lines, circles, conics) | ~14 |
+| Trigonometry (ratios, equations, properties of triangles, inverse) | ~11 |
+| Vectors & 3D Geometry (product of vectors, 3D) | ~10 |
+
+**Algebra + Calculus alone is ~45 of 80 questions** — roughly 55–60% of the Maths paper, and
+nearly 28% of your *entire* rank. If you secure those two branches, you've locked the largest
+block of marks in the exam before touching anything else.
+
+### The highest-yield individual topics
+
+Within those groups, these repeat year after year and deserve first priority:
+**Matrices, Integration & Definite Integrals, Straight Line & Circle, Product of Vectors,
+Permutations & Combinations, Theory of Equations, and Probability.** Each tends to be worth
+~4 questions (≈5% of the section). Master this cluster and you've covered a disproportionate
+share of the paper with a small list of chapters.
+
+## A study order that matches the weightage
+
+1. **Algebra core** — Matrices, Theory of Equations, Permutations & Combinations, Complex
+   Numbers, Binomial. Biggest block; mostly direct, formula-driven, fast to score.
+2. **Calculus** — Differentiation rules → Integration → Definite Integrals. High volume and
+   reliable once the standard forms are automatic.
+3. **Coordinate Geometry** — Straight Line and Circle first (most questions), then conics.
+4. **Vectors & 3D** — Product of vectors is the scoring sub-topic; lock it before 3D.
+5. **Trigonometry** — Properties of triangles and inverse-trig questions are the recurring
+   ones.
+
+Because there's **no negative marking, attempt every one of the 80** — even an educated guess
+on your two weakest chapters has positive expected value. Build the speed (through timed
+sectional practice on past papers) to clear Maths in about 80–85 minutes so Physics and
+Chemistry get their fair share of the 3 hours.
+
+## The rank quirk most strategy guides miss
+
+TS EAMCET does **not** rank you on the exam alone. Your final rank is computed as **75%
+weightage to your EAMCET marks + 25% weightage to your Intermediate (Class 12) group-subject
+marks**. National "how to score in EAMCET" guides routinely skip this. Two implications:
+
+- Your Intermediate board performance is a quarter of your rank — don't treat the boards as a
+  distraction from EAMCET; they *are* part of your EAMCET rank.
+- A near-perfect Maths section plus strong Intermediate marks compounds: you're stacking the
+  75% you fully control with the 25% national aspirants often neglect.
+
+### FAQ — TS EAMCET Mathematics
+
+**Q: What is the chapter-wise weightage for TS EAMCET Maths?**
+A: Of the 80 Maths questions, roughly Algebra ~25, Calculus ~20, Coordinate Geometry ~14,
+Trigonometry ~11, and Vectors & 3D ~10. Algebra and Calculus together are about 45 questions —
+the bulk of the section.
+
+**Q: Which Maths chapters are most important for TS EAMCET?**
+A: Prioritise Matrices, Integration & Definite Integrals, Straight Line & Circle, Product of
+Vectors, Permutations & Combinations, Theory of Equations, and Probability — each tends to
+carry ~4 questions and together they cover a large slice of the paper.
+
+**Q: Does TS EAMCET Maths have negative marking?**
+A: No. There is no negative marking anywhere in TS EAMCET, so attempt all 80 Maths questions —
+leaving any blank only forfeits possible marks.
+
+**Q: Do my Intermediate marks affect my TS EAMCET rank?**
+A: Yes. The final rank uses 75% weightage for your EAMCET score and 25% for your Intermediate
+(Class 12) marks, so strong board marks directly improve your rank.`,
+  /* ─────────────────────── Choosing between JEE and NEET ───────────────────────
+     Query: "jee or neet which is better" / "how to choose between jee and neet"
+     (pos 4–30, high-volume Class-10/11 decision query, crawled-not-indexed).
+     SERP leaders (CollegeDekho, Vedantu, PW) all stop at "follow your interest /
+     pick the subject you score better in". None give a real decision framework,
+     handle PCMB students, say WHEN the choice must be locked, or quote seat math. */
+  'choosing-between-jee-and-neet': `## JEE or NEET — a decision framework, not "follow your passion"
+
+Every guide tells you to "choose what you're passionate about." That is true but
+useless at 15, when most students haven't tried either career. Here is how to
+actually decide, using signals you can check this week.
+
+### The 60-second self-test
+
+Answer honestly — the pattern matters more than any single answer:
+
+1. **Which subject do you reach for first when revising — Maths or Biology?** Not
+   which you score more in (coaching inflates both), but which you'd study on a free
+   Sunday. That is your real aptitude tell.
+2. **Do you enjoy open-ended problem-solving (a tricky Maths sum with no obvious
+   first step) or structured mastery (learning a system thoroughly and recalling it
+   precisely)?** The first leans JEE; the second leans NEET Biology.
+3. **Can you sit with one hard problem for 30 minutes without frustration?** JEE
+   Advanced rewards exactly this. NEET rewards breadth, accuracy and stamina across
+   180 questions instead.
+4. **Picture the job, not the exam:** an engineer/researcher/coder building things,
+   or a doctor seeing patients for 10+ years of training. The exam is two years; the
+   career is forty.
+
+If 3–4 answers point the same way, trust it. A split result is the real signal that
+you need the PCMB section below — not that you should "prepare for both."
+
+### What each exam actually demands
+
+| | JEE (Main + Advanced) | NEET-UG |
+|---|---|---|
+| Subjects | Physics, Chemistry, **Maths** | Physics, Chemistry, **Biology** (Botany + Zoology) |
+| Style | Concept + application heavy; Maths is the differentiator | NCERT + recall heavy; Biology (half the paper) decides rank |
+| Mode / attempts | Computer-based, **two sessions a year** (best score counts) | Single pen-paper paper, **once a year** |
+| Hardest part | JEE Advanced problem-solving depth | Near-zero-error accuracy across 180 Qs |
+| Leads to | B.Tech/B.E. (IITs, NITs, IIITs, state & private) | MBBS/BDS/AYUSH and allied medical |
+
+The honest one-liner students repeat is fair: **JEE is more concept-based, NEET is
+more memory-based.** If tough sums feel like a puzzle you enjoy, JEE will feel
+lighter. If you'd rather master a large, well-defined syllabus precisely, NEET will.
+
+### The seat math nobody front-loads
+
+This is the part the SERP leaves out, and it should shape your effort, not your choice:
+
+- **NEET:** ~22–24 lakh candidates compete for roughly **1.1 lakh MBBS seats** (plus
+  ~27k BDS). Government MBBS — the affordable goal — is a small fraction of that. It
+  is a single high-stakes paper, once a year.
+- **JEE:** ~14 lakh+ write JEE Main; the ~17k IIT seats are brutally competitive, but
+  there are **lakhs** of further engineering seats via NITs/IIITs/GFTIs (JoSAA) and
+  state/private colleges. Two sessions a year also lowers single-day risk.
+
+Translation: a "good" medical outcome (government MBBS) is statistically harder to
+reach than a "good" engineering outcome at the NIT/state level. That is not a reason
+to avoid NEET — it is a reason to commit fully and not hedge.
+
+### If you took PCMB (both Biology and Maths) — read this
+
+This is the only group with a genuine dilemma, and the only group for whom keeping
+both open *briefly* is defensible:
+
+- **The trap:** "I'll prepare for both and decide later." Serious dual JEE + NEET
+  prep means Maths *and* Biology on top of shared Physics/Chemistry — roughly 1.5×
+  the syllabus, at JEE's depth and NEET's accuracy at once. For all but a handful of
+  exceptional students it dilutes both and produces two mediocre results.
+- **The defensible version:** use **Class 11, first term only** to feel out Maths vs
+  Biology with real chapters, then **commit by the end of Class 11.** Class 12 is for
+  single-track depth and revision — entering it undecided is the actual mistake.
+- **Decision rule:** by end of Class 11, drop the subject you score lower in *and
+  enjoy less*. If they're equal, weigh the seat math and career picture above, not
+  exam difficulty.
+
+### When can you switch — and what it costs
+
+You are not locked in for life, but switching has a real price that scales with how
+late you decide:
+
+- **Class 11 stream choice (PCB / PCM / PCMB) is the true fork** — pick the stream
+  that keeps your likely exam open. PCMB hedges but is a heavier school load.
+- Switching **within Class 11** is cheap; switching **in Class 12** is expensive (a
+  near-untouched Maths or Biology syllabus to build from scratch).
+- Switching **after Class 12** usually means a dedicated drop year for the new exam —
+  reasonable only if you're sure, not as an escape from a bad result.
+
+### FAQ — choosing between JEE and NEET
+
+**Q: Is JEE harder than NEET?**
+A: JEE Advanced is generally the harder *exam* (deeper, more abstract problem-solving);
+NEET is "easier" per question but punishes any inaccuracy across 180 questions and is
+a single-day, once-a-year shot. "Harder" depends on whether your strength is depth
+(JEE) or breadth + precision (NEET) — they aren't hard in the same way.
+
+**Q: Can I prepare for both JEE and NEET together?**
+A: It's possible but, for most students, a mistake — you carry Maths *and* Biology
+on top of shared Physics/Chemistry and often end with two average results. The one
+honest exception: a PCMB student using Class 11 to decide, who then commits to one
+track by the end of Class 11.
+
+**Q: I'm equally good at Maths and Biology — how do I choose?**
+A: Aptitude has tied, so break it with the career, not the exam. Picture the actual
+day-to-day work (building/engineering/research vs treating patients across a long
+training path) and the seat math, then pick the track you'd still want at 30.
+
+**Q: Which has better career scope, engineering or medicine?**
+A: Both are strong; neither is universally "better." Engineering offers faster entry,
+broader and more flexible roles, and higher early-career variance (a top coder can
+out-earn a junior doctor early). Medicine offers a long, structured, recession-resistant
+path with high stability and respect but later financial payoff and longer training.
+Choose for fit, not for an averaged salary figure.
+
+**Q: When do I have to finally decide?**
+A: Effectively by the **end of Class 11.** The Class 11 stream choice opens the door;
+the end of Class 11 is when you should walk through it, so Class 12 is pure single-track
+depth and revision.`,
+
+  /* ─────────────────────── MBBS abroad vs India ───────────────────────
+     Query: "mbbs abroad vs india" (parent-heavy comparison, crawled-not-indexed).
+     SERP is dominated by consultancy sites (RusEducation, LeapScholar, etc.) that
+     compare PRIVATE India vs abroad to make abroad look cheap, bury FMGE pass
+     rates, and never give an honest "when abroad is a bad idea" framework. */
+  'abroad-mbbs-vs-india-mbbs': `## MBBS abroad vs India — the comparison consultancy sites won't give you
+
+Most "MBBS abroad vs India" pages are run by admission consultants who earn a
+commission on foreign admissions. Their favourite trick is to compare **abroad vs
+private India** — making abroad look like a bargain — while skipping the option that
+actually wins on cost: a **government seat in India.** Here is the honest three-way
+picture.
+
+### The real ranking (cost + risk, for a student who wants to practise in India)
+
+1. **Government MBBS in India** — by far the cheapest and lowest-risk. Tuition is
+   often a few thousand to ~₹1 lakh per year (≈ ₹50k–₹8 lakh for the whole degree),
+   and **no FMGE/licensing screening test** is required. The only catch is the NEET
+   rank needed to get one.
+2. **MBBS abroad (FMGE-friendly country)** — total ~₹18–45 lakh for the degree.
+   Reasonable *if* you can't get an Indian government seat and can't afford private,
+   **and** you pick a country with a decent FMGE record and stay disciplined.
+3. **Private MBBS in India** — ~₹50 lakh to ₹1.5 crore+ (deemed universities higher).
+   Choose this over abroad mainly if cost is genuinely not a constraint and you value
+   no-FMGE + an Indian clinical environment.
+
+### Cost reality (whole degree, indicative 2026 ranges)
+
+| Path | Approx. total cost | FMGE/screening to practise in India? |
+|---|---|---|
+| Government India | ₹50k – ₹8 lakh | **No** |
+| Abroad (Russia/CIS, Georgia, Kazakhstan, Bangladesh, Philippines…) | ₹18 – 45 lakh | **Yes** |
+| Private India | ₹50 lakh – ₹1.5 crore+ | No |
+
+A government seat can be **cheaper than the cheapest abroad option** — which is
+exactly why consultancy "vs India" pages quietly compare against private fees instead.
+
+### The number that should drive your decision: FMGE
+
+If you study abroad and want to practise in India, you must clear the **Foreign
+Medical Graduate Examination (FMGE)** (being transitioned to the **NExT** exit test —
+timelines have repeatedly slipped, so plan for FMGE). Indian graduates take **no**
+such screening exam. The pass rates are sobering:
+
+- Recent FMGE sessions pass roughly **20–30% of candidates** (≈ 25% in the
+  January 2026 session). Across years the cumulative pass rate for foreign graduates
+  has often sat in the **low-to-mid 20s percent.**
+- Outcomes vary sharply by country: **Bangladesh** typically posts the highest pass
+  share (curriculum close to India's, taught in English), with Russia, Kazakhstan and
+  a few others ahead of the pack; many cheaper destinations fare far worse.
+
+**Read that honestly:** a ₹25-lakh degree you can't licence is more expensive than a
+costlier one you can. The "effective cost" of an abroad MBBS is the fee **divided by
+your realistic chance of clearing FMGE** — choose the country on outcomes, not the
+brochure.
+
+### Rules every abroad aspirant must know (NMC)
+
+- **NEET is mandatory even to study MBBS abroad** — you must qualify NEET-UG to be
+  eligible for the degree to count toward FMGE/registration. "Skip NEET by going
+  abroad" is false.
+- NMC's foreign-graduate regulations require, broadly, a course of adequate duration
+  **with the internship done in the same country**, the medium of instruction in
+  **English**, and the degree must be recognised — verify against the **current NMC
+  list** before paying anyone.
+- You still register with a State Medical Council / NMC after clearing the screening
+  exam, like any Indian graduate.
+
+### A 30-second decision framework
+
+- **Can you realistically get a government MBBS seat in India?** (Honest NEET score /
+  category / state quota.) → Take it. Nothing below beats it.
+- **No government seat, but ₹1 crore is genuinely affordable and you want India?**
+  → Private India is defensible (no FMGE, Indian clinical training).
+- **No government seat and private India is out of reach?** → Abroad is reasonable
+  **only if** you (a) qualified NEET, (b) choose an NMC-recognised, FMGE-strong
+  country, and (c) are disciplined enough to clear FMGE/NExT. If any of the three is
+  shaky, a focused NEET drop year is often the better bet than a degree you may not be
+  able to licence.
+
+### FAQ — MBBS abroad vs India
+
+**Q: Is MBBS abroad cheaper than in India?**
+A: Cheaper than *private* India, yes (≈ ₹18–45 lakh vs ₹50 lakh–₹1.5 crore). But a
+*government* Indian seat is usually the cheapest of all (often under ₹8 lakh total)
+and needs no FMGE — so "abroad is cheap" is only half the story.
+
+**Q: Do I need NEET to study MBBS abroad?**
+A: Yes. NEET qualification is mandatory for an MBBS abroad to count toward FMGE
+eligibility and Indian registration. There is no NEET-free route to practising
+medicine in India.
+
+**Q: What is the FMGE pass rate?**
+A: Roughly 20–30% per session (about 25% in January 2026), and historically in the
+low-to-mid 20s cumulatively. It varies a lot by country — Bangladesh tends to top the
+list, with Russia and Kazakhstan also relatively strong. Pick your country on FMGE
+outcomes, not on tuition alone.
+
+**Q: Will FMGE be replaced by NExT?**
+A: That is the stated plan — NExT is meant to become a common exit + licensing (and
+PG-entrance) exam — but its rollout has been delayed repeatedly. Plan and prepare for
+FMGE while tracking official NMC notifications, and don't bank your decision on a
+deadline that keeps moving.
+
+**Q: Is it better to take a drop year for NEET or go abroad?**
+A: If a government Indian seat is within reach of a focused drop year, that usually
+beats an abroad degree you might struggle to licence. Go abroad when a government seat
+is genuinely out of reach, private India is unaffordable, and you've picked an
+FMGE-strong, NMC-recognised country — not as an escape from one disappointing result.`,
+  /* ───────────────────────── NEET vs AP EAMCET (EAPCET) ─────────────────────────
+     Query: "difference between neet and eamcet" (pos ~8–10). Gap the SERP buries:
+     EAPCET — even its medical-side stream — cannot give MBBS; the no-negative-marking
+     rule; and the honest "you sit both, they're complementary" framing. */
+  'ap-eamcet-vs-neet-comparison': `## NEET vs AP EAMCET (AP EAPCET) — The Difference That Actually Decides Your Course
+
+This is the point most Andhra Pradesh students get wrong: NEET and AP EAMCET (now
+officially **AP EAPCET**) are **not two routes to the same seat**, and they are not really
+an "either/or". They unlock different colleges, so for most students the honest answer is
+*you sit both* — NEET for an MBBS/BDS dream and EAPCET as the route to engineering,
+pharmacy, agriculture and allied courses.
+
+### What each exam actually unlocks
+
+| You want to study… | The exam that gets you in |
+|---|---|
+| MBBS / BDS | **NEET only** — there is no other route anywhere in India |
+| AYUSH (BAMS / BHMS / BUMS) | **NEET** (counselling conducted in AP) |
+| B.Tech / B.E. (engineering) | **AP EAPCET — Engineering (MPC) stream** |
+| B.Pharm / Pharm.D | AP EAPCET |
+| B.Sc (Hons) Agriculture, B.V.Sc, B.F.Sc, B.Tech (Dairy/Food/Ag-Eng) | **AP EAPCET — Agriculture & Medical (AgriBiPC) stream** |
+
+**The single most important takeaway:** AP EAPCET — including its "Agriculture & Medical"
+stream — **cannot** get you an MBBS or BDS seat. If a medical degree is the goal, NEET is
+the *only* door. The EAPCET medical-side stream is for agriculture, veterinary, pharmacy and
+allied-health courses, not for MBBS.
+
+### Exam pattern — side by side (the gaps most comparison pages skip)
+
+| Parameter | NEET (UG) | AP EAPCET |
+|---|---|---|
+| Questions | 180 to be answered | 160 |
+| Total marks | 720 (+4 each) | 160 (+1 each) |
+| Negative marking | **Yes, −1 per wrong answer** | **No negative marking** |
+| Mode | Offline (OMR, pen-paper) | Computer-based (online) |
+| Duration | 3 hr 20 min | 3 hours |
+| Subjects | Physics 45 · Chemistry 45 · Botany 45 · Zoology 45 | *Engg:* Maths 80 · Phy 40 · Chem 40 — *Agri/Med:* Biology 80 · Phy 40 · Chem 40 |
+| Pool | National (~20+ lakh aspirants) | State (AP/TS domicile) |
+| Syllabus base | NCERT (CBSE) | AP Intermediate (IPE), closely aligned to NCERT |
+
+The **no-negative-marking** rule is the most exploitable difference and almost no comparison
+page leads with it: in EAPCET you should **attempt all 160 questions** — a blind guess has
+only upside. In NEET the −1 penalty means you skip a question you cannot narrow to two options.
+
+### Which is harder — an honest answer
+
+NEET is the tougher exam for most students, and that is not a knock on EAPCET. NEET pulls a
+national pool of 20-lakh-plus aspirants for limited MBBS seats, and its questions lean more
+conceptual and application-heavy. EAPCET draws a state pool and stays closer to direct,
+formula-based questions on the Intermediate syllabus — so the same student usually scores a
+higher *percentage* in EAPCET. But "easier paper" does not mean "easier seat": a good
+engineering or agriculture seat through EAPCET is still very competitive.
+
+### Should you prepare separately?
+
+Mostly no — the syllabi overlap heavily (both ride on the 11th–12th science core), so most of
+your NEET Biology/Physics/Chemistry prep already covers EAPCET. The real differences are:
+(1) **board phrasing** — EAPCET follows AP Intermediate wording, so revise from your IPE
+textbooks for the last lap; and (2) **format drill** — practise EAPCET in computer-based mock
+mode with the attempt-everything mindset, separately from your NEET OMR practice.
+
+### FAQ — NEET vs AP EAMCET
+
+**Q: Can I get an MBBS seat through AP EAMCET / EAPCET?**
+A: No. MBBS and BDS admissions across India run through **NEET** only. AP EAPCET (even its
+Agriculture & Medical stream) leads to agriculture, veterinary, pharmacy and allied-health
+courses — not MBBS. If medicine is your goal, NEET is non-negotiable.
+
+**Q: Is EAMCET easier than NEET?**
+A: Generally yes for the same student — EAPCET is a state exam closer to the Intermediate
+syllabus with more direct, formula-based questions and **no negative marking**, whereas NEET
+is national, more conceptual and penalises wrong answers. An easier paper, though, does not
+mean an easier seat.
+
+**Q: Does AP EAMCET have negative marking?**
+A: No. AP EAPCET has no negative marking, so you should attempt all 160 questions. NEET
+penalises wrong answers at −1, so the guessing strategy is the opposite in the two exams.
+
+**Q: Should an AP medical aspirant take both NEET and EAPCET?**
+A: Usually yes. Take NEET for MBBS/BDS, and use the EAPCET Agriculture & Medical stream as a
+backup for B.Pharm, B.Sc Agriculture, veterinary and allied courses if a government MBBS seat
+does not come through. The preparation overlaps, so the extra cost is mostly format practice,
+not fresh study.`,
+
+  /* ───────────────────────── ISI entrance vs JEE Main ─────────────────────────
+     Query: "is isi and jee syllabus same" (was 234 impr at pos ~2.9 before the
+     year-rollover 404; now restored). Gap: ISI is maths-only with a proof paper and
+     points at a research track, not engineering — not "JEE but harder". */
+  'isi-entrance-vs-jee-main-comparison': `## Is the ISI Entrance Syllabus the Same as JEE? — The Short Answer Is No
+
+Students often assume the Indian Statistical Institute (ISI) admission test is "JEE but
+harder". It is not. The two exams share a 10+2 *topic list* on paper, but they test almost
+opposite skills, lead to different degrees, and point at different careers. If you are
+deciding where to spend your prep hours, this is the distinction that matters.
+
+### What ISI is — and what it is not
+
+The ISI Admission Test is the entrance for ISI's **B.Stat (Hons)** and **B.Math (Hons)**
+degrees. It is a **mathematics-only** exam — there is no Physics or Chemistry at all. JEE
+Main, by contrast, is the gateway to **B.Tech/B.E.** at NITs, IIITs and GFTIs (and to JEE
+Advanced for the IITs) and tests **Physics, Chemistry and Maths**.
+
+So the first honest filter: ISI and JEE are not substitutes. ISI leads to a
+research-and-statistics track (academia, data science, economics, actuarial, quant); JEE
+leads to an engineering track. Choose by the career you want, not by "which is more prestigious".
+
+### Syllabus & pattern — same topics, different exam
+
+| Parameter | ISI Admission Test (B.Stat/B.Math) | JEE Main |
+|---|---|---|
+| Subjects | **Mathematics only** | Physics + Chemistry + Maths |
+| Topic base | 10+2 maths: algebra, number theory, combinatorics, geometry, trigonometry, calculus | Full 10+2 PCM |
+| Paper 1 | ~30 objective (MCQ) problems, 2 hours | 75 questions (MCQ + numerical), 3 hours |
+| Paper 2 | ~8 subjective, **proof-writing** problems, 2 hours | — (no subjective paper) |
+| What it rewards | Ingenuity, rigorous proofs, unfamiliar problem types | Speed and accuracy on standard problem types |
+| After qualifying | Often an **interview** before final selection | Direct to JoSAA counselling by rank |
+
+The overlap is real but shallow: both draw from 10+2 maths, yet ISI questions are pitched at
+**olympiad depth** — many are styled after contest/olympiad problems — and the subjective
+paper asks you to *prove*, not just compute. JEE rewards a student who can solve a known
+problem type fast; ISI rewards a student who can crack an unfamiliar problem from first
+principles.
+
+### So is ISI "harder" than JEE?
+
+For pure mathematics, yes — the ceiling is higher and the intake is tiny, so the bar is
+brutal. But it is not "JEE plus more chapters"; it is a different *kind* of hard. A JEE topper
+who has never written a proof can struggle with the ISI subjective paper, while a strong
+olympiad student with no Physics can clear ISI and never touch JEE's cutoff. They measure
+different muscles.
+
+### Who should actually target ISI?
+
+- You genuinely enjoy maths for its own sake and like problems with no obvious method.
+- You are aiming at research, statistics, data science, economics or quantitative finance — not core engineering.
+- You have done (or can do) olympiad-style problem solving and proof-writing.
+
+If you want an IIT/NIT engineering seat, ISI is the wrong exam — prepare for JEE. If you are
+torn, the practical move is to keep JEE as your main track (far broader options) and attempt
+ISI only if you are already strong at contest maths; the two prep styles do not substitute for
+each other, so dabbling in both half-heartedly helps neither.
+
+### FAQ — ISI entrance vs JEE
+
+**Q: Is the ISI entrance syllabus the same as JEE?**
+A: The topic list overlaps (both use 10+2 maths), but the exams are not the same. ISI is
+**maths only** (no Physics/Chemistry), tests at olympiad depth, and includes a **proof-based
+subjective paper** plus an interview. JEE Main covers all three PCM subjects and rewards speed
+on standard problem types.
+
+**Q: Is ISI harder than JEE Main?**
+A: For mathematics, generally yes — the problems demand creativity and rigorous proofs, and
+the intake is very small. But it is a different kind of difficulty: ISI is deeper in maths, JEE
+is broader across PCM. A strong JEE rank does not guarantee an ISI selection, and vice-versa.
+
+**Q: Can I prepare for ISI and JEE together?**
+A: Up to a point — the maths topics overlap, so foundational practice helps both. But the
+*style* differs sharply (proof-writing and olympiad problems for ISI vs fast standard problems
+for JEE), so you will need dedicated ISI practice on subjective, contest-style questions. Most
+students keep JEE as the main track and add focused ISI prep only if they already enjoy
+olympiad maths.
+
+**Q: What can I study at ISI versus through JEE?**
+A: ISI's entrance leads to **B.Stat (Hons)** and **B.Math (Hons)** — degrees pointing at
+statistics, mathematics, research and data-science careers. JEE Main leads to **B.Tech/B.E.**
+at NITs, IIITs and GFTIs (and is the gateway to JEE Advanced for the IITs). Choose by the
+career path, not by exam prestige.`,
 };
 
 /**
