@@ -215,6 +215,356 @@ const ENRICHMENTS: Record<string, PYQChapterEnrichment> = {
       },
     ],
   },
+  'chemistry/haloalkanes': {
+    overview:
+      'Haloalkanes & Haloarenes (NCERT Class 12 Organic Chemistry) is a reliable scorer in NEET — most years carry 2–3 questions, and recent papers (2022–2024) pushed that to 5–6. The chapter rewards memory more than derivation: the bulk of NEET marks here come from named reactions and direct-recall facts about polyhalogen compounds, so it is one of the fastest organic chapters to convert into guaranteed marks once you have drilled the past papers.',
+    facts: [
+      { label: 'NEET question frequency', value: '~2–3 most years; 5–6 in 2022, 2023, 2024' },
+      { label: 'NCERT source', value: 'Class 12, Ch. Haloalkanes & Haloarenes' },
+      { label: 'Difficulty', value: 'Easy–Moderate; mostly recall + named reactions' },
+      { label: 'Best use of time', value: 'High — fact-dense chapter, low conceptual depth' },
+    ],
+    highYield: [
+      {
+        topic: 'Named reactions (the single biggest mark source)',
+        detail:
+          'Learn name → product → reagent as one block: Wurtz (2R–X + Na/dry ether → symmetrical alkane), Finkelstein (R–Cl + NaI/acetone → R–I), Swarts (R–Cl + AgF → R–F), Sandmeyer (ArN₂⁺ + CuX → Ar–X), Williamson ether (R–X + R′ONa → ether), and the Grignard reagent (RMgX). NEET almost always asks at least one "which reaction does X" question.',
+      },
+      {
+        topic: 'SN1 vs SN2 — substrate order and solvent',
+        detail:
+          'SN2 reactivity is 1° > 2° > 3° (backside attack, steric hindrance dominates) and is favoured by polar aprotic solvents. SN1 is the reverse — 3° > 2° > 1° (via the more stable carbocation) — favoured by polar protic solvents. AgNO₃ in ethanol (SN1 conditions) distinguishes the three: 3° gives an immediate precipitate, 1° the slowest.',
+
+  'chemistry/haloalkanes': {
+    overview:
+      'Haloalkanes & Haloarenes (NCERT Class 12 Chemistry) is one of the most predictable scoring chapters in NEET Organic Chemistry — it returns roughly 2–3 questions almost every year (about 4% of the Chemistry paper). The reason it is so PYQ-friendly is that NEET keeps re-asking the same closed set of ideas: the named reactions, the SN1-vs-SN2 distinction, why aryl halides are unreactive, and one-line facts about polyhalogen compounds (chloroform, CCl₄, Freon, DDT). Drilling past papers here converts almost directly into marks.',
+    facts: [
+      { label: 'NEET question frequency', value: '~2–3 questions most years (~4% of Chemistry)' },
+      { label: 'NCERT source', value: 'Class 12, Ch. "Haloalkanes & Haloarenes"' },
+      { label: 'Question style', value: 'Mostly single-fact recall (named reactions, uses)' },
+      { label: 'Best use of time', value: 'High — small, stable, recall-heavy chapter' },
+    ],
+    highYield: [
+      {
+        topic: 'Named reactions — learn them as reagent → product',
+        detail:
+          'The single biggest source of marks. Memorise the conversion, the reagent and the condition: Finkelstein (R–Cl/Br → R–I, NaI in dry acetone), Swarts (R–X → R–F, AgF/Hg₂F₂/SbF₃), Wurtz (2 R–X + 2Na/dry ether → higher symmetrical alkane), Wurtz–Fittig (aryl + alkyl coupling), Sandmeyer (ArN₂⁺ + CuX → Ar–X), Williamson ether synthesis (R–X + R′O⁻Na⁺ → ether, best with 1° halide), and Grignard formation (R–X + Mg/dry ether → RMgX). NEET typically asks "which reaction converts X to Y" or "which reagent is used".',
+      },
+      {
+        topic: 'SN1 vs SN2 — mechanism, reactivity order and solvent',
+        detail:
+          'SN2 (one step, backside attack, inversion): reactivity 1° > 2° > 3° because it is sterics-controlled, and it is favoured by polar aprotic solvents. SN1 (two steps via a carbocation, racemisation): reactivity 3° > 2° > 1° because it is carbocation-stability-controlled, and it is favoured by polar protic solvents. The two orders being exact opposites is the most-tested idea in the chapter.',
+      },
+      {
+        topic: 'Why aryl & vinyl halides are unreactive',
+        detail:
+          'The halogen lone pair delocalises into the ring/double bond, giving the C–X bond partial double-bond character — so it is shorter and stronger and resists nucleophilic substitution. A perennial "why is chlorobenzene less reactive than chloroethane" question.',
+      },
+      {
+        topic: 'Polyhalogen compounds — direct-recall facts',
+        detail:
+          'Chloroform is stored in dark bottles because light oxidises it to toxic phosgene (COCl₂); Freon-12 (CCl₂F₂) is the ozone-depleting refrigerant banned under the Montreal Protocol; DDT is a persistent organochlorine insecticide; CCl₄ was a fire-extinguisher solvent. These are free marks if memorised.',
+      },
+      {
+        topic: 'Elimination & Zaitsev',
+        detail:
+          'Dehydrohalogenation (alcoholic KOH) removes HX to give an alkene; by Zaitsev\'s rule the major product is the more substituted alkene — e.g. 2-bromobutane gives mainly 2-butene, not 1-butene.',
+      },
+    ],
+    traps: [
+      'Reversing the SN2 order. SN2 is 1° > 2° > 3° (opposite of SN1). The most-missed single fact in this chapter.',
+      'Saying aryl halides are unreactive because the C–X bond is longer — it is actually shorter and stronger due to resonance/partial double-bond character.',
+      'Using Lucas reagent for alkyl halides. Lucas (conc. HCl + ZnCl₂) distinguishes alcohols; AgNO₃/ethanol distinguishes 1°/2°/3° alkyl halides.',
+      'Swapping Finkelstein (Cl → I, NaI/acetone) with Swarts (Cl → F, AgF). Both are halogen-exchange reactions but in opposite directions of the group.',
+          'The halogen lone pair delocalises into the ring (or the C=C), giving the C–X bond partial double-bond character — so it is shorter and stronger than in an alkyl halide and resists nucleophilic substitution. Expect a direct "aryl halides are less reactive because…" question.',
+      },
+      {
+        topic: 'Polyhalogen compounds — one-line facts',
+        detail:
+          'Pure recall marks: chloroform (CHCl₃) is stored in dark, completely-filled bottles because light + air oxidise it to poisonous phosgene (COCl₂); CCl₄ is a solvent/old fire-extinguisher; Freon-12 (CCl₂F₂) is a refrigerant banned for ozone depletion; DDT is a persistent organochlorine insecticide; the iodoform (CHI₃) test is positive for ethanol/CH₃CO– and CH₃CH(OH)– groups.',
+      },
+      {
+        topic: 'Elimination (Zaitsev) & distinguishing 1°/2°/3° halides',
+        detail:
+          'Dehydrohalogenation gives the more-substituted (more stable) alkene as the major product — Zaitsev/Saytzeff rule, e.g. 2-bromobutane → mainly 2-butene. To tell the classes apart, AgNO₃ in ethanol (SN1 conditions) gives the fastest precipitate with 3°, slowest with 1°.',
+      },
+    ],
+    traps: [
+      'Reversing the reactivity orders. SN2 is 1° > 2° > 3° (steric); SN1 is 3° > 2° > 1° (carbocation). They are mirror images — getting them swapped is the most common error.',
+      'Confusing Finkelstein with Swarts. Finkelstein swaps Cl/Br for I using NaI in acetone; Swarts puts F in using a metal fluoride (AgF/SbF₃). Different halogen, different reagent.',
+      'Thinking aryl halides are more reactive because of the aromatic ring — they are LESS reactive, because resonance strengthens and shortens the C–X bond.',
+      'Forgetting why chloroform bottles are dark AND full: it is to exclude both light and air, which together convert CHCl₃ to phosgene. A half-empty clear bottle is the wrong answer they bait you with.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Haloalkanes and Haloarenes in NEET?',
+        a: 'Typically 2–3 questions most years, but recent papers ran hot — 2022, 2023 and 2024 each carried roughly 5–6 questions across the broader organic block. It is worth roughly 3–4% of the Chemistry section, and the questions are repetitive, so PYQs give a high return per hour.',
+      },
+      {
+        q: 'Which reactions are most important in Haloalkanes and Haloarenes for NEET?',
+        a: 'The named reactions: Wurtz, Finkelstein, Swarts, Sandmeyer, Williamson ether synthesis, and the Grignard reagent. Learn each as "name → what it converts → reagent". After that, the SN1 vs SN2 reactivity orders and the polyhalogen facts (chloroform/phosgene, Freon, DDT) account for most of the remaining marks.',
+      },
+      {
+        q: 'What is the reactivity order of alkyl halides in SN1 and SN2?',
+        a: 'SN2: 1° > 2° > 3° (steric hindrance blocks backside attack). SN1: 3° > 2° > 1° (the reaction goes through a carbocation, and 3° carbocations are most stable). They are exact opposites — mixing them up is the classic NEET mistake here.',
+      },
+      {
+        q: 'Is Haloalkanes and Haloarenes an easy chapter for NEET?',
+        a: 'Yes, relatively — it is fact-dense rather than calculation-heavy, so it rewards memorisation of named reactions and polyhalogen facts. The only real traps are the SN1/SN2 order and the aryl-halide resonance reasoning. Solving past papers locks in these marks quickly.',
+      },
+    ],
+  },
+  'biology/locomotion-movement': {
+    overview:
+      'Locomotion & Movement (NCERT Class 11, Human Physiology unit) is a steady NEET scorer — about 2–4 questions almost every year. The marks split predictably: muscle contraction (sliding filament theory and the sarcomere) is the heaviest theme, followed by joint classification and straight bone-count recall. Almost every question is directly traceable to NCERT lines, so it is a high-return chapter for PYQ practice.',
+    facts: [
+      { label: 'NEET question frequency', value: '~2–4 questions almost every year' },
+      { label: 'NCERT source', value: 'Class 11 Biology, Ch. Locomotion & Movement' },
+      { label: 'Difficulty', value: 'Easy–Moderate; almost entirely NCERT recall' },
+      { label: 'Best use of time', value: 'High — short, factual, repeats every year' },
+    ],
+    highYield: [
+      {
+        topic: 'Sliding filament theory & sarcomere bands',
+        detail:
+          'The single most-asked theme. The sarcomere (Z-line to Z-line) is the contractile unit. During contraction the A band stays the SAME length, while the I band and H zone shorten as actin slides over myosin. Huxley & Hanson proposed the theory; expect a "which band changes" question almost every year.',
+      },
+      {
+        topic: 'Cross-bridge cycle — Ca²⁺, troponin, tropomyosin, ATP',
+        detail:
+          'At rest, tropomyosin covers the myosin-binding sites on actin. Ca²⁺ released from the sarcoplasmic reticulum binds troponin, shifting tropomyosin to expose those sites. ATP is needed for the myosin head to DETACH and re-cock — which is why rigor mortis (ATP depletion + Ca²⁺ flooding) locks the muscle.',
+      },
+      {
+        topic: 'Bone counts — quick recall table',
+        detail:
+          'Direct-recall favourites: total 206 bones in an adult = axial 80 (skull, vertebral column, ribs, sternum) + appendicular 126 (limbs and girdles). Skull = 22 bones; vertebral column = 26; each pelvic half = ilium + ischium + pubis. Infants start with ~300 bones that later fuse.',
+      },
+      {
+        topic: 'Joint classification',
+        detail:
+          'Ball-and-socket (shoulder, hip) = multiaxial; hinge (elbow, knee) = flexion/extension only; pivot (atlas–axis); gliding (carpals); saddle (thumb); fibrous sutures (skull, immovable); cartilaginous (between vertebrae). The synovial sub-types and their examples are the second-most-tested area.',
+      },
+      {
+        topic: 'Skeletal-muscular disorders',
+        detail:
+          'Gout = uric-acid (urate) crystal deposition in joints; osteoporosis = reduced bone density (post-menopausal, low oestrogen); tetany = rapid spasms from low Ca²⁺; myasthenia gravis = autoimmune attack on ACh receptors; muscular dystrophy = genetic muscle degeneration. One disorder question recurs regularly.',
+      },
+    ],
+    traps: [
+      'Thinking the A band shortens during contraction. Only the I band and H zone shorten; the A band length is constant — this is the most-missed sliding-filament fact.',
+      'Swapping tendon and ligament. Tendon connects muscle to bone; ligament connects bone to bone.',
+      'Forgetting that ATP is needed for myosin to DETACH (not just to contract) — which is exactly why a muscle stiffens (rigor mortis) when ATP runs out.',
+      'Confusing red (slow, myoglobin-rich, aerobic) with white (fast, fewer mitochondria, anaerobic) muscle fibres.',
+        a: 'Typically 2–3 questions almost every year — about 4% of the NEET Chemistry paper. Because the chapter is short and the questions are mostly direct recall of named reactions and uses, it is one of the best marks-per-hour chapters in Organic Chemistry.',
+      },
+      {
+        q: 'What is the most important topic in Haloalkanes and Haloarenes for NEET?',
+        a: 'The named reactions (Finkelstein, Swarts, Wurtz, Wurtz–Fittig, Sandmeyer, Williamson, Grignard) and the SN1-vs-SN2 distinction. Between them they account for the majority of past-year questions, so learn each named reaction as a reagent → product → condition triplet.',
+      },
+      {
+        q: 'Is Haloalkanes and Haloarenes a Class 11 or Class 12 chapter?',
+        a: 'Class 12. It sits in the organic half of the Class 12 NCERT Chemistry book, after the basic organic-chemistry principles you covered in Class 11, and it feeds directly into Alcohols/Phenols/Ethers and Amines.',
+      },
+      {
+        q: 'Why is chloroform stored in dark coloured bottles?',
+        a: 'Because in the presence of light and air it is slowly oxidised to phosgene (COCl₂), a highly poisonous gas. Dark, completely-filled bottles exclude both light and air and prevent this. It is a recurring single-fact NEET question.',
+      },
+    ],
+  },
+
+  'biology/locomotion-movement': {
+    overview:
+      'Locomotion & Movement (NCERT Class 11 Biology, Human Physiology) is one of the highest-return chapters in NEET Zoology — it has averaged roughly 2–3 questions per year (about 2.7 across recent papers) and rarely gets skipped. The questions cluster tightly around the sliding-filament mechanism of muscle contraction, the classification of joints, and a small set of memorised skeleton numbers, so past papers map almost one-to-one onto what gets asked.',
+    facts: [
+      { label: 'NEET question frequency', value: '~2–3 questions per year (avg ~2.7)' },
+      { label: 'NCERT source', value: 'Class 11, Human Physiology unit' },
+      { label: 'Top theme', value: 'Sliding-filament theory & sarcomere band changes' },
+      { label: 'Best use of time', value: 'High — reliable, recall + one core mechanism' },
+    ],
+    highYield: [
+      {
+        topic: 'Sarcomere & sliding-filament band changes',
+        detail:
+          'The most-repeated idea, asked almost every year. The sarcomere (Z-line to Z-line) is the contractile unit. During contraction the A band length stays CONSTANT, while the I band and the H zone shorten as actin (thin) slides over myosin (thick) toward the centre — the filaments themselves do not shorten. "Which band remains unchanged during contraction?" → A band.',
+      },
+      {
+        topic: 'Cross-bridge cycle & the role of Ca²⁺ and ATP',
+        detail:
+          'Sequence to lock down: nerve signal → Ca²⁺ released from the sarcoplasmic reticulum → Ca²⁺ binds troponin → tropomyosin shifts and uncovers the myosin-binding sites on actin → myosin head binds and executes the power stroke → ATP binds and lets the head detach, then ATP hydrolysis re-cocks it. No ATP means the head cannot detach — this is the basis of rigor mortis.',
+      },
+      {
+        topic: 'Classification of joints (with examples)',
+        detail:
+          'A NEET favourite. Ball-and-socket = multiaxial, shoulder and hip; hinge = uniaxial flexion/extension, elbow and knee; pivot = atlas–axis; gliding = carpals; saddle = thumb; fibrous sutures = immovable skull joints; cartilaginous = between vertebrae. Synovial fluid lubricates freely-movable (synovial) joints.',
+      },
+      {
+        topic: 'Skeleton numbers — pure recall marks',
+        detail:
+          'Memorise the counts they re-ask: 206 bones in the adult (80 axial + 126 appendicular); skull = 22 bones (8 cranial + 14 facial); vertebral column = 26 in the adult (7 cervical + 12 thoracic + 5 lumbar + sacrum + coccyx); 12 pairs of ribs. The pelvic girdle hip bone = ilium + ischium + pubis fused at the acetabulum.',
+      },
+      {
+        topic: 'Muscle types, fibres & disorders',
+        detail:
+          'Skeletal (striated, voluntary), cardiac (striated, involuntary, myogenic — contracts rhythmically without nerve input), smooth (non-striated, involuntary). Red fibres are rich in myoglobin (aerobic, fatigue-resistant); white fibres rely on glycolysis. Disorders frequently asked: myasthenia gravis (autoimmune, ACh receptors), muscular dystrophy, tetany (low Ca²⁺), gout (uric-acid crystals in joints), osteoporosis (low oestrogen, post-menopausal), arthritis.',
+      },
+    ],
+    traps: [
+      'Saying the A band shortens during contraction. It does NOT — only the I band and H zone shorten; the A band (length of the thick filament) is constant.',
+      'Confusing tendon and ligament. A tendon joins muscle to bone; a ligament joins bone to bone. NEET swaps these in the options every few years.',
+      'Forgetting that ATP is needed for the myosin head to DETACH, not for the power stroke itself. That is exactly why ATP depletion after death causes rigor mortis.',
+      'Mixing up the bone counts — adult total 206, skull 22, vertebral column 26 (the column is 33 only before fusion of the sacrum and coccyx).',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Locomotion and Movement in NEET?',
+        a: 'Usually 2–4 questions every year (an average close to 3 across recent papers). Because the chapter is short and almost entirely NCERT-recall, the marks-per-hour of study is high — it is one of the safest chapters to bank by drilling PYQs.',
+      },
+      {
+        q: 'What is the most important topic in Locomotion and Movement for NEET?',
+        a: 'The sliding filament theory and sarcomere structure — especially which bands change during contraction (A band constant; I band and H zone shorten) and the roles of Ca²⁺, troponin, tropomyosin and ATP in the cross-bridge cycle. Joint classification and bone counts come next.',
+      },
+      {
+        q: 'Which bands of the sarcomere shorten during muscle contraction?',
+        a: 'The I band (light) and the H zone shorten as actin filaments slide toward the centre. The A band (dark) stays the same length because the thick myosin filaments do not change length — the filaments slide, they do not contract.',
+      },
+      {
+        q: 'Is Locomotion and Movement an easy chapter for NEET?',
+        a: 'Yes — it is short and mostly direct NCERT recall, with predictable themes (muscle contraction, joints, bone counts, disorders). The few traps are the A-band-constant rule and the tendon-vs-ligament distinction. Past-year practice almost guarantees these marks.',
+        a: 'Usually 2–3 questions per year (about 2.7 on average across recent papers), and it is one of the higher-weightage Human Physiology chapters. Because so much of it is recall plus one core mechanism, it is reliable marks if you have drilled the PYQs.',
+      },
+      {
+        q: 'What is the most important topic in Locomotion and Movement for NEET?',
+        a: 'The sliding-filament theory of muscle contraction — the sarcomere structure and which bands change. Know that the A band stays constant while the I band and H zone shorten, and the full Ca²⁺ → troponin → tropomyosin → cross-bridge sequence. Joint classification and the skeleton numbers come next.',
+      },
+      {
+        q: 'Which band does not change during muscle contraction?',
+        a: 'The A band. During contraction the actin (thin) filaments slide inward over the myosin (thick) filaments, so the I band and the H zone shorten, but the A band — which corresponds to the length of the thick filament — stays the same.',
+      },
+      {
+        q: 'Is Locomotion and Movement a Class 11 or Class 12 chapter?',
+        a: 'Class 11, in the Human Physiology unit of NCERT Biology. It pairs naturally with Neural Control & Coordination (the nerve signal that triggers contraction), which is why questions sometimes link the two.',
+      },
+    ],
+  },
+
+  'biology/inheritance-variation': {
+    overview:
+      'Principles of Inheritance & Variation (NCERT Class 12 Biology, "Genetics & Evolution" unit) is one of the highest-return chapters in all of NEET Biology. The single chapter is asked roughly 3–4 questions almost every year, and together with Molecular Basis of Inheritance and Evolution the Genetics unit is usually the single highest-weight block of the whole paper. The good news for PYQ practice: the ideas repeat — Mendelian ratios, sex-linked disorders and chromosomal syndromes come back year after year in new wording.',
+    facts: [
+      { label: 'NEET question frequency', value: '~3–4 questions from this chapter most years' },
+      { label: 'Genetics unit weightage', value: '~9–10 Qs (with Molecular Basis + Evolution) — among the highest of any unit' },
+      { label: 'NCERT source', value: 'Class 12, Ch. "Principles of Inheritance & Variation"' },
+      { label: 'Difficulty trend', value: 'Easy–Moderate, shifting toward match-the-column & multi-statement application' },
+    ],
+    highYield: [
+      {
+        topic: 'Mendelian ratios & the test cross',
+        detail:
+          'Monohybrid 3:1 (genotypic 1:2:1), dihybrid 9:3:3:1, and the test cross (a dominant phenotype × homozygous recessive) used to expose an unknown genotype. The most-asked single theme — practise reading a ratio backwards to the parent genotypes, not just forwards.',
+      },
+      {
+        topic: 'Deviations from Mendelism',
+        detail:
+          'Incomplete dominance (snapdragon — F₂ phenotype ratio equals the genotype ratio, 1:2:1), codominance (ABO "AB" blood group expresses BOTH antigens), multiple alleles (Iᴬ, Iᴮ, i give six genotypes), and pleiotropy (one gene, many traits — sickle cell, PKU). NEET tests these distinctions almost every year.',
+      },
+      {
+        topic: 'Sex determination systems',
+        detail:
+          'XX–XY (humans, Drosophila), XX–XO (grasshopper), ZZ–ZW (birds), and the haplodiploid honeybee system (males are haploid, developing from unfertilised eggs). In humans the sperm decides sex, and the SRY gene on the Y triggers male development.',
+      },
+      {
+        topic: 'Sex-linked & Mendelian disorders',
+        detail:
+          'Haemophilia and red–green colour blindness are X-linked recessive (commoner in males; a carrier mother passes it to ~50% of sons). Sickle-cell anaemia = point mutation (Glu→Val at the 6th position of the β-globin chain, autosomal recessive); thalassemia = reduced globin synthesis; PKU = phenylalanine hydroxylase deficiency. Pedigree-reading questions hang on these.',
+      },
+      {
+        topic: 'Chromosomal disorders (karyotypes)',
+        detail:
+          'Down syndrome = trisomy 21 (47,+21); Turner = 45,X (the only viable monosomy, female); Klinefelter = 47,XXY (male). The exact karyotype is an almost-guaranteed single-fact mark — lock all three.',
+      },
+    ],
+    traps: [
+      'Confusing incomplete dominance with codominance. Incomplete dominance BLENDS to an intermediate (pink); codominance shows both alleles fully and separately (AB blood = A and B antigens both present).',
+      'Swapping Turner (45,X — female, monosomy) and Klinefelter (47,XXY — male, extra X). A whole mark can turn on this one character.',
+      'Saying crossing over happens between sister chromatids — it is between NON-sister chromatids of homologous chromosomes, in the pachytene stage of prophase I.',
+      'Forgetting that linked genes do NOT assort independently, so a dihybrid cross of linked genes does not give 9:3:3:1 — recombination frequency between them measures map distance.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Principles of Inheritance and Variation in NEET?',
+        a: 'Typically 3–4 questions from this chapter alone, almost every year. Counting the whole Genetics & Evolution unit (this chapter plus Molecular Basis of Inheritance and Evolution), it is usually among the highest-weight units in the paper at roughly 9–10 questions — which is why genetics is non-negotiable for a top NEET rank.',
+      },
+      {
+        q: 'Is genetics hard for NEET?',
+        a: 'It is conceptual rather than memory-heavy, so it feels hard only until the logic clicks. Once you can read a cross both ways (parents → ratio and ratio → parents) and you have the karyotypes and X-linked patterns memorised, it becomes one of the most reliable scoring chapters because the question types repeat.',
+      },
+      {
+        q: 'What are the most important topics in Principles of Inheritance for NEET?',
+        a: 'In priority order: Mendelian ratios and the test cross, deviations from Mendelism (incomplete/codominance, multiple alleles, pleiotropy), sex-determination systems, X-linked disorders with pedigree analysis, and the three chromosomal syndromes (Down, Turner, Klinefelter) with their exact karyotypes.',
+      },
+      {
+        q: 'How should I use previous year questions for genetics?',
+        a: 'Drill them by theme, not by year. Because NEET re-asks the same handful of ideas, sorting PYQs into ratios / deviations / sex-linkage / disorders and solving each cluster together makes the repeating patterns obvious and exposes the exact distinctions (e.g. Turner vs Klinefelter) the examiners keep testing.',
+      },
+    ],
+  },
+
+  'biology/human-reproduction': {
+    overview:
+      'Human Reproduction (NCERT Class 12 Biology, Reproduction unit) is a high-yield, NCERT-direct chapter: on its own it is asked roughly 3–4 questions in most NEET papers. Be careful with the bigger numbers you see online — the "10–12 questions" figure quoted by many sites is for the whole Reproduction unit (Sexual Reproduction in Flowering Plants + Human Reproduction + Reproductive Health), not this single chapter. It scores well because answers come almost verbatim from NCERT lines and labelled diagrams.',
+    facts: [
+      { label: 'NEET question frequency', value: '~3–4 questions from this chapter most years' },
+      { label: 'Reproduction unit weightage', value: '~9–10 Qs across the three chapters of the unit' },
+      { label: 'NCERT source', value: 'Class 12, Ch. "Human Reproduction"' },
+      { label: 'Best use of time', value: 'High — NCERT-direct, diagram-driven, reliable marks' },
+    ],
+    highYield: [
+      {
+        topic: 'Gametogenesis — spermatogenesis vs oogenesis',
+        detail:
+          'The most-tested theme. Know the cell sequence (spermatogonium → primary/secondary spermatocyte → spermatid → sperm; oogonium → primary oocyte → secondary oocyte → ootid/ovum) and the ploidy at each step. One sperm-mother cell yields 4 sperms; one egg-mother cell yields 1 ovum plus polar bodies.',
+      },
+      {
+        topic: 'Menstrual cycle hormones',
+        detail:
+          'A near-guaranteed question. FSH drives follicle growth; the LH surge (~day 14) triggers ovulation; estrogen comes from the growing follicle; progesterone from the corpus luteum maintains the endometrium. With no fertilisation the corpus luteum regresses → progesterone falls → menstruation (~day 1). Match the hormone to the day/phase.',
+      },
+      {
+        topic: 'Male & female reproductive histology',
+        detail:
+          'Seminiferous tubules (Sertoli cells nourish sperm; Leydig/interstitial cells secrete testosterone), the duct path (epididymis → vas deferens → ejaculatory duct), and on the female side the Graafian follicle and corpus luteum. "Which cell secretes X" and labelled-diagram questions are common.',
+      },
+      {
+        topic: 'Fertilisation & early development',
+        detail:
+          'Acrosomal enzymes for sperm entry, fertilisation in the ampulla of the fallopian tube, cleavage → morula → blastocyst, implantation around day 7, and hCG / the placenta as the pregnancy-maintaining endocrine link. Day-counting and stage-identification appear frequently.',
+      },
+    ],
+    traps: [
+      'Mixing up where meiosis pauses: the primary oocyte is arrested in prophase I (until puberty) and the secondary oocyte in metaphase II (completed only if a sperm enters).',
+      'Attributing progesterone to the follicle. Estrogen comes mainly from the growing follicle; progesterone comes from the corpus luteum after ovulation.',
+      'Confusing Sertoli cells (nourish developing sperm) with Leydig/interstitial cells (secrete testosterone).',
+      'Saying fertilisation happens in the uterus — it occurs in the ampullary region of the fallopian tube; only implantation happens in the uterus.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Human Reproduction in NEET?',
+        a: 'About 3–4 questions from this chapter in most years. The larger "10–12 question" figure you may have seen online is for the entire Reproduction unit (this chapter plus Sexual Reproduction in Flowering Plants and Reproductive Health) — still worth treating as one high-priority block.',
+      },
+      {
+        q: 'Is Human Reproduction a scoring chapter for NEET?',
+        a: 'Yes — it is one of the most NCERT-direct chapters in Class 12. Most questions are answered by the exact NCERT lines and the labelled diagrams, so disciplined NCERT reading plus PYQ practice usually converts to full marks here.',
+      },
+      {
+        q: 'What are the most important topics in Human Reproduction for NEET?',
+        a: 'Gametogenesis (spermatogenesis vs oogenesis with ploidy at each stage), the menstrual cycle hormones and their days, reproductive-system histology (Sertoli vs Leydig cells, Graafian follicle, corpus luteum), and the fertilisation-to-implantation sequence.',
+      },
+      {
+        q: 'How do I avoid silly mistakes in reproduction questions?',
+        a: 'Anchor every fact to a diagram or a timeline: draw the menstrual cycle with hormone peaks against the days, and the gametogenesis flow with the meiosis-arrest points marked. Most NEET traps here are about WHEN something happens (which day, which arrested stage) or WHICH cell secretes a given hormone.',
+      },
+    ],
+  },
 };
 
 /** Returns the curated enrichment for a chapter hub, if one exists. */
