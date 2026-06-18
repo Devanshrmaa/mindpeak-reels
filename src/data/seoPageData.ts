@@ -4438,6 +4438,37 @@ const jeeMathGeometry: SEOPageData = {
       },
     },
     {
+      heading: 'JEE Main vs JEE Advanced — How Geometry Actually Differs',
+      content: 'The same chapters carry very different risk in the two exams, and treating them identically is the most common planning mistake we see. In JEE Main, Coordinate Geometry is among the most reliable scoring branches — questions are largely single-correct and formula-driven, so 3D Geometry, Vectors, Straight Lines and Circles are "bankable" marks you should not lose. In JEE Advanced, the same conics become multi-concept: a parabola problem is fused with calculus (maxima/minima of a focal chord), a circle is combined with a locus, and paragraph/matrix-match formats punish gaps. The table below is the realistic split our mentors use to decide where each student spends time.',
+      table: {
+        headers: ['Chapter', 'JEE Main (reliability)', 'JEE Advanced (how it shows up)'],
+        rows: [
+          ['Straight Lines', 'High — direct formula marks', 'Usually a sub-step inside a larger conic/locus problem'],
+          ['Circles', 'High — 1–2 near-certain Qs', 'Combined with parabola/locus or tangency conditions'],
+          ['Parabola', 'Moderate — standard tangent/normal', 'High — focal chord + calculus, multi-correct'],
+          ['Ellipse', 'Moderate — eccentricity, tangents', 'High — most-tested conic; director circle, locus'],
+          ['Hyperbola', 'Lower frequency, same marks', 'Asked less often but with conjugate/asymptote depth'],
+          ['Vectors', 'High — dot/cross product recall', 'Fused with 3D (coplanarity, shortest distance)'],
+          ['3D Geometry', 'High — reliable 4–5% in Main', 'Hard — plane–line systems, image of a point'],
+        ],
+      },
+      bullets: [
+        'JEE Main strategy: 3D Geometry + Vectors are easy, high-certainty marks — secure them first before touching hard conics.',
+        'JEE Advanced strategy: Ellipse and Parabola are where the exam separates students; expect them combined with calculus, not asked in isolation.',
+        'Hyperbola appears less often but is worth the last 4–5 days — when it shows up it carries full marks and most students skip it.',
+      ],
+    },
+    {
+      heading: 'A 60-Second Decision Framework: Where Should You Start?',
+      content: 'If you have limited time before the exam, follow this order rather than studying chapters alphabetically:',
+      bullets: [
+        'Targeting JEE Main only? Lock Straight Lines → Circles → 3D Geometry → Vectors first (the reliable 12–14%), then add Parabola and Ellipse. Hyperbola last.',
+        'Targeting JEE Advanced? You cannot skip conics — start Parabola and Ellipse early and always practise them alongside calculus, because that is how Advanced asks them.',
+        'Weak at visualisation? Begin with 2D (Straight Lines, Circles) to build coordinate intuition before attempting 3D and Vectors — jumping straight to 3D is why most students stall.',
+        'Short on time and strong elsewhere? Coordinate Geometry has the best effort-to-marks ratio in JEE Main of any Maths branch — a focused 2-week block here moves your percentile more than the same time on Calculus.',
+      ],
+    },
+    {
       heading: 'Geometry Mastery Tips from MindPeak Mentors',
       content: 'Our top strategies for acing Geometry in JEE:',
       bullets: [
@@ -4476,6 +4507,10 @@ const jeeMathGeometry: SEOPageData = {
     },
   ],
   faqs: [
+    { q: 'What is the weightage of Coordinate Geometry in JEE Main vs JEE Advanced?', a: 'In JEE Main, Coordinate Geometry plus Vectors and 3D together run roughly 13–17% of the Maths paper and are mostly single-correct, formula-driven questions — among the most reliable marks available. In JEE Advanced the raw weightage is similar, but the questions are multi-concept (conics fused with calculus, paragraph and multi-correct formats), so the same chapters are far harder to score. Plan them as "bankable" for Main and "depth-required" for Advanced.' },
+    { q: 'Which conic section is most important for JEE?', a: 'Ellipse and Parabola are the most frequently tested conics, and in JEE Advanced the Ellipse is usually the single most-asked conic. Hyperbola appears less often but carries similar marks when it does — and because most students skip it, the last 4–5 days spent on it have a high payoff. MindPeak recommends mastering all three; they share tangent/normal and locus patterns.' },
+    { q: 'Is 3D Geometry or Conic Sections more important for JEE?', a: 'For JEE Main, 3D Geometry and Vectors are the safer marks — about 4–5% from 3D alone, asked as direct formula problems, so secure these first. For JEE Advanced, conics (especially Parabola and Ellipse) carry more separating power because they are combined with calculus. A student targeting NITs via Main should prioritise 3D/Vectors; an IIT aspirant cannot skip the conics depth.' },
+    { q: 'Is 3D Geometry tough in JEE?', a: '3D Geometry can feel challenging because students struggle to visualise 3D scenarios on paper, but in JEE Main it is one of the more formula-predictable topics once you fix the line/plane equations. MindPeak mentors use interactive 3D visualisations in 1-on-1 sessions to build spatial intuition, and we recommend mastering 2D coordinate geometry first so the jump to 3D feels natural.' },
     { q: 'What is the weightage of coordinate geometry in JEE?', a: 'In JEE Main, Coordinate Geometry plus Vectors is about 13-17% of the Maths paper — roughly 4-5 of the 25 questions every year. The rough internal split is Straight Lines ~5%, Circles ~5%, Conic Sections ~6-7%, 3D Geometry ~6-7% and Vectors ~3%. In JEE Advanced the count is lower but the questions are much harder, often combining conics with calculus or vectors.' },
     { q: 'How many questions come from conic sections in JEE Advanced?', a: 'Conic sections (Parabola, Ellipse, Hyperbola) carry roughly 7-10% in JEE Advanced — about 2-3 questions — and they are rated hard. Parabola is the most frequently tested of the three, and Advanced usually asks property-based or multi-concept questions (tangents, normals, locus, parametric points) rather than direct formula questions.' },
     { q: 'Is coordinate geometry easy to score in JEE Main?', a: 'Relatively, yes. Straight Lines and Circles are direct, formula-driven questions, so about half of the 4-5 Main geometry questions are quick marks once you have memorised the standard forms. That makes geometry one of the highest marks-per-hour branches in JEE Main Maths — which is exactly why it should be locked early.' },
