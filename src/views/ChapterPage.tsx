@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 const logo = '/images/logo.jpeg';
 import { getChapterBySlug, chapters, CHAPTER_SLUGS, topicToSlug } from '@/data/chapterData';
+import { getChapterEnrichment } from '@/data/chapters/chapterEnrichments';
 import { getAuthorForSubject, buildAuthorPersonLd } from '@/data/authorData';
 import ContentByline from '@/components/ContentByline';
 import { getLastUpdated } from '@/lib/contentFreshness';
@@ -107,6 +108,9 @@ const ChapterPage = () => {
   if (!chapter) {
     return <Navigate to="/" replace />;
   }
+
+  // Hand-written editorial enrichment — renders only for chapters with a curated entry.
+  const enrichment = getChapterEnrichment(chapter.slug);
 
   const Icon = chapter.icon;
   const examFull = chapter.exam === 'JEE' ? 'JEE Main & Advanced' : 'NEET UG';
@@ -211,7 +215,8 @@ const ChapterPage = () => {
     },
   ];
 
-  const allFaqs = [...chapter.faqs, ...autoFaqs];
+  // Curated enrichment FAQs come first — they are the researched, page-specific answers.
+  const allFaqs = [...(enrichment?.faqs ?? []), ...chapter.faqs, ...autoFaqs];
 
   const faqSchema = buildFAQSchemaFromQA(allFaqs);
 
@@ -723,6 +728,99 @@ const ChapterPage = () => {
             </motion.div>
           </div>
         </section>
+
+        {/* ═══════════ CURATED EDITORIAL ENRICHMENT (only for hand-written chapters) ═══════════ */}
+        {enrichment && (
+          <section className="py-12 sm:py-16 bg-background">
+            <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
+              <div className="rounded-2xl border border-primary/20 bg-card/40 p-6 sm:p-8 space-y-8">
+                <div>
+                  <div className="flex items-center gap-3 mb-3">
+                    <BarChart3 className="w-7 h-7 text-primary" />
+                    <h2 className="font-display font-bold text-foreground text-xl sm:text-2xl md:text-3xl">
+                      {chapter.chapter} — <span className="text-gradient-gold">Weightage, Main vs Advanced &amp; What Actually Gets Asked</span>
+                    </h2>
+                  </div>
+                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">{enrichment.overview}</p>
+                </div>
+
+                {/* Main vs Advanced split table */}
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm border-collapse min-w-[560px]">
+                    <thead>
+                      <tr className="bg-secondary/50 text-left text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                        <th className="py-2.5 px-3 rounded-l-lg">Exam</th>
+                        <th className="py-2.5 px-3">Weightage</th>
+                        <th className="py-2.5 px-3">Questions</th>
+                        <th className="py-2.5 px-3 rounded-r-lg">Nature of questions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {enrichment.examSplit.map((row) => (
+                        <tr key={row.exam} className="border-b border-border/60 align-top">
+                          <td className="py-2.5 px-3 font-semibold text-foreground whitespace-nowrap">{row.exam}</td>
+                          <td className="py-2.5 px-3 text-muted-foreground">{row.weightage}</td>
+                          <td className="py-2.5 px-3 text-muted-foreground">{row.questions}</td>
+                          <td className="py-2.5 px-3 text-muted-foreground">{row.nature}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* Honest correction */}
+                {enrichment.correction && (
+                  <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 p-4 flex gap-3">
+                    <AlertTriangle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      <span className="font-semibold text-foreground">Worth knowing: </span>{enrichment.correction}
+                    </p>
+                  </div>
+                )}
+
+                {/* Study order */}
+                <div>
+                  <h3 className="font-display font-semibold text-lg text-foreground mb-3 flex items-center gap-2">
+                    <Route className="w-5 h-5 text-primary" /> How to Study {chapter.chapter} — In Order
+                  </h3>
+                  <ol className="space-y-3 list-decimal list-inside">
+                    {enrichment.studyOrder.map((s) => (
+                      <li key={s.step} className="text-muted-foreground leading-relaxed text-sm sm:text-base">
+                        <span className="font-semibold text-foreground">{s.step}.</span> {s.detail}
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+
+                {/* High-yield sub-topics */}
+                <div>
+                  <h3 className="font-display font-semibold text-lg text-foreground mb-3 flex items-center gap-2">
+                    <Star className="w-5 h-5 text-primary" /> High-Yield Sub-Topics (most-asked first)
+                  </h3>
+                  <ol className="space-y-3 list-decimal list-inside">
+                    {enrichment.highYield.map((h) => (
+                      <li key={h.topic} className="text-muted-foreground leading-relaxed text-sm sm:text-base">
+                        <span className="font-semibold text-foreground">{h.topic}.</span> {h.detail}
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+
+                {/* Traps */}
+                <div>
+                  <h3 className="font-display font-semibold text-lg text-foreground mb-3 flex items-center gap-2">
+                    <AlertTriangle className="w-5 h-5 text-amber-500" /> Mistakes Students Repeatedly Make
+                  </h3>
+                  <ul className="space-y-2 list-disc list-inside">
+                    {enrichment.traps.map((t, i) => (
+                      <li key={i} className="text-muted-foreground leading-relaxed text-sm sm:text-base">{t}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* ═══════════ COMMON MISTAKES ═══════════ */}
         <section className="py-12 sm:py-16 bg-secondary/20 border-y border-border">
