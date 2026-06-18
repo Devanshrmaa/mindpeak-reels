@@ -748,6 +748,235 @@ A: Aim for about **340+/360 in Biology**. Because Biology is half the paper and 
 most NCERT-direct subject, a near-perfect Biology score is how most top-rankers create
 the cushion that protects them when Physics is tough.`,
 
+  /* ─────────────────────── Choosing between JEE and NEET ───────────────────────
+     Query: "jee or neet which is better" / "how to choose between jee and neet"
+     (pos 4–30, high-volume Class-10/11 decision query, crawled-not-indexed).
+     SERP leaders (CollegeDekho, Vedantu, PW) all stop at "follow your interest /
+     pick the subject you score better in". None give a real decision framework,
+     handle PCMB students, say WHEN the choice must be locked, or quote seat math. */
+  'choosing-between-jee-and-neet': `## JEE or NEET — a decision framework, not "follow your passion"
+
+Every guide tells you to "choose what you're passionate about." That is true but
+useless at 15, when most students haven't tried either career. Here is how to
+actually decide, using signals you can check this week.
+
+### The 60-second self-test
+
+Answer honestly — the pattern matters more than any single answer:
+
+1. **Which subject do you reach for first when revising — Maths or Biology?** Not
+   which you score more in (coaching inflates both), but which you'd study on a free
+   Sunday. That is your real aptitude tell.
+2. **Do you enjoy open-ended problem-solving (a tricky Maths sum with no obvious
+   first step) or structured mastery (learning a system thoroughly and recalling it
+   precisely)?** The first leans JEE; the second leans NEET Biology.
+3. **Can you sit with one hard problem for 30 minutes without frustration?** JEE
+   Advanced rewards exactly this. NEET rewards breadth, accuracy and stamina across
+   180 questions instead.
+4. **Picture the job, not the exam:** an engineer/researcher/coder building things,
+   or a doctor seeing patients for 10+ years of training. The exam is two years; the
+   career is forty.
+
+If 3–4 answers point the same way, trust it. A split result is the real signal that
+you need the PCMB section below — not that you should "prepare for both."
+
+### What each exam actually demands
+
+| | JEE (Main + Advanced) | NEET-UG |
+|---|---|---|
+| Subjects | Physics, Chemistry, **Maths** | Physics, Chemistry, **Biology** (Botany + Zoology) |
+| Style | Concept + application heavy; Maths is the differentiator | NCERT + recall heavy; Biology (half the paper) decides rank |
+| Mode / attempts | Computer-based, **two sessions a year** (best score counts) | Single pen-paper paper, **once a year** |
+| Hardest part | JEE Advanced problem-solving depth | Near-zero-error accuracy across 180 Qs |
+| Leads to | B.Tech/B.E. (IITs, NITs, IIITs, state & private) | MBBS/BDS/AYUSH and allied medical |
+
+The honest one-liner students repeat is fair: **JEE is more concept-based, NEET is
+more memory-based.** If tough sums feel like a puzzle you enjoy, JEE will feel
+lighter. If you'd rather master a large, well-defined syllabus precisely, NEET will.
+
+### The seat math nobody front-loads
+
+This is the part the SERP leaves out, and it should shape your effort, not your choice:
+
+- **NEET:** ~22–24 lakh candidates compete for roughly **1.1 lakh MBBS seats** (plus
+  ~27k BDS). Government MBBS — the affordable goal — is a small fraction of that. It
+  is a single high-stakes paper, once a year.
+- **JEE:** ~14 lakh+ write JEE Main; the ~17k IIT seats are brutally competitive, but
+  there are **lakhs** of further engineering seats via NITs/IIITs/GFTIs (JoSAA) and
+  state/private colleges. Two sessions a year also lowers single-day risk.
+
+Translation: a "good" medical outcome (government MBBS) is statistically harder to
+reach than a "good" engineering outcome at the NIT/state level. That is not a reason
+to avoid NEET — it is a reason to commit fully and not hedge.
+
+### If you took PCMB (both Biology and Maths) — read this
+
+This is the only group with a genuine dilemma, and the only group for whom keeping
+both open *briefly* is defensible:
+
+- **The trap:** "I'll prepare for both and decide later." Serious dual JEE + NEET
+  prep means Maths *and* Biology on top of shared Physics/Chemistry — roughly 1.5×
+  the syllabus, at JEE's depth and NEET's accuracy at once. For all but a handful of
+  exceptional students it dilutes both and produces two mediocre results.
+- **The defensible version:** use **Class 11, first term only** to feel out Maths vs
+  Biology with real chapters, then **commit by the end of Class 11.** Class 12 is for
+  single-track depth and revision — entering it undecided is the actual mistake.
+- **Decision rule:** by end of Class 11, drop the subject you score lower in *and
+  enjoy less*. If they're equal, weigh the seat math and career picture above, not
+  exam difficulty.
+
+### When can you switch — and what it costs
+
+You are not locked in for life, but switching has a real price that scales with how
+late you decide:
+
+- **Class 11 stream choice (PCB / PCM / PCMB) is the true fork** — pick the stream
+  that keeps your likely exam open. PCMB hedges but is a heavier school load.
+- Switching **within Class 11** is cheap; switching **in Class 12** is expensive (a
+  near-untouched Maths or Biology syllabus to build from scratch).
+- Switching **after Class 12** usually means a dedicated drop year for the new exam —
+  reasonable only if you're sure, not as an escape from a bad result.
+
+### FAQ — choosing between JEE and NEET
+
+**Q: Is JEE harder than NEET?**
+A: JEE Advanced is generally the harder *exam* (deeper, more abstract problem-solving);
+NEET is "easier" per question but punishes any inaccuracy across 180 questions and is
+a single-day, once-a-year shot. "Harder" depends on whether your strength is depth
+(JEE) or breadth + precision (NEET) — they aren't hard in the same way.
+
+**Q: Can I prepare for both JEE and NEET together?**
+A: It's possible but, for most students, a mistake — you carry Maths *and* Biology
+on top of shared Physics/Chemistry and often end with two average results. The one
+honest exception: a PCMB student using Class 11 to decide, who then commits to one
+track by the end of Class 11.
+
+**Q: I'm equally good at Maths and Biology — how do I choose?**
+A: Aptitude has tied, so break it with the career, not the exam. Picture the actual
+day-to-day work (building/engineering/research vs treating patients across a long
+training path) and the seat math, then pick the track you'd still want at 30.
+
+**Q: Which has better career scope, engineering or medicine?**
+A: Both are strong; neither is universally "better." Engineering offers faster entry,
+broader and more flexible roles, and higher early-career variance (a top coder can
+out-earn a junior doctor early). Medicine offers a long, structured, recession-resistant
+path with high stability and respect but later financial payoff and longer training.
+Choose for fit, not for an averaged salary figure.
+
+**Q: When do I have to finally decide?**
+A: Effectively by the **end of Class 11.** The Class 11 stream choice opens the door;
+the end of Class 11 is when you should walk through it, so Class 12 is pure single-track
+depth and revision.`,
+
+  /* ─────────────────────── MBBS abroad vs India ───────────────────────
+     Query: "mbbs abroad vs india" (parent-heavy comparison, crawled-not-indexed).
+     SERP is dominated by consultancy sites (RusEducation, LeapScholar, etc.) that
+     compare PRIVATE India vs abroad to make abroad look cheap, bury FMGE pass
+     rates, and never give an honest "when abroad is a bad idea" framework. */
+  'abroad-mbbs-vs-india-mbbs': `## MBBS abroad vs India — the comparison consultancy sites won't give you
+
+Most "MBBS abroad vs India" pages are run by admission consultants who earn a
+commission on foreign admissions. Their favourite trick is to compare **abroad vs
+private India** — making abroad look like a bargain — while skipping the option that
+actually wins on cost: a **government seat in India.** Here is the honest three-way
+picture.
+
+### The real ranking (cost + risk, for a student who wants to practise in India)
+
+1. **Government MBBS in India** — by far the cheapest and lowest-risk. Tuition is
+   often a few thousand to ~₹1 lakh per year (≈ ₹50k–₹8 lakh for the whole degree),
+   and **no FMGE/licensing screening test** is required. The only catch is the NEET
+   rank needed to get one.
+2. **MBBS abroad (FMGE-friendly country)** — total ~₹18–45 lakh for the degree.
+   Reasonable *if* you can't get an Indian government seat and can't afford private,
+   **and** you pick a country with a decent FMGE record and stay disciplined.
+3. **Private MBBS in India** — ~₹50 lakh to ₹1.5 crore+ (deemed universities higher).
+   Choose this over abroad mainly if cost is genuinely not a constraint and you value
+   no-FMGE + an Indian clinical environment.
+
+### Cost reality (whole degree, indicative 2026 ranges)
+
+| Path | Approx. total cost | FMGE/screening to practise in India? |
+|---|---|---|
+| Government India | ₹50k – ₹8 lakh | **No** |
+| Abroad (Russia/CIS, Georgia, Kazakhstan, Bangladesh, Philippines…) | ₹18 – 45 lakh | **Yes** |
+| Private India | ₹50 lakh – ₹1.5 crore+ | No |
+
+A government seat can be **cheaper than the cheapest abroad option** — which is
+exactly why consultancy "vs India" pages quietly compare against private fees instead.
+
+### The number that should drive your decision: FMGE
+
+If you study abroad and want to practise in India, you must clear the **Foreign
+Medical Graduate Examination (FMGE)** (being transitioned to the **NExT** exit test —
+timelines have repeatedly slipped, so plan for FMGE). Indian graduates take **no**
+such screening exam. The pass rates are sobering:
+
+- Recent FMGE sessions pass roughly **20–30% of candidates** (≈ 25% in the
+  January 2026 session). Across years the cumulative pass rate for foreign graduates
+  has often sat in the **low-to-mid 20s percent.**
+- Outcomes vary sharply by country: **Bangladesh** typically posts the highest pass
+  share (curriculum close to India's, taught in English), with Russia, Kazakhstan and
+  a few others ahead of the pack; many cheaper destinations fare far worse.
+
+**Read that honestly:** a ₹25-lakh degree you can't licence is more expensive than a
+costlier one you can. The "effective cost" of an abroad MBBS is the fee **divided by
+your realistic chance of clearing FMGE** — choose the country on outcomes, not the
+brochure.
+
+### Rules every abroad aspirant must know (NMC)
+
+- **NEET is mandatory even to study MBBS abroad** — you must qualify NEET-UG to be
+  eligible for the degree to count toward FMGE/registration. "Skip NEET by going
+  abroad" is false.
+- NMC's foreign-graduate regulations require, broadly, a course of adequate duration
+  **with the internship done in the same country**, the medium of instruction in
+  **English**, and the degree must be recognised — verify against the **current NMC
+  list** before paying anyone.
+- You still register with a State Medical Council / NMC after clearing the screening
+  exam, like any Indian graduate.
+
+### A 30-second decision framework
+
+- **Can you realistically get a government MBBS seat in India?** (Honest NEET score /
+  category / state quota.) → Take it. Nothing below beats it.
+- **No government seat, but ₹1 crore is genuinely affordable and you want India?**
+  → Private India is defensible (no FMGE, Indian clinical training).
+- **No government seat and private India is out of reach?** → Abroad is reasonable
+  **only if** you (a) qualified NEET, (b) choose an NMC-recognised, FMGE-strong
+  country, and (c) are disciplined enough to clear FMGE/NExT. If any of the three is
+  shaky, a focused NEET drop year is often the better bet than a degree you may not be
+  able to licence.
+
+### FAQ — MBBS abroad vs India
+
+**Q: Is MBBS abroad cheaper than in India?**
+A: Cheaper than *private* India, yes (≈ ₹18–45 lakh vs ₹50 lakh–₹1.5 crore). But a
+*government* Indian seat is usually the cheapest of all (often under ₹8 lakh total)
+and needs no FMGE — so "abroad is cheap" is only half the story.
+
+**Q: Do I need NEET to study MBBS abroad?**
+A: Yes. NEET qualification is mandatory for an MBBS abroad to count toward FMGE
+eligibility and Indian registration. There is no NEET-free route to practising
+medicine in India.
+
+**Q: What is the FMGE pass rate?**
+A: Roughly 20–30% per session (about 25% in January 2026), and historically in the
+low-to-mid 20s cumulatively. It varies a lot by country — Bangladesh tends to top the
+list, with Russia and Kazakhstan also relatively strong. Pick your country on FMGE
+outcomes, not on tuition alone.
+
+**Q: Will FMGE be replaced by NExT?**
+A: That is the stated plan — NExT is meant to become a common exit + licensing (and
+PG-entrance) exam — but its rollout has been delayed repeatedly. Plan and prepare for
+FMGE while tracking official NMC notifications, and don't bank your decision on a
+deadline that keeps moving.
+
+**Q: Is it better to take a drop year for NEET or go abroad?**
+A: If a government Indian seat is within reach of a focused drop year, that usually
+beats an abroad degree you might struggle to licence. Go abroad when a government seat
+is genuinely out of reach, private India is unaffordable, and you've picked an
+FMGE-strong, NMC-recognised country — not as an escape from one disappointing result.`,
   /* ───────────────────────── NEET vs AP EAMCET (EAPCET) ─────────────────────────
      Query: "difference between neet and eamcet" (pos ~8–10). Gap the SERP buries:
      EAPCET — even its medical-side stream — cannot give MBBS; the no-negative-marking
