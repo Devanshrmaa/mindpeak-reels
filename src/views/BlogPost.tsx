@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import { Link } from '@/components/RouterLink';
 import { Navigate } from '@/components/Navigate';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import { resolvePostBySlug, resolveRelatedPosts } from '@/lib/blogResolver';
 import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
@@ -40,6 +40,10 @@ const BlogPost = () => {
   const slug = params.slug as string;
   const { openDemoModal } = useDemoModal();
   const [copied, setCopied] = useState(false);
+
+  // Reading-progress bar driven by document scroll.
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.3 });
 
   useEffect(() => { window.scrollTo(0, 0); }, [slug]);
 
@@ -124,50 +128,55 @@ const BlogPost = () => {
         ]}
       />
 
+      {/* Reading-progress bar */}
+      <motion.div
+        aria-hidden
+        className="fixed top-0 left-0 right-0 z-50 h-1 origin-left bg-gradient-to-r from-gold to-gold-dark"
+        style={{ scaleX: progress }}
+      />
+
       <Navbar />
 
-      <main className="bg-background min-h-screen pt-20 sm:pt-24">
-        {/* Breadcrumb */}
-        <nav aria-label="Breadcrumb" className="max-w-5xl mx-auto px-6 py-4">
-          <ol className="flex items-center gap-2 text-xs text-muted-foreground">
-            <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
-            <span>/</span>
-            <li><Link to="/blog" className="hover:text-primary transition-colors">Blog</Link></li>
-            <span>/</span>
-            <li className="text-foreground truncate max-w-[200px]">{post.title}</li>
-          </ol>
-        </nav>
+      <main className="bg-background min-h-screen">
+        {/* ── Article hero (navy band) ──────────────────────────────── */}
+        <header className="relative overflow-hidden bg-[hsl(225,43%,7%)] pt-28 sm:pt-32 pb-14 text-white">
+          <div className="absolute inset-0 dot-grid opacity-50" />
+          <div className={`absolute -top-32 -right-24 h-96 w-96 rounded-full bg-gradient-to-br ${post.color ?? 'from-primary to-gold-dark'} opacity-25 blur-[130px]`} />
 
-        {/* Article */}
-        <article className="max-w-4xl mx-auto px-6 pb-20">
-            <div>
-            {/* Back link */}
-            <Link to="/blog" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm mb-8">
-              <ArrowLeft className="w-4 h-4" /> Back to Blog
-            </Link>
+          <div className="relative max-w-4xl mx-auto px-6">
+            {/* Breadcrumb */}
+            <nav aria-label="Breadcrumb" className="mb-8">
+              <ol className="flex items-center gap-2 text-xs text-white/50">
+                <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
+                <span>/</span>
+                <li><Link to="/blog" className="hover:text-primary transition-colors">Blog</Link></li>
+                <span>/</span>
+                <li className="text-white/80 truncate max-w-[180px]">{post.title}</li>
+              </ol>
+            </nav>
 
-            {/* Header */}
-            <div className="flex items-center gap-4 mb-6">
-              <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${post.color} flex items-center justify-center`}>
+            {/* Category badge */}
+            <div className="flex items-center gap-4 mb-7">
+              <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${post.color ?? 'from-primary to-gold-dark'} flex items-center justify-center shadow-lg`}>
                 <IconComponent className="w-7 h-7 text-white" />
               </div>
-              <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium tracking-wider uppercase">
+              <span className="px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-white text-xs font-semibold tracking-[0.15em] uppercase">
                 {post.category}
               </span>
             </div>
 
             {/* Title */}
-            <h1 className="font-display font-black text-foreground mb-6" style={{ fontSize: 'clamp(1.8rem, 5vw, 3.5rem)' }}>
+            <h1 className="font-display font-black leading-[1.05] mb-6" style={{ fontSize: 'clamp(1.9rem, 5vw, 3.5rem)' }}>
               {post.title}
             </h1>
 
             {/* Excerpt */}
-            <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-3xl">
+            <p className="text-white/70 text-lg leading-relaxed mb-7 max-w-3xl">
               {post.excerpt}
             </p>
 
             {/* Meta */}
-            <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground mb-6">
+            <div className="flex flex-wrap items-center gap-6 text-sm text-white/60">
               <span className="flex items-center gap-2">
                 <Calendar className="w-4 h-4 text-primary" />
                 {new Date(post.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
@@ -177,6 +186,17 @@ const BlogPost = () => {
                 {post.readTime}
               </span>
             </div>
+          </div>
+        </header>
+
+        {/* Article */}
+        <article className="max-w-4xl mx-auto px-6 pt-12 pb-20">
+            <div>
+            {/* Back link */}
+            <Link to="/blog" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm mb-8">
+              <ArrowLeft className="w-4 h-4" /> Back to Blog
+            </Link>
+
             {/* Expert author byline (E-E-A-T signal) */}
             <AuthorBio slug={expertAuthor.slug} variant="compact" />
             <p className="text-xs text-muted-foreground mb-2">
@@ -216,7 +236,7 @@ const BlogPost = () => {
             </div>
 
             {/* Markdown Content */}
-            <div className="mb-16">
+            <div className="mb-16 text-[1.0625rem] [&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:mr-3 [&>p:first-of-type]:first-letter:mt-1 [&>p:first-of-type]:first-letter:font-display [&>p:first-of-type]:first-letter:font-black [&>p:first-of-type]:first-letter:text-6xl [&>p:first-of-type]:first-letter:leading-[0.8] [&>p:first-of-type]:first-letter:text-primary">
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 components={{
@@ -231,7 +251,7 @@ const BlogPost = () => {
                   strong: ({ ...props }) => <strong className="font-bold text-foreground" {...props} />,
                   em: ({ ...props }) => <em className="italic text-muted-foreground" {...props} />,
                   blockquote: ({ ...props }) => (
-                    <blockquote className="border-l-4 border-primary pl-5 my-6 italic text-muted-foreground" {...props} />
+                    <blockquote className="relative my-8 rounded-r-xl border-l-4 border-primary bg-secondary/60 py-4 pl-6 pr-5 text-foreground/90 italic [&>p]:mb-0 [&>p]:text-foreground/90" {...props} />
                   ),
                   code: ({ ...props }) => (
                     <code className="bg-secondary/50 text-primary px-2 py-0.5 rounded text-sm font-mono" {...props} />
@@ -317,18 +337,21 @@ const BlogPost = () => {
 
         {/* Related Posts */}
         {relatedPosts.length > 0 && (
-          <section className="bg-secondary/30 border-y border-border py-16 px-6">
+          <section className="bg-secondary/40 border-y border-border py-16 px-6">
             <div className="max-w-5xl mx-auto">
-              <motion.h2
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                className="font-display font-bold text-foreground text-2xl sm:text-3xl mb-8"
-              >
-                RELATED <span className="text-gradient-gold">ARTICLES</span>
-              </motion.h2>
+              <div className="flex items-center gap-3 mb-8">
+                <motion.h2
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  className="font-display font-bold text-foreground text-2xl sm:text-3xl"
+                >
+                  Related <span className="text-gradient-gold">Articles</span>
+                </motion.h2>
+                <span className="hidden sm:block flex-1 h-px bg-border" />
+              </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {relatedPosts.map((relatedPost, i) => {
                   const RelatedIcon = relatedPost.icon;
                   return (
@@ -339,23 +362,28 @@ const BlogPost = () => {
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.1 }}
                     >
-                      <Link to={`/blog/${relatedPost.slug}`}>
-                        <div className="h-full rounded-2xl border border-border bg-card/40 backdrop-blur-sm p-6 group cursor-pointer hover:border-primary/40 transition-all duration-300 hover:shadow-card">
-                          <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${relatedPost.color} flex items-center justify-center mb-4`}>
-                            <RelatedIcon className="w-6 h-6 text-white" />
+                      <Link to={`/blog/${relatedPost.slug}`} className="group block h-full">
+                        <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-all duration-400 hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-[0_20px_48px_hsl(224_40%_22%/0.14)]">
+                          <div className={`h-1.5 w-full bg-gradient-to-r ${relatedPost.color ?? 'from-primary to-gold-dark'}`} />
+                          <div className="flex flex-1 flex-col p-6">
+                            <div className="mb-4 flex items-center justify-between">
+                              <div className={`grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br ${relatedPost.color ?? 'from-primary to-gold-dark'}`}>
+                                <RelatedIcon className="w-5 h-5 text-white" />
+                              </div>
+                              <span className="rounded-full bg-secondary px-3 py-1 text-[10px] font-bold uppercase tracking-[0.15em] text-secondary-foreground">
+                                {relatedPost.category}
+                              </span>
+                            </div>
+                            <h3 className="font-display font-bold text-foreground text-lg leading-snug mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+                              {relatedPost.title}
+                            </h3>
+                            <p className="text-muted-foreground text-sm line-clamp-2 mb-5 flex-1">{relatedPost.excerpt}</p>
+                            <div className="mt-auto flex items-center justify-between border-t border-border pt-4 text-xs text-muted-foreground">
+                              <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {relatedPost.readTime}</span>
+                              <ArrowRight className="w-4 h-4 text-primary transition-transform group-hover:translate-x-1" />
+                            </div>
                           </div>
-                          <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium tracking-wider uppercase">
-                            {relatedPost.category}
-                          </span>
-                          <h3 className="font-display font-bold text-foreground text-lg mt-3 mb-2 line-clamp-2 group-hover:text-primary transition-colors">
-                            {relatedPost.title}
-                          </h3>
-                          <p className="text-muted-foreground text-sm line-clamp-2 mb-4">{relatedPost.excerpt}</p>
-                          <div className="flex items-center justify-between text-xs text-muted-foreground">
-                            <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {relatedPost.readTime}</span>
-                            <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
-                          </div>
-                        </div>
+                        </article>
                       </Link>
                     </motion.div>
                   );
