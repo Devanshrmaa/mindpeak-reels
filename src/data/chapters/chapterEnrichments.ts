@@ -1007,6 +1007,258 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
       {
         q: 'What is the difference between the "lub" and "dub" heart sounds?',
         a: '"Lub" (the first heart sound) is produced when the atrioventricular valves (tricuspid and bicuspid) close at the start of ventricular systole. "Dub" (the second sound) is produced when the semilunar valves (aortic and pulmonary) close at the end of ventricular systole. NEET often asks which valves cause which sound.',
+  'jee-physics-thermodynamics': {
+    overview:
+      'Heat & Thermodynamics is one of the highest-yield blocks in JEE Physics, but the single chapter and the whole block are different numbers — which most weightage articles blur. As a standalone chapter (first law, the four processes, heat engines, heat transfer) it gives about 1–2 questions per JEE Main shift, almost always formula-direct: apply ΔU = Q − W, read work off a PV diagram, or compute Carnot efficiency. In JEE Advanced it appears in most papers (1–3 questions) and is usually fused with the kinetic theory of gases — a single problem that asks for work in a process and then the change in internal energy via degrees of freedom. The fastest marks come from nailing the process table (what is zero in each of isothermal/adiabatic/isobaric/isochoric) cold.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~5–7% of Physics', questions: '1–2 per shift', nature: 'Direct: first law, PV-diagram work, Carnot efficiency, conduction/radiation' },
+      { exam: 'JEE Advanced', weightage: '~6% of Physics', questions: '1–3 (in most papers)', nature: 'Fused with kinetic theory: process + degrees of freedom, cyclic-process efficiency, multi-step' },
+    ],
+    correction:
+      'The "thermodynamics is ~15% of JEE" figure you see online is the whole Heat & Thermodynamics unit — this chapter PLUS Kinetic Theory of Gases and Thermal Properties of Matter — not thermodynamics alone, which is closer to 5–7%. Separately, this is Physics thermodynamics (gas processes, PV work, engines); the Chemistry chapter of the same name is about enthalpy, entropy and Gibbs energy and is examined independently — don\'t assume studying one covers the other.',
+    studyOrder: [
+      { step: 'Sign convention + first law', detail: 'ΔU = Q − W with the physics convention (W = work done BY the gas, positive when the gas expands). Getting this sign right is the single biggest source of lost marks in the chapter, so fix it before anything else.' },
+      { step: 'The four processes as a table', detail: 'Isothermal (ΔU = 0, Q = W = nRT ln(V₂/V₁)), adiabatic (Q = 0, ΔU = −W, PVᵞ = const), isobaric (W = PΔV, Q = nC_pΔT), isochoric (W = 0, Q = nC_vΔU). Memorise which quantity is zero in each — that one fact answers most Main questions.' },
+      { step: 'C_p, C_v and γ', detail: 'C_p − C_v = R, γ = C_p/C_v (monatomic 5/3, diatomic 7/5). Use the right specific heat for the right process — C_p for constant pressure, C_v for constant volume and for ΔU in ANY process.' },
+      { step: 'PV diagrams & cyclic processes', detail: 'Area under the curve = work for that path; area enclosed by a cycle = net work; efficiency η = W_net/Q_in. Work is path-dependent, so the same end-states can give different W.' },
+      { step: 'Carnot, second law & heat transfer last', detail: 'Carnot efficiency η = 1 − T_c/T_h (temperatures in kelvin), refrigerator COP = T_c/(T_h − T_c); then heat transfer — conduction dQ/dt = kAΔT/L (thermal resistance L/kA, add in series/parallel like electrical resistance), Stefan P = σAT⁴ and Newton\'s law of cooling.' },
+    ],
+    highYield: [
+      {
+        topic: 'First law applied to the four processes',
+        detail:
+          'The highest-frequency Main type: identify the process, set the zero quantity, and apply ΔU = Q − W. For an ideal gas ΔU = nC_vΔT in EVERY process (not just isochoric) because U depends only on temperature — a fact that unlocks half the questions.',
+      },
+      {
+        topic: 'Work from a PV diagram & cyclic efficiency',
+        detail:
+          'Work done = area under the P–V curve; for a closed cycle the net work is the enclosed area (positive if clockwise). Efficiency η = net work / heat absorbed. Two-process and three-process cycles are a recurring Main + Advanced pattern.',
+      },
+      {
+        topic: 'Adiabatic relations',
+        detail:
+          'PVᵞ = constant, TVᵞ⁻¹ = constant, P^(1−ᵞ)Tᵞ = constant. In an adiabatic expansion the gas does work at the expense of internal energy, so it cools. Mixing up the adiabatic and isothermal curves (adiabatic is steeper) is a classic trap.',
+      },
+      {
+        topic: 'Carnot engine & heat conduction',
+        detail:
+          'η = 1 − T_c/T_h is the maximum efficiency any engine between those temperatures can have — a favourite conceptual MCQ. For conduction, treat L/kA as a thermal resistance: rods in series add resistances, in parallel add conductances, exactly like circuits.',
+      },
+    ],
+    traps: [
+      'Sign of work. In the physics convention W is the work done BY the gas (positive on expansion) and ΔU = Q − W; the chemistry convention writes ΔU = Q + W with W done ON the gas. Mixing the two flips the answer.',
+      'Using the wrong specific heat. Heat in an isobaric process needs C_p; in an isochoric process C_v. But ΔU = nC_vΔT for an ideal gas in ANY process — students wrongly restrict C_v to constant-volume only.',
+      'Treating an adiabatic process with isothermal formulas. Q = 0 (not ΔU = 0) in adiabatic; use PVᵞ = const, and the temperature changes. The adiabatic curve on a PV diagram is steeper than the isothermal.',
+      'Forgetting temperatures must be in kelvin in η = 1 − T_c/T_h. Plugging in Celsius gives a nonsensical efficiency.',
+    ],
+    faqs: [
+      {
+        q: 'What is the weightage of thermodynamics in JEE Main and JEE Advanced?',
+        a: 'As a standalone chapter, Physics Thermodynamics is about 5–7% of the Main paper — roughly 1–2 questions per shift, mostly direct (first law, PV-diagram work, Carnot efficiency, conduction). In JEE Advanced it carries about 6% and appears in most papers (1–3 questions), usually fused with the kinetic theory of gases. The much-quoted "~15%" is the entire Heat & Thermodynamics unit, which also includes Kinetic Theory and Thermal Properties of Matter — not thermodynamics by itself.',
+      },
+      {
+        q: 'Is JEE physics thermodynamics the same as chemistry thermodynamics?',
+        a: 'No — they are separate chapters examined independently. Physics thermodynamics is about gases: the first law, PV diagrams, work in different processes, heat engines and heat transfer. Chemistry thermodynamics is about reactions: enthalpy, entropy, Gibbs free energy and spontaneity. The first law and the sign of work overlap conceptually, but the question types are different, so prepare both.',
+      },
+      {
+        q: 'Which thermodynamics topics are most important for JEE Main?',
+        a: 'The first law applied to the four processes (isothermal, adiabatic, isobaric, isochoric), work from a PV diagram, the C_p/C_v/γ relations, and Carnot efficiency. Memorising which quantity is zero in each process, plus ΔU = nC_vΔT for any process, answers the majority of Main questions. Heat transfer (conduction, Stefan\'s law, Newton\'s cooling) usually adds one more direct question.',
+      },
+      {
+        q: 'Why do I keep getting the sign of work wrong in thermodynamics?',
+        a: 'Because two conventions exist. Physics uses ΔU = Q − W where W is work done BY the gas (positive when it expands); chemistry uses ΔU = Q + W where W is work done ON the gas. Pick the physics convention for JEE Physics, write it the same way every time, and read "gas expands → gas does positive work → its internal energy falls unless heat is supplied".',
+      },
+    ],
+  },
+
+  'jee-chemistry-hydrocarbons': {
+    overview:
+      'Hydrocarbons is a deceptively high-return organic chapter: the headline weightage is only ~3.3% (about 2 questions per JEE Main shift), but it sits on top of General Organic Chemistry, so the reasoning it tests — carbocation stability, acidity order, directing effects in aromatic substitution — reappears all through organic. In JEE Main the questions are mostly product prediction and reagent identification (Markovnikov vs anti-Markovnikov, ozonolysis, Friedel–Crafts). In JEE Advanced hydrocarbons rarely stand alone; they are woven into multi-step synthesis and mechanism questions where the same EAS and addition rules decide the answer. Treat it as the chapter where GOC concepts become marks.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~3–4% of Chemistry (~2 Q)', questions: '~2 per shift on average', nature: 'Direct: product of addition/EAS, reagent ID, acidity order, ozonolysis' },
+      { exam: 'JEE Advanced', weightage: 'Threaded through Organic', questions: '1–2 (rarely stand-alone)', nature: 'Multi-step synthesis, mechanism, directing-effect chains, isomer counting' },
+    ],
+    correction:
+      'The "only 3.3%, low priority" reading undersells it. Hydrocarbons and General Organic Chemistry are repeatedly flagged as the highest-scoring organic combination because the rules learned here (stability, acidity, directing effects) carry into alcohols, carbonyls and amines. The marks are not just in the 2 hydrocarbon questions — they are in every organic question those rules unlock.',
+    studyOrder: [
+      { step: 'GOC foundation first', detail: 'Inductive, resonance and hyperconjugation effects, and the stability order of carbocations/carbanions/free radicals. Without this, every hydrocarbon reaction is rote memorisation; with it, products become predictable.' },
+      { step: 'Alkanes', detail: 'Preparation (Wurtz, Kolbe electrolysis, decarboxylation) and free-radical halogenation with its selectivity (3° > 2° > 1° H). Conformations of ethane/butane occasionally appear.' },
+      { step: 'Alkenes & alkynes (addition)', detail: 'Markovnikov and the peroxide (anti-Markovnikov) effect, hydroboration–oxidation, ozonolysis, and the acidity of terminal alkynes. This is the densest source of Main questions.' },
+      { step: 'Aromatic hydrocarbons & EAS', detail: 'Benzene, electrophilic aromatic substitution (nitration, halogenation, Friedel–Crafts alkylation/acylation) and the directing/activating effects that decide where the next group goes.' },
+      { step: 'Aromaticity & isomerism last', detail: 'Hückel\'s 4n+2 rule (counting π electrons correctly, including in ions), and structural/geometrical isomerism for "how many isomers" questions.' },
+    ],
+    highYield: [
+      {
+        topic: 'Markovnikov, anti-Markovnikov & addition products',
+        detail:
+          'Markovnikov: the H adds to the carbon with more H\'s (so the positive charge sits on the more stable carbocation). Anti-Markovnikov (peroxide/Kharasch effect) reverses this — but ONLY for HBr, never HCl or HI, because only the HBr step is energetically favourable as a radical chain.',
+      },
+      {
+        topic: 'Electrophilic aromatic substitution + directing effects',
+        detail:
+          'o/p-directors are activating groups (−OH, −NH₂, −R, halogens are o/p-directing but deactivating); m-directors are deactivating (−NO₂, −COOH, −CN, −SO₃H). Friedel–Crafts fails on strongly deactivated rings (e.g. nitrobenzene) — a frequently tested limitation.',
+      },
+      {
+        topic: 'Acidity order of terminal C–H',
+        detail:
+          'Terminal alkyne H is acidic (sp carbon, ~25% s-character) so HC≡CH > H₂C=CH₂ > H₃C–CH₃ in acidity; this is why terminal alkynes react with Na/NaNH₂ to give acetylides. More s-character ⇒ more acidic is the principle behind the whole order.',
+      },
+      {
+        topic: 'Ozonolysis & oxidative cleavage',
+        detail:
+          'Ozonolysis cleaves C=C to two carbonyls (reductive work-up gives aldehydes/ketones, oxidative gives acids). Working backward from the carbonyl products to the original alkene is a classic Main question type.',
+      },
+    ],
+    traps: [
+      'Applying the anti-Markovnikov (peroxide) effect to HCl or HI. It works only with HBr; with HCl/HI the addition stays Markovnikov regardless of peroxide.',
+      'Calling halogens meta-directors. Halogens are deactivating (they slow the ring) but still o/p-DIRECTING because of their lone-pair resonance donation — a favourite catch.',
+      'Miscounting π electrons for aromaticity. Hückel\'s rule (4n+2) must be applied to the planar cyclic conjugated π system, including the charge in ions (cyclopentadienyl anion is aromatic, cation is not).',
+      'Confusing Saytzeff and Hofmann elimination. The more substituted (Saytzeff) alkene is the major product under most conditions; bulky bases (e.g. t-BuOK) flip it to the less substituted Hofmann product.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Hydrocarbons in JEE Main?',
+        a: 'About 2 per shift on average (~3–3.3% of the Chemistry paper). The questions are usually direct — predicting the product of an addition or aromatic-substitution reaction, identifying a reagent, ordering acidity, or working backward from ozonolysis products. Low headline weightage, but the underlying rules carry into the rest of organic chemistry.',
+      },
+      {
+        q: 'Is Hydrocarbons a scoring chapter for JEE?',
+        a: 'Yes, provided you build the General Organic Chemistry base first. Once carbocation stability, acidity trends and directing effects are second nature, hydrocarbon questions become predictable product-prediction marks — and the same reasoning then scores you marks across alcohols, carbonyls and amines. It is consistently rated one of the highest-return organic chapters for exactly this reason.',
+      },
+      {
+        q: 'Does the anti-Markovnikov rule apply to all hydrogen halides?',
+        a: 'No — only to HBr in the presence of peroxides (the Kharasch / peroxide effect). With HCl and HI the addition follows Markovnikov\'s rule even if peroxide is present, because only the HBr radical chain is energetically favourable. This "HBr only" point is one of the most frequently tested traps in the chapter.',
+      },
+      {
+        q: 'Which is more acidic — alkane, alkene or alkyne?',
+        a: 'Alkyne > alkene > alkane for the terminal C–H. The reason is s-character: the sp carbon of a terminal alkyne holds its bonding electrons closer to the nucleus, stabilising the negative charge left behind, so the H comes off more easily. This is why terminal alkynes form acetylides with sodium or sodamide while alkenes and alkanes do not.',
+      },
+    ],
+  },
+
+  'neet-biology-photosynthesis': {
+    overview:
+      'Photosynthesis in Higher Plants is one of NEET Biology\'s most concept-dense Botany chapters, and almost every question is NCERT-line-direct: the location of each step, the products of the light reaction, the C3 vs C4 contrast, and the dual nature of RuBisCO. As a standalone chapter it contributes about 1–2 questions most years (~2–4 marks), but it underpins Respiration and the wider Plant Physiology unit, so the concepts pay off beyond their own question count. The students who lose marks here do so on precise wording (which photosystem splits water, where the Calvin cycle runs) rather than on difficult reasoning.',
+    examSplit: [
+      { exam: 'This chapter alone', weightage: '~2–4% of Biology', questions: '1–2 per year (~2–4 marks)', nature: 'NCERT-direct: location of steps, light-reaction products, C3/C4 contrast, RuBisCO' },
+      { exam: 'Plant Physiology unit', weightage: 'Higher combined', questions: 'Several per year across chapters', nature: 'Photosynthesis + Respiration + Mineral Nutrition + Plant Growth examined together' },
+    ],
+    correction:
+      'Weightage figures for this chapter range from "~1%" to "~5–6%" online because some count the chapter alone and others count the whole Plant Physiology unit. The honest picture: the chapter on its own is usually 1–2 questions a year, but it is high-value-per-mark because the answers are direct NCERT recall — easy to lock down and hard to lose if you know the exact lines.',
+    studyOrder: [
+      { step: 'Pigments & where it happens', detail: 'Chlorophyll a (primary pigment / reaction centre), chlorophyll b and carotenoids (accessory pigments that also protect against photo-oxidation). Light reaction in the thylakoid membranes; Calvin cycle (dark reaction) in the stroma. Fixing these locations first prevents the most common mistakes.' },
+      { step: 'Light reaction & the Z-scheme', detail: 'PS II (P680) acts first and splits water (photolysis → O₂, the O₂ comes from water, not CO₂); electrons flow PS II → PS I (P700) → NADP⁺. Discovered second, acts first — that is the PS II/PS I trick.' },
+      { step: 'Photophosphorylation', detail: 'Non-cyclic (both photosystems, makes ATP + NADPH + O₂) versus cyclic (PS I only, makes ATP only — no NADPH, no O₂). The chemiosmotic hypothesis: ATP synthesis is driven by the proton gradient across the thylakoid membrane.' },
+      { step: 'Calvin cycle (C3) with its numbers', detail: 'Three phases — carboxylation (RuBisCO fixes CO₂ onto RuBP), reduction, regeneration. Per glucose: 6 CO₂, 18 ATP and 12 NADPH; the first stable product is 3-PGA (a 3-carbon acid), which is why it is the C3 pathway.' },
+      { step: 'C4, CAM & photorespiration last', detail: 'C4 (Kranz anatomy, PEPcase fixes CO₂ to OAA in mesophyll, RuBisCO works in bundle-sheath cells, no photorespiration); CAM (same biochemistry, separated in TIME — stomata open at night). Photorespiration is RuBisCO\'s oxygenase activity at high O₂/low CO₂, wasteful in C3 plants.' },
+    ],
+    highYield: [
+      {
+        topic: 'C3 vs C4 vs CAM comparison',
+        detail:
+          'C3: acceptor RuBP, first product 3-PGA (3C), enzyme RuBisCO, photorespiration present. C4: acceptor PEP, first product OAA (4C), enzyme PEPcase (then RuBisCO in bundle sheath), Kranz anatomy, no photorespiration, more efficient in heat. CAM: like C4 biochemically but CO₂ fixed at night and released to the Calvin cycle by day — spatial (C4) vs temporal (CAM) separation is the line NEET loves.',
+      },
+      {
+        topic: 'Light reaction: location, photolysis & products',
+        detail:
+          'Splitting of water is associated with PS II on the inner side of the thylakoid membrane; it releases O₂, protons and electrons. Non-cyclic flow yields ATP, NADPH and O₂; cyclic flow (only PS I) yields ATP alone. The oxygen evolved in photosynthesis comes entirely from water.',
+      },
+      {
+        topic: 'RuBisCO\'s dual nature',
+        detail:
+          'RuBisCO (the most abundant enzyme in the world) is both a carboxylase and an oxygenase. It normally favours CO₂, but when O₂ is high and CO₂ low it fixes O₂ instead, starting photorespiration — which consumes energy and releases CO₂ with no sugar or ATP gain. C4 plants avoid this by concentrating CO₂ around RuBisCO.',
+      },
+      {
+        topic: 'Limiting factors (Blackman\'s law)',
+        detail:
+          'At any moment the factor in shortest supply (light, CO₂, temperature, water) caps the rate — Blackman\'s law of limiting factors. The red-drop effect and Emerson\'s enhancement effect (two wavelengths together exceed the sum of each alone) are direct NEET recall points about the two photosystems.',
+      },
+    ],
+    traps: [
+      'Reversing PS I and PS II. PS II (P680) acts FIRST and splits water; PS I (P700) acts second and reduces NADP⁺. "Discovered second, acts first" fixes the order.',
+      'Saying the evolved O₂ comes from CO₂. It comes from the photolysis of water — proven by isotope experiments — not from carbon dioxide.',
+      'Confusing C4 and CAM separation. C4 separates the two carboxylations in SPACE (mesophyll vs bundle sheath); CAM separates them in TIME (night vs day). Both first fix CO₂ into the 4-carbon OAA.',
+      'Forgetting RuBisCO works in the bundle-sheath cells of C4 plants, not the mesophyll — and that bundle-sheath chloroplasts often lack grana. The mesophyll uses PEP carboxylase.',
+    ],
+    faqs: [
+      {
+        q: 'What is the weightage of Photosynthesis in Higher Plants in NEET?',
+        a: 'The chapter on its own is usually 1–2 questions per year (about 2–4 marks, ~2–4% of Biology). You will see higher figures (5–6%) quoted online, but those count the whole Plant Physiology unit. It is a high-value chapter per mark because the questions are direct NCERT recall — location of each step, products of the light reaction, the C3/C4 contrast and RuBisCO.',
+      },
+      {
+        q: 'What is the difference between C3, C4 and CAM plants for NEET?',
+        a: 'C3 plants fix CO₂ directly with RuBisCO onto RuBP, giving the 3-carbon 3-PGA, and suffer photorespiration. C4 plants (Kranz anatomy) first fix CO₂ with PEP carboxylase into the 4-carbon OAA in mesophyll cells, then release it to RuBisCO in bundle-sheath cells — concentrating CO₂ so there is no photorespiration. CAM plants do the same chemistry as C4 but separate it in time, fixing CO₂ at night when stomata open (an adaptation of desert succulents).',
+      },
+      {
+        q: 'Where does the oxygen released in photosynthesis come from?',
+        a: 'From water, not carbon dioxide. During the light reaction, photosystem II drives the photolysis (splitting) of water, releasing O₂, protons and electrons. Isotope-labelling experiments confirmed the evolved oxygen carries the oxygen of water — a fact NEET tests almost every cycle.',
+      },
+      {
+        q: 'Why is RuBisCO important and what is photorespiration?',
+        a: 'RuBisCO is the enzyme that fixes CO₂ in the Calvin cycle and is the most abundant protein on Earth. It can also bind O₂: when oxygen is high and CO₂ low, it acts as an oxygenase and starts photorespiration, a wasteful pathway that consumes energy and releases CO₂ without making sugar or ATP. C4 plants minimise this by pumping CO₂ around RuBisCO, which is why they are more efficient in hot, bright conditions.',
+      },
+    ],
+  },
+
+  'neet-physics-ray-optics': {
+    overview:
+      'Ray Optics & Optical Instruments is among the highest-weight and most dependable scorers in NEET Physics: about 3 questions most years (~5–6% of the section, ~12 marks), and they are overwhelmingly formula-direct — mirror/lens equation, magnification, Snell\'s law, total internal reflection, lens power and the prism/instrument formulas. The only thing standing between a prepared student and full marks here is the sign convention: get the New Cartesian convention automatic and the chapter becomes near-guaranteed marks. It pairs with Wave Optics, but the two are separate chapters and should not be conflated when you plan your revision.',
+    examSplit: [
+      { exam: 'NEET (3-yr avg)', weightage: '~5–6% of Physics', questions: '~3 per year (~12 marks)', nature: 'Formula-direct: mirror/lens equation, TIR, prism, lens combination, instruments' },
+      { exam: 'Recent trend', weightage: '—', questions: '2023: 3 · 2024: 2 · 2025: 2', nature: 'Consistently 2–3 questions; one of the most reliable Physics scorers' },
+    ],
+    correction:
+      'The "optics is ~12%" figure combines Ray Optics AND Wave Optics. Ray Optics alone is about 3 questions (~5–6%); Wave Optics adds roughly 1 more. Plan them separately — Ray Optics is high-yield and mostly numerical, while Wave Optics (interference/diffraction) is smaller and more conceptual.',
+    studyOrder: [
+      { step: 'Sign convention first', detail: 'New Cartesian convention: measure everything from the pole, distances along the incident light are positive. For a real object u is negative; concave mirror and convex lens have negative and positive focal length respectively. Locking this in before any formula is what makes the rest error-free.' },
+      { step: 'Mirrors', detail: 'Mirror formula 1/v + 1/u = 1/f and magnification m = −v/u = h\'/h. Practise real-vs-virtual image cases for concave and convex mirrors until the sign of m tells you the image nature instantly.' },
+      { step: 'Refraction, Snell & TIR', detail: 'n₁ sinθ₁ = n₂ sinθ₂; critical angle sinθ_c = n₂/n₁ (light must go from denser to rarer for TIR). Apparent depth = real depth / n, and the shift through a glass slab, are recurring direct questions.' },
+      { step: 'Lenses', detail: 'Lens formula 1/v − 1/u = 1/f, lensmaker\'s 1/f = (n−1)(1/R₁ − 1/R₂), power P = 1/f (in metres, dioptres), and lenses in contact P = P₁ + P₂. The combination-power question appears almost every year.' },
+      { step: 'Prism & optical instruments last', detail: 'Prism: A + δ = i + e, minimum deviation n = sin((A+δ_m)/2)/sin(A/2), and dispersion. Then microscope and telescope magnifying power and the idea of resolving power.' },
+    ],
+    highYield: [
+      {
+        topic: 'Mirror & lens equations with magnification',
+        detail:
+          'The core numerical engine: 1/v + 1/u = 1/f (mirror), 1/v − 1/u = 1/f (lens), with m = −v/u (mirror) and m = v/u (lens). Most direct questions are one substitution with correct signs; the sign of m then gives erect/inverted and real/virtual without a ray diagram.',
+      },
+      {
+        topic: 'Total internal reflection & critical angle',
+        detail:
+          'TIR needs light travelling from a denser to a rarer medium at an angle beyond the critical angle, sinθ_c = n_rarer/n_denser. It explains optical fibres, the sparkle of diamond (high n ⇒ small θ_c) and the mirage — all favourite NEET applications.',
+      },
+      {
+        topic: 'Lens power, lensmaker & combination',
+        detail:
+          'P = 1/f (dioptres, f in metres); for thin lenses in contact P = P₁ + P₂ + …, so a converging and diverging lens can combine to a net power. The lensmaker\'s equation links focal length to the radii of curvature and refractive index — useful for "what happens to f when the lens is put in water" questions.',
+      },
+      {
+        topic: 'Prism, dispersion & instruments',
+        detail:
+          'Prism: A + δ = i + e; at minimum deviation i = e and the ray passes symmetrically. Dispersive power ω = (n_v − n_r)/(n_y − 1). For instruments, compound microscope M ≈ (L/f_o)(D/f_e) and astronomical telescope (normal adjustment) M = f_o/f_e with length f_o + f_e — direct formula questions.',
+      },
+    ],
+    traps: [
+      'Sign-convention slips. The New Cartesian convention must be applied to every quantity; a single wrong sign (especially u for a real object, which is negative) flips the whole answer. This is the number-one cause of lost marks in the chapter.',
+      'Applying TIR in the wrong direction. Total internal reflection happens only when light goes from a denser to a rarer medium (e.g. glass to air), never the reverse — and only beyond the critical angle.',
+      'Confusing the mirror and lens magnification signs (m = −v/u for mirrors but m = v/u for lenses) and forgetting that the sign of m encodes whether the image is erect or inverted.',
+      'Forgetting power adds with sign in a lens combination: a convex (+) and concave (−) lens in contact give P₁ + P₂, which can be net converging or diverging depending on magnitudes.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Ray Optics in NEET?',
+        a: 'About 3 in a typical year (~5–6% of the Physics section, ~12 marks). Recent papers ran roughly 3 in 2023 and 2 each in 2024 and 2025, so 2–3 is the reliable range. It is one of the highest-weight Physics chapters and, because the questions are mostly formula-direct, one of the easiest places to secure full marks.',
+      },
+      {
+        q: 'Is Ray Optics or the whole of Optics 12% of NEET Physics?',
+        a: 'The ~12% figure is Ray Optics and Wave Optics combined. Ray Optics on its own is about 3 questions (~5–6%); Wave Optics adds roughly one more. They are separate chapters — Ray Optics is larger and numerical (mirrors, lenses, TIR, prism, instruments), while Wave Optics (interference, diffraction) is smaller and more conceptual — so revise them separately rather than as one block.',
+      },
+      {
+        q: 'How do I stop making sign-convention mistakes in optics?',
+        a: 'Adopt the New Cartesian convention and apply it mechanically: take the pole/optical centre as origin, distances measured along the incident light as positive. For a real object u is always negative; a concave mirror\'s focal length is negative, a convex lens\'s is positive. Write the formula, substitute with signs, and let the sign of the answer tell you whether the image is real/virtual and erect/inverted — never guess the nature first.',
+      },
+      {
+        q: 'What is total internal reflection and where is it asked in NEET?',
+        a: 'Total internal reflection occurs when light travelling in a denser medium hits the boundary with a rarer medium at an angle larger than the critical angle (sinθ_c = n_rarer/n_denser), so all the light reflects back. NEET asks it through applications — optical fibres, the brilliance of diamond (large refractive index gives a small critical angle), and the mirage — as well as direct critical-angle calculations.',
       },
     ],
   },
