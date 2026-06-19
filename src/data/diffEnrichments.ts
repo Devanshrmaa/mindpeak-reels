@@ -238,6 +238,189 @@ const enrichments: DiffEnrichment[] = [
       },
     ],
   },
+
+  // ── Oxidation vs Reduction (JEE/NEET Chemistry — Redox Reactions) ──
+  {
+    slug: 'difference-between-oxidation-and-reduction',
+    examWeightage:
+      'Redox Reactions is a small standalone Class 11 chapter — usually about 1 question per year in NEET and 1 in JEE Main — but its real weight is hidden: the oxidation-number skill you build here is reused in Electrochemistry, the d- and p-block, qualitative analysis and balancing equations, which together are 4–6 questions. So "low weightage" is misleading; if oxidation numbers are shaky, several other chapters quietly bleed marks.',
+    fastTip: {
+      title: 'Forget oxygen and hydrogen — track the oxidation number',
+      body:
+        'The oxygen-gain / hydrogen-loss definitions fail on most modern equations. The reliable test: assign oxidation numbers and watch the central atom. Oxidation number goes UP → that species is oxidised (and is the reducing agent). Oxidation number goes DOWN → that species is reduced (and is the oxidising agent). The species that is oxidised is the reducing agent — examiners flip this label constantly.',
+    },
+    extraTable: {
+      title: 'The oxidation-number rules — apply them in this order',
+      intro:
+        'Almost every "which is oxidised / reduced" or "find the oxidation state" question is solved by applying these rules top-to-bottom until one atom is left to balance. None of the top-ranking pages list them as an ordered procedure.',
+      headers: ['Rule (apply in order)', 'Oxidation number', 'Example / exception'],
+      rows: [
+        ['Free element (uncombined)', '0', 'Na, O₂, Cl₂, P₄, S₈ are all 0'],
+        ['Monatomic ion', 'Equal to its charge', 'Na⁺ = +1, S²⁻ = −2, Al³⁺ = +3'],
+        ['Fluorine (always)', '−1', 'The only element with no exception'],
+        ['Oxygen (usually)', '−2', 'Peroxides (H₂O₂) = −1; OF₂ = +2'],
+        ['Hydrogen (usually)', '+1', 'Metal hydrides (NaH, CaH₂) = −1'],
+        ['Sum of all oxidation numbers', '= 0 (neutral) or = ion charge', 'In SO₄²⁻: S + 4(−2) = −2 ⇒ S = +6'],
+      ],
+    },
+    traps: [
+      {
+        mistake: '"The oxidising agent is the substance that gets oxidised."',
+        correction:
+          'The opposite. The oxidising agent OXIDISES something else, so it is itself REDUCED (it gains electrons, oxidation number drops). The reducing agent is the one that gets oxidised. In Zn + Cu²⁺ → Zn²⁺ + Cu, Zn is the reducing agent (oxidised, 0→+2) and Cu²⁺ is the oxidising agent (reduced, +2→0).',
+      },
+      {
+        mistake: '"Oxidation always needs oxygen and reduction always removes it."',
+        correction:
+          'That is only the oldest, narrowest definition. In 2Na + Cl₂ → 2NaCl there is no oxygen at all, yet Na is oxidised (0→+1) and Cl is reduced (0→−1). Use the electron / oxidation-number definition, which works for every redox reaction.',
+      },
+      {
+        mistake: '"A single element can\'t be oxidised and reduced in the same reaction."',
+        correction:
+          'It can — that is disproportionation. In Cl₂ + 2OH⁻ → Cl⁻ + ClO⁻ + H₂O, chlorine (0) is simultaneously reduced to Cl⁻ (−1) and oxidised to ClO⁻ (+1). H₂O₂ behaving as both oxidising and reducing agent is the classic NEET/JEE example.',
+      },
+    ],
+    faqs: [
+      {
+        q: 'How do I quickly tell which substance is oxidised and which is reduced?',
+        a: 'Assign oxidation numbers to every atom on both sides, then compare the same element before and after. The element whose oxidation number increased was oxidised; the one whose number decreased was reduced. You never need to track oxygen or hydrogen separately if you do this.',
+      },
+      {
+        q: 'What is the OIL RIG mnemonic and is it enough for JEE/NEET?',
+        a: 'OIL RIG = "Oxidation Is Loss, Reduction Is Gain" (of electrons). It is the correct core idea and a good memory hook, but for actual problems you also need to assign oxidation numbers and identify the oxidising/reducing agents — OIL RIG alone won\'t solve a balancing or "identify the agent" MCQ.',
+      },
+      {
+        q: 'What is a disproportionation reaction?',
+        a: 'A redox reaction in which the SAME element is both oxidised and reduced. The element must be in an intermediate oxidation state so it can go both up and down. Classic examples: Cl₂ in cold alkali (0 → −1 and +1), 2H₂O₂ → 2H₂O + O₂ (oxygen −1 → −2 and 0), and 3MnO₄²⁻ + 4H⁺ → 2MnO₄⁻ + MnO₂ + 2H₂O.',
+      },
+      {
+        q: 'Is rusting of iron oxidation or reduction?',
+        a: 'Rusting is a redox process: iron is oxidised (Fe: 0 → +3 in Fe₂O₃·xH₂O) while atmospheric oxygen is reduced (O: 0 → −2). As always, both happen together — iron loses electrons, oxygen gains them.',
+      },
+    ],
+  },
+
+  // ── Mixture vs Compound (Chemistry — Classification of Matter) ──
+  {
+    slug: 'difference-between-mixture-and-compound',
+    examWeightage:
+      'Classification of matter (element / compound / mixture, and homogeneous vs heterogeneous) is foundation Class 9 / early Class 11 material. It rarely appears as a direct question in JEE/NEET, but "classify the following" and pure-vs-impure-substance statements show up in NEET assertion-reason items and in the Some Basic Concepts of Chemistry unit. The real value is conceptual: getting this wrong corrupts mole-concept and solution problems later.',
+    fastTip: {
+      title: 'Three questions that classify any sample',
+      body:
+        'Ask in order: (1) Is the composition fixed by a formula? Fixed → compound; variable → mixture. (2) Did mixing release/absorb heat and create NEW properties? Yes → compound; no → mixture. (3) Can you separate it by a physical method (filter, distil, magnet, evaporate)? Yes → mixture; only chemical reaction can split it → compound. Air passes the "mixture" test on all three; water fails all three (it is a compound).',
+    },
+    extraTable: {
+      title: 'Classify these — the samples examiners actually use',
+      intro:
+        'The plain mixture-vs-compound table is easy; marks are lost on borderline samples. Work through these and the reasoning sticks.',
+      headers: ['Sample', 'Element / Compound / Mixture', 'Why'],
+      rows: [
+        ['Air', 'Homogeneous mixture', 'Variable ratio of N₂, O₂, Ar, CO₂; no fixed formula; gases keep their properties'],
+        ['Sea water', 'Homogeneous mixture', 'Water + dissolved salts in variable amount; salt separable by evaporation'],
+        ['Brass / Bronze (alloys)', 'Homogeneous mixture', 'Cu+Zn (brass) in variable ratio — alloys are solid solutions, NOT compounds'],
+        ['Common salt (NaCl)', 'Compound', 'Na:Cl fixed 1:1; new properties; split only by electrolysis (chemical)'],
+        ['Distilled water (H₂O)', 'Compound', 'Fixed 2:1 H:O ratio, single boiling point of 100°C at 1 atm'],
+        ['Milk', 'Heterogeneous mixture (colloid)', 'Fat droplets dispersed in water — looks uniform but is a colloid, not a true solution'],
+        ['Diamond / Graphite', 'Element (allotropes of carbon)', 'Only one kind of atom (C); not a compound despite different appearances'],
+      ],
+    },
+    traps: [
+      {
+        mistake: '"Alloys like brass and steel are compounds because they are uniform."',
+        correction:
+          'Alloys are homogeneous MIXTURES (solid solutions). Their composition varies (brass can be 60–70% Cu), they have no fixed formula, and the metals can in principle be separated. Uniform appearance ≠ compound.',
+      },
+      {
+        mistake: '"A mixture has a sharp, fixed melting/boiling point like a pure substance."',
+        correction:
+          'No — a pure compound melts/boils at one fixed temperature; a mixture melts/boils over a RANGE. This is exactly how chemists check purity: an impurity lowers and broadens the melting point.',
+      },
+      {
+        mistake: '"All mixtures are cloudy/heterogeneous; anything that looks uniform is a compound."',
+        correction:
+          'Homogeneous mixtures (solutions like salt water, air, brass) look perfectly uniform but are still mixtures. Appearance does not decide it — fixed composition and new properties do.',
+      },
+    ],
+    faqs: [
+      {
+        q: 'Is air a mixture or a compound?',
+        a: 'Air is a homogeneous mixture, not a compound. It is roughly 78% N₂, 21% O₂, ~1% Ar plus traces of CO₂ and water vapour — but those proportions vary with place and altitude, there is no fixed formula, and the gases retain their own properties and can be separated by fractional distillation of liquid air.',
+      },
+      {
+        q: 'Why does a mixture have a variable composition but a compound does not?',
+        a: 'In a compound, atoms are chemically bonded in a fixed whole-number ratio set by the chemical formula (Law of Definite Proportions) — water is always 2 H : 1 O by atoms. In a mixture, substances are only physically mingled with no bonding, so you can add more or less of any component, making the ratio variable.',
+      },
+      {
+        q: 'What is the difference between a homogeneous and a heterogeneous mixture?',
+        a: 'A homogeneous mixture has a uniform composition throughout with no visible boundaries (salt water, air, brass) — also called a solution. A heterogeneous mixture has a non-uniform composition with visible different parts (sand in water, oil and water, a salad). Colloids like milk are technically heterogeneous at the microscopic level even though they look uniform.',
+      },
+      {
+        q: 'Can a compound be separated by physical methods?',
+        a: 'No. A compound can only be broken into its elements by a chemical change (e.g. electrolysis of water into H₂ and O₂, or heating to decompose it). Physical methods — filtration, evaporation, distillation, magnetism — separate the components of a MIXTURE, because nothing is chemically bonded there.',
+      },
+    ],
+  },
+
+  // ── Element vs Compound (Chemistry — Classification of Matter / Pure Substances) ──
+  {
+    slug: 'difference-between-element-and-compound',
+    examWeightage:
+      'Element vs compound sits in the same foundation block as classification of matter and the mole concept (Some Basic Concepts of Chemistry). It is rarely a standalone JEE/NEET question, but the ideas — pure substance, atomicity, allotropy — feed straight into atomic structure, periodic classification and stoichiometry. Class 9–11 students searching this are usually one step away from the "is O₂ an element or a compound?" trap below.',
+    fastTip: {
+      title: 'Two checks that never fail',
+      body:
+        'Check 1 — Can it be split into simpler substances by a CHEMICAL change? An element cannot (it is the simplest form of matter); a compound can (e.g. water → H₂ + O₂ by electrolysis). Check 2 — Is it on the periodic table? Only the 118 elements are; no compound is. O₂ passes both as an element: it is one kind of atom and electrolysis cannot simplify it further.',
+    },
+    extraTable: {
+      title: 'The four families of elements (don\'t confuse them with compounds)',
+      intro:
+        'A compound always mixes two or more DIFFERENT elements. An element is one kind of atom — but elements come in families and forms that students mislabel as compounds.',
+      headers: ['Type', 'Key property', 'Examples'],
+      rows: [
+        ['Metals', 'Lustrous, conduct heat/electricity, lose electrons', 'Na, Fe, Cu, Al, Au'],
+        ['Non-metals', 'Poor conductors, gain or share electrons', 'O, N, S, C, Cl'],
+        ['Metalloids', 'Properties between metal and non-metal', 'Si, Ge, As, B (semiconductors)'],
+        ['Noble gases', 'Chemically inert, exist as single atoms', 'He, Ne, Ar, Kr'],
+        ['Allotropes (same element, different forms)', 'One element, different physical structures', 'Carbon → diamond, graphite, fullerene; O₂ vs O₃'],
+      ],
+    },
+    traps: [
+      {
+        mistake: '"O₂ is a compound because it has two atoms / a formula."',
+        correction:
+          'O₂ is an ELEMENT. A compound needs two or more DIFFERENT elements. O₂ is two atoms of the same element (oxygen) bonded together — a molecule of an element. Same for N₂, H₂, Cl₂, O₃, P₄, S₈. Having a subscript does not make something a compound.',
+      },
+      {
+        mistake: '"Every molecule is a compound."',
+        correction:
+          'A molecule is just two or more atoms bonded together. If those atoms are the same element (O₂, N₂) it is a molecule of an element; only if they are different elements (H₂O, CO₂) is it a compound. So "molecule" ≠ "compound".',
+      },
+      {
+        mistake: '"Diamond and graphite are different compounds of carbon."',
+        correction:
+          'Both are pure carbon — a single element. They are allotropes: the same element arranged in different structures (tetrahedral network in diamond, layered sheets in graphite). No second element is involved, so neither is a compound.',
+      },
+    ],
+    faqs: [
+      {
+        q: 'Is oxygen (O₂) an element or a compound?',
+        a: 'Oxygen is an element. O₂ is a molecule made of two atoms of the SAME element, so it is a "molecule of an element", not a compound. A compound must contain at least two different elements — for example CO₂ (carbon + oxygen) is a compound, but O₂ is not.',
+      },
+      {
+        q: 'How many elements are there, and how many occur naturally?',
+        a: 'There are 118 known elements on the modern periodic table. About 94 occur naturally on Earth; the rest (mostly beyond uranium, atomic number 92) are synthetic, made in labs or reactors. The number of compounds, by contrast, runs into the tens of millions because elements combine in countless ratios.',
+      },
+      {
+        q: 'What is an allotrope, and why is it not a compound?',
+        a: 'Allotropes are different physical forms of the SAME element in the same state — for example carbon as diamond, graphite and fullerene, or oxygen as O₂ and ozone O₃. Because only one element is present, an allotrope is still that element, never a compound.',
+      },
+      {
+        q: 'Are both elements and compounds pure substances?',
+        a: 'Yes. Both have a fixed, definite composition, so both are classified as pure substances — the opposite of mixtures, which have variable composition. The difference is that an element contains only one kind of atom, while a compound contains two or more kinds chemically bonded in a fixed ratio.',
+      },
+    ],
+  },
 ];
 
 export function getDiffEnrichment(slug: string): DiffEnrichment | undefined {
