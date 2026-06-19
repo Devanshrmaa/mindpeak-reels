@@ -753,6 +753,66 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
     ],
   },
 
+  'jee-chemistry-chemical-equilibrium': {
+    overview:
+      'Chemical Equilibrium is a small but reliable scorer, and the first thing to fix is what "weightage" actually refers to. Almost every article online quotes a combined "Chemical + Ionic Equilibrium" figure (~6–7%, 2 questions) — but those are two separate chapters. This page is Chemical Equilibrium proper: the law of mass action, Kc/Kp, the reaction quotient and Le Chatelier\'s principle. On its own it is about 1 question per JEE Main shift, almost always formula-direct. The pH, buffer and solubility-product material that inflates the "equilibrium" count lives in Ionic Equilibrium, a different (and harder) chapter.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~3–4% of Chemistry (chapter alone)', questions: '~1 per shift', nature: 'Direct: Kp–Kc relation, Q-vs-K direction, Le Chatelier prediction, degree of dissociation' },
+      { exam: 'JEE Advanced', weightage: '~2–3% (rarely standalone)', questions: '~1, often fused', nature: 'Linked with thermodynamics (ΔG° = −RT ln K) and ionic equilibrium in one multi-part problem' },
+    ],
+    correction:
+      'The widely-quoted "Equilibrium = 2 questions / 6.6%" figure is for Chemical AND Ionic Equilibrium combined. Chemical Equilibrium by itself (Kc, Kp, Le Chatelier) is closer to 1 question per shift. Read that number correctly so you do not over- or under-invest — the heavy numerical load (pH, buffers, Ksp) is in the separate Ionic Equilibrium chapter.',
+    studyOrder: [
+      { step: 'Law of mass action and the equilibrium constant', detail: 'Write Kc for homogeneous and heterogeneous equilibria first — and learn the single rule that catches most students: pure solids and pure liquids are left out of the expression. Everything else builds on writing K correctly.' },
+      { step: 'Kp, and Kp = Kc(RT)^Δn', detail: 'Δn = (moles of gaseous product) − (moles of gaseous reactant). Get the sign of Δn right and this conversion is a guaranteed mark; get it wrong and the whole numerical collapses.' },
+      { step: 'Reaction quotient Q vs K — predicting direction', detail: 'If Q < K the reaction goes forward, if Q > K it goes backward, if Q = K it is at equilibrium. This "which way does it shift" logic is a favourite single-correct question and takes ten seconds once the habit is built.' },
+      { step: 'Le Chatelier\'s principle', detail: 'Apply it to changes in concentration, pressure/volume and temperature. The system shifts to oppose the change — toward fewer gas moles under higher pressure, toward the endothermic side on heating. A catalyst changes neither K nor the position of equilibrium.' },
+      { step: 'Degree of dissociation (α)', detail: 'Express Kp/Kc in terms of α and initial pressure/concentration for a dissociation like PCl₅ ⇌ PCl₃ + Cl₂. This ties the chapter together and is the most common "show your working" numerical type.' },
+    ],
+    highYield: [
+      {
+        topic: 'Kp–Kc relation and the sign of Δn',
+        detail:
+          'Kp = Kc(RT)^Δn. For N₂ + 3H₂ ⇌ 2NH₃, Δn = 2 − 4 = −2, so Kp = Kc(RT)⁻². Reactions with equal gas moles on both sides (e.g. H₂ + I₂ ⇌ 2HI) have Δn = 0 and Kp = Kc — a frequently-tested special case.',
+      },
+      {
+        topic: 'Degree of dissociation and Kp(α)',
+        detail:
+          'For a one-into-two gas dissociation A ⇌ B + C at total pressure P, Kp = α²P/(1 − α²). For small α this approximates Kp ≈ α²P, so α ∝ 1/√P — increasing pressure suppresses dissociation, which is Le Chatelier in algebraic form.',
+      },
+      {
+        topic: 'Le Chatelier predictions (qualitative)',
+        detail:
+          'Increase pressure → shift toward fewer gas moles; add an inert gas at constant volume → no shift (partial pressures unchanged); add inert gas at constant pressure → shift toward more moles; raise temperature → shift in the endothermic direction and change K. These "predict the shift" questions are pure marks.',
+      },
+      {
+        topic: 'ΔG° = −RT ln K (the thermodynamics bridge)',
+        detail:
+          'Connects equilibrium to thermodynamics: a large positive K means a large negative ΔG° (spontaneous), K = 1 means ΔG° = 0. JEE Advanced loves to ask for K given ΔG° (or vice versa) inside a thermodynamics problem.',
+      },
+    ],
+    traps: [
+      'Putting pure solids or liquids into the equilibrium expression. For CaCO₃(s) ⇌ CaO(s) + CO₂(g), Kp = p(CO₂) only — the two solids do not appear.',
+      'Thinking a catalyst shifts the equilibrium. A catalyst speeds up forward and backward reactions equally; it changes neither K nor the equilibrium position — only how fast equilibrium is reached.',
+      'Getting the sign of Δn wrong in Kp = Kc(RT)^Δn. Count gaseous moles only, products minus reactants — liquids and solids are not counted.',
+      'Assuming adding an inert gas always shifts the equilibrium. At constant volume it does nothing (partial pressures unchanged); only at constant pressure (which increases the volume) does it shift the equilibrium toward more gaseous moles.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Chemical Equilibrium in JEE Main?',
+        a: 'About one question per shift from Chemical Equilibrium specifically (Kc/Kp, Le Chatelier, degree of dissociation). The higher "2 questions / ~6.6%" figure you see online is for Chemical and Ionic Equilibrium counted together — and Ionic Equilibrium (pH, buffers, Ksp) is a separate, more numerical chapter.',
+      },
+      {
+        q: 'Is Chemical Equilibrium easy to score in JEE?',
+        a: 'Yes. Most JEE Main questions are formula-direct — apply Kp = Kc(RT)^Δn, compare Q with K to predict direction, or use Le Chatelier qualitatively. The only care needed is leaving solids/liquids out of the expression and getting the sign of Δn right. It is one of the quickest chapters to make exam-ready.',
+      },
+      {
+        q: 'What is the difference between Kc and Kp?',
+        a: 'Kc uses molar concentrations, Kp uses partial pressures of the gases. They are related by Kp = Kc(RT)^Δn, where Δn is the change in the number of gaseous moles (products − reactants). When Δn = 0 the two are numerically equal.',
+      },
+      {
+        q: 'Does a catalyst change the equilibrium constant?',
+        a: 'No. A catalyst lowers the activation energy for both the forward and backward reactions by the same amount, so it speeds up the approach to equilibrium but leaves the equilibrium constant K and the position of equilibrium unchanged. This is a classic JEE trap question.',
   'jee-physics-ray-optics': {
     overview:
       'Ray Optics is one of the most formula-driven, dependable scorers in JEE Physics — but the weightage numbers quoted online are misleading because almost every article reports "Optics" as Ray Optics + Wave Optics combined across both the January and April sessions and all shifts (those "12–24 questions a year" figures). Taken alone, Ray Optics is reliably 2–3 questions per shift in JEE Main, and they are direct: mirror/lens formula, magnification, prism, total internal reflection, lens combinations. In JEE Advanced it carries ~6–7% but the questions fuse refraction at several surfaces, lens-and-mirror systems and instrument optics into one multi-step setup. The whole chapter rests on one disciplined habit — the Cartesian sign convention — so the marks come down to bookkeeping, not insight.',
@@ -820,6 +880,194 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
 
   'jee-maths-application-of-derivatives': {
     overview:
+      'Application of Derivatives (AOD) is the highest-frequency single chapter in JEE calculus, but it behaves very differently in the two papers. In JEE Main it is 2–3 mostly-direct questions per paper — tangent/normal, where a function increases or decreases, and maxima/minima. In JEE Advanced the same chapter becomes the vehicle for the hard reasoning questions: using LMVT and Rolle\'s theorem to prove inequalities or the existence of a root, and multi-variable optimisation. So the chapter is unskippable, but what you practise should depend on which paper you are targeting.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~6–8% of Maths', questions: '2–3 per paper', nature: 'Direct: tangent/normal slope, monotonic intervals, local/global maxima–minima, simple rate of change' },
+      { exam: 'JEE Advanced', weightage: '~3–5% but high-difficulty', questions: '1–2, reasoning-heavy', nature: 'LMVT/Rolle to prove inequalities & root existence, optimisation, derivative as a tool inside other chapters' },
+    ],
+    correction:
+      'Several weightage tables quote AOD as "low" (1–2 questions, ~2–3%) because they read the Advanced count in isolation. That undersells it: derivatives are also the engine behind curve sketching, inequality proofs and the analysis steps inside integration and probability questions. The chapter\'s real footprint — direct plus as-a-tool — is larger than its standalone question count suggests.',
+    studyOrder: [
+      { step: 'Derivative as rate of change and slope', detail: 'Re-anchor dy/dx as "slope of the tangent" and as a rate. Almost every AOD subtopic is one of these two readings, so make the interpretation automatic before touching applications.' },
+      { step: 'Tangent and normal', detail: 'Slope of tangent = dy/dx at the point; normal slope is its negative reciprocal. Learn the tangent-from-an-external-point case separately — it needs an unknown point of contact, which is where students slip.' },
+      { step: 'Increasing / decreasing (monotonicity)', detail: 'f′(x) > 0 ⇒ increasing, f′(x) < 0 ⇒ decreasing. Solve f′(x) > 0 as an inequality and read off intervals. This is the bridge to maxima/minima and to Advanced inequality proofs.' },
+      { step: 'Maxima and minima', detail: 'First-derivative test (sign change of f′) and second-derivative test (f″ > 0 ⇒ minimum). For a closed interval, always also check the endpoints for the global extremum — the single most common Main mistake.' },
+      { step: 'Rolle\'s theorem and LMVT', detail: 'Check continuity and differentiability first, then apply. Rolle (f(a) = f(b)) proves a root of f′; LMVT gives f′(c) = (f(b) − f(a))/(b − a). These power most Advanced inequality and existence questions.' },
+      { step: 'Optimisation word problems', detail: 'Translate the situation into f(x) of one variable, set f′(x) = 0, confirm with the second-derivative test. Maximum-area/volume and minimum-cost problems are the recurring Main types.' },
+    ],
+    highYield: [
+      {
+        topic: 'Maxima and minima (including closed-interval global extrema)',
+        detail:
+          'The single most-asked AOD theme in JEE Main. Find critical points from f′(x) = 0, classify with the second-derivative test, and for a closed interval compare those values with f at the endpoints. The global maximum/minimum can sit at an endpoint even when there is an interior critical point.',
+      },
+      {
+        topic: 'Monotonicity via f′(x) sign',
+        detail:
+          'Determining the intervals where a function increases or decreases, and parameter problems ("find a so that f is increasing for all x"). These reduce to a quadratic/sign inequality in f′ and appear in nearly every paper.',
+      },
+      {
+        topic: 'LMVT and Rolle for inequalities (Advanced)',
+        detail:
+          'Advanced uses the mean value theorems to prove inequalities such as |sin a − sin b| ≤ |a − b|, or to show an equation has exactly one root in an interval (Rolle on a constructed function). Recognising "prove this inequality" as an MVT problem is the key skill.',
+      },
+      {
+        topic: 'Tangent, normal and angle of intersection',
+        detail:
+          'Equation of tangent/normal at a point, tangent from an external point (solve for the point of contact), and the angle between two curves (via the slopes at intersection). Direct, formulaic Main marks once the external-point case is practised.',
+      },
+    ],
+    traps: [
+      'Forgetting to test the endpoints for the global maximum/minimum on a closed interval — the interior critical point is not always the answer.',
+      'Trusting the second-derivative test when f″(c) = 0. It is inconclusive there; fall back to the first-derivative (sign-change) test or higher derivatives.',
+      'Applying Rolle\'s theorem or LMVT without first checking continuity on [a, b] and differentiability on (a, b). A function that fails a hypothesis can have no such c, and JEE sets these counterexamples deliberately.',
+      'Confusing "tangent at a given point" with "tangent from an external point". The external-point case has an unknown point of contact and usually yields two tangents, not one.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Application of Derivatives in JEE Main?',
+        a: 'Typically 2–3 questions per paper (about 6–8% of the Maths section), mostly direct: tangent/normal, increasing–decreasing intervals, and maxima/minima. It is consistently one of the highest-frequency calculus chapters in Main.',
+      },
+      {
+        q: 'Is Application of Derivatives important for JEE Advanced?',
+        a: 'Yes, but in a different way. Advanced asks fewer standalone AOD questions, yet uses derivatives as the tool for its hardest reasoning — proving inequalities and the existence of roots with LMVT/Rolle, and multi-step optimisation. The chapter is unskippable for Advanced even though its raw question count looks modest.',
+      },
+      {
+        q: 'Which topic in Application of Derivatives is most important?',
+        a: 'Maxima and minima — especially global extrema on a closed interval and optimisation word problems — is the most-tested theme in JEE Main. For Advanced, add the mean value theorems (Rolle and LMVT) used to prove inequalities and root existence.',
+      },
+      {
+        q: 'Why is Application of Derivatives considered hard?',
+        a: 'The direct Main questions are not hard; the difficulty is in the Advanced applications — recognising that an inequality should be attacked with LMVT, or that a root-existence claim needs Rolle on a cleverly constructed function. Once you map each question type to its tool, the chapter becomes systematic.',
+      },
+    ],
+  },
+
+  'jee-physics-gravitation': {
+    overview:
+      'Gravitation is a compact, dependable scorer that most weightage articles describe in JEE Main terms only. In Main it is 1–2 mostly-direct questions per shift — variation of g, escape and orbital velocity, satellite energy and Kepler\'s laws. In Advanced it appears less often but more deeply: gravitation fused with SHM (the classic tunnel-through-the-earth problem), with energy conservation, or with rotational ideas. The formulas are few and the question types repeat, which is why a focused week usually makes this chapter exam-ready.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~3–5% of Physics', questions: '1–2 per shift', nature: 'Direct: g with height/depth, escape vs orbital velocity, satellite energy, Kepler\'s third law' },
+      { exam: 'JEE Advanced', weightage: '~3–4%, fused', questions: '~1, multi-concept', nature: 'Gravitation + SHM (tunnel through earth), orbital energy/transfer, field & potential of distributions' },
+    ],
+    correction:
+      'You will see "5–7%, 4–5 questions" quoted (e.g. 4 in 2023, 4 in 2024, 5 in 2025). That count is aggregated across all shifts/sessions of a year, not what one student faces. In a single JEE Main paper, expect 1–2 Gravitation questions — plan your prep time against that, not the inflated annual total.',
+    studyOrder: [
+      { step: 'Newton\'s law, gravitational field and potential', detail: 'F = GMm/r², field g = GM/r², and potential V = −GM/r. Fix the sign convention now (potential and potential energy are negative, zero at infinity) — most chapter errors trace back to a dropped minus sign.' },
+      { step: 'Variation of g', detail: 'With height: g_h = g(1 − 2h/R) for h ≪ R; with depth: g_d = g(1 − d/R); plus the effect of Earth\'s rotation (g is least at the equator). The height and depth formulas look alike but are not — mixing them up is the classic trap.' },
+      { step: 'Escape and orbital velocity', detail: 'v_orbital = √(GM/r) for a circular orbit, v_escape = √(2GM/R). The neat relation v_escape = √2 · v_orbital (at the surface) is a frequent one-line question, and escape velocity is independent of the projectile\'s mass and direction.' },
+      { step: 'Satellite energy', detail: 'For a circular orbit: KE = +GMm/2r, PE = −GMm/r, total E = −GMm/2r. So total energy is negative (bound) and equal to −KE. Binding energy = GMm/2r. These three lines answer most satellite-energy questions.' },
+      { step: 'Kepler\'s laws', detail: 'Law of orbits (ellipse), law of areas (areal velocity constant = angular-momentum conservation), and T² ∝ r³. Most Kepler questions are ratio problems built on T² ∝ r³ or on equal-area reasoning at perigee/apogee.' },
+    ],
+    highYield: [
+      {
+        topic: 'Satellite energy relations',
+        detail:
+          'For a circular orbit, E = −GMm/2r, KE = −E, PE = 2E. Questions ask for the energy needed to move a satellite to a higher orbit (ΔE = GMm/2 · (1/r₁ − 1/r₂)) or for the binding energy. Knowing E = −KE closes almost all of them.',
+      },
+      {
+        topic: 'Variation of g with height and depth',
+        detail:
+          'g_h = g(1 − 2h/R) near the surface (and g(R/(R+h))² in general); g_d = g(1 − d/R). At the centre of the Earth g = 0. The factor of 2 in the height formula versus its absence in the depth formula is the most-tested distinction.',
+      },
+      {
+        topic: 'Escape vs orbital velocity',
+        detail:
+          'v_orbital = √(GM/r), v_escape = √(2GM/R), so v_escape = √2 · v_orbital at the surface (≈ 11.2 km/s for Earth). Escape velocity does not depend on the mass or launch direction of the body — a recurring conceptual question.',
+      },
+      {
+        topic: 'Kepler\'s third law and areal velocity',
+        detail:
+          'T² ∝ r³ (or a³ for an ellipse) drives the ratio problems; conservation of areal velocity (r²ω = constant) gives the speed ratio at perigee and apogee (v_p · r_p = v_a · r_a). These two ideas cover the Kepler questions.',
+      },
+    ],
+    traps: [
+      'Dropping the negative sign in gravitational PE/potential. Gravitational potential energy is −GMm/r (zero at infinity, more negative closer in); a positive PE is almost always a sign error.',
+      'Swapping the height and depth formulas for g: it is g(1 − 2h/R) for height but g(1 − d/R) for depth — the factor of 2 only appears with height.',
+      'Thinking escape velocity depends on the mass or direction of the object. It depends only on the planet (√(2GM/R)); the launch angle and projectile mass do not matter.',
+      'Forgetting that a satellite\'s total energy is negative and equals −KE. Treating PE as positive, or total energy as KE + |PE|, gives the wrong binding energy.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Gravitation in JEE Main?',
+        a: 'Usually 1–2 per shift (about 3–5% of the Physics section). The "4–5 questions a year" figure quoted online aggregates across all sessions and shifts — in your single paper, plan for one or two, most of them direct numericals on g-variation, escape/orbital velocity, satellite energy and Kepler\'s laws.',
+      },
+      {
+        q: 'Is Gravitation important for JEE Advanced?',
+        a: 'It appears less frequently than mechanics heavyweights, but when it does, Advanced goes deeper — fusing gravitation with SHM (a body dropped through a tunnel in the Earth executes SHM), with orbital-energy and orbit-transfer problems, or with field/potential of mass distributions. It is worth a solid pass for Advanced even though it is not the highest-frequency chapter.',
+      },
+      {
+        q: 'Is Gravitation easy to score in JEE?',
+        a: 'Yes — it has few formulas and the question types repeat, so it is one of the fastest chapters to make exam-ready. The care points are sign conventions in potential energy and not mixing up the height and depth formulas for g.',
+      },
+      {
+        q: 'What is the relation between escape velocity and orbital velocity?',
+        a: 'At the planet\'s surface, escape velocity = √2 × orbital velocity, because v_orbital = √(GM/R) and v_escape = √(2GM/R). For Earth that gives about 11.2 km/s escape versus about 7.9 km/s for a low orbit. Escape velocity is independent of the body\'s mass and launch direction.',
+      },
+    ],
+  },
+
+  'jee-physics-fluid-mechanics': {
+    overview:
+      'Fluid Mechanics (the NCERT "Mechanical Properties of Fluids" chapter) is a quiet over-performer: in JEE Main it is a 1–2 question, mostly formula-direct scorer, but in JEE Advanced it punches well above its question count. Advanced typically asks just one fluids question, yet it is frequently conceptual and fused — a floating body executing SHM, Bernoulli combined with continuity, or viscous/terminal-velocity reasoning. So the Main strategy is "drill the standard formulas for speed," while the Advanced strategy is "understand the concept well enough to handle it inside another chapter."',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~3–4% of Physics', questions: '1–2 per shift', nature: 'Direct: pressure/buoyancy, Bernoulli & Torricelli, Stokes terminal velocity, surface tension & capillarity' },
+      { exam: 'JEE Advanced', weightage: 'usually ~1 question but high-value', questions: '~1, conceptual/fused', nature: 'Floating-body SHM, Bernoulli + continuity, viscous flow, excess pressure in drops/bubbles' },
+    ],
+    correction:
+      'You may see "~9% of Advanced is fluids" quoted — that overstates a typical paper, where fluids is usually one question. But do not under-prepare it either: that single Advanced question is often conceptual and fused with SHM or thermodynamics, so it rewards understanding far more than its raw count suggests.',
+    studyOrder: [
+      { step: 'Pressure and Pascal\'s law', detail: 'Hydrostatic pressure P = P₀ + ρgh, the difference between gauge and absolute pressure, and Pascal\'s law (hydraulic lift). Getting gauge-vs-absolute straight here prevents a whole class of later errors.' },
+      { step: 'Buoyancy and floatation', detail: 'Archimedes\' principle: upthrust = weight of displaced fluid. For a floating body the fraction submerged = ρ_body / ρ_fluid. This single ratio answers most floatation questions in one line.' },
+      { step: 'Continuity and Bernoulli', detail: 'A₁v₁ = A₂v₂ (continuity) and P + ½ρv² + ρgh = constant (Bernoulli). Always pair them — most Bernoulli questions need continuity to eliminate one velocity. Remember Bernoulli holds only for non-viscous, incompressible, streamline flow.' },
+      { step: 'Applications: Venturi and Torricelli', detail: 'Venturi meter (flow rate from a pressure difference) and Torricelli\'s law for efflux, v = √(2gh). These are direct consequences of Bernoulli and recur as Main numericals.' },
+      { step: 'Viscosity and Stokes\' law', detail: 'Viscous drag F = 6πηrv and terminal velocity v_t = 2r²(ρ − σ)g/9η for a sphere falling through a fluid. The dependence v_t ∝ r² (not r) is the most-tested point.' },
+      { step: 'Surface tension and capillarity', detail: 'Excess pressure inside a drop (2T/r) versus a soap bubble (4T/r, two surfaces), and capillary rise h = 2T cosθ/ρgr. The drop-vs-bubble factor and the 1/r dependence of capillary rise are the recurring questions.' },
+    ],
+    highYield: [
+      {
+        topic: 'Bernoulli\'s theorem with continuity',
+        detail:
+          'The most-tested fluids theme. Combine P + ½ρv² + ρgh = constant with A₁v₁ = A₂v₂ to solve flow-speed and pressure-difference problems (aerofoil lift, Venturi, a tank emptying through a hole). Torricelli\'s v = √(2gh) is just Bernoulli applied to efflux.',
+      },
+      {
+        topic: 'Floatation: fraction submerged',
+        detail:
+          'A body floating in a fluid has fraction submerged = ρ_body / ρ_fluid. Iceberg-in-water and block-in-two-liquids questions reduce to this ratio. If the body is pushed down and released, it executes SHM about the floating position.',
+      },
+      {
+        topic: 'Terminal velocity (Stokes\' law)',
+        detail:
+          'v_t = 2r²(ρ − σ)g/9η. The key exam point is v_t ∝ r² — doubling the radius quadruples the terminal velocity. Used for raindrops, ball-bearing-in-glycerine and Millikan-style setups.',
+      },
+      {
+        topic: 'Surface tension: excess pressure and capillary rise',
+        detail:
+          'Excess pressure = 2T/r for a liquid drop and 4T/r for a soap bubble (two surfaces). Capillary rise h = 2T cosθ/ρgr, so a narrower tube gives a higher rise. The drop-vs-bubble factor of 2 is a classic single-correct trap.',
+      },
+    ],
+    traps: [
+      'Applying Bernoulli\'s equation to viscous or turbulent flow. It is valid only for an ideal fluid in steady, streamline, incompressible flow — viscous-flow questions need Stokes\' law or Poiseuille reasoning instead.',
+      'Using excess pressure 2T/r for a soap bubble. A bubble has two surfaces, so its excess pressure is 4T/r; a liquid drop (one surface) is 2T/r.',
+      'Mixing up gauge and absolute pressure. P = P₀ + ρgh is the absolute pressure; the gauge pressure is just ρgh. Bernoulli and force problems must use a consistent choice.',
+      'Thinking terminal velocity scales with radius. Stokes\' law gives v_t ∝ r², so a drop of twice the radius falls four times as fast at terminal velocity.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Fluid Mechanics in JEE Main?',
+        a: 'Usually 1–2 per shift (about 3–4% of the Physics section), and they are mostly formula-direct: pressure and buoyancy, Bernoulli/Torricelli, terminal velocity from Stokes\' law, and surface tension or capillarity. Steady PYQ practice makes it one of the quicker chapters to lock in.',
+      },
+      {
+        q: 'Is Fluid Mechanics important for JEE Advanced?',
+        a: 'More than its question count suggests. Advanced usually asks one fluids question, but it is often conceptual and fused — a floating body oscillating in SHM, Bernoulli combined with continuity, or a viscous-flow/terminal-velocity argument. It rewards genuine understanding rather than plug-and-chug, so do not treat it as optional for Advanced.',
+      },
+      {
+        q: 'Which topic in Fluid Mechanics is most important?',
+        a: 'Bernoulli\'s theorem (paired with the equation of continuity) is the single most-tested theme, followed by buoyancy/floatation, terminal velocity via Stokes\' law, and surface tension (excess pressure and capillary rise). Bernoulli and continuity together cover the largest share of questions.',
+      },
+      {
+        q: 'What is the difference between the excess pressure in a drop and a soap bubble?',
+        a: 'A liquid drop has a single surface, so its excess pressure is 2T/r. A soap bubble has two surfaces (inner and outer), so its excess pressure is 4T/r — twice that of a drop of the same radius. This factor-of-two distinction is a frequent JEE single-correct trap.',
       'Application of Derivatives (AOD) is the highest-yield single chapter in JEE differential calculus, and the most over-stated one online — several "weightage" pages quote 10–12 questions, which is the whole differential-calculus block (limits + continuity + differentiability + differentiation + AOD), not this chapter. Alone, AOD is about 2–3 questions in JEE Main and they are direct: maxima/minima, tangents/normals, monotonicity. In JEE Advanced the count is smaller (1–2) but far deeper — Rolle\'s theorem and the Lagrange MVT are used to PROVE inequalities and the existence of roots, and optimisation is dressed up in geometry. The whole chapter is built on one idea, the sign of the first derivative, so the strategy is to make derivative-sign reasoning automatic.',
     examSplit: [
       { exam: 'JEE Main', weightage: '~6–8% of Maths', questions: '2–3 per year', nature: 'Direct: maxima/minima, tangent & normal, increasing/decreasing, rate of change' },
