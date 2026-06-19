@@ -1834,6 +1834,258 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
       },
     ],
   },
+
+  'jee-physics-current-electricity': {
+    overview:
+      'Current Electricity is one of the two or three most dependable scoring chapters in JEE Main Physics — and the reason is that the question types barely change year to year. In JEE Main it carries roughly 8–10% of the Physics section, which works out to 3–4 questions in most shifts, and they are almost all formula-direct: equivalent resistance, Kirchhoff loops, meter-bridge/potentiometer balance, and instrument (galvanometer) conversions. JEE Advanced asks fewer questions (typically 1–2) but fuses them with capacitors in transient circuits or wraps them in an experimental-error or paragraph setting, so the gap most weightage articles miss is that this is a near-guaranteed-marks chapter in Main but a careful-reading chapter in Advanced.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~8–10% of Physics', questions: '3–4 per shift', nature: 'Formula-direct: resistor networks, Kirchhoff, meter bridge, potentiometer, galvanometer conversion' },
+      { exam: 'JEE Advanced', weightage: '~4–6% of Physics', questions: '1–2', nature: 'Mixed with capacitors/RC transients, experimental error, or paragraph-linked circuit reasoning' },
+    ],
+    correction:
+      'Most "weightage" pages quote one band (e.g. "9%") and stop. The more useful split is within the chapter: in the last five years the resistor-combination + Kirchhoff cluster alone has carried the largest share of the marks, while EMF/internal-resistance and the potentiometer come next — drift velocity and the microscopic model rarely appear as standalone questions, so do not over-invest there.',
+    studyOrder: [
+      { step: 'Ohm\'s law, resistivity and the V–I picture', detail: 'Get R = ρL/A, the temperature dependence of resistivity, and the difference between ohmic and non-ohmic behaviour straight first — every later topic assumes it.' },
+      { step: 'Series–parallel resistor reduction', detail: 'Drill collapsing a network to one equivalent resistance, including symmetric (Wheatstone-balanced) networks where the bridge resistor carries no current and can be removed. This single skill unlocks the largest block of Main questions.' },
+      { step: 'EMF, internal resistance and terminal voltage', detail: 'V = E − Ir, cells in series/parallel, and maximum-power transfer. Mixing up EMF with terminal voltage is a recurring error, so anchor it here.' },
+      { step: 'Kirchhoff\'s laws', detail: 'Junction (charge) and loop (energy) rules for multi-loop circuits. Practise assigning loop currents consistently — most "find the current in this branch" questions are one clean application.' },
+      { step: 'Meter bridge, Wheatstone bridge and potentiometer', detail: 'These three balance-condition instruments recur every year. Learn why a potentiometer measures EMF with no current drawn (its key advantage over a voltmeter) — that "why" is itself a frequent question.' },
+      { step: 'Galvanometer to ammeter/voltmeter conversion', detail: 'Shunt (parallel, low resistance) for an ammeter, high series resistance for a voltmeter. Short, formulaic, and almost always worth a guaranteed mark.' },
+    ],
+    highYield: [
+      {
+        topic: 'Equivalent resistance of networks (incl. balanced Wheatstone)',
+        detail:
+          'The highest-frequency Main type. Spot a balanced Wheatstone bridge (P/Q = R/S) and delete the galvanometer branch; recognise symmetry to fold a cube/ladder network. Most "find R between A and B" questions reduce to one of these tricks.',
+      },
+      {
+        topic: 'Kirchhoff\'s loop and junction rules',
+        detail:
+          'Carries the joint-largest share of the chapter\'s marks. Write junction equations first to cut the number of unknowns, then loop equations. Be ruthless about sign convention (rise vs drop across cells and resistors).',
+      },
+      {
+        topic: 'Potentiometer and meter bridge',
+        detail:
+          'Balance length ∝ EMF/potential. Classic asks: comparing two cells\' EMFs, finding internal resistance from balance lengths with and without a shunt, and meter-bridge null-point shifts. The potentiometer\'s "draws no current at balance" property is the conceptual hook.',
+      },
+      {
+        topic: 'EMF, internal resistance and cell combinations',
+        detail:
+          'Terminal voltage under load, identical cells in series vs parallel, and the maximum-power condition (external R = internal r). Short numericals that reward clean bookkeeping.',
+      },
+    ],
+    traps: [
+      'Confusing EMF with terminal voltage. EMF is the cell\'s value on open circuit; terminal voltage V = E − Ir drops the moment current flows. Many wrong answers come from using E where V was needed.',
+      'Missing a balanced Wheatstone bridge. If P/Q = R/S the bridge (galvanometer) arm carries no current — students keep it in the network and get a much harder, wrong reduction.',
+      'Using a voltmeter\'s reading as the true EMF. A real voltmeter draws a little current, so it reads terminal voltage, not EMF — that is exactly why the potentiometer exists.',
+      'Sign errors in Kirchhoff loops. Fix one convention (e.g. potential drops in the direction of assumed current are negative) and apply it to every element in the loop, including the cell.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Current Electricity in JEE Main?',
+        a: 'Typically 3–4 questions per shift, about 8–10% of the Physics section. They are mostly direct: equivalent resistance of a network, a Kirchhoff multi-loop circuit, a meter-bridge or potentiometer balance, and a galvanometer-conversion numerical. It is one of the most reliable scoring chapters in the paper.',
+      },
+      {
+        q: 'Is Current Electricity easy to score in JEE?',
+        a: 'In JEE Main, yes — the question types repeat year to year and are formula-driven, so consistent practice on resistor networks and Kirchhoff almost guarantees marks. In JEE Advanced it is harder because the same ideas are combined with capacitors in transient (RC) circuits or wrapped in experimental-error questions, so read those carefully.',
+      },
+      {
+        q: 'Which topics in Current Electricity are most important for JEE Main?',
+        a: 'Series–parallel resistor combinations (including balanced Wheatstone bridges) and Kirchhoff\'s laws carry the largest share, followed by the potentiometer/meter bridge and EMF–internal-resistance problems. Galvanometer-to-ammeter/voltmeter conversion is a short, high-return add-on. Drift velocity and the microscopic model rarely appear alone.',
+      },
+      {
+        q: 'What is the difference between a potentiometer and a voltmeter?',
+        a: 'At balance a potentiometer draws no current from the cell it is measuring, so it reads the true EMF; a voltmeter always draws a small current and therefore reads the terminal voltage, which is slightly less than the EMF. That null-deflection advantage is why JEE problems use a potentiometer to compare EMFs and to measure a cell\'s internal resistance.',
+      },
+    ],
+  },
+
+  'jee-maths-trigonometry': {
+    overview:
+      'Trigonometry behaves very differently in the two papers, which is the part most weightage articles blur. In JEE Main, standalone trigonometry is usually 2–3 questions per shift, but the bulk of those marks come from Trigonometric Equations and Inverse Trigonometric Functions, not from heights-and-distances or solutions-of-triangles, which now appear rarely. In JEE Advanced, trigonometry is almost never a standalone question — instead it is the tool you need inside calculus, complex numbers and coordinate geometry, so weakness here quietly costs you marks in other chapters. The practical takeaway: treat identities as a fluency you build for the whole syllabus, and treat trig equations + inverse trig as the directly examinable core.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~2.5–7% of Maths (source-dependent)', questions: '2–3 per shift', nature: 'Mostly trigonometric equations (general solution) and inverse trig; some ratios/identities' },
+      { exam: 'JEE Advanced', weightage: 'Rarely standalone', questions: '~0–1 direct; embedded everywhere', nature: 'A tool inside calculus, complex numbers, vectors and coordinate geometry rather than its own question' },
+    ],
+    correction:
+      'Quoted weightage swings between about 2.5% and 7% across sites because they count differently — some bundle inverse trig and "solutions of triangles" into trigonometry, others split them out. Rather than trust one number, look at where the questions actually fall: in recent JEE Main shifts, Inverse Trigonometric Functions and Trigonometric Equations together carried far more questions than ratios/identities, while Solutions of Triangles contributed close to zero. Prioritise accordingly.',
+    studyOrder: [
+      { step: 'Ratios, signs and the unit-circle picture', detail: 'Know the values for standard angles, the ASTC sign rule, and how sin/cos behave across quadrants. Everything downstream depends on reading the unit circle quickly.' },
+      { step: 'Core identities', detail: 'Pythagorean, sum/difference, double- and half-angle, and product-to-sum. These are not a topic to be "tested" so much as a fluency you reuse in calculus and complex numbers — overlearn them.' },
+      { step: 'Trigonometric equations and general solutions', detail: 'The general-solution forms (for sinθ = sinα, cosθ = cosα, tanθ = tanα) and the discipline of checking the domain. This is one of the two directly examinable cores in Main.' },
+      { step: 'Inverse trigonometric functions', detail: 'Principal-value ranges, the sum/difference formulae, and the domain conditions that flip a formula\'s constant. The single most question-dense sub-topic in recent Main shifts.' },
+      { step: 'Properties of triangles and heights & distances (light pass)', detail: 'Sine/cosine rules and the basic results. Worth a quick revision pass for completeness, but these now appear rarely in Main, so do not spend disproportionate time here.' },
+    ],
+    highYield: [
+      {
+        topic: 'Inverse trigonometric functions',
+        detail:
+          'Highest recent frequency in JEE Main. The traps live in the domain: tan⁻¹x + tan⁻¹y = tan⁻¹((x+y)/(1−xy)) only when xy < 1, otherwise you add or subtract π. Master the principal-value ranges (e.g. cos⁻¹ ∈ [0, π]) before the formulae.',
+      },
+      {
+        topic: 'Trigonometric equations (general solutions)',
+        detail:
+          'Write the general solution, then reject roots that violate the stated interval or make a denominator zero. A large fraction of "number of solutions in [0, 2π]" questions are lost by forgetting to discard extraneous roots.',
+      },
+      {
+        topic: 'Identities as a calculus/complex-numbers tool',
+        detail:
+          'Double-angle and product-to-sum identities recur inside integration, limits and complex-number (Euler/De Moivre) problems. Strength here pays off far outside the trigonometry questions themselves — which is the real reason it is high-yield for JEE.',
+      },
+    ],
+    traps: [
+      'Dropping the domain condition in inverse-trig addition formulae. The tan⁻¹ sum formula changes by ±π depending on whether xy < 1 — applying the bare formula everywhere is the most common mistake.',
+      'Forgetting principal-value ranges. sin⁻¹, cos⁻¹ and tan⁻¹ have fixed output ranges; an answer outside the range is wrong even if it satisfies the equation.',
+      'Keeping extraneous roots in trigonometric equations. Squaring, or multiplying through by a trig term that can be zero, introduces false solutions you must check against the original equation and interval.',
+      'Treating heights-and-distances as high-yield. It feels like "real" trigonometry but contributes very few marks in modern JEE Main — over-practising it is a poor use of time relative to inverse trig.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Trigonometry in JEE Main?',
+        a: 'Usually 2–3 standalone questions per shift, and most of those come from Trigonometric Equations and Inverse Trigonometric Functions rather than from ratios/identities or heights-and-distances. Identities also appear indirectly inside calculus and complex-number questions, so the chapter\'s real footprint is larger than the standalone count suggests.',
+      },
+      {
+        q: 'What is the weightage of Trigonometry in JEE Advanced?',
+        a: 'Trigonometry is rarely a standalone question in JEE Advanced. Instead it is a tool you need inside calculus, complex numbers, vectors and coordinate geometry — so its "weightage" is hidden across other chapters. Weakness in trig identities quietly costs Advanced marks in integration and complex numbers rather than in a dedicated trig question.',
+      },
+      {
+        q: 'Why do different websites give different trigonometry weightage for JEE?',
+        a: 'Because they count the sub-topics differently — some bundle Inverse Trigonometric Functions and Solutions of Triangles into "trigonometry" while others list them separately, so figures range from about 2.5% to 7%. A more reliable guide than the headline number is where questions actually fall: recently, inverse trig and trig equations dominate, and solutions of triangles barely appears.',
+      },
+      {
+        q: 'Which part of trigonometry should I focus on for JEE Main?',
+        a: 'Inverse Trigonometric Functions and Trigonometric Equations — they carry the most directly examinable marks. Build rock-solid fluency with the core identities first (you reuse them across the whole syllabus), then drill inverse-trig domain conditions and the general-solution method for trig equations.',
+      },
+    ],
+  },
+
+  'jee-maths-3d-geometry': {
+    overview:
+      '3D (Three-Dimensional) Geometry is a high-weightage, high-reliability chapter in JEE Main — and it is unusual in that the question types are short, vector-driven and almost interchangeable year to year, so it converts study time into marks efficiently. In JEE Main it reliably contributes 2–3 questions per shift (across all 2025 shifts it was one of the most-asked Maths chapters), mostly on lines, planes, and the distances/angles between them. In JEE Advanced the same content appears fused with Vectors — shortest distance between skew lines, foot of perpendicular, image of a point in a plane — so the smart move is to study 3D Geometry and Vectors together rather than as separate silos.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~6–12% of Maths', questions: '2–3 per shift', nature: 'Direct: equation of line/plane, distance of point from plane, angle between lines/planes, shortest distance' },
+      { exam: 'JEE Advanced', weightage: '~6–8% (with Vectors)', questions: '2–3 (vector + 3D combined)', nature: 'Skew-line shortest distance, foot/image of point, plane through intersection — solved vectorially' },
+    ],
+    correction:
+      'Some sites label 3D Geometry "medium weightage" and quote ~6%; the 2025 papers tell a different story, where it was among the highest-asked Maths chapters (around 12% by one shift-wise count). Treat it as a top-priority, high-return chapter, not a mid-tier one — and do not study it apart from Vectors, because in both papers the cleanest solutions use the vector form of lines and planes.',
+    studyOrder: [
+      { step: 'Direction cosines and direction ratios', detail: 'l² + m² + n² = 1, and how direction ratios fix a line\'s orientation. Everything else is built on representing a direction as a vector.' },
+      { step: 'Equation of a line (vector and Cartesian)', detail: 'r = a + λb and the symmetric Cartesian form. Be fluent converting between them — questions mix the two representations freely.' },
+      { step: 'Equation of a plane', detail: 'Normal form, point-normal form, intercept form, and the plane through three points. The normal vector is the object you actually compute with.' },
+      { step: 'Angles and distances', detail: 'Angle between two lines (via direction vectors), line and plane, two planes; distance of a point from a plane; distance between parallel planes. This cluster is the bulk of Main questions.' },
+      { step: 'Shortest distance, foot and image', detail: 'Shortest distance between skew lines (the scalar-triple-product formula), foot of perpendicular from a point to a line/plane, and the image of a point in a plane. This is where 3D meets Vectors and where Advanced lives.' },
+    ],
+    highYield: [
+      {
+        topic: 'Distance of a point from a plane / between parallel planes',
+        detail:
+          'A one-line formula, |ax₁+by₁+cz₁+d|/√(a²+b²+c²), and one of the most-asked direct types. Parallel-plane distance is the same formula applied with a common normal.',
+      },
+      {
+        topic: 'Angle between lines, line–plane and plane–plane',
+        detail:
+          'All three reduce to a dot-product between the relevant direction or normal vectors — but watch the line–plane case, where the angle is 90° minus the angle between the line\'s direction and the plane\'s normal. That subtraction is a frequent slip.',
+      },
+      {
+        topic: 'Shortest distance between two skew lines',
+        detail:
+          '|(a₂−a₁)·(b₁×b₂)| / |b₁×b₂|. High-frequency in both papers. If the scalar triple product in the numerator is zero, the lines are coplanar (intersecting or parallel) — a fact often tested directly.',
+      },
+      {
+        topic: 'Foot of perpendicular and image of a point',
+        detail:
+          'Parametrise the line/normal, impose perpendicularity (dot product = 0) to find the foot, then double the displacement for the image. The same machinery answers a whole family of Main and Advanced questions.',
+      },
+    ],
+    traps: [
+      'Confusing the line–plane angle with the line–normal angle. The angle between a line and a plane is 90° minus the angle between the line\'s direction and the plane\'s normal; using the dot product directly without the subtraction gives the complementary (wrong) angle.',
+      'Forgetting to normalise direction vectors when finding an angle. cosθ uses unit vectors — dividing by the magnitudes is not optional.',
+      'Misreading skew vs coplanar lines. If (a₂−a₁)·(b₁×b₂) = 0 the lines are coplanar, so the "shortest distance" is zero (they intersect) or a simple parallel-line distance — don\'t blindly apply the skew formula.',
+      'Studying 3D Geometry in isolation from Vectors. The fastest solutions to skew-distance, foot-of-perpendicular and image problems are vectorial; learning the two chapters separately doubles the work.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from 3D Geometry in JEE Main?',
+        a: 'Reliably 2–3 questions per shift, and across the 2025 sessions it was among the most-asked Maths chapters. They are mostly direct: equation of a line or plane, distance of a point from a plane, angle between lines/planes, and shortest distance between skew lines. The formulas are short, which makes it an efficient scoring chapter.',
+      },
+      {
+        q: 'Is 3D Geometry high weightage for JEE Main 2026?',
+        a: 'Yes. Although a few sites still call it "medium weightage" (~6%), the recent papers put it among the highest-asked Maths chapters, so treat it as a top-priority topic. Pair it with Vectors when you study, because both papers solve 3D questions most cleanly using the vector form of lines and planes.',
+      },
+      {
+        q: 'What are the most important topics in 3D Geometry for JEE?',
+        a: 'Distance of a point from a plane, angles between lines/planes, shortest distance between skew lines, and the foot of perpendicular / image of a point in a plane. These four cover the large majority of both JEE Main and JEE Advanced questions.',
+      },
+      {
+        q: 'How do I find the shortest distance between two skew lines?',
+        a: 'Use |(a₂−a₁)·(b₁×b₂)| / |b₁×b₂|, where a₁, a₂ are points on the two lines and b₁, b₂ their direction vectors. If the numerator (a scalar triple product) is zero, the lines are coplanar — they either intersect (distance 0) or are parallel, in which case use the parallel-line distance instead.',
+      },
+    ],
+  },
+
+  'jee-chemistry-p-block-15-16': {
+    overview:
+      'The p-Block (Groups 15 and 16) is a fact- and trend-heavy chapter where JEE Main marks come almost entirely from NCERT lines, not from problem-solving — which is exactly why students who "do chemistry by solving numericals" underperform here. In JEE Main these two groups together typically yield 1–2 direct questions per shift (the whole p-block, groups 13–18, runs to 3–4 questions), and they reward clean recall of oxidation-state trends, oxoacid structures, and preparation reactions. JEE Advanced goes deeper into structure and reasoning — why an oxoacid is a stronger acid, the bonding in interhalogens/oxides, allotrope structures — so the same chapter is "memorise the trends" for Main and "explain the trend" for Advanced.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~4–6% of Chemistry (groups 15–16)', questions: '1–2 per shift', nature: 'NCERT-fact recall: trends, oxidation states, oxoacid/oxide formulae, named preparations' },
+      { exam: 'JEE Advanced', weightage: '~5–8% (inorganic block)', questions: '1–3', nature: 'Structure & reasoning: oxoacid acidity order, allotropes, interhalogen shapes, matching/assertion' },
+    ],
+    correction:
+      'Many guides lump "p-block" into a single 6% figure and tell you to "memorise NCERT". The more useful split: Group 15 (especially nitrogen\'s oxoacids/oxides and phosphorus allotropes) and Group 16 (sulfur\'s oxoacids and oxides) are asked more often than Group 14 facts, and the questions cluster on anomalous behaviour of the first element (N and O) and on acid-strength/oxidising-power trends down the group — so target those rather than reading all six groups at uniform depth.',
+    studyOrder: [
+      { step: 'Periodic trends down each group first', detail: 'Atomic/ionic size, ionisation enthalpy, electronegativity, and metallic character down Group 15 (N→Bi) and Group 16 (O→Po). Almost every question is a consequence of one of these trends, so anchor them before the reactions.' },
+      { step: 'Anomalous behaviour of the first element', detail: 'Why nitrogen (no d-orbitals, small size, high electronegativity) and oxygen differ from the rest of their groups — catenation, pπ–pπ multiple bonding, maximum covalency. A perennial favourite for "which statement is correct" questions.' },
+      { step: 'Oxidation states and their stability', detail: 'The +3 vs +5 stability trend in Group 15 (inert-pair effect making Bi³⁺ stable) and the −2/+4/+6 picture in Group 16. Map oxidising/reducing tendencies onto these.' },
+      { step: 'Oxides and oxoacids', detail: 'Oxoacids of nitrogen (HNO₂, HNO₃) and phosphorus (H₃PO₂, H₃PO₃, H₃PO₄ — with their basicity from the number of P–OH bonds), and of sulfur (H₂SO₃, H₂SO₄, thio- and per-acids). Structures and acid-strength orders are the high-value part.' },
+      { step: 'Key preparations and properties', detail: 'NH₃, HNO₃ (Ostwald), allotropes of phosphorus (white/red/black) and sulfur, SO₂/SO₃, and H₂SO₄ (Contact process). Know the conditions and the distinguishing observations.' },
+    ],
+    highYield: [
+      {
+        topic: 'Oxoacids of phosphorus and their basicity',
+        detail:
+          'Basicity equals the number of P–OH (ionisable) bonds, not the number of H atoms: H₃PO₂ is monobasic, H₃PO₃ dibasic, H₃PO₄ tribasic. The P–H bonds in H₃PO₂/H₃PO₃ are not ionisable but make these acids reducing — a classic two-in-one question.',
+      },
+      {
+        topic: 'Acid strength and oxidising-power trends',
+        detail:
+          'Down Group 16, oxoacid oxidising power and stability shift predictably; across the oxoacids of a single element, acid strength rises with oxidation state (HNO₃ > HNO₂; H₂SO₄ > H₂SO₃). Expect "arrange in order" questions.',
+      },
+      {
+        topic: 'Anomalous behaviour of nitrogen and oxygen',
+        detail:
+          'Nitrogen forms strong pπ–pπ multiple bonds (N≡N) and shows no catenation tendency like phosphorus; oxygen is a diatomic gas while sulfur catenates into rings/chains. The "first-element anomaly" is one of the most reliably asked ideas in the chapter.',
+      },
+      {
+        topic: 'Allotropes and structures',
+        detail:
+          'White phosphorus (P₄ tetrahedron, reactive, stored under water) vs red/black; rhombic vs monoclinic sulfur (both S₈ rings). Structure-to-property reasoning ("why is white phosphorus more reactive?") recurs in Advanced.',
+      },
+    ],
+    traps: [
+      'Counting all hydrogens as acidic. In H₃PO₂ and H₃PO₃ the P–H hydrogens are NOT ionisable, so basicity is 1 and 2 respectively — using the formula\'s H-count gives the wrong basicity.',
+      'Assuming trends are perfectly monotonic. Group 15/16 have well-known irregularities (e.g. the dip at nitrogen/oxygen and the inert-pair effect at the bottom) — exam statements are written precisely to catch a "smooth trend" assumption.',
+      'Mixing up the cause of nitrogen\'s anomaly. It is the absence of d-orbitals plus small size and high electronegativity (limiting covalency to 4 and enabling pπ–pπ bonding) — not merely "it is the lightest". The precise reason is what gets tested.',
+      'Treating this as a problem-solving chapter. There is almost no calculation here; marks are lost by under-reading NCERT, not by weak maths. Revise the factual lines repeatedly rather than "practising sums".',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from p-block Groups 15 and 16 in JEE Main?',
+        a: 'Usually 1–2 direct questions per shift from Groups 15–16 specifically, within an overall p-block (Groups 13–18) contribution of about 3–4 questions. They are NCERT-fact based — trends, oxidation states, oxoacid structures and named preparations — rather than numerical, so accurate recall is what scores.',
+      },
+      {
+        q: 'Is the p-block easy or hard to score in JEE?',
+        a: 'For JEE Main it is scorable if you treat it as a recall chapter and revise NCERT trends and reactions repeatedly. It feels hard to students who try to "solve" it like physical chemistry. JEE Advanced is genuinely harder because it asks you to explain the trends — acid-strength orders, allotrope reactivity, interhalogen shapes — rather than just state them.',
+      },
+      {
+        q: 'How do I find the basicity of phosphorus oxoacids?',
+        a: 'Count only the P–OH bonds, because only those hydrogens are ionisable. So H₃PO₂ is monobasic (one OH), H₃PO₃ is dibasic (two OH), and H₃PO₄ is tribasic (three OH). The remaining P–H bonds are non-ionisable but make H₃PO₂ and H₃PO₃ good reducing agents — a point JEE likes to combine into one question.',
+      },
+      {
+        q: 'Why does nitrogen behave differently from the other Group 15 elements?',
+        a: 'Nitrogen is small, highly electronegative, and has no d-orbitals, so its covalency is limited to four and it forms strong pπ–pπ multiple bonds (as in N≡N). That is why nitrogen exists as a diatomic gas and shows little catenation, whereas phosphorus catenates and forms P₄ — the contrast is a frequently tested "anomalous first element" idea.',
+      },
+    ],
+  },
 };
 
 /** Returns the curated enrichment for a chapter slug, or undefined if none exists. */
