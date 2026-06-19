@@ -1007,6 +1007,10 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
       {
         q: 'What is the difference between the "lub" and "dub" heart sounds?',
         a: '"Lub" (the first heart sound) is produced when the atrioventricular valves (tricuspid and bicuspid) close at the start of ventricular systole. "Dub" (the second sound) is produced when the semilunar valves (aortic and pulmonary) close at the end of ventricular systole. NEET often asks which valves cause which sound.',
+      },
+    ],
+  },
+
   'jee-physics-thermodynamics': {
     overview:
       'Heat & Thermodynamics is one of the highest-yield blocks in JEE Physics, but the single chapter and the whole block are different numbers — which most weightage articles blur. As a standalone chapter (first law, the four processes, heat engines, heat transfer) it gives about 1–2 questions per JEE Main shift, almost always formula-direct: apply ΔU = Q − W, read work off a PV diagram, or compute Carnot efficiency. In JEE Advanced it appears in most papers (1–3 questions) and is usually fused with the kinetic theory of gases — a single problem that asks for work in a process and then the change in internal energy via degrees of freedom. The fastest marks come from nailing the process table (what is zero in each of isothermal/adiabatic/isobaric/isochoric) cold.',
@@ -1259,6 +1263,326 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
       {
         q: 'What is total internal reflection and where is it asked in NEET?',
         a: 'Total internal reflection occurs when light travelling in a denser medium hits the boundary with a rarer medium at an angle larger than the critical angle (sinθ_c = n_rarer/n_denser), so all the light reflects back. NEET asks it through applications — optical fibres, the brilliance of diamond (large refractive index gives a small critical angle), and the mirage — as well as direct critical-angle calculations.',
+      },
+    ],
+  },
+
+  'jee-physics-work-energy-power': {
+    overview:
+      'Work, Energy & Power is the chapter that quietly decides more marks than its headline weightage suggests, because the work-energy theorem is a tool you reuse across the whole of mechanics — rotation, SHM, circular motion and collisions all lean on it. As a standalone chapter JEE Main asks 2–3 questions in most shifts (direct: work by a variable force, energy conservation with springs, power, potential-energy curves). JEE Advanced rarely asks a "pure" work-energy question; instead it fuses energy conservation with rolling, springs or a collision into one multi-step problem. The strategy that follows: in Main, drill the standard numerical types for speed; for Advanced, the skill is choosing the energy method over force-and-acceleration to avoid solving differential equations.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~5–7% of Physics', questions: '2–3 per shift', nature: 'Direct: work-energy theorem, spring/gravitational PE conservation, power, PE-curve equilibrium' },
+      { exam: 'JEE Advanced', weightage: '~3–5% of Physics', questions: '1–2 (usually fused)', nature: 'Energy conservation combined with rolling, SHM/springs, variable force or collision' },
+    ],
+    correction:
+      'Several weightage pages quote "3.33% / 1–2 questions" for this chapter. That undersells it on two counts: recent JEE Main shift analysis shows 2–3 questions in most shifts, and — more importantly — the work-energy theorem is the fastest route through dozens of questions that are "officially" filed under rotation, circular motion or SHM. Counted honestly as a method, its real footprint on the paper is larger than its chapter percentage.',
+    studyOrder: [
+      { step: 'Work by constant and variable forces', detail: 'W = F·d for constant force, W = ∫F·dx (the area under an F–x graph) for a variable one. Spring work −½kx² is the most-asked variable-force case. Getting the sign of work (angle between force and displacement) right is the foundation for everything else.' },
+      { step: 'Work-energy theorem', detail: 'W_net = ΔKE = ½mv² − ½mu². The single most useful relation in mechanics: it finds final speed without ever computing acceleration. Stress that it uses the NET work of ALL forces, including friction and normal/tension where they do work.' },
+      { step: 'Conservative forces and potential energy', detail: 'Gravitational PE = mgh, spring PE = ½kx², and F = −dU/dx. This is the bridge to energy conservation and to reading potential-energy curves.' },
+      { step: 'Conservation of mechanical energy', detail: 'When only conservative forces act, KE + PE is constant. When friction or a non-conservative force is present, the correct statement is ΔKE + ΔPE = W_non-conservative — forgetting this term is the classic error.' },
+      { step: 'Power and PE curves last', detail: 'Instantaneous power P = F·v = dW/dt, average power = total work / time; then potential-energy curves (stable/unstable equilibrium from dU/dx = 0 and the sign of d²U/dx²). These round out the Main question types.' },
+    ],
+    highYield: [
+      {
+        topic: 'Work-energy theorem with friction and springs',
+        detail:
+          'W_net = ΔKE. The high-frequency setups: a block pushed against a spring (½kx² stored), a block sliding on a rough surface (friction does −μmgd of work), and a body launched up an incline. Write every force\'s work, sum to W_net, set equal to ΔKE.',
+      },
+      {
+        topic: 'Conservation of energy on tracks and vertical circles',
+        detail:
+          'For a body in a vertical circle (loop, ball on a string), energy conservation plus the centripetal condition gives the minimum speeds: v_top = √(gr) and v_bottom = √(5gr). These two results, with tension = 0 at the top of a string, answer almost every vertical-circle question directly.',
+      },
+      {
+        topic: 'Power: P = F·v',
+        detail:
+          'Instantaneous power of a force is F·v (dot product). Common questions: power delivered by gravity to a falling body (mgv), a vehicle moving at constant speed against resistance (P = F·v with F the resistive force), and average vs instantaneous power. Watch units — 1 horsepower ≈ 746 W.',
+      },
+      {
+        topic: 'Potential-energy curves and equilibrium',
+        detail:
+          'From a U(x) graph: force F = −dU/dx (downhill); equilibrium where dU/dx = 0; stable if d²U/dx² > 0 (a minimum, like a valley), unstable if < 0 (a maximum). JEE Main asks "identify the stable equilibrium point" or "find the force from this U(x)" most years.',
+      },
+    ],
+    traps: [
+      'Applying conservation of mechanical energy when a non-conservative force acts. If friction is present, KE + PE is NOT conserved — you must write ΔKE + ΔPE = W_friction (a negative number). This is the single most common mistake in the chapter.',
+      'Assuming the normal force and tension never do work. They do no work when perpendicular to motion, but in a moving frame or on a moving support (a block on a moving wedge, a person in a lift) they can transfer energy — check the displacement, not a memorised rule.',
+      'Forgetting that the work-energy theorem uses NET work. Students compute the work of the applied force only and equate it to ΔKE; friction and gravity must be included.',
+      'Mixing up average and instantaneous power. Instantaneous power is F·v at an instant; average power is total work divided by total time. For a body speeding up, these are different numbers.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Work, Energy & Power in JEE Main?',
+        a: 'About 2–3 questions in most JEE Main shifts (roughly 5–7% of the Physics section). They are mostly direct — the work-energy theorem, energy conservation with springs or gravity, power, and reading potential-energy curves. On top of the standalone questions, the work-energy method is the fastest tool for many questions filed under rotation, circular motion and SHM, so its real value is higher than the chapter percentage.',
+      },
+      {
+        q: 'When should I use the work-energy theorem instead of Newton\'s laws?',
+        a: 'Use energy methods when you need a final speed but don\'t care about the time taken or the detailed acceleration — especially with variable forces (springs), curved or complicated paths where only the endpoints matter, or when force-and-acceleration would mean solving a differential equation. Use Newton\'s laws (F = ma) when you specifically need acceleration, time, or the force at a particular instant. JEE Advanced rewards spotting the energy shortcut.',
+      },
+      {
+        q: 'What are the minimum speeds for a vertical circle?',
+        a: 'For a body completing a vertical circle on a string or inside a loop, the minimum speed at the top is v_top = √(gr) (where tension/normal force just reaches zero) and, by energy conservation, the minimum speed at the bottom is v_bottom = √(5gr). These two results plus "tension = 0 at the top" solve almost every vertical-circle question.',
+      },
+      {
+        q: 'Is Work, Energy & Power a scoring chapter for JEE?',
+        a: 'Yes — in JEE Main it is one of the most reliable scorers because the questions are formula-direct and the work-energy theorem gives quick answers. For JEE Advanced the chapter rarely appears alone, but the energy method it teaches is essential for the multi-concept rotation/SHM/collision problems where Advanced actually lives, so the chapter is unskippable either way.',
+      },
+    ],
+  },
+
+  'jee-chemistry-atomic-structure': {
+    overview:
+      'Atomic Structure is a foundation chapter that pays back twice: it is directly examined, and its ideas (quantum numbers, electronic configuration, effective nuclear charge) underpin the periodic table, chemical bonding and coordination chemistry. JEE Main asks 2–3 questions a year — quantum-number rules, electronic configurations with their exceptions, hydrogen-spectrum/Rydberg numericals, and the dual-nature relations (de Broglie, photoelectric, Heisenberg) it shares word-for-word with Physics. JEE Advanced asks fewer standalone questions but goes deeper into spectra, node counting and the quantum-number constraints. Because much of it is rule-based recall plus a few standard formulae, it is a high marks-per-hour chapter.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~5–6% of Chemistry', questions: '2–3 per year', nature: 'Direct: quantum numbers, electronic config + exceptions, Rydberg/Bohr numericals, de Broglie/photoelectric' },
+      { exam: 'JEE Advanced', weightage: '~2–3% of Chemistry', questions: '1–2 per year', nature: 'Deeper: emission spectra, node counting, quantum-number limits, often fused with periodic properties' },
+    ],
+    correction:
+      'You will see "6–8% / 3–4 questions" and "6.6% / 2 questions" quoted side by side — the spread is real and it comes from double-counting. The dual-nature topics (photoelectric effect, de Broglie wavelength, Heisenberg uncertainty) sit in BOTH the Physics and Chemistry syllabi, so some charts credit them to Chemistry and inflate the figure. The chemistry-specific load (orbitals, configuration, spectra) is about 2–3 questions; learn the shared dual-nature block once and claim the marks in both subjects.',
+    studyOrder: [
+      { step: 'Bohr model and the hydrogen spectrum', detail: 'r_n ∝ n²/Z, E_n = −13.6 Z²/n² eV, and the Rydberg formula for line positions. Most "wavelength of the n=3→2 line" questions are one substitution. Bohr is exact only for one-electron species (H, He⁺, Li²⁺).' },
+      { step: 'Quantum numbers and orbital shapes', detail: 'n, l, m, s and the rules linking them; the shapes of s/p/d orbitals; and node counting — total nodes = n−1, radial = n−l−1, angular = l. This is the gate to electronic configuration.' },
+      { step: 'Electronic configuration', detail: 'Aufbau order, Pauli exclusion, Hund\'s rule of maximum multiplicity — then the half-filled/fully-filled stability exceptions (Cr = [Ar]3d⁵4s¹, Cu = [Ar]3d¹⁰4s¹). Crucially, electrons FILL 4s before 3d but are REMOVED from 4s first when forming ions.' },
+      { step: 'Dual nature of matter and radiation', detail: 'de Broglie λ = h/mv = h/√(2mKE) = h/√(2mqV); the photoelectric effect (work function, stopping potential, threshold frequency). Shared with Physics — learn it once.' },
+      { step: 'Heisenberg uncertainty last', detail: 'Δx·Δp ≥ h/4π. Usually a single direct-substitution question; do it after the rest so the constant and the "≥" are fresh.' },
+    ],
+    highYield: [
+      {
+        topic: 'Hydrogen-spectrum / Rydberg and Bohr relations',
+        detail:
+          '1/λ = R Z² (1/n₁² − 1/n₂²) for line positions; E_n = −13.6 Z²/n² eV for energy levels; r_n ∝ n²/Z. Number of spectral lines when an electron de-excites from level n is n(n−1)/2. These cover the bulk of the numerical questions.',
+      },
+      {
+        topic: 'Quantum numbers and nodes',
+        detail:
+          'For an orbital: total nodes = n − 1, radial (spherical) nodes = n − l − 1, angular (nodal planes) = l. Maximum electrons in a shell = 2n², in a subshell = 2(2l+1). "How many radial nodes in 3p?" (= 3−1−1 = 1) is a recurring direct ask.',
+      },
+      {
+        topic: 'Electronic configuration and its exceptions',
+        detail:
+          'Cr is [Ar]3d⁵4s¹ and Cu is [Ar]3d¹⁰4s¹ because half-filled and fully-filled d-subshells are extra stable. For transition-metal ions, remove 4s electrons before 3d (Fe²⁺ = [Ar]3d⁶, not 3d⁴4s²). This single rule is tested almost every year.',
+      },
+      {
+        topic: 'de Broglie and photoelectric numericals',
+        detail:
+          'λ = h/√(2mKE) = h/√(2mqV) gives the wavelength of an accelerated electron in one step. Photoelectric: KE_max = hν − φ, and stopping potential V₀ relates as eV₀ = hν − φ. Shared verbatim with Physics — these are free marks if you prepared the topic in either subject.',
+      },
+    ],
+    traps: [
+      'Removing electrons in filling order instead of removal order when writing ion configurations. Electrons fill 4s before 3d, but for cations the 4s electrons leave FIRST — Fe²⁺ is [Ar]3d⁶, not [Ar]3d⁴4s².',
+      'Applying the Bohr model to multi-electron atoms. Bohr\'s formulae (E_n = −13.6 Z²/n², etc.) are exact only for single-electron species: H, He⁺, Li²⁺. Using them for, say, lithium\'s outer electron gives a wrong answer.',
+      'Confusing total, radial and angular nodes. Total = n−1, radial = n−l−1, angular = l. Many students quote one when the question asks for another.',
+      'Forgetting the Cr and Cu exceptions, or extending them to every element. Only the half-filled (3d⁵) and fully-filled (3d¹⁰) stabilities drive the anomalies — Mo and Ag follow Cr/Cu, but most other elements do not.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Atomic Structure in JEE?',
+        a: 'About 2–3 questions a year in JEE Main (roughly 5–6% of Chemistry) and 1–2 in JEE Advanced. Published weightages vary from "2" to "4" because the dual-nature topics (photoelectric effect, de Broglie wavelength) overlap with Physics and are sometimes counted twice. The chemistry-specific load is steady at 2–3 questions.',
+      },
+      {
+        q: 'What are the most important topics in Atomic Structure for JEE?',
+        a: 'Quantum-number rules and node counting, electronic configuration with the Cr/Cu exceptions and the fill-vs-remove order for ions, the hydrogen-spectrum/Rydberg and Bohr energy formulae, and the de Broglie/photoelectric numericals. Together these account for almost every question the chapter has asked in recent papers.',
+      },
+      {
+        q: 'How does Atomic Structure overlap with Physics?',
+        a: 'The photoelectric effect, de Broglie wavelength and Heisenberg uncertainty principle appear, with the same formulae, in both the Physics (Dual Nature / Modern Physics) and Chemistry syllabi. If you prepare them in one subject you have effectively prepared a chunk of the other — a genuine time saving worth planning around.',
+      },
+      {
+        q: 'How do I count the nodes in an orbital?',
+        a: 'Total nodes = n − 1, radial (spherical) nodes = n − l − 1, and angular nodes (nodal planes) = l. For example a 3p orbital (n = 3, l = 1) has 1 radial node, 1 angular node and 2 total nodes. Read the question carefully — it usually asks for one specific type.',
+      },
+    ],
+  },
+
+  'jee-maths-vectors': {
+    overview:
+      'Vectors is best treated as the algebraic engine of the whole geometry block: dot product, cross product and the scalar triple product are the tools you then use to handle lines, planes and 3D geometry. As a standalone chapter JEE Main asks 1–2 questions (often combined with 3D Geometry in the same problem) on the dot/cross product, projection and coplanarity. JEE Advanced almost never asks a "pure vectors" question; it folds vector methods into 3D-geometry problems — shortest distance between lines, foot of perpendicular, plane through three points. Because the operations are mechanical once understood, vectors give a high marks-per-hour return and make the rest of coordinate geometry far easier.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~4–6% of Maths', questions: '1–2 per year', nature: 'Direct: dot/cross product, projection, scalar triple product (coplanarity, volume)' },
+      { exam: 'JEE Advanced', weightage: '~4–5% of Maths', questions: '1–2 (usually fused with 3D)', nature: 'Vector methods applied to lines/planes, triple products, geometric identities' },
+    ],
+    correction:
+      'Weightage charts often quote "Vectors & 3D Geometry ≈ 6.3% + 6.6%, about 3–4 questions" — but that is two SEPARATE chapters added together. Vectors on its own is usually 1–2 questions. The reason it still matters far more than that count suggests: every 3D-geometry question (lines, planes, shortest distance) is solved with vector tools, so weak vectors quietly costs you marks in 3D too. Prepare them back-to-back, vectors first.',
+    studyOrder: [
+      { step: 'Vector basics and the section formula', detail: 'Addition, scalar multiplication, position vectors, and the section formula in vector form. Master collinearity (a, b, c collinear if AB and AC are parallel) before moving on.' },
+      { step: 'Dot (scalar) product', detail: 'a·b = |a||b|cosθ. Uses: angle between vectors, the projection of a on b ( = a·b / |b| ), the test for perpendicularity (a·b = 0), and work done. Also the expansion |a ± b|² = |a|² + |b|² ± 2a·b.' },
+      { step: 'Cross (vector) product', detail: 'a×b = |a||b|sinθ n̂, with |a×b| = area of the parallelogram (½|a×b| for a triangle). Uses: a vector perpendicular to two others, area, and the test for parallel vectors (a×b = 0). Remember a×b = −b×a.' },
+      { step: 'Scalar triple product', detail: '[a b c] = a·(b×c) = the volume of the parallelepiped. It is zero exactly when the three vectors are coplanar — the single most-asked vector idea in JEE. It is cyclic: [a b c] = [b c a] = [c a b].' },
+      { step: 'Vector triple product and applications', detail: 'a×(b×c) = (a·c)b − (a·b)c (the "BAC − CAB" rule). Then apply everything to lines and planes — this is the handover to 3D Geometry.' },
+    ],
+    highYield: [
+      {
+        topic: 'Scalar triple product: coplanarity and volume',
+        detail:
+          '[a b c] = a·(b×c), computed as the determinant of the three vectors\' components. It equals the volume of the parallelepiped they span, and [a b c] = 0 ⟺ the vectors are coplanar. "Find λ so that these three vectors are coplanar" is the most frequent vector question in JEE Main.',
+      },
+      {
+        topic: 'Dot product — angle, projection, perpendicularity',
+        detail:
+          'a·b = |a||b|cosθ. The scalar projection of a onto b is a·b/|b| and the vector projection is (a·b/|b|²)b. Perpendicular vectors have a·b = 0. These appear both directly and as a step inside larger problems.',
+      },
+      {
+        topic: 'Cross product — area and perpendicular direction',
+        detail:
+          '|a×b| is the area of the parallelogram with sides a and b, so the triangle area is ½|a×b|. a×b is perpendicular to both a and b (direction by the right-hand rule). Used for areas, normals to planes, and torque-style setups.',
+      },
+      {
+        topic: 'Vector form of lines and planes (the 3D handover)',
+        detail:
+          'Line: r = a + λb. Plane: r·n̂ = d. Shortest distance between skew lines = |(a₂ − a₁)·(b₁×b₂)| / |b₁×b₂| — a scalar triple product in disguise. This is exactly where Advanced uses vectors.',
+      },
+    ],
+    traps: [
+      'Treating the cross product as commutative. a×b = −b×a (it anticommutes); swapping the order flips the sign of the result and of any area\'s orientation.',
+      'Confusing scalar and vector projection. The scalar projection of a on b is a·b/|b| (a number); the vector projection multiplies that by the unit vector b̂. Read which the question wants.',
+      'Using the scalar triple product without respecting its cyclic order. [a b c] = [b c a] = [c a b], but a single swap of two vectors negates it: [a c b] = −[a b c].',
+      'Forgetting the cross term in |a + b|². It expands to |a|² + |b|² + 2a·b, not |a|² + |b|²; the 2a·b term is where the angle between the vectors enters.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Vectors in JEE Main?',
+        a: 'Usually 1–2 questions a year, often combined with 3D Geometry in the same problem. The "3–4 questions" figure you see online is for Vectors AND 3D Geometry counted together (they are separate chapters). Even at 1–2 questions, vectors is worth prioritising because it is the toolkit for every 3D-geometry question.',
+      },
+      {
+        q: 'Should I study Vectors or 3D Geometry first?',
+        a: 'Vectors first, then 3D Geometry. Lines, planes, shortest distance and foot-of-perpendicular problems are all solved with the dot product, cross product and scalar triple product. If your vectors are weak, 3D Geometry becomes much harder than it needs to be — so the order genuinely matters.',
+      },
+      {
+        q: 'What is the scalar triple product used for in JEE?',
+        a: 'Two things, both common: it gives the volume of the parallelepiped formed by three vectors, and it is zero exactly when the three vectors are coplanar. The most frequent JEE Main vector question is a coplanarity condition — "find the value of λ for which these vectors are coplanar" — solved by setting [a b c] = 0.',
+      },
+      {
+        q: 'Is Vectors an easy chapter to score in JEE?',
+        a: 'Yes — the operations (dot, cross, triple product) are mechanical once you understand them, so it is high marks-per-hour and far less error-prone than calculus. The bonus is leverage: the same tools carry straight into 3D Geometry, so the time you invest pays off across two chapters\' worth of questions.',
+      },
+    ],
+  },
+
+  'neet-biology-animal-kingdom': {
+    overview:
+      'Animal Kingdom is a high-return recall chapter: NEET asks about 2–3 questions from it in most years, and they are almost entirely from NCERT — diagnostic features of a phylum, classify-this-organism, or a comparison of characters. The trap is that students try to memorise every phylum in isolation; the chapter is actually built on a small ladder of classification criteria (organisation → symmetry → germ layers → coelom → segmentation → notochord), and once you fix that ladder, every phylum slots in and the examples become recall. The questions reward accuracy with NCERT wording over reasoning, so it is one of the most scoreable chapters in the Diversity unit.',
+    examSplit: [
+      { exam: 'NEET (recent avg)', weightage: '~4–6% of Biology', questions: '2–3 per year (~8–12 marks)', nature: 'Mostly NCERT-direct: diagnostic features, classify-the-organism, character comparison' },
+      { exam: 'Non-chordate vs chordate', weightage: '—', questions: 'Arthropoda & Chordata most-asked', nature: 'Arthropoda (largest phylum) and vertebrate classes (heart chambers) dominate; example-based MCQs ~60%' },
+    ],
+    correction:
+      'You will see "~13% / 5–6 questions" quoted for Animal Kingdom. That figure is the whole Diversity in the Living World group — Living World, Biological Classification, Plant Kingdom AND Animal Kingdom together. Animal Kingdom on its own is about 2–3 questions in recent NEET papers. It is still worth full attention because it is near-pure recall, but don\'t over-allocate time on the strength of an inflated number.',
+    studyOrder: [
+      { step: 'Fix the basis of classification first', detail: 'Levels of organisation (cellular → tissue → organ → organ-system) → symmetry (asymmetrical/radial/bilateral) → germ layers (diplo-/triploblastic) → body cavity (acoelomate/pseudocoelomate/coelomate) → segmentation → notochord. Almost every question is one rung of this ladder, so learn it before any phylum.' },
+      { step: 'Non-chordate phyla in order', detail: 'Porifera → Cnidaria → Ctenophora → Platyhelminthes → Aschelminthes → Annelida → Arthropoda → Mollusca → Echinodermata → Hemichordata. For each, lock ONE diagnostic feature and two examples — that is what NEET asks.' },
+      { step: 'Chordata — the three subphyla', detail: 'The four defining chordate features (notochord, dorsal hollow nerve cord, pharyngeal gill slits, post-anal tail), then Urochordata, Cephalochordata and Vertebrata. The distinction "notochord persists vs replaced by vertebral column" is a favourite.' },
+      { step: 'Vertebrate classes and heart chambers', detail: 'Cyclostomata → Chondrichthyes → Osteichthyes → Amphibia → Reptilia → Aves → Mammalia, with heart chambers (fish 2, amphibians & most reptiles 3, crocodile/birds/mammals 4) and oviparous/viviparous status. This block carries the most marks.' },
+      { step: 'Example drill last', detail: 'Since ~60% of the marks are example-based ("which of these belongs to Arthropoda"), finish with flashcard recall of the standard NCERT examples for every class and phylum.' },
+    ],
+    highYield: [
+      {
+        topic: 'Diagnostic feature per phylum (one line each)',
+        detail:
+          'Porifera — canal system & spongin; Cnidaria — cnidoblasts, diploblastic, tissue-level; Platyhelminthes — flame cells, acoelomate, dorso-ventrally flat; Aschelminthes — pseudocoelomate, complete gut; Annelida — metameric segmentation, closed circulation; Arthropoda — jointed appendages, open circulation, LARGEST phylum; Mollusca — radula, soft body with shell; Echinodermata — water vascular system, radial adult. NEET lifts these almost verbatim.',
+      },
+      {
+        topic: 'Coelom: acoelomate vs pseudocoelomate vs coelomate',
+        detail:
+          'Acoelomate (no body cavity) — Platyhelminthes; pseudocoelomate (cavity not lined by mesoderm) — Aschelminthes (roundworms); coelomate (true mesoderm-lined cavity) — Annelida onward. This three-way split is one of the most repeated single-fact questions in the chapter.',
+      },
+      {
+        topic: 'Chordate features and the vertebrate classes',
+        detail:
+          'All chordates have, at some stage, a notochord, a dorsal hollow nerve cord, pharyngeal gill slits and a post-anal tail. Then class-level recall: cartilaginous vs bony fish, amphibian vs reptile (eggs, skin, heart), Aves and Mammalia features. Heart chambers and oviparity are the most-tested attributes.',
+      },
+      {
+        topic: 'Heart chambers across vertebrates',
+        detail:
+          'Fishes — 2-chambered; amphibians and most reptiles — 3-chambered; crocodiles, birds and mammals — 4-chambered. The crocodile (a reptile with a 4-chambered heart) is the classic exception NEET loves to test.',
+      },
+    ],
+    traps: [
+      'Reversing echinoderm symmetry. Echinoderm LARVAE are bilaterally symmetrical; the ADULTS are radially symmetrical. NEET states it the other way round in distractors to catch fast readers.',
+      'Mixing up coelom types: flatworms are acoelomate, roundworms (Aschelminthes) are pseudocoelomate, and earthworms (Annelida) are truly coelomate. Calling a roundworm "coelomate" is a common slip.',
+      'Forgetting the crocodile exception. Reptiles are usually 3-chambered, but the crocodile has a 4-chambered heart — yet it is still a reptile, not graded toward birds/mammals.',
+      'Assuming all chordates are vertebrates. Urochordata and Cephalochordata are chordates WITHOUT a vertebral column; the notochord is the chordate criterion, not the backbone.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Animal Kingdom in NEET?',
+        a: 'About 2–3 questions a year in recent NEET papers. The higher "5–6 questions / ~13%" figure you find online refers to the entire Diversity in the Living World unit (Living World, Biological Classification, Plant Kingdom and Animal Kingdom combined). Animal Kingdom alone is 2–3, but because it is near-pure NCERT recall it is among the most dependable marks in Biology.',
+      },
+      {
+        q: 'Which phyla are most important for NEET Animal Kingdom?',
+        a: 'Arthropoda (the largest phylum, jointed appendages, open circulation) and Chordata — especially the vertebrate classes and their heart chambers — are the most frequently asked. After those, Annelida (segmentation, closed circulation), Mollusca and Echinodermata recur. But because questions can come from the diagnostic feature of ANY phylum, learn one defining character and two examples for each.',
+      },
+      {
+        q: 'How do I remember the classification of animals for NEET?',
+        a: 'Don\'t memorise phyla in isolation — learn the ladder of criteria first: levels of organisation, symmetry, germ layers, body cavity (coelom), segmentation and notochord. Then place each phylum on that ladder with one diagnostic feature and two examples. Almost every NEET question is a single rung of this ladder, so the framework converts memorisation into reasoning.',
+      },
+      {
+        q: 'Is Animal Kingdom a hard chapter for NEET?',
+        a: 'It is rated moderate, and it is hard only if you treat it as raw memorisation. The content is large but almost entirely NCERT-direct, with very little reasoning — so accuracy with the exact NCERT wording matters more than cleverness. Build the classification framework, drill the standard examples, and it becomes high, reliable scoring.',
+      },
+    ],
+  },
+
+  'neet-physics-electrostatics': {
+    overview:
+      'Electrostatics is a high-weight NEET Physics chapter and the gateway to the whole electricity block (Current Electricity, Magnetism, EMI). Counting Electric Charges & Fields together with Electrostatic Potential & Capacitance, NEET draws roughly 3–4 questions a year. The questions split between concept (field lines, Gauss\'s law, why the field inside a conductor is zero) and calculation (Coulomb force with superposition, dipole field/torque, capacitor combinations and energy). It is rated Hard mainly because of the vector addition of fields and the dielectric/capacitor algebra — but the question types repeat, so disciplined practice turns it into a reliable scorer.',
+    examSplit: [
+      { exam: 'NEET (recent avg)', weightage: '~7–9% of Physics', questions: '3–4 per year (~12–16 marks)', nature: 'Mix of conceptual (field lines, Gauss, conductor) and numerical (Coulomb, dipole, capacitors)' },
+      { exam: 'Two NCERT chapters', weightage: '—', questions: 'Charges & Fields ~2 · Potential & Capacitance ~1–2', nature: 'Field/Gauss/Coulomb in the first; potential, capacitor energy & dielectrics in the second' },
+    ],
+    correction:
+      'Several charts quote "~10% / 4–5 questions" for Electrostatics. That number bundles TWO separate NCERT chapters — Electric Charges & Fields AND Electrostatic Potential & Capacitance. Taken as that pair the figure is fair (3–4 questions most years); the charges-and-fields portion alone is closer to 2. Either way it is high-weight, but knowing it is two chapters helps you budget the capacitor/dielectric material properly instead of skimming it.',
+    studyOrder: [
+      { step: 'Coulomb\'s law and superposition', detail: 'F = kq₁q₂/r² (k = 1/4πε₀), then vector addition of forces from several charges. The skill NEET tests is resolving and adding forces, not the formula itself.' },
+      { step: 'Electric field and the dipole', detail: 'E = F/q; field of a point charge, then the dipole: axial E = 2kp/r³, equatorial E = kp/r³, and torque τ = pE sinθ. The 1/r³ dipole dependence (not 1/r²) is a favourite distractor.' },
+      { step: 'Field lines, flux and Gauss\'s law', detail: 'Flux Φ = q_enc/ε₀. Use Gauss for symmetric charge distributions: infinite line E = λ/2πε₀r, infinite sheet E = σ/2ε₀, charged conductor surface E = σ/ε₀, and the field inside a conductor = 0.' },
+      { step: 'Potential and potential energy', detail: 'V = kq/r (scalar, so add algebraically), potential energy of charge configurations, and the relation E = −dV/dr. Equipotential surfaces are always perpendicular to field lines.' },
+      { step: 'Capacitance and dielectrics last', detail: 'C = ε₀A/d, energy U = ½CV² = ½Q²/C, series/parallel combinations, and a dielectric raising capacitance to C′ = KC. This is the second chapter and carries 1–2 questions on its own.' },
+    ],
+    highYield: [
+      {
+        topic: 'Coulomb force with superposition',
+        detail:
+          'F = kq₁q₂/r². Multi-charge problems (a charge at a corner of a square/triangle) need you to add the individual forces as VECTORS. NEET\'s standard setup is three or four charges in a symmetric arrangement — resolve into components and sum.',
+      },
+      {
+        topic: 'Gauss\'s law for standard symmetries',
+        detail:
+          'Φ = q_enc/ε₀ gives the field instantly for symmetric cases: infinite line λ/2πε₀r, infinite sheet σ/2ε₀, conductor surface σ/ε₀, and zero inside a conductor or inside a uniformly charged spherical SHELL. Knowing which Gaussian surface to choose is the whole skill.',
+      },
+      {
+        topic: 'Electric dipole: field and torque',
+        detail:
+          'Axial field E = 2kp/r³, equatorial field E = kp/r³ (note both fall as 1/r³, faster than a point charge\'s 1/r²); torque in a uniform field τ = pE sinθ, maximum at 90°; potential energy U = −pE cosθ. Dipole questions appear most years.',
+      },
+      {
+        topic: 'Capacitors: energy, combinations and dielectrics',
+        detail:
+          'C = ε₀A/d; energy U = ½CV² = ½Q²/C = ½QV. In series, 1/C_eq = Σ1/C and charge is common; in parallel, C_eq = ΣC and voltage is common. A dielectric of constant K raises capacitance to KC. The "energy lost when two capacitors are connected" result is a recurring trap.',
+      },
+    ],
+    traps: [
+      'Confusing the field of a sheet with that of a conductor surface. An infinite charged sheet gives E = σ/2ε₀; the surface of a charged conductor gives E = σ/ε₀ — twice as much. The factor of 2 is examined directly.',
+      'Assuming the field is zero wherever the potential is zero (or vice versa). At the midpoint between two equal positive charges the field is zero but the potential is not; on the equatorial plane of a dipole the potential is zero but the field is not. They are independent.',
+      'Using a 1/r² dependence for a dipole field. A dipole\'s field falls as 1/r³ (both axial and equatorial), faster than a single point charge. Plugging the charge formula into a dipole question is a classic slip.',
+      'Forgetting energy is lost when two charged capacitors are connected. Charge is conserved and redistributes to a common potential, but some stored energy is dissipated — so the final energy is LESS than the sum of the initial energies, never equal.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Electrostatics in NEET?',
+        a: 'Roughly 3–4 questions a year when you count both NCERT chapters — Electric Charges & Fields and Electrostatic Potential & Capacitance — which is what most "10% weightage" figures actually refer to. The charges-and-fields part alone is about 2 questions, and capacitance adds 1–2. It is consistently one of the higher-weight chapters in NEET Physics.',
+      },
+      {
+        q: 'Is Electrostatics hard to score in NEET?',
+        a: 'It is rated Hard, mainly because of the vector addition of forces/fields and the capacitor–dielectric algebra. But the question types repeat year to year — Coulomb superposition, dipole field/torque, Gauss-law symmetries, capacitor combinations — so with focused practice on those standard setups it becomes a dependable high scorer rather than a stumbling block.',
+      },
+      {
+        q: 'When should I use Gauss\'s law instead of Coulomb\'s law?',
+        a: 'Use Gauss\'s law when the charge distribution is symmetric — an infinite line, an infinite sheet, a sphere or a charged conductor — because you can pick a Gaussian surface where the field is uniform and pull E out of the flux integral. Use Coulomb\'s law (with vector superposition) for a small number of discrete point charges where there is no such symmetry.',
+      },
+      {
+        q: 'Why is the electric field inside a conductor zero?',
+        a: 'In electrostatic equilibrium the free charges in a conductor rearrange on its surface until the field they create exactly cancels any external field inside the material — so the net field inside is zero and the whole conductor is at one potential. This is why any charge given to a conductor resides on its outer surface, a fact NEET tests directly.',
       },
     ],
   },
