@@ -1007,6 +1007,10 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
       {
         q: 'What is the difference between the excess pressure in a drop and a soap bubble?',
         a: 'A liquid drop has a single surface, so its excess pressure is 2T/r. A soap bubble has two surfaces (inner and outer), so its excess pressure is 4T/r — twice that of a drop of the same radius. This factor-of-two distinction is a frequent JEE single-correct trap.',
+      },
+    ],
+  },
+
   'jee-physics-thermodynamics': {
     overview:
       'Heat & Thermodynamics is one of the highest-yield blocks in JEE Physics, but the single chapter and the whole block are different numbers — which most weightage articles blur. As a standalone chapter (first law, the four processes, heat engines, heat transfer) it gives about 1–2 questions per JEE Main shift, almost always formula-direct: apply ΔU = Q − W, read work off a PV diagram, or compute Carnot efficiency. In JEE Advanced it appears in most papers (1–3 questions) and is usually fused with the kinetic theory of gases — a single problem that asks for work in a process and then the change in internal energy via degrees of freedom. The fastest marks come from nailing the process table (what is zero in each of isothermal/adiabatic/isobaric/isochoric) cold.',
