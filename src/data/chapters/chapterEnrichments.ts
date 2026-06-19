@@ -1586,6 +1586,326 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
       },
     ],
   },
+
+  'jee-chemistry-d-block': {
+    overview:
+      'd-Block Elements (the transition metals) is one of the most reliable scoring chapters in JEE Inorganic Chemistry because the question types repeat and they are NCERT-rooted: electronic configuration anomalies, variable oxidation states, magnetic moment, colour, and the chemistry of K₂Cr₂O₇ and KMnO₄. In JEE Main it is a steady 1–2 questions almost every year, usually direct and single-fact. In JEE Advanced it appears most years (1–2 questions) and runs deeper — fused with coordination chemistry, redox stoichiometry of the dichromate/permanganate oxidations, and reasoning on why a property trends the way it does. Because the answers are recall plus one short step, it gives a high marks-per-hour return.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~3% of Chemistry', questions: '1–2 per year', nature: 'Direct: Cr/Cu config, ion config, spin-only μ, identify oxidation state/colour, K₂Cr₂O₇/KMnO₄ facts' },
+      { exam: 'JEE Advanced', weightage: '~3% of Chemistry', questions: '1–2 per year', nature: 'Conceptual + fused with coordination; redox stoichiometry of MnO₄⁻/Cr₂O₇²⁻, trend reasoning, magnetic/colour origin' },
+    ],
+    correction:
+      'Most weightage pages quote one figure for "d AND f block" together (~2.8%, about 1 question in Main). That bundles two different chapters. The d-block (transition metals) carries nearly all of that weight and the real exam value; the f-block (lanthanides/actinides) is mostly a short recall add-on — lanthanide contraction, the +3 common state, a few oxidation-state facts. Read the combined number as "mostly d-block," and do not under-prepare the transition-metal redox chemistry because the headline figure looks small.',
+    studyOrder: [
+      { step: 'Electronic configuration and the Cr/Cu exceptions', detail: 'Cr is [Ar]3d⁵4s¹ and Cu is [Ar]3d¹⁰4s¹ (half- and fully-filled stability). For ions, remove the 4s electrons before 3d — so Fe²⁺ is 3d⁶, Fe³⁺ is 3d⁵. Everything downstream (magnetic moment, colour, oxidation state) depends on getting this right first.' },
+      { step: 'Trends across the 3d series', detail: 'Atomic/ionic radii (the irregular dip and near-constancy), ionization enthalpy, and why variable oxidation states arise (close 3d/4s energies). These trend questions are pure Main marks.' },
+      { step: 'Why coloured and why magnetic', detail: 'Colour comes from d–d transitions, which need a partially filled d-subshell. Magnetic moment is the spin-only value μ = √(n(n+2)) BM from the number of unpaired electrons. Tie the configuration to both properties.' },
+      { step: 'Catalytic, interstitial and alloy behaviour', detail: 'Variable oxidation states and the ability to adsorb on the surface explain catalysis; small atoms (H, C, N) trapped in the lattice give interstitial compounds; similar radii give alloys. Short, high-yield recall.' },
+      { step: 'K₂Cr₂O₇ and KMnO₄ last', detail: 'Preparation and, above all, their oxidising reactions in acidic and basic medium — with the n-factors. This is the single most examined block in the chapter and ties redox stoichiometry to the inorganic facts.' },
+    ],
+    highYield: [
+      {
+        topic: 'Configurations of atoms and ions (remove 4s first)',
+        detail:
+          'The most frequent Main question. Know the Cr and Cu exceptions, then apply "remove 4s before 3d" for cations: Mn²⁺ = 3d⁵ (μ = 5.92 BM, the maximum for the series), Fe³⁺ = 3d⁵, Cu²⁺ = 3d⁹ (one unpaired, μ = 1.73 BM). A large share of magnetic-moment questions are this one rule plus √(n(n+2)).',
+      },
+      {
+        topic: 'Spin-only magnetic moment',
+        detail:
+          'μ = √(n(n+2)) BM where n = number of unpaired electrons gives the ladder 0, 1.73, 2.83, 3.87, 4.90, 5.92 BM for n = 0–5. Working backward from a given μ to identify the ion (and hence its oxidation state) is a recurring Advanced ask.',
+      },
+      {
+        topic: 'Origin of colour — d–d transition vs charge transfer',
+        detail:
+          'Coloured because of d–d transitions requires a partially filled d-subshell. KMnO₄ (Mn is +7, d⁰) and K₂Cr₂O₇ (Cr is +6, d⁰) have NO d electrons yet are intensely coloured — the colour there is ligand-to-metal charge transfer, not a d–d transition. This distinction is examined directly.',
+      },
+      {
+        topic: 'KMnO₄ and K₂Cr₂O₇ as oxidisers',
+        detail:
+          'In acidic medium MnO₄⁻ → Mn²⁺ (gain of 5 e⁻, n-factor 5) and Cr₂O₇²⁻ → 2Cr³⁺ (gain of 6 e⁻, n-factor 6). In neutral/basic medium MnO₄⁻ → MnO₂ (3 e⁻). Their reactions with Fe²⁺, oxalate, iodide and H₂S, plus the equivalent-weight calculations, are guaranteed marks.',
+      },
+    ],
+    traps: [
+      'Removing a 3d electron before a 4s electron when writing an ion configuration. For transition-metal cations the 4s electrons leave first — Fe²⁺ is 3d⁶, not 3d⁴4s².',
+      'Saying KMnO₄ and K₂Cr₂O₇ are coloured because of d–d transitions. Both metals are d⁰ in those species; the colour is charge-transfer, and assuming d–d here is a classic trap.',
+      'Assuming the highest possible oxidation state is the most stable. Stability depends on the element — Mn(VII) and Cr(VI) are strong oxidisers (not "stable"), while Mn(II) and Fe(III) are the genuinely stable states.',
+      'Treating Zn, Cd and Hg as typical transition metals. They are d¹⁰ in both the atom and their common ions, so they show no d–d colour and are diamagnetic — by the strict definition they are not transition elements.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from d and f block in JEE Main?',
+        a: 'The d-block and f-block together are about 1–2 questions per year in JEE Main (often quoted as "~2.8%"). Almost all of that is the d-block (transition metals); the f-block usually contributes at most a single recall fact such as lanthanide contraction. JEE Advanced adds 1–2 more, usually deeper or fused with coordination chemistry.',
+      },
+      {
+        q: 'Why is KMnO₄ coloured if manganese has no d electrons?',
+        a: 'In KMnO₄ manganese is in the +7 state, which is d⁰ — so the colour cannot come from a d–d transition. The intense purple is due to a ligand-to-metal charge transfer, where an electron shifts from oxygen to the metal under light. The same explanation applies to the orange of K₂Cr₂O₇ (Cr is +6, also d⁰). This d⁰-but-coloured pair is a favourite JEE trap.',
+      },
+      {
+        q: 'How do you calculate the magnetic moment of a transition metal ion?',
+        a: 'First write the ion\'s configuration (remove the 4s electrons before 3d), count the unpaired electrons n, then use the spin-only formula μ = √(n(n+2)) Bohr magnetons. For example Fe²⁺ is 3d⁶ with 4 unpaired electrons, giving μ = √24 ≈ 4.90 BM. Working the formula backward also lets you identify an unknown ion from its measured moment.',
+      },
+      {
+        q: 'Is the d-block important for JEE Advanced?',
+        a: 'Yes. Although the headline weightage looks modest, the chapter is high-value because it links to coordination compounds and redox, and the question types repeat: magnetic moment, colour origin, oxidation-state trends, and the permanganate/dichromate oxidations with their stoichiometry. Those are dependable marks in both papers, so it is not a chapter to skip.',
+      },
+    ],
+  },
+
+  'jee-maths-3d-geometry': {
+    overview:
+      'Three-Dimensional Geometry is one of the most formula-driven and therefore most predictable chapters in JEE Maths. Almost every question reduces to one of a handful of standard objects — a line, a plane, the distance between them, or the image of a point — so once the formulae are reflexes, it becomes a reliable scorer. In JEE Main it is consistently 2–3 questions, usually direct substitution. In JEE Advanced it is 1–2 questions but with a geometric twist (skew lines, foot of perpendicular, planes through a line) that rewards a clear vector setup. It pairs tightly with Vectors, which supplies the dot/cross/scalar-triple-product machinery the 3D formulae are built on.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~6–7% of Maths', questions: '2–3 per year', nature: 'Direct: distance point-to-plane, angle between line/plane, image of point, line–plane intersection' },
+      { exam: 'JEE Advanced', weightage: '~5–8% of Maths', questions: '1–2 per year', nature: 'Skew-line shortest distance, foot of perpendicular, family of planes, coordinate-geometry-style reasoning' },
+    ],
+    correction:
+      'Many weightage pages quote "Vectors & 3D Geometry = 9–11%, about 3–4 questions" as a single figure. Those are two separate chapters. 3D Geometry on its own is roughly 2–3 questions in Main and 1–2 in Advanced; Vectors is counted separately. The reason they are bundled is genuine — 3D Geometry is essentially Vectors applied to lines and planes — so study Vectors first, but budget marks and revision time for each chapter on its own count, not the inflated combined number.',
+    studyOrder: [
+      { step: 'Vectors first (prerequisite)', detail: 'Dot product (angles, projections), cross product (perpendiculars, areas) and the scalar triple product (volume, coplanarity) are the engine of every 3D formula. Trying 3D before Vectors is the most common reason students find this chapter "hard."' },
+      { step: 'Direction cosines and direction ratios', detail: 'l, m, n with l² + m² + n² = 1 versus the unnormalised ratios a, b, c. Almost every line/plane formula starts here, and confusing the two is the single biggest source of errors.' },
+      { step: 'Equation of a line in 3D', detail: 'Both forms — vector r = a + λb and Cartesian (x−x₁)/a = (y−y₁)/b = (z−z₁)/c. Be fluent at converting between them; questions mix the two freely.' },
+      { step: 'Equation of a plane', detail: 'Normal form r·n = d, point-normal form, plane through three points, and intercept form. The normal vector is the key object — most plane questions are really "find the normal."' },
+      { step: 'Distances, angles and images last', detail: 'Point-to-plane and point-to-line distance, angle between line and plane, shortest distance between skew lines, and foot of perpendicular / image of a point. These combine the earlier pieces and are where Advanced lives.' },
+    ],
+    highYield: [
+      {
+        topic: 'Shortest distance between two skew lines',
+        detail:
+          'For lines r = a₁ + λb₁ and r = a₂ + μb₂, the shortest distance is |[(a₂ − a₁) · (b₁ × b₂)]| / |b₁ × b₂| — the scalar triple product over the cross-product magnitude. ALWAYS check first whether the lines are parallel (b₁ ∥ b₂); if so this formula fails and you use the parallel-line distance instead. This is the highest-frequency Advanced result in the chapter.',
+      },
+      {
+        topic: 'Foot of perpendicular and image of a point in a plane',
+        detail:
+          'Drop a perpendicular from the point along the plane\'s normal n, parametrise P + tn, substitute into the plane equation to find t (foot), and double it for the mirror image. The same method on a line uses the line\'s direction vector. A recurring Main and Advanced setup.',
+      },
+      {
+        topic: 'Angle between a line and a plane',
+        detail:
+          'It uses sin θ = |b · n| / (|b| |n|), NOT cosine — because the angle is measured from the plane, the complement of the angle between the line\'s direction b and the plane\'s normal n. Mixing this up with the line–line/plane–plane cosine formula is the most common slip in the chapter.',
+      },
+      {
+        topic: 'Coplanarity of two lines and family of planes',
+        detail:
+          'Two lines are coplanar iff (a₂ − a₁) · (b₁ × b₂) = 0 (scalar triple product zero — the same coplanarity test as in Vectors). The family of planes through the intersection of two given planes, P₁ + λP₂ = 0, lets you build a plane satisfying an extra condition — a classic Advanced device.',
+      },
+    ],
+    traps: [
+      'Using cos θ instead of sin θ for the angle between a line and a plane. The line–plane angle is the complement of the angle to the normal, so it uses sine; reserve the cosine formula for line–line and plane–plane angles.',
+      'Confusing direction ratios with direction cosines. Ratios (a, b, c) are not normalised; direction cosines satisfy l² + m² + n² = 1. Plugging raw ratios into a formula that expects cosines gives a wrong magnitude.',
+      'Applying the skew-lines shortest-distance formula without checking the lines are actually skew. If b₁ × b₂ = 0 the lines are parallel and the formula divides by zero — use the parallel-line distance instead.',
+      'Writing the wrong plane through three points. Form two vectors in the plane, take their cross product for the normal, then use the point-normal form — don\'t guess the normal\'s components.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from 3D Geometry in JEE Main and Advanced?',
+        a: 'JEE Main asks about 2–3 questions from 3D Geometry most years (~6–7% of the Maths section), and they are largely direct: distance from a point to a plane, image of a point, angle between a line and a plane. JEE Advanced adds 1–2 questions with a geometric twist such as skew-line distance or a family of planes. The "9–11%, 3–4 questions" figure you see online is Vectors AND 3D Geometry counted together.',
+      },
+      {
+        q: 'Is 3D Geometry hard for JEE?',
+        a: 'It is rated Hard mainly because it is spatial and formula-heavy, but it is also one of the most predictable chapters — nearly every question is a standard object (line, plane, distance, image) with a known formula. The students who struggle usually skipped Vectors; once dot, cross and scalar-triple products are automatic, 3D Geometry becomes systematic and high-scoring.',
+      },
+      {
+        q: 'Should I study Vectors or 3D Geometry first?',
+        a: 'Vectors first, without exception. Every 3D formula — line and plane equations, distances, the skew-line shortest distance, coplanarity — is built on the dot product, cross product and scalar triple product from Vectors. Learning 3D Geometry before Vectors is the most common reason students find it confusing.',
+      },
+      {
+        q: 'What is the most important topic in 3D Geometry for JEE?',
+        a: 'The shortest distance between two skew lines and the foot-of-perpendicular / image-of-a-point method. Skew-line distance is the highest-frequency Advanced result, and the image-of-a-point technique appears in both papers. Master those two along with the point-to-plane distance and you cover most of what the chapter asks.',
+      },
+    ],
+  },
+
+  'jee-physics-gravitation': {
+    overview:
+      'Gravitation is one of the best effort-to-reward chapters in JEE Physics: a small, closed set of formulae covers almost everything, and the questions are mostly direct. In JEE Main it is reliably about 1 question per shift (occasionally 2) — Newton\'s law and superposition, variation of g, orbital and escape velocity, satellite energy, and Kepler\'s laws. In JEE Advanced it appears most years, usually fused with energy conservation or SHM (a particle dropped through a tunnel, binary-star systems, satellite energy changes). Because the chapter is compact and formula-driven, MindPeak students typically lock it down in about a week — making it a fast way to bank near-guaranteed marks.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~3–4% of Physics', questions: '~1 per shift (sometimes 2)', nature: 'Formula-direct: g variation, orbital/escape velocity, satellite energy, Kepler ratios' },
+      { exam: 'JEE Advanced', weightage: 'Appears most years', questions: '1 (fused)', nature: 'Combined with energy conservation/SHM: tunnel-through-Earth, binary stars, orbit-change energetics' },
+    ],
+    correction:
+      'You will see articles claiming "13 questions in April 2024" or "21 in 2023" for Gravitation. Those numbers add up every question across all shifts of both sessions — not what a single student faces. In your actual paper it is about 1 question (sometimes 2). Use the per-shift figure to plan revision; the all-shifts total is a counting artefact, not the difficulty you will meet.',
+    studyOrder: [
+      { step: 'Newton\'s law and the superposition principle', detail: 'F = GMm/r² and adding gravitational forces/fields as vectors. Field-due-to-multiple-masses questions are just superposition, so build this habit first.' },
+      { step: 'Gravitational field and potential', detail: 'g = GM/r² (field) and V = −GM/r (potential), and the link PE = mV = −GMm/r. Keeping the sign of potential and PE straight is the foundation for every energy question.' },
+      { step: 'Variation of g', detail: 'With height g_h = g(1 − 2h/R) for h ≪ R (exact: g·R²/(R+h)²), with depth g_d = g(1 − d/R), and the reduction due to Earth\'s rotation (maximum at the equator, zero at the poles). These three cases are examined directly.' },
+      { step: 'Orbital and escape velocity', detail: 'v_orbital = √(GM/r) and v_escape = √(2GM/R), so v_escape = √2 · v_orbital at the surface. Knowing this ratio answers many questions in one line.' },
+      { step: 'Satellite energy and Kepler last', detail: 'Total energy of an orbiting satellite E = −GMm/2r (KE = +GMm/2r, PE = −GMm/r, so E = ½ PE = −KE), geostationary specifics, and Kepler\'s laws (areal velocity = L-conservation; T² ∝ r³).' },
+    ],
+    highYield: [
+      {
+        topic: 'Escape vs orbital velocity',
+        detail:
+          'v_orbital = √(GM/r); v_escape = √(2GM/R). At the surface v_escape = √2 · v_orbital ≈ 1.414 × the orbital speed, and Earth\'s escape velocity is about 11.2 km/s. Many questions ("by what factor must speed increase to escape from orbit?") reduce to this √2 relationship.',
+      },
+      {
+        topic: 'Variation of g with height and depth',
+        detail:
+          'For small height g decreases as g(1 − 2h/R); with depth it decreases as g(1 − d/R), reaching zero at the centre. Note the factor of 2 difference between the height and depth formulae — at the same small distance, going up reduces g twice as fast as going down. This contrast is a favourite single-question test.',
+      },
+      {
+        topic: 'Total energy of a satellite',
+        detail:
+          'For a circular orbit, KE = +GMm/2r, PE = −GMm/r, and total E = −GMm/2r = ½·PE = −KE. The negative total energy means the satellite is bound; to move to a higher orbit you must ADD energy even though the speed decreases. Orbit-change energetics in Advanced lean on this.',
+      },
+      {
+        topic: 'Kepler\'s laws and geostationary orbits',
+        detail:
+          'Kepler III, T² ∝ r³, turns most orbit problems into ratios; Kepler II (equal areas in equal times) is angular-momentum conservation, so a planet moves fastest at perihelion. A geostationary satellite has T = 24 h, sits over the equator moving west-to-east, at radius ≈ 42,000 km from Earth\'s centre (~36,000 km altitude).',
+      },
+    ],
+    traps: [
+      'Dropping the negative sign on gravitational PE and potential. PE = −GMm/r and V = −GM/r are negative; using a positive value flips the sign of total energy and breaks every bound-orbit calculation.',
+      'Confusing orbital velocity with escape velocity. Orbital keeps a satellite in a circle (√(GM/r)); escape lets it leave entirely (√(2GM/R)). They differ by a factor of √2 at the surface — mixing them is the most common error.',
+      'Using g(1 − 2h/R) when h is not small compared to R. That linear form is an approximation; for large heights use the exact g·R²/(R+h)². The depth formula g(1 − d/R) is exact (assuming uniform density).',
+      'Thinking a satellite speeds up when raised to a higher orbit. A higher orbit has lower orbital speed but greater total energy — you add energy yet the satellite moves slower. This counter-intuitive result is examined directly.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Gravitation in JEE Main?',
+        a: 'About 1 question per shift, occasionally 2 — roughly 3–4% of the Physics section. If you see claims of "13" or "21" questions, those are totals added across every shift of a session, not what a single candidate faces. For one paper, plan for one fairly direct, formula-based question.',
+      },
+      {
+        q: 'Is Gravitation an easy chapter for JEE?',
+        a: 'Yes, relatively. It is rated easy-to-moderate because the formula set is small and most questions are direct substitution — variation of g, escape/orbital velocity, satellite energy, Kepler ratios. It is one of the highest effort-to-reward chapters, which is why it is a smart early target when you want quick, dependable marks.',
+      },
+      {
+        q: 'What is the difference between orbital velocity and escape velocity?',
+        a: 'Orbital velocity, √(GM/r), is the speed needed to stay in a circular orbit at radius r. Escape velocity, √(2GM/R), is the minimum speed needed to break free of the gravitational field entirely. At the surface they are related by v_escape = √2 · v_orbital, so Earth\'s ~11.2 km/s escape speed is √2 times the ~7.9 km/s low-orbit speed.',
+      },
+      {
+        q: 'Why is the total energy of a satellite negative?',
+        a: 'For a circular orbit the kinetic energy is +GMm/2r and the potential energy is −GMm/r, so the total is −GMm/2r — negative. A negative total energy signals a bound system; the satellite cannot escape unless energy is added to bring the total up to zero. This is also why raising a satellite to a higher orbit requires adding energy even though its speed drops.',
+      },
+    ],
+  },
+
+  'neet-biology-biotechnology-principles': {
+    overview:
+      'Biotechnology: Principles and Processes is the toolkit chapter of NEET Biotechnology — restriction enzymes, vectors, competent hosts, PCR and the steps of gene cloning. It is rated Hard not because the reasoning is deep but because it is detail-dense: exact recognition sequences, vector marker genes, and PCR temperatures are all directly testable. As a standalone chapter it is usually 1–2 questions a year, and it is near-pure NCERT recall, so the marks are there for anyone who learns the specifics precisely. It is also the foundation for Biotechnology and its Applications (the next chapter), so the effort pays twice.',
+    examSplit: [
+      { exam: 'This chapter alone', weightage: '~2–3% of Biology', questions: '1–2 per year', nature: 'NCERT-direct: tools (restriction enzymes, vectors), rDNA steps, PCR, gel electrophoresis, bioreactors' },
+      { exam: 'Biotechnology unit', weightage: 'Higher combined', questions: '3–4 per year', nature: 'Principles & Processes + Applications (Bt crops, gene therapy, insulin, RNAi) examined together' },
+    ],
+    correction:
+      'Weightage figures for this chapter range from "~3%" to "~8%, 3–4 questions" online. The honest picture: the 3–4-question / ~8% figure is for the whole Biotechnology UNIT — this chapter plus Biotechnology and its Applications. Principles and Processes on its own is usually 1–2 questions a year. It is high-value-per-mark because the answers are exact NCERT recall (enzyme names, temperatures, marker genes), but do not over-invest expecting four questions from this one chapter.',
+    studyOrder: [
+      { step: 'Principles of biotechnology', detail: 'The two core techniques — genetic engineering (rDNA technology) and maintaining a sterile, contamination-free environment for large-scale culture. Knowing what problem each tool solves makes the rest of the chapter logical rather than a list to memorise.' },
+      { step: 'Tools of rDNA technology', detail: 'Restriction enzymes (molecular scissors), vectors (carriers), competent host cells, and DNA ligase (molecular glue). Learn each tool by the job it does before memorising its details — this is the backbone of every question.' },
+      { step: 'Restriction enzymes and gel electrophoresis', detail: 'Recognition of palindromic sequences, the staggered cut that leaves "sticky ends", and how electrophoresis separates fragments by size (smaller DNA migrates farther toward the positive anode). EcoRI\'s site (GAATTC) is the standard example.' },
+      { step: 'Cloning vectors and selectable markers', detail: 'pBR322 with its ampᴿ and tetᴿ genes, the Ti plasmid of Agrobacterium for plants, and insertional inactivation — how inserting DNA into one marker gene lets you screen for recombinants. The logic here is the chapter\'s favourite question.' },
+      { step: 'PCR and downstream processing last', detail: 'The three PCR steps with their temperatures, the role of thermostable Taq polymerase, and the idea that downstream processing (separation, purification, formulation) is needed before a product is sold.' },
+    ],
+    highYield: [
+      {
+        topic: 'PCR — the three steps, temperatures and Taq',
+        detail:
+          'Denaturation (~94 °C, strands separate) → Annealing (~55 °C, primers bind) → Extension (~72 °C, Taq polymerase synthesises the new strand). Taq polymerase is used because it is thermostable, isolated from the bacterium Thermus aquaticus, so it survives the 94 °C step. About 30 cycles give roughly a billion (2³⁰) copies. The temperatures and the source organism are both directly asked.',
+      },
+      {
+        topic: 'Restriction enzymes and sticky ends',
+        detail:
+          'They recognise specific palindromic sequences (read the same 5′→3′ on both strands) and cut to leave single-stranded overhangs — "sticky ends" — that base-pair with any other DNA cut by the SAME enzyme, which is why a gene and a vector must be cut with the same restriction enzyme. EcoRI cuts at G↓AATTC. Naming follows the source organism (E. coli → Eco).',
+      },
+      {
+        topic: 'Insertional inactivation in pBR322',
+        detail:
+          'pBR322 carries two antibiotic-resistance genes (ampᴿ and tetᴿ). If foreign DNA is inserted into the tetᴿ gene, recombinants lose tetracycline resistance but keep ampicillin resistance — so they grow on ampicillin but die on tetracycline, distinguishing them from non-recombinants. This two-marker screening logic is the chapter\'s most-tested reasoning.',
+      },
+      {
+        topic: 'Bioreactors and downstream processing',
+        detail:
+          'The stirred-tank bioreactor (and its sparged air, agitator, and pH/temperature/oxygen control) allows large-volume culture under optimal conditions. After culture, downstream processing — separation, purification and formulation with preservatives, followed by quality control — turns the product into a usable form. These applied details are easy recall marks.',
+      },
+    ],
+    traps: [
+      'Mixing up the PCR step temperatures. Denaturation is the hottest (~94 °C), annealing the coolest (~55 °C), extension in between (~72 °C). Reversing annealing and extension is a common slip.',
+      'Forgetting that the gene and the vector must be cut by the SAME restriction enzyme. Only then do their sticky ends match and join — using two different enzymes leaves incompatible overhangs.',
+      'Getting the insertional-inactivation logic backwards. Recombinants LOSE resistance for the gene the insert disrupts (e.g. become tetracycline-sensitive) — they do not gain it. The recombinant is identified by the resistance it has lost.',
+      'Confusing Taq polymerase with ordinary DNA polymerase. Taq is thermostable (from Thermus aquaticus) so it survives the 94 °C denaturation; a normal polymerase would denature and have to be re-added each cycle.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Biotechnology Principles and Processes in NEET?',
+        a: 'This chapter on its own is usually 1–2 questions a year. The "3–4 questions / ~8%" figure quoted online is for the whole Biotechnology unit — Principles and Processes plus Biotechnology and its Applications. The questions are near-pure NCERT recall (enzyme names, PCR temperatures, vector markers), so they are very scorable if you learn the specifics precisely.',
+      },
+      {
+        q: 'What are the three steps of PCR and their temperatures?',
+        a: 'Denaturation at about 94 °C separates the two DNA strands; annealing at about 55 °C lets the primers bind to their complementary sequences; extension at about 72 °C is where the thermostable Taq polymerase synthesises the new strands. Repeating the cycle ~30 times amplifies the DNA roughly a billion-fold. NEET asks both the order and the temperatures directly.',
+      },
+      {
+        q: 'Why must the same restriction enzyme cut both the gene and the vector?',
+        a: 'A restriction enzyme cuts at its specific palindromic site to leave single-stranded "sticky ends." Only DNA cut by the same enzyme has complementary sticky ends that can base-pair and be joined by DNA ligase. If the gene and vector were cut by different enzymes, their overhangs would not match and they could not be ligated together.',
+      },
+      {
+        q: 'How does insertional inactivation help select recombinant cells?',
+        a: 'In a vector like pBR322 with two resistance genes (ampᴿ and tetᴿ), foreign DNA is inserted into one of them — say tetᴿ. Cells that took up a recombinant plasmid lose tetracycline resistance but keep ampicillin resistance, so they grow on ampicillin yet die on tetracycline. That difference distinguishes recombinant colonies from non-recombinant ones, which keep both resistances.',
+      },
+    ],
+  },
+
+  'jee-chemistry-alcohols-phenols-ethers': {
+    overview:
+      'Alcohols, Phenols and Ethers is a high-return Organic chapter because its reactions feed directly into the rest of organic chemistry (aldehydes, carboxylic acids, ethers in synthesis), and the question types are consistent: acidity comparison, named reactions, reagent/product prediction, and distinguishing tests. In JEE Main it is a steady 2–3 questions a year, mostly direct. In JEE Advanced it goes mechanism-deep — why phenol is more acidic than ethanol, why a tertiary alcohol reacts fastest in the Lucas test, and multi-step conversions. Phenols carry the most weight (acidity + electrophilic substitution on the ring), then alcohols, then ethers.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~3–5% of Chemistry', questions: '2–3 per year', nature: 'Direct: acidity order, named-reaction product, reagent identification, distinguishing tests' },
+      { exam: 'JEE Advanced', weightage: '~4–6% of Chemistry', questions: '1–3 (often fused)', nature: 'Mechanism-based: acidity reasoning, Lucas/SN1-SN2, Reimer–Tiemann/Kolbe products, multi-step conversions' },
+    ],
+    correction:
+      'Some pages quote a single weightage band and a flat topic list without saying where the marks actually sit. The real distribution is uneven: phenols carry the most (their unusual acidity and the electrophilic-substitution chemistry on the aromatic ring), alcohols next (preparation, oxidation, dehydration, the Lucas/Victor Meyer tests), and ethers least (mainly Williamson synthesis and cleavage by HI). Budget revision time accordingly rather than treating the three groups as equal.',
+    studyOrder: [
+      { step: 'Structure, classification and the acidity logic first', detail: 'Primary/secondary/tertiary alcohols, and the acidity order Phenol > Water > Alcohol. Understanding WHY (phenoxide is resonance-stabilised over the ring; alkyl groups are electron-donating and destabilise alkoxide) is the gate to half the chapter\'s reasoning questions.' },
+      { step: 'Preparation of alcohols and phenols', detail: 'Alcohols from alkenes (hydration, hydroboration–oxidation, oxymercuration), carbonyls (reduction, Grignard), and the industrial phenol routes (cumene process). Grignard with different carbonyls to build a target alcohol is a recurring ask.' },
+      { step: 'Reactions of alcohols', detail: 'Oxidation (1° → aldehyde → acid; 2° → ketone; 3° resists), acid-catalysed dehydration (Saytzeff product, carbocation rearrangements), esterification, and the Lucas and Victor Meyer tests for distinguishing 1°/2°/3°.' },
+      { step: 'Reactions of phenols', detail: 'Electrophilic substitution (–OH is strongly activating, o/p-directing), plus the named reactions: Kolbe (→ salicylic acid), Reimer–Tiemann (→ salicylaldehyde), bromination/nitration, and reaction with FeCl₃ (violet colour test).' },
+      { step: 'Ethers last', detail: 'Williamson synthesis (use the less hindered alkyl halide to avoid elimination), and cleavage by HI/HBr (the smaller alkyl group forms the halide). Compact and high-yield once the alcohol/phenol chemistry is solid.' },
+    ],
+    highYield: [
+      {
+        topic: 'Acidity order and the reasoning behind it',
+        detail:
+          'Phenol > Water > Alcohol. Phenol is far more acidic than alcohols because the phenoxide ion delocalises its negative charge into the benzene ring; alcohols are weaker than water because alkyl groups push electron density onto oxygen and destabilise the alkoxide. Electron-withdrawing groups on the ring (–NO₂, especially at o/p) make phenols still more acidic — p-nitrophenol > phenol. This ranking and its causes are asked almost every year.',
+      },
+      {
+        topic: 'Lucas test and Victor Meyer test',
+        detail:
+          'Lucas reagent (conc. HCl + anhydrous ZnCl₂) distinguishes alcohols by SN1 rate: tertiary reacts immediately (turbidity at once), secondary in about 5 minutes, primary not at room temperature — because the order tracks carbocation stability (3° > 2° > 1°). Victor Meyer\'s test gives red (1°), blue (2°) and colourless (3°) products. These two distinguishing tests are direct marks.',
+      },
+      {
+        topic: 'Kolbe and Reimer–Tiemann reactions of phenol',
+        detail:
+          'Kolbe\'s reaction: phenol + CO₂ under NaOH/pressure → salicylic acid (ortho-hydroxybenzoic acid), the precursor to aspirin. Reimer–Tiemann: phenol + CHCl₃/NaOH → salicylaldehyde (the –CHO enters ortho). Knowing the product and the ortho selectivity of each is a reliable Advanced ask.',
+      },
+      {
+        topic: 'Williamson ether synthesis and ether cleavage',
+        detail:
+          'Williamson: an alkoxide (R–O⁻Na⁺) + alkyl halide (R′–X) → R–O–R′ via SN2 — so use the LESS hindered halide (methyl/primary); a tertiary halide eliminates to an alkene instead. Ether cleavage by HI: the bond breaks so the smaller/less hindered group becomes the alkyl iodide (e.g. methyl phenyl ether → phenol + CH₃I, because phenyl–O cannot undergo SN2).',
+      },
+    ],
+    traps: [
+      'Saying alcohols are more acidic than water. They are LESS acidic — alkyl groups are electron-donating and destabilise the alkoxide ion. Only phenol (resonance-stabilised phenoxide) beats water in this chapter.',
+      'Choosing the wrong alkyl halide in Williamson synthesis. The reaction is SN2, so the alkyl halide must be the less hindered partner; pairing a bulky tertiary halide with an alkoxide gives elimination (alkene), not the ether.',
+      'Predicting the wrong product in ether cleavage by HI. With an unsymmetrical ether the smaller/less hindered group leaves as the iodide; with aryl alkyl ethers the aryl–O bond is not cleaved (no SN2 on sp² carbon), so phenol is always one product.',
+      'Forgetting carbocation rearrangement in acid-catalysed dehydration. The intermediate carbocation can undergo hydride/methyl shifts to a more stable cation, so the major alkene may not come from the carbon that originally held the –OH (Saytzeff, most-substituted alkene).',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Alcohols, Phenols and Ethers in JEE?',
+        a: 'JEE Main asks about 2–3 questions a year from this chapter (~3–5% of Chemistry), and JEE Advanced typically 1–3, often fused into mechanism or multi-step conversion problems. The marks are weighted toward phenols (acidity and ring substitution), then alcohols, then ethers, so allocate revision in that order rather than treating the three equally.',
+      },
+      {
+        q: 'Why is phenol more acidic than ethanol (or alcohols)?',
+        a: 'When phenol loses its –OH proton, the resulting phenoxide ion spreads the negative charge into the benzene ring through resonance, which stabilises it strongly. An alkoxide from an alcohol has no such delocalisation, and the alkyl group actually pushes electron density onto the oxygen, destabilising the negative charge. The more stable the conjugate base, the stronger the acid — so phenol > water > alcohol.',
+      },
+      {
+        q: 'How does the Lucas test distinguish primary, secondary and tertiary alcohols?',
+        a: 'Lucas reagent (concentrated HCl with anhydrous ZnCl₂) reacts by an SN1 mechanism, so the rate follows carbocation stability. A tertiary alcohol gives immediate cloudiness (turbidity), a secondary alcohol turns turbid in about 5 minutes, and a primary alcohol shows no reaction at room temperature. The differing speed of the cloudy alkyl-chloride forming is what identifies the class.',
+      },
+      {
+        q: 'Which alkyl halide should be used in Williamson ether synthesis?',
+        a: 'The less hindered one — methyl or primary. Williamson synthesis is an SN2 reaction between an alkoxide and an alkyl halide, and SN2 is fastest at unhindered carbons. If you use a bulky tertiary halide, the alkoxide acts as a base instead and you get elimination (an alkene) rather than the ether. So to make a mixed ether, pair the bulky group as the alkoxide and the smaller group as the halide.',
+      },
+    ],
+  },
 };
 
 /** Returns the curated enrichment for a chapter slug, or undefined if none exists. */
