@@ -1845,70 +1845,6 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
     ],
   },
 
-  'jee-physics-gravitation': {
-    overview:
-      'Gravitation is one of the best effort-to-reward chapters in JEE Physics: a small, closed set of formulae covers almost everything, and the questions are mostly direct. In JEE Main it is reliably about 1 question per shift (occasionally 2) — Newton\'s law and superposition, variation of g, orbital and escape velocity, satellite energy, and Kepler\'s laws. In JEE Advanced it appears most years, usually fused with energy conservation or SHM (a particle dropped through a tunnel, binary-star systems, satellite energy changes). Because the chapter is compact and formula-driven, MindPeak students typically lock it down in about a week — making it a fast way to bank near-guaranteed marks.',
-    examSplit: [
-      { exam: 'JEE Main', weightage: '~3–4% of Physics', questions: '~1 per shift (sometimes 2)', nature: 'Formula-direct: g variation, orbital/escape velocity, satellite energy, Kepler ratios' },
-      { exam: 'JEE Advanced', weightage: 'Appears most years', questions: '1 (fused)', nature: 'Combined with energy conservation/SHM: tunnel-through-Earth, binary stars, orbit-change energetics' },
-    ],
-    correction:
-      'You will see articles claiming "13 questions in April 2024" or "21 in 2023" for Gravitation. Those numbers add up every question across all shifts of both sessions — not what a single student faces. In your actual paper it is about 1 question (sometimes 2). Use the per-shift figure to plan revision; the all-shifts total is a counting artefact, not the difficulty you will meet.',
-    studyOrder: [
-      { step: 'Newton\'s law and the superposition principle', detail: 'F = GMm/r² and adding gravitational forces/fields as vectors. Field-due-to-multiple-masses questions are just superposition, so build this habit first.' },
-      { step: 'Gravitational field and potential', detail: 'g = GM/r² (field) and V = −GM/r (potential), and the link PE = mV = −GMm/r. Keeping the sign of potential and PE straight is the foundation for every energy question.' },
-      { step: 'Variation of g', detail: 'With height g_h = g(1 − 2h/R) for h ≪ R (exact: g·R²/(R+h)²), with depth g_d = g(1 − d/R), and the reduction due to Earth\'s rotation (maximum at the equator, zero at the poles). These three cases are examined directly.' },
-      { step: 'Orbital and escape velocity', detail: 'v_orbital = √(GM/r) and v_escape = √(2GM/R), so v_escape = √2 · v_orbital at the surface. Knowing this ratio answers many questions in one line.' },
-      { step: 'Satellite energy and Kepler last', detail: 'Total energy of an orbiting satellite E = −GMm/2r (KE = +GMm/2r, PE = −GMm/r, so E = ½ PE = −KE), geostationary specifics, and Kepler\'s laws (areal velocity = L-conservation; T² ∝ r³).' },
-    ],
-    highYield: [
-      {
-        topic: 'Escape vs orbital velocity',
-        detail:
-          'v_orbital = √(GM/r); v_escape = √(2GM/R). At the surface v_escape = √2 · v_orbital ≈ 1.414 × the orbital speed, and Earth\'s escape velocity is about 11.2 km/s. Many questions ("by what factor must speed increase to escape from orbit?") reduce to this √2 relationship.',
-      },
-      {
-        topic: 'Variation of g with height and depth',
-        detail:
-          'For small height g decreases as g(1 − 2h/R); with depth it decreases as g(1 − d/R), reaching zero at the centre. Note the factor of 2 difference between the height and depth formulae — at the same small distance, going up reduces g twice as fast as going down. This contrast is a favourite single-question test.',
-      },
-      {
-        topic: 'Total energy of a satellite',
-        detail:
-          'For a circular orbit, KE = +GMm/2r, PE = −GMm/r, and total E = −GMm/2r = ½·PE = −KE. The negative total energy means the satellite is bound; to move to a higher orbit you must ADD energy even though the speed decreases. Orbit-change energetics in Advanced lean on this.',
-      },
-      {
-        topic: 'Kepler\'s laws and geostationary orbits',
-        detail:
-          'Kepler III, T² ∝ r³, turns most orbit problems into ratios; Kepler II (equal areas in equal times) is angular-momentum conservation, so a planet moves fastest at perihelion. A geostationary satellite has T = 24 h, sits over the equator moving west-to-east, at radius ≈ 42,000 km from Earth\'s centre (~36,000 km altitude).',
-      },
-    ],
-    traps: [
-      'Dropping the negative sign on gravitational PE and potential. PE = −GMm/r and V = −GM/r are negative; using a positive value flips the sign of total energy and breaks every bound-orbit calculation.',
-      'Confusing orbital velocity with escape velocity. Orbital keeps a satellite in a circle (√(GM/r)); escape lets it leave entirely (√(2GM/R)). They differ by a factor of √2 at the surface — mixing them is the most common error.',
-      'Using g(1 − 2h/R) when h is not small compared to R. That linear form is an approximation; for large heights use the exact g·R²/(R+h)². The depth formula g(1 − d/R) is exact (assuming uniform density).',
-      'Thinking a satellite speeds up when raised to a higher orbit. A higher orbit has lower orbital speed but greater total energy — you add energy yet the satellite moves slower. This counter-intuitive result is examined directly.',
-    ],
-    faqs: [
-      {
-        q: 'How many questions come from Gravitation in JEE Main?',
-        a: 'About 1 question per shift, occasionally 2 — roughly 3–4% of the Physics section. If you see claims of "13" or "21" questions, those are totals added across every shift of a session, not what a single candidate faces. For one paper, plan for one fairly direct, formula-based question.',
-      },
-      {
-        q: 'Is Gravitation an easy chapter for JEE?',
-        a: 'Yes, relatively. It is rated easy-to-moderate because the formula set is small and most questions are direct substitution — variation of g, escape/orbital velocity, satellite energy, Kepler ratios. It is one of the highest effort-to-reward chapters, which is why it is a smart early target when you want quick, dependable marks.',
-      },
-      {
-        q: 'What is the difference between orbital velocity and escape velocity?',
-        a: 'Orbital velocity, √(GM/r), is the speed needed to stay in a circular orbit at radius r. Escape velocity, √(2GM/R), is the minimum speed needed to break free of the gravitational field entirely. At the surface they are related by v_escape = √2 · v_orbital, so Earth\'s ~11.2 km/s escape speed is √2 times the ~7.9 km/s low-orbit speed.',
-      },
-      {
-        q: 'Why is the total energy of a satellite negative?',
-        a: 'For a circular orbit the kinetic energy is +GMm/2r and the potential energy is −GMm/r, so the total is −GMm/2r — negative. A negative total energy signals a bound system; the satellite cannot escape unless energy is added to bring the total up to zero. This is also why raising a satellite to a higher orbit requires adding energy even though its speed drops.',
-      },
-    ],
-  },
-
   'neet-biology-biotechnology-principles': {
     overview:
       'Biotechnology: Principles and Processes is the toolkit chapter of NEET Biotechnology — restriction enzymes, vectors, competent hosts, PCR and the steps of gene cloning. It is rated Hard not because the reasoning is deep but because it is detail-dense: exact recognition sequences, vector marker genes, and PCR temperatures are all directly testable. As a standalone chapter it is usually 1–2 questions a year, and it is near-pure NCERT recall, so the marks are there for anyone who learns the specifics precisely. It is also the foundation for Biotechnology and its Applications (the next chapter), so the effort pays twice.',
@@ -2033,6 +1969,10 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
       {
         q: 'Which alkyl halide should be used in Williamson ether synthesis?',
         a: 'The less hindered one — methyl or primary. Williamson synthesis is an SN2 reaction between an alkoxide and an alkyl halide, and SN2 is fastest at unhindered carbons. If you use a bulky tertiary halide, the alkoxide acts as a base instead and you get elimination (an alkene) rather than the ether. So to make a mixed ether, pair the bulky group as the alkoxide and the smaller group as the halide.',
+      },
+    ],
+  },
+
   'jee-physics-current-electricity': {
     overview:
       'Current Electricity is one of the two or three most dependable scoring chapters in JEE Main Physics — and the reason is that the question types barely change year to year. In JEE Main it carries roughly 8–10% of the Physics section, which works out to 3–4 questions in most shifts, and they are almost all formula-direct: equivalent resistance, Kirchhoff loops, meter-bridge/potentiometer balance, and instrument (galvanometer) conversions. JEE Advanced asks fewer questions (typically 1–2) but fuses them with capacitors in transient circuits or wraps them in an experimental-error or paragraph setting, so the gap most weightage articles miss is that this is a near-guaranteed-marks chapter in Main but a careful-reading chapter in Advanced.',
@@ -2153,70 +2093,6 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
       {
         q: 'Which part of trigonometry should I focus on for JEE Main?',
         a: 'Inverse Trigonometric Functions and Trigonometric Equations — they carry the most directly examinable marks. Build rock-solid fluency with the core identities first (you reuse them across the whole syllabus), then drill inverse-trig domain conditions and the general-solution method for trig equations.',
-      },
-    ],
-  },
-
-  'jee-maths-3d-geometry': {
-    overview:
-      '3D (Three-Dimensional) Geometry is a high-weightage, high-reliability chapter in JEE Main — and it is unusual in that the question types are short, vector-driven and almost interchangeable year to year, so it converts study time into marks efficiently. In JEE Main it reliably contributes 2–3 questions per shift (across all 2025 shifts it was one of the most-asked Maths chapters), mostly on lines, planes, and the distances/angles between them. In JEE Advanced the same content appears fused with Vectors — shortest distance between skew lines, foot of perpendicular, image of a point in a plane — so the smart move is to study 3D Geometry and Vectors together rather than as separate silos.',
-    examSplit: [
-      { exam: 'JEE Main', weightage: '~6–12% of Maths', questions: '2–3 per shift', nature: 'Direct: equation of line/plane, distance of point from plane, angle between lines/planes, shortest distance' },
-      { exam: 'JEE Advanced', weightage: '~6–8% (with Vectors)', questions: '2–3 (vector + 3D combined)', nature: 'Skew-line shortest distance, foot/image of point, plane through intersection — solved vectorially' },
-    ],
-    correction:
-      'Some sites label 3D Geometry "medium weightage" and quote ~6%; the 2025 papers tell a different story, where it was among the highest-asked Maths chapters (around 12% by one shift-wise count). Treat it as a top-priority, high-return chapter, not a mid-tier one — and do not study it apart from Vectors, because in both papers the cleanest solutions use the vector form of lines and planes.',
-    studyOrder: [
-      { step: 'Direction cosines and direction ratios', detail: 'l² + m² + n² = 1, and how direction ratios fix a line\'s orientation. Everything else is built on representing a direction as a vector.' },
-      { step: 'Equation of a line (vector and Cartesian)', detail: 'r = a + λb and the symmetric Cartesian form. Be fluent converting between them — questions mix the two representations freely.' },
-      { step: 'Equation of a plane', detail: 'Normal form, point-normal form, intercept form, and the plane through three points. The normal vector is the object you actually compute with.' },
-      { step: 'Angles and distances', detail: 'Angle between two lines (via direction vectors), line and plane, two planes; distance of a point from a plane; distance between parallel planes. This cluster is the bulk of Main questions.' },
-      { step: 'Shortest distance, foot and image', detail: 'Shortest distance between skew lines (the scalar-triple-product formula), foot of perpendicular from a point to a line/plane, and the image of a point in a plane. This is where 3D meets Vectors and where Advanced lives.' },
-    ],
-    highYield: [
-      {
-        topic: 'Distance of a point from a plane / between parallel planes',
-        detail:
-          'A one-line formula, |ax₁+by₁+cz₁+d|/√(a²+b²+c²), and one of the most-asked direct types. Parallel-plane distance is the same formula applied with a common normal.',
-      },
-      {
-        topic: 'Angle between lines, line–plane and plane–plane',
-        detail:
-          'All three reduce to a dot-product between the relevant direction or normal vectors — but watch the line–plane case, where the angle is 90° minus the angle between the line\'s direction and the plane\'s normal. That subtraction is a frequent slip.',
-      },
-      {
-        topic: 'Shortest distance between two skew lines',
-        detail:
-          '|(a₂−a₁)·(b₁×b₂)| / |b₁×b₂|. High-frequency in both papers. If the scalar triple product in the numerator is zero, the lines are coplanar (intersecting or parallel) — a fact often tested directly.',
-      },
-      {
-        topic: 'Foot of perpendicular and image of a point',
-        detail:
-          'Parametrise the line/normal, impose perpendicularity (dot product = 0) to find the foot, then double the displacement for the image. The same machinery answers a whole family of Main and Advanced questions.',
-      },
-    ],
-    traps: [
-      'Confusing the line–plane angle with the line–normal angle. The angle between a line and a plane is 90° minus the angle between the line\'s direction and the plane\'s normal; using the dot product directly without the subtraction gives the complementary (wrong) angle.',
-      'Forgetting to normalise direction vectors when finding an angle. cosθ uses unit vectors — dividing by the magnitudes is not optional.',
-      'Misreading skew vs coplanar lines. If (a₂−a₁)·(b₁×b₂) = 0 the lines are coplanar, so the "shortest distance" is zero (they intersect) or a simple parallel-line distance — don\'t blindly apply the skew formula.',
-      'Studying 3D Geometry in isolation from Vectors. The fastest solutions to skew-distance, foot-of-perpendicular and image problems are vectorial; learning the two chapters separately doubles the work.',
-    ],
-    faqs: [
-      {
-        q: 'How many questions come from 3D Geometry in JEE Main?',
-        a: 'Reliably 2–3 questions per shift, and across the 2025 sessions it was among the most-asked Maths chapters. They are mostly direct: equation of a line or plane, distance of a point from a plane, angle between lines/planes, and shortest distance between skew lines. The formulas are short, which makes it an efficient scoring chapter.',
-      },
-      {
-        q: 'Is 3D Geometry high weightage for JEE Main 2026?',
-        a: 'Yes. Although a few sites still call it "medium weightage" (~6%), the recent papers put it among the highest-asked Maths chapters, so treat it as a top-priority topic. Pair it with Vectors when you study, because both papers solve 3D questions most cleanly using the vector form of lines and planes.',
-      },
-      {
-        q: 'What are the most important topics in 3D Geometry for JEE?',
-        a: 'Distance of a point from a plane, angles between lines/planes, shortest distance between skew lines, and the foot of perpendicular / image of a point in a plane. These four cover the large majority of both JEE Main and JEE Advanced questions.',
-      },
-      {
-        q: 'How do I find the shortest distance between two skew lines?',
-        a: 'Use |(a₂−a₁)·(b₁×b₂)| / |b₁×b₂|, where a₁, a₂ are points on the two lines and b₁, b₂ their direction vectors. If the numerator (a scalar triple product) is zero, the lines are coplanar — they either intersect (distance 0) or are parallel, in which case use the parallel-line distance instead.',
       },
     ],
   },
