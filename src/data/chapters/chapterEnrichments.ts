@@ -753,6 +753,260 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
     ],
   },
 
+  'jee-physics-ray-optics': {
+    overview:
+      'Ray Optics is one of the most formula-driven, dependable scorers in JEE Physics — but the weightage numbers quoted online are misleading because almost every article reports "Optics" as Ray Optics + Wave Optics combined across both the January and April sessions and all shifts (those "12–24 questions a year" figures). Taken alone, Ray Optics is reliably 2–3 questions per shift in JEE Main, and they are direct: mirror/lens formula, magnification, prism, total internal reflection, lens combinations. In JEE Advanced it carries ~6–7% but the questions fuse refraction at several surfaces, lens-and-mirror systems and instrument optics into one multi-step setup. The whole chapter rests on one disciplined habit — the Cartesian sign convention — so the marks come down to bookkeeping, not insight.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~5–7% of Physics', questions: '2–3 per shift', nature: 'Direct: mirror & lens formula, magnification, prism δ_min, TIR, lens combinations, power' },
+      { exam: 'JEE Advanced', weightage: '~6–7% of Physics', questions: '1–2 per paper', nature: 'Multi-surface refraction, lens+mirror combination, silvered lens, optical-instrument depth' },
+    ],
+    correction:
+      'Most "optics weightage" pages quote 12–24 questions per year. That is Ray Optics AND Wave Optics added together across both the January and April sessions and every shift — not one chapter in one paper. For a single shift, plan for about 2–3 Ray Optics questions, and count Wave Optics (YDSE, diffraction, polarisation) separately.',
+    studyOrder: [
+      { step: 'Sign convention first', detail: 'Lock the Cartesian convention before any numericals: all distances measured from the pole/optical centre, positive in the direction of incident light. Roughly half of all wrong optics answers are a dropped or flipped sign, not a concept error.' },
+      { step: 'Plane and spherical mirrors', detail: '1/v + 1/u = 1/f with f = R/2, plus magnification m = −v/u. Read off image character (real/virtual, erect/inverted, magnified) from the sign of v and m.' },
+      { step: 'Refraction, Snell\'s law → TIR', detail: 'n₁sinθ₁ = n₂sinθ₂, then critical angle sinC = 1/n and total internal reflection (optical fibre, mirage, apparent depth = real depth / n). High frequency in Main.' },
+      { step: 'Spherical surface → lens maker → thin lens', detail: 'Build the lens results from the single-surface formula n₂/v − n₁/u = (n₂−n₁)/R; this is what Advanced tests when the lens sits in a medium other than air.' },
+      { step: 'Prism, dispersion and combinations', detail: 'A + δ = i + e, δ_min when i = e (giving the refractive-index formula), then lens+lens and lens+mirror (silvered lens) systems where the image of one element is the object of the next.' },
+      { step: 'Optical instruments last', detail: 'Microscope and telescope magnification — formulaic marks once the lens work is solid.' },
+    ],
+    highYield: [
+      {
+        topic: 'Mirror & lens formula with magnification',
+        detail:
+          'The single most-asked Main type. 1/v − 1/u = 1/f (lens) or 1/v + 1/u = 1/f (mirror) plus m = −v/u gives image position, size and nature in two lines — if the signs are right.',
+      },
+      {
+        topic: 'Total internal reflection & apparent depth',
+        detail:
+          'sinC = 1/n drives optical-fibre and prism-of-TIR questions; apparent depth = real depth / n explains the "coin in water looks raised" and glass-slab shift problems.',
+      },
+      {
+        topic: 'Lens combinations & the silvered lens',
+        detail:
+          'For lenses in contact P = P₁ + P₂ + …; for a silvered lens treat it as lens–mirror–lens, so P = 2P_lens + P_mirror because light passes the lens twice. A recurring Advanced separator.',
+      },
+      {
+        topic: 'Prism: minimum deviation & dispersion',
+        detail:
+          'n = sin((A + δ_min)/2) / sin(A/2) at minimum deviation; dispersive power and the achromatic-combination condition appear in both papers.',
+      },
+    ],
+    traps: [
+      'Sign-convention slips — the #1 error. Mixing the mirror relation (1/v + 1/u) with the lens relation (1/v − 1/u), or forgetting that a real object\'s u is negative, flips the answer.',
+      'Calling every convex lens "converging in all media". A lens converges only when it is denser than its surroundings; the same convex lens diverges light when placed in a denser medium — a classic Advanced trick.',
+      'Using apparent/real depth with the wrong refractive index when light goes denser-to-rarer versus rarer-to-denser.',
+      'Forgetting that for a silvered lens the light passes through the lens twice, so the lens power must be counted twice (P = 2P_lens + P_mirror).',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Ray Optics in JEE Main and Advanced?',
+        a: 'In JEE Main, plan for about 2–3 Ray Optics questions per shift (~5–7% of Physics), mostly direct formula problems. JEE Advanced carries roughly 1–2 (~6–7%), but they are multi-step — refraction at several surfaces, lens-and-mirror combinations, or optical-instrument depth in one question. The "12–24 questions a year" figures online add Ray Optics and Wave Optics together across both sessions and all shifts, so do not read them as one chapter.',
+      },
+      {
+        q: 'Is Ray Optics a scoring chapter for JEE?',
+        a: 'Yes — it is one of the most reliable scorers because the question types are standard (mirror, lens, prism, TIR, combinations) and almost every problem is a direct formula application. The catch is the Cartesian sign convention: master that first and the chapter becomes near-automatic marks.',
+      },
+      {
+        q: 'What is the most important topic in Ray Optics for JEE?',
+        a: 'The mirror and thin-lens formulas with magnification, total internal reflection, and lens combinations (including the silvered lens). These cover the large majority of Main questions and are the building blocks Advanced fuses together.',
+      },
+      {
+        q: 'Is Ray Optics enough, or do I need Wave Optics too?',
+        a: 'They are separate chapters and both are tested. Ray Optics (mirrors, lenses, prisms) is more formulaic and usually higher-frequency in Main; Wave Optics (YDSE, diffraction, polarisation) needs more conceptual work. Prepare both — together "Optics" is one of the larger blocks in the paper, which is exactly why the combined weightage figures look so big.',
+      },
+    ],
+  },
+
+  'jee-maths-application-of-derivatives': {
+    overview:
+      'Application of Derivatives (AOD) is the highest-yield single chapter in JEE differential calculus, and the most over-stated one online — several "weightage" pages quote 10–12 questions, which is the whole differential-calculus block (limits + continuity + differentiability + differentiation + AOD), not this chapter. Alone, AOD is about 2–3 questions in JEE Main and they are direct: maxima/minima, tangents/normals, monotonicity. In JEE Advanced the count is smaller (1–2) but far deeper — Rolle\'s theorem and the Lagrange MVT are used to PROVE inequalities and the existence of roots, and optimisation is dressed up in geometry. The whole chapter is built on one idea, the sign of the first derivative, so the strategy is to make derivative-sign reasoning automatic.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~6–8% of Maths', questions: '2–3 per year', nature: 'Direct: maxima/minima, tangent & normal, increasing/decreasing, rate of change' },
+      { exam: 'JEE Advanced', weightage: '~3–4% of Maths', questions: '1–2 per year', nature: 'Proof-style: Rolle/LMVT for inequalities & root existence, geometric optimisation, curve sketching' },
+    ],
+    correction:
+      'Some pages list "10–12 questions" for Application of Derivatives. That number is the entire differential-calculus block (limits, continuity, differentiability, differentiation and AOD combined). AOD on its own is closer to 2–3 questions in JEE Main — still high-yield, but do not over-budget time based on the inflated figure.',
+    studyOrder: [
+      { step: 'Derivative as slope and rate', detail: 'Tangent and normal (slope = dy/dx at the point; normal slope = −1/(dy/dx)) and related-rates problems. Fast, direct Main marks and the base for everything after.' },
+      { step: 'Monotonicity (increasing/decreasing)', detail: 'f′(x) > 0 ⇒ increasing, < 0 ⇒ decreasing on an interval. Practise finding the exact intervals and feeding them into inequality and parameter problems — this is the workhorse skill of the chapter.' },
+      { step: 'Maxima and minima', detail: 'Critical points from f′(x) = 0 (and where f′ does not exist), then the first- or second-derivative test. Then the step students skip: on a closed interval, ALSO check the endpoints for the global extremum.' },
+      { step: 'Optimisation (word problems)', detail: 'Translate the quantity into one variable, differentiate, and verify. The recurring setups (max-volume box, shortest distance, least cost) repeat almost verbatim across years.' },
+      { step: 'Rolle\'s theorem and LMVT', detail: 'Geometric meaning first (a horizontal tangent / a tangent parallel to the chord), then their use in Advanced to prove inequalities and show a root exists. Always check continuity on [a,b] and differentiability on (a,b) before applying.' },
+    ],
+    highYield: [
+      {
+        topic: 'Maxima/minima and global extrema on a closed interval',
+        detail:
+          'The single most-asked AOD type in Main. After the derivative test, compare critical-point values WITH the endpoint values to get the global max/min — the step that quietly decides the answer.',
+      },
+      {
+        topic: 'Tangents, normals and the angle between curves',
+        detail:
+          'Slope from dy/dx, equation of tangent/normal, and the orthogonal-curves condition (product of slopes = −1). Direct and frequent.',
+      },
+      {
+        topic: 'Monotonicity to prove inequalities',
+        detail:
+          'To show f(x) ≥ g(x), define h = f − g, show h′ ≥ 0 and h(a) = 0. This single technique answers a large share of Advanced inequality questions.',
+      },
+      {
+        topic: 'LMVT / Rolle for existence and bounds',
+        detail:
+          'f′(c) = (f(b) − f(a))/(b − a) bounds differences; Rolle guarantees a root of f′ between two roots of f. The go-to tools when a question says "show that there exists…".',
+      },
+    ],
+    traps: [
+      'Forgetting endpoints on a closed interval — the most common reason a "maxima/minima" answer is wrong. f′(x) = 0 finds local extrema; the global extremum on [a,b] can sit at an endpoint.',
+      'Applying Rolle/LMVT without checking the hypotheses. If f is not continuous on [a,b] or not differentiable on (a,b) (e.g. |x| at 0), the conclusion does not hold — Advanced loves this.',
+      'Confusing local and global extrema, and assuming f′(c) = 0 always means an extremum (it can be an inflection — the second-derivative test or a sign change settles it).',
+      'Reading "increasing at a point" as "increasing on an interval". Monotonicity is an interval property; check f′ across the whole interval, not at one point.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Application of Derivatives in JEE Main and Advanced?',
+        a: 'AOD alone is about 2–3 questions in JEE Main (~6–8% of Maths), mostly direct maxima/minima, tangent/normal and monotonicity. JEE Advanced usually has 1–2, but they are proof-style — using Rolle\'s theorem or the LMVT for inequalities and root existence. The "10–12 questions" figure some sites quote is the entire differential-calculus block, not this chapter.',
+      },
+      {
+        q: 'Is Application of Derivatives important for JEE Advanced?',
+        a: 'Yes — even though the count is small, the chapter is unskippable for Advanced because Rolle\'s theorem, the Lagrange MVT and monotonicity are the standard tools for the "prove this inequality" and "show a root exists" questions that appear most years. The depth, not the number of questions, is what matters.',
+      },
+      {
+        q: 'Which topic in Application of Derivatives is most important?',
+        a: 'Maxima and minima (including checking endpoints for the global extremum on a closed interval) and using the sign of f′ for monotonicity. Tangents/normals are reliable Main marks, and monotonicity-based inequality proofs are the key Advanced skill.',
+      },
+      {
+        q: 'Why is Application of Derivatives considered hard?',
+        a: 'Because the same idea — the sign of the first derivative — is applied to many different question shapes (optimisation, inequalities, root existence, curve behaviour), and Advanced wraps it in proofs that need hypothesis-checking. Once derivative-sign reasoning and the endpoint/hypothesis checks become automatic, it turns into one of the most dependable scoring chapters.',
+      },
+    ],
+  },
+
+  'jee-chemistry-chemical-equilibrium': {
+    overview:
+      'Chemical Equilibrium is a high-return Physical Chemistry chapter because the question types are few and repeat: writing Kc/Kp, the Kp = Kc(RT)^Δn conversion, Le Chatelier shifts, and degree-of-dissociation numericals. The figure you see online — "6.6%, ~2 questions" — almost always reports Chemical AND Ionic Equilibrium together; the gaseous-equilibrium chapter on its own is closer to 1 question per shift in JEE Main, and it is direct. JEE Advanced asks fewer but deeper questions, often fusing equilibrium with thermodynamics (ΔG° = −RT ln K) or simultaneous equilibria. Because it is rule- and formula-based rather than memory-heavy, it is one of the better marks-per-hour chapters in the physical block.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~3–4% of Chemistry', questions: '~1 per shift', nature: 'Direct: Kc/Kp expression, Kp–Kc conversion, Le Chatelier shift, degree of dissociation' },
+      { exam: 'JEE Advanced', weightage: '~3–4% of Chemistry', questions: '~1 per paper', nature: 'Deeper: ΔG°↔K link, simultaneous/heterogeneous equilibria, multi-step degree-of-dissociation' },
+    ],
+    correction:
+      'The widely quoted "6.6% / 2 questions" weightage is Chemical Equilibrium and Ionic Equilibrium counted together. They are separate chapters here: this page is gaseous/chemical equilibrium (Kc, Kp, Le Chatelier); pH, buffers and solubility product live in Ionic Equilibrium. Budget your time per chapter, not for the combined figure.',
+    studyOrder: [
+      { step: 'The equilibrium state and Kc', detail: 'Law of mass action, writing Kc for homogeneous reactions, and the rule that pure solids and liquids are left OUT of the expression. Getting the expression right is the gate to everything else.' },
+      { step: 'Kp and the Kp = Kc(RT)^Δn link', detail: 'Δn = (moles of gaseous products) − (moles of gaseous reactants). The sign of Δn decides whether Kp is larger or smaller than Kc — a favourite one-mark check; Kp = Kc when Δn = 0.' },
+      { step: 'Reaction quotient Q and direction', detail: 'Compare Q with K: Q < K shifts forward, Q > K shifts backward, Q = K is equilibrium. Conceptually clean and frequently tested.' },
+      { step: 'Le Chatelier\'s principle', detail: 'The system opposes the imposed change. Pressure increase → side with fewer gas moles; temperature increase → endothermic direction; adding a reactant → forward. A catalyst does NOT shift equilibrium — it only speeds both directions equally.' },
+      { step: 'Degree of dissociation and numericals', detail: 'Set up an ICE-style table, express equilibrium amounts in α, and solve. For small α, α ≈ √(Kc/C). This is where most of the actual marks sit.' },
+    ],
+    highYield: [
+      {
+        topic: 'Writing Kc/Kp and the Kp = Kc(RT)^Δn conversion',
+        detail:
+          'The most frequent Main type. Δn counts gases only, and Kp = Kc when Δn = 0. Expect one clean conversion question most years.',
+      },
+      {
+        topic: 'Le Chatelier predictions',
+        detail:
+          'Effect of pressure, temperature, concentration and inert gas (at constant volume vs constant pressure) on the position of equilibrium. The inert-gas-at-constant-pressure case is the standard trick.',
+      },
+      {
+        topic: 'Degree of dissociation numericals',
+        detail:
+          'Vapour-density and "α at a given pressure" problems for reactions like PCl₅ ⇌ PCl₃ + Cl₂ or N₂O₄ ⇌ 2NO₂. The ICE table plus α ≈ √(Kc/C) solves most.',
+      },
+      {
+        topic: 'ΔG° = −RT ln K (the equilibrium–thermodynamics bridge)',
+        detail:
+          'Links spontaneity to K (K > 1 ⇒ ΔG° negative). The classic Advanced fusion of this chapter with thermodynamics.',
+      },
+    ],
+    traps: [
+      'Including pure solids or liquids in the Kc/Kp expression — they are taken as unit activity and must be left out (the #1 equilibrium error).',
+      'Thinking a catalyst shifts the equilibrium or changes K. It changes neither; it only shortens the time taken to reach the same equilibrium.',
+      'Assuming an inert gas "always shifts equilibrium". At constant volume it does nothing; only at constant pressure (which expands the volume) does it shift toward more gas moles.',
+      'Confusing the reaction quotient Q with the equilibrium constant K — Q uses the current (non-equilibrium) concentrations and only equals K at equilibrium.',
+    ],
+    faqs: [
+      {
+        q: 'What is the weightage of Chemical Equilibrium in JEE Main and Advanced?',
+        a: 'On its own, gaseous Chemical Equilibrium is about 1 question per shift in JEE Main (~3–4% of Chemistry), and they are direct — Kc/Kp, the Kp = Kc(RT)^Δn conversion, Le Chatelier and degree of dissociation. JEE Advanced asks roughly 1 deeper question, often linking equilibrium to thermodynamics. The "6.6% / 2 questions" you read elsewhere counts Chemical AND Ionic Equilibrium together.',
+      },
+      {
+        q: 'Is Chemical Equilibrium a scoring chapter for JEE?',
+        a: 'Yes — it is one of the higher marks-per-hour Physical Chemistry chapters because the question types are limited and formula-based. Lock the Kc/Kp rules, Le Chatelier, and the degree-of-dissociation setup and you cover almost everything asked.',
+      },
+      {
+        q: 'What is the difference between Chemical Equilibrium and Ionic Equilibrium in JEE?',
+        a: 'Chemical (gaseous) Equilibrium covers Kc, Kp, the Kp–Kc relation, Le Chatelier and degree of dissociation. Ionic Equilibrium covers acids/bases, pH, buffers, hydrolysis and solubility product (Ksp). They are separate chapters, and the combined "~7%" weightage online refers to both together.',
+      },
+      {
+        q: 'Does a catalyst change the equilibrium constant?',
+        a: 'No. A catalyst speeds up the forward and backward reactions equally, so the system reaches the same equilibrium faster — but the position of equilibrium and the value of K are unchanged. Only a change in temperature changes K.',
+      },
+    ],
+  },
+
+  'neet-biology-body-fluids-circulation': {
+    overview:
+      'Body Fluids & Circulation is one of the most dependable scorers in NEET Biology\'s Human Physiology unit — over the last decade it has averaged roughly 2 questions per year from this chapter (the "7–9 questions" figure you see online is the 15-year cumulative total, not a single year). The questions are NCERT-line-direct and cluster in four areas: blood composition and blood groups, the heart and cardiac cycle, ECG, and double circulation with disorders. Almost everything is recall plus a few standard numbers (cardiac cycle = 0.8 s, cardiac output = stroke volume × heart rate), which is why it rewards a clean facts-and-tables revision over problem-solving.',
+    examSplit: [
+      { exam: 'Blood, groups & coagulation', weightage: 'Highest share', questions: '~1 Q/yr', nature: 'Plasma vs serum, RBC/WBC/platelet facts, ABO–Rh antigens & antibodies, clotting cascade' },
+      { exam: 'Heart, cardiac cycle & ECG', weightage: 'High', questions: '~1 Q/yr', nature: 'Chamber & valve identification, cycle timings & pressures, ECG wave meanings, cardiac output' },
+      { exam: 'Double circulation, vessels & disorders', weightage: 'Moderate', questions: '~0–1 Q/yr', nature: 'Pulmonary vs systemic, artery vs vein, lymph, hypertension/CAD/angina/heart failure' },
+    ],
+    correction:
+      'Several sites headline "7–9 questions, 15–19 marks" for this chapter. That is the 15-year (2009–2024) cumulative count — about 112 questions over 15 years, i.e. roughly 2 per year in recent NEET papers. Prepare it as a high-yield ~2-mark chapter, not a 9-question giant.',
+    studyOrder: [
+      { step: 'Blood and its components', detail: 'Plasma (and plasma vs serum — serum lacks clotting factors), formed elements (mammalian RBCs are enucleate; WBC granulocytes vs agranulocytes; platelets). The most frequently asked block.' },
+      { step: 'Blood groups and coagulation', detail: 'ABO antigens/antibodies and the universal donor/recipient logic, Rh factor and erythroblastosis foetalis, then the clotting cascade (thromboplastin → prothrombin→thrombin → fibrinogen→fibrin, needing Ca²⁺). High recall value.' },
+      { step: 'Heart anatomy and the cardiac cycle', detail: 'Four chambers, valves (tricuspid, bicuspid/mitral, semilunar), the SA-node pacemaker → AV node → bundle of His → Purkinje conduction path, and the 0.8 s cycle with pressure changes and heart sounds ("lub" = AV valves close, "dub" = semilunar valves close).' },
+      { step: 'ECG and cardiac output', detail: 'P (atrial depolarisation), QRS (ventricular depolarisation), T (ventricular repolarisation); cardiac output = stroke volume × heart rate (~5 L/min at rest). Standard one-markers.' },
+      { step: 'Double circulation, lymph and disorders', detail: 'Pulmonary vs systemic circuits, why mammals have complete double circulation, lymph as the link between blood and tissue fluid, then hypertension (140/90), CAD, angina and heart failure.' },
+    ],
+    highYield: [
+      {
+        topic: 'ABO/Rh blood groups — antigens, antibodies, donor/recipient',
+        detail:
+          'O is the universal donor, AB the universal recipient; antibodies in plasma are opposite to the antigen on the RBC (group A has anti-B). Rh⁻ mother / Rh⁺ foetus → erythroblastosis foetalis. A near-guaranteed recall question.',
+      },
+      {
+        topic: 'Cardiac cycle timing, sounds and conduction system',
+        detail:
+          '0.8 s cycle (atrial systole 0.1 s, ventricular systole 0.3 s, joint diastole 0.4 s); SA node as pacemaker; "lub" (AV valves) and "dub" (semilunar valves). Pressure/volume reasoning is the NEET favourite.',
+      },
+      {
+        topic: 'ECG wave interpretation',
+        detail:
+          'P = atrial depolarisation, QRS = ventricular depolarisation (atrial repolarisation is hidden within it), T = ventricular repolarisation. Matching wave → event is asked almost every year somewhere in the unit.',
+      },
+      {
+        topic: 'Blood composition facts & numbers',
+        detail:
+          'Plasma ~55% (90–92% water), formed elements ~45%; RBC lifespan 120 days, made in red bone marrow, destroyed in the spleen ("graveyard of RBCs"); cardiac output ~5 L/min.',
+      },
+    ],
+    traps: [
+      'Mixing up ABO antigens and antibodies — the antigen sits on the RBC, the antibody is in the plasma, and they are "opposite" (group A has anti-B). Reversing them is the classic blood-group error.',
+      'Defining arteries and veins by oxygen content instead of direction. Arteries carry blood AWAY from the heart — but the pulmonary artery carries deoxygenated blood and the pulmonary vein carries oxygenated blood. Define by direction, not oxygen.',
+      'Calling "dub" the first heart sound. "Lub" (first) is the AV valves closing at the start of ventricular systole; "dub" (second) is the semilunar valves closing.',
+      'Listing atrial repolarisation as a separate ECG wave — it is masked within the QRS complex, not a distinct deflection.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Body Fluids and Circulation in NEET?',
+        a: 'In recent NEET papers it averages about 2 questions a year from this chapter, and they are direct, NCERT-based recall. The "7–9 questions / 15–19 marks" figures online are 15-year cumulative totals (~112 questions across 2009–2024), not a single year\'s count.',
+      },
+      {
+        q: 'Which topics in Body Fluids and Circulation are most important for NEET?',
+        a: 'Blood composition and ABO/Rh blood groups, the cardiac cycle (timing, heart sounds, conduction system), ECG wave interpretation, and double circulation with the common disorders. These four clusters account for almost every question the chapter has asked.',
+      },
+      {
+        q: 'Is Body Fluids and Circulation easy to score in NEET?',
+        a: 'Yes — it is one of the more scoring Human Physiology chapters because nearly all of it is recall plus a few standard numbers (cardiac cycle 0.8 s, cardiac output = stroke volume × heart rate, BP 120/80). Clean tables for blood groups, ECG waves and the conduction path turn it into fast, reliable marks.',
+      },
+      {
+        q: 'What is the difference between the "lub" and "dub" heart sounds?',
+        a: '"Lub" (the first heart sound) is produced when the atrioventricular valves (tricuspid and bicuspid) close at the start of ventricular systole. "Dub" (the second sound) is produced when the semilunar valves (aortic and pulmonary) close at the end of ventricular systole. NEET often asks which valves cause which sound.',
   'jee-physics-thermodynamics': {
     overview:
       'Heat & Thermodynamics is one of the highest-yield blocks in JEE Physics, but the single chapter and the whole block are different numbers — which most weightage articles blur. As a standalone chapter (first law, the four processes, heat engines, heat transfer) it gives about 1–2 questions per JEE Main shift, almost always formula-direct: apply ΔU = Q − W, read work off a PV diagram, or compute Carnot efficiency. In JEE Advanced it appears in most papers (1–3 questions) and is usually fused with the kinetic theory of gases — a single problem that asks for work in a process and then the change in internal energy via degrees of freedom. The fastest marks come from nailing the process table (what is zero in each of isothermal/adiabatic/isobaric/isochoric) cold.',
