@@ -753,6 +753,66 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
     ],
   },
 
+  'jee-chemistry-chemical-equilibrium': {
+    overview:
+      'Chemical Equilibrium is a small but reliable scorer, and the first thing to fix is what "weightage" actually refers to. Almost every article online quotes a combined "Chemical + Ionic Equilibrium" figure (~6–7%, 2 questions) — but those are two separate chapters. This page is Chemical Equilibrium proper: the law of mass action, Kc/Kp, the reaction quotient and Le Chatelier\'s principle. On its own it is about 1 question per JEE Main shift, almost always formula-direct. The pH, buffer and solubility-product material that inflates the "equilibrium" count lives in Ionic Equilibrium, a different (and harder) chapter.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~3–4% of Chemistry (chapter alone)', questions: '~1 per shift', nature: 'Direct: Kp–Kc relation, Q-vs-K direction, Le Chatelier prediction, degree of dissociation' },
+      { exam: 'JEE Advanced', weightage: '~2–3% (rarely standalone)', questions: '~1, often fused', nature: 'Linked with thermodynamics (ΔG° = −RT ln K) and ionic equilibrium in one multi-part problem' },
+    ],
+    correction:
+      'The widely-quoted "Equilibrium = 2 questions / 6.6%" figure is for Chemical AND Ionic Equilibrium combined. Chemical Equilibrium by itself (Kc, Kp, Le Chatelier) is closer to 1 question per shift. Read that number correctly so you do not over- or under-invest — the heavy numerical load (pH, buffers, Ksp) is in the separate Ionic Equilibrium chapter.',
+    studyOrder: [
+      { step: 'Law of mass action and the equilibrium constant', detail: 'Write Kc for homogeneous and heterogeneous equilibria first — and learn the single rule that catches most students: pure solids and pure liquids are left out of the expression. Everything else builds on writing K correctly.' },
+      { step: 'Kp, and Kp = Kc(RT)^Δn', detail: 'Δn = (moles of gaseous product) − (moles of gaseous reactant). Get the sign of Δn right and this conversion is a guaranteed mark; get it wrong and the whole numerical collapses.' },
+      { step: 'Reaction quotient Q vs K — predicting direction', detail: 'If Q < K the reaction goes forward, if Q > K it goes backward, if Q = K it is at equilibrium. This "which way does it shift" logic is a favourite single-correct question and takes ten seconds once the habit is built.' },
+      { step: 'Le Chatelier\'s principle', detail: 'Apply it to changes in concentration, pressure/volume and temperature. The system shifts to oppose the change — toward fewer gas moles under higher pressure, toward the endothermic side on heating. A catalyst changes neither K nor the position of equilibrium.' },
+      { step: 'Degree of dissociation (α)', detail: 'Express Kp/Kc in terms of α and initial pressure/concentration for a dissociation like PCl₅ ⇌ PCl₃ + Cl₂. This ties the chapter together and is the most common "show your working" numerical type.' },
+    ],
+    highYield: [
+      {
+        topic: 'Kp–Kc relation and the sign of Δn',
+        detail:
+          'Kp = Kc(RT)^Δn. For N₂ + 3H₂ ⇌ 2NH₃, Δn = 2 − 4 = −2, so Kp = Kc(RT)⁻². Reactions with equal gas moles on both sides (e.g. H₂ + I₂ ⇌ 2HI) have Δn = 0 and Kp = Kc — a frequently-tested special case.',
+      },
+      {
+        topic: 'Degree of dissociation and Kp(α)',
+        detail:
+          'For a one-into-two gas dissociation A ⇌ B + C at total pressure P, Kp = α²P/(1 − α²). For small α this approximates Kp ≈ α²P, so α ∝ 1/√P — increasing pressure suppresses dissociation, which is Le Chatelier in algebraic form.',
+      },
+      {
+        topic: 'Le Chatelier predictions (qualitative)',
+        detail:
+          'Increase pressure → shift toward fewer gas moles; add an inert gas at constant volume → no shift (partial pressures unchanged); add inert gas at constant pressure → shift toward more moles; raise temperature → shift in the endothermic direction and change K. These "predict the shift" questions are pure marks.',
+      },
+      {
+        topic: 'ΔG° = −RT ln K (the thermodynamics bridge)',
+        detail:
+          'Connects equilibrium to thermodynamics: a large positive K means a large negative ΔG° (spontaneous), K = 1 means ΔG° = 0. JEE Advanced loves to ask for K given ΔG° (or vice versa) inside a thermodynamics problem.',
+      },
+    ],
+    traps: [
+      'Putting pure solids or liquids into the equilibrium expression. For CaCO₃(s) ⇌ CaO(s) + CO₂(g), Kp = p(CO₂) only — the two solids do not appear.',
+      'Thinking a catalyst shifts the equilibrium. A catalyst speeds up forward and backward reactions equally; it changes neither K nor the equilibrium position — only how fast equilibrium is reached.',
+      'Getting the sign of Δn wrong in Kp = Kc(RT)^Δn. Count gaseous moles only, products minus reactants — liquids and solids are not counted.',
+      'Assuming adding an inert gas always shifts the equilibrium. At constant volume it does nothing (partial pressures unchanged); only at constant pressure (which increases the volume) does it shift the equilibrium toward more gaseous moles.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Chemical Equilibrium in JEE Main?',
+        a: 'About one question per shift from Chemical Equilibrium specifically (Kc/Kp, Le Chatelier, degree of dissociation). The higher "2 questions / ~6.6%" figure you see online is for Chemical and Ionic Equilibrium counted together — and Ionic Equilibrium (pH, buffers, Ksp) is a separate, more numerical chapter.',
+      },
+      {
+        q: 'Is Chemical Equilibrium easy to score in JEE?',
+        a: 'Yes. Most JEE Main questions are formula-direct — apply Kp = Kc(RT)^Δn, compare Q with K to predict direction, or use Le Chatelier qualitatively. The only care needed is leaving solids/liquids out of the expression and getting the sign of Δn right. It is one of the quickest chapters to make exam-ready.',
+      },
+      {
+        q: 'What is the difference between Kc and Kp?',
+        a: 'Kc uses molar concentrations, Kp uses partial pressures of the gases. They are related by Kp = Kc(RT)^Δn, where Δn is the change in the number of gaseous moles (products − reactants). When Δn = 0 the two are numerically equal.',
+      },
+      {
+        q: 'Does a catalyst change the equilibrium constant?',
+        a: 'No. A catalyst lowers the activation energy for both the forward and backward reactions by the same amount, so it speeds up the approach to equilibrium but leaves the equilibrium constant K and the position of equilibrium unchanged. This is a classic JEE trap question.',
   'jee-physics-ray-optics': {
     overview:
       'Ray Optics is one of the most formula-driven, dependable scorers in JEE Physics — but the weightage numbers quoted online are misleading because almost every article reports "Optics" as Ray Optics + Wave Optics combined across both the January and April sessions and all shifts (those "12–24 questions a year" figures). Taken alone, Ray Optics is reliably 2–3 questions per shift in JEE Main, and they are direct: mirror/lens formula, magnification, prism, total internal reflection, lens combinations. In JEE Advanced it carries ~6–7% but the questions fuse refraction at several surfaces, lens-and-mirror systems and instrument optics into one multi-step setup. The whole chapter rests on one disciplined habit — the Cartesian sign convention — so the marks come down to bookkeeping, not insight.',
@@ -820,6 +880,194 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
 
   'jee-maths-application-of-derivatives': {
     overview:
+      'Application of Derivatives (AOD) is the highest-frequency single chapter in JEE calculus, but it behaves very differently in the two papers. In JEE Main it is 2–3 mostly-direct questions per paper — tangent/normal, where a function increases or decreases, and maxima/minima. In JEE Advanced the same chapter becomes the vehicle for the hard reasoning questions: using LMVT and Rolle\'s theorem to prove inequalities or the existence of a root, and multi-variable optimisation. So the chapter is unskippable, but what you practise should depend on which paper you are targeting.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~6–8% of Maths', questions: '2–3 per paper', nature: 'Direct: tangent/normal slope, monotonic intervals, local/global maxima–minima, simple rate of change' },
+      { exam: 'JEE Advanced', weightage: '~3–5% but high-difficulty', questions: '1–2, reasoning-heavy', nature: 'LMVT/Rolle to prove inequalities & root existence, optimisation, derivative as a tool inside other chapters' },
+    ],
+    correction:
+      'Several weightage tables quote AOD as "low" (1–2 questions, ~2–3%) because they read the Advanced count in isolation. That undersells it: derivatives are also the engine behind curve sketching, inequality proofs and the analysis steps inside integration and probability questions. The chapter\'s real footprint — direct plus as-a-tool — is larger than its standalone question count suggests.',
+    studyOrder: [
+      { step: 'Derivative as rate of change and slope', detail: 'Re-anchor dy/dx as "slope of the tangent" and as a rate. Almost every AOD subtopic is one of these two readings, so make the interpretation automatic before touching applications.' },
+      { step: 'Tangent and normal', detail: 'Slope of tangent = dy/dx at the point; normal slope is its negative reciprocal. Learn the tangent-from-an-external-point case separately — it needs an unknown point of contact, which is where students slip.' },
+      { step: 'Increasing / decreasing (monotonicity)', detail: 'f′(x) > 0 ⇒ increasing, f′(x) < 0 ⇒ decreasing. Solve f′(x) > 0 as an inequality and read off intervals. This is the bridge to maxima/minima and to Advanced inequality proofs.' },
+      { step: 'Maxima and minima', detail: 'First-derivative test (sign change of f′) and second-derivative test (f″ > 0 ⇒ minimum). For a closed interval, always also check the endpoints for the global extremum — the single most common Main mistake.' },
+      { step: 'Rolle\'s theorem and LMVT', detail: 'Check continuity and differentiability first, then apply. Rolle (f(a) = f(b)) proves a root of f′; LMVT gives f′(c) = (f(b) − f(a))/(b − a). These power most Advanced inequality and existence questions.' },
+      { step: 'Optimisation word problems', detail: 'Translate the situation into f(x) of one variable, set f′(x) = 0, confirm with the second-derivative test. Maximum-area/volume and minimum-cost problems are the recurring Main types.' },
+    ],
+    highYield: [
+      {
+        topic: 'Maxima and minima (including closed-interval global extrema)',
+        detail:
+          'The single most-asked AOD theme in JEE Main. Find critical points from f′(x) = 0, classify with the second-derivative test, and for a closed interval compare those values with f at the endpoints. The global maximum/minimum can sit at an endpoint even when there is an interior critical point.',
+      },
+      {
+        topic: 'Monotonicity via f′(x) sign',
+        detail:
+          'Determining the intervals where a function increases or decreases, and parameter problems ("find a so that f is increasing for all x"). These reduce to a quadratic/sign inequality in f′ and appear in nearly every paper.',
+      },
+      {
+        topic: 'LMVT and Rolle for inequalities (Advanced)',
+        detail:
+          'Advanced uses the mean value theorems to prove inequalities such as |sin a − sin b| ≤ |a − b|, or to show an equation has exactly one root in an interval (Rolle on a constructed function). Recognising "prove this inequality" as an MVT problem is the key skill.',
+      },
+      {
+        topic: 'Tangent, normal and angle of intersection',
+        detail:
+          'Equation of tangent/normal at a point, tangent from an external point (solve for the point of contact), and the angle between two curves (via the slopes at intersection). Direct, formulaic Main marks once the external-point case is practised.',
+      },
+    ],
+    traps: [
+      'Forgetting to test the endpoints for the global maximum/minimum on a closed interval — the interior critical point is not always the answer.',
+      'Trusting the second-derivative test when f″(c) = 0. It is inconclusive there; fall back to the first-derivative (sign-change) test or higher derivatives.',
+      'Applying Rolle\'s theorem or LMVT without first checking continuity on [a, b] and differentiability on (a, b). A function that fails a hypothesis can have no such c, and JEE sets these counterexamples deliberately.',
+      'Confusing "tangent at a given point" with "tangent from an external point". The external-point case has an unknown point of contact and usually yields two tangents, not one.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Application of Derivatives in JEE Main?',
+        a: 'Typically 2–3 questions per paper (about 6–8% of the Maths section), mostly direct: tangent/normal, increasing–decreasing intervals, and maxima/minima. It is consistently one of the highest-frequency calculus chapters in Main.',
+      },
+      {
+        q: 'Is Application of Derivatives important for JEE Advanced?',
+        a: 'Yes, but in a different way. Advanced asks fewer standalone AOD questions, yet uses derivatives as the tool for its hardest reasoning — proving inequalities and the existence of roots with LMVT/Rolle, and multi-step optimisation. The chapter is unskippable for Advanced even though its raw question count looks modest.',
+      },
+      {
+        q: 'Which topic in Application of Derivatives is most important?',
+        a: 'Maxima and minima — especially global extrema on a closed interval and optimisation word problems — is the most-tested theme in JEE Main. For Advanced, add the mean value theorems (Rolle and LMVT) used to prove inequalities and root existence.',
+      },
+      {
+        q: 'Why is Application of Derivatives considered hard?',
+        a: 'The direct Main questions are not hard; the difficulty is in the Advanced applications — recognising that an inequality should be attacked with LMVT, or that a root-existence claim needs Rolle on a cleverly constructed function. Once you map each question type to its tool, the chapter becomes systematic.',
+      },
+    ],
+  },
+
+  'jee-physics-gravitation': {
+    overview:
+      'Gravitation is a compact, dependable scorer that most weightage articles describe in JEE Main terms only. In Main it is 1–2 mostly-direct questions per shift — variation of g, escape and orbital velocity, satellite energy and Kepler\'s laws. In Advanced it appears less often but more deeply: gravitation fused with SHM (the classic tunnel-through-the-earth problem), with energy conservation, or with rotational ideas. The formulas are few and the question types repeat, which is why a focused week usually makes this chapter exam-ready.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~3–5% of Physics', questions: '1–2 per shift', nature: 'Direct: g with height/depth, escape vs orbital velocity, satellite energy, Kepler\'s third law' },
+      { exam: 'JEE Advanced', weightage: '~3–4%, fused', questions: '~1, multi-concept', nature: 'Gravitation + SHM (tunnel through earth), orbital energy/transfer, field & potential of distributions' },
+    ],
+    correction:
+      'You will see "5–7%, 4–5 questions" quoted (e.g. 4 in 2023, 4 in 2024, 5 in 2025). That count is aggregated across all shifts/sessions of a year, not what one student faces. In a single JEE Main paper, expect 1–2 Gravitation questions — plan your prep time against that, not the inflated annual total.',
+    studyOrder: [
+      { step: 'Newton\'s law, gravitational field and potential', detail: 'F = GMm/r², field g = GM/r², and potential V = −GM/r. Fix the sign convention now (potential and potential energy are negative, zero at infinity) — most chapter errors trace back to a dropped minus sign.' },
+      { step: 'Variation of g', detail: 'With height: g_h = g(1 − 2h/R) for h ≪ R; with depth: g_d = g(1 − d/R); plus the effect of Earth\'s rotation (g is least at the equator). The height and depth formulas look alike but are not — mixing them up is the classic trap.' },
+      { step: 'Escape and orbital velocity', detail: 'v_orbital = √(GM/r) for a circular orbit, v_escape = √(2GM/R). The neat relation v_escape = √2 · v_orbital (at the surface) is a frequent one-line question, and escape velocity is independent of the projectile\'s mass and direction.' },
+      { step: 'Satellite energy', detail: 'For a circular orbit: KE = +GMm/2r, PE = −GMm/r, total E = −GMm/2r. So total energy is negative (bound) and equal to −KE. Binding energy = GMm/2r. These three lines answer most satellite-energy questions.' },
+      { step: 'Kepler\'s laws', detail: 'Law of orbits (ellipse), law of areas (areal velocity constant = angular-momentum conservation), and T² ∝ r³. Most Kepler questions are ratio problems built on T² ∝ r³ or on equal-area reasoning at perigee/apogee.' },
+    ],
+    highYield: [
+      {
+        topic: 'Satellite energy relations',
+        detail:
+          'For a circular orbit, E = −GMm/2r, KE = −E, PE = 2E. Questions ask for the energy needed to move a satellite to a higher orbit (ΔE = GMm/2 · (1/r₁ − 1/r₂)) or for the binding energy. Knowing E = −KE closes almost all of them.',
+      },
+      {
+        topic: 'Variation of g with height and depth',
+        detail:
+          'g_h = g(1 − 2h/R) near the surface (and g(R/(R+h))² in general); g_d = g(1 − d/R). At the centre of the Earth g = 0. The factor of 2 in the height formula versus its absence in the depth formula is the most-tested distinction.',
+      },
+      {
+        topic: 'Escape vs orbital velocity',
+        detail:
+          'v_orbital = √(GM/r), v_escape = √(2GM/R), so v_escape = √2 · v_orbital at the surface (≈ 11.2 km/s for Earth). Escape velocity does not depend on the mass or launch direction of the body — a recurring conceptual question.',
+      },
+      {
+        topic: 'Kepler\'s third law and areal velocity',
+        detail:
+          'T² ∝ r³ (or a³ for an ellipse) drives the ratio problems; conservation of areal velocity (r²ω = constant) gives the speed ratio at perigee and apogee (v_p · r_p = v_a · r_a). These two ideas cover the Kepler questions.',
+      },
+    ],
+    traps: [
+      'Dropping the negative sign in gravitational PE/potential. Gravitational potential energy is −GMm/r (zero at infinity, more negative closer in); a positive PE is almost always a sign error.',
+      'Swapping the height and depth formulas for g: it is g(1 − 2h/R) for height but g(1 − d/R) for depth — the factor of 2 only appears with height.',
+      'Thinking escape velocity depends on the mass or direction of the object. It depends only on the planet (√(2GM/R)); the launch angle and projectile mass do not matter.',
+      'Forgetting that a satellite\'s total energy is negative and equals −KE. Treating PE as positive, or total energy as KE + |PE|, gives the wrong binding energy.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Gravitation in JEE Main?',
+        a: 'Usually 1–2 per shift (about 3–5% of the Physics section). The "4–5 questions a year" figure quoted online aggregates across all sessions and shifts — in your single paper, plan for one or two, most of them direct numericals on g-variation, escape/orbital velocity, satellite energy and Kepler\'s laws.',
+      },
+      {
+        q: 'Is Gravitation important for JEE Advanced?',
+        a: 'It appears less frequently than mechanics heavyweights, but when it does, Advanced goes deeper — fusing gravitation with SHM (a body dropped through a tunnel in the Earth executes SHM), with orbital-energy and orbit-transfer problems, or with field/potential of mass distributions. It is worth a solid pass for Advanced even though it is not the highest-frequency chapter.',
+      },
+      {
+        q: 'Is Gravitation easy to score in JEE?',
+        a: 'Yes — it has few formulas and the question types repeat, so it is one of the fastest chapters to make exam-ready. The care points are sign conventions in potential energy and not mixing up the height and depth formulas for g.',
+      },
+      {
+        q: 'What is the relation between escape velocity and orbital velocity?',
+        a: 'At the planet\'s surface, escape velocity = √2 × orbital velocity, because v_orbital = √(GM/R) and v_escape = √(2GM/R). For Earth that gives about 11.2 km/s escape versus about 7.9 km/s for a low orbit. Escape velocity is independent of the body\'s mass and launch direction.',
+      },
+    ],
+  },
+
+  'jee-physics-fluid-mechanics': {
+    overview:
+      'Fluid Mechanics (the NCERT "Mechanical Properties of Fluids" chapter) is a quiet over-performer: in JEE Main it is a 1–2 question, mostly formula-direct scorer, but in JEE Advanced it punches well above its question count. Advanced typically asks just one fluids question, yet it is frequently conceptual and fused — a floating body executing SHM, Bernoulli combined with continuity, or viscous/terminal-velocity reasoning. So the Main strategy is "drill the standard formulas for speed," while the Advanced strategy is "understand the concept well enough to handle it inside another chapter."',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~3–4% of Physics', questions: '1–2 per shift', nature: 'Direct: pressure/buoyancy, Bernoulli & Torricelli, Stokes terminal velocity, surface tension & capillarity' },
+      { exam: 'JEE Advanced', weightage: 'usually ~1 question but high-value', questions: '~1, conceptual/fused', nature: 'Floating-body SHM, Bernoulli + continuity, viscous flow, excess pressure in drops/bubbles' },
+    ],
+    correction:
+      'You may see "~9% of Advanced is fluids" quoted — that overstates a typical paper, where fluids is usually one question. But do not under-prepare it either: that single Advanced question is often conceptual and fused with SHM or thermodynamics, so it rewards understanding far more than its raw count suggests.',
+    studyOrder: [
+      { step: 'Pressure and Pascal\'s law', detail: 'Hydrostatic pressure P = P₀ + ρgh, the difference between gauge and absolute pressure, and Pascal\'s law (hydraulic lift). Getting gauge-vs-absolute straight here prevents a whole class of later errors.' },
+      { step: 'Buoyancy and floatation', detail: 'Archimedes\' principle: upthrust = weight of displaced fluid. For a floating body the fraction submerged = ρ_body / ρ_fluid. This single ratio answers most floatation questions in one line.' },
+      { step: 'Continuity and Bernoulli', detail: 'A₁v₁ = A₂v₂ (continuity) and P + ½ρv² + ρgh = constant (Bernoulli). Always pair them — most Bernoulli questions need continuity to eliminate one velocity. Remember Bernoulli holds only for non-viscous, incompressible, streamline flow.' },
+      { step: 'Applications: Venturi and Torricelli', detail: 'Venturi meter (flow rate from a pressure difference) and Torricelli\'s law for efflux, v = √(2gh). These are direct consequences of Bernoulli and recur as Main numericals.' },
+      { step: 'Viscosity and Stokes\' law', detail: 'Viscous drag F = 6πηrv and terminal velocity v_t = 2r²(ρ − σ)g/9η for a sphere falling through a fluid. The dependence v_t ∝ r² (not r) is the most-tested point.' },
+      { step: 'Surface tension and capillarity', detail: 'Excess pressure inside a drop (2T/r) versus a soap bubble (4T/r, two surfaces), and capillary rise h = 2T cosθ/ρgr. The drop-vs-bubble factor and the 1/r dependence of capillary rise are the recurring questions.' },
+    ],
+    highYield: [
+      {
+        topic: 'Bernoulli\'s theorem with continuity',
+        detail:
+          'The most-tested fluids theme. Combine P + ½ρv² + ρgh = constant with A₁v₁ = A₂v₂ to solve flow-speed and pressure-difference problems (aerofoil lift, Venturi, a tank emptying through a hole). Torricelli\'s v = √(2gh) is just Bernoulli applied to efflux.',
+      },
+      {
+        topic: 'Floatation: fraction submerged',
+        detail:
+          'A body floating in a fluid has fraction submerged = ρ_body / ρ_fluid. Iceberg-in-water and block-in-two-liquids questions reduce to this ratio. If the body is pushed down and released, it executes SHM about the floating position.',
+      },
+      {
+        topic: 'Terminal velocity (Stokes\' law)',
+        detail:
+          'v_t = 2r²(ρ − σ)g/9η. The key exam point is v_t ∝ r² — doubling the radius quadruples the terminal velocity. Used for raindrops, ball-bearing-in-glycerine and Millikan-style setups.',
+      },
+      {
+        topic: 'Surface tension: excess pressure and capillary rise',
+        detail:
+          'Excess pressure = 2T/r for a liquid drop and 4T/r for a soap bubble (two surfaces). Capillary rise h = 2T cosθ/ρgr, so a narrower tube gives a higher rise. The drop-vs-bubble factor of 2 is a classic single-correct trap.',
+      },
+    ],
+    traps: [
+      'Applying Bernoulli\'s equation to viscous or turbulent flow. It is valid only for an ideal fluid in steady, streamline, incompressible flow — viscous-flow questions need Stokes\' law or Poiseuille reasoning instead.',
+      'Using excess pressure 2T/r for a soap bubble. A bubble has two surfaces, so its excess pressure is 4T/r; a liquid drop (one surface) is 2T/r.',
+      'Mixing up gauge and absolute pressure. P = P₀ + ρgh is the absolute pressure; the gauge pressure is just ρgh. Bernoulli and force problems must use a consistent choice.',
+      'Thinking terminal velocity scales with radius. Stokes\' law gives v_t ∝ r², so a drop of twice the radius falls four times as fast at terminal velocity.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Fluid Mechanics in JEE Main?',
+        a: 'Usually 1–2 per shift (about 3–4% of the Physics section), and they are mostly formula-direct: pressure and buoyancy, Bernoulli/Torricelli, terminal velocity from Stokes\' law, and surface tension or capillarity. Steady PYQ practice makes it one of the quicker chapters to lock in.',
+      },
+      {
+        q: 'Is Fluid Mechanics important for JEE Advanced?',
+        a: 'More than its question count suggests. Advanced usually asks one fluids question, but it is often conceptual and fused — a floating body oscillating in SHM, Bernoulli combined with continuity, or a viscous-flow/terminal-velocity argument. It rewards genuine understanding rather than plug-and-chug, so do not treat it as optional for Advanced.',
+      },
+      {
+        q: 'Which topic in Fluid Mechanics is most important?',
+        a: 'Bernoulli\'s theorem (paired with the equation of continuity) is the single most-tested theme, followed by buoyancy/floatation, terminal velocity via Stokes\' law, and surface tension (excess pressure and capillary rise). Bernoulli and continuity together cover the largest share of questions.',
+      },
+      {
+        q: 'What is the difference between the excess pressure in a drop and a soap bubble?',
+        a: 'A liquid drop has a single surface, so its excess pressure is 2T/r. A soap bubble has two surfaces (inner and outer), so its excess pressure is 4T/r — twice that of a drop of the same radius. This factor-of-two distinction is a frequent JEE single-correct trap.',
       'Application of Derivatives (AOD) is the highest-yield single chapter in JEE differential calculus, and the most over-stated one online — several "weightage" pages quote 10–12 questions, which is the whole differential-calculus block (limits + continuity + differentiability + differentiation + AOD), not this chapter. Alone, AOD is about 2–3 questions in JEE Main and they are direct: maxima/minima, tangents/normals, monotonicity. In JEE Advanced the count is smaller (1–2) but far deeper — Rolle\'s theorem and the Lagrange MVT are used to PROVE inequalities and the existence of roots, and optimisation is dressed up in geometry. The whole chapter is built on one idea, the sign of the first derivative, so the strategy is to make derivative-sign reasoning automatic.',
     examSplit: [
       { exam: 'JEE Main', weightage: '~6–8% of Maths', questions: '2–3 per year', nature: 'Direct: maxima/minima, tangent & normal, increasing/decreasing, rate of change' },
@@ -1903,6 +2151,254 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
       {
         q: 'Which alkyl halide should be used in Williamson ether synthesis?',
         a: 'The less hindered one — methyl or primary. Williamson synthesis is an SN2 reaction between an alkoxide and an alkyl halide, and SN2 is fastest at unhindered carbons. If you use a bulky tertiary halide, the alkoxide acts as a base instead and you get elimination (an alkene) rather than the ether. So to make a mixed ether, pair the bulky group as the alkoxide and the smaller group as the halide.',
+  'jee-physics-current-electricity': {
+    overview:
+      'Current Electricity is one of the two or three most dependable scoring chapters in JEE Main Physics — and the reason is that the question types barely change year to year. In JEE Main it carries roughly 8–10% of the Physics section, which works out to 3–4 questions in most shifts, and they are almost all formula-direct: equivalent resistance, Kirchhoff loops, meter-bridge/potentiometer balance, and instrument (galvanometer) conversions. JEE Advanced asks fewer questions (typically 1–2) but fuses them with capacitors in transient circuits or wraps them in an experimental-error or paragraph setting, so the gap most weightage articles miss is that this is a near-guaranteed-marks chapter in Main but a careful-reading chapter in Advanced.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~8–10% of Physics', questions: '3–4 per shift', nature: 'Formula-direct: resistor networks, Kirchhoff, meter bridge, potentiometer, galvanometer conversion' },
+      { exam: 'JEE Advanced', weightage: '~4–6% of Physics', questions: '1–2', nature: 'Mixed with capacitors/RC transients, experimental error, or paragraph-linked circuit reasoning' },
+    ],
+    correction:
+      'Most "weightage" pages quote one band (e.g. "9%") and stop. The more useful split is within the chapter: in the last five years the resistor-combination + Kirchhoff cluster alone has carried the largest share of the marks, while EMF/internal-resistance and the potentiometer come next — drift velocity and the microscopic model rarely appear as standalone questions, so do not over-invest there.',
+    studyOrder: [
+      { step: 'Ohm\'s law, resistivity and the V–I picture', detail: 'Get R = ρL/A, the temperature dependence of resistivity, and the difference between ohmic and non-ohmic behaviour straight first — every later topic assumes it.' },
+      { step: 'Series–parallel resistor reduction', detail: 'Drill collapsing a network to one equivalent resistance, including symmetric (Wheatstone-balanced) networks where the bridge resistor carries no current and can be removed. This single skill unlocks the largest block of Main questions.' },
+      { step: 'EMF, internal resistance and terminal voltage', detail: 'V = E − Ir, cells in series/parallel, and maximum-power transfer. Mixing up EMF with terminal voltage is a recurring error, so anchor it here.' },
+      { step: 'Kirchhoff\'s laws', detail: 'Junction (charge) and loop (energy) rules for multi-loop circuits. Practise assigning loop currents consistently — most "find the current in this branch" questions are one clean application.' },
+      { step: 'Meter bridge, Wheatstone bridge and potentiometer', detail: 'These three balance-condition instruments recur every year. Learn why a potentiometer measures EMF with no current drawn (its key advantage over a voltmeter) — that "why" is itself a frequent question.' },
+      { step: 'Galvanometer to ammeter/voltmeter conversion', detail: 'Shunt (parallel, low resistance) for an ammeter, high series resistance for a voltmeter. Short, formulaic, and almost always worth a guaranteed mark.' },
+    ],
+    highYield: [
+      {
+        topic: 'Equivalent resistance of networks (incl. balanced Wheatstone)',
+        detail:
+          'The highest-frequency Main type. Spot a balanced Wheatstone bridge (P/Q = R/S) and delete the galvanometer branch; recognise symmetry to fold a cube/ladder network. Most "find R between A and B" questions reduce to one of these tricks.',
+      },
+      {
+        topic: 'Kirchhoff\'s loop and junction rules',
+        detail:
+          'Carries the joint-largest share of the chapter\'s marks. Write junction equations first to cut the number of unknowns, then loop equations. Be ruthless about sign convention (rise vs drop across cells and resistors).',
+      },
+      {
+        topic: 'Potentiometer and meter bridge',
+        detail:
+          'Balance length ∝ EMF/potential. Classic asks: comparing two cells\' EMFs, finding internal resistance from balance lengths with and without a shunt, and meter-bridge null-point shifts. The potentiometer\'s "draws no current at balance" property is the conceptual hook.',
+      },
+      {
+        topic: 'EMF, internal resistance and cell combinations',
+        detail:
+          'Terminal voltage under load, identical cells in series vs parallel, and the maximum-power condition (external R = internal r). Short numericals that reward clean bookkeeping.',
+      },
+    ],
+    traps: [
+      'Confusing EMF with terminal voltage. EMF is the cell\'s value on open circuit; terminal voltage V = E − Ir drops the moment current flows. Many wrong answers come from using E where V was needed.',
+      'Missing a balanced Wheatstone bridge. If P/Q = R/S the bridge (galvanometer) arm carries no current — students keep it in the network and get a much harder, wrong reduction.',
+      'Using a voltmeter\'s reading as the true EMF. A real voltmeter draws a little current, so it reads terminal voltage, not EMF — that is exactly why the potentiometer exists.',
+      'Sign errors in Kirchhoff loops. Fix one convention (e.g. potential drops in the direction of assumed current are negative) and apply it to every element in the loop, including the cell.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Current Electricity in JEE Main?',
+        a: 'Typically 3–4 questions per shift, about 8–10% of the Physics section. They are mostly direct: equivalent resistance of a network, a Kirchhoff multi-loop circuit, a meter-bridge or potentiometer balance, and a galvanometer-conversion numerical. It is one of the most reliable scoring chapters in the paper.',
+      },
+      {
+        q: 'Is Current Electricity easy to score in JEE?',
+        a: 'In JEE Main, yes — the question types repeat year to year and are formula-driven, so consistent practice on resistor networks and Kirchhoff almost guarantees marks. In JEE Advanced it is harder because the same ideas are combined with capacitors in transient (RC) circuits or wrapped in experimental-error questions, so read those carefully.',
+      },
+      {
+        q: 'Which topics in Current Electricity are most important for JEE Main?',
+        a: 'Series–parallel resistor combinations (including balanced Wheatstone bridges) and Kirchhoff\'s laws carry the largest share, followed by the potentiometer/meter bridge and EMF–internal-resistance problems. Galvanometer-to-ammeter/voltmeter conversion is a short, high-return add-on. Drift velocity and the microscopic model rarely appear alone.',
+      },
+      {
+        q: 'What is the difference between a potentiometer and a voltmeter?',
+        a: 'At balance a potentiometer draws no current from the cell it is measuring, so it reads the true EMF; a voltmeter always draws a small current and therefore reads the terminal voltage, which is slightly less than the EMF. That null-deflection advantage is why JEE problems use a potentiometer to compare EMFs and to measure a cell\'s internal resistance.',
+      },
+    ],
+  },
+
+  'jee-maths-trigonometry': {
+    overview:
+      'Trigonometry behaves very differently in the two papers, which is the part most weightage articles blur. In JEE Main, standalone trigonometry is usually 2–3 questions per shift, but the bulk of those marks come from Trigonometric Equations and Inverse Trigonometric Functions, not from heights-and-distances or solutions-of-triangles, which now appear rarely. In JEE Advanced, trigonometry is almost never a standalone question — instead it is the tool you need inside calculus, complex numbers and coordinate geometry, so weakness here quietly costs you marks in other chapters. The practical takeaway: treat identities as a fluency you build for the whole syllabus, and treat trig equations + inverse trig as the directly examinable core.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~2.5–7% of Maths (source-dependent)', questions: '2–3 per shift', nature: 'Mostly trigonometric equations (general solution) and inverse trig; some ratios/identities' },
+      { exam: 'JEE Advanced', weightage: 'Rarely standalone', questions: '~0–1 direct; embedded everywhere', nature: 'A tool inside calculus, complex numbers, vectors and coordinate geometry rather than its own question' },
+    ],
+    correction:
+      'Quoted weightage swings between about 2.5% and 7% across sites because they count differently — some bundle inverse trig and "solutions of triangles" into trigonometry, others split them out. Rather than trust one number, look at where the questions actually fall: in recent JEE Main shifts, Inverse Trigonometric Functions and Trigonometric Equations together carried far more questions than ratios/identities, while Solutions of Triangles contributed close to zero. Prioritise accordingly.',
+    studyOrder: [
+      { step: 'Ratios, signs and the unit-circle picture', detail: 'Know the values for standard angles, the ASTC sign rule, and how sin/cos behave across quadrants. Everything downstream depends on reading the unit circle quickly.' },
+      { step: 'Core identities', detail: 'Pythagorean, sum/difference, double- and half-angle, and product-to-sum. These are not a topic to be "tested" so much as a fluency you reuse in calculus and complex numbers — overlearn them.' },
+      { step: 'Trigonometric equations and general solutions', detail: 'The general-solution forms (for sinθ = sinα, cosθ = cosα, tanθ = tanα) and the discipline of checking the domain. This is one of the two directly examinable cores in Main.' },
+      { step: 'Inverse trigonometric functions', detail: 'Principal-value ranges, the sum/difference formulae, and the domain conditions that flip a formula\'s constant. The single most question-dense sub-topic in recent Main shifts.' },
+      { step: 'Properties of triangles and heights & distances (light pass)', detail: 'Sine/cosine rules and the basic results. Worth a quick revision pass for completeness, but these now appear rarely in Main, so do not spend disproportionate time here.' },
+    ],
+    highYield: [
+      {
+        topic: 'Inverse trigonometric functions',
+        detail:
+          'Highest recent frequency in JEE Main. The traps live in the domain: tan⁻¹x + tan⁻¹y = tan⁻¹((x+y)/(1−xy)) only when xy < 1, otherwise you add or subtract π. Master the principal-value ranges (e.g. cos⁻¹ ∈ [0, π]) before the formulae.',
+      },
+      {
+        topic: 'Trigonometric equations (general solutions)',
+        detail:
+          'Write the general solution, then reject roots that violate the stated interval or make a denominator zero. A large fraction of "number of solutions in [0, 2π]" questions are lost by forgetting to discard extraneous roots.',
+      },
+      {
+        topic: 'Identities as a calculus/complex-numbers tool',
+        detail:
+          'Double-angle and product-to-sum identities recur inside integration, limits and complex-number (Euler/De Moivre) problems. Strength here pays off far outside the trigonometry questions themselves — which is the real reason it is high-yield for JEE.',
+      },
+    ],
+    traps: [
+      'Dropping the domain condition in inverse-trig addition formulae. The tan⁻¹ sum formula changes by ±π depending on whether xy < 1 — applying the bare formula everywhere is the most common mistake.',
+      'Forgetting principal-value ranges. sin⁻¹, cos⁻¹ and tan⁻¹ have fixed output ranges; an answer outside the range is wrong even if it satisfies the equation.',
+      'Keeping extraneous roots in trigonometric equations. Squaring, or multiplying through by a trig term that can be zero, introduces false solutions you must check against the original equation and interval.',
+      'Treating heights-and-distances as high-yield. It feels like "real" trigonometry but contributes very few marks in modern JEE Main — over-practising it is a poor use of time relative to inverse trig.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Trigonometry in JEE Main?',
+        a: 'Usually 2–3 standalone questions per shift, and most of those come from Trigonometric Equations and Inverse Trigonometric Functions rather than from ratios/identities or heights-and-distances. Identities also appear indirectly inside calculus and complex-number questions, so the chapter\'s real footprint is larger than the standalone count suggests.',
+      },
+      {
+        q: 'What is the weightage of Trigonometry in JEE Advanced?',
+        a: 'Trigonometry is rarely a standalone question in JEE Advanced. Instead it is a tool you need inside calculus, complex numbers, vectors and coordinate geometry — so its "weightage" is hidden across other chapters. Weakness in trig identities quietly costs Advanced marks in integration and complex numbers rather than in a dedicated trig question.',
+      },
+      {
+        q: 'Why do different websites give different trigonometry weightage for JEE?',
+        a: 'Because they count the sub-topics differently — some bundle Inverse Trigonometric Functions and Solutions of Triangles into "trigonometry" while others list them separately, so figures range from about 2.5% to 7%. A more reliable guide than the headline number is where questions actually fall: recently, inverse trig and trig equations dominate, and solutions of triangles barely appears.',
+      },
+      {
+        q: 'Which part of trigonometry should I focus on for JEE Main?',
+        a: 'Inverse Trigonometric Functions and Trigonometric Equations — they carry the most directly examinable marks. Build rock-solid fluency with the core identities first (you reuse them across the whole syllabus), then drill inverse-trig domain conditions and the general-solution method for trig equations.',
+      },
+    ],
+  },
+
+  'jee-maths-3d-geometry': {
+    overview:
+      '3D (Three-Dimensional) Geometry is a high-weightage, high-reliability chapter in JEE Main — and it is unusual in that the question types are short, vector-driven and almost interchangeable year to year, so it converts study time into marks efficiently. In JEE Main it reliably contributes 2–3 questions per shift (across all 2025 shifts it was one of the most-asked Maths chapters), mostly on lines, planes, and the distances/angles between them. In JEE Advanced the same content appears fused with Vectors — shortest distance between skew lines, foot of perpendicular, image of a point in a plane — so the smart move is to study 3D Geometry and Vectors together rather than as separate silos.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~6–12% of Maths', questions: '2–3 per shift', nature: 'Direct: equation of line/plane, distance of point from plane, angle between lines/planes, shortest distance' },
+      { exam: 'JEE Advanced', weightage: '~6–8% (with Vectors)', questions: '2–3 (vector + 3D combined)', nature: 'Skew-line shortest distance, foot/image of point, plane through intersection — solved vectorially' },
+    ],
+    correction:
+      'Some sites label 3D Geometry "medium weightage" and quote ~6%; the 2025 papers tell a different story, where it was among the highest-asked Maths chapters (around 12% by one shift-wise count). Treat it as a top-priority, high-return chapter, not a mid-tier one — and do not study it apart from Vectors, because in both papers the cleanest solutions use the vector form of lines and planes.',
+    studyOrder: [
+      { step: 'Direction cosines and direction ratios', detail: 'l² + m² + n² = 1, and how direction ratios fix a line\'s orientation. Everything else is built on representing a direction as a vector.' },
+      { step: 'Equation of a line (vector and Cartesian)', detail: 'r = a + λb and the symmetric Cartesian form. Be fluent converting between them — questions mix the two representations freely.' },
+      { step: 'Equation of a plane', detail: 'Normal form, point-normal form, intercept form, and the plane through three points. The normal vector is the object you actually compute with.' },
+      { step: 'Angles and distances', detail: 'Angle between two lines (via direction vectors), line and plane, two planes; distance of a point from a plane; distance between parallel planes. This cluster is the bulk of Main questions.' },
+      { step: 'Shortest distance, foot and image', detail: 'Shortest distance between skew lines (the scalar-triple-product formula), foot of perpendicular from a point to a line/plane, and the image of a point in a plane. This is where 3D meets Vectors and where Advanced lives.' },
+    ],
+    highYield: [
+      {
+        topic: 'Distance of a point from a plane / between parallel planes',
+        detail:
+          'A one-line formula, |ax₁+by₁+cz₁+d|/√(a²+b²+c²), and one of the most-asked direct types. Parallel-plane distance is the same formula applied with a common normal.',
+      },
+      {
+        topic: 'Angle between lines, line–plane and plane–plane',
+        detail:
+          'All three reduce to a dot-product between the relevant direction or normal vectors — but watch the line–plane case, where the angle is 90° minus the angle between the line\'s direction and the plane\'s normal. That subtraction is a frequent slip.',
+      },
+      {
+        topic: 'Shortest distance between two skew lines',
+        detail:
+          '|(a₂−a₁)·(b₁×b₂)| / |b₁×b₂|. High-frequency in both papers. If the scalar triple product in the numerator is zero, the lines are coplanar (intersecting or parallel) — a fact often tested directly.',
+      },
+      {
+        topic: 'Foot of perpendicular and image of a point',
+        detail:
+          'Parametrise the line/normal, impose perpendicularity (dot product = 0) to find the foot, then double the displacement for the image. The same machinery answers a whole family of Main and Advanced questions.',
+      },
+    ],
+    traps: [
+      'Confusing the line–plane angle with the line–normal angle. The angle between a line and a plane is 90° minus the angle between the line\'s direction and the plane\'s normal; using the dot product directly without the subtraction gives the complementary (wrong) angle.',
+      'Forgetting to normalise direction vectors when finding an angle. cosθ uses unit vectors — dividing by the magnitudes is not optional.',
+      'Misreading skew vs coplanar lines. If (a₂−a₁)·(b₁×b₂) = 0 the lines are coplanar, so the "shortest distance" is zero (they intersect) or a simple parallel-line distance — don\'t blindly apply the skew formula.',
+      'Studying 3D Geometry in isolation from Vectors. The fastest solutions to skew-distance, foot-of-perpendicular and image problems are vectorial; learning the two chapters separately doubles the work.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from 3D Geometry in JEE Main?',
+        a: 'Reliably 2–3 questions per shift, and across the 2025 sessions it was among the most-asked Maths chapters. They are mostly direct: equation of a line or plane, distance of a point from a plane, angle between lines/planes, and shortest distance between skew lines. The formulas are short, which makes it an efficient scoring chapter.',
+      },
+      {
+        q: 'Is 3D Geometry high weightage for JEE Main 2026?',
+        a: 'Yes. Although a few sites still call it "medium weightage" (~6%), the recent papers put it among the highest-asked Maths chapters, so treat it as a top-priority topic. Pair it with Vectors when you study, because both papers solve 3D questions most cleanly using the vector form of lines and planes.',
+      },
+      {
+        q: 'What are the most important topics in 3D Geometry for JEE?',
+        a: 'Distance of a point from a plane, angles between lines/planes, shortest distance between skew lines, and the foot of perpendicular / image of a point in a plane. These four cover the large majority of both JEE Main and JEE Advanced questions.',
+      },
+      {
+        q: 'How do I find the shortest distance between two skew lines?',
+        a: 'Use |(a₂−a₁)·(b₁×b₂)| / |b₁×b₂|, where a₁, a₂ are points on the two lines and b₁, b₂ their direction vectors. If the numerator (a scalar triple product) is zero, the lines are coplanar — they either intersect (distance 0) or are parallel, in which case use the parallel-line distance instead.',
+      },
+    ],
+  },
+
+  'jee-chemistry-p-block-15-16': {
+    overview:
+      'The p-Block (Groups 15 and 16) is a fact- and trend-heavy chapter where JEE Main marks come almost entirely from NCERT lines, not from problem-solving — which is exactly why students who "do chemistry by solving numericals" underperform here. In JEE Main these two groups together typically yield 1–2 direct questions per shift (the whole p-block, groups 13–18, runs to 3–4 questions), and they reward clean recall of oxidation-state trends, oxoacid structures, and preparation reactions. JEE Advanced goes deeper into structure and reasoning — why an oxoacid is a stronger acid, the bonding in interhalogens/oxides, allotrope structures — so the same chapter is "memorise the trends" for Main and "explain the trend" for Advanced.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~4–6% of Chemistry (groups 15–16)', questions: '1–2 per shift', nature: 'NCERT-fact recall: trends, oxidation states, oxoacid/oxide formulae, named preparations' },
+      { exam: 'JEE Advanced', weightage: '~5–8% (inorganic block)', questions: '1–3', nature: 'Structure & reasoning: oxoacid acidity order, allotropes, interhalogen shapes, matching/assertion' },
+    ],
+    correction:
+      'Many guides lump "p-block" into a single 6% figure and tell you to "memorise NCERT". The more useful split: Group 15 (especially nitrogen\'s oxoacids/oxides and phosphorus allotropes) and Group 16 (sulfur\'s oxoacids and oxides) are asked more often than Group 14 facts, and the questions cluster on anomalous behaviour of the first element (N and O) and on acid-strength/oxidising-power trends down the group — so target those rather than reading all six groups at uniform depth.',
+    studyOrder: [
+      { step: 'Periodic trends down each group first', detail: 'Atomic/ionic size, ionisation enthalpy, electronegativity, and metallic character down Group 15 (N→Bi) and Group 16 (O→Po). Almost every question is a consequence of one of these trends, so anchor them before the reactions.' },
+      { step: 'Anomalous behaviour of the first element', detail: 'Why nitrogen (no d-orbitals, small size, high electronegativity) and oxygen differ from the rest of their groups — catenation, pπ–pπ multiple bonding, maximum covalency. A perennial favourite for "which statement is correct" questions.' },
+      { step: 'Oxidation states and their stability', detail: 'The +3 vs +5 stability trend in Group 15 (inert-pair effect making Bi³⁺ stable) and the −2/+4/+6 picture in Group 16. Map oxidising/reducing tendencies onto these.' },
+      { step: 'Oxides and oxoacids', detail: 'Oxoacids of nitrogen (HNO₂, HNO₃) and phosphorus (H₃PO₂, H₃PO₃, H₃PO₄ — with their basicity from the number of P–OH bonds), and of sulfur (H₂SO₃, H₂SO₄, thio- and per-acids). Structures and acid-strength orders are the high-value part.' },
+      { step: 'Key preparations and properties', detail: 'NH₃, HNO₃ (Ostwald), allotropes of phosphorus (white/red/black) and sulfur, SO₂/SO₃, and H₂SO₄ (Contact process). Know the conditions and the distinguishing observations.' },
+    ],
+    highYield: [
+      {
+        topic: 'Oxoacids of phosphorus and their basicity',
+        detail:
+          'Basicity equals the number of P–OH (ionisable) bonds, not the number of H atoms: H₃PO₂ is monobasic, H₃PO₃ dibasic, H₃PO₄ tribasic. The P–H bonds in H₃PO₂/H₃PO₃ are not ionisable but make these acids reducing — a classic two-in-one question.',
+      },
+      {
+        topic: 'Acid strength and oxidising-power trends',
+        detail:
+          'Down Group 16, oxoacid oxidising power and stability shift predictably; across the oxoacids of a single element, acid strength rises with oxidation state (HNO₃ > HNO₂; H₂SO₄ > H₂SO₃). Expect "arrange in order" questions.',
+      },
+      {
+        topic: 'Anomalous behaviour of nitrogen and oxygen',
+        detail:
+          'Nitrogen forms strong pπ–pπ multiple bonds (N≡N) and shows no catenation tendency like phosphorus; oxygen is a diatomic gas while sulfur catenates into rings/chains. The "first-element anomaly" is one of the most reliably asked ideas in the chapter.',
+      },
+      {
+        topic: 'Allotropes and structures',
+        detail:
+          'White phosphorus (P₄ tetrahedron, reactive, stored under water) vs red/black; rhombic vs monoclinic sulfur (both S₈ rings). Structure-to-property reasoning ("why is white phosphorus more reactive?") recurs in Advanced.',
+      },
+    ],
+    traps: [
+      'Counting all hydrogens as acidic. In H₃PO₂ and H₃PO₃ the P–H hydrogens are NOT ionisable, so basicity is 1 and 2 respectively — using the formula\'s H-count gives the wrong basicity.',
+      'Assuming trends are perfectly monotonic. Group 15/16 have well-known irregularities (e.g. the dip at nitrogen/oxygen and the inert-pair effect at the bottom) — exam statements are written precisely to catch a "smooth trend" assumption.',
+      'Mixing up the cause of nitrogen\'s anomaly. It is the absence of d-orbitals plus small size and high electronegativity (limiting covalency to 4 and enabling pπ–pπ bonding) — not merely "it is the lightest". The precise reason is what gets tested.',
+      'Treating this as a problem-solving chapter. There is almost no calculation here; marks are lost by under-reading NCERT, not by weak maths. Revise the factual lines repeatedly rather than "practising sums".',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from p-block Groups 15 and 16 in JEE Main?',
+        a: 'Usually 1–2 direct questions per shift from Groups 15–16 specifically, within an overall p-block (Groups 13–18) contribution of about 3–4 questions. They are NCERT-fact based — trends, oxidation states, oxoacid structures and named preparations — rather than numerical, so accurate recall is what scores.',
+      },
+      {
+        q: 'Is the p-block easy or hard to score in JEE?',
+        a: 'For JEE Main it is scorable if you treat it as a recall chapter and revise NCERT trends and reactions repeatedly. It feels hard to students who try to "solve" it like physical chemistry. JEE Advanced is genuinely harder because it asks you to explain the trends — acid-strength orders, allotrope reactivity, interhalogen shapes — rather than just state them.',
+      },
+      {
+        q: 'How do I find the basicity of phosphorus oxoacids?',
+        a: 'Count only the P–OH bonds, because only those hydrogens are ionisable. So H₃PO₂ is monobasic (one OH), H₃PO₃ is dibasic (two OH), and H₃PO₄ is tribasic (three OH). The remaining P–H bonds are non-ionisable but make H₃PO₂ and H₃PO₃ good reducing agents — a point JEE likes to combine into one question.',
+      },
+      {
+        q: 'Why does nitrogen behave differently from the other Group 15 elements?',
+        a: 'Nitrogen is small, highly electronegative, and has no d-orbitals, so its covalency is limited to four and it forms strong pπ–pπ multiple bonds (as in N≡N). That is why nitrogen exists as a diatomic gas and shows little catenation, whereas phosphorus catenates and forms P₄ — the contrast is a frequently tested "anomalous first element" idea.',
       },
     ],
   },
