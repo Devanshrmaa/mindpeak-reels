@@ -57,6 +57,14 @@
 | 44 | 2026-06-04 | cyboardschool.com | cyboardschool.com/write-for-us/ | Guest Post — accepts EdTech/education content from teachers & founders, 1000–2500 words, byline with link | Via write-for-us form on site | ❌ | — | NOT STARTED |
 | 45 | 2026-06-04 | dailysarkariresults.com | dailysarkariresults.com/write-for-us/ | Guest Post — education, study tips, coaching content; high-traffic exam-aware student audience | Via write-for-us form on site | ❌ | — | NOT STARTED |
 | 46 | 2026-06-04 | vidsaga.com | vidsaga.com/top-indian-edtech-startups/ | Listicle Inclusion — "32 Top Indian EdTech Startups 2026" (startup directory angle, MSME + HP startup story) | Via vidsaga.com contact page | ❌ | — | NOT STARTED |
+| 47 | 2026-06-19 | thehinduzone.com | thehinduzone.com/best-online-teacher-for-iit-jee-physics/ | Listicle Inclusion — "Best Online Teacher for IIT JEE Physics 2026" — Devansh personal brand listing, 1-on-1 mentor category unclaimed | 8800222298 (call) or thehinduzone.com contact form | ❌ | — | NOT STARTED |
+| 48 | 2026-06-19 | thehinduzone.com | thehinduzone.com/best-online-teacher-for-iit-jee-mathmatics/ | Listicle Inclusion — "Best Online Teachers for IIT JEE Mathematics 2026" — additional personal brand angle | 8800222298 (call) or thehinduzone.com contact form | ❌ | — | NOT STARTED |
+| 49 | 2026-06-19 | ezyschooling.com | ezyschooling.com/parenting/expert/guest-post-write-for-us | Guest Post — 300K monthly visitors, India's fastest-growing EdTech platform, dofollow contextual links confirmed | Via submission form on write-for-us page | ❌ | — | NOT STARTED |
+| 50 | 2026-06-19 | coachingreviews.org | coachingreviews.org/write-for-us/ | Guest Post — coaching-specific exact niche, confirmed dofollow backlink in 50-word author bio | contribute@coachingreviews.org | ❌ | — | NOT STARTED |
+| 51 | 2026-06-19 | cucetexam.in | cucetexam.in/write-for-us/ | Guest Post — CUET/education blog, 1000+ words, author bio with link | info@cucetexam.in | ❌ | — | NOT STARTED |
+| 52 | 2026-06-19 | oureducation.in | blog.oureducation.in/best-online-teacher-for-iit-jee-physics/ | Listicle Inclusion — "Best Online Teacher for IIT JEE Physics" — independent from TheHinduZone, same personal brand angle | Via oureducation.in contact page | ❌ | — | NOT STARTED |
+| 53 | 2026-06-19 | exambazaar.com | exambazaar.com/blogpost/guest-post-editorial-guidelines | Guest Post — exam-focused India education site, editorial guidelines confirmed | Via guest post submission on site | ❌ | — | NOT STARTED |
+| 54 | 2026-06-19 | startupmahakumbh.co.in | startupmahakumbh.co.in/awards | Award Nomination — Startup Mahakumbh 6.0 Awards, "Celebrating Innovation & Excellence", open nominations | Via award nomination form on site | ❌ | — | NOT STARTED |
 
 ---
 
@@ -77,6 +85,17 @@
 ---
 
 ## Notes & Strategy Log
+
+### 2026-06-19 — Week 6 Audit + 8 New Targets Added (54 Total)
+
+- **Zero backlinks for SIXTH consecutive week.** All 46 prior targets still at NOT STARTED. Outreach pipeline has 54 targets with 26 pre-written emails — zero sent.
+- **8 new targets added (#47–54):** thehinduzone.com ×2 (JEE Physics + Maths teacher listicles — personal brand for Devansh), ezyschooling.com (guest post, 300K visitors, dofollow confirmed), coachingreviews.org (guest post, coaching-specific, dofollow bio link confirmed, contribute@coachingreviews.org), cucetexam.in (guest post, info@cucetexam.in), oureducation.in (JEE Physics teacher listicle), exambazaar.com (guest post), startupmahakumbh.co.in (awards nomination)
+- **Key new insight — TheHinduZone personal brand opportunity:** thehinduzone.com has a live "Best Online Teacher for IIT JEE Physics 2026" listicle. Phone: 8800222298. This is not just an institute listing — it's a personal brand placement for Devansh as a 1-on-1 Physics mentor, a category entirely unclaimed in all current rankings on that site.
+- **EzySchooling is highest-traffic guest post opportunity found to date:** 300K monthly visitors, India's fastest-growing EdTech platform, dofollow contextual links explicitly permitted.
+- **CoachingReviews exact niche match:** contribute@coachingreviews.org — coaching-specific site, confirmed dofollow bio link. Best pitch: "1-on-1 vs Batch Coaching for JEE — which actually gets students into IIT?"
+- **Brand search update:** `"mindpeakinstitute.com" -site:mindpeakinstitute.com` still returns zero external references. `"mindpeak institute"` still dominated by mindpeak.ai (German AI pathology). No unlinked mentions found.
+- Emails #22–26 ready to send (in `/seo-reports/backlinks-2026-06-19.md`)
+- **MVAC for this week:** Quora (10 min), UrbanPro (30 min), emerginghimachal.hp.gov.in (20 min), Wellfound (15 min), Email #13 OriginEducare, Email #2 CollegeDekho, Email #22 TheHinduZone, Email #23 EzySchooling. Total: ~95 min.
 
 ### 2026-06-04 — Week 5 Audit + 8 New Targets Added (46 Total)
 
@@ -126,11 +145,13 @@
 | May 12–18, 2026 | 0 → 3 | Send #1, #2, #8, #11, #27 (UrbanPro self-serve) | — | **MISSED — zero sent** |
 | May 19–25, 2026 | 0 → 5 | Self-serve: UrbanPro (#27), HP Startup (#37), Wellfound (#38). Email: #2, #8, #13, #1, #14, #4 | — | **MISSED — zero sent** |
 | May 26–Jun 1, 2026 | 5 → 10 | Follow up #2/#8/#13/#14; send #9, #10, #6, #15, #16, #17 | — | **MISSED — zero sent** |
-| **Jun 2–8, 2026** | **0 → 5** | **EMERGENCY MINIMUM:** Quora answer (10 min). Self-serve: UrbanPro (#27), Wellfound (#38), HP Startup (#37). Emails: #13 OriginEducare, #2 CollegeDekho | 🔥 CRITICAL WEEK — must act | ⏳ IN PROGRESS |
-| Jun 9–15, 2026 | 5 → 10 | Email: #8 CollegeDunia, #14 Notesly, #18 AcademyCheck 2027, #1 AcademyCheck NEET. Follow up #13/#2 | — | NOT STARTED |
-| Jun 16–22, 2026 | 10 → 15 | Emails: #4 FutureTopper, #6 ExamCharcha, #19 CosmosIQ, #20 Indian-Preneur, #9 PhysicsNavigator | — | NOT STARTED |
-| Jun 23–30, 2026 | 15 → 20 | Emails: #21 CyboardSchool, #11 SCNWire PR, #10 Giraffe-Learning ×2, #5 Suganta. Follow up all pending. Start Shiksha | — | NOT STARTED |
-| Jul 2026 | 20 → 30 | Careers360, Shiksha partner portal, Awards follow-up. Start Quora 2–3/week consistently | — | NOT STARTED |
+| Jun 2–8, 2026 | 0 → 5 | EMERGENCY MINIMUM: Quora answer. Self-serve: UrbanPro (#27), Wellfound (#38), HP Startup (#37). Emails: #13 OriginEducare, #2 CollegeDekho | 🔥 CRITICAL WEEK | **MISSED — zero sent** |
+| Jun 9–15, 2026 | 5 → 10 | Email: #8 CollegeDunia, #14 Notesly, #18 AcademyCheck 2027, #1 AcademyCheck NEET. Follow up #13/#2 | — | **MISSED — zero sent** |
+| **Jun 16–22, 2026** | **0 → 5** | **MVAC:** Quora (10 min), UrbanPro (#27, 30 min), emerginghimachal.hp.gov.in (#37, 20 min), Wellfound (#38, 15 min). Emails: #13 OriginEducare, #2 CollegeDekho, #22 TheHinduZone, #23 EzySchooling | 🔥 CRITICAL — 6 WEEKS OVERDUE | ⏳ IN PROGRESS |
+| Jun 23–30, 2026 | 5 → 12 | Email: #8 CollegeDunia, #18 AcademyCheck 2027, #24 CoachingReviews, #19 CosmosIQ, #20 Indian-Preneur. Follow up all sent. | — | NOT STARTED |
+| Jul 1–15, 2026 | 12 → 20 | Emails: #4 FutureTopper, #6 ExamCharcha, #21 CyboardSchool, #25 cucetexam.in, #9 PhysicsNavigator. Follow up all pending. | — | NOT STARTED |
+| Jul 16–31, 2026 | 20 → 28 | Emails: #11 SCNWire PR, #10 Giraffe-Learning ×2, #5 Suganta, #26 OurEducation. Start Shiksha partner portal. Awards follow-up. | — | NOT STARTED |
+| Aug 2026 | 28 → 40 | Careers360, Shiksha, award results, Quora 2–3/week consistently. Guest post follow-ups. | — | NOT STARTED |
 
 ## Quora Strategy (Ongoing — Not Tracked as Outreach)
 
