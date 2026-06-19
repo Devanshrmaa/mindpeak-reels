@@ -813,6 +813,10 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
       {
         q: 'Does a catalyst change the equilibrium constant?',
         a: 'No. A catalyst lowers the activation energy for both the forward and backward reactions by the same amount, so it speeds up the approach to equilibrium but leaves the equilibrium constant K and the position of equilibrium unchanged. This is a classic JEE trap question.',
+      },
+    ],
+  },
+
   'jee-physics-ray-optics': {
     overview:
       'Ray Optics is one of the most formula-driven, dependable scorers in JEE Physics — but the weightage numbers quoted online are misleading because almost every article reports "Optics" as Ray Optics + Wave Optics combined across both the January and April sessions and all shifts (those "12–24 questions a year" figures). Taken alone, Ray Optics is reliably 2–3 questions per shift in JEE Main, and they are direct: mirror/lens formula, magnification, prism, total internal reflection, lens combinations. In JEE Advanced it carries ~6–7% but the questions fuse refraction at several surfaces, lens-and-mirror systems and instrument optics into one multi-step setup. The whole chapter rests on one disciplined habit — the Cartesian sign convention — so the marks come down to bookkeeping, not insight.',
@@ -1068,128 +1072,6 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
       {
         q: 'What is the difference between the excess pressure in a drop and a soap bubble?',
         a: 'A liquid drop has a single surface, so its excess pressure is 2T/r. A soap bubble has two surfaces (inner and outer), so its excess pressure is 4T/r — twice that of a drop of the same radius. This factor-of-two distinction is a frequent JEE single-correct trap.',
-      'Application of Derivatives (AOD) is the highest-yield single chapter in JEE differential calculus, and the most over-stated one online — several "weightage" pages quote 10–12 questions, which is the whole differential-calculus block (limits + continuity + differentiability + differentiation + AOD), not this chapter. Alone, AOD is about 2–3 questions in JEE Main and they are direct: maxima/minima, tangents/normals, monotonicity. In JEE Advanced the count is smaller (1–2) but far deeper — Rolle\'s theorem and the Lagrange MVT are used to PROVE inequalities and the existence of roots, and optimisation is dressed up in geometry. The whole chapter is built on one idea, the sign of the first derivative, so the strategy is to make derivative-sign reasoning automatic.',
-    examSplit: [
-      { exam: 'JEE Main', weightage: '~6–8% of Maths', questions: '2–3 per year', nature: 'Direct: maxima/minima, tangent & normal, increasing/decreasing, rate of change' },
-      { exam: 'JEE Advanced', weightage: '~3–4% of Maths', questions: '1–2 per year', nature: 'Proof-style: Rolle/LMVT for inequalities & root existence, geometric optimisation, curve sketching' },
-    ],
-    correction:
-      'Some pages list "10–12 questions" for Application of Derivatives. That number is the entire differential-calculus block (limits, continuity, differentiability, differentiation and AOD combined). AOD on its own is closer to 2–3 questions in JEE Main — still high-yield, but do not over-budget time based on the inflated figure.',
-    studyOrder: [
-      { step: 'Derivative as slope and rate', detail: 'Tangent and normal (slope = dy/dx at the point; normal slope = −1/(dy/dx)) and related-rates problems. Fast, direct Main marks and the base for everything after.' },
-      { step: 'Monotonicity (increasing/decreasing)', detail: 'f′(x) > 0 ⇒ increasing, < 0 ⇒ decreasing on an interval. Practise finding the exact intervals and feeding them into inequality and parameter problems — this is the workhorse skill of the chapter.' },
-      { step: 'Maxima and minima', detail: 'Critical points from f′(x) = 0 (and where f′ does not exist), then the first- or second-derivative test. Then the step students skip: on a closed interval, ALSO check the endpoints for the global extremum.' },
-      { step: 'Optimisation (word problems)', detail: 'Translate the quantity into one variable, differentiate, and verify. The recurring setups (max-volume box, shortest distance, least cost) repeat almost verbatim across years.' },
-      { step: 'Rolle\'s theorem and LMVT', detail: 'Geometric meaning first (a horizontal tangent / a tangent parallel to the chord), then their use in Advanced to prove inequalities and show a root exists. Always check continuity on [a,b] and differentiability on (a,b) before applying.' },
-    ],
-    highYield: [
-      {
-        topic: 'Maxima/minima and global extrema on a closed interval',
-        detail:
-          'The single most-asked AOD type in Main. After the derivative test, compare critical-point values WITH the endpoint values to get the global max/min — the step that quietly decides the answer.',
-      },
-      {
-        topic: 'Tangents, normals and the angle between curves',
-        detail:
-          'Slope from dy/dx, equation of tangent/normal, and the orthogonal-curves condition (product of slopes = −1). Direct and frequent.',
-      },
-      {
-        topic: 'Monotonicity to prove inequalities',
-        detail:
-          'To show f(x) ≥ g(x), define h = f − g, show h′ ≥ 0 and h(a) = 0. This single technique answers a large share of Advanced inequality questions.',
-      },
-      {
-        topic: 'LMVT / Rolle for existence and bounds',
-        detail:
-          'f′(c) = (f(b) − f(a))/(b − a) bounds differences; Rolle guarantees a root of f′ between two roots of f. The go-to tools when a question says "show that there exists…".',
-      },
-    ],
-    traps: [
-      'Forgetting endpoints on a closed interval — the most common reason a "maxima/minima" answer is wrong. f′(x) = 0 finds local extrema; the global extremum on [a,b] can sit at an endpoint.',
-      'Applying Rolle/LMVT without checking the hypotheses. If f is not continuous on [a,b] or not differentiable on (a,b) (e.g. |x| at 0), the conclusion does not hold — Advanced loves this.',
-      'Confusing local and global extrema, and assuming f′(c) = 0 always means an extremum (it can be an inflection — the second-derivative test or a sign change settles it).',
-      'Reading "increasing at a point" as "increasing on an interval". Monotonicity is an interval property; check f′ across the whole interval, not at one point.',
-    ],
-    faqs: [
-      {
-        q: 'How many questions come from Application of Derivatives in JEE Main and Advanced?',
-        a: 'AOD alone is about 2–3 questions in JEE Main (~6–8% of Maths), mostly direct maxima/minima, tangent/normal and monotonicity. JEE Advanced usually has 1–2, but they are proof-style — using Rolle\'s theorem or the LMVT for inequalities and root existence. The "10–12 questions" figure some sites quote is the entire differential-calculus block, not this chapter.',
-      },
-      {
-        q: 'Is Application of Derivatives important for JEE Advanced?',
-        a: 'Yes — even though the count is small, the chapter is unskippable for Advanced because Rolle\'s theorem, the Lagrange MVT and monotonicity are the standard tools for the "prove this inequality" and "show a root exists" questions that appear most years. The depth, not the number of questions, is what matters.',
-      },
-      {
-        q: 'Which topic in Application of Derivatives is most important?',
-        a: 'Maxima and minima (including checking endpoints for the global extremum on a closed interval) and using the sign of f′ for monotonicity. Tangents/normals are reliable Main marks, and monotonicity-based inequality proofs are the key Advanced skill.',
-      },
-      {
-        q: 'Why is Application of Derivatives considered hard?',
-        a: 'Because the same idea — the sign of the first derivative — is applied to many different question shapes (optimisation, inequalities, root existence, curve behaviour), and Advanced wraps it in proofs that need hypothesis-checking. Once derivative-sign reasoning and the endpoint/hypothesis checks become automatic, it turns into one of the most dependable scoring chapters.',
-      },
-    ],
-  },
-
-  'jee-chemistry-chemical-equilibrium': {
-    overview:
-      'Chemical Equilibrium is a high-return Physical Chemistry chapter because the question types are few and repeat: writing Kc/Kp, the Kp = Kc(RT)^Δn conversion, Le Chatelier shifts, and degree-of-dissociation numericals. The figure you see online — "6.6%, ~2 questions" — almost always reports Chemical AND Ionic Equilibrium together; the gaseous-equilibrium chapter on its own is closer to 1 question per shift in JEE Main, and it is direct. JEE Advanced asks fewer but deeper questions, often fusing equilibrium with thermodynamics (ΔG° = −RT ln K) or simultaneous equilibria. Because it is rule- and formula-based rather than memory-heavy, it is one of the better marks-per-hour chapters in the physical block.',
-    examSplit: [
-      { exam: 'JEE Main', weightage: '~3–4% of Chemistry', questions: '~1 per shift', nature: 'Direct: Kc/Kp expression, Kp–Kc conversion, Le Chatelier shift, degree of dissociation' },
-      { exam: 'JEE Advanced', weightage: '~3–4% of Chemistry', questions: '~1 per paper', nature: 'Deeper: ΔG°↔K link, simultaneous/heterogeneous equilibria, multi-step degree-of-dissociation' },
-    ],
-    correction:
-      'The widely quoted "6.6% / 2 questions" weightage is Chemical Equilibrium and Ionic Equilibrium counted together. They are separate chapters here: this page is gaseous/chemical equilibrium (Kc, Kp, Le Chatelier); pH, buffers and solubility product live in Ionic Equilibrium. Budget your time per chapter, not for the combined figure.',
-    studyOrder: [
-      { step: 'The equilibrium state and Kc', detail: 'Law of mass action, writing Kc for homogeneous reactions, and the rule that pure solids and liquids are left OUT of the expression. Getting the expression right is the gate to everything else.' },
-      { step: 'Kp and the Kp = Kc(RT)^Δn link', detail: 'Δn = (moles of gaseous products) − (moles of gaseous reactants). The sign of Δn decides whether Kp is larger or smaller than Kc — a favourite one-mark check; Kp = Kc when Δn = 0.' },
-      { step: 'Reaction quotient Q and direction', detail: 'Compare Q with K: Q < K shifts forward, Q > K shifts backward, Q = K is equilibrium. Conceptually clean and frequently tested.' },
-      { step: 'Le Chatelier\'s principle', detail: 'The system opposes the imposed change. Pressure increase → side with fewer gas moles; temperature increase → endothermic direction; adding a reactant → forward. A catalyst does NOT shift equilibrium — it only speeds both directions equally.' },
-      { step: 'Degree of dissociation and numericals', detail: 'Set up an ICE-style table, express equilibrium amounts in α, and solve. For small α, α ≈ √(Kc/C). This is where most of the actual marks sit.' },
-    ],
-    highYield: [
-      {
-        topic: 'Writing Kc/Kp and the Kp = Kc(RT)^Δn conversion',
-        detail:
-          'The most frequent Main type. Δn counts gases only, and Kp = Kc when Δn = 0. Expect one clean conversion question most years.',
-      },
-      {
-        topic: 'Le Chatelier predictions',
-        detail:
-          'Effect of pressure, temperature, concentration and inert gas (at constant volume vs constant pressure) on the position of equilibrium. The inert-gas-at-constant-pressure case is the standard trick.',
-      },
-      {
-        topic: 'Degree of dissociation numericals',
-        detail:
-          'Vapour-density and "α at a given pressure" problems for reactions like PCl₅ ⇌ PCl₃ + Cl₂ or N₂O₄ ⇌ 2NO₂. The ICE table plus α ≈ √(Kc/C) solves most.',
-      },
-      {
-        topic: 'ΔG° = −RT ln K (the equilibrium–thermodynamics bridge)',
-        detail:
-          'Links spontaneity to K (K > 1 ⇒ ΔG° negative). The classic Advanced fusion of this chapter with thermodynamics.',
-      },
-    ],
-    traps: [
-      'Including pure solids or liquids in the Kc/Kp expression — they are taken as unit activity and must be left out (the #1 equilibrium error).',
-      'Thinking a catalyst shifts the equilibrium or changes K. It changes neither; it only shortens the time taken to reach the same equilibrium.',
-      'Assuming an inert gas "always shifts equilibrium". At constant volume it does nothing; only at constant pressure (which expands the volume) does it shift toward more gas moles.',
-      'Confusing the reaction quotient Q with the equilibrium constant K — Q uses the current (non-equilibrium) concentrations and only equals K at equilibrium.',
-    ],
-    faqs: [
-      {
-        q: 'What is the weightage of Chemical Equilibrium in JEE Main and Advanced?',
-        a: 'On its own, gaseous Chemical Equilibrium is about 1 question per shift in JEE Main (~3–4% of Chemistry), and they are direct — Kc/Kp, the Kp = Kc(RT)^Δn conversion, Le Chatelier and degree of dissociation. JEE Advanced asks roughly 1 deeper question, often linking equilibrium to thermodynamics. The "6.6% / 2 questions" you read elsewhere counts Chemical AND Ionic Equilibrium together.',
-      },
-      {
-        q: 'Is Chemical Equilibrium a scoring chapter for JEE?',
-        a: 'Yes — it is one of the higher marks-per-hour Physical Chemistry chapters because the question types are limited and formula-based. Lock the Kc/Kp rules, Le Chatelier, and the degree-of-dissociation setup and you cover almost everything asked.',
-      },
-      {
-        q: 'What is the difference between Chemical Equilibrium and Ionic Equilibrium in JEE?',
-        a: 'Chemical (gaseous) Equilibrium covers Kc, Kp, the Kp–Kc relation, Le Chatelier and degree of dissociation. Ionic Equilibrium covers acids/bases, pH, buffers, hydrolysis and solubility product (Ksp). They are separate chapters, and the combined "~7%" weightage online refers to both together.',
-      },
-      {
-        q: 'Does a catalyst change the equilibrium constant?',
-        a: 'No. A catalyst speeds up the forward and backward reactions equally, so the system reaches the same equilibrium faster — but the position of equilibrium and the value of K are unchanged. Only a change in temperature changes K.',
       },
     ],
   },
