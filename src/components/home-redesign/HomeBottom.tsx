@@ -153,9 +153,9 @@ export function MpFooter() {
           ))}
         </div>
         <div style={{ display: "flex", gap: 16, fontSize: 12.5, color: S.inkSoft }}>
-          <a href="/terms" style={{ color: S.inkSoft, textDecoration: "none" }}>Terms</a>
+          <a href="/terms-and-conditions" style={{ color: S.inkSoft, textDecoration: "none" }}>Terms &amp; Conditions</a>
           <a href="/refund-policy" style={{ color: S.inkSoft, textDecoration: "none" }}>Refund Policy</a>
-          <a href="/ncert-books" style={{ color: S.inkSoft, textDecoration: "none" }}>Free NCERT books</a>
+          <a href="/study-plan" style={{ color: S.inkSoft, textDecoration: "none" }}>Free Study Plan</a>
         </div>
       </div>
     </footer>
