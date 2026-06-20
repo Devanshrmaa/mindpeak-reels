@@ -53,6 +53,7 @@ interface SerializedPost {
 export default function BlogPostClient({ post }: { post: SerializedPost }) {
   const { openDemoModal } = useDemoModal();
   const [copied, setCopied] = useState(false);
+  const [activeId, setActiveId] = useState<string>('');
 
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.3 });
@@ -75,6 +76,23 @@ export default function BlogPostClient({ post }: { post: SerializedPost }) {
   }, [post.content]);
 
   useEffect(() => { window.scrollTo(0, 0); }, [post.slug]);
+
+  // Scroll-spy: highlight the section currently in view in the contents rail.
+  useEffect(() => {
+    const headings = Array.from(document.querySelectorAll<HTMLElement>('article h2[id]'));
+    if (headings.length === 0) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        const vis = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (vis[0]) setActiveId(vis[0].target.id);
+      },
+      { rootMargin: '-96px 0px -70% 0px' },
+    );
+    headings.forEach((h) => obs.observe(h));
+    return () => obs.disconnect();
+  }, [post.slug, toc.length]);
 
   const shareUrl = typeof window !== 'undefined' ? `${window.location.origin}/blog/${post.slug}` : '';
   const shareText = encodeURIComponent(`Check out: ${post.title}`);
@@ -157,8 +175,38 @@ export default function BlogPostClient({ post }: { post: SerializedPost }) {
           </div>
         </header>
 
-        <article className="max-w-4xl mx-auto px-6 pt-12 pb-20">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+        <article className="max-w-6xl mx-auto px-6 pt-12 pb-20">
+          <div className="grid gap-10 lg:grid-cols-[230px_minmax(0,1fr)]">
+            {/* Sticky scroll-spy contents rail (desktop) */}
+            {toc.length >= 3 && (
+              <aside className="hidden lg:block">
+                <div className="sticky top-28">
+                  <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Contents</p>
+                  <ul className="space-y-0.5">
+                    {toc.map((t, i) => {
+                      const active = activeId === t.id;
+                      return (
+                        <li key={t.id}>
+                          <a
+                            href={`#${t.id}`}
+                            className={`-ml-px flex items-baseline gap-2.5 border-l-2 py-1.5 pl-4 text-sm transition-colors ${
+                              active
+                                ? 'border-primary font-semibold text-foreground'
+                                : 'border-border text-muted-foreground hover:border-primary/50 hover:text-primary'
+                            }`}
+                          >
+                            <span className={`text-[11px] tabular-nums ${active ? 'text-primary' : 'text-primary/50'}`}>{String(i + 1).padStart(2, '0')}</span>
+                            <span className="line-clamp-2 leading-snug">{t.text}</span>
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </aside>
+            )}
+
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="min-w-0 lg:max-w-3xl">
             <Link to="/blog" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm mb-8">
               <ArrowLeft className="w-4 h-4" /> Back to Blog
             </Link>
@@ -181,9 +229,9 @@ export default function BlogPostClient({ post }: { post: SerializedPost }) {
               </button>
             </div>
 
-            {/* Table of contents */}
+            {/* Table of contents (mobile / tablet — desktop uses the sticky rail) */}
             {toc.length >= 3 && (
-              <nav aria-label="In this article" className="mb-10 rounded-2xl border border-border bg-card p-6 shadow-card">
+              <nav aria-label="In this article" className="lg:hidden mb-10 rounded-2xl border border-border bg-card p-6 shadow-card">
                 <p className="mb-4 flex items-center gap-2 font-display font-bold text-foreground">
                   <List className="h-4 w-4 text-primary" /> In this article
                 </p>
@@ -200,17 +248,25 @@ export default function BlogPostClient({ post }: { post: SerializedPost }) {
               </nav>
             )}
 
-            <div className="mb-16 text-[1.0625rem] leading-relaxed [&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:mr-3 [&>p:first-of-type]:first-letter:mt-1 [&>p:first-of-type]:first-letter:font-display [&>p:first-of-type]:first-letter:font-black [&>p:first-of-type]:first-letter:text-6xl [&>p:first-of-type]:first-letter:leading-[0.8] [&>p:first-of-type]:first-letter:text-primary">
+            <div className="mb-16 text-[1.0625rem] leading-relaxed [&>p:first-of-type]:text-xl [&>p:first-of-type]:leading-relaxed [&>p:first-of-type]:text-foreground/90 [&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:mr-3 [&>p:first-of-type]:first-letter:mt-1 [&>p:first-of-type]:first-letter:font-display [&>p:first-of-type]:first-letter:font-black [&>p:first-of-type]:first-letter:text-7xl [&>p:first-of-type]:first-letter:leading-[0.75] [&>p:first-of-type]:first-letter:text-primary">
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 components={{
                   h1: ({ children }) => <h1 className="font-display font-black text-foreground mt-4 mb-5" style={{ fontSize: 'clamp(1.7rem, 4vw, 2.4rem)' }}>{children}</h1>,
-                  h2: ({ children }) => (
-                    <h2 id={slugify(mdText(children))} className="scroll-mt-24 mt-12 mb-5 flex items-center gap-3 font-display font-bold text-foreground text-2xl md:text-3xl">
-                      <span className="inline-block h-7 w-1.5 shrink-0 rounded-full bg-gradient-to-b from-gold to-gold-dark" />
-                      <span>{children}</span>
-                    </h2>
-                  ),
+                  h2: ({ children }) => {
+                    const id = slugify(mdText(children));
+                    const idx = toc.findIndex((t) => t.id === id);
+                    return (
+                      <h2 id={id} className="scroll-mt-28 mt-14 mb-5">
+                        {idx >= 0 && (
+                          <span className={`block font-display font-black leading-none text-5xl md:text-6xl bg-gradient-to-br ${gradient} bg-clip-text text-transparent`}>
+                            {String(idx + 1).padStart(2, '0')}
+                          </span>
+                        )}
+                        <span className="mt-2 block font-display font-bold text-foreground text-2xl md:text-3xl leading-tight">{children}</span>
+                      </h2>
+                    );
+                  },
                   h3: ({ children }) => <h3 id={slugify(mdText(children))} className="scroll-mt-24 font-display font-semibold text-foreground text-xl mt-8 mb-3">{children}</h3>,
                   h4: ({ children }) => <h4 className="font-display font-semibold text-foreground text-lg mt-6 mb-2">{children}</h4>,
                   p: ({ children }) => {
@@ -233,8 +289,9 @@ export default function BlogPostClient({ post }: { post: SerializedPost }) {
                   strong: ({ children }) => <strong className="font-bold text-foreground">{children}</strong>,
                   em: ({ children }) => <em className="italic">{children}</em>,
                   blockquote: ({ children }) => (
-                    <blockquote className="relative my-8 overflow-hidden rounded-2xl border border-border bg-secondary/50 py-6 pl-14 pr-6 [&>p]:mb-0 [&>p]:font-display [&>p]:text-lg [&>p]:italic [&>p]:text-foreground">
-                      <span aria-hidden className="absolute left-4 top-2 font-display text-5xl leading-none text-primary/40">&ldquo;</span>
+                    <blockquote className="relative my-10 overflow-hidden rounded-2xl border border-border bg-secondary/40 py-7 pl-14 pr-20 [&>p]:mb-0 [&>p]:font-display [&>p]:text-lg [&>p]:font-medium [&>p]:not-italic [&>p]:text-foreground">
+                      <span aria-hidden className="absolute left-4 top-3 font-display text-6xl leading-none text-primary/30">&ldquo;</span>
+                      <span aria-hidden className="pointer-events-none absolute -right-3 -bottom-5 h-24 w-24 text-primary/15"><Motif /></span>
                       {children}
                     </blockquote>
                   ),
@@ -281,6 +338,7 @@ export default function BlogPostClient({ post }: { post: SerializedPost }) {
               </div>
             </div>
           </motion.div>
+          </div>
         </article>
 
         <footer className="bg-background border-t border-border py-8 px-6 text-center" role="contentinfo">
