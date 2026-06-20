@@ -947,70 +947,6 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
     ],
   },
 
-  'jee-physics-gravitation': {
-    overview:
-      'Gravitation is a compact, dependable scorer that most weightage articles describe in JEE Main terms only. In Main it is 1–2 mostly-direct questions per shift — variation of g, escape and orbital velocity, satellite energy and Kepler\'s laws. In Advanced it appears less often but more deeply: gravitation fused with SHM (the classic tunnel-through-the-earth problem), with energy conservation, or with rotational ideas. The formulas are few and the question types repeat, which is why a focused week usually makes this chapter exam-ready.',
-    examSplit: [
-      { exam: 'JEE Main', weightage: '~3–5% of Physics', questions: '1–2 per shift', nature: 'Direct: g with height/depth, escape vs orbital velocity, satellite energy, Kepler\'s third law' },
-      { exam: 'JEE Advanced', weightage: '~3–4%, fused', questions: '~1, multi-concept', nature: 'Gravitation + SHM (tunnel through earth), orbital energy/transfer, field & potential of distributions' },
-    ],
-    correction:
-      'You will see "5–7%, 4–5 questions" quoted (e.g. 4 in 2023, 4 in 2024, 5 in 2025). That count is aggregated across all shifts/sessions of a year, not what one student faces. In a single JEE Main paper, expect 1–2 Gravitation questions — plan your prep time against that, not the inflated annual total.',
-    studyOrder: [
-      { step: 'Newton\'s law, gravitational field and potential', detail: 'F = GMm/r², field g = GM/r², and potential V = −GM/r. Fix the sign convention now (potential and potential energy are negative, zero at infinity) — most chapter errors trace back to a dropped minus sign.' },
-      { step: 'Variation of g', detail: 'With height: g_h = g(1 − 2h/R) for h ≪ R; with depth: g_d = g(1 − d/R); plus the effect of Earth\'s rotation (g is least at the equator). The height and depth formulas look alike but are not — mixing them up is the classic trap.' },
-      { step: 'Escape and orbital velocity', detail: 'v_orbital = √(GM/r) for a circular orbit, v_escape = √(2GM/R). The neat relation v_escape = √2 · v_orbital (at the surface) is a frequent one-line question, and escape velocity is independent of the projectile\'s mass and direction.' },
-      { step: 'Satellite energy', detail: 'For a circular orbit: KE = +GMm/2r, PE = −GMm/r, total E = −GMm/2r. So total energy is negative (bound) and equal to −KE. Binding energy = GMm/2r. These three lines answer most satellite-energy questions.' },
-      { step: 'Kepler\'s laws', detail: 'Law of orbits (ellipse), law of areas (areal velocity constant = angular-momentum conservation), and T² ∝ r³. Most Kepler questions are ratio problems built on T² ∝ r³ or on equal-area reasoning at perigee/apogee.' },
-    ],
-    highYield: [
-      {
-        topic: 'Satellite energy relations',
-        detail:
-          'For a circular orbit, E = −GMm/2r, KE = −E, PE = 2E. Questions ask for the energy needed to move a satellite to a higher orbit (ΔE = GMm/2 · (1/r₁ − 1/r₂)) or for the binding energy. Knowing E = −KE closes almost all of them.',
-      },
-      {
-        topic: 'Variation of g with height and depth',
-        detail:
-          'g_h = g(1 − 2h/R) near the surface (and g(R/(R+h))² in general); g_d = g(1 − d/R). At the centre of the Earth g = 0. The factor of 2 in the height formula versus its absence in the depth formula is the most-tested distinction.',
-      },
-      {
-        topic: 'Escape vs orbital velocity',
-        detail:
-          'v_orbital = √(GM/r), v_escape = √(2GM/R), so v_escape = √2 · v_orbital at the surface (≈ 11.2 km/s for Earth). Escape velocity does not depend on the mass or launch direction of the body — a recurring conceptual question.',
-      },
-      {
-        topic: 'Kepler\'s third law and areal velocity',
-        detail:
-          'T² ∝ r³ (or a³ for an ellipse) drives the ratio problems; conservation of areal velocity (r²ω = constant) gives the speed ratio at perigee and apogee (v_p · r_p = v_a · r_a). These two ideas cover the Kepler questions.',
-      },
-    ],
-    traps: [
-      'Dropping the negative sign in gravitational PE/potential. Gravitational potential energy is −GMm/r (zero at infinity, more negative closer in); a positive PE is almost always a sign error.',
-      'Swapping the height and depth formulas for g: it is g(1 − 2h/R) for height but g(1 − d/R) for depth — the factor of 2 only appears with height.',
-      'Thinking escape velocity depends on the mass or direction of the object. It depends only on the planet (√(2GM/R)); the launch angle and projectile mass do not matter.',
-      'Forgetting that a satellite\'s total energy is negative and equals −KE. Treating PE as positive, or total energy as KE + |PE|, gives the wrong binding energy.',
-    ],
-    faqs: [
-      {
-        q: 'How many questions come from Gravitation in JEE Main?',
-        a: 'Usually 1–2 per shift (about 3–5% of the Physics section). The "4–5 questions a year" figure quoted online aggregates across all sessions and shifts — in your single paper, plan for one or two, most of them direct numericals on g-variation, escape/orbital velocity, satellite energy and Kepler\'s laws.',
-      },
-      {
-        q: 'Is Gravitation important for JEE Advanced?',
-        a: 'It appears less frequently than mechanics heavyweights, but when it does, Advanced goes deeper — fusing gravitation with SHM (a body dropped through a tunnel in the Earth executes SHM), with orbital-energy and orbit-transfer problems, or with field/potential of mass distributions. It is worth a solid pass for Advanced even though it is not the highest-frequency chapter.',
-      },
-      {
-        q: 'Is Gravitation easy to score in JEE?',
-        a: 'Yes — it has few formulas and the question types repeat, so it is one of the fastest chapters to make exam-ready. The care points are sign conventions in potential energy and not mixing up the height and depth formulas for g.',
-      },
-      {
-        q: 'What is the relation between escape velocity and orbital velocity?',
-        a: 'At the planet\'s surface, escape velocity = √2 × orbital velocity, because v_orbital = √(GM/R) and v_escape = √(2GM/R). For Earth that gives about 11.2 km/s escape versus about 7.9 km/s for a low orbit. Escape velocity is independent of the body\'s mass and launch direction.',
-      },
-    ],
-  },
-
   'jee-physics-fluid-mechanics': {
     overview:
       'Fluid Mechanics (the NCERT "Mechanical Properties of Fluids" chapter) is a quiet over-performer: in JEE Main it is a 1–2 question, mostly formula-direct scorer, but in JEE Advanced it punches well above its question count. Advanced typically asks just one fluids question, yet it is frequently conceptual and fused — a floating body executing SHM, Bernoulli combined with continuity, or viscous/terminal-velocity reasoning. So the Main strategy is "drill the standard formulas for speed," while the Advanced strategy is "understand the concept well enough to handle it inside another chapter."',
@@ -1781,70 +1717,6 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
     ],
   },
 
-  'jee-maths-3d-geometry': {
-    overview:
-      'Three-Dimensional Geometry is one of the most formula-driven and therefore most predictable chapters in JEE Maths. Almost every question reduces to one of a handful of standard objects — a line, a plane, the distance between them, or the image of a point — so once the formulae are reflexes, it becomes a reliable scorer. In JEE Main it is consistently 2–3 questions, usually direct substitution. In JEE Advanced it is 1–2 questions but with a geometric twist (skew lines, foot of perpendicular, planes through a line) that rewards a clear vector setup. It pairs tightly with Vectors, which supplies the dot/cross/scalar-triple-product machinery the 3D formulae are built on.',
-    examSplit: [
-      { exam: 'JEE Main', weightage: '~6–7% of Maths', questions: '2–3 per year', nature: 'Direct: distance point-to-plane, angle between line/plane, image of point, line–plane intersection' },
-      { exam: 'JEE Advanced', weightage: '~5–8% of Maths', questions: '1–2 per year', nature: 'Skew-line shortest distance, foot of perpendicular, family of planes, coordinate-geometry-style reasoning' },
-    ],
-    correction:
-      'Many weightage pages quote "Vectors & 3D Geometry = 9–11%, about 3–4 questions" as a single figure. Those are two separate chapters. 3D Geometry on its own is roughly 2–3 questions in Main and 1–2 in Advanced; Vectors is counted separately. The reason they are bundled is genuine — 3D Geometry is essentially Vectors applied to lines and planes — so study Vectors first, but budget marks and revision time for each chapter on its own count, not the inflated combined number.',
-    studyOrder: [
-      { step: 'Vectors first (prerequisite)', detail: 'Dot product (angles, projections), cross product (perpendiculars, areas) and the scalar triple product (volume, coplanarity) are the engine of every 3D formula. Trying 3D before Vectors is the most common reason students find this chapter "hard."' },
-      { step: 'Direction cosines and direction ratios', detail: 'l, m, n with l² + m² + n² = 1 versus the unnormalised ratios a, b, c. Almost every line/plane formula starts here, and confusing the two is the single biggest source of errors.' },
-      { step: 'Equation of a line in 3D', detail: 'Both forms — vector r = a + λb and Cartesian (x−x₁)/a = (y−y₁)/b = (z−z₁)/c. Be fluent at converting between them; questions mix the two freely.' },
-      { step: 'Equation of a plane', detail: 'Normal form r·n = d, point-normal form, plane through three points, and intercept form. The normal vector is the key object — most plane questions are really "find the normal."' },
-      { step: 'Distances, angles and images last', detail: 'Point-to-plane and point-to-line distance, angle between line and plane, shortest distance between skew lines, and foot of perpendicular / image of a point. These combine the earlier pieces and are where Advanced lives.' },
-    ],
-    highYield: [
-      {
-        topic: 'Shortest distance between two skew lines',
-        detail:
-          'For lines r = a₁ + λb₁ and r = a₂ + μb₂, the shortest distance is |[(a₂ − a₁) · (b₁ × b₂)]| / |b₁ × b₂| — the scalar triple product over the cross-product magnitude. ALWAYS check first whether the lines are parallel (b₁ ∥ b₂); if so this formula fails and you use the parallel-line distance instead. This is the highest-frequency Advanced result in the chapter.',
-      },
-      {
-        topic: 'Foot of perpendicular and image of a point in a plane',
-        detail:
-          'Drop a perpendicular from the point along the plane\'s normal n, parametrise P + tn, substitute into the plane equation to find t (foot), and double it for the mirror image. The same method on a line uses the line\'s direction vector. A recurring Main and Advanced setup.',
-      },
-      {
-        topic: 'Angle between a line and a plane',
-        detail:
-          'It uses sin θ = |b · n| / (|b| |n|), NOT cosine — because the angle is measured from the plane, the complement of the angle between the line\'s direction b and the plane\'s normal n. Mixing this up with the line–line/plane–plane cosine formula is the most common slip in the chapter.',
-      },
-      {
-        topic: 'Coplanarity of two lines and family of planes',
-        detail:
-          'Two lines are coplanar iff (a₂ − a₁) · (b₁ × b₂) = 0 (scalar triple product zero — the same coplanarity test as in Vectors). The family of planes through the intersection of two given planes, P₁ + λP₂ = 0, lets you build a plane satisfying an extra condition — a classic Advanced device.',
-      },
-    ],
-    traps: [
-      'Using cos θ instead of sin θ for the angle between a line and a plane. The line–plane angle is the complement of the angle to the normal, so it uses sine; reserve the cosine formula for line–line and plane–plane angles.',
-      'Confusing direction ratios with direction cosines. Ratios (a, b, c) are not normalised; direction cosines satisfy l² + m² + n² = 1. Plugging raw ratios into a formula that expects cosines gives a wrong magnitude.',
-      'Applying the skew-lines shortest-distance formula without checking the lines are actually skew. If b₁ × b₂ = 0 the lines are parallel and the formula divides by zero — use the parallel-line distance instead.',
-      'Writing the wrong plane through three points. Form two vectors in the plane, take their cross product for the normal, then use the point-normal form — don\'t guess the normal\'s components.',
-    ],
-    faqs: [
-      {
-        q: 'How many questions come from 3D Geometry in JEE Main and Advanced?',
-        a: 'JEE Main asks about 2–3 questions from 3D Geometry most years (~6–7% of the Maths section), and they are largely direct: distance from a point to a plane, image of a point, angle between a line and a plane. JEE Advanced adds 1–2 questions with a geometric twist such as skew-line distance or a family of planes. The "9–11%, 3–4 questions" figure you see online is Vectors AND 3D Geometry counted together.',
-      },
-      {
-        q: 'Is 3D Geometry hard for JEE?',
-        a: 'It is rated Hard mainly because it is spatial and formula-heavy, but it is also one of the most predictable chapters — nearly every question is a standard object (line, plane, distance, image) with a known formula. The students who struggle usually skipped Vectors; once dot, cross and scalar-triple products are automatic, 3D Geometry becomes systematic and high-scoring.',
-      },
-      {
-        q: 'Should I study Vectors or 3D Geometry first?',
-        a: 'Vectors first, without exception. Every 3D formula — line and plane equations, distances, the skew-line shortest distance, coplanarity — is built on the dot product, cross product and scalar triple product from Vectors. Learning 3D Geometry before Vectors is the most common reason students find it confusing.',
-      },
-      {
-        q: 'What is the most important topic in 3D Geometry for JEE?',
-        a: 'The shortest distance between two skew lines and the foot-of-perpendicular / image-of-a-point method. Skew-line distance is the highest-frequency Advanced result, and the image-of-a-point technique appears in both papers. Master those two along with the point-to-plane distance and you cover most of what the chapter asks.',
-      },
-    ],
-  },
-
   'jee-physics-gravitation': {
     overview:
       'Gravitation is one of the best effort-to-reward chapters in JEE Physics: a small, closed set of formulae covers almost everything, and the questions are mostly direct. In JEE Main it is reliably about 1 question per shift (occasionally 2) — Newton\'s law and superposition, variation of g, orbital and escape velocity, satellite energy, and Kepler\'s laws. In JEE Advanced it appears most years, usually fused with energy conservation or SHM (a particle dropped through a tunnel, binary-star systems, satellite energy changes). Because the chapter is compact and formula-driven, MindPeak students typically lock it down in about a week — making it a fast way to bank near-guaranteed marks.',
@@ -2033,6 +1905,10 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
       {
         q: 'Which alkyl halide should be used in Williamson ether synthesis?',
         a: 'The less hindered one — methyl or primary. Williamson synthesis is an SN2 reaction between an alkoxide and an alkyl halide, and SN2 is fastest at unhindered carbons. If you use a bulky tertiary halide, the alkoxide acts as a base instead and you get elimination (an alkene) rather than the ether. So to make a mixed ether, pair the bulky group as the alkoxide and the smaller group as the halide.',
+      },
+    ],
+  },
+
   'jee-physics-current-electricity': {
     overview:
       'Current Electricity is one of the two or three most dependable scoring chapters in JEE Main Physics — and the reason is that the question types barely change year to year. In JEE Main it carries roughly 8–10% of the Physics section, which works out to 3–4 questions in most shifts, and they are almost all formula-direct: equivalent resistance, Kirchhoff loops, meter-bridge/potentiometer balance, and instrument (galvanometer) conversions. JEE Advanced asks fewer questions (typically 1–2) but fuses them with capacitors in transient circuits or wraps them in an experimental-error or paragraph setting, so the gap most weightage articles miss is that this is a near-guaranteed-marks chapter in Main but a careful-reading chapter in Advanced.',
@@ -2281,6 +2157,262 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
       {
         q: 'Why does nitrogen behave differently from the other Group 15 elements?',
         a: 'Nitrogen is small, highly electronegative, and has no d-orbitals, so its covalency is limited to four and it forms strong pπ–pπ multiple bonds (as in N≡N). That is why nitrogen exists as a diatomic gas and shows little catenation, whereas phosphorus catenates and forms P₄ — the contrast is a frequently tested "anomalous first element" idea.',
+      },
+    ],
+  },
+
+  'jee-physics-kinematics': {
+    overview:
+      'Kinematics is the first chapter of JEE Physics and the most foundational, but its weightage is also the most misread number on the SERP. In JEE Main it is a reliable 2–3 questions per shift and the questions are formula-direct — projectile motion, relative velocity, and graph reading. In JEE Advanced it almost never appears as a standalone question; instead it is the grammar every mechanics problem is written in (projectile fused with Newton\'s laws, relative motion set inside a collision frame). The strategy that follows: in Main, drill the standard projectile/graph/relative-velocity types for speed; for Advanced you do not "study kinematics" separately — you make it automatic so it disappears into the bigger problem.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~7–9% of Physics', questions: '2–3 per shift', nature: 'Single-correct + numerical; projectile, relative velocity, v-t/s-t graphs, motion under gravity' },
+      { exam: 'JEE Advanced', weightage: '~2–4% standalone', questions: 'rarely a pure question', nature: 'Embedded in NLM, circular motion and collisions; projectile in a non-inertial frame, closest-approach' },
+    ],
+    correction:
+      'Several weightage pages quote "10–12%" for Kinematics in JEE Main. That figure usually folds in Units, Dimensions & Measurement (a separate chapter) or counts every motion-flavoured question. Kinematics on its own is closer to 2–3 questions (~7–9%). More importantly, almost none of those pages give the real Advanced picture: kinematics is rarely a standalone Advanced question — it is the language of every mechanics problem, so there the goal is fluency, not weightage-farming.',
+    studyOrder: [
+      { step: '1D motion and the three equations', detail: 'v = u + at, s = ut + ½at², v² = u² + 2as — valid ONLY when acceleration is constant. Build sign-convention discipline here: pick one positive direction and keep u, a and displacement consistent with it for the whole problem.' },
+      { step: 'Graphs (s-t, v-t, a-t)', detail: 'Slope of s-t = velocity, slope of v-t = acceleration, area under v-t = displacement (signed). A large share of the "easy" Main questions are pure graph reading, so make these conversions reflexive.' },
+      { step: 'Motion under gravity and projectile motion', detail: 'Treat horizontal (constant velocity) and vertical (a = g) independently. Range, maximum height and time of flight, then the upgrade cases: projectile from a height and projectile on an incline. The single most-asked Main type.' },
+      { step: 'Relative velocity', detail: 'River-boat, rain-man, and two-objects closest-approach. The frame choice is the whole game: v_AB = v_A − v_B done component-wise. Shortest-path vs shortest-time river crossing is a recurring pair.' },
+      { step: 'Non-uniform acceleration (the calculus bridge)', detail: 'When a depends on t, x or v, switch from the three equations to calculus: v = dx/dt, a = dv/dt, and a dx = v dv when a is a function of x. This is the doorway to Advanced-style kinematics.' },
+    ],
+    highYield: [
+      {
+        topic: 'Projectile motion — range, height, time of flight',
+        detail:
+          'R = u²sin2θ/g, H = u²sin²θ/2g, T = 2u sinθ/g. Know the complementary-angle fact (θ and 90°−θ give the same range) and the two upgrade types — launch from a height and launch up/down an incline — which is where most non-trivial Main projectile questions sit.',
+      },
+      {
+        topic: 'Graph reading (slope and area)',
+        detail:
+          'Converting between s-t, v-t and a-t graphs. Slope gives the next derivative, area gives the previous integral, and area under v-t below the axis is negative displacement. The most reliable easy marks in the chapter.',
+      },
+      {
+        topic: 'Relative velocity and closest approach',
+        detail:
+          'v_AB = v_A − v_B. River crossing: aim upstream for the shortest path, straight across for the shortest time. Minimum separation of two bodies is found by making the relative velocity perpendicular to the relative position vector.',
+      },
+      {
+        topic: 'Non-uniform acceleration via calculus',
+        detail:
+          'When a = f(t) integrate with respect to time; when a = f(x) use a dx = v dv; when a = f(v) separate variables. Picking the correct form is the whole difficulty — and it is JEE Advanced\'s favourite kinematics flavour.',
+      },
+    ],
+    traps: [
+      'Using v = u + at when acceleration is not constant. The three equations of motion hold ONLY for constant a; the moment a depends on t, x or v you must integrate instead.',
+      'Sign-convention slips in vertical motion. Choose one positive direction at the start and keep g, u and displacement consistent with it — flipping a sign mid-problem is the single most common careless error in kinematics.',
+      'Confusing distance with displacement (and speed with velocity) on graphs. The area under a v-t graph below the axis is negative displacement; total distance adds the magnitudes of the areas.',
+      'Adding velocities arithmetically in relative-motion problems. Velocity is a vector — v_AB = v_A − v_B must be resolved into components, especially for rain/river problems set at an angle.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Kinematics in JEE Main and JEE Advanced?',
+        a: 'JEE Main asks about 2–3 questions per shift (~7–9% of Physics), and they are formula-direct on projectile motion, relative velocity and graphs. In JEE Advanced kinematics rarely appears as a standalone question — it is woven into Newton\'s-laws, circular-motion and collision problems, so its real footprint is larger than any standalone weightage figure suggests.',
+      },
+      {
+        q: 'Is the 10–12% kinematics weightage figure for JEE correct?',
+        a: 'That number usually bundles in Units, Dimensions & Measurement (a separate chapter) or counts every motion-related question. Kinematics by itself is about 2–3 questions in JEE Main. Either way, do not skip it for being "low weightage" — it is the foundation that Newton\'s laws, work-energy and circular motion are built on.',
+      },
+      {
+        q: 'Which kinematics topics are most important for JEE?',
+        a: 'Projectile motion, graph-based questions (v-t and s-t), and relative velocity. Those three cover the large majority of Main kinematics questions; the calculus treatment of non-uniform acceleration is the extra layer that matters for Advanced.',
+      },
+      {
+        q: 'Is Kinematics a hard chapter?',
+        a: 'Conceptually it is rated easy-to-moderate, but marks are lost to carelessness — sign conventions, distance-vs-displacement, and using the constant-acceleration equations when acceleration actually varies. Treat it as a precision chapter rather than a difficult one and it becomes one of the most reliable scorers.',
+      },
+    ],
+  },
+
+  'jee-maths-quadratic-equations': {
+    overview:
+      'Quadratic Equations is one of the most under-rated chapters because its weightage is almost always reported jointly with Complex Numbers — so students assume it is a 2–3 question chapter when, on its own, it usually yields about 1 question in JEE Main. What makes it worth far more than that single question is reuse: the discriminant, Vieta\'s relations and the "location of roots" technique reappear inside coordinate geometry (condition of tangency), calculus (counting real roots), and trigonometric/exponential equations. So you study quadratics partly for the direct question and largely as a tool you will lean on all year.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~3–5% of Maths', questions: '~1 standalone per paper', nature: 'Single-correct/numerical; nature of roots, Vieta, common roots, location of roots, quadratic inequalities' },
+      { exam: 'JEE Advanced', weightage: 'rarely standalone', questions: 'fused into other chapters', nature: 'Tangency conditions, "number of real solutions", inequalities, theory of equations' },
+    ],
+    correction:
+      'The widely-quoted "2–3 questions / 6–8 marks" is for the COMBINED unit "Complex Numbers and Quadratic Equations" (one chapter in the JEE syllabus). Split out, quadratics alone is usually about 1 direct question in JEE Main. That is not a reason to under-prepare it: the discriminant and location-of-roots logic is a reusable tool that turns up in coordinate-geometry tangency, in counting real roots of higher-degree equations, and in inequalities — so its true return is well above its standalone count.',
+    studyOrder: [
+      { step: 'Roots, discriminant and nature of roots', detail: 'x = (−b ± √D)/2a, with D > 0 (real distinct), D = 0 (equal), D < 0 (complex conjugate). Learn the conjugate-pair rules — irrational roots p ± √q and complex roots a ± ib come in pairs only when the coefficients are rational/real. This is the gate to everything else.' },
+      { step: 'Vieta\'s relations', detail: 'Sum of roots = −b/a, product = c/a, and constructing a quadratic from given roots. Most fast tricks (symmetric functions of the roots like α² + β² = (α+β)² − 2αβ) come straight from here.' },
+      { step: 'The quadratic as a graph (sign of f(x))', detail: 'A parabola opens up if a > 0 and down if a < 0; the sign of the discriminant and a together fix where f(x) is positive or negative. This single picture is what makes inequalities and location-of-roots systematic instead of memorised.' },
+      { step: 'Location of roots', detail: 'Apply ALL THREE conditions together — D ≥ 0, the sign of a·f(k) at the boundary, and the position of the vertex −b/2a relative to k. For roots of opposite sign you only need a·f(0) < 0. Skipping any condition is the classic error.' },
+      { step: 'Common roots and higher-degree equations', detail: 'Conditions for one common root vs both common; Descartes\' rule of signs; and using Vieta for cubics. The natural bridge from quadratics into theory of equations.' },
+    ],
+    highYield: [
+      {
+        topic: 'Location of roots (interval / opposite sign)',
+        detail:
+          'The three-condition checklist read off the parabola: D ≥ 0, the sign of a·f(k), and the vertex position −b/2a. Opposite-sign roots collapse to a single condition a·f(0) < 0 — a one-line shortcut that JEE rewards.',
+      },
+      {
+        topic: 'Nature of roots and the conjugate-pair rule',
+        detail:
+          'Irrational roots occur in conjugate pairs (p ± √q) and complex roots in conjugate pairs (a ± ib) ONLY when the coefficients are rational/real. The "if one root is 2 + √3, form the equation" type is built entirely on this.',
+      },
+      {
+        topic: 'Common roots of two quadratics',
+        detail:
+          'For exactly one common root, (c₁a₂ − c₂a₁)² = (b₁c₂ − b₂c₁)(a₁b₂ − a₂b₁); for both roots common, the coefficients are proportional (a₁/a₂ = b₁/b₂ = c₁/c₂). Direct-formula marks once you spot which case it is.',
+      },
+      {
+        topic: 'Maximum/minimum and range of a quadratic',
+        detail:
+          'The vertex value is −D/4a (minimum if a > 0, maximum if a < 0). The range of a rational expression (ax² + bx + c)/(dx² + ex + f) is found by setting it equal to y and forcing the resulting quadratic in x to have real roots (discriminant ≥ 0) — a technique that carries into Advanced.',
+      },
+    ],
+    traps: [
+      'Forgetting to check D ≥ 0 first in location-of-roots problems. If the discriminant is negative there are no real roots to locate, so every other condition is meaningless.',
+      'Applying the conjugate-pair rule without confirming the coefficients are real/rational. "If 2 + i is a root" forces 2 − i to be a root ONLY because the coefficients are real — drop that condition and the inference is invalid.',
+      'Using only one or two of the three location-of-roots conditions. You need D ≥ 0 AND the sign of a·f(k) AND the vertex position — each one rules out a different way the configuration can fail.',
+      'Mixing up "one common root" with "both common". Both-common means the two quadratics are proportional (identical up to a constant factor); one-common uses the cross-multiplication relation. Using the wrong one is a frequent sign/setup error.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Quadratic Equations in JEE Main?',
+        a: 'On its own, usually about 1 question per paper. The "2–3 questions" you will see quoted is for the combined "Complex Numbers and Quadratic Equations" unit — counting both halves, expect 2–3 between them.',
+      },
+      {
+        q: 'Is Quadratic Equations low-weightage and skippable for JEE?',
+        a: 'No. Even though it is roughly 1 standalone question, the discriminant, Vieta\'s relations and the location-of-roots method are reused across coordinate geometry (tangency), calculus (number of real roots) and inequalities — so it pays back far more than one question\'s worth of marks.',
+      },
+      {
+        q: 'What are the most tested quadratic problem types in JEE?',
+        a: 'Location of roots (both roots in an interval or of opposite sign), common roots of two quadratics, nature of roots, and quadratic inequalities. The parabola-graph method makes all of these solvable systematically, usually in under two minutes.',
+      },
+      {
+        q: 'How do I solve location-of-roots problems without missing cases?',
+        a: 'Use the parabola picture and apply all three conditions together: discriminant D ≥ 0, the sign of a·f(k) at each boundary, and the position of the vertex −b/2a relative to the interval. For roots of opposite sign the whole thing reduces to a·f(0) < 0.',
+      },
+    ],
+  },
+
+  'jee-chemistry-periodic-table': {
+    overview:
+      'Classification of Elements & Periodicity is the chapter that quietly decides how well you do in ALL of inorganic chemistry, yet its standalone weightage is small and routinely inflated on the SERP. In JEE Main it is typically about 1 direct question — an order/trend question on atomic radius, ionisation enthalpy, electron gain enthalpy or electronegativity. But the periodic logic it teaches is what lets you answer s-block, p-block, d-block and coordination questions by reasoning instead of memorising. In JEE Advanced periodicity is almost never a standalone question; it is fused with bonding and structure ("arrange in order of…", "explain the anomaly"). Treat it as a high-leverage foundation chapter, not a weightage target.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~2–4% of Chemistry', questions: '~1 standalone', nature: 'Single-correct; order/trend questions on radius, IE₁/IE₂, electron gain enthalpy, electronegativity' },
+      { exam: 'JEE Advanced', weightage: 'rarely standalone', questions: 'trend-reasoning, fused', nature: '"Arrange in increasing order", assertion-reason on exceptions, periodicity combined with bonding/structure' },
+    ],
+    correction:
+      'You will see "~9.9%" or "2–3 questions" quoted for this chapter. That figure bundles in the representative s-block and p-block elements (separate chapters on this site) — periodicity of properties on its own is usually about 1 question in JEE Main. The number undersells the chapter\'s real value, though: getting the trends AND their exceptions right is what makes every later inorganic chapter answerable by reasoning rather than rote.',
+    studyOrder: [
+      { step: 'Modern periodic law and the s/p/d/f blocks', detail: 'Electronic configuration → block, period and group. Be able to place any element from its configuration first; every trend hangs off this.' },
+      { step: 'Effective nuclear charge (Z_eff) and shielding', detail: 'The single cause behind every trend. Internalise that poor shielding by d and f electrons strengthens Z_eff, before memorising any order — then the trends are derivations, not lists.' },
+      { step: 'Atomic and ionic radius', detail: 'Decreases across a period, increases down a group; cations are smaller than the parent atom and anions larger. For isoelectronic species, more protons means smaller. This is the base trend the others build on.' },
+      { step: 'Ionisation enthalpy and its exceptions', detail: 'The half-filled/fully-filled stability dips (N > O, Be > B; Mg > Al) and why IE₂ ≫ IE₁. The most-tested trend precisely because of its exceptions.' },
+      { step: 'Electron gain enthalpy and electronegativity', detail: 'The Cl > F anomaly (small-size repulsion in fluorine), the diagonal relationship, and electronegativity scales (Pauling). These tie periodicity into bonding.' },
+    ],
+    highYield: [
+      {
+        topic: 'Ionisation-enthalpy exceptions',
+        detail:
+          'Across period 2, B < Be and O < N because removing an electron from a half-filled 2p³ or a filled 2s² is harder than the smooth trend predicts. The "which has the higher first ionisation enthalpy" question is built on exactly this. Down a group IE falls.',
+      },
+      {
+        topic: 'Electron gain enthalpy — Cl vs F',
+        detail:
+          'Chlorine releases MORE energy on gaining an electron than fluorine, because fluorine\'s tiny 2p orbital crowds the incoming electron (high electron-electron repulsion). A perennial single-fact JEE question.',
+      },
+      {
+        topic: 'Atomic vs ionic radius and isoelectronic order',
+        detail:
+          'Cation < parent atom < anion. Among isoelectronic species rank by nuclear charge — more protons pull the same electron cloud in tighter, e.g. N³⁻ > O²⁻ > F⁻ > Na⁺ > Mg²⁺ > Al³⁺.',
+      },
+      {
+        topic: 'Anomalous and diagonal relationships',
+        detail:
+          'Li ~ Mg, Be ~ Al, B ~ Si similarity from a comparable charge/radius ratio, plus the second-period anomaly (small size, no d-orbitals, limited covalency). These recur across the whole inorganic syllabus.',
+      },
+    ],
+    traps: [
+      'Reading ionisation energy as a smooth left-to-right increase. The dips at Be → B and N → O (from half- and fully-filled stability) are written into the answer options precisely to catch this assumption.',
+      'Assuming fluorine has the most negative electron gain enthalpy. It is chlorine — fluorine\'s small size causes strong electron-electron repulsion for the incoming 2p electron.',
+      'Comparing radii of species with different electron counts directly. For ordinary trends compare like with like; for isoelectronic species, rank purely by nuclear charge (more protons → smaller).',
+      'Confusing electron gain enthalpy with electronegativity. Electronegativity is a bonded-atom property (no units, Pauling scale); electron gain enthalpy is a measured energy for an isolated gaseous atom — JEE statements exploit the mix-up.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Periodic Table & Periodicity in JEE Main?',
+        a: 'On its own, about 1 direct question per paper — usually an order/trend question on radius, ionisation enthalpy, electron gain enthalpy or electronegativity. Quoted figures of "9–10%" or "2–3 questions" bundle in the s-block and p-block representative-element chapters.',
+      },
+      {
+        q: 'Is the periodic table chapter important if it is only about 1 question?',
+        a: 'Yes, disproportionately. It is the reasoning framework for s-block, p-block, d-block and coordination chemistry — students who master the trends and their exceptions answer dozens of later questions by logic instead of memorisation.',
+      },
+      {
+        q: 'Which periodicity topics are most asked in JEE?',
+        a: 'Ionisation enthalpy (because of its exceptions), the Cl > F electron-gain-enthalpy anomaly, isoelectronic-species size order, and diagonal/anomalous relationships. These appear far more often than plain definitions of the properties.',
+      },
+      {
+        q: 'Why is the ionisation energy of nitrogen higher than oxygen?',
+        a: 'Nitrogen has a stable half-filled 2p³ configuration, so removing an electron from it needs more energy than removing one from oxygen\'s 2p⁴, where electron-electron repulsion in the one paired orbital actually assists removal. The same half/fully-filled stability explains why Be > B.',
+      },
+    ],
+  },
+
+  'jee-physics-alternating-current': {
+    overview:
+      'Alternating Current is a short, formula-direct chapter that is one of the most reliable "quick marks" sources in JEE Main — but its weightage is almost always reported together with Electromagnetic Induction, which makes it look bigger than it is on its own. In JEE Main, AC alone is usually about 1 question per shift (an RMS value, impedance, resonance, transformer or power-factor question), and the questions are plug-and-play once you draw the phasor diagram. In JEE Advanced pure AC questions are rare; it appears fused with EMI and LC oscillations, treated as the forced/transient response of a circuit. So in Main it is a banker chapter, and in Advanced it is a supporting concept.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~3–4% of Physics', questions: '~1 per shift', nature: 'Single-correct/numerical; RMS/peak/average, X_L & X_C, LCR impedance, resonance, power factor, transformer' },
+      { exam: 'JEE Advanced', weightage: 'rarely standalone', questions: 'fused with EMI/LC', nature: 'Phasor analysis, resonance & quality factor, energy transfer in LC/RLC transients' },
+    ],
+    correction:
+      'Most weightage pages quote AC inside "Electromagnetic Induction and Alternating Current" and give the combined 2–3 questions. Split out, AC by itself is about 1 question in JEE Main — but it is one of the highest marks-per-hour chapters because the question types are few and formula-direct. Do not over-invest time in it, but never skip it either.',
+    studyOrder: [
+      { step: 'RMS, peak and average values', detail: 'V_rms = V₀/√2, I_rms = I₀/√2, and the average over a full cycle = 0 (the half-cycle average is 2V₀/π). Every AC numerical starts from getting these conversions right, and AC meters read RMS.' },
+      { step: 'AC through R, L and C separately', detail: 'Phase relationships: V and I in phase for R, V leads I by 90° for L, V lags I by 90° for C; reactances X_L = ωL and X_C = 1/ωC. Build the phasor-drawing habit here before combining elements.' },
+      { step: 'Series LCR circuit and the phasor diagram', detail: 'Impedance Z = √(R² + (X_L − X_C)²), phase angle tanφ = (X_L − X_C)/R. The circuit is inductive (V leads) when X_L > X_C and capacitive when X_C > X_L. This is the core of the chapter.' },
+      { step: 'Resonance and quality factor', detail: 'At ω₀ = 1/√(LC), X_L = X_C, impedance falls to its minimum R and current peaks. Quality factor Q = ω₀L/R = (1/R)√(L/C). The single most-asked AC idea.' },
+      { step: 'Power and transformers', detail: 'Average power P = V_rms·I_rms·cosφ (power factor); wattless current when φ = 90°. Transformer V₁/V₂ = N₁/N₂ with ideal power conservation V_pI_p = V_sI_s. Easy closing marks.' },
+    ],
+    highYield: [
+      {
+        topic: 'Series-LCR resonance',
+        detail:
+          'At ω₀ = 1/√(LC), X_L = X_C, the impedance is purely R, and current and power are maximum with the circuit in phase. The large majority of AC questions are a variation on this single condition.',
+      },
+      {
+        topic: 'Impedance and phase angle',
+        detail:
+          'Z = √(R² + (X_L − X_C)²) and tanφ = (X_L − X_C)/R. Whether the circuit is inductive (X_L > X_C, voltage leads) or capacitive (X_C > X_L, voltage lags) decides the sign of φ — and therefore the power factor.',
+      },
+      {
+        topic: 'Power factor and wattless current',
+        detail:
+          'Average power = V_rms·I_rms·cosφ. A pure inductor or pure capacitor dissipates zero average power (cosφ = 0, "wattless current"). "Find the power consumed" questions hinge on cosφ, not on V_rms·I_rms alone.',
+      },
+      {
+        topic: 'Transformer relations',
+        detail:
+          'V_s/V_p = N_s/N_p, and for an ideal transformer V_pI_p = V_sI_s — so stepping voltage up steps current down by the same ratio. Efficiency and eddy-current/hysteresis losses are the conceptual add-on JEE asks about.',
+      },
+    ],
+    traps: [
+      'Using peak values where RMS is required (or vice-versa). AC ammeters and voltmeters read RMS, and power is V_rms·I_rms·cosφ, never V₀I₀.',
+      'Adding reactances and resistance arithmetically. R, X_L and X_C are not in phase — impedance is the vector combination Z = √(R² + (X_L − X_C)²), never R + X_L + X_C.',
+      'Forgetting the power factor in power calculations. A circuit with reactance dissipates V_rms·I_rms·cosφ; treating apparent power (V_rms·I_rms) as the real power consumed is the most common AC mistake.',
+      'Assuming a transformer steps up both voltage and current. Power is (ideally) conserved, so stepping the voltage up steps the current down by the same turns ratio.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Alternating Current in JEE Main?',
+        a: 'On its own, usually about 1 per shift; combined with Electromagnetic Induction (how it is most often reported) the pair gives 2–3. AC questions are formula-direct — RMS values, impedance, resonance, power factor and transformers.',
+      },
+      {
+        q: 'Is Alternating Current a scoring chapter for JEE?',
+        a: 'Yes — it is one of the best marks-per-hour chapters because there are only a handful of question types and they are plug-and-play once you draw the phasor diagram. Lock down RMS values, LCR impedance, resonance and power factor and the chapter reliably gives you its marks.',
+      },
+      {
+        q: 'What is the most important topic in AC for JEE?',
+        a: 'Series-LCR resonance — at ω₀ = 1/√(LC) the reactances cancel (X_L = X_C), impedance drops to R and current is maximum — together with the related quality factor and power factor. Most AC questions are built on the resonance condition.',
+      },
+      {
+        q: 'How do I avoid mistakes in AC power problems?',
+        a: 'Always use RMS values and include the power factor: real power = V_rms·I_rms·cosφ. Remember that a pure inductor or capacitor consumes zero average power (wattless current), and that impedance is the vector sum √(R² + (X_L − X_C)²), not the arithmetic sum of R, X_L and X_C.',
       },
     ],
   },
