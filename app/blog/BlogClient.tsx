@@ -6,10 +6,8 @@ import { motion } from 'framer-motion';
 import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
 import { useDemoModal } from '@/components/DemoBookingModal';
-import {
-  Search, Clock, Calendar, ArrowRight, ArrowUpRight, Sparkles,
-  Atom, Stethoscope, Lightbulb, Target, Compass, BookOpen, type LucideIcon,
-} from 'lucide-react';
+import { Search, Clock, ArrowUpRight } from 'lucide-react';
+import { AtomMotif, HexMotif, DnaMotif, CurveMotif, subjectFor } from './subjects';
 
 const categories = ['All', 'JEE', 'NEET', 'Study Tips', 'Exam Strategy', 'General'] as const;
 
@@ -26,125 +24,55 @@ interface PostSummary {
   color?: string;
 }
 
-/* Category → icon + gradient. Live posts ship no per-post icon, so we derive a
-   consistent visual identity per category (and honour post.color when present). */
-const CATEGORY_META: Record<string, { icon: LucideIcon; gradient: string }> = {
-  JEE: { icon: Atom, gradient: 'from-blue-500 to-cyan-500' },
-  NEET: { icon: Stethoscope, gradient: 'from-emerald-500 to-teal-500' },
-  'Study Tips': { icon: Lightbulb, gradient: 'from-amber-500 to-orange-500' },
-  'Exam Strategy': { icon: Target, gradient: 'from-violet-500 to-fuchsia-500' },
-  General: { icon: Compass, gradient: 'from-rose-500 to-pink-500' },
-};
-const metaFor = (post: PostSummary) => {
-  const m = CATEGORY_META[post.category] ?? { icon: BookOpen, gradient: 'from-primary to-gold-dark' };
-  return { icon: m.icon, gradient: post.color ?? m.gradient };
-};
-const formatDate = (d: string) =>
-  new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-
-/* ── Magazine lead card ─────────────────────────────────────────────── */
-const LeadCard = ({ post }: { post: PostSummary }) => {
-  const { icon: Icon, gradient } = metaFor(post);
-  return (
-    <Link to={`/blog/${post.slug}`} className="group block lg:col-span-2 lg:row-span-2">
-      <article className="relative h-full overflow-hidden rounded-3xl border border-border bg-card shadow-card transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_60px_hsl(224_40%_22%/0.16)]">
-        <div className={`relative h-52 sm:h-64 bg-gradient-to-br ${gradient} overflow-hidden`}>
-          <div className="absolute inset-0 dot-grid opacity-40 mix-blend-overlay" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-          <Icon className="absolute -bottom-6 -right-4 w-44 h-44 text-white/15 rotate-12" strokeWidth={1} />
-          <div className="absolute top-5 left-5 inline-flex items-center gap-2 rounded-full bg-white/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.15em] text-foreground shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-primary" /> Editor&rsquo;s Pick
-          </div>
-        </div>
-        <div className="p-7 sm:p-9">
-          <div className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary mb-4">
-            <span>{post.category}</span>
-            <span className="h-1 w-1 rounded-full bg-border" />
-            <span className="flex items-center gap-1.5 text-muted-foreground font-medium normal-case tracking-normal">
-              <Clock className="w-3.5 h-3.5" /> {post.readTime}
-            </span>
-          </div>
-          <h2 className="font-display font-black text-foreground text-2xl sm:text-[2rem] leading-[1.1] mb-4 group-hover:text-primary transition-colors">
-            {post.title}
-          </h2>
-          <p className="text-muted-foreground leading-relaxed mb-6 line-clamp-3 max-w-2xl">{post.excerpt}</p>
-          <div className="flex items-center justify-between">
-            <span className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Calendar className="w-4 h-4 text-primary" /> {formatDate(post.publishDate)}
-            </span>
-            <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary">
-              Read article
-              <span className="grid h-8 w-8 place-items-center rounded-full bg-primary/10 transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-              </span>
-            </span>
-          </div>
-        </div>
-      </article>
-    </Link>
-  );
+/* Bento sizing — featured posts go large; a repeating pattern adds rhythm.
+   grid-flow-dense packs the gaps so the mosaic always fills. */
+const tileSpan = (post: PostSummary, i: number, defaultView: boolean): string => {
+  if (defaultView && post.featured && i < 3) return 'sm:col-span-2 sm:row-span-2';
+  const m = i % 9;
+  if (m === 4) return 'sm:col-span-2';
+  if (m === 7) return 'sm:row-span-2';
+  return '';
 };
 
-/* ── Compact secondary featured card ────────────────────────────────── */
-const SecondaryCard = ({ post }: { post: PostSummary }) => {
-  const { icon: Icon, gradient } = metaFor(post);
-  return (
-    <Link to={`/blog/${post.slug}`} className="group block">
-      <article className="flex h-full gap-4 overflow-hidden rounded-2xl border border-border bg-card p-5 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/30">
-        <div className={`shrink-0 grid h-14 w-14 place-items-center rounded-xl bg-gradient-to-br ${gradient}`}>
-          <Icon className="w-7 h-7 text-white" />
-        </div>
-        <div className="min-w-0">
-          <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-primary">{post.category}</span>
-          <h3 className="font-display font-bold text-foreground leading-snug mt-1 mb-2 line-clamp-2 group-hover:text-primary transition-colors">
-            {post.title}
-          </h3>
-          <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
-            <Clock className="w-3.5 h-3.5" /> {post.readTime}
-          </span>
-        </div>
-      </article>
-    </Link>
-  );
-};
-
-/* ── Standard grid card ─────────────────────────────────────────────── */
-const ArticleCard = ({ post, index }: { post: PostSummary; index: number }) => {
-  const { icon: Icon, gradient } = metaFor(post);
+const BentoTile = ({ post, span, index }: { post: PostSummary; span: string; index: number }) => {
+  const s = subjectFor(post);
+  const big = span.includes('row-span-2');
   return (
     <motion.div
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ delay: Math.min(index * 0.04, 0.3), duration: 0.5 }}
+      initial={{ opacity: 0, scale: 0.96 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ delay: Math.min(index * 0.03, 0.25), duration: 0.4 }}
+      className={span}
     >
-      <Link to={`/blog/${post.slug}`} className="group block h-full">
-        <article className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-[0_20px_48px_hsl(224_40%_22%/0.14)]">
-          <div className={`h-1.5 w-full bg-gradient-to-r ${gradient}`} />
-          <div className="flex flex-1 flex-col p-6">
-            <div className="mb-5 flex items-center justify-between">
-              <div className={`grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br ${gradient} shadow-sm`}>
-                <Icon className="w-6 h-6 text-white" />
+      <Link to={`/blog/${post.slug}`} className="group relative block h-full min-h-[180px]">
+        <article className={`relative h-full overflow-hidden rounded-2xl bg-gradient-to-br ${s.gradient} p-5 text-white shadow-card transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_60px_hsl(224_40%_22%/0.28)]`}>
+          {/* Subject motif — big, faint, animates on hover */}
+          <div className={`pointer-events-none absolute ${big ? '-right-8 -bottom-10 h-64 w-64' : '-right-6 -bottom-8 h-40 w-40'} text-white/15 transition-transform duration-700 ease-out group-hover:rotate-[14deg] group-hover:scale-110`}>
+            <s.Motif />
+          </div>
+          {/* Legibility wash */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" />
+          <div className="absolute inset-0 dot-grid opacity-20 mix-blend-overlay" />
+
+          <div className="relative flex h-full flex-col">
+            <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-white/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.15em] backdrop-blur-sm">
+              {s.label}
+            </span>
+
+            <div className="mt-auto">
+              <h3 className={`font-display font-black leading-[1.12] ${big ? 'text-2xl sm:text-3xl line-clamp-4' : 'text-lg line-clamp-3'} drop-shadow-sm`}>
+                {post.title}
+              </h3>
+              {big && (
+                <p className="mt-2 text-sm text-white/80 line-clamp-2">{post.excerpt}</p>
+              )}
+              <div className="mt-3 flex items-center justify-between text-[11px] text-white/75">
+                <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> {post.readTime}</span>
+                <span className="grid h-7 w-7 place-items-center rounded-full bg-white/15 transition-all duration-300 group-hover:bg-white group-hover:text-black">
+                  <ArrowUpRight className="h-4 w-4" />
+                </span>
               </div>
-              <span className="rounded-full bg-secondary px-3 py-1 text-[10px] font-bold uppercase tracking-[0.15em] text-secondary-foreground">
-                {post.category}
-              </span>
-            </div>
-            <h3 className="font-display font-bold text-foreground text-lg leading-snug mb-2.5 line-clamp-2 group-hover:text-primary transition-colors">
-              {post.title}
-            </h3>
-            <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3 mb-5 flex-1">{post.excerpt}</p>
-            <div className="mb-5 flex flex-wrap gap-1.5">
-              {post.tags.slice(0, 2).map((tag) => (
-                <span key={tag} className="rounded-md bg-primary/8 px-2 py-0.5 text-[10px] font-medium text-primary">{tag}</span>
-              ))}
-            </div>
-            <div className="mt-auto flex items-center justify-between border-t border-border pt-4 text-xs text-muted-foreground">
-              <span className="flex items-center gap-3">
-                <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" /> {formatDate(post.publishDate)}</span>
-                <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {post.readTime}</span>
-              </span>
-              <ArrowUpRight className="w-4 h-4 text-primary transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </div>
           </div>
         </article>
@@ -153,12 +81,26 @@ const ArticleCard = ({ post, index }: { post: PostSummary; index: number }) => {
   );
 };
 
+/* A few drifting motifs for the masthead backdrop. */
+const FloatMotif = ({ Motif, className, delay }: { Motif: () => JSX.Element; className: string; delay: number }) => (
+  <motion.div
+    aria-hidden
+    className={`pointer-events-none absolute text-white/[0.06] ${className}`}
+    animate={{ y: [0, -16, 0], rotate: [0, 8, 0] }}
+    transition={{ duration: 9, delay, repeat: Infinity, ease: 'easeInOut' }}
+  >
+    <Motif />
+  </motion.div>
+);
+
 export default function BlogClient({ posts }: { posts: PostSummary[] }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const { openDemoModal } = useDemoModal();
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
+
+  const defaultView = !searchQuery && selectedCategory === 'All';
 
   const filteredPosts = useMemo(() => posts.filter(post => {
     const matchesSearch =
@@ -169,8 +111,13 @@ export default function BlogClient({ posts }: { posts: PostSummary[] }) {
     return matchesSearch && matchesCategory;
   }), [posts, searchQuery, selectedCategory]);
 
-  const featuredPosts = useMemo(() => posts.filter(post => post.featured).slice(0, 3), [posts]);
-  const showFeatured = !searchQuery && selectedCategory === 'All' && featuredPosts.length >= 1;
+  // Featured first in the default view so they take the big tiles up top.
+  const ordered = useMemo(() => {
+    if (!defaultView) return filteredPosts.slice(0, 60);
+    const feat = filteredPosts.filter(p => p.featured);
+    const rest = filteredPosts.filter(p => !p.featured);
+    return [...feat, ...rest].slice(0, 60);
+  }, [filteredPosts, defaultView]);
 
   return (
     <>
@@ -181,14 +128,18 @@ export default function BlogClient({ posts }: { posts: PostSummary[] }) {
       <Navbar />
 
       <main className="bg-background min-h-screen">
-        {/* ── Editorial masthead (navy band) ────────────────────────── */}
-        <section className="relative overflow-hidden bg-[hsl(225,43%,7%)] pt-28 sm:pt-32 pb-16 sm:pb-20 text-white">
+        {/* ── Masthead ──────────────────────────────────────────────── */}
+        <section className="relative overflow-hidden bg-[hsl(225,43%,7%)] pt-28 sm:pt-32 pb-14 text-white">
           <div className="absolute inset-0 dot-grid opacity-50" />
-          <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-primary/20 blur-[120px]" />
-          <div className="absolute -bottom-32 -left-20 h-80 w-80 rounded-full bg-accent/15 blur-[120px]" />
+          <div className="absolute -top-24 -right-20 h-96 w-96 rounded-full bg-primary/20 blur-[120px]" />
+          <div className="absolute -bottom-32 -left-24 h-80 w-80 rounded-full bg-accent/15 blur-[120px]" />
+          <FloatMotif Motif={AtomMotif}  className="top-24 right-[8%] h-40 w-40" delay={0} />
+          <FloatMotif Motif={HexMotif}   className="bottom-10 right-[28%] h-28 w-28 hidden sm:block" delay={1.5} />
+          <FloatMotif Motif={DnaMotif}   className="top-32 left-[6%] h-36 w-36 hidden md:block" delay={0.8} />
+          <FloatMotif Motif={CurveMotif} className="bottom-6 left-[34%] h-24 w-24 hidden lg:block" delay={2.2} />
 
           <div className="relative max-w-6xl mx-auto px-6">
-            <nav aria-label="Breadcrumb" className="mb-10">
+            <nav aria-label="Breadcrumb" className="mb-8">
               <ol className="flex items-center gap-2 text-xs text-white/50">
                 <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
                 <span>/</span>
@@ -196,70 +147,32 @@ export default function BlogClient({ posts }: { posts: PostSummary[] }) {
               </ol>
             </nav>
 
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-5">
               <span className="h-px w-10 bg-primary/60" />
               <span className="text-[11px] sm:text-xs uppercase tracking-[0.3em] text-primary font-semibold">MindPeak Insights</span>
             </div>
 
-            <h1 className="font-display font-black uppercase leading-[0.95] mb-6" style={{ fontSize: 'clamp(2.6rem, 8vw, 6rem)' }}>
-              The <span className="text-gradient-gold">Journal</span>
+            <h1 className="font-display font-black uppercase leading-[0.92] mb-6" style={{ fontSize: 'clamp(2.6rem, 9vw, 6.5rem)' }}>
+              Crack It<span className="text-gradient-gold">.</span><br />
+              <span className="text-gradient-gold">Subject by Subject.</span>
             </h1>
-
-            <p className="text-white/70 text-lg leading-relaxed max-w-2xl mb-10">
-              Strategy, study systems, and exam-day playbooks from IIT &amp; AIIMS mentors — written to help you crack JEE, NEET, and build habits that outlast any exam.
-            </p>
 
             <div className="max-w-xl relative">
               <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-white/40 w-5 h-5" />
               <input
                 type="text"
-                placeholder="Search topics, tips, strategies…"
+                placeholder="Search physics, biology, strategy…"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pr-4 py-4 rounded-2xl bg-white/[0.07] border border-white/15 text-white placeholder:text-white/40 backdrop-blur-sm focus:outline-none focus:border-primary/60 focus:bg-white/10 transition-all"
                 style={{ paddingLeft: '3.25rem' }}
               />
             </div>
-
-            <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3">
-              <div className="flex items-baseline gap-2">
-                <span className="font-display font-bold text-primary text-xl">{posts.length}+</span>
-                <span className="text-white/50 text-[11px] uppercase tracking-[0.12em]">Articles</span>
-              </div>
-              <div className="flex items-baseline gap-2">
-                <span className="font-display font-bold text-primary text-xl">{categories.length - 1}</span>
-                <span className="text-white/50 text-[11px] uppercase tracking-[0.12em]">Topics</span>
-              </div>
-              <div className="flex items-baseline gap-2">
-                <span className="font-display font-bold text-primary text-xl">Weekly</span>
-                <span className="text-white/50 text-[11px] uppercase tracking-[0.12em]">New Guides</span>
-              </div>
-            </div>
           </div>
         </section>
 
-        {/* ── Featured (magazine layout) ────────────────────────────── */}
-        {showFeatured && (
-          <section className="max-w-6xl mx-auto px-6 -mt-8 sm:-mt-10 relative z-10 pb-8">
-            <div className="grid gap-5 lg:grid-cols-3 lg:grid-rows-2">
-              <LeadCard post={featuredPosts[0]} />
-              {featuredPosts.slice(1, 3).map((post) => (
-                <SecondaryCard key={post.slug} post={post} />
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* ── Category filter ───────────────────────────────────────── */}
-        <section className="max-w-6xl mx-auto px-6 pt-10">
-          <div className="flex items-center gap-3 mb-5">
-            <h2 className="font-display font-bold text-foreground text-xl sm:text-2xl">
-              {searchQuery
-                ? <><span className="text-gradient-gold">{filteredPosts.length}</span> result{filteredPosts.length === 1 ? '' : 's'}</>
-                : <>All <span className="text-gradient-gold">Articles</span></>}
-            </h2>
-            <span className="hidden sm:block flex-1 h-px bg-border" />
-          </div>
+        {/* ── Filter pills ──────────────────────────────────────────── */}
+        <section className="max-w-6xl mx-auto px-6 pt-8">
           <div className="flex flex-wrap gap-2">
             {categories.map((cat) => (
               <button
@@ -277,24 +190,24 @@ export default function BlogClient({ posts }: { posts: PostSummary[] }) {
           </div>
         </section>
 
-        {/* ── Article grid ──────────────────────────────────────────── */}
-        <section className="max-w-6xl mx-auto px-6 pt-8 pb-20">
-          {filteredPosts.length === 0 ? (
+        {/* ── Bento grid ────────────────────────────────────────────── */}
+        <section className="max-w-6xl mx-auto px-6 pt-6 pb-20">
+          {ordered.length === 0 ? (
             <div className="text-center py-24 rounded-3xl border border-dashed border-border bg-card/50">
               <Search className="w-10 h-10 text-muted-foreground/40 mx-auto mb-4" />
               <p className="text-foreground font-display font-bold text-lg mb-1">No articles found</p>
               <p className="text-muted-foreground">Try a different search term or category.</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {filteredPosts.slice(0, 60).map((post, i) => (
-                <ArticleCard key={post.slug} post={post} index={i} />
+            <div className="grid grid-flow-dense auto-rows-[190px] grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+              {ordered.map((post, i) => (
+                <BentoTile key={post.slug} post={post} span={tileSpan(post, i, defaultView)} index={i} />
               ))}
             </div>
           )}
         </section>
 
-        {/* ── CTA band (navy) ───────────────────────────────────────── */}
+        {/* ── CTA band ──────────────────────────────────────────────── */}
         <section className="relative overflow-hidden bg-[hsl(225,43%,7%)] py-16 px-6 text-center text-white">
           <div className="absolute inset-0 dot-grid opacity-40" />
           <div className="absolute top-0 left-1/2 -translate-x-1/2 h-64 w-[40rem] rounded-full bg-primary/15 blur-[120px]" />
