@@ -222,7 +222,7 @@ export function MpVoices() {
             <span aria-hidden style={{ fontFamily: S.disp, fontSize: 56, fontWeight: 700, lineHeight: 0.7, color: S.goldBtn, opacity: 0.55, marginBottom: 14 }}>&ldquo;</span>
             <blockquote style={{ margin: 0, fontSize: 16, lineHeight: 1.62, color: "rgba(251,247,239,0.94)", flexGrow: 1 }}>{v.q}</blockquote>
             <figcaption style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 22, paddingTop: 20, borderTop: `1px solid ${S.lineLight}` }}>
-              <img src={v.img} alt={v.name} style={{ width: 46, height: 46, borderRadius: "50%", objectFit: "cover", border: `2px solid ${S.goldSoft}` }} />
+              <img src={v.img} alt={v.name} width={46} height={46} loading="lazy" style={{ width: 46, height: 46, borderRadius: "50%", objectFit: "cover", border: `2px solid ${S.goldSoft}` }} />
               <div>
                 <div style={{ fontFamily: S.disp, fontSize: 15.5, fontWeight: 600, color: S.cream }}>{v.name}</div>
                 <div style={{ fontSize: 12.5, letterSpacing: "0.04em", color: S.goldBtn, fontWeight: 600, marginTop: 2 }}>{v.role}</div>

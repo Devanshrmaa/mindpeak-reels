@@ -144,7 +144,7 @@ export function MpFooter() {
     <footer className="mp-x" style={{ borderTop: `1px solid ${S.line}`, padding: "32px 48px 40px" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 24, flexWrap: "wrap" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <img src="/images/logo.jpeg" alt="MindPeak Institute" style={{ width: 28, height: 28, borderRadius: "50%" }} />
+          <img src="/images/logo.jpeg" alt="MindPeak Institute" width={28} height={28} loading="lazy" style={{ width: 28, height: 28, borderRadius: "50%" }} />
           <span style={{ fontSize: 13, color: S.inkSoft }}>© 2026 MindPeak Institute. All rights reserved.</span>
         </div>
         <div style={{ display: "flex", gap: 20, flexWrap: "wrap" }}>
