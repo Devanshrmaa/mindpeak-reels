@@ -2159,6 +2159,260 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
       },
     ],
   },
+  'jee-physics-kinematics': {
+    overview:
+      'Kinematics is the first chapter of JEE Physics and its weightage is widely overstated — most articles quote "9–12%", which lumps kinematics together with vectors, units and dimensions. On its own, recent JEE Main papers carry 2–3 questions per shift, and they are deliberately formula-direct: graph reading, projectile range/height, relative velocity. The part that decides your score is not the chapter itself but the fact that everything after it — Newton\'s laws, circular motion, SHM — assumes kinematics is automatic. In JEE Advanced kinematics almost never appears as a standalone question; instead it is folded into a larger mechanics problem (a kinematic constraint inside an NLM or rotation question). So the right strategy is: make Main-level kinematics fast and error-free, then treat it as a tool, not a topic.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~5–7% of Physics (kinematics alone)', questions: '2–3 per shift', nature: 'Formula-direct: v–t/s–t graphs, projectile, relative velocity, non-uniform acceleration (calculus)' },
+      { exam: 'JEE Advanced', weightage: 'Rarely standalone', questions: '0–1 explicit; embedded in many', nature: 'Kinematic constraints inside NLM/circular-motion/rolling problems; variable acceleration with calculus' },
+    ],
+    correction:
+      'The "10–12% weightage" you see quoted for kinematics is misleading. That band is kinematics + vectors + units-and-dimensions counted together, or it is taken from pre-2024 papers. Counted on its own against recent JEE Main shifts, kinematics is about 2–3 questions. Don\'t over-invest weeks here on the strength of an inflated number — it is high-frequency but low-difficulty; the marks come from speed and zero silly errors, not from depth.',
+    studyOrder: [
+      { step: '1D motion and the three equations', detail: 'Master v = u + at, s = ut + ½at² and v² = u² + 2as, but learn the one condition that governs all of them: they are valid ONLY for constant acceleration. The single biggest kinematics error in JEE is applying these when a is variable.' },
+      { step: 'Graphs (s–t, v–t, a–t)', detail: 'Slope of s–t = velocity, slope of v–t = acceleration, area under v–t = displacement (signed), area under a–t = change in velocity. About a third of Main kinematics questions are pure graph interpretation, so drill conversions between the three graphs until they are reflexive.' },
+      { step: 'Relative velocity', detail: 'Rain–man, river–boat and two-vehicle closest-approach problems. Always write v(A relative to B) = v(A) − v(B) as vectors. This is the highest "looks hard, is mechanical once set up" sub-topic.' },
+      { step: 'Projectile motion', detail: 'Resolve into independent horizontal (constant velocity) and vertical (a = g) motions. Memorise R = u²sin2θ/g, H = u²sin²θ/2g, T = 2u sinθ/g, then practise the variants: projectile from a height, on an incline, and where the question gives the trajectory equation.' },
+      { step: 'Non-uniform acceleration with calculus', detail: 'When a depends on t, x or v, the constant-a equations fail. Use v = dx/dt, a = dv/dt = v·dv/dx. This is the bridge to JEE Advanced kinematics and the most common Main "trap" question.' },
+    ],
+    highYield: [
+      {
+        topic: 'Velocity–time and position–time graphs',
+        detail:
+          'Highest frequency in JEE Main. Remember signed area: if a v–t graph goes negative, that area subtracts from displacement but adds to distance. A classic trap gives a v–t graph and asks for displacement vs distance travelled — the two differ exactly when velocity changes sign.',
+      },
+      {
+        topic: 'Projectile motion (range, height, and from a height)',
+        detail:
+          'Worked type: a ball thrown horizontally at u from height h. Time to land t = √(2h/g) (vertical motion only), horizontal range = u·√(2h/g), and the speed on landing = √(u² + 2gh). Notice the time depends only on h, never on u — the favourite conceptual catch.',
+      },
+      {
+        topic: 'Relative velocity — river–boat and rain–man',
+        detail:
+          'For shortest TIME to cross a river of width d, point the boat straight across: t = d/v(boat), and you drift downstream. For shortest PATH (reach the point directly opposite), angle the boat upstream so the upstream component cancels the current: sinθ = v(river)/v(boat). Students mix up which strategy each question is asking for.',
+      },
+      {
+        topic: 'Variable acceleration (calculus method)',
+        detail:
+          'If a = kv (acceleration proportional to velocity) or a = kx, you cannot use v = u + at. Write a = v·dv/dx and integrate. Recognising "the constant-acceleration equations do not apply here" is itself worth a mark or two every session.',
+      },
+    ],
+    traps: [
+      'Using v = u + at (or the other two equations) when acceleration is not constant. They are derived assuming constant a — for variable acceleration you must integrate. This single mistake accounts for most lost kinematics marks.',
+      'Confusing distance and displacement on a v–t graph. Displacement is the signed area; distance is the total unsigned area. They differ whenever the velocity changes sign.',
+      'Sign-convention slips in vertical motion. Fix one direction as positive at the start and keep g consistent with it for the whole problem — switching mid-solution is the classic projectile error.',
+      'Treating relative velocity as a scalar. Rain–man and river–boat problems are vector subtractions; just subtracting magnitudes gives the wrong answer unless the motions are collinear.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from kinematics in JEE Main?',
+        a: 'About 2–3 per shift in recent JEE Main papers, almost always formula-direct: a graph question, a projectile question, and often a relative-velocity or variable-acceleration one. The "10–12% weightage" quoted online bundles kinematics with vectors and units-and-dimensions; kinematics alone is closer to 5–7%. It is high-frequency but low-difficulty, so the marks come from speed and accuracy rather than depth.',
+      },
+      {
+        q: 'Is kinematics important for JEE if the weightage is low?',
+        a: 'Yes, far beyond its direct question count. Newton\'s laws, circular motion, work–energy and SHM all assume you can do kinematics without thinking. A student weak in kinematics loses time and makes sign errors in every later mechanics chapter. Treat it as the foundation you make automatic in week one, not as a chapter you can skim.',
+      },
+      {
+        q: 'Why do I keep getting kinematics graph questions wrong?',
+        a: 'Almost always one of two reasons. First, confusing slope and area — slope of v–t is acceleration, area under v–t is displacement. Second, ignoring sign: when velocity goes negative the area subtracts from displacement but adds to distance, so "displacement" and "distance travelled" give different answers. Re-read whether the question asks for displacement or distance before computing.',
+      },
+      {
+        q: 'Is kinematics hard in JEE Advanced?',
+        a: 'Kinematics rarely appears as its own question in JEE Advanced. Instead it is embedded as a constraint inside a Newton\'s-laws, rolling or circular-motion problem, often with variable acceleration that needs calculus (a = v·dv/dx). So the Advanced difficulty is not in kinematics itself but in spotting the kinematic relation hidden inside a longer mechanics problem.',
+      },
+    ],
+  },
+  'jee-physics-newtons-laws': {
+    overview:
+      'Newton\'s Laws of Motion (Laws of Motion) is the chapter where JEE Main and JEE Advanced diverge the most, which is exactly what the weightage articles miss. In JEE Main it is a steady 1–2 questions per shift, usually a single body, a simple two-block pulley, or a direct friction/banking calculation — moderate difficulty. In JEE Advanced it is one of the most reliably hard chapters: multi-body constraint systems, wedge problems, pseudo-forces in non-inertial frames, and friction across several surfaces, frequently fused with rotation. The skill that carries both papers is the same and is non-negotiable: drawing a correct free-body diagram for every body before writing a single equation.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~6% of Physics', questions: '1–2 per shift', nature: 'Single body or simple pulley, direct friction, banking, vertical circle; ~40% conceptual / 60% numerical' },
+      { exam: 'JEE Advanced', weightage: 'Appears in most papers', questions: '1–2 (often fused)', nature: 'Multi-body constraints, wedge/pseudo-force, friction on multiple surfaces, NLM + rotation combined' },
+    ],
+    studyOrder: [
+      { step: 'Free-body diagrams first', detail: 'Before any algebra, draw the FBD for every body in the system showing only the real forces acting ON it (weight, normal, tension, friction, applied). 80% of Newton\'s-law errors are FBD errors — a missing force or a force drawn in the wrong direction.' },
+      { step: 'Friction — static vs kinetic', detail: 'Static friction is self-adjusting up to a maximum μₛN; kinetic friction is a fixed μₖN once sliding starts. The decision rule comes before any number: check whether the applied force exceeds μₛN. If it does, the body moves and friction = μₖN; if not, the body is static and friction = the applied force.' },
+      { step: 'Pulley, string and constraint relations', detail: 'For connected bodies, the constraint (inextensible string, fixed pulley) links their accelerations. Write Newton\'s second law for each body separately, then add the constraint equation. This is the bridge from Main two-block problems to Advanced wedge problems.' },
+      { step: 'Pseudo-forces in non-inertial frames', detail: 'When you solve from an accelerating frame (a lift, a wedge), add a pseudo-force −ma on every body, opposite to the frame\'s acceleration. Choosing the right frame can turn a hard Advanced problem into a one-line balance.' },
+      { step: 'Circular motion and banking', detail: 'Net inward force = mv²/r. Banking (tanθ = v²/rg) and the vertical-circle tension conditions (T − mg = mv²/r at the bottom, mg − T = mv²/r at the top) are the standard Main applications.' },
+    ],
+    highYield: [
+      {
+        topic: 'The "will it move?" friction check',
+        detail:
+          'For a block of mass m on a surface (μₛ) with horizontal force F: if F ≤ μₛmg the block stays still and static friction exactly equals F (NOT μₛmg). Only once F > μₛmg does it slide, and then friction = μₖmg. Reporting friction as μₛmg for a stationary block is the single most common error in the chapter.',
+      },
+      {
+        topic: 'Two-block pulley over a frictionless pulley',
+        detail:
+          'Masses m₁ and m₂ (m₂ > m₁) on a string over a pulley: a = (m₂ − m₁)g / (m₁ + m₂) and tension T = 2m₁m₂g / (m₁ + m₂). Derive these by writing F = ma for each block and adding — don\'t just memorise, because Advanced changes the geometry (one mass on an incline, added friction) and you must rebuild it.',
+      },
+      {
+        topic: 'Block on an incline (normal is not mg)',
+        detail:
+          'On a smooth incline of angle θ, N = mg cosθ and the acceleration down the plane = g sinθ. With friction, the block stays put if tanθ ≤ μₛ; once it slides, a = g(sinθ − μₖcosθ). The standing trap: students write N = mg on an incline — it is mg cosθ.',
+      },
+      {
+        topic: 'Pseudo-force and constraint (wedge) problems',
+        detail:
+          'A block on a smooth movable wedge: solving from the ground frame needs a constraint between the block\'s and wedge\'s accelerations; solving from the wedge\'s (accelerating) frame needs a pseudo-force. Both are valid — Advanced rewards the student who picks the frame that makes the equations shortest.',
+      },
+    ],
+    traps: [
+      'Reporting friction on a stationary body as μₛN. Static friction is self-adjusting and equals the applied force up to the maximum μₛN — it only reaches μₛN at the verge of slipping.',
+      'Writing the normal force as mg on an inclined plane. On an incline N = mg cosθ; using mg overstates both the normal force and the friction.',
+      'Forgetting the constraint equation in pulley/wedge systems. Newton\'s second law for each body is not enough — the inextensible-string or contact constraint that links the accelerations is a separate equation you must write.',
+      'Getting the pseudo-force direction wrong. In a frame accelerating with a, the pseudo-force on a body of mass m is −ma (opposite to the frame\'s acceleration). Pointing it the wrong way flips the whole solution.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Laws of Motion in JEE Main?',
+        a: 'Typically 1–2 per shift, roughly 40% conceptual (Newton\'s three laws, action–reaction, equilibrium) and 60% numerical (friction, pulleys, banking, inclines). It is a moderate-difficulty, dependable scorer in Main provided your free-body diagrams are clean.',
+      },
+      {
+        q: 'How do I master Newton\'s Laws for JEE Advanced?',
+        a: 'The differentiator at Advanced level is handling multi-body systems: constraint relations, movable wedges, friction across several surfaces, and pseudo-forces in accelerating frames. Practise writing a separate FBD and F = ma for each body, then the constraint that links their accelerations. Learn to choose the frame (ground vs accelerating) that gives the shortest equations — that single habit converts the hardest problems into manageable ones.',
+      },
+      {
+        q: 'When do I use static friction versus kinetic friction?',
+        a: 'First check whether the body is moving. Compute the maximum static friction μₛN and compare it with the net applied force. If the applied force is less than or equal to μₛN, the body stays still and friction exactly balances the applied force (it is self-adjusting). If the applied force exceeds μₛN, the body slides and friction becomes the fixed kinetic value μₖN. Skipping this check is the commonest friction mistake.',
+      },
+      {
+        q: 'Is the normal force always equal to mg?',
+        a: 'No. Normal force equals mg only for a body resting on a horizontal surface with no vertical applied force or acceleration. On an incline N = mg cosθ; in a lift accelerating up N = m(g + a); with a downward-pushing applied force N increases, and with an upward pull it decreases. Always get N from the FBD, never assume mg.',
+      },
+    ],
+  },
+  'jee-maths-quadratic-equations': {
+    overview:
+      'Quadratic Equations is one of the most reliable scoring chapters in JEE algebra, but the "weightage" you read online is usually the COMBINED figure for Complex Numbers AND Quadratic Equations (the NCERT pairs them), which is why estimates swing between 3% and 9%. Counted on its own, quadratics is about 1–2 questions per JEE Main shift, and they are direct: nature of roots, sum and product, common roots, simple range. JEE Advanced takes the same machinery and adds a parameter — "for what values of k …" — turning it into location-of-roots and range problems that need the graph of the parabola, not just the formulas. The chapter rewards a student who treats every quadratic as a parabola they can sketch.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~3–4% (quadratics alone)', questions: '1–2 per shift', nature: 'Direct: nature of roots (D), Vieta\'s sum/product, common roots, simple inequalities' },
+      { exam: 'JEE Advanced', weightage: 'Often fused with functions', questions: '1–2 (parameter-based)', nature: 'Location of roots, range of rational expressions, parameter conditions, combined with inequalities/modulus' },
+    ],
+    correction:
+      'When you see "7–9% weightage" for this chapter, that is Complex Numbers AND Quadratic Equations counted together — NCERT and most analysts treat them as one unit. Quadratic Equations on its own is closer to 1–2 questions per Main shift (~3–4%). Plan your revision around the real split: complex numbers and quadratics are separate skill sets, and a strong quadratics score does not require mastering complex numbers first.',
+    studyOrder: [
+      { step: 'Nature of roots via the discriminant', detail: 'For ax² + bx + c = 0 with real coefficients: D = b² − 4ac. D > 0 → two distinct real roots, D = 0 → equal real roots, D < 0 → complex conjugate roots. Every quadratic question starts by asking what D tells you, so make this instant.' },
+      { step: 'Relation between roots and coefficients (Vieta)', detail: 'Sum of roots = −b/a, product = c/a. Most "find the equation whose roots are …" and "find α² + β²" problems are pure Vieta — express the target symmetrically in (α + β) and (αβ).' },
+      { step: 'Formation and transformation of equations', detail: 'Build a new quadratic whose roots are functions of the old ones (reciprocals, squares, shifted by k). Replace x appropriately rather than finding the roots explicitly — this is the technique JEE Main tests most.' },
+      { step: 'Common roots', detail: 'For one common root between a₁x² + b₁x + c₁ and a₂x² + b₂x + c₂, the condition is (c₁a₂ − c₂a₁)² = (a₁b₂ − a₂b₁)(b₁c₂ − b₂c₁). For BOTH roots common, the coefficients are proportional: a₁/a₂ = b₁/b₂ = c₁/c₂.' },
+      { step: 'Location of roots and range (the Advanced layer)', detail: 'Only after the above: where do the roots lie relative to a number k, and what is the range of a quadratic or rational expression. These need the parabola sketch plus a checklist of conditions, and they are where JEE Advanced quadratics actually live.' },
+    ],
+    highYield: [
+      {
+        topic: 'Nature of roots and the discriminant',
+        detail:
+          'The most-asked Main type. Note the real-coefficient assumption: "complex conjugate roots" requires real a, b, c — if the coefficients are themselves complex, roots need not come in conjugate pairs. Also distinguish "real" (D ≥ 0) from "real and distinct" (D > 0); questions deliberately blur the two.',
+      },
+      {
+        topic: 'Symmetric functions of roots (Vieta)',
+        detail:
+          'With s = α + β = −b/a and p = αβ = c/a: α² + β² = s² − 2p, α³ + β³ = s³ − 3ps, 1/α + 1/β = s/p, and (α − β)² = s² − 4p = D/a². Reducing any symmetric expression to s and p avoids ever solving for the roots themselves.',
+      },
+      {
+        topic: 'Location of roots — the three-condition checklist',
+        detail:
+          'For f(x) = ax² + bx + c (take a > 0), to put BOTH roots greater than a number k you need ALL three: D ≥ 0 (real roots), a·f(k) > 0 (k outside the roots on the correct side), and −b/2a > k (vertex to the right of k). For "k lies between the roots" the single condition a·f(k) < 0 suffices. Forgetting one condition is the standard mistake.',
+      },
+      {
+        topic: 'Range of a rational expression y = (a₁x² + b₁x + c₁)/(a₂x² + b₂x + c₂)',
+        detail:
+          'Set y equal to the expression, cross-multiply into a quadratic in x, and demand its discriminant ≥ 0 (so a real x exists). Solving that inequality in y gives the range. Worked idea: y = (x² + x + 1)/(x² − x + 1) leads to (y − 1)x² − (y + 1)x + (y − 1) = 0; requiring D ≥ 0 gives the range [1/3, 3]. Remember to check the case where the coefficient of x² vanishes separately.',
+      },
+    ],
+    traps: [
+      'Assuming complex roots always come in conjugate pairs. That is only guaranteed when the coefficients are real. If the quadratic has complex coefficients, the conjugate-root theorem does not apply.',
+      'Confusing "real" with "real and distinct". D ≥ 0 gives real roots (including equal); D > 0 is needed for distinct roots. Read which the question wants.',
+      'Forgetting a condition in location-of-roots problems. Putting both roots beyond k needs D ≥ 0 AND a·f(k) > 0 AND the vertex on the correct side — all three, not just the sign of f(k).',
+      'In range-of-rational-function problems, missing the case where the leading coefficient (in y) becomes zero, which can add or remove a boundary value of the range.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from quadratic equations in JEE Main?',
+        a: 'On its own, about 1–2 per shift. The higher figure (often quoted as 7–9%) is Complex Numbers and Quadratic Equations counted together, because NCERT treats them as one chapter. Quadratics alone is a direct, high-accuracy scorer — nature of roots, sum and product, and common roots make up most of the Main questions.',
+      },
+      {
+        q: 'How do I quickly decide the nature of the roots of a quadratic?',
+        a: 'Compute D = b² − 4ac (with real coefficients): D > 0 means two distinct real roots, D = 0 means equal real roots, D < 0 means a pair of complex conjugate roots. Watch two things the exam exploits — "real" (D ≥ 0) is not the same as "real and distinct" (D > 0), and the conjugate-pair result only holds when a, b, c are real.',
+      },
+      {
+        q: 'How do I solve "for what values of k do both roots lie in an interval" problems?',
+        a: 'Sketch the parabola f(x) = ax² + bx + c and apply the three-condition checklist (taking a > 0): D ≥ 0 so the roots are real, a·f at each interval endpoint > 0 so both roots sit inside, and the vertex −b/2a lies within the interval. If instead k must lie between the roots, the single condition a·f(k) < 0 is enough. The errors come from dropping one of the three conditions.',
+      },
+      {
+        q: 'Is quadratic equations an easy chapter for JEE?',
+        a: 'For JEE Main, yes — it is among the most scorable algebra topics once Vieta\'s formulas and the discriminant are automatic. JEE Advanced is genuinely harder because it hides a parameter and asks location-of-roots, range, or combined inequality questions that require sketching the parabola and reasoning about its position, not just plugging into formulas.',
+      },
+    ],
+  },
+  'neet-biology-inheritance-variation': {
+    overview:
+      'Principles of Inheritance and Variation is one of the top three highest-yield Biology chapters in NEET, and it behaves differently from almost every other Biology chapter: it is application, not recall. Recent papers carry about 4–6 questions from it (roughly 16–24 marks), and a large share are crosses, pedigrees and probability problems you have to SOLVE, not facts you can read off NCERT. That is why students who treat genetics like the rest of Biology — reading and re-reading — underperform here. Combined with Molecular Basis of Inheritance, the genetics cluster is the single biggest block in NEET Biology (8–12 questions), so dependable cross-solving and pedigree logic move your rank more than almost anything else in the syllabus.',
+    examSplit: [
+      { exam: 'NEET (recent avg)', weightage: '~6–8% of Biology', questions: '4–6 per year (~16–24 marks)', nature: 'Mix of recall + numerical crosses, probability, and pedigree interpretation' },
+      { exam: 'With Molecular Basis combined', weightage: 'Largest Biology block', questions: '8–12 (genetics cluster)', nature: 'Mendelian + deviations + sex-linkage + disorders; ~half need calculation' },
+    ],
+    correction:
+      'You will see "5–7 questions" or "heavy weightage" quoted for genetics. That usually bundles this chapter WITH Molecular Basis of Inheritance. Principles of Inheritance and Variation on its own is about 4–6 questions in recent NEET papers; the two-chapter genetics unit is what reaches 8–12. It still deserves top priority — but for a different reason than recall chapters: unlike most of Biology, it rewards numerical practice, so plan problem-solving sessions, not just reading.',
+    studyOrder: [
+      { step: 'Mendel\'s laws and the basic crosses', detail: 'Law of dominance, segregation and independent assortment, then the monohybrid (3:1) and dihybrid (9:3:3:1) F2 ratios and the test cross (1:1 or 1:1:1:1). Everything else is a variation on these, so they must be automatic.' },
+      { step: 'Deviations from Mendel', detail: 'Incomplete dominance (F2 phenotype = genotype, 1:2:1), codominance (both alleles expressed, e.g. AB blood group), multiple alleles (ABO system), and pleiotropy. NEET loves the incomplete-dominance vs codominance distinction.' },
+      { step: 'Chromosomal theory, linkage and recombination', detail: 'Sutton–Boveri, Morgan\'s Drosophila work, linked genes and recombination frequency as a measure of map distance. Tightly linked genes give fewer recombinants than independently assorting ones.' },
+      { step: 'Sex determination and sex-linked inheritance', detail: 'XX–XY (humans, Drosophila), XX–XO (grasshopper), ZZ–ZW (birds), and haplodiploidy (honeybees). Then X-linked recessive traits — colour blindness and haemophilia — which is the highest-yield numerical sub-topic.' },
+      { step: 'Pedigree analysis and genetic disorders', detail: 'Finish with reading pedigrees (autosomal vs X-linked, dominant vs recessive) and the disorders: Mendelian (sickle-cell anaemia, thalassaemia, phenylketonuria) vs chromosomal (Down\'s — trisomy 21, Klinefelter\'s — XXY, Turner\'s — XO).' },
+    ],
+    highYield: [
+      {
+        topic: 'Dihybrid cross and its modified ratios',
+        detail:
+          'The 9:3:3:1 F2 ratio is the backbone, but NEET tests the MODIFIED ratios that signal a specific phenomenon: 9:7 and 9:3:4 indicate complementary/recessive epistasis, 12:3:1 dominant epistasis, and the test-cross 1:1:1:1 confirms independent assortment. Recognising which ratio implies which interaction is a recurring question.',
+      },
+      {
+        topic: 'Sex-linked (X-linked recessive) inheritance — worked example',
+        detail:
+          'A carrier mother (XᶜX) × normal father (XY) for colour blindness gives sons ½ colour-blind and ½ normal, and daughters ½ carriers and ½ normal — but ZERO affected daughters. An affected father (XᶜY) cannot pass the trait to his sons (he gives them only the Y). These two facts answer almost every colour-blindness/haemophilia numerical NEET asks.',
+      },
+      {
+        topic: 'ABO blood-group genetics and probability — worked example',
+        detail:
+          'Alleles Iᴬ and Iᴮ are codominant, both dominant over i. Parents Iᴬi × Iᴮi can have children of ALL four groups (A, B, AB, O) in 1:1:1:1. But two AB parents (IᴬIᴮ × IᴬIᴮ) can NEVER have an O child. "Which blood group is impossible for this child" is a frequent NEET item.',
+      },
+      {
+        topic: 'Genetic disorders: Mendelian vs chromosomal',
+        detail:
+          'Mendelian disorders trace to a single gene: sickle-cell anaemia (a point mutation, GAG→GUG, Glu→Val, autosomal recessive), thalassaemia, phenylketonuria. Chromosomal disorders are aneuploidies from non-disjunction: Down\'s syndrome (trisomy 21), Klinefelter\'s (47, XXY — male, sterile), Turner\'s (45, XO — female, sterile). Knowing the chromosome number/type for each is worth a near-guaranteed mark.',
+      },
+    ],
+    traps: [
+      'Confusing incomplete dominance with codominance. In incomplete dominance the heterozygote is an intermediate BLEND (red × white → pink); in codominance BOTH alleles are fully and separately expressed (Iᴬ and Iᴮ → AB blood group). NEET pairs these in the same question to catch the slip.',
+      'Mixing up the genetic disorders. Down\'s syndrome is autosomal (trisomy 21); Klinefelter\'s (XXY) and Turner\'s (XO) are sex-chromosomal. Calling Down\'s a sex-linked disorder is a common error.',
+      'Forgetting that an affected father cannot transmit an X-linked recessive trait to his sons — he passes them only his Y chromosome. Sons get the X-linked trait from the mother.',
+      'Misreading pedigrees: two unaffected parents with an affected child means the trait is RECESSIVE; if that affected child is female and the trait is X-linked recessive, the father must also be affected — a contradiction that rules X-linkage out.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from genetics (Principles of Inheritance) in NEET?',
+        a: 'About 4–6 per year from this chapter in recent NEET papers (roughly 16–24 marks). The "5–7 questions" you see online usually counts Molecular Basis of Inheritance alongside it — the combined genetics unit reaches 8–12. Either way it is a top-priority chapter, and unlike most of Biology a good share of its marks come from solving crosses and pedigrees rather than recall.',
+      },
+      {
+        q: 'Which genetics topics are most important for NEET?',
+        a: 'In order of how often they appear: Mendelian crosses and the dihybrid ratio (including modified ratios), sex-linked inheritance (colour blindness and haemophilia numericals), blood-group/codominance probability, genetic disorders (Down\'s, Klinefelter\'s, Turner\'s, sickle-cell), and linkage/recombination. Mendelian genetics and sex-linkage together account for most of the marks.',
+      },
+      {
+        q: 'What is the difference between incomplete dominance and codominance?',
+        a: 'In incomplete dominance the heterozygote shows a NEW, intermediate phenotype — a blend — as in the pink flower from a red × white cross, with an F2 phenotypic ratio of 1:2:1 that matches the genotype. In codominance BOTH alleles are expressed fully and separately in the heterozygote, with no blending — the AB blood group, where both Iᴬ and Iᴮ products appear. NEET deliberately tests this contrast almost every year.',
+      },
+      {
+        q: 'How do I solve sex-linked inheritance problems quickly in NEET?',
+        a: 'Write the genotypes with the allele on the X (e.g. Xᶜ for colour blindness), remembering males are XY so they show any X-linked recessive trait they carry. Two rules clear most questions: a carrier mother passes the trait to half her sons but to no daughters as affected (daughters become carriers), and an affected father cannot give an X-linked recessive trait to his sons because he gives them only the Y. Apply these before drawing a full Punnett square.',
+      },
+      {
+        q: 'Is genetics a hard chapter for NEET?',
+        a: 'It is rated hard mainly because it is application-heavy — you must solve crosses, compute probabilities and interpret pedigrees rather than just recall facts. The content itself is not vast; the difficulty disappears once you have practised enough numerical problems that the cross and pedigree methods become routine. That practice, not re-reading NCERT, is what converts genetics into one of your most reliable Biology scorers.',
+      },
+    ],
+  },
 };
 
 /** Returns the curated enrichment for a chapter slug, or undefined if none exists. */
