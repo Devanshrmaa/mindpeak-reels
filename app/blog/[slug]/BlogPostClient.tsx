@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo, type ReactNode } from 'react';
 import { Link } from '@/components/RouterLink';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { Navbar } from '@/components/sections/Navbar';
@@ -8,12 +8,34 @@ import { SEOHead } from '@/components/SEOHead';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import {
   Calendar, Clock, ArrowLeft, Share2, Copy, CheckCircle,
+  Lightbulb, Info, AlertTriangle, Sparkles, List,
 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { subjectFor } from '../subjects';
 
 const logo = '/images/logo.jpeg';
+
+/* Flatten ReactMarkdown children to plain text (for heading ids + callout sniffing). */
+const mdText = (node: ReactNode): string => {
+  if (node == null || node === false) return '';
+  if (typeof node === 'string' || typeof node === 'number') return String(node);
+  if (Array.isArray(node)) return node.map(mdText).join('');
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const props = (node as any)?.props;
+  return props ? mdText(props.children) : '';
+};
+
+const slugify = (s: string): string =>
+  s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+/* Paragraphs that open with these labels render as colour-coded callout cards. */
+const CALLOUTS: { re: RegExp; Icon: typeof Info; wrap: string; icon: string }[] = [
+  { re: /^(pro tip|tip)\b/i, Icon: Lightbulb, wrap: 'border-emerald-400 bg-emerald-500/10', icon: 'text-emerald-600' },
+  { re: /^(note|info|fyi)\b/i, Icon: Info, wrap: 'border-blue-400 bg-blue-500/10', icon: 'text-blue-600' },
+  { re: /^(important|key takeaway|key point|key|remember)\b/i, Icon: Sparkles, wrap: 'border-primary bg-primary/10', icon: 'text-primary' },
+  { re: /^(warning|caution|avoid|common mistake|mistake|trap|don.?t)\b/i, Icon: AlertTriangle, wrap: 'border-amber-400 bg-amber-500/10', icon: 'text-amber-600' },
+];
 
 interface SerializedPost {
   slug: string;
@@ -38,6 +60,19 @@ export default function BlogPostClient({ post }: { post: SerializedPost }) {
   const subject = subjectFor(post);
   const Motif = subject.Motif;
   const gradient = subject.gradient;
+
+  // Build a table of contents from the H2 headings in the markdown.
+  const toc = useMemo(() => {
+    const items: { text: string; id: string }[] = [];
+    for (const line of post.content.split('\n')) {
+      const m = /^##\s+(?!#)(.+?)\s*$/.exec(line);
+      if (m) {
+        const text = m[1].replace(/[*_`]/g, '').trim();
+        items.push({ text, id: slugify(text) });
+      }
+    }
+    return items;
+  }, [post.content]);
 
   useEffect(() => { window.scrollTo(0, 0); }, [post.slug]);
 
@@ -146,32 +181,86 @@ export default function BlogPostClient({ post }: { post: SerializedPost }) {
               </button>
             </div>
 
-            <div className="mb-16 text-[1.0625rem] [&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:mr-3 [&>p:first-of-type]:first-letter:mt-1 [&>p:first-of-type]:first-letter:font-display [&>p:first-of-type]:first-letter:font-black [&>p:first-of-type]:first-letter:text-6xl [&>p:first-of-type]:first-letter:leading-[0.8] [&>p:first-of-type]:first-letter:text-primary">
+            {/* Table of contents */}
+            {toc.length >= 3 && (
+              <nav aria-label="In this article" className="mb-10 rounded-2xl border border-border bg-card p-6 shadow-card">
+                <p className="mb-4 flex items-center gap-2 font-display font-bold text-foreground">
+                  <List className="h-4 w-4 text-primary" /> In this article
+                </p>
+                <ol className="grid gap-x-6 gap-y-2 sm:grid-cols-2">
+                  {toc.map((t, i) => (
+                    <li key={t.id}>
+                      <a href={`#${t.id}`} className="group flex items-baseline gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+                        <span className="font-display font-bold text-primary/60 group-hover:text-primary">{String(i + 1).padStart(2, '0')}</span>
+                        <span className="line-clamp-1">{t.text}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </nav>
+            )}
+
+            <div className="mb-16 text-[1.0625rem] leading-relaxed [&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:mr-3 [&>p:first-of-type]:first-letter:mt-1 [&>p:first-of-type]:first-letter:font-display [&>p:first-of-type]:first-letter:font-black [&>p:first-of-type]:first-letter:text-6xl [&>p:first-of-type]:first-letter:leading-[0.8] [&>p:first-of-type]:first-letter:text-primary">
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 components={{
-                  h1: ({ ...props }) => <h1 className="font-display font-black text-foreground mt-12 mb-4" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)' }} {...props} />,
-                  h2: ({ ...props }) => <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl mt-10 mb-4" {...props} />,
-                  h3: ({ ...props }) => <h3 className="font-display font-semibold text-foreground text-xl mt-8 mb-3" {...props} />,
-                  h4: ({ ...props }) => <h4 className="font-display font-semibold text-foreground text-lg mt-6 mb-2" {...props} />,
-                  p: ({ ...props }) => <p className="text-muted-foreground leading-relaxed mb-4" {...props} />,
-                  ul: ({ ...props }) => <ul className="list-disc list-outside ml-6 mb-4 space-y-2" {...props} />,
-                  ol: ({ ...props }) => <ol className="list-decimal list-outside ml-6 mb-4 space-y-2" {...props} />,
-                  li: ({ ...props }) => <li className="text-muted-foreground leading-relaxed" {...props} />,
-                  strong: ({ ...props }) => <strong className="font-bold text-foreground" {...props} />,
-                  em: ({ ...props }) => <em className="italic text-muted-foreground" {...props} />,
-                  blockquote: ({ ...props }) => <blockquote className="relative my-8 rounded-r-xl border-l-4 border-primary bg-secondary/60 py-4 pl-6 pr-5 italic text-foreground/90 [&>p]:mb-0 [&>p]:text-foreground/90" {...props} />,
-                  code: ({ ...props }) => <code className="bg-secondary/50 text-primary px-2 py-0.5 rounded text-sm font-mono" {...props} />,
-                  table: ({ ...props }) => <div className="overflow-x-auto my-6 rounded-xl border border-border"><table className="min-w-full" {...props} /></div>,
-                  thead: ({ ...props }) => <thead className="bg-secondary/50" {...props} />,
-                  th: ({ ...props }) => <th className="px-5 py-3 text-left text-foreground font-display text-sm" {...props} />,
-                  td: ({ ...props }) => <td className="px-5 py-3 text-muted-foreground text-sm border-t border-border" {...props} />,
-                  a: ({ href, ...props }) => {
-                    const isExternal = href?.startsWith('http') || href?.startsWith('//');
-                    if (isExternal) return <a href={href} className="text-primary hover:underline font-medium" target="_blank" rel="noopener noreferrer" {...props} />;
-                    return <Link to={href || '#'} className="text-primary hover:underline font-medium" {...props} />;
+                  h1: ({ children }) => <h1 className="font-display font-black text-foreground mt-4 mb-5" style={{ fontSize: 'clamp(1.7rem, 4vw, 2.4rem)' }}>{children}</h1>,
+                  h2: ({ children }) => (
+                    <h2 id={slugify(mdText(children))} className="scroll-mt-24 mt-12 mb-5 flex items-center gap-3 font-display font-bold text-foreground text-2xl md:text-3xl">
+                      <span className="inline-block h-7 w-1.5 shrink-0 rounded-full bg-gradient-to-b from-gold to-gold-dark" />
+                      <span>{children}</span>
+                    </h2>
+                  ),
+                  h3: ({ children }) => <h3 id={slugify(mdText(children))} className="scroll-mt-24 font-display font-semibold text-foreground text-xl mt-8 mb-3">{children}</h3>,
+                  h4: ({ children }) => <h4 className="font-display font-semibold text-foreground text-lg mt-6 mb-2">{children}</h4>,
+                  p: ({ children }) => {
+                    const text = mdText(children).trimStart();
+                    const c = CALLOUTS.find((x) => x.re.test(text));
+                    if (c) {
+                      const Icon = c.Icon;
+                      return (
+                        <div className={`my-6 flex gap-3 rounded-xl border-l-4 p-4 ${c.wrap}`}>
+                          <Icon className={`mt-0.5 h-5 w-5 shrink-0 ${c.icon}`} />
+                          <p className="leading-relaxed text-foreground/80 [&>strong]:text-foreground">{children}</p>
+                        </div>
+                      );
+                    }
+                    return <p className="text-foreground/80 leading-relaxed mb-5">{children}</p>;
                   },
-                  hr: () => <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent my-8" />,
+                  ul: ({ children }) => <ul className="list-disc marker:text-primary pl-6 mb-5 space-y-2.5">{children}</ul>,
+                  ol: ({ children }) => <ol className="list-decimal marker:text-primary marker:font-bold pl-6 mb-5 space-y-2.5">{children}</ol>,
+                  li: ({ children }) => <li className="text-foreground/80 leading-relaxed pl-1.5">{children}</li>,
+                  strong: ({ children }) => <strong className="font-bold text-foreground">{children}</strong>,
+                  em: ({ children }) => <em className="italic">{children}</em>,
+                  blockquote: ({ children }) => (
+                    <blockquote className="relative my-8 overflow-hidden rounded-2xl border border-border bg-secondary/50 py-6 pl-14 pr-6 [&>p]:mb-0 [&>p]:font-display [&>p]:text-lg [&>p]:italic [&>p]:text-foreground">
+                      <span aria-hidden className="absolute left-4 top-2 font-display text-5xl leading-none text-primary/40">&ldquo;</span>
+                      {children}
+                    </blockquote>
+                  ),
+                  pre: ({ children }) => <pre className="my-6 overflow-x-auto rounded-xl border border-border bg-[hsl(225,43%,9%)] p-4 text-sm text-white/90">{children}</pre>,
+                  code: ({ children }) => <code className="rounded bg-secondary/60 px-1.5 py-0.5 text-sm font-mono text-primary">{children}</code>,
+                  table: ({ children }) => (
+                    <div className="my-8 overflow-x-auto rounded-xl border border-border shadow-card">
+                      <table className="min-w-full text-sm [&_tbody_tr:nth-child(even)]:bg-secondary/25">{children}</table>
+                    </div>
+                  ),
+                  thead: ({ children }) => <thead className="bg-gradient-to-r from-secondary to-secondary/60">{children}</thead>,
+                  th: ({ children }) => <th className="px-5 py-3.5 text-left text-foreground font-display font-semibold text-sm">{children}</th>,
+                  td: ({ children }) => <td className="px-5 py-3 text-foreground/80 border-t border-border align-top">{children}</td>,
+                  a: ({ href, children }) => {
+                    const isExternal = href?.startsWith('http') || href?.startsWith('//');
+                    if (isExternal) return <a href={href} className="font-medium text-primary underline decoration-primary/30 underline-offset-2 hover:decoration-primary" target="_blank" rel="noopener noreferrer">{children}</a>;
+                    return <Link to={href || '#'} className="font-medium text-primary underline decoration-primary/30 underline-offset-2 hover:decoration-primary">{children}</Link>;
+                  },
+                  img: ({ src, alt }) => <img src={typeof src === 'string' ? src : ''} alt={alt || ''} loading="lazy" className="my-8 w-full rounded-2xl border border-border shadow-card" />,
+                  hr: () => (
+                    <div aria-hidden className="my-10 flex items-center justify-center gap-2">
+                      <span className="h-px w-16 bg-gradient-to-r from-transparent to-border" />
+                      <span className="h-1.5 w-1.5 rotate-45 bg-primary/50" />
+                      <span className="h-px w-16 bg-gradient-to-l from-transparent to-border" />
+                    </div>
+                  ),
                 }}
               >
                 {post.content}
