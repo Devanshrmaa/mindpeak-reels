@@ -8,10 +8,10 @@ import { SEOHead } from '@/components/SEOHead';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import {
   Calendar, Clock, ArrowLeft, Share2, Copy, CheckCircle,
-  Atom, Stethoscope, Lightbulb, Target, Compass, BookOpen, type LucideIcon,
 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { subjectFor } from '../subjects';
 
 const logo = '/images/logo.jpeg';
 
@@ -28,15 +28,6 @@ interface SerializedPost {
   color?: string;
 }
 
-/* Category → icon + gradient (live posts carry no per-post icon). */
-const CATEGORY_META: Record<string, { icon: LucideIcon; gradient: string }> = {
-  JEE: { icon: Atom, gradient: 'from-blue-500 to-cyan-500' },
-  NEET: { icon: Stethoscope, gradient: 'from-emerald-500 to-teal-500' },
-  'Study Tips': { icon: Lightbulb, gradient: 'from-amber-500 to-orange-500' },
-  'Exam Strategy': { icon: Target, gradient: 'from-violet-500 to-fuchsia-500' },
-  General: { icon: Compass, gradient: 'from-rose-500 to-pink-500' },
-};
-
 export default function BlogPostClient({ post }: { post: SerializedPost }) {
   const { openDemoModal } = useDemoModal();
   const [copied, setCopied] = useState(false);
@@ -44,9 +35,9 @@ export default function BlogPostClient({ post }: { post: SerializedPost }) {
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.3 });
 
-  const meta = CATEGORY_META[post.category] ?? { icon: BookOpen, gradient: 'from-primary to-gold-dark' };
-  const Icon = meta.icon;
-  const gradient = post.color ?? meta.gradient;
+  const subject = subjectFor(post);
+  const Motif = subject.Motif;
+  const gradient = subject.gradient;
 
   useEffect(() => { window.scrollTo(0, 0); }, [post.slug]);
 
@@ -86,6 +77,10 @@ export default function BlogPostClient({ post }: { post: SerializedPost }) {
         <header className="relative overflow-hidden bg-[hsl(225,43%,7%)] pt-28 sm:pt-32 pb-14 text-white">
           <div className="absolute inset-0 dot-grid opacity-50" />
           <div className={`absolute -top-32 -right-24 h-96 w-96 rounded-full bg-gradient-to-br ${gradient} opacity-25 blur-[130px]`} />
+          {/* Large faint subject motif */}
+          <div className="pointer-events-none absolute -right-10 top-10 h-72 w-72 text-white/[0.07] hidden sm:block">
+            <Motif />
+          </div>
 
           <div className="relative max-w-4xl mx-auto px-6">
             <nav aria-label="Breadcrumb" className="mb-8">
@@ -98,11 +93,11 @@ export default function BlogPostClient({ post }: { post: SerializedPost }) {
               </ol>
             </nav>
 
-            <div className="flex items-center gap-4 mb-7">
-              <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${gradient} flex items-center justify-center shadow-lg`}>
-                <Icon className="w-7 h-7 text-white" />
-              </div>
-              <span className="px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-white text-xs font-semibold tracking-[0.15em] uppercase">
+            <div className="flex flex-wrap items-center gap-3 mb-7">
+              <span className={`inline-flex items-center gap-2 rounded-full bg-gradient-to-r ${gradient} px-4 py-1.5 text-xs font-bold tracking-[0.15em] uppercase shadow-lg`}>
+                <span className="h-4 w-4">{<Motif />}</span> {subject.label}
+              </span>
+              <span className="px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-white/80 text-xs font-semibold tracking-[0.15em] uppercase">
                 {post.category}
               </span>
             </div>
