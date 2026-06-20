@@ -2033,6 +2033,9 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
       {
         q: 'Which alkyl halide should be used in Williamson ether synthesis?',
         a: 'The less hindered one — methyl or primary. Williamson synthesis is an SN2 reaction between an alkoxide and an alkyl halide, and SN2 is fastest at unhindered carbons. If you use a bulky tertiary halide, the alkoxide acts as a base instead and you get elimination (an alkene) rather than the ether. So to make a mixed ether, pair the bulky group as the alkoxide and the smaller group as the halide.',
+      },
+    ],
+  },
   'jee-physics-current-electricity': {
     overview:
       'Current Electricity is one of the two or three most dependable scoring chapters in JEE Main Physics — and the reason is that the question types barely change year to year. In JEE Main it carries roughly 8–10% of the Physics section, which works out to 3–4 questions in most shifts, and they are almost all formula-direct: equivalent resistance, Kirchhoff loops, meter-bridge/potentiometer balance, and instrument (galvanometer) conversions. JEE Advanced asks fewer questions (typically 1–2) but fuses them with capacitors in transient circuits or wraps them in an experimental-error or paragraph setting, so the gap most weightage articles miss is that this is a near-guaranteed-marks chapter in Main but a careful-reading chapter in Advanced.',
