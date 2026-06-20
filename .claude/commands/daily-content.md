@@ -34,10 +34,27 @@ Skip any page improved in the last 14 days (check `seo-reports/content-log.md`).
 
 ### 4. Verify & ship
 - `npx vitest run` must stay green (descriptive-links test is strict).
+- `npx vitest run` must stay green (descriptive-links test is strict). The
+  `chapterEnrichments.test.ts` guard parses `src/data/chapters/chapterEnrichments.ts`
+  and fails on syntax errors / duplicate slug keys — do NOT skip it.
 - `npx tsc --noEmit` for the touched data files (ignore pre-existing `.next/` noise).
 - Append one line per page to `seo-reports/content-log.md` (date, page, change, target query).
 - Commit with a `content:` prefix, push, open a draft PR titled
   `content: daily improvement batch — <date>`.
+
+### ⚠️ Merge hazard — big single-object data files
+`src/data/chapters/chapterEnrichments.ts` is one giant `ENRICHMENTS` object that
+many parallel content branches append to. Git's line-based auto-merge has
+**repeatedly** collapsed the near-identical `},` / `],` / `},` closing seams
+between adjacent chapters (and left duplicate slug keys), producing an
+unterminated object that only fails at Vercel build time — because
+`next.config` sets `ignoreBuildErrors: true`, the broken *parse* slips into
+`main` silently. Therefore:
+- **After every `git merge` / rebase that touches this file, re-run `npx vitest run`
+  before pushing** — that is the only step that catches a bad merge. A clean
+  per-branch run before merging is not enough.
+- When you edit it, append your new chapter as a complete block (`{ … },`) and
+  never reuse an existing slug key.
 
 ## Hard limits
 - Maximum 5 pages per day. If tempted to do more, improve depth instead.
