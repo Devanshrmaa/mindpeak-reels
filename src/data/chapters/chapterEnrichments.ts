@@ -2415,6 +2415,44 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
       },
     ],
   },
+  'jee-physics-kinematics': {
+    overview:
+      'Kinematics is where JEE Physics begins, and its real importance is not its question count — it is the prerequisite for everything that follows. As a standalone tagged chapter it is modest in both papers: roughly 1–2 questions per JEE Main shift (motion graphs, relative velocity, projectile range/height), and usually just 1–2 in JEE Advanced, where it almost never appears alone — it is fused into a Newton\'s-laws, circular-motion or work-energy problem. So the honest framing is: drill kinematics for fluency, not for its weightage, because a shaky grasp of velocity, acceleration and graphs quietly costs you marks in every mechanics chapter afterwards.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~4–6% of Physics', questions: '1–2 per shift', nature: 'Direct: motion graphs (s-t/v-t/a-t), projectile range & max height, relative velocity, river-boat/rain' },
+      { exam: 'JEE Advanced', weightage: '~3–5% of Physics', questions: '1–2, rarely standalone', nature: 'Fused with NLM/circular motion/WEP; 2D relative motion, variable acceleration (calculus), constraint-linked' },
+    ],
+    correction:
+      'Many weightage articles inflate kinematics by quoting the whole "mechanics ≈ 40%" figure and implying that share belongs to kinematics. It does not — mechanics is split across kinematics, Newton\'s laws, work-energy, rotation, gravitation and SHM. Standalone kinematics is a 1–2 question chapter. Treat its priority as foundational (study it first, master it cold) rather than high-yield by question count.',
+    studyOrder: [
+      { step: 'Distance vs displacement, speed vs velocity, acceleration', detail: 'Get the scalar/vector distinction and sign convention right first — pick one positive direction per problem and stick to it. Most early errors are sign errors, not concept errors.' },
+      { step: 'The three equations of motion (constant a)', detail: 'v = u + at, s = ut + ½at², v² = u² + 2as. Know exactly when they are valid (a constant) and when they are NOT — the moment acceleration varies you must switch to calculus (a = dv/dt, v = ds/dt).' },
+      { step: 'Graphical analysis', detail: 'Slope of s-t = velocity, slope of v-t = acceleration, area under v-t = displacement, area under a-t = change in velocity. Graph-reading questions are the single most common kinematics type in JEE Main and are pure marks once this mapping is automatic.' },
+      { step: 'Motion under gravity', detail: 'Vertical 1D motion with a = g. Master sign handling for up-then-down motion before touching projectiles.' },
+      { step: 'Projectile motion', detail: 'Resolve into independent horizontal (constant velocity) and vertical (a = g) components. Derive R = u²sin2θ/g, H = u²sin²θ/2g, T = 2usinθ/g rather than memorising blindly — Advanced changes the setup (projectile on an incline, from a height) and rote formulas then fail.' },
+      { step: 'Relative velocity (1D then 2D)', detail: 'Last because it is the hardest to visualise: river-boat (crossing in shortest time vs shortest path) and rain-man problems. This is where JEE Advanced lives within kinematics.' },
+    ],
+    highYield: [
+      { topic: 'Motion graphs (s-t, v-t, a-t)', detail: 'Highest frequency in JEE Main. Converting between the three graphs and extracting displacement from area / acceleration from slope. Watch for graphs with a sign change in velocity — distance and displacement then differ.' },
+      { topic: 'Projectile motion', detail: 'Range, maximum height, time of flight, and the "two angles (θ and 90−θ) give the same range" result. Advanced variants: projectile fired up/down an incline, and the condition for maximum range on an incline.' },
+      { topic: 'Relative velocity in 2D', detail: 'River-boat (shortest-time vs shortest-path crossing) and rain-umbrella problems. The trick is always v(A relative to B) = v(A) − v(B) drawn as a vector triangle.' },
+      { topic: 'Variable acceleration via calculus', detail: 'When a, v or s is given as a function (of time or position), use a = v·dv/ds or a = dv/dt and integrate. Almost every JEE Advanced kinematics question that looks standalone is actually this.' },
+    ],
+    traps: [
+      'Using v = u + at (or the other two equations) when acceleration is NOT constant. The moment a varies with time or position, those equations are invalid — you must integrate.',
+      'Mixing up distance and displacement when a velocity-time graph dips below the axis. Displacement is the signed area (areas below the time axis are negative); distance is the total unsigned area.',
+      'Forgetting to resolve initial velocity into components in projectile problems, or applying g to the horizontal direction.',
+      'Sloppy sign convention in motion-under-gravity problems — choosing "up positive" then silently treating g as positive downward inconsistently. Fix the positive direction once and apply it to u, v, a and s together.',
+      'Assuming the time to reach maximum height equals the total time of flight. It is half the time of flight only for a projectile landing at the same height it was launched.',
+    ],
+    faqs: [
+      { q: 'How important is kinematics for JEE — is it high weightage?', a: 'By raw question count it is modest: about 1–2 questions per JEE Main shift and usually 1–2 in JEE Advanced (rarely standalone). Its importance is foundational, not statistical — velocity, acceleration and graph skills are reused in Newton\'s laws, circular motion, work-energy and rotation, so weakness here silently costs marks across all of mechanics. Study it first and master it, but don\'t expect a large standalone score.' },
+      { q: 'What are the most asked kinematics topics in JEE?', a: 'Motion graphs (s-t/v-t/a-t conversions and area/slope reading), projectile motion (range, maximum height, the two-angles-same-range result), and relative velocity (river-boat and rain problems). In JEE Advanced, variable-acceleration problems solved with calculus appear repeatedly.' },
+      { q: 'How do I solve projectile motion problems quickly?', a: 'Split the motion into two independent 1D motions: horizontal at constant velocity (ux = u·cosθ) and vertical with acceleration g (uy = u·sinθ). Solve each separately and combine only at the end. Practise 40–50 problems so you recognise the 4–5 standard setups; most JEE questions are variations of these (ground-to-ground, from a height, up/down an incline).' },
+      { q: 'When can I use v = u + at and when can I not?', a: 'Only when acceleration is constant. If the problem gives acceleration or velocity as a function of time or position (e.g. a = kt, or v depends on x), the three equations of motion break down and you must use calculus: a = dv/dt = v·dv/ds and integrate. Spotting "is a constant here?" is the first decision in any kinematics problem.' },
+      { q: 'What is the difference between distance and displacement on a velocity-time graph?', a: 'Displacement is the net signed area under the v-t curve — regions below the time axis (negative velocity) subtract. Distance is the total area treating every region as positive. They are equal only when the velocity never changes sign. Misreading this is one of the most common avoidable errors in graph questions.' },
+    ],
+  },
 };
 
 /** Returns the curated enrichment for a chapter slug, or undefined if none exists. */
