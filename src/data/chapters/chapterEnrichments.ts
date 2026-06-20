@@ -2287,6 +2287,257 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
       },
     ],
   },
+
+  'jee-maths-quadratic-equations': {
+    overview:
+      'Quadratic Equations is one of the most reliable scorers in JEE algebra, and the two papers ask it very differently — the split most weightage articles gloss over. JEE Main asks 2–3 questions almost every year (often bundled with Complex Numbers in the same unit), and they are formula-direct: nature of roots, Vieta\'s sum/product, and one location-of-roots or common-root problem. JEE Advanced rarely asks a "pure" quadratic question; instead it hides quadratics inside coordinate geometry, functions or parameter problems where the discriminant or the location-of-roots conditions are the hidden key. The practical takeaway: in Main, drill the four high-frequency types for speed; for Advanced, train yourself to recognise when a disguised problem is really a quadratic in x (or in a parameter).',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~3–5% of Maths (≈6–8 marks)', questions: '2–3 most years', nature: 'Direct: nature of roots, Vieta\'s, range of a quadratic, common roots, one location-of-roots' },
+      { exam: 'JEE Advanced', weightage: '~2–4% of Maths', questions: '1–2, usually embedded', nature: 'Disguised — quadratic in a parameter, discriminant of a conic, roots-as-condition in functions/inequalities' },
+    ],
+    correction: 'Several "weightage" pages count Quadratic Equations and Complex Numbers as one chapter and quote a single combined figure. Treat them separately when you plan: the quadratic share is the 2–3 direct questions described above, not the larger combined band.',
+    studyOrder: [
+      { step: 'Discriminant and nature of roots first', detail: 'D = b² − 4ac decides everything. D>0 real distinct, D=0 equal, D<0 complex (and for real coefficients, complex roots come in conjugate pairs). Roughly a quarter of all Main quadratic questions are settled by reading D correctly.' },
+      { step: 'Vieta\'s formulas (sum and product)', detail: 'α + β = −b/a and αβ = c/a. Learn to build the new quadratic whose roots are a transformation of α, β (e.g. roots 1/α, 1/β or α², β²) by computing the new sum and product — this is the single most reused skill in the chapter.' },
+      { step: 'Range of a quadratic and sign analysis', detail: 'For ax² + bx + c, the vertex value −D/4a is the max/min. Combined with the sign of a, this answers "find the range", "for what k is the expression always positive", and quadratic-inequality questions via the wavy-curve method.' },
+      { step: 'Location of roots', detail: 'The conditions that separate strong students from average ones — do this only after the above are automatic, because it combines all three.' },
+      { step: 'Common roots and higher-degree links', detail: 'One common root: cross-multiply the two equations. Both roots common: coefficients proportional. Then extend to "quadratic in a parameter" problems, which is where Advanced lives.' },
+    ],
+    highYield: [
+      {
+        topic: 'Location of roots — the full condition set',
+        detail:
+          'For f(x) = ax² + bx + c (take a>0; flip signs if a<0): BOTH roots greater than k needs D≥0, a·f(k)>0 AND vertex −b/2a > k. BOTH roots less than k needs D≥0, a·f(k)>0 AND −b/2a < k. k lies BETWEEN the roots needs only a·f(k)<0 (no discriminant check — f(k)<0 forces two real roots). Both roots in (p,q) needs D≥0, a·f(p)>0, a·f(q)>0 and p < −b/2a < q. Missing any one condition is the classic wrong answer — competitors list the topic but rarely the complete checklist.',
+      },
+      {
+        topic: 'Transformation of roots via Vieta\'s',
+        detail:
+          'If α, β are roots of ax²+bx+c=0, the equation with roots α+k, β+k is a(x−k)²+b(x−k)+c=0; with roots 1/α,1/β it is cx²+bx+a=0 (reverse the coefficients); with roots α²,β² use S=(α+β)²−2αβ and P=(αβ)². Recognising which substitution to make answers most "form the new equation" questions in under a minute.',
+      },
+      {
+        topic: 'Common roots',
+        detail:
+          'Exactly one common root α of a₁x²+b₁x+c₁ and a₂x²+b₂x+c₂: α = (c₁a₂−c₂a₁)/(a₁b₂−a₂b₁) and the consistency condition (c₁a₂−c₂a₁)² = (a₁b₂−a₂b₁)(b₁c₂−b₂c₁). If BOTH roots are common, a₁/a₂ = b₁/b₂ = c₁/c₂.',
+      },
+      {
+        topic: 'Range / always-positive conditions',
+        detail:
+          'ax²+bx+c > 0 for all real x ⟺ a>0 and D<0. <0 for all x ⟺ a<0 and D<0. These two lines answer a large share of "for what values of the parameter…" questions directly.',
+      },
+    ],
+    traps: [
+      'Forgetting one of the three location-of-roots conditions. "Both roots greater than k" needs the discriminant, the sign of f(k), AND the vertex position — checking only f(k) is the most common error.',
+      'Not checking D ≥ 0 before applying Vieta\'s. Sum and product formulas hold even for complex roots, but if the question demands real roots you must impose D ≥ 0 separately — easy marks are lost here.',
+      'Assuming complex roots occur in conjugate pairs when coefficients are not real. The conjugate-pair rule needs real coefficients; with complex coefficients a quadratic can have one real and one complex root.',
+      'Dividing by the leading coefficient without considering a = 0. If a is itself a parameter, "a = 0" turns the quadratic into a linear equation — a case JEE deliberately includes and students drop.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Quadratic Equations in JEE Main and Advanced?',
+        a: 'JEE Main asks about 2–3 questions almost every year (roughly 3–5% of the Maths section, ≈6–8 marks), usually direct ones on nature of roots, Vieta\'s formulas, range of a quadratic, and location/common roots. JEE Advanced rarely asks a standalone quadratic but embeds it in coordinate geometry, functions and parameter problems, so the real skill there is spotting the disguised quadratic.',
+      },
+      {
+        q: 'What are the conditions for both roots to be greater than a number k?',
+        a: 'For f(x) = ax² + bx + c with a > 0, all three must hold: the discriminant D = b² − 4ac ≥ 0 (real roots exist), f(k) > 0 (k is outside the roots on the positive side of the parabola), and the vertex −b/2a > k (the roots lie to the right of k). If a < 0, multiply f(k) by a so the sign condition becomes a·f(k) > 0. Forgetting any one of the three is the usual mistake.',
+      },
+      {
+        q: 'How do I know if a quadratic is always positive?',
+        a: 'ax² + bx + c is positive for every real x exactly when a > 0 and the discriminant D < 0 (the parabola opens upward and never touches the x-axis). It is always negative when a < 0 and D < 0. This single test answers most "for what value of the parameter is the expression positive for all x" questions.',
+      },
+      {
+        q: 'Is Quadratic Equations hard for JEE?',
+        a: 'The core (discriminant, Vieta\'s, range) is among the easiest reliable marks in JEE Maths. The genuinely tricky part is location of roots, because it forces you to combine the discriminant, the sign of f at a point, and the vertex position at once — once that condition set is memorised, the chapter becomes a consistent scorer rather than a hard one.',
+      },
+    ],
+  },
+
+  'jee-maths-binomial-theorem': {
+    overview:
+      'Binomial Theorem is a compact, high-return chapter: a small number of question types repeat almost unchanged year after year, so it rewards pattern recognition over heavy theory. JEE Main asks 1–2 questions nearly every session — most commonly the general/middle term, a coefficient identity, or a "find the term independent of x" problem. JEE Advanced also asks 1–2 but pushes into summation of series using binomial coefficients, multinomial expansions, and divisibility/remainder arguments. Because the chapter is short and the templates are stable, it is one of the best effort-to-marks chapters in the syllabus — the right move is to over-practise the four recurring templates rather than read more theory.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~3–5% of Maths (≈4–8 marks)', questions: '1–2 per session', nature: 'General/middle term, term independent of x, coefficient of a given power, simple coefficient sums' },
+      { exam: 'JEE Advanced', weightage: '~3% of Maths', questions: '1–2', nature: 'Series summation via Σ r·C(n,r), multinomial, greatest term, divisibility/remainder, integral-fractional part' },
+    ],
+    studyOrder: [
+      { step: 'General term first', detail: 'T(r+1) = C(n,r) xⁿ⁻ʳ yʳ is the engine of the whole chapter. Every "coefficient of xᵏ", "term independent of x", and "middle term" question is just choosing r so the power of x matches — get this reflexive before anything else.' },
+      { step: 'Middle term and term independent of x', detail: 'Middle term is T(n/2+1) when n is even, and the two terms T((n+1)/2), T((n+3)/2) when n is odd. "Term independent of x" means set the net power of x to zero in the general term and solve for r.' },
+      { step: 'Properties of binomial coefficients', detail: 'ΣC(n,r) = 2ⁿ, Σ(−1)ʳC(n,r) = 0, ΣC(n,r)² = C(2n,n), and the absorption identity r·C(n,r) = n·C(n−1,r−1). These convert nasty series into closed forms — the heart of the Advanced questions.' },
+      { step: 'Greatest term / greatest coefficient', detail: 'Use the ratio T(r+1)/T(r) > 1 to find where terms stop increasing. A standard but frequently mishandled type.' },
+      { step: 'Divisibility, remainder and (negative/fractional index)', detail: 'Last, because these reuse everything above: write the number as (1+x)ⁿ or (a+b)ⁿ and isolate the relevant terms; for |x|<1 use the (1+x)ⁿ infinite expansion for approximations.' },
+    ],
+    highYield: [
+      {
+        topic: 'General term and "coefficient of xᵏ / term independent of x"',
+        detail:
+          'Write T(r+1) = C(n,r) xⁿ⁻ʳ yʳ for the given binomial, collect the total power of x, set it equal to k (or to 0 for the independent term), solve for r, and substitute back. The overwhelming majority of Main questions are exactly this one procedure — speed here is worth more than any single piece of theory.',
+      },
+      {
+        topic: 'Coefficient sums using clever substitution',
+        detail:
+          'Put x = 1 to get ΣC(n,r) = 2ⁿ; x = −1 to get the alternating sum 0; combine x = 1 and x = −1 to isolate the sum of even-indexed or odd-indexed coefficients (each = 2ⁿ⁻¹). Differentiating (1+x)ⁿ then setting x = 1 produces Σ r·C(n,r) = n·2ⁿ⁻¹ — the trick behind most series questions.',
+      },
+      {
+        topic: 'Σ r·C(n,r) and Σ C(n,r)² type series',
+        detail:
+          'Two identities clear most Advanced series: r·C(n,r) = n·C(n−1,r−1) (pull n out and shift the index), and ΣC(n,r)² = C(2n,n) (compare the coefficient of xⁿ in (1+x)ⁿ(1+x)ⁿ). Recognising which one applies is the whole battle.',
+      },
+      {
+        topic: 'Divisibility and remainder',
+        detail:
+          'To find the remainder of, say, 7^103 on division by 25, write 7² = 49 = 50 − 1 and expand (50−1)^k by the binomial theorem; all terms with 50 vanish mod 25, leaving a small computable residue. The "find the remainder / last two digits" family is solved entirely this way.',
+      },
+    ],
+    traps: [
+      'Off-by-one on the term number. T(r+1) is the (r+1)th term, so the coefficient of xⁿ⁻ʳ sits at index r, not r+1 — mislabelling this shifts every answer by one term.',
+      'Using the finite expansion when the index is negative or fractional. (1+x)ⁿ for non-integer n is an infinite series valid only for |x| < 1; applying C(n,r) blindly there is wrong.',
+      'Forgetting the second middle term when n is odd. An odd power has TWO middle terms; questions that say "the middle term" with odd n are testing whether you notice.',
+      'Sign slips in alternating sums. Σ(−1)ʳC(n,r) = 0 only for the full expansion; a partial alternating sum does not vanish, and treating it as zero is a common error.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Binomial Theorem in JEE Main and Advanced?',
+        a: 'JEE Main asks 1–2 questions nearly every session (about 3–5% of the Maths section, ≈4–8 marks), most often on the general/middle term, the term independent of x, or a coefficient of a given power. JEE Advanced also asks 1–2 but pushes into series summation using binomial coefficients, multinomial expansions, and divisibility/remainder problems.',
+      },
+      {
+        q: 'How do I find the term independent of x in a binomial expansion?',
+        a: 'Write the general term T(r+1) = C(n,r)·(first term)ⁿ⁻ʳ·(second term)ʳ, combine all the powers of x into a single exponent, set that exponent equal to zero, and solve for r. Substitute that r back into T(r+1) to get the constant term. If r comes out non-integer, there is no term independent of x.',
+      },
+      {
+        q: 'Which is the most important topic in Binomial Theorem for JEE?',
+        a: 'The general term T(r+1) = C(n,r)xⁿ⁻ʳyʳ — it directly answers the most common question types (coefficient of a power, middle term, term independent of x). After that, the coefficient-sum tricks from substituting x = ±1 and differentiating cover almost all the series questions.',
+      },
+      {
+        q: 'Is Binomial Theorem easy or hard for JEE?',
+        a: 'It is one of the easier high-yield chapters because the question templates barely change between years — once you can write the general term fluently and know the standard coefficient identities, most Main questions take under two minutes. The harder Advanced variants (series summation, divisibility) still reduce to those same identities, so the chapter rewards practice far more than memorising new theory.',
+      },
+    ],
+  },
+
+  'jee-chemistry-periodic-table': {
+    overview:
+      'Periodic Table & Periodicity is a near-guaranteed 1–2 marks in JEE Main and the conceptual foundation for all of inorganic chemistry, yet most weightage articles quote one inflated figure and stop at "atomic radius decreases across a period". The questions that actually appear hinge on the exceptions, not the trends: the ionisation-energy anomalies (Be > B and N > O), the second-period anomalous behaviour, and ordering ions/atoms by size. JEE Main keeps it easy-to-moderate and fact-based; JEE Advanced uses the same trends but demands reasoning — "explain why", isoelectronic comparisons, and trends combined with other inorganic concepts. Learn the four anomalies cold and you cover the part of the chapter that JEE actually tests.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~3–4% of Chemistry', questions: '1–2 per shift', nature: 'Direct: order atoms/ions by IE, radius or EN; identify the anomaly; isoelectronic size' },
+      { exam: 'JEE Advanced', weightage: '~2–4% of Chemistry', questions: '1–2, often fused', nature: 'Reasoning: "explain the trend", anomalies, diagonal relationship, trends linked to bonding/inorganic' },
+    ],
+    correction: 'Some pages quote ~9–10% weightage for this chapter — that figure bundles the entire s-block/p-block "inorganic" cluster, not periodicity alone. The standalone Periodicity contribution is the 1–2 direct questions described above; plan your time around that, not the inflated combined number.',
+    studyOrder: [
+      { step: 'Effective nuclear charge (Z_eff) first', detail: 'Every periodic trend is a consequence of Z_eff (Slater\'s rules give the idea: across a period Z_eff rises because added electrons shield poorly; down a group the added shell dominates). If you can reason from Z_eff, you can re-derive any trend instead of memorising eight of them.' },
+      { step: 'Atomic and ionic radius', detail: 'Decreases across a period, increases down a group. For ions: cations < parent atom < anions, and within an isoelectronic series radius falls as nuclear charge rises (O²⁻ > F⁻ > Na⁺ > Mg²⁺ > Al³⁺). Isoelectronic ordering is a Main favourite.' },
+      { step: 'Ionisation energy and its two anomalies', detail: 'Rises across, falls down — but with two breaks every year: Be > B (B loses a less-stable 2p electron) and N > O (N\'s half-filled 2p³ is extra stable, so O loses an electron more easily). These two reversals are the single most-asked idea in the chapter.' },
+      { step: 'Electron affinity and electronegativity', detail: 'EA: most negative around Group 17, but Cl > F (F\'s small size crowds the incoming electron). EN: F > O > N > Cl on the Pauling scale. The F < Cl reversal in EA mirrors the small-size theme.' },
+      { step: 'Anomalous second-period and diagonal relationship', detail: 'Last: why Li/Be/B/C differ from heavier group members (small size, no d-orbitals, high charge density) and the diagonal pairs Li~Mg, Be~Al, B~Si. These tie periodicity to the rest of inorganic.' },
+    ],
+    highYield: [
+      {
+        topic: 'The two ionisation-energy anomalies (Be>B, N>O)',
+        detail:
+          'Be (1s²2s²) has a higher first IE than B (1s²2s²2p¹) because B loses a loosely held 2p electron, while Be loses from a stable filled 2s. N (2p³, half-filled and stable) has a higher first IE than O (2p⁴), because removing one electron from O gives the stable 2p³ configuration. The same logic repeats at Mg>Al and P>S in period 3. Almost every "incorrect order of ionisation energy" question is built on these.',
+      },
+      {
+        topic: 'Isoelectronic series and ionic-radius ordering',
+        detail:
+          'For species with the same electron count, radius decreases as the nuclear charge increases. Standard set: N³⁻ > O²⁻ > F⁻ > Na⁺ > Mg²⁺ > Al³⁺ (all 10 electrons). Recognising an isoelectronic set and sorting by Z is a recurring quick-mark question.',
+      },
+      {
+        topic: 'Electron affinity exceptions (Cl > F, and the near-zero/positive cases)',
+        detail:
+          'Chlorine has a more negative electron affinity than fluorine: F is so small that electron–electron repulsion in the compact 2p subshell offsets the added electron. Noble gases and stable half/fully filled species (N, Be, Mg) have near-zero or positive EA. JEE phrases these as "which element releases the most energy on gaining an electron".',
+      },
+      {
+        topic: 'Diagonal relationship and anomalous first elements',
+        detail:
+          'Li resembles Mg, Be resembles Al, B resembles Si because moving down-and-right keeps the charge/size ratio similar. The first element of each group (Li, Be, B, C, N, O, F) is anomalous due to small size, high electronegativity and absence of d-orbitals — the basis of "why does the first member differ" questions across inorganic chapters.',
+      },
+    ],
+    traps: [
+      'Predicting ionisation energy from a smooth trend and missing Be>B and N>O. These two reversals (and Mg>Al, P>S) are exactly what the "incorrect order" questions test.',
+      'Assuming fluorine has the most negative electron affinity. It is chlorine — F\'s small size causes extra electron–electron repulsion. EN is highest for F, but EA is not.',
+      'Confusing electron affinity with electronegativity. EA is the energy change on gaining one electron (a measured kJ/mol value); electronegativity is a relative tendency to attract a shared pair in a bond. Questions deliberately swap the two.',
+      'Ranking isoelectronic ions by period/group instead of by nuclear charge. With equal electrons, more protons pull harder, so the radius shrinks — Al³⁺ is the smallest of the 10-electron set, not the largest.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Periodic Table & Periodicity in JEE Main?',
+        a: 'JEE Main typically asks 1–2 questions per shift (about 3–4% of the Chemistry section), usually fact-based: order a set of atoms or ions by ionisation energy, radius or electronegativity, spot the anomaly, or compare an isoelectronic series. JEE Advanced asks a similar 1–2 but demands the reasoning behind the trend and often fuses it with bonding or other inorganic concepts.',
+      },
+      {
+        q: 'Why is the ionisation energy of nitrogen higher than oxygen?',
+        a: 'Nitrogen has a half-filled 2p³ configuration, which is extra stable, so removing an electron from it costs more energy. Oxygen (2p⁴) actually becomes more stable when it loses one electron (it reaches 2p³), so its first ionisation energy is lower than nitrogen\'s despite oxygen having a higher nuclear charge. The same half-filled-stability logic explains Be > B as well.',
+      },
+      {
+        q: 'Which element has the most negative electron affinity — fluorine or chlorine?',
+        a: 'Chlorine. Although electron affinity generally increases up a group, fluorine is so small that the incoming electron faces strong repulsion from the already-crowded 2p subshell, making chlorine\'s electron affinity more negative than fluorine\'s. This is a standard JEE exception — don\'t confuse it with electronegativity, where fluorine is the highest.',
+      },
+      {
+        q: 'How do I order isoelectronic ions by size?',
+        a: 'When ions have the same number of electrons, the one with the most protons pulls those electrons in hardest and is the smallest. For the 10-electron set, the order is N³⁻ > O²⁻ > F⁻ > Na⁺ > Mg²⁺ > Al³⁺. So radius decreases as the nuclear charge increases across an isoelectronic series.',
+      },
+    ],
+  },
+
+  'jee-chemistry-solutions': {
+    overview:
+      'Solutions & Colligative Properties is one of the most formula-predictable chapters in JEE Chemistry — almost every question is a plug-in once you have set up the right colligative formula and the van\'t Hoff factor. JEE Main asks 1–2 questions a session, nearly always numerical: relative lowering of vapour pressure, ΔTb/ΔTf, or osmotic pressure, with the van\'t Hoff factor i applied for electrolytes. JEE Advanced asks fewer but harder ones that combine the van\'t Hoff factor with degree of dissociation/association or pair colligative properties with mole-fraction and Raoult\'s-law reasoning. The whole chapter rewards getting two things right: choosing molality (not molarity) for ΔTb/ΔTf, and computing i correctly for the given solute.',
+    examSplit: [
+      { exam: 'JEE Main', weightage: '~3–4% of Chemistry', questions: '1–2 per shift', nature: 'Numerical: relative lowering of VP, ΔTb, ΔTf, osmotic pressure, van\'t Hoff factor for electrolytes' },
+      { exam: 'JEE Advanced', weightage: '~2–3% of Chemistry', questions: '1–2', nature: 'i with dissociation/association, abnormal molar mass, Raoult\'s law + mole fraction combined' },
+    ],
+    correction: 'A frequent SERP slip is using molarity in ΔTb = Kb·m and ΔTf = Kf·m. The "m" here is molality (mol of solute per kg of solvent), not molarity (per litre of solution) — molality is used precisely because it is temperature-independent, which matters when the solution is heated or cooled. Mixing the two is the most common reason a colligative answer comes out wrong.',
+    studyOrder: [
+      { step: 'Concentration terms first', detail: 'Be fluent converting between mole fraction, molality and molarity. Colligative formulas need molality (ΔTb, ΔTf) or concentration (osmotic pressure), so a setup error here propagates into every later step.' },
+      { step: 'Raoult\'s law and relative lowering of vapour pressure', detail: 'P = P°·x_solvent, and (P° − P)/P° = x_solute. For dilute solutions this connects directly to molar mass — the basis of "find the molar mass of the solute" questions.' },
+      { step: 'The four colligative properties', detail: 'Relative lowering of VP, elevation of boiling point ΔTb = i·Kb·m, depression of freezing point ΔTf = i·Kf·m, and osmotic pressure π = i·C·R·T. Osmotic pressure is the most sensitive (measurable at very low concentration), which is why it is preferred for large molecules like polymers and proteins.' },
+      { step: 'Van\'t Hoff factor i', detail: 'i = (observed colligative property)/(calculated for no dissociation). For dissociation into n ions, i = 1 + (n−1)α; for association of n molecules into one, i = 1 − (1 − 1/n)α. This single factor is what turns an electrolyte problem from wrong to right.' },
+      { step: 'Abnormal molar mass', detail: 'Last, because it ties everything together: observed molar mass = normal molar mass / i. i > 1 (dissociation, e.g. NaCl) gives a lower observed molar mass; i < 1 (association, e.g. acetic acid dimerising in benzene) gives a higher one.' },
+    ],
+    highYield: [
+      {
+        topic: 'Van\'t Hoff factor for dissociation and association',
+        detail:
+          'Dissociation into n ions with degree α: i = 1 + (n−1)α. So fully dissociated NaCl has i = 2, K₂SO₄ has i = 3, AlCl₃ has i = 4. Association of n monomers into one unit (e.g. benzoic/acetic acid dimerising in benzene, n = 2): i = 1 − (1 − 1/n)α, giving i < 1. Almost every electrolyte colligative question reduces to picking the right form of this one equation.',
+      },
+      {
+        topic: 'ΔTf / ΔTb numericals (molality + i)',
+        detail:
+          'ΔTf = i·Kf·m and ΔTb = i·Kb·m, with m in mol solute per kg solvent. Worked pattern: 1 mol NaCl in 1 kg water, Kf = 1.86 → ΔTf = 2 × 1.86 × 1 = 3.72 °C, so freezing point = −3.72 °C. The exam tests whether you remembered the factor i and used molality — drop either and the numeric answer is wrong.',
+      },
+      {
+        topic: 'Osmotic pressure and molar-mass determination',
+        detail:
+          'π = i·C·R·T = i·(n/V)·R·T. Because π is large even for dilute solutions, it is the colligative property of choice for finding the molar mass of polymers and proteins (small ΔTb/ΔTf would be unmeasurable). Rearranged: M = (i·w·R·T)/(π·V), a standard "find the molar mass" question.',
+      },
+      {
+        topic: 'Ideal vs non-ideal solutions and azeotropes',
+        detail:
+          'Ideal solutions obey Raoult\'s law with ΔH_mix = 0, ΔV_mix = 0 (e.g. benzene + toluene). Positive deviation (weaker A–B forces, e.g. ethanol + water) gives a minimum-boiling azeotrope; negative deviation (stronger A–B, e.g. HNO₃ + water) gives a maximum-boiling azeotrope. JEE asks you to classify a given pair and predict the deviation sign.',
+      },
+    ],
+    traps: [
+      'Using molarity instead of molality in ΔTb and ΔTf. Those formulas require molality (per kg solvent); molarity changes with temperature and gives the wrong answer when the solution is heated or cooled.',
+      'Forgetting the van\'t Hoff factor i for electrolytes. A solution of NaCl depresses the freezing point about twice as much as a non-electrolyte of the same molality — leaving i = 1 halves the answer.',
+      'Mixing up dissociation and association for the molar-mass effect. Dissociation (i > 1) makes the observed molar mass smaller than normal; association (i < 1, e.g. acetic acid in benzene) makes it larger. Students routinely flip the direction.',
+      'Assuming the deviation sign without checking intermolecular forces. Positive deviation (and minimum-boiling azeotrope) comes from weaker A–B interactions; negative deviation from stronger ones. Guessing the azeotrope type without that reasoning is a common slip.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Solutions & Colligative Properties in JEE Main?',
+        a: 'JEE Main typically asks 1–2 questions per shift (about 3–4% of the Chemistry section), and they are almost always numerical — relative lowering of vapour pressure, elevation of boiling point, depression of freezing point, or osmotic pressure, with the van\'t Hoff factor applied for electrolytes. JEE Advanced asks fewer but combines the van\'t Hoff factor with degree of dissociation/association or with Raoult\'s-law reasoning.',
+      },
+      {
+        q: 'Should I use molarity or molality in ΔTf = Kf·m?',
+        a: 'Molality — moles of solute per kilogram of solvent. Boiling-point elevation and freezing-point depression use molality (not molarity) because molality does not change with temperature, and these processes involve heating or cooling. Plugging in molarity is the single most common reason a colligative-properties answer comes out wrong.',
+      },
+      {
+        q: 'What is the van\'t Hoff factor and how do I calculate it?',
+        a: 'The van\'t Hoff factor i is the ratio of the actual colligative effect to the effect expected if the solute neither dissociated nor associated. For dissociation into n ions with degree α, i = 1 + (n − 1)α (so fully dissociated NaCl has i = 2, K₂SO₄ has i = 3). For association of n molecules into one, i = 1 − (1 − 1/n)α, which gives i < 1. You multiply every colligative formula by i.',
+      },
+      {
+        q: 'Why is osmotic pressure preferred for measuring the molar mass of polymers?',
+        a: 'Osmotic pressure is the most sensitive colligative property — it produces a measurable value even for very dilute solutions, whereas the freezing-point depression or boiling-point elevation of a large molecule like a polymer or protein would be far too small to measure accurately. It is also measured at room temperature, so it avoids decomposing heat-sensitive biological molecules.',
+      },
+    ],
+  },
 };
 
 /** Returns the curated enrichment for a chapter slug, or undefined if none exists. */
