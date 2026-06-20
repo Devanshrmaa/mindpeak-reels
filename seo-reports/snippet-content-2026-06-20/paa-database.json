@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "generated": "2026-06-20",
+  "previousCycle": "2026-05-30 (102 questions)",
+  "totalQuestions": 107,
+  "newThisCycle": 5,
+  "carriedForward": "All 102 questions from 2026-05-30 are unchanged below — see seo-reports/snippet-content-2026-05-30/paa-database.json for the full base. This file lists only the 5 NET-NEW questions added this cycle. To get the complete current set, merge the May 30 file with the additions below.",
+  "format": "Each entry: { id, q, a (50-60 words snippet-length), category, targetPage, contentExists, action, addedCycle, source }",
+  "categories": ["JEE Strategy", "NEET Strategy", "Study Planning", "Subject-Specific", "Coaching Decision", "Exam Info", "Motivation/Mindset"],
+  "additionsThisCycle": [
+    {
+      "id": 103,
+      "q": "What is the closing rank for AIIMS Delhi general category?",
+      "a": "AIIMS Delhi general category closing rank for MBBS sits between AIQ rank 47 and 61 across 2022 to 2025, with a hard 710+/720 expectation in NEET. The bar has held remarkably stable post-NEET-2020. Targeting AIIMS Delhi means treating sub-720 as the working ceiling, not the stretch goal.",
+      "category": "Exam Info",
+      "targetPage": "app/blog/[slug]/page.tsx (slug: neet-cutoff-aiims-delhi-2027)",
+      "contentExists": true,
+      "action": "Already added during Batch #2 (2026-06-14). Surfaces in PAA for `aiims delhi cut off` (pos ~8-10).",
+      "addedCycle": "2026-06-20",
+      "source": "content-log.md Batch #2"
+    },
+    {
+      "id": 104,
+      "q": "Is COMEDK easier than KCET?",
+      "a": "COMEDK is broadly easier than KCET because COMEDK has no negative marking and 180 questions with no chemistry numerical biases. KCET has lower negative marking but a wider PCM + Biology spread, plus 2nd-PUC-board-weight which favours Karnataka-board students. COMEDK suits a stronger-PCM applicant; KCET suits Karnataka-state high-scorers.",
+      "category": "Exam Info",
+      "targetPage": "app/blog/[slug]/page.tsx (slug: comedk-complete-guide-2027)",
+      "contentExists": true,
+      "action": "Already added during Batch #2 (2026-06-14). Surfaces in PAA for `comedk exam pattern`.",
+      "addedCycle": "2026-06-20",
+      "source": "content-log.md Batch #2"
+    },
+    {
+      "id": 105,
+      "q": "Why is parabola asked more in JEE Advanced than Main?",
+      "a": "Parabola appears in 4-6 JEE Main questions/year vs 6-10 in JEE Advanced because Advanced rewards multi-concept problems combining parabola with calculus, vectors, or coordinate-geometry tangents. JEE Main asks parabola-only direct-application; Advanced asks parabola-as-supporting-context. Mastering parabola for Advanced gives a real edge with limited extra time investment.",
+      "category": "Subject-Specific",
+      "targetPage": "app/jee-math-geometry/page.tsx + conic-sections topic page",
+      "contentExists": true,
+      "action": "Added during Batch #1 weightage enrichment (2026-06-10). Still surfaces in PAA for `jee advanced weightage parabola`.",
+      "addedCycle": "2026-06-20",
+      "source": "content-log.md Batch #1"
+    },
+    {
+      "id": 106,
+      "q": "How many electrostatics questions in JEE Main usually?",
+      "a": "JEE Main Physics typically includes 4 to 6 electrostatics questions per shift — about 16 to 24 marks out of 100. Capacitors, electric field calculations for symmetric distributions, and Gauss's law applications dominate. Electrostatics is the highest-weight Physics chapter alongside Mechanics; mastering it gains 16+ marks consistently.",
+      "category": "Subject-Specific",
+      "targetPage": "NEW /jee-physics-electrostatics-important-questions (or consolidate into /jee-physics-electrodynamics)",
+      "contentExists": false,
+      "action": "Add Q&A. Newly leveraged because Q12 (electrostatics important questions jee) gained AIO this cycle while FS remains UNCLAIMED.",
+      "addedCycle": "2026-06-20",
+      "source": "ai-snippets-2026-06-20.md §2.1 Q12 status change"
+    },
+    {
+      "id": 107,
+      "q": "Is CBT mode harder than pen-paper for NEET?",
+      "a": "CBT mode is harder for students used to pen-paper because there is no margin space for scratch calculations and navigation between questions costs 3-5 seconds extra each. CBT is easier on bubble-marking errors (zero misbubbling) and answer-changes (one click). Net difficulty depends on practice — practice 3+ CBT mocks before NEET 2027.",
+      "category": "Exam Info",
+      "targetPage": "app/blog/[slug]/page.tsx (slug: neet-2027-syllabus-changes)",
+      "contentExists": true,
+      "action": "Already in blog body. Add as explicit FAQ Q&A pair for FAQPage schema eligibility.",
+      "addedCycle": "2026-06-20",
+      "source": "ai-snippets-2026-06-20.md §2.2 Q25 emerging citation signal"
+    }
+  ],
+  "rolloverNotes": [
+    "Questions 1-102 from 2026-05-30 are unchanged. Do NOT re-draft these.",
+    "Coverage progress: 71 / 107 (66%) now answered on-page vs 63 / 102 (62%) on 2026-05-30. The +4 points came from chapter-page enrichment batches adding FAQ pairs to existing content (Q103-Q105) plus the two new blog posts (which absorb several previously-unsurfaced questions).",
+    "Biggest remaining gap: NEW pages from §10 of 2026-05-30 backlog cover ~24 PAA questions across them. Each new page unlocks 3-5 PAA placements + 1 snippet + 1 AIO citation, so per-page leverage is high."
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "generated": "2026-06-20",
+  "previousCycle": "2026-05-30 (10 voice answers)",
+  "totalAnswers": 14,
+  "newThisCycle": 4,
+  "purpose": "30-40 word voice-optimized answers for Google Assistant, Nest, Alexa, and AI Overview voice surfaces. Each answer should be rendered visibly on the target page AS THE FIRST PARAGRAPH UNDER ITS H2 (or wrapped in <p className=\"voice-answer\">), and emitted via SpeakableSpecification JSON-LD so voice assistants know which sentence to read aloud.",
+  "implementationStatus": {
+    "may30Shipped": "8 of 10 answers from May 30 are visible in body copy on their target pages — but NONE have the .voice-answer className applied, so existing speakable selectors do not target them. Voice surfaces are currently speaking generic intro paragraphs instead.",
+    "speakableJsonLdStatus": "Partial: ChapterPage.tsx, SEOLandingPage.tsx, TopicPage.tsx, cityJsonLd.ts have speakable wired but selectors are ['h1', '.hero-description'] / ['h1', 'p.text-lg'] — they don't catch the curated voice answers. High-priority views (JEECoaching, NEETCoaching, StudyPlan, OnlineVsOffline, KotaAlternative, Pricing, RankPredictor, batch-vs-personal-coaching, foundation-coaching, jee-main-coaching, neet-coaching) have NO speakable at all.",
+    "recommendedFix": "Option A from §6.c of ai-snippets-2026-06-20.md: broaden the cssSelector to ['h1', '.hero-description', '.voice-answer', '.bluf'], wrap each voice answer paragraph in <p className=\"voice-answer\">, and add speakable JSON-LD to the 11 high-priority views currently missing it. Estimated effort: 30 minutes total."
+  },
+  "speakableSchemaTemplate": {
+    "comment": "Drop into any view that should be voice-eligible. The cssSelector array now catches both the page-default intro AND any explicitly-curated 30-40-word voice answers wrapped in .voice-answer or .bluf classes.",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", ".hero-description", ".voice-answer", ".bluf"]
+      }
+    },
+    "cssClassConvention": "Wrap each 30-40 word voice answer paragraph in `<p className=\"voice-answer\">…</p>`. BLUF paragraphs use `className=\"bluf\"`. Both are caught by the broadened selector."
+  },
+  "voiceAnswers": [
+    {
+      "id": "v-01",
+      "query": "How many hours should I study for JEE?",
+      "voiceAnswer": "For JEE Main, study six to eight hours daily alongside school. For JEE Advanced or dropper year, increase to eight to ten hours. Focus on quality problem-solving rather than just hours spent reading theory.",
+      "wordCount": 33,
+      "targetPage": "app/study-plan/page.tsx",
+      "status": "Body copy shipped 2026-05-16. Speakable schema NOT YET targeting it — apply Option A fix.",
+      "addedCycle": "2026-05-16"
+    },
+    {
+      "id": "v-02",
+      "query": "How many hours should I study for NEET?",
+      "voiceAnswer": "For NEET Class 11 and 12, study six to eight hours daily. Droppers should target eight to ten hours, with a daily 90-minute Biology block. Biology mastery is the single biggest NEET score driver.",
+      "wordCount": 35,
+      "targetPage": "app/study-plan/page.tsx",
+      "status": "Pending body-copy add. Apply Option A fix at same time.",
+      "addedCycle": "2026-05-16"
+    },
+    {
+      "id": "v-03",
+      "query": "Is NCERT enough for JEE Main?",
+      "voiceAnswer": "NCERT alone is sufficient for eighty to eighty-five percentile in JEE Main if mastered completely, especially Chemistry. For ninety-five plus percentile, supplement NCERT with HC Verma for Physics and standard problem books for Math.",
+      "wordCount": 36,
+      "targetPage": "app/jee-main-coaching/page.tsx",
+      "status": "Body copy shipped 2026-05-16. Speakable schema missing entirely on this page — add via Option A.",
+      "addedCycle": "2026-05-16"
+    },
+    {
+      "id": "v-04",
+      "query": "Is online coaching effective for NEET?",
+      "voiceAnswer": "Yes, online NEET coaching is effective when paired with strong self-discipline and a structured weekly mock series. Since 2022, top NEET-scorers have included online-only students each year. The format works; consistency decides outcomes.",
+      "wordCount": 32,
+      "targetPage": "app/online-vs-offline-jee-coaching/page.tsx (NEET section)",
+      "status": "Body copy shipped 2026-06-10 via Batch #1 enrichment. Speakable missing on view.",
+      "addedCycle": "2026-05-16"
+    },
+    {
+      "id": "v-05",
+      "query": "Can I crack JEE Main in 3 months?",
+      "voiceAnswer": "Cracking JEE Main in three months is realistic only if you already have a seventy-five plus percentile baseline. With baseline knowledge, three months of ten-hour-daily prep covering PYQs and weak-area drills can push you to ninety-five percentile.",
+      "wordCount": 37,
+      "targetPage": "app/jee-crash-course/page.tsx",
+      "status": "Body copy shipped 2026-05-16. Wire speakable on view.",
+      "addedCycle": "2026-05-16"
+    },
+    {
+      "id": "v-06",
+      "query": "What is the best way to study Biology for NEET?",
+      "voiceAnswer": "The best way to study Biology for NEET is to read NCERT line-by-line three times across the year, run a twenty-one-day chapter revision cycle, and pair each chapter with NCERT Exemplar. Diagrams must be memorised by blank-labelling.",
+      "wordCount": 37,
+      "targetPage": "app/neet-biology-coaching/page.tsx",
+      "status": "Body copy shipped 2026-05-16. Apply Option A fix.",
+      "addedCycle": "2026-05-16"
+    },
+    {
+      "id": "v-07",
+      "query": "How do toppers manage their time?",
+      "voiceAnswer": "Toppers use ninety-minute deep-work blocks with fifteen-minute breaks, maintain a daily error log, do active recall in the last thirty minutes of each block, and review mock-test mistakes the same day. Sustainability beats intensity.",
+      "wordCount": 34,
+      "targetPage": "app/study-plan/page.tsx",
+      "status": "Body copy shipped 2026-05-30. Apply Option A fix.",
+      "addedCycle": "2026-05-16"
+    },
+    {
+      "id": "v-08",
+      "query": "Is JEE Advanced harder than NEET?",
+      "voiceAnswer": "Yes, JEE Advanced is harder than NEET on conceptual depth and problem-solving complexity. NEET is harder on volume and Biology memorisation. JEE Main and NEET are comparable in difficulty but test very different skills.",
+      "wordCount": 34,
+      "targetPage": "app/blog/[slug]/page.tsx (slug: choosing-between-jee-and-neet)",
+      "status": "Body copy shipped 2026-06-14 in new blog post. Apply Option A fix via blog template.",
+      "addedCycle": "2026-05-16"
+    },
+    {
+      "id": "v-09",
+      "query": "Is online one-on-one coaching better than batch coaching?",
+      "voiceAnswer": "Yes, online one-on-one coaching is better than batch coaching for students stuck above eighty-five percentile, droppers, and students with one to two weak chapters. Batch coaching serves beginners with no JEE exposure better through structured year-long pacing.",
+      "wordCount": 38,
+      "targetPage": "app/batch-vs-personal-coaching/page.tsx",
+      "status": "Body copy shipped 2026-05-16. Speakable missing on app/[slug] route — add to layout or page-specific JsonLd.",
+      "addedCycle": "2026-05-30"
+    },
+    {
+      "id": "v-10",
+      "query": "How much does JEE coaching cost in India?",
+      "voiceAnswer": "JEE coaching costs vary from forty thousand rupees for online platforms to two and a half lakh rupees for elite offline batch coaching annually. One-on-one mentor platforms typically cost between sixty thousand and one point eight lakh rupees.",
+      "wordCount": 37,
+      "targetPage": "app/pricing/page.tsx",
+      "status": "Body copy shipped 2026-05-30. Apply Option A fix.",
+      "addedCycle": "2026-05-30"
+    },
+    {
+      "id": "v-11",
+      "query": "Should I take JEE if I'm not sure between engineering and medicine?",
+      "voiceAnswer": "If you cannot decide between engineering and medicine, take both NEET and JEE in parallel for the first three months of Class 11. Biology depth versus mathematical reasoning depth will reveal your real fit within twelve weeks.",
+      "wordCount": 36,
+      "targetPage": "app/blog/[slug]/page.tsx (slug: choosing-between-jee-and-neet)",
+      "status": "New this cycle. Add as voice-answer paragraph to existing blog body.",
+      "addedCycle": "2026-06-20"
+    },
+    {
+      "id": "v-12",
+      "query": "Is NEET 2027 going to be computer-based?",
+      "voiceAnswer": "NEET 2027 is expected to move toward a computer-based test format based on NMC indications. Practice three or more CBT-mode mocks before exam day. CBT removes bubble-marking errors but introduces new navigation and screen-fatigue trade-offs.",
+      "wordCount": 36,
+      "targetPage": "app/blog/[slug]/page.tsx (slug: neet-2027-syllabus-changes)",
+      "status": "New this cycle. Add as voice-answer paragraph to existing blog body.",
+      "addedCycle": "2026-06-20"
+    },
+    {
+      "id": "v-13",
+      "query": "How do I balance Class 12 boards and JEE Main?",
+      "voiceAnswer": "Balance Class 12 boards and JEE Main by running a sixty-thirty-ten study split until December, pausing new JEE concepts during the eight-week board window, and resuming full JEE mode five days after your last board paper. Boards and JEE share seventy percent of syllabus.",
+      "wordCount": 44,
+      "targetPage": "app/blog/[slug]/page.tsx (slug: how-to-balance-boards-and-jee)",
+      "status": "New this cycle. Ships with UNCLAIMED-target blog body — see snippet-targets.md §U-1.",
+      "addedCycle": "2026-06-20"
+    },
+    {
+      "id": "v-14",
+      "query": "Is a private JEE tutor worth the money?",
+      "voiceAnswer": "A private JEE tutor is worth the money for students stuck between eighty-five and ninety-five percentile with a specific weak subject. It costs forty thousand to two lakh rupees yearly and typically lifts percentile by four to eight points in six months.",
+      "wordCount": 41,
+      "targetPage": "app/blog/[slug]/page.tsx (slug: is-private-jee-tutor-worth-it)",
+      "status": "New this cycle. Ships with UNCLAIMED-target blog body — see snippet-targets.md §U-3.",
+      "addedCycle": "2026-06-20"
+    }
+  ],
+  "implementationChecklist": [
+    "Step 1: Apply Option A fix to ChapterPage.tsx:147 / SEOLandingPage.tsx:142 / TopicPage.tsx:172 — broaden cssSelector to include '.voice-answer' and '.bluf'.",
+    "Step 2: Add the same SpeakableSpecification JSON-LD block to: JEECoaching.tsx, NEETCoaching.tsx, StudyPlan.tsx, OnlineVsOffline.tsx, KotaAlternative.tsx, Pricing.tsx, RankPredictor.tsx, batch-vs-personal-coaching/page.tsx, foundation-coaching/page.tsx, jee-main-coaching/page.tsx, neet-coaching/page.tsx. Use the existing JsonLd component pattern.",
+    "Step 3: For each shipped voice answer (v-01 through v-12), wrap the visible paragraph in <p className=\"voice-answer\">…</p>.",
+    "Step 4: Ship v-13 and v-14 inside their new blog post bodies (already wrapped in voice-answer className in the snippet-targets.md template).",
+    "Step 5: Validate with https://search.google.com/test/rich-results — confirm SpeakableSpecification appears in the structured data tab for each touched page."
+  ]
+}
