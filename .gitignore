@@ -28,3 +28,6 @@ seo-reports/outreach-sent.json
 # Claude Code: share project commands, keep local settings/state private
 .claude/*
 !.claude/commands/
+
+# Next.js build output
+.next/

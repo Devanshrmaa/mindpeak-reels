@@ -1578,6 +1578,158 @@ A: ISI's entrance leads to **B.Stat (Hons)** and **B.Math (Hons)** — degrees p
 statistics, mathematics, research and data-science careers. JEE Main leads to **B.Tech/B.E.**
 at NITs, IIITs and GFTIs (and is the gateway to JEE Advanced for the IITs). Choose by the
 career path, not by exam prestige.`,
+
+  /* ──────────────────── Top engineering branches after JEE ────────────────────
+     Query: "best engineering branch after jee" / "which branch to choose".
+     SERP gap: leaders (Vidyamandir, Shiksha, CollegeDekho) list branches and say
+     "CSE pays most" but never put real branch-wise IIT placement medians next to
+     the "branch vs college" trade-off, and never give a decision rule. */
+  'top-engineering-branches-after-jee': `## Branch-wise Placement Reality at the IITs (the numbers the "CSE is best" articles skip)
+
+Every "top branches" list ranks CSE first and stops there. The number you actually
+need is how far the median package falls as you move away from CSE — because that
+gap is what you are trading when you pick a lower-ranked college for CSE over a
+top IIT for a core branch. These are recent (2024–2025) IIT placement figures, and
+two things stand out: CSE medians at the top IITs sit far above the institute-wide
+median, and overall placement rates have softened (IIT Guwahati reported ~62% in
+2024–25), so "any IIT branch = guaranteed crore package" is no longer true.
+
+| Branch (top IITs) | Typical median package | What it actually buys |
+|---|---|---|
+| CSE | ₹30–46 LPA (median); highest offers ₹50L+ | Software/product/quant roles; highest demand |
+| ECE / Electronics | ₹20–30 LPA (avg ~₹29.5L at IIT-K) | Dual door: VLSI/semiconductor core **and** software |
+| Electrical | ₹18–25 LPA | Core power/control + easy pivot to software/analytics |
+| Mechanical | ₹12–20 LPA | Core manufacturing/auto/PSU; some pivot to data/finance |
+| Civil | ₹10–16 LPA | Infrastructure, PSU, higher studies (GATE/MS) route |
+| Chemical | ₹12–18 LPA | Core process/energy; strong for finance & higher studies |
+
+(Institute-wide IIT B.Tech medians in 2024–25 ran roughly ₹17–20 LPA — CSE pulls
+the top of that range, core branches the bottom.)
+
+## The branch-vs-college decision: a simple rule
+
+The single most-asked question at counselling is "lower IIT/NIT for CSE, or top
+IIT for Mechanical?" Here is the honest rule, not a slogan:
+
+- **If you want a software career**, CSE/IT at a strong-placement college beats a
+  core branch almost everywhere — the curriculum, peer group and recruiter pool
+  all point the same way. A CSE seat at a top NIT or top IIIT can out-place a core
+  branch at a mid-tier IIT for software roles.
+- **If you want a core engineering or research career** (mechanical, electrical,
+  energy, materials, a PhD abroad), the **institute matters more than the branch**.
+  A Mechanical degree from IIT Bombay opens doors a CSE degree from an unknown
+  college never will — brand, alumni network, and cross-branch recruiters.
+- **If you are unsure**, prioritise the best institute you can get into and keep
+  the software door open: nearly every top IIT/NIT allows minors, electives, or a
+  branch change after Year 1 based on CGPA, and core-branch students routinely
+  move into software, analytics and finance on the strength of the brand.
+
+## A 4-question filter before you lock a branch
+
+1. Do you actually enjoy coding, or are you choosing CSE only for the package?
+   (Four years of a branch you dislike rarely ends well, package or not.)
+2. Is this branch's top recruiter pool one you'd want to work in?
+3. At this rank, is the trade-off "top institute + core branch" vs "lower institute
+   + CSE" — and which of the two rules above applies to your career goal?
+4. Does the college allow a branch change after Year 1? (If yes, a slightly "wrong"
+   branch at a great institute is a recoverable bet.)
+
+### FAQ — choosing an engineering branch after JEE
+
+**Q: Which engineering branch has the highest salary after JEE?**
+A: Computer Science (CSE) — at the top IITs its median sits around ₹30–46 LPA, well
+above other branches, driven by software, product and quant hiring. AI/ML, Data
+Science and ECE (especially VLSI/semiconductor roles) are the next tier.
+
+**Q: Should I pick a lower IIT for CSE or a top IIT for a core branch?**
+A: For a software career, CSE at a strong college usually wins. For core engineering
+or research, the top institute's brand and network matter more than the branch.
+Decide by the career you want, not by which sounds more prestigious.
+
+**Q: Is it worth taking a core branch (Mechanical/Civil) at a top IIT?**
+A: Yes, if you want core engineering, a PSU/research path, or you value the brand and
+alumni network — and because most top IITs let strong students pivot to software or
+finance, and allow a branch change after Year 1 on CGPA. It is a weaker choice only
+if your sole goal is a software job, in which case a CSE seat elsewhere fits better.
+
+**Q: Do non-CSE branches still get placed well?**
+A: At top IITs/NITs, yes — cross-branch recruiters hire from all branches, and many
+mechanical/electrical/chemical graduates move into software, analytics and finance.
+But placement rates have tightened recently (some IITs ~60–65% in 2024–25), so a
+realistic plan beats assuming any IIT branch guarantees a top package.`,
+
+  /* ──────────────────── IIT vs NIT vs IIIT comparison ────────────────────
+     Query: "iit vs nit vs iiit" / "difference between iit nit iiit which is better".
+     SERP gap: most leaders blur that IITs admit on JEE *Advanced* rank while
+     NITs/IIITs admit on JEE *Main* rank — so they print incomparable rank numbers
+     side by side. Also missing: a clean fee comparison and a "same branch, which
+     to pick" decision. */
+  'iit-vs-nit-vs-iiit-comparison': `## First, the trap every "IIT vs NIT vs IIIT" article sets (and how to read ranks correctly)
+
+You cannot compare an IIT closing rank to an NIT closing rank directly — they come
+from **two different exams**. IITs admit through your **JEE Advanced** rank (a
+separate exam you qualify for by clearing JEE Main). NITs, IIITs and GFTIs admit
+through your **JEE Main** rank, via JoSAA counselling. So when an article writes
+"IIT Bombay CSE closes at ~66 but NIT Trichy CSE needs rank under 2,000," those are
+ranks in different pools and are not apples-to-apples. Read IIT cutoffs as JEE
+Advanced ranks and NIT/IIIT cutoffs as JEE Main ranks — always.
+
+| | IIT | NIT | IIIT |
+|---|---|---|---|
+| Admission exam | JEE **Advanced** (after qualifying Main) | JEE **Main** | JEE **Main** (some IIITs via own UGEE) |
+| Number of institutes | 23 | 31 | 25 (+ private/PPP IIITs) |
+| Focus | Broad engineering + research | Broad engineering | CS / IT / AI specialisation |
+| CSE closing (top institutes, General) | ~60–250 (JEE **Advanced** rank) | under ~2,000 (JEE **Main** rank) | IIIT-H/Bangalore among the most competitive; top IIITs' CS cutoffs beat many NITs |
+| Typical B.Tech fee (total) | ₹8–10 L | ₹5–8 L | ₹10–18 L (many IIITs are PPP/private) |
+| Home-state quota | No (all-India) | Yes (~50% seats) | Varies |
+
+## "Same branch — which should I pick?" — a practical order
+
+For the **same branch** (say CSE), the usual preference order is: top IITs
+(Bombay/Delhi/Madras/Kanpur) → IIIT Hyderabad → other older IITs → top NITs
+(Trichy, Surathkal, Warangal) and IIIT Bangalore/Delhi → newer IITs/NITs → other
+IIITs. But two honest caveats:
+
+- **For CSE specifically, a top IIIT can beat a mid/lower IIT.** IIIT Hyderabad's
+  CS placements and research output rival the older IITs; if CS is your goal, do
+  not reflexively pick a low-ranked IIT's CSE over IIIT-H or IIIT-B.
+- **Home-state quota changes the maths at NITs.** Your home NIT may give you a
+  branch at a JEE Main rank that would never clear the all-India cutoff — a real
+  advantage IITs (no state quota) don't offer.
+
+## So which is "better"?
+
+There is no single answer — it depends on branch and goal:
+
+- **Brand + research + core engineering** → IIT, full stop.
+- **CS/AI as the priority** → top IIITs (Hyderabad, Bangalore, Delhi) are
+  genuinely in the conversation with older IITs and ahead of many NITs.
+- **Strong all-round engineering near home, lower fee** → NITs, where the
+  home-state quota can land you a better branch than your rank suggests.
+
+### FAQ — IIT vs NIT vs IIIT
+
+**Q: What is the main difference between IIT, NIT and IIIT?**
+A: IITs admit through JEE Advanced and span broad engineering plus heavy research;
+NITs admit through JEE Main and are broad engineering institutes with a ~50%
+home-state quota; IIITs admit through JEE Main (some via their own exam) and
+specialise in Computer Science, IT and AI. Brand order overall is IIT > NIT/IIIT,
+but for CS the top IIITs rival older IITs.
+
+**Q: Can I compare an IIT closing rank with an NIT closing rank?**
+A: No. IIT cutoffs are JEE **Advanced** ranks and NIT/IIIT cutoffs are JEE **Main**
+ranks — different exams and candidate pools. Treat them as two separate scales.
+
+**Q: Is a top IIIT better than a low IIT for CSE?**
+A: For Computer Science, often yes. IIIT Hyderabad and IIIT Bangalore have CS
+placements and research that match or beat the newer/lower IITs. If CS is your
+specific goal, judge by the CS programme's strength, not just the "IIT" tag.
+
+**Q: Which has the lowest fees — IIT, NIT or IIIT?**
+A: NITs are usually the cheapest (≈₹5–8 lakh total for B.Tech), IITs sit around
+₹8–10 lakh, and many IIITs (especially PPP/private ones) are the most expensive at
+₹10–18 lakh. Always check the specific institute, and factor in scholarships and
+fee waivers for which you may be eligible.`,
 };
 
 /**

@@ -2969,11 +2969,50 @@ const comparisonPages: SEOPageData[] = [
         heading: 'Why Our AIR 42 Chose MindPeak Over Kota',
         content: 'Our highest-ranking student — AIR 42 in JEE Advanced — had initially planned to go to Kota. After a free trial session with MindPeak, he realized that 1-on-1 coaching addressed his specific weaknesses far more effectively than any batch class could. Within 6 months, his mock scores jumped from 120/300 to consistently above 280/300. He achieved AIR 42 while studying from home — saving his family over ₹4 lakhs in the process.',
       },
+      {
+        heading: 'Is Kota Worth It? The Honest Answer (and When It Genuinely Makes Sense)',
+        content: 'We won\'t pretend Kota is a scam — it isn\'t. Kota built India\'s coaching infrastructure, and its top faculty are genuinely excellent. The honest case for Kota is not the teaching (every top Kota teacher now also teaches online) — it is the structure: a fixed daily timetable, compulsory attendance, weekly chapter tests, and the simple fact of being in a room full of students doing the same thing. For a specific kind of student, that external accountability is the deciding factor. Kota is a reasonable choice if ALL of these are true: your child has a documented history of not studying without supervision, your home environment has genuine disruptions (no quiet study space, frequent interruptions), your child has a stable mental-health baseline and has lived away from home before, and the ₹7–11 lakh two-year cost will not financially stress the family. If even two of those are false, the relocation is usually a worse bet than a structured 1-on-1 program at home — which can supply the same accountability (daily mentor check-ins, fixed timetable, weekly tests) without uprooting the child.',
+      },
+      {
+        heading: 'The Real 2-Year Cost of Kota — Itemised',
+        content: 'Brochure tuition is the smallest part of a Kota bill. Once you add hostel, mess, travel, and materials, the realistic all-in cost for a two-year Class 11–12 stint is ₹7–11 lakh. Here is the component-by-component breakdown families actually pay, against a 1-on-1 online program run from home:',
+        table: {
+          headers: ['Cost Component (2 years)', 'Kota (relocation)', 'MindPeak (1-on-1 from home)'],
+          rows: [
+            ['Tuition fee', '₹3.0L – ₹5.0L', '₹2.6L (all-inclusive)'],
+            ['Hostel + mess', '₹3.0L – ₹4.0L', '₹0'],
+            ['Travel home (festivals/breaks)', '₹60K – ₹1.2L', '₹0'],
+            ['Books, test series, materials', '₹40K – ₹80K', 'Included'],
+            ['Realistic 2-year total', '₹7.0L – ₹11.0L', '₹2.6L'],
+          ],
+        },
+      },
+      {
+        heading: 'A 6-Question Checklist: Should Your Child Go to Kota?',
+        content: 'Answer these honestly before booking a hostel. The single most revealing question is the last one — ask it about last month, not about intentions.',
+        ordered: true,
+        bullets: [
+          'Does your child currently study 4+ hours a day at home WITHOUT being told to? (If yes, Kota\'s main advantage — forced discipline — adds little.)',
+          'Is there a quiet, distraction-free space at home where they can study? (If yes, the biggest reason to relocate disappears.)',
+          'Has your child lived away from home before and coped well emotionally? (If no, the homesickness risk is real and underestimated.)',
+          'Can your family absorb ₹7–11 lakh over two years without financial stress? (If no, the pressure transfers to the child.)',
+          'Does your child ask doubts confidently in a class of 150+ students? (If no, a batch model will leave gaps a 1-on-1 mentor would catch.)',
+          'In the last month, on a day with NO external deadline, how many hours did your child genuinely study? (Near zero → they need structure; a daily-accountability 1-on-1 program can supply it at home without relocation.)',
+        ],
+        authorityNote: 'Mostly "yes" to 1, 2, 3 and a comfortable "yes" to 4 → a good Kota institute can work for your child. Several "no" answers, especially to 2, 3 and 4 → relocating is likely the wrong call, and a structured 1-on-1 program at home will serve better.',
+      },
+      {
+        heading: 'For Parents: The Mental-Health Question Nobody Puts in the Brochure',
+        content: 'The hardest part of the Kota decision has nothing to do with ranks. A 16-year-old living alone in a hostel, in 150–400 student batches where it is easy to feel invisible, carrying the weight of a family\'s financial sacrifice, is a real mental-health load — and the news cycle around Kota student distress is not invented. This is not a reason to rule Kota out; thousands of students thrive there. It is a reason to be honest about your specific child. If your child is anxious, has struggled with being away from home, or tends to internalise pressure, the supervised-but-isolated hostel environment can make things worse, not better. The advantage of a 1-on-1 program from home is not just academic — your child keeps their support system, you keep weekly visibility into how they are actually doing, and a dedicated mentor notices a dip in motivation in days, not at the next parent-teacher meeting.',
+      },
     ],
     faqs: [
-      { q: 'Is online coaching really as effective as going to Kota?', a: 'Our AIR 42 result proves that 1-on-1 online coaching can outperform Kota. The personalised attention you receive at MindPeak is something no Kota institute can match with 200+ student batches. The key isn\'t the location — it\'s the quality and personalisation of teaching.' },
-      { q: 'What if my child needs the "competitive environment" of Kota?', a: 'The competitive environment of Kota is a myth for most students — it often creates stress rather than healthy competition. MindPeak creates productive competition through mock test rankings, peer benchmarking, and regular assessments without the toxic pressure.' },
-      { q: 'Do students from Kota ever switch to MindPeak?', a: 'Yes. We\'ve enrolled several students who went to Kota, realized batch coaching wasn\'t working, and switched to MindPeak\'s 1-on-1 model. Many saw immediate improvement because their specific weak areas were finally being addressed.' },
+      { q: 'Is online coaching really as effective as going to Kota?', a: 'For a disciplined student with a quiet study space and reliable internet, yes — and our AIR 42 result was earned from home. Since 2019, almost every top Kota faculty member also teaches online, so the "best teachers are only in Kota" claim is no longer true. What you cannot get in a 150+ student Kota batch is daily 1-on-1 attention on your specific weak areas, which is exactly what online 1-on-1 provides. The honest caveat: if your child genuinely will not study without a classroom forcing them to, Kota\'s structure is a real advantage — though a 1-on-1 program with daily mentor check-ins can replicate most of it.' },
+      { q: 'Is Kota worth it for JEE/NEET in 2026?', a: 'It depends on the student, not the city. Kota is worth it if your child needs external discipline, your home has study-disrupting conditions, your child is emotionally ready to live away, and ₹7–11 lakh over two years is affordable. It is not worth it if your child already self-studies, has a quiet home, or is anxious about leaving home — in those cases a 1-on-1 program at home gives better personalisation at a fraction of the cost. Use the 6-question checklist on this page to decide honestly.' },
+      { q: 'How much does Kota coaching actually cost for 2 years?', a: 'Tuition alone is ₹1.5–2.5 lakh per year, but that is the smallest part. Add hostel and mess (₹1.5–2 lakh/year), travel home, and books/test series, and the realistic all-in two-year cost is ₹7–11 lakh. MindPeak\'s 1-on-1 program from home is roughly ₹2.6 lakh for the same two years because there is no hostel, mess, or relocation cost.' },
+      { q: 'Can a dropper crack JEE/NEET from home instead of going to Kota?', a: 'Yes — and for many droppers home is the better choice. A dropper already knows the syllabus; what they need is surgical repair of weak chapters and relentless test analysis, not a second full pass through a 200-student batch. A 1-on-1 mentor builds the year around the exact topics that cost marks last time and saves the 2–3 hours daily that hostel logistics consume. The non-negotiable is structure: a fixed daily timetable, weekly mocks, and a mentor who holds you accountable — which our dropper program provides without relocation.' },
+      { q: 'What if my child needs the "competitive environment" of Kota?', a: 'Healthy competition helps; toxic comparison in a 300-student batch often does not. For students who thrive on it the environment is real, but for many it produces anxiety rather than motivation. MindPeak creates productive competition through mock-test leaderboards across our India-wide cohort and regular benchmarking — the ranking signal without the daily pressure-cooker.' },
+      { q: 'Do students from Kota ever switch to MindPeak mid-year?', a: 'Yes. We\'ve enrolled students who went to Kota, found the batch model wasn\'t addressing their specific gaps, and switched to 1-on-1 mid-year. The usual trigger is realising that doubt counters and large classes left their weak chapters untouched. Switching mid-year works because the first 2–3 weeks are diagnostic — the mentor maps exactly where marks are leaking and rebuilds the plan around it.' },
     ],
     relatedPages: [
       { label: 'Online vs Offline Coaching', href: '/online-vs-offline-jee-coaching' },

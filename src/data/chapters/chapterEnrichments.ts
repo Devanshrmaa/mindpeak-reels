@@ -947,70 +947,6 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
     ],
   },
 
-  'jee-physics-gravitation': {
-    overview:
-      'Gravitation is a compact, dependable scorer that most weightage articles describe in JEE Main terms only. In Main it is 1–2 mostly-direct questions per shift — variation of g, escape and orbital velocity, satellite energy and Kepler\'s laws. In Advanced it appears less often but more deeply: gravitation fused with SHM (the classic tunnel-through-the-earth problem), with energy conservation, or with rotational ideas. The formulas are few and the question types repeat, which is why a focused week usually makes this chapter exam-ready.',
-    examSplit: [
-      { exam: 'JEE Main', weightage: '~3–5% of Physics', questions: '1–2 per shift', nature: 'Direct: g with height/depth, escape vs orbital velocity, satellite energy, Kepler\'s third law' },
-      { exam: 'JEE Advanced', weightage: '~3–4%, fused', questions: '~1, multi-concept', nature: 'Gravitation + SHM (tunnel through earth), orbital energy/transfer, field & potential of distributions' },
-    ],
-    correction:
-      'You will see "5–7%, 4–5 questions" quoted (e.g. 4 in 2023, 4 in 2024, 5 in 2025). That count is aggregated across all shifts/sessions of a year, not what one student faces. In a single JEE Main paper, expect 1–2 Gravitation questions — plan your prep time against that, not the inflated annual total.',
-    studyOrder: [
-      { step: 'Newton\'s law, gravitational field and potential', detail: 'F = GMm/r², field g = GM/r², and potential V = −GM/r. Fix the sign convention now (potential and potential energy are negative, zero at infinity) — most chapter errors trace back to a dropped minus sign.' },
-      { step: 'Variation of g', detail: 'With height: g_h = g(1 − 2h/R) for h ≪ R; with depth: g_d = g(1 − d/R); plus the effect of Earth\'s rotation (g is least at the equator). The height and depth formulas look alike but are not — mixing them up is the classic trap.' },
-      { step: 'Escape and orbital velocity', detail: 'v_orbital = √(GM/r) for a circular orbit, v_escape = √(2GM/R). The neat relation v_escape = √2 · v_orbital (at the surface) is a frequent one-line question, and escape velocity is independent of the projectile\'s mass and direction.' },
-      { step: 'Satellite energy', detail: 'For a circular orbit: KE = +GMm/2r, PE = −GMm/r, total E = −GMm/2r. So total energy is negative (bound) and equal to −KE. Binding energy = GMm/2r. These three lines answer most satellite-energy questions.' },
-      { step: 'Kepler\'s laws', detail: 'Law of orbits (ellipse), law of areas (areal velocity constant = angular-momentum conservation), and T² ∝ r³. Most Kepler questions are ratio problems built on T² ∝ r³ or on equal-area reasoning at perigee/apogee.' },
-    ],
-    highYield: [
-      {
-        topic: 'Satellite energy relations',
-        detail:
-          'For a circular orbit, E = −GMm/2r, KE = −E, PE = 2E. Questions ask for the energy needed to move a satellite to a higher orbit (ΔE = GMm/2 · (1/r₁ − 1/r₂)) or for the binding energy. Knowing E = −KE closes almost all of them.',
-      },
-      {
-        topic: 'Variation of g with height and depth',
-        detail:
-          'g_h = g(1 − 2h/R) near the surface (and g(R/(R+h))² in general); g_d = g(1 − d/R). At the centre of the Earth g = 0. The factor of 2 in the height formula versus its absence in the depth formula is the most-tested distinction.',
-      },
-      {
-        topic: 'Escape vs orbital velocity',
-        detail:
-          'v_orbital = √(GM/r), v_escape = √(2GM/R), so v_escape = √2 · v_orbital at the surface (≈ 11.2 km/s for Earth). Escape velocity does not depend on the mass or launch direction of the body — a recurring conceptual question.',
-      },
-      {
-        topic: 'Kepler\'s third law and areal velocity',
-        detail:
-          'T² ∝ r³ (or a³ for an ellipse) drives the ratio problems; conservation of areal velocity (r²ω = constant) gives the speed ratio at perigee and apogee (v_p · r_p = v_a · r_a). These two ideas cover the Kepler questions.',
-      },
-    ],
-    traps: [
-      'Dropping the negative sign in gravitational PE/potential. Gravitational potential energy is −GMm/r (zero at infinity, more negative closer in); a positive PE is almost always a sign error.',
-      'Swapping the height and depth formulas for g: it is g(1 − 2h/R) for height but g(1 − d/R) for depth — the factor of 2 only appears with height.',
-      'Thinking escape velocity depends on the mass or direction of the object. It depends only on the planet (√(2GM/R)); the launch angle and projectile mass do not matter.',
-      'Forgetting that a satellite\'s total energy is negative and equals −KE. Treating PE as positive, or total energy as KE + |PE|, gives the wrong binding energy.',
-    ],
-    faqs: [
-      {
-        q: 'How many questions come from Gravitation in JEE Main?',
-        a: 'Usually 1–2 per shift (about 3–5% of the Physics section). The "4–5 questions a year" figure quoted online aggregates across all sessions and shifts — in your single paper, plan for one or two, most of them direct numericals on g-variation, escape/orbital velocity, satellite energy and Kepler\'s laws.',
-      },
-      {
-        q: 'Is Gravitation important for JEE Advanced?',
-        a: 'It appears less frequently than mechanics heavyweights, but when it does, Advanced goes deeper — fusing gravitation with SHM (a body dropped through a tunnel in the Earth executes SHM), with orbital-energy and orbit-transfer problems, or with field/potential of mass distributions. It is worth a solid pass for Advanced even though it is not the highest-frequency chapter.',
-      },
-      {
-        q: 'Is Gravitation easy to score in JEE?',
-        a: 'Yes — it has few formulas and the question types repeat, so it is one of the fastest chapters to make exam-ready. The care points are sign conventions in potential energy and not mixing up the height and depth formulas for g.',
-      },
-      {
-        q: 'What is the relation between escape velocity and orbital velocity?',
-        a: 'At the planet\'s surface, escape velocity = √2 × orbital velocity, because v_orbital = √(GM/R) and v_escape = √(2GM/R). For Earth that gives about 11.2 km/s escape versus about 7.9 km/s for a low orbit. Escape velocity is independent of the body\'s mass and launch direction.',
-      },
-    ],
-  },
-
   'jee-physics-fluid-mechanics': {
     overview:
       'Fluid Mechanics (the NCERT "Mechanical Properties of Fluids" chapter) is a quiet over-performer: in JEE Main it is a 1–2 question, mostly formula-direct scorer, but in JEE Advanced it punches well above its question count. Advanced typically asks just one fluids question, yet it is frequently conceptual and fused — a floating body executing SHM, Bernoulli combined with continuity, or viscous/terminal-velocity reasoning. So the Main strategy is "drill the standard formulas for speed," while the Advanced strategy is "understand the concept well enough to handle it inside another chapter."',
@@ -1781,70 +1717,6 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
     ],
   },
 
-  'jee-maths-3d-geometry': {
-    overview:
-      'Three-Dimensional Geometry is one of the most formula-driven and therefore most predictable chapters in JEE Maths. Almost every question reduces to one of a handful of standard objects — a line, a plane, the distance between them, or the image of a point — so once the formulae are reflexes, it becomes a reliable scorer. In JEE Main it is consistently 2–3 questions, usually direct substitution. In JEE Advanced it is 1–2 questions but with a geometric twist (skew lines, foot of perpendicular, planes through a line) that rewards a clear vector setup. It pairs tightly with Vectors, which supplies the dot/cross/scalar-triple-product machinery the 3D formulae are built on.',
-    examSplit: [
-      { exam: 'JEE Main', weightage: '~6–7% of Maths', questions: '2–3 per year', nature: 'Direct: distance point-to-plane, angle between line/plane, image of point, line–plane intersection' },
-      { exam: 'JEE Advanced', weightage: '~5–8% of Maths', questions: '1–2 per year', nature: 'Skew-line shortest distance, foot of perpendicular, family of planes, coordinate-geometry-style reasoning' },
-    ],
-    correction:
-      'Many weightage pages quote "Vectors & 3D Geometry = 9–11%, about 3–4 questions" as a single figure. Those are two separate chapters. 3D Geometry on its own is roughly 2–3 questions in Main and 1–2 in Advanced; Vectors is counted separately. The reason they are bundled is genuine — 3D Geometry is essentially Vectors applied to lines and planes — so study Vectors first, but budget marks and revision time for each chapter on its own count, not the inflated combined number.',
-    studyOrder: [
-      { step: 'Vectors first (prerequisite)', detail: 'Dot product (angles, projections), cross product (perpendiculars, areas) and the scalar triple product (volume, coplanarity) are the engine of every 3D formula. Trying 3D before Vectors is the most common reason students find this chapter "hard."' },
-      { step: 'Direction cosines and direction ratios', detail: 'l, m, n with l² + m² + n² = 1 versus the unnormalised ratios a, b, c. Almost every line/plane formula starts here, and confusing the two is the single biggest source of errors.' },
-      { step: 'Equation of a line in 3D', detail: 'Both forms — vector r = a + λb and Cartesian (x−x₁)/a = (y−y₁)/b = (z−z₁)/c. Be fluent at converting between them; questions mix the two freely.' },
-      { step: 'Equation of a plane', detail: 'Normal form r·n = d, point-normal form, plane through three points, and intercept form. The normal vector is the key object — most plane questions are really "find the normal."' },
-      { step: 'Distances, angles and images last', detail: 'Point-to-plane and point-to-line distance, angle between line and plane, shortest distance between skew lines, and foot of perpendicular / image of a point. These combine the earlier pieces and are where Advanced lives.' },
-    ],
-    highYield: [
-      {
-        topic: 'Shortest distance between two skew lines',
-        detail:
-          'For lines r = a₁ + λb₁ and r = a₂ + μb₂, the shortest distance is |[(a₂ − a₁) · (b₁ × b₂)]| / |b₁ × b₂| — the scalar triple product over the cross-product magnitude. ALWAYS check first whether the lines are parallel (b₁ ∥ b₂); if so this formula fails and you use the parallel-line distance instead. This is the highest-frequency Advanced result in the chapter.',
-      },
-      {
-        topic: 'Foot of perpendicular and image of a point in a plane',
-        detail:
-          'Drop a perpendicular from the point along the plane\'s normal n, parametrise P + tn, substitute into the plane equation to find t (foot), and double it for the mirror image. The same method on a line uses the line\'s direction vector. A recurring Main and Advanced setup.',
-      },
-      {
-        topic: 'Angle between a line and a plane',
-        detail:
-          'It uses sin θ = |b · n| / (|b| |n|), NOT cosine — because the angle is measured from the plane, the complement of the angle between the line\'s direction b and the plane\'s normal n. Mixing this up with the line–line/plane–plane cosine formula is the most common slip in the chapter.',
-      },
-      {
-        topic: 'Coplanarity of two lines and family of planes',
-        detail:
-          'Two lines are coplanar iff (a₂ − a₁) · (b₁ × b₂) = 0 (scalar triple product zero — the same coplanarity test as in Vectors). The family of planes through the intersection of two given planes, P₁ + λP₂ = 0, lets you build a plane satisfying an extra condition — a classic Advanced device.',
-      },
-    ],
-    traps: [
-      'Using cos θ instead of sin θ for the angle between a line and a plane. The line–plane angle is the complement of the angle to the normal, so it uses sine; reserve the cosine formula for line–line and plane–plane angles.',
-      'Confusing direction ratios with direction cosines. Ratios (a, b, c) are not normalised; direction cosines satisfy l² + m² + n² = 1. Plugging raw ratios into a formula that expects cosines gives a wrong magnitude.',
-      'Applying the skew-lines shortest-distance formula without checking the lines are actually skew. If b₁ × b₂ = 0 the lines are parallel and the formula divides by zero — use the parallel-line distance instead.',
-      'Writing the wrong plane through three points. Form two vectors in the plane, take their cross product for the normal, then use the point-normal form — don\'t guess the normal\'s components.',
-    ],
-    faqs: [
-      {
-        q: 'How many questions come from 3D Geometry in JEE Main and Advanced?',
-        a: 'JEE Main asks about 2–3 questions from 3D Geometry most years (~6–7% of the Maths section), and they are largely direct: distance from a point to a plane, image of a point, angle between a line and a plane. JEE Advanced adds 1–2 questions with a geometric twist such as skew-line distance or a family of planes. The "9–11%, 3–4 questions" figure you see online is Vectors AND 3D Geometry counted together.',
-      },
-      {
-        q: 'Is 3D Geometry hard for JEE?',
-        a: 'It is rated Hard mainly because it is spatial and formula-heavy, but it is also one of the most predictable chapters — nearly every question is a standard object (line, plane, distance, image) with a known formula. The students who struggle usually skipped Vectors; once dot, cross and scalar-triple products are automatic, 3D Geometry becomes systematic and high-scoring.',
-      },
-      {
-        q: 'Should I study Vectors or 3D Geometry first?',
-        a: 'Vectors first, without exception. Every 3D formula — line and plane equations, distances, the skew-line shortest distance, coplanarity — is built on the dot product, cross product and scalar triple product from Vectors. Learning 3D Geometry before Vectors is the most common reason students find it confusing.',
-      },
-      {
-        q: 'What is the most important topic in 3D Geometry for JEE?',
-        a: 'The shortest distance between two skew lines and the foot-of-perpendicular / image-of-a-point method. Skew-line distance is the highest-frequency Advanced result, and the image-of-a-point technique appears in both papers. Master those two along with the point-to-plane distance and you cover most of what the chapter asks.',
-      },
-    ],
-  },
-
   'jee-physics-gravitation': {
     overview:
       'Gravitation is one of the best effort-to-reward chapters in JEE Physics: a small, closed set of formulae covers almost everything, and the questions are mostly direct. In JEE Main it is reliably about 1 question per shift (occasionally 2) — Newton\'s law and superposition, variation of g, orbital and escape velocity, satellite energy, and Kepler\'s laws. In JEE Advanced it appears most years, usually fused with energy conservation or SHM (a particle dropped through a tunnel, binary-star systems, satellite energy changes). Because the chapter is compact and formula-driven, MindPeak students typically lock it down in about a week — making it a fast way to bank near-guaranteed marks.',
@@ -2033,6 +1905,9 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
       {
         q: 'Which alkyl halide should be used in Williamson ether synthesis?',
         a: 'The less hindered one — methyl or primary. Williamson synthesis is an SN2 reaction between an alkoxide and an alkyl halide, and SN2 is fastest at unhindered carbons. If you use a bulky tertiary halide, the alkoxide acts as a base instead and you get elimination (an alkene) rather than the ether. So to make a mixed ether, pair the bulky group as the alkoxide and the smaller group as the halide.',
+      },
+    ],
+  },
   'jee-physics-current-electricity': {
     overview:
       'Current Electricity is one of the two or three most dependable scoring chapters in JEE Main Physics — and the reason is that the question types barely change year to year. In JEE Main it carries roughly 8–10% of the Physics section, which works out to 3–4 questions in most shifts, and they are almost all formula-direct: equivalent resistance, Kirchhoff loops, meter-bridge/potentiometer balance, and instrument (galvanometer) conversions. JEE Advanced asks fewer questions (typically 1–2) but fuses them with capacitors in transient circuits or wraps them in an experimental-error or paragraph setting, so the gap most weightage articles miss is that this is a near-guaranteed-marks chapter in Main but a careful-reading chapter in Advanced.',
