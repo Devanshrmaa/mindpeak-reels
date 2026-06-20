@@ -2159,6 +2159,262 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
       },
     ],
   },
+  'neet-biology-digestion-absorption': {
+    overview:
+      'Digestion & Absorption is one of the steady, low-risk scorers in NEET\'s Human Physiology unit — in recent papers it gives about 2 questions, and almost all of them are direct NCERT recall. The marks cluster in three places: the enzyme → substrate → product → pH table, where and how each nutrient is absorbed, and the gastrointestinal hormones with a few disorders. Nothing here is numerical, so it rewards a clean enzyme chart and the small finite set of NCERT facts over problem practice — which is why it is a high marks-per-hour chapter.',
+    examSplit: [
+      { exam: 'Enzymes, glands & secretions', weightage: 'Highest share', questions: '~1 Q/yr', nature: 'Enzyme→substrate→product→optimum pH; salivary/gastric/pancreatic/intestinal juices; bile\'s role' },
+      { exam: 'Absorption & assimilation', weightage: 'High', questions: '~0–1 Q/yr', nature: 'Site + mechanism (active/facilitated/passive) for glucose, amino acids, fats (chylomicrons→lacteals), water, vitamins' },
+      { exam: 'GI hormones & disorders', weightage: 'Moderate', questions: '~0–1 Q/yr', nature: 'Gastrin, secretin, CCK; jaundice, vomiting, diarrhoea, PEM (kwashiorkor vs marasmus)' },
+    ],
+    correction:
+      'Vedantu-type pages headline "4–6 questions" while weightage sites quote "~2%". The 4–6 figure is the entire Human Physiology unit (digestion + breathing + circulation + excretion + neural + chemical coordination + locomotion), not this chapter; the ~2% is a long-run cumulative share, not a single paper. Prepare Digestion & Absorption as a reliable ~2-mark, mostly-recall chapter — finite facts that repeat, so the payback per hour is high.',
+    studyOrder: [
+      { step: 'Alimentary canal and glands', detail: 'The layout mouth → oesophagus → stomach (cardiac/fundic/pyloric) → small intestine (duodenum/jejunum/ileum) → large intestine, plus the four layers of the gut wall (serosa, muscularis, sub-mucosa, mucosa). Anatomy and labelling questions come straight from this.' },
+      { step: 'The enzyme table', detail: 'The spine of the chapter. For each region learn enzyme → substrate → product → optimum pH. Most direct questions are a single row of this table read back to you.' },
+      { step: 'Absorption mechanisms by nutrient', detail: 'Glucose and amino acids by active transport into blood; fructose by facilitated transport; fatty acids and glycerol re-formed into chylomicrons that enter the lacteals (lymph), not blood. The "enters blood vs lymph" point is a NEET favourite.' },
+      { step: 'GI hormones and the nutrient-digestion summary', detail: 'Gastrin (→ HCl), secretin (→ bicarbonate), CCK (→ bile + pancreatic enzymes); then a one-line summary of where carbohydrate, protein and fat digestion start and finish.' },
+      { step: 'Disorders', detail: 'Jaundice, vomiting, diarrhoea, constipation, indigestion, and protein-energy malnutrition (kwashiorkor vs marasmus). A short recall add-on, frequently a single MCQ.' },
+    ],
+    highYield: [
+      {
+        topic: 'Enzyme → substrate → product → pH map',
+        detail:
+          'Salivary amylase (starch → maltose, pH ~6.8), pepsin (proteins → peptides, acidic pH ~1.8), trypsin/chymotrypsin (proteins → peptides, alkaline pH ~8), pancreatic amylase (starch → maltose), pancreatic lipase (fats → fatty acids + glycerol), intestinal maltase/sucrase/lactase. The single most-asked block in the chapter.',
+      },
+      {
+        topic: 'Where each nutrient is absorbed and how',
+        detail:
+          'Most absorption is in the small intestine (mainly ileum): glucose and amino acids by active transport into blood; fatty acids → chylomicrons → lacteals (lymph). The large intestine absorbs water and some minerals; the mouth and stomach absorb almost nothing (a little water, alcohol, certain drugs).',
+      },
+      {
+        topic: 'Gastrointestinal hormones',
+        detail:
+          'Gastrin (from stomach → stimulates HCl), secretin (from duodenum → stimulates bicarbonate-rich pancreatic juice and damps gastric secretion), cholecystokinin/CCK (→ bile release from the gall bladder + pancreatic enzymes). Match-the-hormone questions recur most years.',
+      },
+      {
+        topic: 'Bile and emulsification',
+        detail:
+          'Bile is made by the liver and stored in the gall bladder and contains NO enzymes; bile salts emulsify fat into tiny micelles to give lipase a larger surface to act on. "Bile contains digestive enzymes" is a deliberate NEET trap.',
+      },
+    ],
+    traps: [
+      'Thinking bile digests fat. Bile has no enzymes — bile salts only emulsify fat; pancreatic lipase does the actual chemical digestion. The most common error in this chapter.',
+      'Mixing up the optimum pH of stomach vs intestinal enzymes. Pepsin needs an acidic pH (~1.8); trypsin needs an alkaline one (~8). Reversing them is a classic slip.',
+      'Assuming digested fat enters the blood directly like glucose. Fatty acids and glycerol are re-formed into triglycerides, packaged as chylomicrons, and enter the lacteals (lymph) first — only glucose and amino acids go straight into blood capillaries.',
+      'Confusing the gastrin / secretin / CCK jobs — gastrin → HCl, secretin → bicarbonate, CCK → bile + pancreatic enzymes.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Digestion and Absorption in NEET?',
+        a: 'In recent NEET papers it averages about 2 questions, almost all direct NCERT recall on enzymes, absorption sites and GI hormones. The "4–6 questions" figure quoted online is for the whole Human Physiology unit, and the "~2%" is a long-run cumulative share — not a single paper\'s count from this chapter.',
+      },
+      {
+        q: 'Which topics in Digestion and Absorption are most important for NEET?',
+        a: 'The enzyme → substrate → product → pH table, where and how each nutrient is absorbed (especially fats via chylomicrons and lacteals), and the three GI hormones (gastrin, secretin, CCK). These three clusters account for nearly every question the chapter has set.',
+      },
+      {
+        q: 'What is the easiest way to remember the digestive enzymes?',
+        a: 'Group them by where they act: mouth (salivary amylase), stomach (pepsin, plus rennin in infants), pancreas (trypsin, chymotrypsin, pancreatic amylase, lipase, nucleases), small intestine (maltase, sucrase, lactase, peptidases). For each, fix substrate → product → optimum pH — that is exactly the form NEET asks them in.',
+      },
+      {
+        q: 'Does fat get absorbed into the blood like glucose?',
+        a: 'No. Digested fat (fatty acids + glycerol) is re-formed into small droplets, coated to make chylomicrons, and absorbed into the lacteals of the lymphatic system — not directly into blood capillaries. Glucose and amino acids, by contrast, are absorbed straight into the blood. This blood-vs-lymph distinction is asked frequently.',
+      },
+    ],
+  },
+  'neet-biology-chemical-coordination': {
+    overview:
+      'Chemical Coordination & Integration is one of the most dependable scorers in NEET Biology — across 2013–2024 it has averaged about 2–3 questions per paper (roughly 2.6), and over half of those come from a small set of hormones. It is almost entirely recall, organised as gland → hormone → function → disorder, with a thin layer of mechanism (peptide vs steroid action). Because the facts are finite and repeat year after year, one well-built hormone table plus the hyper-/hypo-secretion disorders turns this into one of the highest marks-per-hour chapters in the syllabus.',
+    examSplit: [
+      { exam: 'Pituitary–hypothalamus + the high-frequency hormones', weightage: 'Highest share', questions: '~1–2 Q/yr', nature: 'Anterior vs posterior pituitary, hypothalamic control, ADH, oxytocin, TSH, GH and their disorders' },
+      { exam: 'Thyroid, parathyroid, adrenal, pancreas', weightage: 'High', questions: '~1 Q/yr', nature: 'T3/T4 & goitre/cretinism, PTH vs calcitonin (Ca²⁺), cortisol/aldosterone/adrenaline, insulin/glucagon & diabetes' },
+      { exam: 'Hormone mechanism & other sources', weightage: 'Moderate', questions: '~0–1 Q/yr', nature: 'Peptide (membrane receptor, second messenger) vs steroid (intracellular, gene action); heart (ANF), kidney (renin/erythropoietin)' },
+    ],
+    correction:
+      'Most sites print a gland–hormone table but never say which hormones are actually asked. Question-archive data (2013–2024) shows ADH, TSH, oxytocin, insulin, glucagon, adrenaline and calcitonin together account for well over half the chapter\'s previous-year questions. Drilling that short list — function, gland, and the disorder of over-/under-secretion — is worth far more than memorising all ~30 hormones equally.',
+    studyOrder: [
+      { step: 'Hypothalamus–pituitary axis first', detail: 'The hypothalamus controls the anterior pituitary through releasing/inhibiting hormones via the hypophyseal portal system, but it MAKES ADH and oxytocin, which are merely stored and released by the posterior pituitary. This anterior-vs-posterior distinction is the single most-tested idea in the chapter.' },
+      { step: 'Anterior pituitary tropic hormones', detail: 'GH (gigantism/acromegaly/dwarfism), TSH, ACTH, FSH, LH, prolactin. Learn the target gland of each — that is how the matching questions are framed.' },
+      { step: 'Thyroid, parathyroid and the calcium pair', detail: 'T3/T4 and iodine → goitre; hypothyroid cretinism (child) / myxoedema (adult); Graves\' (hyper). Then PTH raises blood Ca²⁺ and calcitonin lowers it — the antagonistic pair.' },
+      { step: 'Adrenal and pancreas', detail: 'Cortisol (glucocorticoid, anti-stress), aldosterone (mineralocorticoid, Na⁺/water), adrenaline (emergency "fight-or-flight"); insulin lowers and glucagon raises blood glucose. Note the name trap: diabetes mellitus = insulin problem, diabetes insipidus = ADH problem.' },
+      { step: 'Mechanism and other endocrine tissues', detail: 'Peptide hormones act via membrane receptors and a second messenger (cAMP); steroid/thyroid hormones enter the cell and act on genes. Add the non-classical sources: heart (ANF, lowers BP), kidney (renin, erythropoietin), GI hormones.' },
+    ],
+    highYield: [
+      {
+        topic: 'The seven most-asked hormones',
+        detail:
+          'ADH, TSH, oxytocin, insulin, glucagon, adrenaline and calcitonin make up the majority of previous-year questions. For each, fix gland → function → disorder. This is the single highest-return list in the chapter.',
+      },
+      {
+        topic: 'Anterior vs posterior pituitary',
+        detail:
+          'The anterior pituitary (adenohypophysis) makes and secretes GH/TSH/ACTH/FSH/LH/prolactin under hypothalamic releasing hormones; the posterior pituitary (neurohypophysis) makes nothing — it only stores and releases the hypothalamus-made ADH and oxytocin. The most frequent single question.',
+      },
+      {
+        topic: 'Antagonistic hormone pairs',
+        detail:
+          'Insulin ↓ vs glucagon ↑ (blood glucose), and PTH ↑ vs calcitonin ↓ (blood Ca²⁺). NEET loves asking the "which raises / which lowers" direction, so fix the arrows.',
+      },
+      {
+        topic: 'Peptide vs steroid hormone action',
+        detail:
+          'Peptide/protein hormones (insulin, glucagon, ADH) are water-soluble, bind membrane receptors and trigger a second messenger (cAMP); steroid (cortisol, sex hormones) and thyroid hormones are lipid-soluble, enter the cell and switch genes on/off. A near-annual mechanism question.',
+      },
+    ],
+    traps: [
+      'Saying the posterior pituitary "produces" ADH and oxytocin. It synthesises no hormone — both are made in the hypothalamus and only stored/released here. The most common error in the chapter.',
+      'Confusing diabetes mellitus (insulin deficiency, high blood sugar, glucose in urine) with diabetes insipidus (ADH deficiency, large volumes of dilute urine). Same word "diabetes", completely different hormone.',
+      'Reversing PTH and calcitonin — PTH raises blood calcium, calcitonin lowers it.',
+      'Assuming all hormones use the same mechanism. Steroid and thyroid hormones act on genes inside the cell; peptide hormones act through membrane receptors and a second messenger. The receptor location flips between the two classes.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Chemical Coordination and Integration in NEET?',
+        a: 'On average about 2–3 questions per paper (roughly 2.6 across 2013–2024), almost all direct recall on glands, hormones and disorders. Because more than half come from a handful of hormones (ADH, TSH, oxytocin, insulin, glucagon, adrenaline, calcitonin), it is one of the highest marks-per-hour chapters in NEET Biology.',
+      },
+      {
+        q: 'Which hormones are most important for NEET?',
+        a: 'ADH, TSH, oxytocin, insulin, glucagon, adrenaline and calcitonin appear most often. For each, learn the gland that secretes it, its function, and the disorder caused by over- or under-secretion — that triplet is exactly how NEET frames the questions.',
+      },
+      {
+        q: 'What is the difference between the anterior and posterior pituitary?',
+        a: 'The anterior pituitary (adenohypophysis) actually synthesises and secretes GH, TSH, ACTH, FSH, LH and prolactin, controlled by hypothalamic releasing hormones through a portal blood system. The posterior pituitary (neurohypophysis) synthesises nothing — it only stores and releases ADH and oxytocin, which are made in the hypothalamus. This is the chapter\'s most repeated question.',
+      },
+      {
+        q: 'Is diabetes mellitus the same as diabetes insipidus?',
+        a: 'No, and NEET uses the similar names as a trap. Diabetes mellitus is caused by a lack (or ineffectiveness) of insulin and shows high blood glucose and glucose in urine. Diabetes insipidus is caused by a lack of ADH (vasopressin) and shows large volumes of dilute urine, with normal blood sugar.',
+      },
+    ],
+  },
+  'neet-chemistry-solutions': {
+    overview:
+      'Solutions is one of the most predictable scorers in NEET Physical Chemistry — about 2–3 questions a paper (~4% of Chemistry), and the marks sit overwhelmingly in colligative-property numericals. The conceptual frame is small: four colligative properties, all proportional to the number of solute particles, with the van\'t Hoff factor (i) correcting for dissociation or association. Because the formulas are few and the question types repeat, it rewards drilling a handful of numerical patterns and getting the value of i right every time — which is exactly where most students drop the mark.',
+    examSplit: [
+      { exam: 'Colligative properties (numericals)', weightage: 'Highest share', questions: '~1–2 Q/yr', nature: 'ΔTb, ΔTf, osmotic pressure π, relative lowering of vapour pressure; solve for molar mass or i' },
+      { exam: 'Van\'t Hoff factor & abnormal molar mass', weightage: 'High', questions: '~1 Q/yr', nature: 'i for dissociation (NaCl, BaCl₂, K₄[Fe(CN)₆]) and association (benzoic acid in benzene); degree of dissociation/association' },
+      { exam: 'Raoult\'s law, Henry\'s law & solution types', weightage: 'Moderate', questions: '~0–1 Q/yr', nature: 'Ideal vs non-ideal (positive/negative deviation), azeotropes, Henry\'s law (gas solubility, KH)' },
+    ],
+    correction:
+      'Pages quote "~4%, 2–3 questions" and stop there. The hidden truth is where the marks actually fall: nearly every question reduces to one of the four colligative formulas, and the single biggest source of lost marks is the van\'t Hoff factor i — students either forget to include it or compute it wrongly for electrolytes. Treat Solutions as a "get i right, then plug in" chapter, not a theory chapter.',
+    studyOrder: [
+      { step: 'Concentration terms', detail: 'Molality (mol/kg — temperature-independent, the one colligative formulas use), mole fraction, molarity, ppm. Make the molality calculation reflexive; many numericals fail at this first step.' },
+      { step: 'Raoult\'s law and vapour pressure', detail: 'p = x·p° for each component; relative lowering of vapour pressure equals the mole fraction of solute. This is also the bridge to ideal vs non-ideal solutions.' },
+      { step: 'The four colligative properties', detail: 'Relative lowering of VP, elevation of boiling point ΔTb = i·Kb·m, depression of freezing point ΔTf = i·Kf·m, osmotic pressure π = i·C·R·T. Learn them as one family — all proportional to particle count.' },
+      { step: 'Van\'t Hoff factor i', detail: 'i = 1 + (n−1)α for dissociation (α = degree of dissociation, n = particles per formula unit) and i = 1 + (1/n − 1)α for association. Fix the standard values: NaCl → 2, BaCl₂/CaCl₂ → 3, K₄[Fe(CN)₆] → 5, glucose/urea → 1, benzoic acid dimerising in benzene → ~0.5.' },
+      { step: 'Abnormal molar mass and deviations', detail: 'When i ≠ 1 the experimentally found molar mass is "abnormal"; i = normal molar mass / abnormal molar mass. Then positive vs negative deviation from Raoult\'s law and azeotropes.' },
+    ],
+    highYield: [
+      {
+        topic: 'The four colligative formulas with i',
+        detail:
+          'ΔTb = i·Kb·m, ΔTf = i·Kf·m, π = i·C·R·T, and relative lowering of VP = i·(mole fraction of solute). Every numerical is one of these rearranged — usually to find the molar mass of the solute or the value of i.',
+      },
+      {
+        topic: 'Van\'t Hoff factor values',
+        detail:
+          'i > 1 for solutes that dissociate (NaCl 2, BaCl₂ 3, Al₂(SO₄)₃ 5), i < 1 for solutes that associate (benzoic/acetic acid dimerising in benzene ≈ 0.5), i = 1 for non-electrolytes (glucose, urea). Picking i correctly is the step that decides the answer.',
+      },
+      {
+        topic: 'Osmotic pressure as the "best" colligative property',
+        detail:
+          'π = iCRT is preferred for finding molar masses of large molecules (proteins, polymers) because the values are measurable at room temperature and it uses molarity directly. A frequent reasoning MCQ.',
+      },
+      {
+        topic: 'Henry\'s law and gas solubility',
+        detail:
+          'Solubility of a gas ∝ its partial pressure (p = KH·x); a higher KH means lower solubility, and solubility falls as temperature rises. This explains why a soda bottle fizzes on opening and why divers get the bends — favourite application MCQs.',
+      },
+    ],
+    traps: [
+      'Forgetting the van\'t Hoff factor i for electrolytes — NaCl gives 2 particles, so ΔTf is doubled. Leaving i out (or applying it to glucose, where i = 1) is the single most common error in the chapter.',
+      'Using molarity where the formula needs molality. ΔTb and ΔTf use molality (mol solute / kg solvent), which doesn\'t change with temperature; only osmotic pressure uses molarity.',
+      'Treating association like dissociation. Benzoic acid in benzene dimerises, so i < 1 and the colligative effect is smaller, not larger — the sign of (i − 1) flips.',
+      'Confusing Kb/Kf with the actual temperature change. Kb and Kf are per-molal constants of the solvent; the observed ΔT equals Kb (or Kf) multiplied by i and m.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Solutions in NEET?',
+        a: 'About 2–3 questions per paper (roughly 4% of the Chemistry section), and most are numerical. The bulk come from the four colligative properties and the van\'t Hoff factor, with a few conceptual questions on Raoult\'s law, Henry\'s law and ideal vs non-ideal solutions.',
+      },
+      {
+        q: 'Which topics in Solutions are most important for NEET?',
+        a: 'Colligative-property numericals (boiling-point elevation, freezing-point depression, osmotic pressure) and the van\'t Hoff factor / abnormal molar mass. Together these are the majority of the chapter\'s questions, so master the four formulas and the value of i for common electrolytes first.',
+      },
+      {
+        q: 'What is the van\'t Hoff factor and why does it matter?',
+        a: 'It is the ratio of the actual number of particles in solution to the formula units dissolved (i = observed colligative effect / expected effect). For dissociating solutes i > 1 (NaCl ≈ 2, BaCl₂ ≈ 3), for associating solutes i < 1 (benzoic acid in benzene ≈ 0.5), and for non-electrolytes i = 1. Every colligative formula is multiplied by i, so getting it wrong is the most common way to lose the mark.',
+      },
+      {
+        q: 'Why is molality used instead of molarity in colligative formulas?',
+        a: 'Molality is moles of solute per kilogram of solvent, which doesn\'t change with temperature, whereas molarity (per litre of solution) changes as the solution expands or contracts on heating. Since boiling-point elevation and freezing-point depression involve temperature changes, molality keeps the concentration fixed; only osmotic pressure, measured at a constant temperature, uses molarity.',
+      },
+    ],
+  },
+  'neet-physics-laws-of-motion': {
+    overview:
+      'Laws of Motion is the backbone chapter of NEET mechanics. As a standalone topic it gives about 2–3 questions a paper, but its real footprint is far larger: the free-body-diagram (FBD) skill it teaches is the fast route through circular motion, work-energy and rotation questions too. Sources that quote "~2%, 1 question" are counting only the questions tagged to this chapter; the FBD method itself is reused across a much bigger share of the Physics section. The chapter is half concept (Newton\'s three laws, friction) and half technique (drawing the FBD and writing F = ma per body) — and the technique is what separates fast solvers from slow ones.',
+    examSplit: [
+      { exam: 'Newton\'s laws, FBD & connected bodies', weightage: 'Highest share', questions: '~1–2 Q/yr', nature: 'F = ma per body, pulleys/Atwood, blocks in contact, tension, apparent weight in a lift' },
+      { exam: 'Friction', weightage: 'High', questions: '~1 Q/yr', nature: 'Static vs kinetic (fs ≤ μsN, fk = μkN), angle of repose, block on incline, friction direction' },
+      { exam: 'Circular dynamics & pseudo-forces', weightage: 'Moderate', questions: '~0–1 Q/yr', nature: 'Banking of roads (with/without friction), conical pendulum, motion in non-inertial frames' },
+    ],
+    correction:
+      'pw-type notes quote "2% weightage, about 1 question a year" and stop. That undercounts the chapter\'s value: as a tagged topic it is closer to 2–3 questions, and the FBD technique you learn here is reused across circular motion, work-energy and rotational mechanics — so the hours spent here pay back across roughly a quarter of the Physics paper, not just one question.',
+    studyOrder: [
+      { step: 'The three laws, properly understood', detail: 'Inertia (first law), F = ma as the working tool (second law), and action–reaction as forces on DIFFERENT bodies (third law). The third-law "different bodies" point is itself a common conceptual question.' },
+      { step: 'The free-body-diagram method', detail: 'For each body draw weight (mg ↓), normal (⊥ to surface), tension, friction, and applied forces, then write ΣF = ma along chosen axes. Make this a fixed routine — most mistakes are a missing or mis-directed force, not the algebra.' },
+      { step: 'Friction', detail: 'Static friction is self-adjusting up to a maximum (fs ≤ μsN); kinetic friction is roughly constant (fk = μkN) with μk < μs; tan(angle of repose) = μs. The "friction adjusts to prevent motion until it can\'t" idea drives most friction MCQs.' },
+      { step: 'Connected bodies and the lift problem', detail: 'Atwood machine, blocks joined by strings or over pulleys (find the common acceleration first, then the tension), and apparent weight in an accelerating lift, N = m(g ± a). High-frequency numerical types.' },
+      { step: 'Circular dynamics and pseudo-forces', detail: 'Centripetal requirement mv²/r supplied by a real force (tension/friction/normal component), banking of roads (vmax = √(rg·tanθ) without friction), and pseudo-forces in non-inertial frames. The hardest sub-topic — do it last.' },
+    ],
+    highYield: [
+      {
+        topic: 'Free-body diagrams and connected bodies',
+        detail:
+          'The dominant question type. For pulley/contact problems, find the common acceleration of the system first, then isolate one body for the tension or contact force. Getting the FBD right is about 80% of the solution.',
+      },
+      {
+        topic: 'Friction essentials',
+        detail:
+          'fs ≤ μsN (self-adjusting), fk = μkN (constant), μk < μs, and tan(angle of repose) = μs. On an incline a block stays put until tanθ exceeds μs. The most common friction trap is assuming friction always equals μN even when the body is not sliding.',
+      },
+      {
+        topic: 'Apparent weight in a lift',
+        detail:
+          'N = m(g + a) when accelerating up, N = m(g − a) when accelerating down, and N = 0 in free fall (weightlessness). A near-guaranteed conceptual question somewhere in mechanics.',
+      },
+      {
+        topic: 'Banking of roads',
+        detail:
+          'The safe-speed condition. Without friction vmax = √(rg·tanθ); adding friction raises the maximum speed. Pair it with the conical pendulum, which uses the same "horizontal component supplies the centripetal force" logic.',
+      },
+    ],
+    traps: [
+      'Treating action and reaction as forces on the same body that "cancel". They act on different bodies, so they never cancel in a single body\'s FBD; only forces on the SAME body sum to zero in equilibrium. The most common conceptual error.',
+      'Using friction = μN when the body is stationary. Static friction is only as large as needed (up to μsN); on a body that is not about to slide it equals the applied force, not μsN.',
+      'Calling centripetal force a new, separate force. It is the NET inward force supplied by real forces (tension, friction, a component of normal or gravity) — not an extra force to add to the FBD.',
+      'Forgetting the direction of kinetic friction. It opposes the relative sliding direction, which on a driven wheel or a block on a moving belt can be opposite to what intuition suggests.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from Laws of Motion in NEET?',
+        a: 'As a tagged chapter it is about 2–3 questions per paper, mostly on free-body diagrams, friction and connected bodies. But its real weight is larger: the FBD technique you learn here is reused across circular motion, work-energy and rotation, so it influences far more than the handful of questions labelled "Laws of Motion".',
+      },
+      {
+        q: 'Which topics in Laws of Motion are most important for NEET?',
+        a: 'Free-body diagrams with connected bodies (pulleys, blocks in contact, lift problems), friction (static vs kinetic, angle of repose, block on incline) and circular dynamics (banking of roads, conical pendulum). Friction and FBD-based Newton\'s-second-law questions together are the majority of the chapter.',
+      },
+      {
+        q: 'Is Laws of Motion hard for NEET?',
+        a: 'It is moderate. The concepts (three laws, friction) are simple to state; the difficulty is purely technique — drawing a complete free-body diagram and writing F = ma for each body correctly. Once the FBD routine is automatic, most questions become quick, which is why it is worth over-practising early.',
+      },
+      {
+        q: 'What is the difference between static and kinetic friction?',
+        a: 'Static friction acts on a body that is not yet sliding and self-adjusts from zero up to a maximum of μsN to prevent motion; kinetic friction acts once the body is sliding and stays roughly constant at μkN. Since μk < μs, it takes more force to start an object moving than to keep it moving — a frequently tested idea.',
+      },
+    ],
+  },
 };
 
 /** Returns the curated enrichment for a chapter slug, or undefined if none exists. */
