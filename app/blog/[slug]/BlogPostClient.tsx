@@ -2,11 +2,14 @@
 
 import { useEffect, useState } from 'react';
 import { Link } from '@/components/RouterLink';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import { Navbar } from '@/components/sections/Navbar';
 import { SEOHead } from '@/components/SEOHead';
 import { useDemoModal } from '@/components/DemoBookingModal';
-import { Calendar, Clock, ArrowLeft, Share2, Copy, CheckCircle, BookOpen } from 'lucide-react';
+import {
+  Calendar, Clock, ArrowLeft, Share2, Copy, CheckCircle,
+  Atom, Stethoscope, Lightbulb, Target, Compass, BookOpen, type LucideIcon,
+} from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
@@ -25,9 +28,25 @@ interface SerializedPost {
   color?: string;
 }
 
+/* Category → icon + gradient (live posts carry no per-post icon). */
+const CATEGORY_META: Record<string, { icon: LucideIcon; gradient: string }> = {
+  JEE: { icon: Atom, gradient: 'from-blue-500 to-cyan-500' },
+  NEET: { icon: Stethoscope, gradient: 'from-emerald-500 to-teal-500' },
+  'Study Tips': { icon: Lightbulb, gradient: 'from-amber-500 to-orange-500' },
+  'Exam Strategy': { icon: Target, gradient: 'from-violet-500 to-fuchsia-500' },
+  General: { icon: Compass, gradient: 'from-rose-500 to-pink-500' },
+};
+
 export default function BlogPostClient({ post }: { post: SerializedPost }) {
   const { openDemoModal } = useDemoModal();
   const [copied, setCopied] = useState(false);
+
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.3 });
+
+  const meta = CATEGORY_META[post.category] ?? { icon: BookOpen, gradient: 'from-primary to-gold-dark' };
+  const Icon = meta.icon;
+  const gradient = post.color ?? meta.gradient;
 
   useEffect(() => { window.scrollTo(0, 0); }, [post.slug]);
 
@@ -52,41 +71,49 @@ export default function BlogPostClient({ post }: { post: SerializedPost }) {
   return (
     <>
       <SEOHead title={`${post.title} — Mindpeak Blog`} description={post.excerpt} />
+
+      {/* Reading-progress bar */}
+      <motion.div
+        aria-hidden
+        className="fixed top-0 left-0 right-0 z-50 h-1 origin-left bg-gradient-to-r from-gold to-gold-dark"
+        style={{ scaleX: progress }}
+      />
+
       <Navbar />
 
-      <main className="bg-background min-h-screen pt-20 sm:pt-24">
-        <nav aria-label="Breadcrumb" className="max-w-5xl mx-auto px-6 py-4">
-          <ol className="flex items-center gap-2 text-xs text-muted-foreground">
-            <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
-            <span>/</span>
-            <li><Link to="/blog" className="hover:text-primary transition-colors">Blog</Link></li>
-            <span>/</span>
-            <li className="text-foreground truncate max-w-[200px]">{post.title}</li>
-          </ol>
-        </nav>
+      <main className="bg-background min-h-screen">
+        {/* ── Article hero (navy band) ──────────────────────────────── */}
+        <header className="relative overflow-hidden bg-[hsl(225,43%,7%)] pt-28 sm:pt-32 pb-14 text-white">
+          <div className="absolute inset-0 dot-grid opacity-50" />
+          <div className={`absolute -top-32 -right-24 h-96 w-96 rounded-full bg-gradient-to-br ${gradient} opacity-25 blur-[130px]`} />
 
-        <article className="max-w-4xl mx-auto px-6 pb-20">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <Link to="/blog" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm mb-8">
-              <ArrowLeft className="w-4 h-4" /> Back to Blog
-            </Link>
+          <div className="relative max-w-4xl mx-auto px-6">
+            <nav aria-label="Breadcrumb" className="mb-8">
+              <ol className="flex items-center gap-2 text-xs text-white/50">
+                <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
+                <span>/</span>
+                <li><Link to="/blog" className="hover:text-primary transition-colors">Blog</Link></li>
+                <span>/</span>
+                <li className="text-white/80 truncate max-w-[180px]">{post.title}</li>
+              </ol>
+            </nav>
 
-            <div className="flex items-center gap-4 mb-6">
-              <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${post.color || 'from-primary to-primary/70'} flex items-center justify-center`}>
-                <BookOpen className="w-7 h-7 text-white" />
+            <div className="flex items-center gap-4 mb-7">
+              <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${gradient} flex items-center justify-center shadow-lg`}>
+                <Icon className="w-7 h-7 text-white" />
               </div>
-              <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium tracking-wider uppercase">
+              <span className="px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-white text-xs font-semibold tracking-[0.15em] uppercase">
                 {post.category}
               </span>
             </div>
 
-            <h1 className="font-display font-black text-foreground mb-6" style={{ fontSize: 'clamp(1.8rem, 5vw, 3.5rem)' }}>
+            <h1 className="font-display font-black leading-[1.05] mb-6" style={{ fontSize: 'clamp(1.9rem, 5vw, 3.5rem)' }}>
               {post.title}
             </h1>
 
-            <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-3xl">{post.excerpt}</p>
+            <p className="text-white/70 text-lg leading-relaxed mb-7 max-w-3xl">{post.excerpt}</p>
 
-            <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground mb-6">
+            <div className="flex flex-wrap items-center gap-6 text-sm text-white/60">
               <span className="flex items-center gap-2">
                 <Calendar className="w-4 h-4 text-primary" />
                 {new Date(post.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
@@ -95,8 +122,16 @@ export default function BlogPostClient({ post }: { post: SerializedPost }) {
                 <Clock className="w-4 h-4 text-primary" />
                 {post.readTime}
               </span>
-              <span className="font-medium text-foreground">By {post.author}</span>
+              <span className="font-medium text-white/90">By {post.author}</span>
             </div>
+          </div>
+        </header>
+
+        <article className="max-w-4xl mx-auto px-6 pt-12 pb-20">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <Link to="/blog" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm mb-8">
+              <ArrowLeft className="w-4 h-4" /> Back to Blog
+            </Link>
 
             <div className="flex flex-wrap gap-2 mb-8">
               {post.tags.map((tag) => (
@@ -116,7 +151,7 @@ export default function BlogPostClient({ post }: { post: SerializedPost }) {
               </button>
             </div>
 
-            <div className="mb-16">
+            <div className="mb-16 text-[1.0625rem] [&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:mr-3 [&>p:first-of-type]:first-letter:mt-1 [&>p:first-of-type]:first-letter:font-display [&>p:first-of-type]:first-letter:font-black [&>p:first-of-type]:first-letter:text-6xl [&>p:first-of-type]:first-letter:leading-[0.8] [&>p:first-of-type]:first-letter:text-primary">
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 components={{
@@ -130,7 +165,7 @@ export default function BlogPostClient({ post }: { post: SerializedPost }) {
                   li: ({ ...props }) => <li className="text-muted-foreground leading-relaxed" {...props} />,
                   strong: ({ ...props }) => <strong className="font-bold text-foreground" {...props} />,
                   em: ({ ...props }) => <em className="italic text-muted-foreground" {...props} />,
-                  blockquote: ({ ...props }) => <blockquote className="border-l-4 border-primary pl-5 my-6 italic text-muted-foreground" {...props} />,
+                  blockquote: ({ ...props }) => <blockquote className="relative my-8 rounded-r-xl border-l-4 border-primary bg-secondary/60 py-4 pl-6 pr-5 italic text-foreground/90 [&>p]:mb-0 [&>p]:text-foreground/90" {...props} />,
                   code: ({ ...props }) => <code className="bg-secondary/50 text-primary px-2 py-0.5 rounded text-sm font-mono" {...props} />,
                   table: ({ ...props }) => <div className="overflow-x-auto my-6 rounded-xl border border-border"><table className="min-w-full" {...props} /></div>,
                   thead: ({ ...props }) => <thead className="bg-secondary/50" {...props} />,
