@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "generated": "2026-06-20",
+  "previousCycle": "2026-05-30 (74 net-new FAQ pairs + 6 appended)",
+  "carriedForward": "The 80 FAQ entries from 2026-05-30 are unchanged and ship-ready. See seo-reports/snippet-content-2026-05-30/faq-sections.json for the full base. This file lists only the 5 NET-NEW FAQ pairs added this cycle plus integration notes for the 3 new blog posts (U-1, U-2, U-3 in snippet-targets.md).",
+  "implementationNote": "Each FAQ entry is rendered visibly via <PageFAQ> component AND emitted as FAQPage JSON-LD via buildFAQSchema. The pattern is established in src/components/PageFAQ.tsx — no new wiring needed; just append entries to each view's `faqs` array.",
+  "newFaqPairs": [
+    {
+      "id": "faq-2026-06-20-01",
+      "page": "app/blog/[slug]/page.tsx (slug: choosing-between-jee-and-neet)",
+      "addAs": "Append to the blogContentEnrichments entry for this slug",
+      "qa": {
+        "question": "Should I take JEE if I'm not sure between engineering and medicine?",
+        "answer": "If you cannot decide between engineering and medicine, take both NEET and JEE in parallel for the first three months of Class 11. Biology depth versus mathematical reasoning depth will reveal your real fit within twelve weeks. Most students cluster on one side organically; the few who don't typically choose engineering for broader career flexibility."
+      }
+    },
+    {
+      "id": "faq-2026-06-20-02",
+      "page": "app/blog/[slug]/page.tsx (slug: neet-2027-syllabus-changes)",
+      "addAs": "Append to the blogContentEnrichments entry for this slug",
+      "qa": {
+        "question": "Is NEET 2027 going to be computer-based?",
+        "answer": "NEET 2027 is expected to move toward computer-based test format based on NMC indications, though the official notification has not confirmed the year of full transition. Practice three or more CBT-mode mocks before exam day. CBT removes bubble-marking errors but introduces new navigation and screen-fatigue trade-offs that require deliberate adaptation."
+      }
+    },
+    {
+      "id": "faq-2026-06-20-03",
+      "page": "app/blog/[slug]/page.tsx (slug: neet-2027-syllabus-changes)",
+      "addAs": "Append to the blogContentEnrichments entry for this slug",
+      "qa": {
+        "question": "Is CBT mode harder than pen-paper for NEET?",
+        "answer": "CBT mode is harder for students used to pen-paper because there is no margin space for scratch calculations and navigation between questions costs three to five seconds extra each. CBT is easier on bubble-marking errors and answer-changes — net difficulty depends on CBT-mock practice. Practice three or more CBT mocks before NEET 2027."
+      }
+    },
+    {
+      "id": "faq-2026-06-20-04",
+      "page": "src/data/seoPageData.ts (entry: jee-maths-conic-sections)",
+      "addAs": "Append to the FAQ array in the SEOPageSection",
+      "qa": {
+        "question": "Why is parabola asked more in JEE Advanced than Main?",
+        "answer": "Parabola appears in four to six JEE Main questions per year versus six to ten in JEE Advanced because Advanced rewards multi-concept problems combining parabola with calculus, vectors, or coordinate-geometry tangents. JEE Main asks parabola-only direct-application; Advanced asks parabola-as-supporting-context. Mastering parabola for Advanced gives a real edge with limited extra time investment."
+      }
+    },
+    {
+      "id": "faq-2026-06-20-05",
+      "page": "NEW page: /jee-physics-electrostatics-important-questions (or merge into /jee-physics-electrodynamics)",
+      "addAs": "Add as primary FAQ for the new page (or append to existing page if consolidating)",
+      "qa": {
+        "question": "How many electrostatics questions appear in JEE Main usually?",
+        "answer": "JEE Main Physics typically includes four to six electrostatics questions per shift — about sixteen to twenty-four marks out of one hundred. Capacitors, electric field calculations for symmetric distributions, and Gauss's law applications dominate. Electrostatics is the highest-weight Physics chapter alongside Mechanics; mastering it gains sixteen-plus marks consistently."
+      }
+    }
+  ],
+  "newBlogPostFaqSections": {
+    "comment": "The 3 UNCLAIMED-target blog posts in snippet-targets.md ship with their own FAQ sections inline. Listed here for FAQPage JSON-LD wiring reference.",
+    "U-1": {
+      "page": "app/blog/[slug]/page.tsx (slug: how-to-balance-boards-and-jee)",
+      "faqQuestions": [
+        "Should I drop boards to focus on JEE Main?",
+        "How many hours should I study per day during boards?",
+        "Which chapters cost me the most if I confuse boards-style and JEE-style?",
+        "Should I take JEE Main Session 1 in January if my boards are in February?"
+      ],
+      "schemaWiring": "buildFAQSchema(blogPost.faqs) — uses existing pattern from blog template (PR #156)"
+    },
+    "U-2": {
+      "page": "app/blog/[slug]/page.tsx (slug: neet-preparation-strategy-average-student)",
+      "faqQuestions": [
+        "I'm scoring 380 in mocks — can I cross 600 in NEET 2027?",
+        "Should an average student take coaching or self-study?",
+        "How much time should I give to Biology vs Physics?",
+        "Is dropping a year worth it for an average student?"
+      ],
+      "schemaWiring": "buildFAQSchema(blogPost.faqs)"
+    },
+    "U-3": {
+      "page": "app/blog/[slug]/page.tsx (slug: is-private-jee-tutor-worth-it)",
+      "faqQuestions": [
+        "How much does a good private JEE tutor cost in India?",
+        "Can a private tutor replace coaching for JEE?",
+        "Is online 1-on-1 tutoring as effective as in-person tutoring?",
+        "How do I know if my tutor is actually helping?"
+      ],
+      "schemaWiring": "buildFAQSchema(blogPost.faqs)"
+    }
+  },
+  "implementationChecklist": [
+    "Step 1: Append the 5 new FAQ entries above to their target pages via existing `faqs` array pattern.",
+    "Step 2: Ship the 3 new UNCLAIMED blog posts (U-1, U-2, U-3) — their inline FAQ sections auto-emit FAQPage schema via the blog template.",
+    "Step 3: Validate each touched page on https://search.google.com/test/rich-results — confirm FAQPage schema parses without errors and shows all Q&A pairs.",
+    "Step 4: Submit URL Inspection requests for each touched URL via GSC."
+  ],
+  "rolloverNotes": [
+    "All 80 FAQ entries from 2026-05-30 are unchanged and should be merged into target pages as planned in that cycle. The 5 net-new entries above are additive, not replacements.",
+    "Coverage stat: pages that ship with FAQ schema continue to dominate AI Overview PAA placements — see Q22 (NEET vs JEE) and Q25 (NEET 2027 syllabus changes) emerging citations in ai-snippets-2026-06-20.md §2.2, both attributable to blog posts that shipped with FAQ schema."
+  ]
+}
