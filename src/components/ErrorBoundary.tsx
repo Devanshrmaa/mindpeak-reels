@@ -77,7 +77,7 @@ export class ErrorBoundary extends Component<Props, State> {
             </p>
             <button
               onClick={() => {
-                try { sessionStorage.removeItem('mp_chunk_reload'); } catch {}
+                try { sessionStorage.removeItem('mp_chunk_reload'); } catch { /* storage unavailable */ }
                 window.location.reload();
               }}
               style={{ padding: '0.75rem 2rem', background: 'linear-gradient(135deg, #f59e0b, #ea580c)', color: '#fff', border: 'none', borderRadius: '9999px', cursor: 'pointer', fontWeight: 600, fontSize: '0.95rem', boxShadow: '0 4px 14px rgba(245,158,11,0.3)' }}

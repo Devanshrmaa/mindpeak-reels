@@ -18,7 +18,9 @@ let _allPostsCache: BlogPost[] | null = null;
 function getProgrammaticPosts(): BlogPost[] {
   if (!_programmaticPosts) {
     // Dynamic import workaround: use require-style to avoid top-level import
-    // that pulls the entire 20MB content into the module graph at build time
+    // that pulls the entire 20MB content into the module graph at build time.
+    // Intentionally synchronous require so getProgrammaticPosts() stays sync.
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     const { getAllProgrammaticBlogPosts } = require('@/lib/programmaticBlogs');
     _programmaticPosts = getAllProgrammaticBlogPosts();
   }
