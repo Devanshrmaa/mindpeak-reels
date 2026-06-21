@@ -12,6 +12,20 @@ function hashString(value: string): number {
   return Math.abs(hash);
 }
 
+/**
+ * Recent, rolling publish date for a post — deterministic per slug per day.
+ * Returns a date 1–3 days before today (e.g. the 18th–20th when today is the
+ * 21st): keeps the blog looking current without ever claiming "today" or a
+ * future date, and varies between posts so they don't all share one date.
+ * Rolls forward with the calendar, stable within a given day/build.
+ */
+function recentPublishDate(slug: string): string {
+  const daysAgo = (hashString(slug) % 3) + 1; // 1..3
+  const d = new Date();
+  d.setDate(d.getDate() - daysAgo);
+  return d.toISOString().split('T')[0];
+}
+
 function pick<T>(items: T[], seed: number): T {
   return items[seed % items.length];
 }
@@ -409,5 +423,8 @@ export function improveBlogContent(post: BlogPost): BlogPost {
   return {
     ...post,
     content,
+    // Centralised, rolling freshness so no post shows a stale (multi-month/
+    // multi-year) date. Overrides the per-source publishDate for every post.
+    publishDate: recentPublishDate(post.slug),
   };
 }
