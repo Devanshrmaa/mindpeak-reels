@@ -88,6 +88,10 @@ const JEEPYQQuestion = () => {
   }, [slug, question]);
 
   const bank = params ? pyqSubjectBanks.find((b) => b.slug === params.subject) : undefined;
+
+  /* ── Question Gate (free first 4, then require form) ── hook must run before any conditional return */
+  const { isGated, onUnlock } = useQuestionGate(params?.questionIndex ?? 0);
+
   if (!params || !question || !bank) return <NotFoundFallback slug={slug} hub="/jee-pyq" hubLabel="JEE PYQ" />;
 
   const chapter = getPYQChapter(params.subject, params.chapter);
@@ -95,8 +99,6 @@ const JEEPYQQuestion = () => {
   const subj = bank.subject;
   const totalInChapter = chapter?.questions.length ?? 0;
 
-  /* ── Question Gate (free first 4, then require form) ── */
-  const { isGated, onUnlock } = useQuestionGate(params.questionIndex);
   const testName = `JEE PYQ — ${subj} — ${chapterName}`;
 
   /* ── Dynamic SEO content ── */

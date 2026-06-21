@@ -79,6 +79,10 @@ const NEETPYQQuestion = () => {
   }, [slug, question]);
 
   const bank = params ? neetPyqSubjectBanks.find((b) => b.slug === params.subject) : undefined;
+
+  /* ── Question Gate (free first questions, then require form) ── hook must run before any conditional return */
+  const { isGated, onUnlock } = useQuestionGate(params?.questionIndex ?? 0);
+
   if (!params || !question || !bank) return <NotFoundFallback slug={slug} hub="/neet-pyq" hubLabel="NEET PYQ" />;
 
   const chapter = getNEETPYQChapter(params.subject, params.chapter);
@@ -87,7 +91,6 @@ const NEETPYQQuestion = () => {
   const totalInChapter = chapter?.questions.length ?? 0;
   const unit = getUnitForChapter(params.subject, params.chapter);
 
-  const { isGated, onUnlock } = useQuestionGate(params.questionIndex);
   const testName = `NEET PYQ — ${subj} — ${chapterName}`;
 
   /* ── Dynamic SEO content ── */

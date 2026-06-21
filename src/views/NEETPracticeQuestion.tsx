@@ -115,6 +115,10 @@ const NEETPracticeQuestion = () => {
   }, [slug, question]);
 
   const bank = params ? neetSubjectBanks.find((b) => b.slug === params.subject) : undefined;
+
+  /* ── Question Gate (free first questions, then require form) ── hook must run before any conditional return */
+  const { isGated, onUnlock } = useQuestionGate(params?.questionIndex ?? 0);
+
   if (!params || !question || !bank) return <NotFoundFallback slug={slug} hub="/neet-practice" hubLabel="NEET Practice" />;
 
   const chapter = getNEETChapter(params.subject, params.chapter);
@@ -124,7 +128,6 @@ const NEETPracticeQuestion = () => {
   const subj = bank.subject;
   const diff = difficultyLabel[params.difficulty];
 
-  const { isGated, onUnlock } = useQuestionGate(params.questionIndex);
   const testName = `NEET ${subj} — ${chapterName} — ${topicName} (${diff})`;
 
   /* navigation slugs — use proper SEO slugs */

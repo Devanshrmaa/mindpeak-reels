@@ -119,6 +119,10 @@ const JEEPracticeQuestion = () => {
   }, [slug, question]);
 
   const bank = params ? subjectBanks.find((b) => b.slug === params.subject) : undefined;
+
+  /* ── Question Gate (free first 5, then require form) ── hook must run before any conditional return */
+  const { isGated, onUnlock } = useQuestionGate(params?.questionIndex ?? 0);
+
   if (!params || !question || !bank) return <NotFoundFallback slug={slug} hub="/jee-practice" hubLabel="JEE Practice" />;
 
   const chapter = getChapter(params.subject, params.chapter);
@@ -128,8 +132,6 @@ const JEEPracticeQuestion = () => {
   const subj = bank.subject;
   const diff = difficultyLabel[params.difficulty];
 
-  /* ── Question Gate (free first 5, then require form) ── */
-  const { isGated, onUnlock } = useQuestionGate(params.questionIndex);
   const testName = `JEE ${subj} — ${chapterName} — ${topicName} (${diff})`;
 
   /* navigation slugs — use proper SEO slugs */
