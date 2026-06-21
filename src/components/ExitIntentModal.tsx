@@ -33,7 +33,7 @@ export const ExitIntentModal = () => {
   const markShown = useCallback(() => {
     try {
       localStorage.setItem(STORAGE_KEY, String(Date.now()));
-    } catch {}
+    } catch { /* storage unavailable */ }
   }, []);
 
   const handleClose = () => {

@@ -12,7 +12,7 @@ export function ScrollToTop() {
   useEffect(() => {
     window.scrollTo(0, 0);
     // If we reach here, the page loaded successfully — reset the chunk-reload guard
-    try { sessionStorage.removeItem('mp_chunk_reload'); } catch {}
+    try { sessionStorage.removeItem('mp_chunk_reload'); } catch { /* storage unavailable */ }
   }, [pathname]);
   return null;
 }
