@@ -13,16 +13,18 @@ function hashString(value: string): number {
 }
 
 /**
- * Recent, rolling publish date for a post — deterministic per slug per day.
- * Returns a date 1–3 days before today (e.g. the 18th–20th when today is the
- * 21st): keeps the blog looking current without ever claiming "today" or a
- * future date, and varies between posts so they don't all share one date.
- * Rolls forward with the calendar, stable within a given day/build.
+ * Stable, SEO-safe publish date for a post — deterministic per slug and
+ * CONSTANT over time. It does NOT roll per crawl (a publish date that keeps
+ * advancing is treated by Google as date manipulation — especially risky
+ * during penalty recovery). Posts are spread across a FIXED window anchored
+ * to the 2026 content recovery, so dates look current without being faked
+ * fresh. When the catalogue is genuinely refreshed, bump PUBLISH_WINDOW_START.
  */
-function recentPublishDate(slug: string): string {
-  const daysAgo = (hashString(slug) % 3) + 1; // 1..3
-  const d = new Date();
-  d.setDate(d.getDate() - daysAgo);
+const PUBLISH_WINDOW_START = '2025-12-01';
+const PUBLISH_WINDOW_DAYS = 180; // ~6 months → spread ends ≈ 2026-05-30
+function stablePublishDate(slug: string): string {
+  const d = new Date(PUBLISH_WINDOW_START);
+  d.setDate(d.getDate() + (hashString(slug) % PUBLISH_WINDOW_DAYS));
   return d.toISOString().split('T')[0];
 }
 
@@ -423,8 +425,9 @@ export function improveBlogContent(post: BlogPost): BlogPost {
   return {
     ...post,
     content,
-    // Centralised, rolling freshness so no post shows a stale (multi-month/
-    // multi-year) date. Overrides the per-source publishDate for every post.
-    publishDate: recentPublishDate(post.slug),
+    // Centralised, STABLE publish date so no post shows an ancient (2024-era)
+    // date, while never rolling per crawl. Overrides the per-source
+    // publishDate for every post.
+    publishDate: stablePublishDate(post.slug),
   };
 }
