@@ -62,13 +62,13 @@ export function MpFAQ({ onCta }: { onCta: () => void }) {
           {mpFaqs.map((f, i) => {
             const isOpen = open === i;
             return (
-              <div key={i} className="mp-faq-item mp-spot" style={{ background: isOpen ? "#FFFFFF" : "rgba(255,255,255,0.5)", border: `1px solid ${isOpen ? "rgba(227,190,85,0.5)" : S.line}`, borderRadius: 16, boxShadow: isOpen ? "0 16px 40px rgba(19,32,63,0.10)" : "none" }}>
+              <div key={i} className="mp-faq-item mp-spot" style={{ background: isOpen ? S.card : S.chipBg, border: `1px solid ${isOpen ? "rgba(227,190,85,0.5)" : S.line}`, borderRadius: 16, boxShadow: isOpen ? "0 16px 40px rgba(19,32,63,0.10)" : "none" }}>
                 <button onClick={() => setOpen(isOpen ? null : i)} aria-expanded={isOpen} style={{ width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16, padding: "18px 22px", background: "none", border: "none", cursor: "pointer", textAlign: "left" }}>
                   <span style={{ display: "flex", flexDirection: "column", gap: 7, flex: 1 }}>
-                    <span style={{ alignSelf: "flex-start", fontSize: 10, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#7A5B0E", background: S.goldSoft, borderRadius: 999, padding: "3px 9px" }}>{f.tag}</span>
+                    <span style={{ alignSelf: "flex-start", fontSize: 10, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: S.goldInk, background: S.goldSoft, borderRadius: 999, padding: "3px 9px" }}>{f.tag}</span>
                     <span style={{ fontFamily: S.body, fontSize: 15.5, fontWeight: 600, color: S.navy, lineHeight: 1.4 }}>{f.q}</span>
                   </span>
-                  <span aria-hidden style={{ flexShrink: 0, width: 30, height: 30, borderRadius: "50%", border: `1px solid ${isOpen ? S.gold : S.line}`, background: isOpen ? S.goldSoft : "#FFFFFF", display: "grid", placeItems: "center", color: isOpen ? "#7A5B0E" : S.inkSoft, transform: isOpen ? "rotate(45deg)" : "none", transition: "all 300ms cubic-bezier(0.16,1,0.3,1)", fontSize: 18, lineHeight: 1 }}>+</span>
+                  <span aria-hidden style={{ flexShrink: 0, width: 30, height: 30, borderRadius: "50%", border: `1px solid ${isOpen ? S.gold : S.line}`, background: isOpen ? S.goldSoft : S.card, display: "grid", placeItems: "center", color: isOpen ? S.goldInk : S.inkSoft, transform: isOpen ? "rotate(45deg)" : "none", transition: "all 300ms cubic-bezier(0.16,1,0.3,1)", fontSize: 18, lineHeight: 1 }}>+</span>
                 </button>
                 {/* Answer stays in the DOM (SEO/a11y); the grid-rows trick animates height. */}
                 <div className={`mp-faq-body${isOpen ? " mp-open" : ""}`}>

@@ -44,9 +44,9 @@ export function MpLedger() {
 
 export function MpReportProof() {
   const bars = [
-    { k: "Biology — Genetics", v: 92, c: "#3E8E5A" },
+    { k: "Biology — Genetics", v: 92, c: S.green },
     { k: "Chemistry — Equilibrium", v: 78, c: S.gold },
-    { k: "Physics — Optics", v: 61, c: "#C25B3F" },
+    { k: "Physics — Optics", v: 61, c: S.terracotta },
   ];
   const stats = [
     { v: "AIR 156", k: "Priya’s final NEET rank" },
@@ -57,7 +57,7 @@ export function MpReportProof() {
     <section className="mp-x mp-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, padding: "96px 48px", alignItems: "center" }}>
       <div data-reveal style={{ position: "relative" }}>
         <div aria-hidden style={{ position: "absolute", top: -50, left: -60, width: 300, height: 300, borderRadius: "50%", background: "radial-gradient(circle, rgba(227,190,85,0.22) 0%, rgba(227,190,85,0) 65%)", pointerEvents: "none" }} />
-        <div className="mp-lift mp-spot" style={{ position: "relative", background: "#FFFFFF", borderRadius: 20, border: `1px solid ${S.line}`, boxShadow: S.shadowSoft, padding: "28px 30px" }}>
+        <div className="mp-lift mp-spot" style={{ position: "relative", background: S.card, borderRadius: 20, border: `1px solid ${S.line}`, boxShadow: S.shadowSoft, padding: "28px 30px" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 22 }}>
             <span style={{ fontFamily: S.disp, fontWeight: 700, fontSize: 17, color: S.navy }}>Weekly report — Priya P.</span>
             <span style={{ fontSize: 12, color: S.inkSoft, background: S.bgDeep, borderRadius: 999, padding: "5px 12px", fontWeight: 600 }}>Week 31 · NEET UG</span>
@@ -67,12 +67,12 @@ export function MpReportProof() {
               <div style={{ display: "flex", justifyContent: "space-between", fontSize: 13.5, marginBottom: 6, color: S.navy }}>
                 <span style={{ fontWeight: 600 }}>{r.k}</span><span style={{ color: S.inkSoft, fontWeight: 400 }}>{r.v}% accuracy</span>
               </div>
-              <div style={{ height: 8, borderRadius: 999, background: "#EEF0F5", overflow: "hidden" }}>
+              <div style={{ height: 8, borderRadius: 999, background: S.cardTint, overflow: "hidden" }}>
                 <div className="mp-bar-fill" style={{ "--w": `${r.v}%`, height: "100%", borderRadius: 999, background: r.c } as CSSProperties} />
               </div>
             </div>
           ))}
-          <div style={{ fontSize: 13, lineHeight: 1.55, color: S.inkSoft, background: "#F7F8FB", borderLeft: `3px solid ${S.goldBtn}`, borderRadius: 10, padding: "12px 14px", marginTop: 18 }}>
+          <div style={{ fontSize: 13, lineHeight: 1.55, color: S.inkSoft, background: S.cardTint, borderLeft: `3px solid ${S.goldBtn}`, borderRadius: 10, padding: "12px 14px", marginTop: 18 }}>
             <strong style={{ color: S.navy }}>Mentor&apos;s note:</strong> Optics needs two extra sessions this week — plan adjusted. Genetics is exam-ready.
           </div>
         </div>
@@ -115,13 +115,13 @@ export function MpPrograms({ onCta }: { onCta: () => void }) {
         <div className="mp-3col mp-programs-grid" style={{ position: "relative", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 0 }}>
           {programs.map((p, i) => (
             <div key={i} data-reveal className="mp-program" style={{ position: "relative", padding: i ? "0 36px" : "0 36px 0 0", borderLeft: i ? `1px solid ${S.line}` : "none", ...dd(i) }}>
-              <span aria-hidden style={{ position: "absolute", top: -6, right: i ? 0 : 36, fontFamily: S.disp, fontSize: 13, fontWeight: 700, color: "rgba(27,42,82,0.16)" }}>{p.no}</span>
+              <span aria-hidden style={{ position: "absolute", top: -6, right: i ? 0 : 36, fontFamily: S.disp, fontSize: 13, fontWeight: 700, color: S.line }}>{p.no}</span>
               <span aria-hidden className="mp-pillar-ic" style={{ display: "grid", placeItems: "center", width: 48, height: 48, borderRadius: 14, background: S.gradGold, boxShadow: "0 10px 24px rgba(201,151,31,0.26)" }}>
                 <p.Icon style={{ width: 22, height: 22, color: S.navyDeep }} strokeWidth={2.2} />
               </span>
               <h3 style={{ fontFamily: S.disp, fontSize: 25, fontWeight: 600, margin: "18px 0 12px", color: S.navy }}>{p.t}</h3>
               <p style={{ fontSize: 15, lineHeight: 1.6, color: S.inkSoft, margin: "0 0 18px" }}>{p.d}</p>
-              <div style={{ display: "inline-block", fontSize: 11.5, letterSpacing: "0.1em", textTransform: "uppercase", color: "#7A5B0E", fontWeight: 700, background: S.goldSoft, borderRadius: 999, padding: "6px 13px" }}>{p.best}</div>
+              <div style={{ display: "inline-block", fontSize: 11.5, letterSpacing: "0.1em", textTransform: "uppercase", color: S.goldInk, fontWeight: 700, background: S.goldSoft, borderRadius: 999, padding: "6px 13px" }}>{p.best}</div>
             </div>
           ))}
         </div>

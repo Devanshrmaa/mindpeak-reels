@@ -94,7 +94,7 @@ export function MpCompare() {
 
       <div className="mp-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, alignItems: "stretch" }}>
         {/* Batch coaching — muted */}
-        <div data-reveal className="mp-cmp-card mp-spot" style={{ ...dd(0), background: "#FFFFFF", border: `1px solid ${S.line}`, borderRadius: 22, padding: "34px 32px 26px" }}>
+        <div data-reveal className="mp-cmp-card mp-spot" style={{ ...dd(0), background: S.card, border: `1px solid ${S.line}`, borderRadius: 22, padding: "34px 32px 26px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
             <span aria-hidden style={{ width: 9, height: 9, borderRadius: "50%", background: S.inkSoft, opacity: 0.5 }} />
             <span style={{ fontFamily: S.disp, fontSize: 13, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: S.inkSoft }}>Traditional batch coaching</span>
@@ -102,7 +102,7 @@ export function MpCompare() {
           <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
             {batch.map((t, i) => (
               <li key={i} style={{ ...rowBase, borderTop: i ? `1px solid ${S.line}` : "none" }}>
-                <span aria-hidden style={{ flexShrink: 0, display: "grid", placeItems: "center", width: 24, height: 24, borderRadius: "50%", background: "rgba(27,42,82,0.06)", marginTop: 1 }}>
+                <span aria-hidden style={{ flexShrink: 0, display: "grid", placeItems: "center", width: 24, height: 24, borderRadius: "50%", background: S.cardTint, marginTop: 1 }}>
                   <X style={{ width: 13, height: 13, color: S.inkSoft }} />
                 </span>
                 <span style={{ fontSize: 15, lineHeight: 1.5, color: S.inkSoft }}>{t}</span>
@@ -162,8 +162,8 @@ export function MpMethod() {
 
       <div className="mp-4col" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 18 }}>
         {pillars.map((p, i) => (
-          <div key={i} data-reveal className="mp-lift mp-spot" style={{ ...dd(i), position: "relative", background: "#FFFFFF", border: `1px solid ${S.line}`, borderRadius: 20, padding: "30px 26px 28px", boxShadow: S.shadowSoft }}>
-            <span aria-hidden style={{ position: "absolute", top: 22, right: 24, fontFamily: S.disp, fontSize: 13, fontWeight: 700, color: "rgba(27,42,82,0.16)" }}>0{i + 1}</span>
+          <div key={i} data-reveal className="mp-lift mp-spot" style={{ ...dd(i), position: "relative", background: S.card, border: `1px solid ${S.line}`, borderRadius: 20, padding: "30px 26px 28px", boxShadow: S.shadowSoft }}>
+            <span aria-hidden style={{ position: "absolute", top: 22, right: 24, fontFamily: S.disp, fontSize: 13, fontWeight: 700, color: S.line }}>0{i + 1}</span>
             <span className="mp-pillar-ic" style={{ display: "grid", placeItems: "center", width: 52, height: 52, borderRadius: 16, background: S.gradGold, marginBottom: 20, boxShadow: "0 10px 24px rgba(201,151,31,0.28)" }}>
               <p.Icon style={{ width: 24, height: 24, color: S.navyDeep }} strokeWidth={2.2} />
             </span>

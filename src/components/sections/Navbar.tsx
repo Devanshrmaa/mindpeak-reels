@@ -3,6 +3,7 @@ import { Menu, X, ChevronDown, ChevronRight, ArrowLeft } from 'lucide-react';
 import { Link } from '@/components/RouterLink';
 import { usePathname } from 'next/navigation';
 import { useDemoModal } from '@/components/DemoBookingModal';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import Image from 'next/image';
 const logo = '/images/logo.jpeg';
 
@@ -162,7 +163,7 @@ export const Navbar = () => {
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden lg:flex items-center gap-6">
+        <div className="hidden lg:flex items-center gap-4 xl:gap-6">
           {navLinks.map((link) =>
             link.isPractice ? (
               /* ── Practice dropdown trigger ── */
@@ -286,6 +287,7 @@ export const Navbar = () => {
               </Link>
             )
           )}
+          <ThemeToggle className="flex-shrink-0" />
           <button
             onClick={openDemoModal}
             className="btn-pill btn-pill-gold px-5 py-2.5 text-[11px] uppercase tracking-[0.15em] whitespace-nowrap flex-shrink-0"
@@ -294,14 +296,17 @@ export const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Toggle */}
-        <button
-          onClick={() => { setMobileOpen(!mobileOpen); setMobileLevel('root'); }}
-          className="lg:hidden text-foreground p-2"
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile: theme toggle + menu button */}
+        <div className="lg:hidden flex items-center gap-2">
+          <ThemeToggle />
+          <button
+            onClick={() => { setMobileOpen(!mobileOpen); setMobileLevel('root'); }}
+            className="text-foreground p-2"
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
