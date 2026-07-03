@@ -27,7 +27,7 @@ Disallow: /manifest.json
 # Query-string duplicates
 Disallow: /*?*
 
-# Sitemap (lean — ~370 high-quality URLs only)
+# Sitemap (lean — curated high-quality URLs only)
 Sitemap: https://mindpeakinstitute.com/sitemap.xml
 
 # TEMPORARY removal sitemap — confirmed-indexed doorway URLs (serve HTTP 410)

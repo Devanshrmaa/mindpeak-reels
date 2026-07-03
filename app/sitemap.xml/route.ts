@@ -16,6 +16,7 @@ import { getAllCounsellingSlugs } from '@/data/counsellingData';
 import { getAllExamEventBlogSlugs } from '@/lib/examEventBlogs';
 import { ONE_YEAR_TARGET, TWO_YEAR_TARGET } from '@/lib/examYears';
 import { STATE_HUB_SLUGS } from '@/data/stateHubData';
+import { STATIC_LASTMOD, stableLastmod } from '@/lib/sitemapLastmod';
 
 const IMPORTANT_Q_SLUGS = [
   'jee-physics-important-questions',
@@ -28,29 +29,12 @@ const IMPORTANT_Q_SLUGS = [
 
 const BASE = 'https://mindpeakinstitute.com';
 
-/**
- * Deterministic lastmod based on slug hash.
- * Spreads dates over the last 14 days to avoid Google's "all same lastmod" penalty.
- * Static/high-priority pages always get TODAY.
- */
-function staggeredLastmod(slug: string, today: Date): string {
-  let hash = 0;
-  for (let i = 0; i < slug.length; i++) {
-    hash = ((hash << 5) - hash + slug.charCodeAt(i)) | 0;
-  }
-  const daysAgo = Math.abs(hash) % 14; // 0–13 days ago
-  const d = new Date(today);
-  d.setDate(d.getDate() - daysAgo);
-  return d.toISOString().slice(0, 10);
-}
-
 function urlEntry(path: string, priority: string, changefreq: string, lastmod: string): string {
   return `  <url>\n    <loc>${BASE}${path}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
 }
 
 export async function GET() {
-  const now = new Date();
-  const TODAY = now.toISOString().slice(0, 10);
+  const TODAY = new Date().toISOString().slice(0, 10);
 
   /* ═══ 1. Static / core commercial pages ═══ */
   const STATIC = [
@@ -176,31 +160,36 @@ export async function GET() {
   lines.push(`<!-- Total URLs: ${total} | Static: ${counts.static} | Chapters: ${counts.chapters} | Blogs: ${counts.blogs} | ExamInfo: ${counts.examInfo} | Difference: ${counts.difference} -->`);
   lines.push('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
 
-  // Breaking / time-sensitive pages → highest priority + hourly crawl
-  for (const p of BREAKING) lines.push(urlEntry(p, '0.90', 'hourly', TODAY));
+  // Lastmod policy: STATIC_LASTMOD (last real sitewide release) for static /
+  // hand-maintained pages, stableLastmod (fixed per-slug window) for the long
+  // tail. NEVER derive lastmod from the current date — rolling dates read as
+  // freshness manipulation (see src/lib/sitemapLastmod.ts).
 
-  // Static pages → always TODAY
-  for (const p of STATIC) lines.push(urlEntry(p, '0.80', 'weekly', TODAY));
-  for (const p of comparisonPaths) lines.push(urlEntry(p, '0.75', 'monthly', TODAY));
+  // Breaking / time-sensitive pages → highest priority + daily crawl
+  for (const p of BREAKING) lines.push(urlEntry(p, '0.90', 'daily', STATIC_LASTMOD));
+
+  // Static pages
+  for (const p of STATIC) lines.push(urlEntry(p, '0.80', 'weekly', STATIC_LASTMOD));
+  for (const p of comparisonPaths) lines.push(urlEntry(p, '0.75', 'monthly', STATIC_LASTMOD));
 
   // Chapter hub pages → high priority (absorb topics + notes)
-  for (const p of chapterPaths) lines.push(urlEntry(p, '0.70', 'monthly', staggeredLastmod(p, now)));
+  for (const p of chapterPaths) lines.push(urlEntry(p, '0.70', 'monthly', stableLastmod(p)));
 
   // Blog posts (curated subset)
-  for (const p of blogSlugs) lines.push(urlEntry(p, '0.60', 'weekly', staggeredLastmod(p, now)));
-  for (const p of examEventBlogSlugs) lines.push(urlEntry(p, '0.80', 'daily', TODAY));
+  for (const p of blogSlugs) lines.push(urlEntry(p, '0.60', 'weekly', stableLastmod(p)));
+  for (const p of examEventBlogSlugs) lines.push(urlEntry(p, '0.80', 'daily', STATIC_LASTMOD));
 
   // Reference pages
-  for (const p of examInfoSlugs) lines.push(urlEntry(p, '0.75', 'weekly', staggeredLastmod(p, now)));
-  for (const p of differenceSlugs) lines.push(urlEntry(p, '0.60', 'monthly', staggeredLastmod(p, now)));
-  for (const p of importantQSlugs) lines.push(urlEntry(p, '0.65', 'weekly', TODAY));
-  for (const p of counsellingSlugs) lines.push(urlEntry(p, '0.65', 'monthly', staggeredLastmod(p, now)));
+  for (const p of examInfoSlugs) lines.push(urlEntry(p, '0.75', 'weekly', stableLastmod(p)));
+  for (const p of differenceSlugs) lines.push(urlEntry(p, '0.60', 'monthly', stableLastmod(p)));
+  for (const p of importantQSlugs) lines.push(urlEntry(p, '0.65', 'weekly', STATIC_LASTMOD));
+  for (const p of counsellingSlugs) lines.push(urlEntry(p, '0.65', 'monthly', stableLastmod(p)));
 
   // T1 city coaching pages — high commercial intent, genuinely unique content
-  for (const p of CITY_PAGES) lines.push(urlEntry(p, '0.85', 'monthly', staggeredLastmod(p, now)));
+  for (const p of CITY_PAGES) lines.push(urlEntry(p, '0.85', 'monthly', stableLastmod(p)));
   // State hubs carry deep differentiated content (cutoff tables, board-bridge
   // analysis, exam-specific FAQs) — same tier as T1 city pages.
-  for (const p of STATE_HUB_PAGES) lines.push(urlEntry(p, '0.85', 'weekly', staggeredLastmod(p, now)));
+  for (const p of STATE_HUB_PAGES) lines.push(urlEntry(p, '0.85', 'weekly', stableLastmod(p)));
 
   lines.push('</urlset>');
 
