@@ -57,7 +57,7 @@ export function MpReportProof() {
     <section className="mp-x mp-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, padding: "96px 48px", alignItems: "center" }}>
       <div data-reveal style={{ position: "relative" }}>
         <div aria-hidden style={{ position: "absolute", top: -50, left: -60, width: 300, height: 300, borderRadius: "50%", background: "radial-gradient(circle, rgba(227,190,85,0.22) 0%, rgba(227,190,85,0) 65%)", pointerEvents: "none" }} />
-        <div className="mp-lift mp-spot" style={{ position: "relative", background: S.card, borderRadius: 20, border: `1px solid ${S.line}`, boxShadow: S.shadowSoft, padding: "28px 30px" }}>
+        <div data-tilt="4" className="mp-tilt mp-spot mp-glass-card" style={{ position: "relative", borderRadius: 20, padding: "28px 30px" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 22 }}>
             <span style={{ fontFamily: S.disp, fontWeight: 700, fontSize: 17, color: S.navy }}>Weekly report — Priya P.</span>
             <span style={{ fontSize: 12, color: S.inkSoft, background: S.bgDeep, borderRadius: 999, padding: "5px 12px", fontWeight: 600 }}>Week 31 · NEET UG</span>

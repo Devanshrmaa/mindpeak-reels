@@ -94,7 +94,7 @@ export function MpCompare() {
 
       <div className="mp-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, alignItems: "stretch" }}>
         {/* Batch coaching — muted */}
-        <div data-reveal className="mp-cmp-card mp-spot" style={{ ...dd(0), background: S.card, border: `1px solid ${S.line}`, borderRadius: 22, padding: "34px 32px 26px" }}>
+        <div data-reveal data-tilt="3" className="mp-cmp-card mp-spot mp-glass-card mp-tilt" style={{ ...dd(0), borderRadius: 22, padding: "34px 32px 26px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
             <span aria-hidden style={{ width: 9, height: 9, borderRadius: "50%", background: S.inkSoft, opacity: 0.5 }} />
             <span style={{ fontFamily: S.disp, fontSize: 13, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: S.inkSoft }}>Traditional batch coaching</span>
@@ -112,7 +112,7 @@ export function MpCompare() {
         </div>
 
         {/* MindPeak — elevated navy */}
-        <div data-reveal className="mp-cmp-card mp-lift mp-spot mp-spot-dark" style={{ ...dd(1), position: "relative", overflow: "hidden", background: S.gradNavy, border: `1px solid rgba(227,190,85,0.45)`, borderRadius: 22, padding: "34px 32px 30px", color: S.cream, boxShadow: "0 26px 60px rgba(19,32,63,0.26)" }}>
+        <div data-reveal data-tilt="3" className="mp-cmp-card mp-tilt mp-spot mp-spot-dark" style={{ ...dd(1), position: "relative", overflow: "hidden", background: S.gradNavy, border: `1px solid rgba(227,190,85,0.45)`, borderRadius: 22, padding: "34px 32px 30px", color: S.cream, boxShadow: "0 26px 60px rgba(19,32,63,0.26)" }}>
           <div aria-hidden style={{ position: "absolute", top: -120, right: -90, width: 320, height: 320, borderRadius: "50%", background: "radial-gradient(circle, rgba(227,190,85,0.22) 0%, rgba(227,190,85,0) 65%)", pointerEvents: "none" }} />
           <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20, gap: 12, flexWrap: "wrap" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -162,7 +162,7 @@ export function MpMethod() {
 
       <div className="mp-4col" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 18 }}>
         {pillars.map((p, i) => (
-          <div key={i} data-reveal className="mp-lift mp-spot" style={{ ...dd(i), position: "relative", background: S.card, border: `1px solid ${S.line}`, borderRadius: 20, padding: "30px 26px 28px", boxShadow: S.shadowSoft }}>
+          <div key={i} data-reveal data-tilt="5" className="mp-tilt mp-spot mp-glass-card" style={{ ...dd(i), position: "relative", borderRadius: 20, padding: "30px 26px 28px" }}>
             <span aria-hidden style={{ position: "absolute", top: 22, right: 24, fontFamily: S.disp, fontSize: 13, fontWeight: 700, color: S.line }}>0{i + 1}</span>
             <span className="mp-pillar-ic" style={{ display: "grid", placeItems: "center", width: 52, height: 52, borderRadius: 16, background: S.gradGold, marginBottom: 20, boxShadow: "0 10px 24px rgba(201,151,31,0.28)" }}>
               <p.Icon style={{ width: 24, height: 24, color: S.navyDeep }} strokeWidth={2.2} />
@@ -205,7 +205,7 @@ export function MpVoices() {
     <section className="mp-x" style={{ position: "relative", overflow: "hidden", background: S.gradNavy, color: S.cream, padding: "104px 48px 112px" }}>
       <MpDivider side="top" />
       <MpDivider side="bottom" />
-      <div aria-hidden style={{ position: "absolute", top: -160, left: -120, width: 480, height: 480, borderRadius: "50%", background: "radial-gradient(circle, rgba(227,190,85,0.14) 0%, rgba(227,190,85,0) 65%)", pointerEvents: "none" }} />
+      <div aria-hidden data-depth="0.25" style={{ position: "absolute", top: -160, left: -120, width: 480, height: 480, borderRadius: "50%", background: "radial-gradient(circle, rgba(227,190,85,0.14) 0%, rgba(227,190,85,0) 65%)", pointerEvents: "none" }} />
       <div aria-hidden style={{ position: "absolute", bottom: -220, right: -140, width: 460, height: 460, borderRadius: "50%", border: "1px solid rgba(251,247,239,0.07)", pointerEvents: "none" }} />
 
       <div data-reveal style={{ position: "relative", display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 44, gap: 24, flexWrap: "wrap" }}>
@@ -218,7 +218,7 @@ export function MpVoices() {
 
       <div className="mp-3col" style={{ position: "relative", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 18 }}>
         {voices.map((v, i) => (
-          <figure key={i} data-reveal className="mp-week-card mp-spot mp-spot-dark" style={{ ...dd(i), margin: 0, background: S.creamFaint, border: `1px solid ${S.lineLight}`, borderRadius: 20, padding: "30px 28px 26px", display: "flex", flexDirection: "column" }}>
+          <figure key={i} data-reveal data-tilt="4" className="mp-week-card mp-spot mp-spot-dark mp-glass-band mp-tilt" style={{ ...dd(i), margin: 0, borderRadius: 20, padding: "30px 28px 26px", display: "flex", flexDirection: "column" }}>
             <span aria-hidden style={{ fontFamily: S.disp, fontSize: 56, fontWeight: 700, lineHeight: 0.7, color: S.goldBtn, opacity: 0.55, marginBottom: 14 }}>&ldquo;</span>
             <blockquote style={{ margin: 0, fontSize: 16, lineHeight: 1.62, color: "rgba(251,247,239,0.94)", flexGrow: 1 }}>{v.q}</blockquote>
             <figcaption style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 22, paddingTop: 20, borderTop: `1px solid ${S.lineLight}` }}>
@@ -280,7 +280,7 @@ export function MpStats() {
     <section ref={ref} className="mp-x" style={{ position: "relative", overflow: "hidden", background: S.gradNavy, color: S.cream, padding: "104px 48px 112px" }}>
       <MpDivider side="top" />
       <MpDivider side="bottom" />
-      <div aria-hidden style={{ position: "absolute", top: -150, right: -120, width: 460, height: 460, borderRadius: "50%", background: S.auroraGoldSoft, pointerEvents: "none" }} />
+      <div aria-hidden data-depth="0.3" style={{ position: "absolute", top: -150, right: -120, width: 460, height: 460, borderRadius: "50%", background: S.auroraGoldSoft, pointerEvents: "none" }} />
 
       <div data-reveal style={{ position: "relative", textAlign: "center", maxWidth: 680, margin: "0 auto 52px" }}>
         <MpEyebrow light style={{ justifyContent: "center" }}>By the numbers</MpEyebrow>
@@ -309,7 +309,7 @@ export function MpStats() {
 
         <div className="mp-3col" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 18 }}>
           {numStats.map((s, i) => (
-            <div key={i} data-reveal className="mp-spot mp-spot-dark" style={{ ...dd(i), background: S.creamFaint, border: `1px solid ${S.lineLight}`, borderRadius: 18, padding: "28px 24px" }}>
+            <div key={i} data-reveal data-tilt="3" className="mp-spot mp-spot-dark mp-glass-band mp-tilt" style={{ ...dd(i), borderRadius: 18, padding: "28px 24px" }}>
               <div style={{ fontFamily: S.disp, fontSize: "clamp(30px, 3vw, 40px)", fontWeight: 700, color: S.goldBtn, letterSpacing: "-0.01em" }}>{s.v}</div>
               <div style={{ fontSize: 13.5, lineHeight: 1.5, color: S.creamSoft, marginTop: 8 }}>{s.k}</div>
             </div>
