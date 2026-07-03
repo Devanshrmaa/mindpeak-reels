@@ -95,7 +95,10 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#0a0e27",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fbf7ef" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0e27" },
+  ],
 };
 
 /* ── JSON-LD structured data (from index.html) ── */
@@ -201,19 +204,36 @@ export default function RootLayout({
         {/* DNS-prefetch for deferred analytics */}
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
         {/*
+          Theme bootstrap — applies the `.dark` class before first paint so
+          there is no light-mode flash. Follows the OS preference unless the
+          user has set a manual override (localStorage "theme").
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){try{var t=localStorage.getItem('theme');var d=t==='dark'||(t!=='light'&&matchMedia('(prefers-color-scheme: dark)').matches);if(d)document.documentElement.classList.add('dark')}catch(e){}})();",
+          }}
+        />
+        {/*
           Critical CSS — inlined so the browser can paint the hero H1 (LCP element)
-          without waiting for external CSS chunks to download.
+          without waiting for external CSS chunks to download. Includes the dark
+          theme tokens so the pre-paint `.dark` class takes effect immediately.
         */}
         <style
           dangerouslySetInnerHTML={{
             __html: [
-              ':root{--background:43 60% 96%;--foreground:224 44% 22%;--primary:43 72% 46%;--muted-foreground:222 16% 42%;--gradient-gold:linear-gradient(135deg,hsl(43 80% 60%),hsl(43 72% 46%),hsl(43 65% 40%));--font-display:"Space Grotesk",sans-serif;--font-body:"Inter",system-ui,sans-serif}',
-              'body{background:hsl(43,60%,96%);color:hsl(224,44%,22%);margin:0;font-family:var(--font-body);-webkit-font-smoothing:antialiased}',
+              ':root{color-scheme:light;--background:43 60% 96%;--foreground:224 44% 22%;--primary:43 72% 46%;--muted-foreground:222 16% 42%;--gradient-gold:linear-gradient(135deg,hsl(43 80% 60%),hsl(43 72% 46%),hsl(43 65% 40%));--font-display:"Space Grotesk",sans-serif;--font-body:"Inter",system-ui,sans-serif}',
+              '.dark{color-scheme:dark;--background:225 43% 7%;--foreground:40 36% 92%;--primary:43 80% 58%;--muted-foreground:222 18% 68%}',
+              'body{background:hsl(var(--background));color:hsl(var(--foreground));margin:0;font-family:var(--font-body);-webkit-font-smoothing:antialiased}',
               'h1,h2,h3{font-family:var(--font-display);letter-spacing:-0.02em}',
               '#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background-image:url(/images/hero-bg.jpg);background-size:cover;background-position:center top}',
               '.relative{position:relative}.absolute{position:absolute}.inset-0{inset:0}',
               '.z-10{z-index:10}.z-\\[3\\]{z-index:3}',
               '.flex{display:flex}.items-center{align-items:center}.justify-center{justify-content:center}',
+              /* This inline sheet loads after the compiled CSS, so its `.flex` would
+                 otherwise out-cascade `lg:hidden` from the main stylesheet. Re-declare
+                 the responsive hide here to keep `lg:hidden flex` combos working. */
+              '@media (min-width:1024px){.lg\\:hidden{display:none}}',
               '.w-full{width:100%}.text-center{text-align:center}.mx-auto{margin-left:auto;margin-right:auto}',
               '.block{display:block}.overflow-hidden{overflow:hidden}',
               '.font-display{font-family:var(--font-display)}.font-black{font-weight:900}.uppercase{text-transform:uppercase}',
@@ -245,10 +265,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
         />
       </head>
-      <body
-        className="bg-background text-foreground antialiased"
-        style={{ backgroundColor: "hsl(43, 60%, 96%)", color: "hsl(224, 44%, 22%)" }}
-      >
+      {/*
+        No inline background/color style here: colors come from the CSS
+        variables in the critical CSS above, so the pre-paint `.dark` class
+        (set by the theme bootstrap script) can flip them without a flash.
+      */}
+      <body className="bg-background text-foreground antialiased">
         <ScrollToTop />
         <Providers>{children}</Providers>
 

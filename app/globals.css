@@ -20,6 +20,8 @@ html::-webkit-scrollbar {
 
 @layer base {
   :root {
+    color-scheme: light;
+
     /* Light cream theme (matches the homepage redesign).
        Semantic tokens are light; the structural navy/gold custom tokens
        below stay dark for image overlays and dark feature bands. */
@@ -74,6 +76,101 @@ html::-webkit-scrollbar {
     /* Awwwards-grade easing */
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-in-out-circ: cubic-bezier(0.85, 0, 0.15, 1);
+
+    /* ── Homepage redesign (`.mp-home`) theme bridge ──
+       Light values for the S theme object in
+       src/components/home-redesign/theme.ts. Dark values in `.dark` below. */
+    --mp-bg: #FBF7EF;
+    --mp-bg-deep: #F3ECDC;
+    --mp-bg-translucent: rgba(251, 247, 239, 0.85);
+    --mp-ink: #1B2A52;
+    --mp-ink-soft: #5B6478;
+    --mp-gold: #C9971F;
+    --mp-gold-soft: #F3E3B8;
+    --mp-gold-ink: #7A5B0E;
+    --mp-line: rgba(27, 42, 82, 0.14);
+    --mp-card: #FFFFFF;
+    --mp-card-tint: #F1F3F8;
+    --mp-chip-bg: rgba(255, 255, 255, 0.65);
+    --mp-grad-band: linear-gradient(150deg, #1B2A52 0%, #13203F 100%);
+    --mp-shadow-soft: 0 18px 48px rgba(19, 32, 63, 0.10);
+    --mp-shadow-lift: 0 30px 70px rgba(19, 32, 63, 0.16);
+    --mp-green: #3E8E5A;
+    --mp-terracotta: #C25B3F;
+    --mp-aurora-cool: rgba(27, 42, 82, 0.12);
+    --mp-hover-tint: rgba(27, 42, 82, 0.04);
+    /* Primary pill button: navy on cream (inverts on dark) */
+    --mp-btn-bg: #1B2A52;
+    --mp-btn-bg-hover: #13203F;
+    --mp-btn-fg: #FBF7EF;
+  }
+
+  .dark {
+    color-scheme: dark;
+
+    /* Dark navy theme — follows the system preference (or manual toggle).
+       Same gold/navy brand language, inverted surfaces. */
+    --background: 225 43% 7%;
+    --foreground: 40 36% 92%;
+
+    --card: 225 36% 12%;
+    --card-foreground: 40 36% 92%;
+
+    --popover: 225 38% 10%;
+    --popover-foreground: 40 36% 92%;
+
+    --primary: 43 80% 58%;
+    --primary-foreground: 224 44% 12%;
+
+    --secondary: 225 30% 16%;
+    --secondary-foreground: 40 36% 92%;
+
+    --muted: 225 30% 15%;
+    --muted-foreground: 222 18% 68%;
+
+    --accent: 217 85% 64%;
+    --accent-foreground: 224 44% 10%;
+
+    --destructive: 0 72% 56%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 225 26% 20%;
+    --input: 225 26% 22%;
+    --ring: 43 80% 58%;
+
+    /* Brighter gold reads better on navy */
+    --gold: 43 78% 55%;
+    --gold-light: 43 85% 66%;
+    --gold-dark: 43 65% 44%;
+    --blue-soft: 214 65% 74%;
+
+    --shadow-card: 0 12px 40px hsl(225 60% 3% / 0.55);
+
+    /* ── Homepage redesign dark values ── */
+    --mp-bg: #0D1330;
+    --mp-bg-deep: #131B3E;
+    --mp-bg-translucent: rgba(13, 19, 48, 0.85);
+    --mp-ink: #E9EDF9;
+    --mp-ink-soft: #A2ABC6;
+    --mp-gold: #E3BE55;
+    --mp-gold-soft: rgba(227, 190, 85, 0.22);
+    --mp-gold-ink: #F0D684;
+    --mp-line: rgba(233, 237, 249, 0.14);
+    --mp-card: #161E42;
+    --mp-card-tint: #1C2550;
+    --mp-chip-bg: rgba(22, 30, 66, 0.65);
+    /* Feature bands stay navy, one step lighter than the page for depth */
+    --mp-grad-band: linear-gradient(150deg, #1D2B57 0%, #141F44 100%);
+    --mp-shadow-soft: 0 18px 48px rgba(0, 0, 0, 0.35);
+    --mp-shadow-lift: 0 30px 70px rgba(0, 0, 0, 0.45);
+    --mp-green: #5BC98A;
+    --mp-terracotta: #E0755A;
+    --mp-aurora-cool: rgba(233, 237, 249, 0.05);
+    --mp-hover-tint: rgba(233, 237, 249, 0.05);
+    /* Primary pill button inverts: cream on navy */
+    --mp-btn-bg: #E9EDF9;
+    --mp-btn-bg-hover: #FBF7EF;
+    --mp-btn-fg: #13203F;
   }
 }
 

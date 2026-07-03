@@ -4,6 +4,7 @@ import type { CSSProperties } from "react";
 import { S } from "./theme";
 import { MpButton, MpEyebrow } from "./MpButton";
 import { MpDivider } from "./HomeExtras";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const scrollToResults = () => {
   const el = document.getElementById("results");
@@ -28,19 +29,22 @@ export function MpNav({ onCta }: { onCta: () => void }) {
         <a href="#faq" className="mp-navlink" style={link}>FAQ</a>
         <a href="#contact" className="mp-navlink" style={link}>Contact</a>
       </div>
-      <MpButton onClick={onCta} style={{ padding: "11px 22px", fontSize: 14 }}>Book a free demo</MpButton>
+      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+        <ThemeToggle />
+        <MpButton onClick={onCta} style={{ padding: "11px 22px", fontSize: 14 }}>Book a free demo</MpButton>
+      </div>
     </nav>
   );
 }
 
 export function MpHero({ onCta }: { onCta: () => void }) {
-  const chip: CSSProperties = { fontFamily: S.body, fontSize: 12.5, fontWeight: 600, padding: "7px 14px", borderRadius: 999, border: `1px solid ${S.line}`, color: S.inkSoft, background: "rgba(255,255,255,0.65)" };
+  const chip: CSSProperties = { fontFamily: S.body, fontSize: 12.5, fontWeight: 600, padding: "7px 14px", borderRadius: 999, border: `1px solid ${S.line}`, color: S.inkSoft, background: S.chipBg };
   const d = (s: string) => ({ "--d": s } as CSSProperties);
   return (
     <header className="mp-x mp-2col" style={{ position: "relative", display: "grid", gridTemplateColumns: "1.05fr 1fr", gap: 56, padding: "64px 48px 96px", alignItems: "center" }}>
       {/* ambient backdrop: warm gold glow top-right, cool navy wash bottom-left — slowly drifting (aurora) */}
       <div aria-hidden className="mp-aurora mp-aurora-a" style={{ position: "absolute", top: -160, right: -180, width: 560, height: 560, borderRadius: "50%", background: "radial-gradient(circle, rgba(227,190,85,0.26) 0%, rgba(227,190,85,0) 65%)", pointerEvents: "none" }} />
-      <div aria-hidden className="mp-aurora mp-aurora-b" style={{ position: "absolute", bottom: -200, left: -160, width: 520, height: 520, borderRadius: "50%", background: "radial-gradient(circle, rgba(27,42,82,0.08) 0%, rgba(27,42,82,0) 65%)", pointerEvents: "none" }} />
+      <div aria-hidden className="mp-aurora mp-aurora-b" style={{ position: "absolute", bottom: -200, left: -160, width: 520, height: 520, borderRadius: "50%", background: S.auroraNavy, pointerEvents: "none" }} />
 
       <div style={{ position: "relative" }}>
         <div className="mp-rise" style={{ display: "flex", gap: 8, marginBottom: 28, flexWrap: "wrap", ...d("0s") }}>
@@ -80,18 +84,18 @@ export function MpHero({ onCta }: { onCta: () => void }) {
           <span className="mp-pulse" style={{ width: 8, height: 8, borderRadius: "50%", background: "#4ADE80", flexShrink: 0 }} />
           LIVE 1-ON-1 CLASS
         </div>
-        <div className="mp-float mp-hero-card" style={{ position: "absolute", left: -30, bottom: -38, width: 332, background: "#FFFFFF", borderRadius: 18, boxShadow: "0 28px 64px rgba(19,32,63,0.24)", border: `1px solid ${S.line}`, padding: "18px 18px 16px" }}>
+        <div className="mp-float mp-hero-card" style={{ position: "absolute", left: -30, bottom: -38, width: 332, background: S.card, borderRadius: 18, boxShadow: "0 28px 64px rgba(19,32,63,0.24)", border: `1px solid ${S.line}`, padding: "18px 18px 16px" }}>
           <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11.5, color: S.inkSoft, marginBottom: 12 }}>
             <span style={{ fontWeight: 700, color: S.navy }}>Doubt chat · Physics</span><span>11:42 PM</span>
           </div>
-          <div style={{ fontSize: 13.5, lineHeight: 1.5, background: "#F1F3F8", borderRadius: "12px 12px 12px 4px", padding: "10px 12px", marginBottom: 8, maxWidth: "92%", color: S.navy }}>
+          <div style={{ fontSize: 13.5, lineHeight: 1.5, background: S.cardTint, borderRadius: "12px 12px 12px 4px", padding: "10px 12px", marginBottom: 8, maxWidth: "92%", color: S.navy }}>
             Sir, rotational mechanics Q14 — why is angular momentum conserved here?
           </div>
           <div style={{ fontSize: 13.5, lineHeight: 1.5, background: S.goldSoft, borderRadius: "12px 12px 4px 12px", padding: "10px 12px", marginLeft: "auto", maxWidth: "92%", color: S.navy }}>
             No external torque about the axis — sending a 2-min video walkthrough now. ✓
           </div>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 6, fontSize: 11.5, color: "#3E8E5A", fontWeight: 600, marginTop: 10 }}>
-            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#3E8E5A" }} />
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 6, fontSize: 11.5, color: S.green, fontWeight: 600, marginTop: 10 }}>
+            <span style={{ width: 6, height: 6, borderRadius: "50%", background: S.green }} />
             Resolved in 18 minutes
           </div>
         </div>

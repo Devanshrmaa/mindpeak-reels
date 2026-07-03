@@ -139,12 +139,12 @@ export default function HomeRedesign() {
         .mp-home .mp-btn:hover { transform: translateY(-2px); }
         .mp-home .mp-btn:active { transform: translateY(0) scale(0.99); }
         .mp-home .mp-btn:focus-visible { outline: 2px solid ${S.gold}; outline-offset: 3px; }
-        .mp-home .mp-btn-primary { background: ${S.navy}; color: ${S.cream}; box-shadow: 0 10px 26px rgba(27,42,82,0.20); }
-        .mp-home .mp-btn-primary:hover { background: ${S.navyDeep}; box-shadow: 0 16px 38px rgba(19,32,63,0.30); }
+        .mp-home .mp-btn-primary { background: var(--mp-btn-bg); color: var(--mp-btn-fg); box-shadow: 0 10px 26px rgba(27,42,82,0.20); }
+        .mp-home .mp-btn-primary:hover { background: var(--mp-btn-bg-hover); box-shadow: 0 16px 38px rgba(19,32,63,0.30); }
         .mp-home .mp-btn-gold { background: ${S.gradGold}; color: ${S.navyDeep}; font-weight: 700; box-shadow: 0 12px 30px rgba(201,151,31,0.32); }
         .mp-home .mp-btn-gold:hover { box-shadow: 0 18px 42px rgba(201,151,31,0.42); }
         .mp-home .mp-btn-outline { background: transparent; color: ${S.navy}; border-color: ${S.navy}; }
-        .mp-home .mp-btn-outline:hover { background: ${S.navy}; color: ${S.cream}; box-shadow: 0 12px 30px rgba(27,42,82,0.20); }
+        .mp-home .mp-btn-outline:hover { background: var(--mp-ink); color: var(--mp-bg); box-shadow: 0 12px 30px rgba(27,42,82,0.20); }
         .mp-home .mp-btn-outlineLight { background: transparent; color: ${S.cream}; border-color: rgba(251,247,239,0.4); }
         .mp-home .mp-btn-outlineLight:hover { border-color: ${S.goldBtn}; color: ${S.goldBtn}; }
 
@@ -182,7 +182,7 @@ export default function HomeRedesign() {
           background-color: rgba(251,247,239,0.10); box-shadow: 0 20px 44px rgba(0,0,0,0.28);
         }
         .mp-home .mp-ledger-hover { transition: background-color 0.3s ease; border-radius: 14px; }
-        .mp-home .mp-ledger-hover:hover { background-color: rgba(27,42,82,0.04); }
+        .mp-home .mp-ledger-hover:hover { background-color: var(--mp-hover-tint); }
         .mp-home .mp-lift { transition: transform 0.4s var(--mp-ease), box-shadow 0.4s var(--mp-ease); }
         .mp-home .mp-lift:hover { transform: translateY(-6px); box-shadow: ${S.shadowLift}; }
         .mp-home .mp-program { transition: transform 0.35s var(--mp-ease); }

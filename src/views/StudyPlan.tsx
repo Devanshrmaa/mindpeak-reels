@@ -548,7 +548,7 @@ const StudyPlan = () => {
                 <span className="text-foreground font-bold text-2xl">{plan.fee}</span>
                 <button
                   onClick={openDemoModal}
-                  className="mt-1 px-6 py-2.5 bg-white text-gray-900 font-semibold rounded-full text-sm hover:bg-gray-100 transition flex items-center gap-2 shadow-lg"
+                  className="mt-1 px-6 py-2.5 bg-foreground text-background font-semibold rounded-full text-sm hover:bg-foreground/90 transition flex items-center gap-2 shadow-lg"
                 >
                   Book Free Trial <ArrowRight className="w-4 h-4" />
                 </button>
