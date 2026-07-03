@@ -33,8 +33,34 @@ export function isRemovedBlogDoorwaySlug(slug: string): boolean {
   return REMOVED_BLOG_PATTERNS.some((p) => p.test(slug));
 }
 
-/** 658 URLs confirmed indexed via GSC API (2026-06-10). */
+/**
+ * 678 URLs confirmed indexed via the GSC API
+ * (658 from the 2026-06-10 sweep + 20 from the 2026-07-03 sweep — doorways
+ * that showed impressions after 6/10 but were missing from this list).
+ */
 export const INDEXED_BLOG_DOORWAYS: string[] = [
+  // ── 2026-07-03 sweep (impressions 2026-06-01 → 2026-07-01) ──
+  'blog/best-ap-eamcet-coaching-in-kuala-lumpur-2026',
+  'blog/best-comedk-coaching-in-latur-2026',
+  'blog/best-isi-entrance-coaching-in-bahraich-2026',
+  'blog/best-isi-entrance-coaching-in-raigarh-2026',
+  'blog/best-kcet-coaching-in-allahabad-2026',
+  'blog/best-kvpy-coaching-in-kohima-2026',
+  'blog/best-mht-cet-coaching-in-indirapuram-2026',
+  'blog/best-olympiad-coaching-in-akola-2026',
+  'blog/best-olympiad-coaching-in-al-khobar-2026',
+  'blog/best-olympiad-coaching-in-janakpuri-2026',
+  'blog/best-olympiad-coaching-in-muzaffarnagar-2026',
+  'blog/best-olympiad-coaching-in-nagaur-2026',
+  'blog/best-olympiad-coaching-in-paris-2026',
+  'blog/best-olympiad-coaching-in-surat-2026',
+  'blog/best-srmjeee-coaching-in-mandi-2026',
+  'blog/best-ts-eamcet-coaching-in-murshidabad-2026',
+  'blog/best-ts-eamcet-coaching-in-mysore-2026',
+  'blog/best-viteee-coaching-in-allahabad-2026',
+  'blog/best-wbjee-coaching-in-agartala-2026',
+  'blog/best-wbjee-coaching-in-allahabad-2026',
+  // ── 2026-06-10 sweep ──
   'blog/best-ap-eamcet-coaching-in-bhilai-2026',
   'blog/best-ap-eamcet-coaching-in-boston-2026',
   'blog/best-ap-eamcet-coaching-in-cairo-2026',

@@ -15,20 +15,9 @@
 
 import { NextResponse } from 'next/server';
 import { getBingExclusiveUrls } from '@/lib/bingIndexing';
+import { stableLastmod } from '@/lib/sitemapLastmod';
 
 const BASE = 'https://mindpeakinstitute.com';
-
-/** Deterministic lastmod spread over the last 21 days (stable per slug). */
-function staggeredLastmod(slug: string, today: Date): string {
-  let hash = 0;
-  for (let i = 0; i < slug.length; i++) {
-    hash = ((hash << 5) - hash + slug.charCodeAt(i)) | 0;
-  }
-  const daysAgo = Math.abs(hash) % 21;
-  const d = new Date(today);
-  d.setDate(d.getDate() - daysAgo);
-  return d.toISOString().slice(0, 10);
-}
 
 export async function GET() {
   const now = new Date();
@@ -42,7 +31,7 @@ export async function GET() {
 
   for (const path of urls) {
     lines.push(
-      `  <url>\n    <loc>${BASE}${path}</loc>\n    <lastmod>${staggeredLastmod(path, now)}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.50</priority>\n  </url>`,
+      `  <url>\n    <loc>${BASE}${path}</loc>\n    <lastmod>${stableLastmod(path)}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.50</priority>\n  </url>`,
     );
   }
 
