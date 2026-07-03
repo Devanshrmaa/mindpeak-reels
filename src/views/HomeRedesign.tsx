@@ -5,6 +5,7 @@ import { useDemoModal } from "@/components/DemoBookingModal";
 import { S } from "@/components/home-redesign/theme";
 import { MpNav, MpHero, MpMarquee, MpWeek } from "@/components/home-redesign/HomeTop";
 import { MpLedger, MpReportProof, MpPrograms } from "@/components/home-redesign/HomeMid";
+import { MpStatement } from "@/components/home-redesign/HomeStatement";
 import { MpFAQ, MpContact } from "@/components/home-redesign/HomeBottom";
 import { MpCompare, MpMethod, MpVoices, MpStats } from "@/components/home-redesign/HomeExtras";
 
@@ -398,6 +399,7 @@ export default function HomeRedesign() {
       <MpMethod />
       <MpStats />
       <MpLedger />
+      <MpStatement />
       <MpReportProof />
       <MpVoices />
       <MpPrograms onCta={onCta} />

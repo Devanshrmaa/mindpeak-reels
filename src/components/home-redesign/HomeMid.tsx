@@ -14,7 +14,7 @@ export function MpLedger() {
     { rank: "AIR 156", exam: "NEET UG", name: "Priya Patel", note: "AIIMS Delhi, MBBS", img: "/images/priya-patel.jpg" },
   ];
   return (
-    <section id="results" className="mp-x" style={{ padding: "96px 48px 0" }}>
+    <section id="results" className="mp-x" style={{ padding: "96px 48px 88px" }}>
       <div data-reveal style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", paddingBottom: 24, gap: 24, flexWrap: "wrap" }}>
         <div>
           <MpEyebrow>Proof, not promises</MpEyebrow>
@@ -54,7 +54,7 @@ export function MpReportProof() {
     { v: "6 days", k: "live classes per week" },
   ];
   return (
-    <section className="mp-x mp-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, padding: "96px 48px", alignItems: "center" }}>
+    <section id="weekly-report" className="mp-x mp-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, padding: "96px 48px", alignItems: "center" }}>
       <div data-reveal style={{ position: "relative" }}>
         <div aria-hidden style={{ position: "absolute", top: -50, left: -60, width: 300, height: 300, borderRadius: "50%", background: "radial-gradient(circle, rgba(227,190,85,0.22) 0%, rgba(227,190,85,0) 65%)", pointerEvents: "none" }} />
         <div data-tilt="4" className="mp-tilt mp-spot mp-glass-card" style={{ position: "relative", borderRadius: 20, padding: "28px 30px" }}>
