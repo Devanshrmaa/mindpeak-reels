@@ -103,6 +103,18 @@ html::-webkit-scrollbar {
     --mp-btn-bg: #1B2A52;
     --mp-btn-bg-hover: #13203F;
     --mp-btn-fg: #FBF7EF;
+
+    /* ── Liquid glass surfaces ──
+       Frosted, light-catching panels. The surface is a translucent gradient
+       over backdrop blur; the rim light and specular sheen are painted by
+       the .liquid-glass pseudo-elements. */
+    --glass-surface: linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.42));
+    --glass-border: rgba(27, 42, 82, 0.12);
+    --glass-rim: rgba(255, 255, 255, 0.85);
+    --glass-specular: rgba(255, 255, 255, 0.5);
+    --glass-inset: rgba(255, 255, 255, 0.65);
+    --glass-shadow: 0 18px 48px rgba(19, 32, 63, 0.12);
+    --glass-nav-bg: rgba(251, 247, 239, 0.68);
   }
 
   .dark {
@@ -171,6 +183,15 @@ html::-webkit-scrollbar {
     --mp-btn-bg: #E9EDF9;
     --mp-btn-bg-hover: #FBF7EF;
     --mp-btn-fg: #13203F;
+
+    /* ── Liquid glass surfaces (dark) ── */
+    --glass-surface: linear-gradient(135deg, rgba(30, 40, 84, 0.62), rgba(15, 21, 48, 0.42));
+    --glass-border: rgba(233, 237, 249, 0.10);
+    --glass-rim: rgba(233, 237, 249, 0.32);
+    --glass-specular: rgba(233, 237, 249, 0.16);
+    --glass-inset: rgba(233, 237, 249, 0.10);
+    --glass-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+    --glass-nav-bg: rgba(11, 16, 40, 0.62);
   }
 }
 
@@ -253,18 +274,17 @@ html::-webkit-scrollbar {
   }
 
   .glass-card {
-    background: hsl(var(--foreground) / 0.03);
+    background: var(--glass-surface);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid hsl(var(--foreground) / 0.06);
-    box-shadow: 0 8px 32px hsl(var(--background) / 0.4), inset 0 1px 0 hsl(var(--foreground) / 0.04);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow), inset 0 1px 0 var(--glass-inset);
     transition: all 0.6s var(--ease-out-expo);
   }
 
   .glass-card:hover {
-    background: hsl(var(--foreground) / 0.06);
-    border-color: hsl(var(--foreground) / 0.12);
-    box-shadow: 0 16px 48px hsl(var(--background) / 0.6), inset 0 1px 0 hsl(var(--foreground) / 0.08);
+    border-color: hsl(var(--primary) / 0.4);
+    box-shadow: 0 16px 48px hsl(var(--background) / 0.6), inset 0 1px 0 var(--glass-inset);
     transform: translateY(-2px);
   }
 
@@ -597,8 +617,98 @@ html::-webkit-scrollbar {
   }
   .nav-underline:hover::after { right: 0; }
 
+  /* ── Liquid glass system ──
+     Frosted panel with a light-catching gradient rim and a specular sheen
+     across the top edge. Works on any radius (pseudo-elements inherit it).
+     Pair with .glass-glow to add a pointer-tracked inner glow driven by the
+     --mx/--my custom properties (set by the homepage spotlight listener). */
+  .liquid-glass {
+    position: relative;
+    isolation: isolate;
+    background: var(--glass-surface);
+    backdrop-filter: blur(18px) saturate(170%);
+    -webkit-backdrop-filter: blur(18px) saturate(170%);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow), inset 0 1px 0 var(--glass-inset);
+  }
+  .liquid-glass::before {
+    /* liquid rim light — a 1px gradient ring masked to the border box */
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      var(--glass-rim),
+      transparent 38%,
+      transparent 62%,
+      hsl(var(--primary) / 0.4)
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .liquid-glass::after {
+    /* specular sheen pooling along the top edge */
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(120% 55% at 50% -10%, var(--glass-specular), transparent 60%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .liquid-glass > * { position: relative; z-index: 2; }
+
+  /* Stronger surface for floating layers (dropdowns, menus) that must stay
+     readable over any content behind them. */
+  .liquid-glass-strong {
+    background:
+      linear-gradient(135deg, hsl(var(--popover) / 0.88), hsl(var(--popover) / 0.72)),
+      var(--glass-surface);
+  }
+
+  /* Full-width glass bar (navbars, sticky headers, mobile menus) */
+  .glass-nav {
+    background: var(--glass-nav-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: inset 0 1px 0 var(--glass-inset);
+  }
+
+  /* ── 3D tilt ──
+     Pointer-tracked perspective tilt. A driver sets --rx/--ry (rotation) on
+     the element; --lift composes hover elevation into the same transform so
+     tilt and lift never fight over the transform property. Children marked
+     .tilt-layer float at their --tz depth. */
+  .tilt-3d {
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg))
+      translateY(var(--lift, 0px));
+    transition: transform 0.35s var(--ease-out-expo), box-shadow 0.35s var(--ease-out-expo);
+  }
+  .tilt-layer {
+    transform: translateZ(var(--tz, 0px));
+  }
+
+  @media (max-width: 768px) {
+    /* Match the .glass-card convention: backdrop blur is expensive on
+       low-end mobile GPUs, so glass panels fall back to a solid tint.
+       The nav bar keeps its blur — it's small and always on screen. */
+    .liquid-glass {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .btn-pill, .card-lift, .nav-underline::after { transition: none; }
+    .btn-pill, .card-lift, .nav-underline::after, .tilt-3d { transition: none; }
     .btn-pill:hover, .card-lift:hover { transform: none; }
+    .tilt-3d { transform: none; }
   }
 }

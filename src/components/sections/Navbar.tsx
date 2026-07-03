@@ -147,7 +147,7 @@ export const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
         !isHome || scrolled
-          ? 'bg-background/80 backdrop-blur-2xl backdrop-saturate-[180%] border-b border-foreground/[0.06]'
+          ? 'glass-nav'
           : 'bg-transparent'
       }`}
       role="navigation"
@@ -184,7 +184,7 @@ export const Navbar = () => {
 
                 {/* ── Desktop Dropdown ── */}
                 {desktopDropdown && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[340px] rounded-xl border border-border bg-background/95 backdrop-blur-xl shadow-2xl overflow-hidden">
+                  <div className="liquid-glass liquid-glass-strong absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[340px] rounded-xl shadow-2xl overflow-hidden">
                       {/* Level 1: JEE / NEET */}
                       {!deskExam && (
                         <div className="p-3 space-y-1">
@@ -311,7 +311,7 @@ export const Navbar = () => {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-background/95 backdrop-blur-xl border-b border-border overflow-hidden">
+        <div className="lg:hidden glass-nav bg-background/90 overflow-hidden">
             <div className="px-6 py-6 flex flex-col gap-4">
               {/* ── Mobile Practice drill-down ── */}
               {mobileLevel === 'root' && (

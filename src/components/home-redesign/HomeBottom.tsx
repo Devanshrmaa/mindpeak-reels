@@ -20,7 +20,7 @@ const mpFaqs = [
 
 export function MpFAQ({ onCta }: { onCta: () => void }) {
   const [open, setOpen] = useState<number | null>(0);
-  const contactLink = { display: "flex", alignItems: "center", gap: 9, padding: "10px 14px", background: S.creamFaint, border: `1px solid ${S.lineLight}`, borderRadius: 12, color: "rgba(251,247,239,0.9)", fontSize: 13, fontWeight: 600, textDecoration: "none" } as const;
+  const contactLink = { display: "flex", alignItems: "center", gap: 9, padding: "10px 14px", borderRadius: 12, color: "rgba(251,247,239,0.9)", fontSize: 13, fontWeight: 600, textDecoration: "none" } as const;
 
   return (
     <section id="faq" className="mp-x" style={{ padding: "0 48px 96px" }}>
@@ -44,11 +44,11 @@ export function MpFAQ({ onCta }: { onCta: () => void }) {
               </p>
               <MpButton kind="gold" onClick={onCta} style={{ width: "100%", padding: "14px 22px", marginBottom: 12 }}>Book a free demo</MpButton>
               <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 9 }}>
-                <a href="https://wa.me/918219457704" target="_blank" rel="noopener noreferrer" className="mp-contact-chip" style={contactLink}>
+                <a href="https://wa.me/918219457704" target="_blank" rel="noopener noreferrer" className="mp-contact-chip mp-glass-band" style={contactLink}>
                   <span style={{ display: "grid", placeItems: "center", width: 28, height: 28, borderRadius: "50%", background: "rgba(227,190,85,0.14)", flexShrink: 0 }}><MessageCircle style={{ width: 14, height: 14, color: S.goldBtn }} /></span>
                   Chat with us on WhatsApp
                 </a>
-                <a href="tel:+918219457704" className="mp-contact-chip" style={contactLink}>
+                <a href="tel:+918219457704" className="mp-contact-chip mp-glass-band" style={contactLink}>
                   <span style={{ display: "grid", placeItems: "center", width: 28, height: 28, borderRadius: "50%", background: "rgba(227,190,85,0.14)", flexShrink: 0 }}><Phone style={{ width: 14, height: 14, color: S.goldBtn }} /></span>
                   +91 82194 57704
                 </a>
@@ -95,7 +95,7 @@ export function MpContact({ onCta }: { onCta: () => void }) {
     <section id="contact" className="mp-x" style={{ padding: "0 48px 72px" }}>
       <div data-reveal className="mp-contact-card" style={{ position: "relative", overflow: "hidden", background: S.gradNavy, borderRadius: 26, padding: "60px 56px 50px", color: S.cream, boxShadow: "0 34px 80px rgba(19,32,63,0.30)" }}>
         {/* ambient glow + ring ornaments */}
-        <div aria-hidden style={{ position: "absolute", top: -150, right: -120, width: 440, height: 440, borderRadius: "50%", background: "radial-gradient(circle, rgba(227,190,85,0.20) 0%, rgba(227,190,85,0) 65%)", pointerEvents: "none" }} />
+        <div aria-hidden data-depth="0.25" style={{ position: "absolute", top: -150, right: -120, width: 440, height: 440, borderRadius: "50%", background: "radial-gradient(circle, rgba(227,190,85,0.20) 0%, rgba(227,190,85,0) 65%)", pointerEvents: "none" }} />
         <div aria-hidden style={{ position: "absolute", bottom: -180, left: -110, width: 400, height: 400, borderRadius: "50%", border: "1px solid rgba(251,247,239,0.08)", pointerEvents: "none" }} />
         <div aria-hidden style={{ position: "absolute", bottom: -120, left: -50, width: 280, height: 280, borderRadius: "50%", border: "1px solid rgba(251,247,239,0.06)", pointerEvents: "none" }} />
 
@@ -119,11 +119,11 @@ export function MpContact({ onCta }: { onCta: () => void }) {
                 {c.label}
               </>
             );
-            const cardStyle = { display: "flex", alignItems: "center", gap: 12, padding: "13px 16px", background: S.creamFaint, border: `1px solid ${S.lineLight}`, borderRadius: 14, color: "rgba(251,247,239,0.88)", fontSize: 13.5, textDecoration: "none" } as const;
+            const cardStyle = { display: "flex", alignItems: "center", gap: 12, padding: "13px 16px", borderRadius: 14, color: "rgba(251,247,239,0.88)", fontSize: 13.5, textDecoration: "none" } as const;
             return c.href ? (
-              <a key={i} href={c.href} className="mp-contact-chip" style={cardStyle}>{inner}</a>
+              <a key={i} href={c.href} className="mp-contact-chip mp-glass-band" style={cardStyle}>{inner}</a>
             ) : (
-              <div key={i} className="mp-contact-chip" style={cardStyle}>{inner}</div>
+              <div key={i} className="mp-contact-chip mp-glass-band" style={cardStyle}>{inner}</div>
             );
           })}
         </div>

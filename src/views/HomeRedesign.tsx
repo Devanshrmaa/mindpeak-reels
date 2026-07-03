@@ -65,35 +65,83 @@ export default function HomeRedesign() {
   }, []);
 
   /* Interactive layer: a single delegated pointer listener drives the
-     cursor-follow spotlight on every [.mp-spot] card, plus a slim scroll
-     progress bar. Both are cheap (one listener each) and pointer/scroll
-     driven, so they stay out of the initial render path. */
+     cursor-follow spotlight on every [.mp-spot] card AND the 3D tilt on
+     every [data-tilt] card; one rAF-throttled scroll listener drives the
+     progress bar and the [data-depth] parallax layers. Everything is
+     transform-only and delegated, so it stays out of the render path.
+     Tilt and parallax are skipped for coarse pointers and reduced motion. */
   useEffect(() => {
     const root = rootRef.current;
     if (!root || typeof window === "undefined") return;
 
+    const finePointer = window.matchMedia("(pointer: fine)").matches;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const motionOk = finePointer && !reduceMotion;
+
     const onMove = (e: PointerEvent) => {
       const target = e.target as HTMLElement | null;
       const card = target?.closest?.(".mp-spot") as HTMLElement | null;
-      if (!card) return;
-      const r = card.getBoundingClientRect();
-      card.style.setProperty("--mx", `${e.clientX - r.left}px`);
-      card.style.setProperty("--my", `${e.clientY - r.top}px`);
+      if (card) {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty("--mx", `${e.clientX - r.left}px`);
+        card.style.setProperty("--my", `${e.clientY - r.top}px`);
+      }
+      if (!motionOk) return;
+      const tilt = target?.closest?.("[data-tilt]") as HTMLElement | null;
+      if (tilt) {
+        const r = tilt.getBoundingClientRect();
+        const max = parseFloat(tilt.dataset.tilt || "5");
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        tilt.style.setProperty("--ry", `${(px * max).toFixed(2)}deg`);
+        tilt.style.setProperty("--rx", `${(-py * max).toFixed(2)}deg`);
+      }
+    };
+    /* settle the card back when the pointer actually leaves it */
+    const onOut = (e: PointerEvent) => {
+      const from = (e.target as HTMLElement | null)?.closest?.("[data-tilt]") as HTMLElement | null;
+      if (!from) return;
+      const to = e.relatedTarget as HTMLElement | null;
+      if (to && from.contains(to)) return;
+      from.style.setProperty("--rx", "0deg");
+      from.style.setProperty("--ry", "0deg");
     };
     root.addEventListener("pointermove", onMove, { passive: true });
+    root.addEventListener("pointerout", onOut, { passive: true });
 
     const bar = document.getElementById("mp-progress");
-    const onScroll = () => {
+    const layers = motionOk
+      ? Array.from(root.querySelectorAll<HTMLElement>("[data-depth]"))
+      : [];
+    let ticking = false;
+    const update = () => {
+      ticking = false;
       const doc = document.documentElement;
       const max = doc.scrollHeight - doc.clientHeight;
-      const p = max > 0 ? doc.scrollTop / max : 0;
-      if (bar) bar.style.transform = `scaleX(${p})`;
+      if (bar) bar.style.transform = `scaleX(${max > 0 ? doc.scrollTop / max : 0})`;
+      const vh = window.innerHeight;
+      for (const el of layers) {
+        const host = (el.closest("section, header") as HTMLElement | null) ?? el.parentElement;
+        if (!host) continue;
+        const r = host.getBoundingClientRect();
+        if (r.bottom < -200 || r.top > vh + 200) continue; // off screen
+        const progress = (r.top + r.height / 2 - vh / 2) / vh; // ~ -1..1
+        const depth = parseFloat(el.dataset.depth || "0.2");
+        el.style.transform = `translate3d(0, ${(progress * depth * -160).toFixed(1)}px, 0)`;
+      }
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+    update();
 
     return () => {
       root.removeEventListener("pointermove", onMove);
+      root.removeEventListener("pointerout", onOut);
       window.removeEventListener("scroll", onScroll);
     };
   }, []);
@@ -127,6 +175,47 @@ export default function HomeRedesign() {
         }
         .mp-home.mp-js [data-reveal].mp-in { opacity: 1; transform: none; }
 
+        /* ---------- liquid glass ----------
+           mp-glass-card sits on the page surface (blurs the aurora behind it);
+           mp-glass-band sits on the navy feature bands (same in both themes). */
+        .mp-home .mp-glass-card {
+          background: var(--glass-surface);
+          backdrop-filter: blur(16px) saturate(160%);
+          -webkit-backdrop-filter: blur(16px) saturate(160%);
+          border: 1px solid var(--glass-border);
+          box-shadow: var(--mp-shadow-soft), inset 0 1px 0 var(--glass-inset);
+        }
+        .mp-home .mp-glass-band {
+          background: linear-gradient(135deg, rgba(251,247,239,0.11), rgba(251,247,239,0.04));
+          backdrop-filter: blur(12px) saturate(150%);
+          -webkit-backdrop-filter: blur(12px) saturate(150%);
+          border: 1px solid rgba(251,247,239,0.14);
+          box-shadow: inset 0 1px 0 rgba(251,247,239,0.10);
+        }
+
+        /* ---------- 3D tilt ----------
+           The pointer driver sets --rx/--ry on [data-tilt] elements; --lift
+           carries hover elevation inside the same transform. Reveal states
+           re-declare the full transform so tilt, lift and reveal compose
+           instead of overwriting each other. */
+        .mp-home .mp-tilt {
+          transform-style: preserve-3d;
+          transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--lift, 0px));
+          transition: transform 0.35s var(--mp-ease), box-shadow 0.35s var(--mp-ease),
+                      border-color 0.35s ease, background-color 0.35s ease;
+        }
+        .mp-home .mp-tilt:hover { --lift: -6px; }
+        .mp-home.mp-js [data-reveal].mp-tilt {
+          transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(30px);
+        }
+        .mp-home.mp-js [data-reveal].mp-tilt.mp-in {
+          transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--lift, 0px));
+        }
+        .mp-home .mp-tl { transform: translateZ(var(--tz, 0px)); }
+
+        /* parallax layers move on the compositor only */
+        .mp-home [data-depth] { will-change: transform; }
+
         /* ---------- buttons ---------- */
         .mp-home .mp-btn {
           font-family: ${S.body}; font-size: 15px; font-weight: 600;
@@ -148,7 +237,14 @@ export default function HomeRedesign() {
         .mp-home .mp-btn-outlineLight { background: transparent; color: ${S.cream}; border-color: rgba(251,247,239,0.4); }
         .mp-home .mp-btn-outlineLight:hover { border-color: ${S.goldBtn}; color: ${S.goldBtn}; }
 
-        /* ---------- nav ---------- */
+        /* ---------- nav (liquid glass bar) ---------- */
+        .mp-home .mp-nav {
+          background: var(--glass-nav-bg);
+          backdrop-filter: blur(20px) saturate(180%);
+          -webkit-backdrop-filter: blur(20px) saturate(180%);
+          border-bottom: 1px solid var(--mp-line);
+          box-shadow: inset 0 1px 0 var(--glass-inset);
+        }
         .mp-home .mp-navlink { position: relative; transition: color 0.25s ease; }
         .mp-home .mp-navlink::after {
           content: ""; position: absolute; left: 0; right: 100%; bottom: -5px; height: 2px;
@@ -157,8 +253,8 @@ export default function HomeRedesign() {
         .mp-home .mp-navlink:hover { color: ${S.navy}; }
         .mp-home .mp-navlink:hover::after { right: 0; }
 
-        /* ---------- ambient motion ---------- */
-        @keyframes mpFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+        /* ---------- ambient motion (composes with .mp-tl depth) ---------- */
+        @keyframes mpFloat { 0%, 100% { transform: translateY(0) translateZ(var(--tz, 0px)); } 50% { transform: translateY(-9px) translateZ(var(--tz, 0px)); } }
         .mp-home .mp-float { animation: mpFloat 6.5s ease-in-out infinite; }
         @keyframes mpPulse {
           0% { box-shadow: 0 0 0 0 rgba(74,222,128,0.55); }
@@ -178,7 +274,7 @@ export default function HomeRedesign() {
                       background-color 0.35s ease, box-shadow 0.35s var(--mp-ease);
         }
         .mp-home .mp-week-card:hover {
-          transform: translateY(-6px); border-color: rgba(227,190,85,0.55);
+          --lift: -6px; border-color: rgba(227,190,85,0.55);
           background-color: rgba(251,247,239,0.10); box-shadow: 0 20px 44px rgba(0,0,0,0.28);
         }
         .mp-home .mp-ledger-hover { transition: background-color 0.3s ease; border-radius: 14px; }
@@ -207,6 +303,7 @@ export default function HomeRedesign() {
         /* ---------- method pillars + program icons (flourish on card hover) ---------- */
         .mp-home .mp-pillar-ic { transition: transform 0.4s var(--mp-ease); }
         .mp-home .mp-lift:hover .mp-pillar-ic,
+        .mp-home .mp-tilt:hover .mp-pillar-ic,
         .mp-home .mp-program:hover .mp-pillar-ic { transform: rotate(-8deg) scale(1.08); }
 
         /* ---------- FAQ: drop the sticky aside on narrow viewports ---------- */
@@ -261,6 +358,13 @@ export default function HomeRedesign() {
           .mp-home .mp-4col { grid-template-columns: 1fr 1fr !important; }
           .mp-home .mp-nav-links { display: none !important; }
         }
+        @media (max-width: 768px) {
+          /* glass panels fall back to their tint — blur is costly on mobile GPUs
+             (the nav bar keeps its blur: small area, always composited) */
+          .mp-home .mp-glass-card, .mp-home .mp-glass-band {
+            backdrop-filter: none; -webkit-backdrop-filter: none;
+          }
+        }
         @media (max-width: 720px) {
           .mp-home .mp-x { padding-left: 22px !important; padding-right: 22px !important; }
           .mp-home .mp-3col, .mp-home .mp-4col { grid-template-columns: 1fr !important; }
@@ -278,6 +382,7 @@ export default function HomeRedesign() {
             transition-duration: 0.01ms !important;
           }
           .mp-home.mp-js [data-reveal] { opacity: 1; transform: none; }
+          .mp-home .mp-tilt, .mp-home .mp-tl, .mp-home [data-depth] { transform: none !important; }
         }
       `}</style>
 
