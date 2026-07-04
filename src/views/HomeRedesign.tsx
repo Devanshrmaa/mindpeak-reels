@@ -114,6 +114,13 @@ export default function HomeRedesign() {
     const layers = motionOk
       ? Array.from(root.querySelectorAll<HTMLElement>("[data-depth]"))
       : [];
+    /* Scroll-driven 3D: elements marked [data-scroll-tilt] rotate through the
+       viewport on scroll. Unlike [data-depth] (which writes inline transform),
+       this only writes CSS vars (--srx/--sry/--sfloat) so it composes with the
+       pointer tilt on the SAME .mp-tilt element instead of overwriting it. */
+    const tiltLayers = motionOk
+      ? Array.from(root.querySelectorAll<HTMLElement>("[data-scroll-tilt]"))
+      : [];
     let ticking = false;
     const update = () => {
       ticking = false;
@@ -129,6 +136,18 @@ export default function HomeRedesign() {
         const progress = (r.top + r.height / 2 - vh / 2) / vh; // ~ -1..1
         const depth = parseFloat(el.dataset.depth || "0.2");
         el.style.transform = `translate3d(0, ${(progress * depth * -160).toFixed(1)}px, 0)`;
+      }
+      for (const el of tiltLayers) {
+        const r = el.getBoundingClientRect();
+        if (r.bottom < -200 || r.top > vh + 200) continue; // off screen
+        // progress ~ +0.5 (entering, bottom) → -0.5 (leaving, top), clamped.
+        const progress = Math.max(-0.85, Math.min(0.85, (r.top + r.height / 2 - vh / 2) / vh));
+        const amt = parseFloat(el.dataset.scrollTilt || "10");
+        // Rotate the image plane forward as it rises up the viewport, and let
+        // the high-translateZ floating layers drift for a parallax pop.
+        el.style.setProperty("--srx", `${(progress * amt).toFixed(2)}deg`);
+        el.style.setProperty("--sry", `${(progress * amt * 0.4).toFixed(2)}deg`);
+        el.style.setProperty("--sfloat", `${(progress * -26).toFixed(1)}px`);
       }
     };
     const onScroll = () => {
@@ -196,23 +215,38 @@ export default function HomeRedesign() {
 
         /* ---------- 3D tilt ----------
            The pointer driver sets --rx/--ry on [data-tilt] elements; --lift
-           carries hover elevation inside the same transform. Reveal states
-           re-declare the full transform so tilt, lift and reveal compose
-           instead of overwriting each other. */
+           carries hover elevation. The scroll driver sets --srx/--sry on
+           [data-scroll-tilt] elements. Both compose additively via calc() so
+           the pointer tilt and the scroll rotation stack instead of fighting.
+           Reveal states re-declare the full transform so tilt, lift, scroll and
+           reveal compose instead of overwriting each other. --srx/--sry default
+           to 0deg, so elements without scroll tilt are unaffected. */
         .mp-home .mp-tilt {
           transform-style: preserve-3d;
-          transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--lift, 0px));
+          transform: perspective(1200px)
+            rotateX(calc(var(--rx, 0deg) + var(--srx, 0deg)))
+            rotateY(calc(var(--ry, 0deg) + var(--sry, 0deg)))
+            translateY(var(--lift, 0px));
           transition: transform 0.35s var(--mp-ease), box-shadow 0.35s var(--mp-ease),
                       border-color 0.35s ease, background-color 0.35s ease;
         }
         .mp-home .mp-tilt:hover { --lift: -6px; }
         .mp-home.mp-js [data-reveal].mp-tilt {
-          transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(30px);
+          transform: perspective(1200px)
+            rotateX(calc(var(--rx, 0deg) + var(--srx, 0deg)))
+            rotateY(calc(var(--ry, 0deg) + var(--sry, 0deg)))
+            translateY(30px);
         }
         .mp-home.mp-js [data-reveal].mp-tilt.mp-in {
-          transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--lift, 0px));
+          transform: perspective(1200px)
+            rotateX(calc(var(--rx, 0deg) + var(--srx, 0deg)))
+            rotateY(calc(var(--ry, 0deg) + var(--sry, 0deg)))
+            translateY(var(--lift, 0px));
         }
-        .mp-home .mp-tl { transform: translateZ(var(--tz, 0px)); }
+        /* Floating in-front layers (badge, doubt-chat card): sit at their
+           translateZ depth and drift vertically with --sfloat on scroll, so
+           they separate from the photo plane for a stronger parallax pop. */
+        .mp-home .mp-tl { transform: translateZ(var(--tz, 0px)) translateY(var(--sfloat, 0px)); }
 
         /* parallax layers move on the compositor only */
         .mp-home [data-depth] { will-change: transform; }
@@ -255,7 +289,7 @@ export default function HomeRedesign() {
         .mp-home .mp-navlink:hover::after { right: 0; }
 
         /* ---------- ambient motion (composes with .mp-tl depth) ---------- */
-        @keyframes mpFloat { 0%, 100% { transform: translateY(0) translateZ(var(--tz, 0px)); } 50% { transform: translateY(-9px) translateZ(var(--tz, 0px)); } }
+        @keyframes mpFloat { 0%, 100% { transform: translateY(var(--sfloat, 0px)) translateZ(var(--tz, 0px)); } 50% { transform: translateY(calc(var(--sfloat, 0px) - 9px)) translateZ(var(--tz, 0px)); } }
         .mp-home .mp-float { animation: mpFloat 6.5s ease-in-out infinite; }
         @keyframes mpPulse {
           0% { box-shadow: 0 0 0 0 rgba(74,222,128,0.55); }

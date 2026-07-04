@@ -82,17 +82,19 @@ export function MpHero({ onCta }: { onCta: () => void }) {
       </div>
 
       <div className="mp-rise" style={{ position: "relative", ...d("0.2s") }}>
-       {/* pointer-tracked 3D tilt group: frame sits behind the photo plane,
-           the live badge and doubt-chat card float in front of it */}
-       <div className="mp-tilt" data-tilt="6" style={{ position: "relative" }}>
+       {/* pointer-tracked + scroll-driven 3D tilt group: frame sits deep behind
+           the photo plane, the live badge and doubt-chat card float well in
+           front of it. data-tilt = pointer rotation, data-scroll-tilt = scroll
+           rotation (both compose in the .mp-tilt transform). */}
+       <div className="mp-tilt" data-tilt="9" data-scroll-tilt="12" style={{ position: "relative" }}>
         {/* offset gold frame behind the photo */}
-        <div aria-hidden style={{ position: "absolute", inset: 0, borderRadius: 22, border: `2px solid ${S.goldBtn}`, transform: "translate(16px, 16px) translateZ(-40px)", opacity: 0.5, pointerEvents: "none" }} />
+        <div aria-hidden style={{ position: "absolute", inset: 0, borderRadius: 22, border: `2px solid ${S.goldBtn}`, transform: "translate(16px, 16px) translateZ(-70px)", opacity: 0.5, pointerEvents: "none" }} />
         <img src="/images/mentoring-session-2.jpg" alt="MindPeak mentor session" style={{ position: "relative", width: "100%", height: 480, objectFit: "cover", borderRadius: 22, display: "block", boxShadow: "0 30px 70px rgba(19,32,63,0.22)" }} />
-        <div className="mp-tl" style={{ position: "absolute", top: 18, left: 18, display: "flex", alignItems: "center", gap: 8, background: "rgba(19,32,63,0.78)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", color: S.cream, borderRadius: 999, padding: "8px 15px", fontSize: 11.5, fontWeight: 700, letterSpacing: "0.1em", "--tz": "45px" } as CSSProperties}>
+        <div className="mp-tl" style={{ position: "absolute", top: 18, left: 18, display: "flex", alignItems: "center", gap: 8, background: "rgba(19,32,63,0.78)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", color: S.cream, borderRadius: 999, padding: "8px 15px", fontSize: 11.5, fontWeight: 700, letterSpacing: "0.1em", "--tz": "60px" } as CSSProperties}>
           <span className="mp-pulse" style={{ width: 8, height: 8, borderRadius: "50%", background: "#4ADE80", flexShrink: 0 }} />
           LIVE 1-ON-1 CLASS
         </div>
-        <div className="mp-float mp-hero-card mp-glass-card" style={{ position: "absolute", left: -30, bottom: -38, width: 332, borderRadius: 18, boxShadow: "0 28px 64px rgba(19,32,63,0.24)", padding: "18px 18px 16px", "--tz": "70px" } as CSSProperties}>
+        <div className="mp-float mp-hero-card mp-glass-card" style={{ position: "absolute", left: -30, bottom: -38, width: 332, borderRadius: 18, boxShadow: "0 28px 64px rgba(19,32,63,0.24)", padding: "18px 18px 16px", "--tz": "110px" } as CSSProperties}>
           <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11.5, color: S.inkSoft, marginBottom: 12 }}>
             <span style={{ fontWeight: 700, color: S.navy }}>Doubt chat · Physics</span><span>11:42 PM</span>
           </div>
