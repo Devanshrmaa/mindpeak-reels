@@ -1,6 +1,7 @@
 "use client";
 
 import type { CSSProperties } from "react";
+import { Star } from "lucide-react";
 import { S } from "./theme";
 import { MpButton, MpEyebrow } from "./MpButton";
 import { MpDivider } from "./HomeExtras";
@@ -26,6 +27,8 @@ export function MpNav({ onCta }: { onCta: () => void }) {
         <a href="/neet-coaching" className="mp-navlink" style={link}>NEET</a>
         <a href="/courses" className="mp-navlink" style={link}>Foundation</a>
         <a href="#results" className="mp-navlink" style={link}>Results</a>
+        <a href="#faculty" className="mp-navlink" style={link}>Faculty</a>
+        <a href="#pricing" className="mp-navlink" style={link}>Pricing</a>
         <a href="#faq" className="mp-navlink" style={link}>FAQ</a>
         <a href="#contact" className="mp-navlink" style={link}>Contact</a>
       </div>
@@ -45,7 +48,7 @@ export function MpHero({ onCta }: { onCta: () => void }) {
       {/* ambient backdrop: warm gold glow top-right, cool navy wash bottom-left —
           slowly drifting (aurora) and depth-shifted by the scroll parallax driver */}
       <div aria-hidden data-depth="0.35" style={{ position: "absolute", top: -160, right: -180, width: 560, height: 560, pointerEvents: "none" }}>
-        <div className="mp-aurora mp-aurora-a" style={{ width: "100%", height: "100%", borderRadius: "50%", background: "radial-gradient(circle, rgba(227,190,85,0.26) 0%, rgba(227,190,85,0) 65%)" }} />
+        <div className="mp-aurora mp-aurora-a" style={{ width: "100%", height: "100%", borderRadius: "50%", background: "radial-gradient(circle, rgba(212,168,75,0.26) 0%, rgba(212,168,75,0) 65%)" }} />
       </div>
       <div aria-hidden data-depth="0.2" style={{ position: "absolute", bottom: -200, left: -160, width: 520, height: 520, pointerEvents: "none" }}>
         <div className="mp-aurora mp-aurora-b" style={{ width: "100%", height: "100%", borderRadius: "50%", background: S.auroraNavy }} />
@@ -69,10 +72,20 @@ export function MpHero({ onCta }: { onCta: () => void }) {
           <MpButton kind="gold" onClick={onCta} style={{ padding: "16px 32px" }}>Meet your mentor — free demo</MpButton>
           <MpButton kind="outline" onClick={scrollToResults} style={{ padding: "15px 26px" }}>See the results ledger</MpButton>
         </div>
-        <div className="mp-rise" style={{ display: "flex", alignItems: "center", gap: 14, marginTop: 32, ...d("0.32s") }}>
+        <div className="mp-rise" style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 22, ...d("0.28s") }}>
+          <div style={{ display: "flex", gap: 2 }} aria-hidden>
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star key={i} style={{ width: 15, height: 15, color: S.goldBtn, fill: S.goldBtn }} />
+            ))}
+          </div>
+          <span style={{ fontSize: 13.5, color: S.inkSoft }}>
+            <strong style={{ color: S.navy, fontWeight: 700 }}>4.9/5</strong> from 500+ parent reviews
+          </span>
+        </div>
+        <div className="mp-rise" style={{ display: "flex", alignItems: "center", gap: 14, marginTop: 22, ...d("0.32s") }}>
           <div style={{ display: "flex" }}>
             {["student-1", "student-2", "student-3", "student-4"].map((s, i) => (
-              <img key={s} src={`/images/${s}.jpg`} alt="MindPeak student" style={{ width: 38, height: 38, borderRadius: "50%", objectFit: "cover", border: `2px solid ${S.bg}`, boxShadow: "0 4px 12px rgba(19,32,63,0.18)", marginLeft: i ? -11 : 0 }} />
+              <img key={s} src={`/images/${s}.jpg`} alt="MindPeak student" style={{ width: 38, height: 38, borderRadius: "50%", objectFit: "cover", border: `2px solid ${S.bg}`, boxShadow: "0 4px 12px rgba(26,54,93,0.18)", marginLeft: i ? -11 : 0 }} />
             ))}
           </div>
           <span style={{ fontSize: 13.5, color: S.inkSoft }}>
@@ -89,12 +102,12 @@ export function MpHero({ onCta }: { onCta: () => void }) {
        <div className="mp-tilt" data-tilt="9" data-scroll-tilt="12" style={{ position: "relative" }}>
         {/* offset gold frame behind the photo */}
         <div aria-hidden style={{ position: "absolute", inset: 0, borderRadius: 22, border: `2px solid ${S.goldBtn}`, transform: "translate(16px, 16px) translateZ(-70px)", opacity: 0.5, pointerEvents: "none" }} />
-        <img src="/images/mentoring-session-2.jpg" alt="MindPeak mentor session" style={{ position: "relative", width: "100%", height: 480, objectFit: "cover", borderRadius: 22, display: "block", boxShadow: "0 30px 70px rgba(19,32,63,0.22)" }} />
-        <div className="mp-tl" style={{ position: "absolute", top: 18, left: 18, display: "flex", alignItems: "center", gap: 8, background: "rgba(19,32,63,0.78)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", color: S.cream, borderRadius: 999, padding: "8px 15px", fontSize: 11.5, fontWeight: 700, letterSpacing: "0.1em", "--tz": "60px" } as CSSProperties}>
+        <img src="/images/mentoring-session-2.jpg" alt="MindPeak mentor session" style={{ position: "relative", width: "100%", height: 480, objectFit: "cover", borderRadius: 22, display: "block", boxShadow: "0 30px 70px rgba(26,54,93,0.22)" }} />
+        <div className="mp-tl" style={{ position: "absolute", top: 18, left: 18, display: "flex", alignItems: "center", gap: 8, background: "rgba(26,54,93,0.78)", backdropFilter: "blur(6px)", WebkitBackdropFilter: "blur(6px)", color: S.cream, borderRadius: 999, padding: "8px 15px", fontSize: 11.5, fontWeight: 700, letterSpacing: "0.1em", "--tz": "60px" } as CSSProperties}>
           <span className="mp-pulse" style={{ width: 8, height: 8, borderRadius: "50%", background: "#4ADE80", flexShrink: 0 }} />
           LIVE 1-ON-1 CLASS
         </div>
-        <div className="mp-float mp-hero-card mp-glass-card" style={{ position: "absolute", left: -30, bottom: -38, width: 332, borderRadius: 18, boxShadow: "0 28px 64px rgba(19,32,63,0.24)", padding: "18px 18px 16px", "--tz": "110px" } as CSSProperties}>
+        <div className="mp-float mp-hero-card mp-glass-card" style={{ position: "absolute", left: -30, bottom: -38, width: 332, borderRadius: 18, boxShadow: "0 28px 64px rgba(26,54,93,0.24)", padding: "18px 18px 16px", "--tz": "110px" } as CSSProperties}>
           <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11.5, color: S.inkSoft, marginBottom: 12 }}>
             <span style={{ fontWeight: 700, color: S.navy }}>Doubt chat · Physics</span><span>11:42 PM</span>
           </div>
@@ -157,7 +170,7 @@ export function MpWeek() {
       <MpDivider side="top" />
       <MpDivider side="bottom" />
       <div aria-hidden data-depth="0.3" style={{ position: "absolute", top: -180, right: -120, width: 520, height: 520, pointerEvents: "none" }}>
-        <div className="mp-aurora mp-aurora-a" style={{ width: "100%", height: "100%", borderRadius: "50%", background: "radial-gradient(circle, rgba(227,190,85,0.14) 0%, rgba(227,190,85,0) 65%)" }} />
+        <div className="mp-aurora mp-aurora-a" style={{ width: "100%", height: "100%", borderRadius: "50%", background: "radial-gradient(circle, rgba(212,168,75,0.14) 0%, rgba(212,168,75,0) 65%)" }} />
       </div>
       <div aria-hidden style={{ position: "absolute", bottom: -240, left: -140, width: 480, height: 480, borderRadius: "50%", border: "1px solid rgba(251,247,239,0.07)", pointerEvents: "none" }} />
 

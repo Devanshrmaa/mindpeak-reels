@@ -112,8 +112,8 @@ export function MpCompare() {
         </div>
 
         {/* MindPeak — elevated navy */}
-        <div data-reveal data-tilt="3" className="mp-cmp-card mp-tilt mp-spot mp-spot-dark" style={{ ...dd(1), position: "relative", overflow: "hidden", background: S.gradNavy, border: `1px solid rgba(227,190,85,0.45)`, borderRadius: 22, padding: "34px 32px 30px", color: S.cream, boxShadow: "0 26px 60px rgba(19,32,63,0.26)" }}>
-          <div aria-hidden style={{ position: "absolute", top: -120, right: -90, width: 320, height: 320, borderRadius: "50%", background: "radial-gradient(circle, rgba(227,190,85,0.22) 0%, rgba(227,190,85,0) 65%)", pointerEvents: "none" }} />
+        <div data-reveal data-tilt="3" className="mp-cmp-card mp-tilt mp-spot mp-spot-dark" style={{ ...dd(1), position: "relative", overflow: "hidden", background: S.gradNavy, border: `1px solid rgba(212,168,75,0.45)`, borderRadius: 22, padding: "34px 32px 30px", color: S.cream, boxShadow: "0 26px 60px rgba(26,54,93,0.26)" }}>
+          <div aria-hidden style={{ position: "absolute", top: -120, right: -90, width: 320, height: 320, borderRadius: "50%", background: "radial-gradient(circle, rgba(212,168,75,0.22) 0%, rgba(212,168,75,0) 65%)", pointerEvents: "none" }} />
           <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20, gap: 12, flexWrap: "wrap" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
               <span aria-hidden style={{ width: 9, height: 9, borderRadius: "50%", background: "#4ADE80" }} className="mp-pulse" />
@@ -164,7 +164,7 @@ export function MpMethod() {
         {pillars.map((p, i) => (
           <div key={i} data-reveal data-tilt="5" className="mp-tilt mp-spot mp-glass-card" style={{ ...dd(i), position: "relative", borderRadius: 20, padding: "30px 26px 28px" }}>
             <span aria-hidden style={{ position: "absolute", top: 22, right: 24, fontFamily: S.disp, fontSize: 13, fontWeight: 700, color: S.line }}>0{i + 1}</span>
-            <span className="mp-pillar-ic" style={{ display: "grid", placeItems: "center", width: 52, height: 52, borderRadius: 16, background: S.gradGold, marginBottom: 20, boxShadow: "0 10px 24px rgba(201,151,31,0.28)" }}>
+            <span className="mp-pillar-ic" style={{ display: "grid", placeItems: "center", width: 52, height: 52, borderRadius: 16, background: S.gradGold, marginBottom: 20, boxShadow: "0 10px 24px rgba(185,137,53,0.28)" }}>
               <p.Icon style={{ width: 24, height: 24, color: S.navyDeep }} strokeWidth={2.2} />
             </span>
             <h3 style={{ fontFamily: S.disp, fontSize: 20, fontWeight: 600, margin: "0 0 10px", color: S.navy }}>{p.t}</h3>
@@ -205,7 +205,7 @@ export function MpVoices() {
     <section className="mp-x" style={{ position: "relative", overflow: "hidden", background: S.gradNavy, color: S.cream, padding: "104px 48px 112px" }}>
       <MpDivider side="top" />
       <MpDivider side="bottom" />
-      <div aria-hidden data-depth="0.25" style={{ position: "absolute", top: -160, left: -120, width: 480, height: 480, borderRadius: "50%", background: "radial-gradient(circle, rgba(227,190,85,0.14) 0%, rgba(227,190,85,0) 65%)", pointerEvents: "none" }} />
+      <div aria-hidden data-depth="0.25" style={{ position: "absolute", top: -160, left: -120, width: 480, height: 480, borderRadius: "50%", background: "radial-gradient(circle, rgba(212,168,75,0.14) 0%, rgba(212,168,75,0) 65%)", pointerEvents: "none" }} />
       <div aria-hidden style={{ position: "absolute", bottom: -220, right: -140, width: 460, height: 460, borderRadius: "50%", border: "1px solid rgba(251,247,239,0.07)", pointerEvents: "none" }} />
 
       <div data-reveal style={{ position: "relative", display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 44, gap: 24, flexWrap: "wrap" }}>
@@ -293,8 +293,8 @@ export function MpStats() {
             <svg width={SIZE} height={SIZE} style={{ transform: "rotate(-90deg)" }} aria-hidden>
               <defs>
                 <linearGradient id="mpRingGrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stopColor="#EDCB6E" />
-                  <stop offset="100%" stopColor="#D2A52F" />
+                  <stop offset="0%" stopColor="#E4C179" />
+                  <stop offset="100%" stopColor="#B98935" />
                 </linearGradient>
               </defs>
               <circle cx={R + STROKE} cy={R + STROKE} r={R} fill="none" stroke="rgba(251,247,239,0.14)" strokeWidth={STROKE} />

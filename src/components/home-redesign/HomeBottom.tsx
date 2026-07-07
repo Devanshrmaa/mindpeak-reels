@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import { buildFAQSchemaFromQA } from "@/components/PageFAQ";
 import { S } from "./theme";
 import { MpButton, MpEyebrow } from "./MpButton";
 
@@ -24,6 +25,10 @@ export function MpFAQ({ onCta }: { onCta: () => void }) {
 
   return (
     <section id="faq" className="mp-x" style={{ padding: "0 48px 96px" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQSchemaFromQA(mpFaqs)) }}
+      />
       <div className="mp-2col mp-faq-grid" style={{ display: "grid", gridTemplateColumns: "0.82fr 1.18fr", gap: 56, alignItems: "start" }}>
         {/* LEFT — sticky intro + "still have a question" CTA panel */}
         <div data-reveal className="mp-faq-aside" style={{ position: "sticky", top: 96 }}>
@@ -35,7 +40,7 @@ export function MpFAQ({ onCta }: { onCta: () => void }) {
             Everything about classes, mentors, doubts and fees — answered plainly. Still unsure about something? A counsellor is one message away.
           </p>
 
-          <div className="mp-spot mp-spot-dark" style={{ position: "relative", overflow: "hidden", background: S.gradNavy, color: S.cream, borderRadius: 20, padding: "26px 26px 24px", boxShadow: "0 24px 56px rgba(19,32,63,0.24)" }}>
+          <div className="mp-spot mp-spot-dark" style={{ position: "relative", overflow: "hidden", background: S.gradNavy, color: S.cream, borderRadius: 20, padding: "26px 26px 24px", boxShadow: "0 24px 56px rgba(26,54,93,0.24)" }}>
             <div aria-hidden style={{ position: "absolute", top: -90, right: -70, width: 240, height: 240, borderRadius: "50%", background: S.auroraGoldSoft, pointerEvents: "none" }} />
             <div style={{ position: "relative" }}>
               <div style={{ fontFamily: S.disp, fontSize: 20, fontWeight: 700, marginBottom: 8 }}>Still have a question?</div>
@@ -45,11 +50,11 @@ export function MpFAQ({ onCta }: { onCta: () => void }) {
               <MpButton kind="gold" onClick={onCta} style={{ width: "100%", padding: "14px 22px", marginBottom: 12 }}>Book a free demo</MpButton>
               <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 9 }}>
                 <a href="https://wa.me/918219457704" target="_blank" rel="noopener noreferrer" className="mp-contact-chip mp-glass-band" style={contactLink}>
-                  <span style={{ display: "grid", placeItems: "center", width: 28, height: 28, borderRadius: "50%", background: "rgba(227,190,85,0.14)", flexShrink: 0 }}><MessageCircle style={{ width: 14, height: 14, color: S.goldBtn }} /></span>
+                  <span style={{ display: "grid", placeItems: "center", width: 28, height: 28, borderRadius: "50%", background: "rgba(212,168,75,0.14)", flexShrink: 0 }}><MessageCircle style={{ width: 14, height: 14, color: S.goldBtn }} /></span>
                   Chat with us on WhatsApp
                 </a>
                 <a href="tel:+918219457704" className="mp-contact-chip mp-glass-band" style={contactLink}>
-                  <span style={{ display: "grid", placeItems: "center", width: 28, height: 28, borderRadius: "50%", background: "rgba(227,190,85,0.14)", flexShrink: 0 }}><Phone style={{ width: 14, height: 14, color: S.goldBtn }} /></span>
+                  <span style={{ display: "grid", placeItems: "center", width: 28, height: 28, borderRadius: "50%", background: "rgba(212,168,75,0.14)", flexShrink: 0 }}><Phone style={{ width: 14, height: 14, color: S.goldBtn }} /></span>
                   +91 82194 57704
                 </a>
               </div>
@@ -62,7 +67,7 @@ export function MpFAQ({ onCta }: { onCta: () => void }) {
           {mpFaqs.map((f, i) => {
             const isOpen = open === i;
             return (
-              <div key={i} className="mp-faq-item mp-spot" style={{ background: isOpen ? S.card : S.chipBg, border: `1px solid ${isOpen ? "rgba(227,190,85,0.5)" : S.line}`, borderRadius: 16, boxShadow: isOpen ? "0 16px 40px rgba(19,32,63,0.10)" : "none" }}>
+              <div key={i} className="mp-faq-item mp-spot" style={{ background: isOpen ? S.card : S.chipBg, border: `1px solid ${isOpen ? "rgba(212,168,75,0.5)" : S.line}`, borderRadius: 16, boxShadow: isOpen ? "0 16px 40px rgba(26,54,93,0.10)" : "none" }}>
                 <button onClick={() => setOpen(isOpen ? null : i)} aria-expanded={isOpen} style={{ width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16, padding: "18px 22px", background: "none", border: "none", cursor: "pointer", textAlign: "left" }}>
                   <span style={{ display: "flex", flexDirection: "column", gap: 7, flex: 1 }}>
                     <span style={{ alignSelf: "flex-start", fontSize: 10, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: S.goldInk, background: S.goldSoft, borderRadius: 999, padding: "3px 9px" }}>{f.tag}</span>
@@ -93,9 +98,9 @@ export function MpContact({ onCta }: { onCta: () => void }) {
   ];
   return (
     <section id="contact" className="mp-x" style={{ padding: "0 48px 72px" }}>
-      <div data-reveal className="mp-contact-card" style={{ position: "relative", overflow: "hidden", background: S.gradNavy, borderRadius: 26, padding: "60px 56px 50px", color: S.cream, boxShadow: "0 34px 80px rgba(19,32,63,0.30)" }}>
+      <div data-reveal className="mp-contact-card" style={{ position: "relative", overflow: "hidden", background: S.gradNavy, borderRadius: 26, padding: "60px 56px 50px", color: S.cream, boxShadow: "0 34px 80px rgba(26,54,93,0.30)" }}>
         {/* ambient glow + ring ornaments */}
-        <div aria-hidden data-depth="0.25" style={{ position: "absolute", top: -150, right: -120, width: 440, height: 440, borderRadius: "50%", background: "radial-gradient(circle, rgba(227,190,85,0.20) 0%, rgba(227,190,85,0) 65%)", pointerEvents: "none" }} />
+        <div aria-hidden data-depth="0.25" style={{ position: "absolute", top: -150, right: -120, width: 440, height: 440, borderRadius: "50%", background: "radial-gradient(circle, rgba(212,168,75,0.20) 0%, rgba(212,168,75,0) 65%)", pointerEvents: "none" }} />
         <div aria-hidden style={{ position: "absolute", bottom: -180, left: -110, width: 400, height: 400, borderRadius: "50%", border: "1px solid rgba(251,247,239,0.08)", pointerEvents: "none" }} />
         <div aria-hidden style={{ position: "absolute", bottom: -120, left: -50, width: 280, height: 280, borderRadius: "50%", border: "1px solid rgba(251,247,239,0.06)", pointerEvents: "none" }} />
 
@@ -113,7 +118,7 @@ export function MpContact({ onCta }: { onCta: () => void }) {
           {cards.map((c, i) => {
             const inner = (
               <>
-                <span style={{ display: "grid", placeItems: "center", width: 32, height: 32, borderRadius: "50%", background: "rgba(227,190,85,0.14)", flexShrink: 0 }}>
+                <span style={{ display: "grid", placeItems: "center", width: 32, height: 32, borderRadius: "50%", background: "rgba(212,168,75,0.14)", flexShrink: 0 }}>
                   <c.Icon style={{ width: 15, height: 15, color: S.goldBtn }} />
                 </span>
                 {c.label}

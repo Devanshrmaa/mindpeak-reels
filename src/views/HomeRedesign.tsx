@@ -8,6 +8,8 @@ import { MpLedger, MpReportProof, MpPrograms } from "@/components/home-redesign/
 import { MpStatement } from "@/components/home-redesign/HomeStatement";
 import { MpFAQ, MpContact } from "@/components/home-redesign/HomeBottom";
 import { MpCompare, MpMethod, MpVoices, MpStats } from "@/components/home-redesign/HomeExtras";
+import { MpFaculty } from "@/components/home-redesign/HomeFaculty";
+import { MpPricing } from "@/components/home-redesign/HomePricing";
 
 /**
  * Redesigned homepage (v2.1) — a warm cream-on-navy editorial layout, evolved
@@ -437,6 +439,8 @@ export default function HomeRedesign() {
       <MpReportProof />
       <MpVoices />
       <MpPrograms onCta={onCta} />
+      <MpFaculty />
+      <MpPricing onCta={onCta} />
       <MpFAQ onCta={onCta} />
       <MpContact onCta={onCta} />
       {/* The design's slim footer (MpFooter) is intentionally not rendered here:

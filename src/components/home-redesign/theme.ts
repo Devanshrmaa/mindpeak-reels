@@ -28,13 +28,13 @@ export const S = {
   /* Primary ink: navy on cream, flips to a pale blue-white on dark. */
   navy: "var(--mp-ink)",
   /* Always-dark navy: text/icons sitting on gold surfaces in BOTH themes. */
-  navyDeep: "#13203F",
+  navyDeep: "#122642",
   inkSoft: "var(--mp-ink-soft)",
   gold: "var(--mp-gold)",
   goldSoft: "var(--mp-gold-soft)",
   /* Ink used on top of goldSoft chips/tags (dark gold-brown → pale gold). */
   goldInk: "var(--mp-gold-ink)",
-  goldBtn: "#E3BE55",
+  goldBtn: "#D4A84B",
   line: "var(--mp-line)",
   /* Lines/tints used on the navy bands — static, bands stay navy. */
   lineLight: "rgba(251,247,239,0.12)",
@@ -44,7 +44,7 @@ export const S = {
   card: "var(--mp-card)",
   cardTint: "var(--mp-card-tint)",
   chipBg: "var(--mp-chip-bg)",
-  gradGold: "linear-gradient(120deg, #EDCB6E 0%, #E3BE55 55%, #D2A52F 100%)",
+  gradGold: "linear-gradient(120deg, #E4C179 0%, #D4A84B 55%, #B98935 100%)",
   gradNavy: "var(--mp-grad-band)",
   shadowSoft: "var(--mp-shadow-soft)",
   shadowLift: "var(--mp-shadow-lift)",
@@ -60,16 +60,16 @@ export const S = {
   green: "var(--mp-green)",
   terracotta: "var(--mp-terracotta)",
   /* moving gold gradient for shimmer headlines (animated via background-position) */
-  gradGoldText: "linear-gradient(100deg, #C9971F 0%, #B5841A 18%, #F0D684 42%, #FFF6DD 50%, #F0D684 58%, #B5841A 82%, #C9971F 100%)",
+  gradGoldText: "linear-gradient(100deg, #B98935 0%, #A67526 18%, #E4C179 42%, #FCEFD6 50%, #E4C179 58%, #A67526 82%, #B98935 100%)",
   /* drifting hero "aurora" blobs */
-  auroraGold: "radial-gradient(circle, rgba(227,190,85,0.30) 0%, rgba(227,190,85,0) 62%)",
+  auroraGold: "radial-gradient(circle, rgba(212,168,75,0.30) 0%, rgba(212,168,75,0) 62%)",
   auroraNavy: "radial-gradient(circle, var(--mp-aurora-cool) 0%, transparent 62%)",
-  auroraGoldSoft: "radial-gradient(circle, rgba(237,203,110,0.16) 0%, rgba(237,203,110,0) 62%)",
+  auroraGoldSoft: "radial-gradient(circle, rgba(212,168,75,0.16) 0%, rgba(212,168,75,0) 62%)",
   /* pointer-spotlight tints (cream cards vs navy cards) */
-  spotCream: "rgba(227,190,85,0.18)",
-  spotNavy: "rgba(237,203,110,0.20)",
+  spotCream: "rgba(212,168,75,0.18)",
+  spotNavy: "rgba(212,168,75,0.20)",
   /* gold glow elevation */
-  shadowGold: "0 20px 52px rgba(201,151,31,0.28)",
+  shadowGold: "0 20px 52px rgba(212,168,75,0.28)",
 } as const;
 
 export type Theme = typeof S;

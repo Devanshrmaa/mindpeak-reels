@@ -63,7 +63,7 @@ export function MpStatement() {
           position: "absolute",
           inset: 0,
           background:
-            "linear-gradient(to top, rgba(19,32,63,0.92) 0%, rgba(19,32,63,0.55) 38%, rgba(19,32,63,0.18) 70%, rgba(19,32,63,0.30) 100%)",
+            "linear-gradient(to top, rgba(26,54,93,0.92) 0%, rgba(26,54,93,0.55) 38%, rgba(26,54,93,0.18) 70%, rgba(26,54,93,0.30) 100%)",
         }}
       />
 
@@ -80,7 +80,7 @@ export function MpStatement() {
               letterSpacing: "-0.025em",
               textTransform: "uppercase",
               margin: 0,
-              textShadow: "0 2px 28px rgba(19,32,63,0.45)",
+              textShadow: "0 2px 28px rgba(26,54,93,0.45)",
             }}
           >
             Measured

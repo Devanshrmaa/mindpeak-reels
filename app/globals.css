@@ -83,25 +83,25 @@ html::-webkit-scrollbar {
     --mp-bg: #FBF7EF;
     --mp-bg-deep: #F3ECDC;
     --mp-bg-translucent: rgba(251, 247, 239, 0.85);
-    --mp-ink: #1B2A52;
+    --mp-ink: #1A365D;
     --mp-ink-soft: #5B6478;
-    --mp-gold: #C9971F;
-    --mp-gold-soft: #F3E3B8;
-    --mp-gold-ink: #7A5B0E;
-    --mp-line: rgba(27, 42, 82, 0.14);
+    --mp-gold: #D4A84B;
+    --mp-gold-soft: #F3E1BC;
+    --mp-gold-ink: #7A5511;
+    --mp-line: rgba(26, 54, 93, 0.14);
     --mp-card: #FFFFFF;
     --mp-card-tint: #F1F3F8;
     --mp-chip-bg: rgba(255, 255, 255, 0.65);
-    --mp-grad-band: linear-gradient(150deg, #1B2A52 0%, #13203F 100%);
+    --mp-grad-band: linear-gradient(150deg, #1A365D 0%, #132844 100%);
     --mp-shadow-soft: 0 18px 48px rgba(19, 32, 63, 0.10);
     --mp-shadow-lift: 0 30px 70px rgba(19, 32, 63, 0.16);
     --mp-green: #3E8E5A;
     --mp-terracotta: #C25B3F;
-    --mp-aurora-cool: rgba(27, 42, 82, 0.12);
-    --mp-hover-tint: rgba(27, 42, 82, 0.04);
+    --mp-aurora-cool: rgba(26, 54, 93, 0.12);
+    --mp-hover-tint: rgba(26, 54, 93, 0.04);
     /* Primary pill button: navy on cream (inverts on dark) */
-    --mp-btn-bg: #1B2A52;
-    --mp-btn-bg-hover: #13203F;
+    --mp-btn-bg: #1A365D;
+    --mp-btn-bg-hover: #132844;
     --mp-btn-fg: #FBF7EF;
 
     /* ── Liquid glass surfaces ──
@@ -109,7 +109,7 @@ html::-webkit-scrollbar {
        over backdrop blur; the rim light and specular sheen are painted by
        the .liquid-glass pseudo-elements. */
     --glass-surface: linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.42));
-    --glass-border: rgba(27, 42, 82, 0.12);
+    --glass-border: rgba(26, 54, 93, 0.12);
     --glass-rim: rgba(255, 255, 255, 0.85);
     --glass-specular: rgba(255, 255, 255, 0.5);
     --glass-inset: rgba(255, 255, 255, 0.65);
@@ -164,9 +164,9 @@ html::-webkit-scrollbar {
     --mp-bg-translucent: rgba(13, 19, 48, 0.85);
     --mp-ink: #E9EDF9;
     --mp-ink-soft: #A2ABC6;
-    --mp-gold: #E3BE55;
-    --mp-gold-soft: rgba(227, 190, 85, 0.22);
-    --mp-gold-ink: #F0D684;
+    --mp-gold: #E0BE78;
+    --mp-gold-soft: rgba(224, 190, 120, 0.22);
+    --mp-gold-ink: #F2DBAA;
     --mp-line: rgba(233, 237, 249, 0.14);
     --mp-card: #161E42;
     --mp-card-tint: #1C2550;
@@ -182,7 +182,7 @@ html::-webkit-scrollbar {
     /* Primary pill button inverts: cream on navy */
     --mp-btn-bg: #E9EDF9;
     --mp-btn-bg-hover: #FBF7EF;
-    --mp-btn-fg: #13203F;
+    --mp-btn-fg: #122642;
 
     /* ── Liquid glass surfaces (dark) ── */
     --glass-surface: linear-gradient(135deg, rgba(30, 40, 84, 0.62), rgba(15, 21, 48, 0.42));

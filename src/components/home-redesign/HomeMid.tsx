@@ -28,7 +28,7 @@ export function MpLedger() {
             <div style={{ fontFamily: S.disp, fontSize: 46, fontWeight: 700, color: S.gold, letterSpacing: "-0.02em" }}>{r.rank}</div>
             <div style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: S.inkSoft, fontWeight: 600 }}>{r.exam}</div>
             <div style={{ fontSize: 19, color: S.navy, fontWeight: 500 }}>{r.name} <span style={{ color: S.inkSoft, fontSize: 16, fontWeight: 400 }}>— {r.note}</span></div>
-            <img src={r.img} alt={r.name} style={{ width: 58, height: 58, borderRadius: "50%", objectFit: "cover", border: `2px solid ${S.goldSoft}`, boxShadow: "0 6px 16px rgba(19,32,63,0.14)" }} />
+            <img src={r.img} alt={r.name} style={{ width: 58, height: 58, borderRadius: "50%", objectFit: "cover", border: `2px solid ${S.goldSoft}`, boxShadow: "0 6px 16px rgba(26,54,93,0.14)" }} />
           </div>
         </div>
       ))}
@@ -56,7 +56,7 @@ export function MpReportProof() {
   return (
     <section id="weekly-report" className="mp-x mp-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, padding: "96px 48px", alignItems: "center" }}>
       <div data-reveal style={{ position: "relative" }}>
-        <div aria-hidden style={{ position: "absolute", top: -50, left: -60, width: 300, height: 300, borderRadius: "50%", background: "radial-gradient(circle, rgba(227,190,85,0.22) 0%, rgba(227,190,85,0) 65%)", pointerEvents: "none" }} />
+        <div aria-hidden style={{ position: "absolute", top: -50, left: -60, width: 300, height: 300, borderRadius: "50%", background: "radial-gradient(circle, rgba(212,168,75,0.22) 0%, rgba(212,168,75,0) 65%)", pointerEvents: "none" }} />
         <div data-tilt="4" className="mp-tilt mp-spot mp-glass-card" style={{ position: "relative", borderRadius: 20, padding: "28px 30px" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 22 }}>
             <span style={{ fontFamily: S.disp, fontWeight: 700, fontSize: 17, color: S.navy }}>Weekly report — Priya P.</span>
@@ -110,13 +110,13 @@ export function MpPrograms({ onCta }: { onCta: () => void }) {
   return (
     <section id="programs" className="mp-x" style={{ padding: "0 48px 96px" }}>
       <div data-reveal className="mp-programs-card" style={{ position: "relative", overflow: "hidden", background: S.bgDeep, borderRadius: 26, border: `1px solid ${S.line}`, padding: "52px 48px 44px" }}>
-        <div aria-hidden style={{ position: "absolute", top: -120, right: -100, width: 380, height: 380, borderRadius: "50%", background: "radial-gradient(circle, rgba(227,190,85,0.20) 0%, rgba(227,190,85,0) 65%)", pointerEvents: "none" }} />
+        <div aria-hidden style={{ position: "absolute", top: -120, right: -100, width: 380, height: 380, borderRadius: "50%", background: "radial-gradient(circle, rgba(212,168,75,0.20) 0%, rgba(212,168,75,0) 65%)", pointerEvents: "none" }} />
         <MpEyebrow style={{ marginBottom: 30 }}>Programs — choose your exam</MpEyebrow>
         <div className="mp-3col mp-programs-grid" style={{ position: "relative", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 0 }}>
           {programs.map((p, i) => (
             <div key={i} data-reveal className="mp-program" style={{ position: "relative", padding: i ? "0 36px" : "0 36px 0 0", borderLeft: i ? `1px solid ${S.line}` : "none", ...dd(i) }}>
               <span aria-hidden style={{ position: "absolute", top: -6, right: i ? 0 : 36, fontFamily: S.disp, fontSize: 13, fontWeight: 700, color: S.line }}>{p.no}</span>
-              <span aria-hidden className="mp-pillar-ic" style={{ display: "grid", placeItems: "center", width: 48, height: 48, borderRadius: 14, background: S.gradGold, boxShadow: "0 10px 24px rgba(201,151,31,0.26)" }}>
+              <span aria-hidden className="mp-pillar-ic" style={{ display: "grid", placeItems: "center", width: 48, height: 48, borderRadius: 14, background: S.gradGold, boxShadow: "0 10px 24px rgba(185,137,53,0.26)" }}>
                 <p.Icon style={{ width: 22, height: 22, color: S.navyDeep }} strokeWidth={2.2} />
               </span>
               <h3 style={{ fontFamily: S.disp, fontSize: 25, fontWeight: 600, margin: "18px 0 12px", color: S.navy }}>{p.t}</h3>
