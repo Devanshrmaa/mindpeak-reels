@@ -202,6 +202,10 @@ Tests live in `src/test/`. Run with `npx vitest run`.
 ### Adding Blog Posts
 - Add entry to `src/data/blogData.ts`
 - Create slug matching the blog resolver pattern in `src/lib/blogResolver.ts`
+- **Indexability is governed by `src/lib/indexableBlogSlugs.ts`**: only posts listed in
+  `/sitemap.xml` (kept generators + exam-event posts) are indexable and shown on `/blog`;
+  every other resolvable post is served `noindex, follow`. To make a new post indexable,
+  add it to the kept set that feeds the sitemap — don't bypass this rule
 
 ### Adding Practice Questions
 - Questions go in `src/data/practice/` (JEE) or `src/data/neet-practice/` (NEET)

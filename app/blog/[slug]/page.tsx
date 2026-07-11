@@ -25,10 +25,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const override = getBlogSeoOverride(post.slug);
   const title = override ? override.title : `${post.title} | MindPeak Institute`;
   const desc = (override?.description ?? post.excerpt).slice(0, 155);
+  const { isIndexableBlogSlug } = await import("@/lib/indexableBlogSlugs");
+  const indexable = isIndexableBlogSlug(post.slug);
   return {
     title,
     description: desc,
     alternates: { canonical },
+    ...(indexable ? {} : { robots: { index: false, follow: true } }),
     openGraph: {
       type: "article",
       url: canonical,
