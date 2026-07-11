@@ -30,7 +30,10 @@ export const metadata: Metadata = {
 
 export default async function BlogPage() {
   const { getAllPostsSummary } = await import("@/lib/blogResolver");
-  const allSummaries = getAllPostsSummary();
+  const { isIndexableBlogSlug } = await import("@/lib/indexableBlogSlugs");
+  // List only the curated (sitemap-indexable) posts: the noindexed template
+  // posts stay reachable by direct URL but are not crawl-discoverable here.
+  const allSummaries = getAllPostsSummary().filter((p) => isIndexableBlogSlug(p.slug));
   const posts = allSummaries.slice(0, 200).map(({ icon, ...rest }) => rest);
   const { default: BlogClient } = await import("./BlogClient");
   return <BlogClient posts={posts} />;
