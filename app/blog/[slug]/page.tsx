@@ -75,5 +75,46 @@ export default async function BlogPostPage({ params }: Props) {
     color: post.color,
   };
 
-  return <BlogPostClient post={serialized} />;
+  // Structured data — indexable (sitemap) posts only.
+  const { isIndexableBlogSlug } = await import("@/lib/indexableBlogSlugs");
+  const indexable = isIndexableBlogSlug(post.slug);
+
+  // FAQPage JSON-LD from the post's Q/A section.
+  const { buildBlogFaqJsonLd } = await import("@/lib/blogFaqSchema");
+  const faqJsonLd = indexable ? buildBlogFaqJsonLd(post.content) : null;
+
+  // BlogPosting JSON-LD with real author/reviewer entities (E-E-A-T).
+  // Dates are pinned to publishDate — never "today" — so schema freshness
+  // can't roll daily (the daily-rolling-dates problem fixed in PR #174).
+  let articleJsonLd: string | null = null;
+  if (indexable) {
+    const { buildReviewedByJsonLd } = await import("@/lib/reviewedByJsonLd");
+    const subjectTag =
+      post.tags.find((t) => ["Physics", "Chemistry", "Mathematics", "Biology"].includes(t)) ??
+      post.category;
+    articleJsonLd = JSON.stringify({
+      ...buildReviewedByJsonLd({
+        pageUrl: `/blog/${post.slug}`,
+        headline: post.title,
+        exam: post.category === "NEET" ? "NEET" : "JEE",
+        subject: subjectTag,
+        reviewDate: post.publishDate,
+        schemaType: "BlogPosting",
+      }),
+      datePublished: post.publishDate,
+      description: post.excerpt,
+    }).replace(/</g, "\\u003c");
+  }
+
+  return (
+    <>
+      {articleJsonLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: articleJsonLd }} />
+      )}
+      {faqJsonLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqJsonLd }} />
+      )}
+      <BlogPostClient post={serialized} />
+    </>
+  );
 }
