@@ -62,6 +62,7 @@ export async function GET() {
     '/jee-physics-coaching', '/jee-chemistry-coaching', '/jee-mathematics-coaching',
     '/neet-biology-coaching', '/neet-physics-coaching', '/neet-chemistry-coaching',
     '/batch-vs-personal-coaching',
+    '/one-to-one-jee-coaching', '/one-to-one-neet-coaching',
     '/jee-physics-mechanics', '/jee-physics-electrodynamics', '/jee-physics-optics',
     '/jee-physics-thermodynamics', '/jee-physics-waves',
     '/jee-chemistry-physical', '/jee-chemistry-organic', '/jee-chemistry-inorganic',

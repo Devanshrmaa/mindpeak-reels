@@ -3105,6 +3105,8 @@ const comparisonPages: SEOPageData[] = [
       { q: 'Who should choose batch coaching over a personal tutor?', a: 'Choose batch coaching if you are self-disciplined, can self-identify weak areas, thrive on peer competition, and are comfortable being one of 60 to 100 students. For everyone else, one-on-one coaching is more effective per rupee spent.' },
     ],
     relatedPages: [
+      { label: 'One-to-One JEE Coaching', href: '/one-to-one-jee-coaching' },
+      { label: 'One-to-One NEET Coaching', href: '/one-to-one-neet-coaching' },
       { label: 'Online vs Offline Coaching', href: '/online-vs-offline-jee-coaching' },
       { label: 'Kota Coaching Alternative', href: '/kota-coaching-alternative' },
       { label: 'All Programs', href: '/courses' },
@@ -3797,6 +3799,8 @@ const mentorsPage: SEOPageData = {
     { q: 'What qualifications do MindPeak mentors have?', a: 'All mentors are alumni of IIT, NIT, BITS, AIIMS, or equivalent institutions. They have a minimum of 3 years of teaching experience and clear our rigorous 5-step selection process. Only 3% of applicants make it through.' },
   ],
   relatedPages: [
+    { label: 'One-to-One JEE Coaching', href: '/one-to-one-jee-coaching' },
+    { label: 'One-to-One NEET Coaching', href: '/one-to-one-neet-coaching' },
     { label: 'Expert JEE Physics Coaching by IIT Alumni', href: '/jee-physics-coaching' },
     { label: 'Personalized JEE Chemistry Coaching', href: '/jee-chemistry-coaching' },
     { label: '1-on-1 JEE Mathematics Mentoring', href: '/jee-mathematics-coaching' },
@@ -5754,7 +5758,139 @@ const himachalTuitionPage: SEOPageData = {
   schemaType: 'WebPage',
 };
 
+// ─────────────────────────────────────────────────
+// ONE-TO-ONE SERVICE PAGES (core offering intent)
+// GSC 2026-07: "one to one jee coaching" ranked pos 2 with 40% CTR, but the
+// ranking URL was a consolidated city doorway — no dedicated page existed
+// for the site's core service query family. These two are it.
+// ─────────────────────────────────────────────────
+
+const oneToOneJeePage: SEOPageData = {
+  slug: 'one-to-one-jee-coaching',
+  title: 'One-to-One JEE Coaching Online — Personal IIT Mentor | MindPeak',
+  description: '1-on-1 JEE coaching with a personal IIT/NIT mentor — custom study plan, unlimited doubt-solving and deep mock analysis. Book a free one-to-one demo class.',
+  h1: 'One-to-One',
+  h1Highlight: 'JEE Coaching',
+  heroSubtitle: 'No batches, no seat numbers, no waiting for your turn to ask a doubt. In MindPeak\'s one-to-one JEE coaching, a personal IIT/NIT mentor teaches only you — at your pace, on your weak areas, around your school schedule.',
+  schemaType: 'Course',
+  sections: [
+    {
+      heading: 'What One-to-One JEE Coaching Includes',
+      content: 'Every MindPeak JEE student works with one dedicated mentor across Physics, Chemistry and Mathematics — the same person who teaches you also tracks your mock scores and rebuilds your plan every week.',
+      bullets: [
+        'A personal IIT/NIT alumni mentor — matched to your weak subjects, not assigned at random',
+        'Live solo classes: 100% of teaching time targets your syllabus gaps',
+        'Custom study plan rebuilt weekly from your test data, not a fixed batch calendar',
+        'Unlimited doubt-solving between classes — message your mentor, get a walkthrough',
+        '30+ minute analysis after every mock test: error patterns, time allocation, attempt order',
+        'Parent progress reports so improvement is visible at home, not just in scores',
+      ],
+    },
+    {
+      heading: 'One-to-One vs Batch JEE Coaching at a Glance',
+      content: 'Batch coaching teaches the average student in the room; one-to-one coaching teaches you. The short version of the comparison:',
+      table: {
+        headers: ['Criterion', 'One-to-One (MindPeak)', 'Typical Batch'],
+        rows: [
+          ['Teaching focus', 'Your exact weak chapters', 'Batch-average pace'],
+          ['Doubt resolution', 'Same day, unlimited', 'Queue after class'],
+          ['Mock-test review', '30+ min personal analysis', '5–10 min group debrief'],
+          ['Schedule', 'Around your school hours', 'Fixed slots'],
+        ],
+      },
+    },
+    {
+      heading: 'Who Should Choose 1-on-1 JEE Coaching',
+      bullets: [
+        'Students below ~80 percentile in mocks — batch pacing leaves the gaps that got you here unfixed',
+        'Strong students with one weak subject dragging the total (usually Physics or Maths)',
+        'Droppers who need a plan built from their actual gap analysis, not a repeat of last year\'s batch',
+        'Students with heavy school/board schedules who can\'t attend fixed batch slots',
+        'Anyone who stays silent in class instead of asking doubts — in a class of one, that\'s impossible',
+      ],
+    },
+    {
+      heading: 'How Mentor Matching Works',
+      content: 'After your free demo class, MindPeak reviews your target (JEE Main percentile or Advanced rank), your mock history, and your weak-subject profile, then matches you with a mentor whose strength is exactly your weakness — a mechanics-specialist for a student losing marks in rotation, an organic-chemistry specialist for a student stuck on mechanisms. If the fit isn\'t right, you can switch mentors at any point at no cost.',
+    },
+  ],
+  faqs: [
+    { q: 'Is one-to-one coaching better than batch coaching for JEE?', a: 'For students below roughly the 80th percentile, yes — documented percentile gains from one-to-one coaching run 15–25 points in 6 months versus 8–15 for batch coaching, because every teaching minute targets that student\'s weak areas. Self-driven students near the top of the cohort can do well in either format. See our full one-on-one vs batch comparison for the 7-criterion breakdown.' },
+    { q: 'How much does 1-on-1 JEE coaching cost?', a: 'Market rates for quality one-to-one JEE coaching run ₹2,000–₹5,000 per hour. MindPeak prices by monthly program rather than per hour — see the pricing page for current plans, and start with a free demo class before paying anything.' },
+    { q: 'Does one-to-one coaching work for JEE droppers?', a: 'It is the format droppers benefit from most. A dropper\'s year fails when it repeats the same batch syllabus that didn\'t work the first time. Your mentor starts from a gap analysis of your actual attempt — which chapters cost you marks and why — and builds the year around fixing those.' },
+    { q: 'How many hours per week is one-to-one JEE coaching?', a: 'Most MindPeak students take 3 mentor-led classes of 90 minutes per week plus unlimited doubt support, with intensity scaled up before mocks and the exam window. The schedule adapts to school hours and board-exam periods rather than the other way around.' },
+    { q: 'Can I switch my mentor if the fit is not right?', a: 'Yes, at any point and at no cost. Mentor fit is the single biggest factor in one-to-one outcomes, so switching is designed to be friction-free.' },
+  ],
+  relatedPages: [
+    { label: 'JEE Coaching Programs', href: '/jee-coaching' },
+    { label: '1-on-1 vs Batch Coaching Compared', href: '/batch-vs-personal-coaching' },
+    { label: 'One-to-One NEET Coaching', href: '/one-to-one-neet-coaching' },
+    { label: 'Meet the Mentors', href: '/mentors' },
+    { label: 'Pricing', href: '/pricing' },
+    { label: 'Free Demo Class', href: '/free-trial' },
+  ],
+};
+
+const oneToOneNeetPage: SEOPageData = {
+  slug: 'one-to-one-neet-coaching',
+  title: 'One-to-One NEET Coaching Online — Personal Mentor | MindPeak',
+  description: 'Personal one-to-one NEET coaching: dedicated PCB mentor, NCERT-first study plan, unlimited doubts and mock-test analysis. Book a free 1-on-1 demo class.',
+  h1: 'One-to-One',
+  h1Highlight: 'NEET Coaching',
+  heroSubtitle: 'NEET rewards precision: 720 marks, 180 questions, and an NCERT-line-level syllabus where a single misread fact costs a rank band. MindPeak\'s one-to-one NEET coaching gives you a personal PCB mentor who finds and fixes your exact error patterns — something no 100-student batch can do.',
+  schemaType: 'Course',
+  sections: [
+    {
+      heading: 'What One-to-One NEET Coaching Includes',
+      content: 'One dedicated mentor owns your Physics, Chemistry and Biology preparation end to end — teaching, doubt-solving, and mock review are one continuous loop instead of three disconnected services.',
+      bullets: [
+        'A personal mentor for PCB — Biology taught NCERT-line-by-line, the way NEET actually tests it',
+        'Custom plan balancing Biology volume against Physics problem practice — the trade-off batches get wrong',
+        'Unlimited doubt-solving with your own mentor, not a rotating doubt-desk',
+        'Every mock analysed personally: silly-error rate, OMR discipline, chapter-wise accuracy',
+        'Revision cycles timed to your retention data, not a fixed batch calendar',
+        'Parent progress reports after every assessment block',
+      ],
+    },
+    {
+      heading: 'Why One-to-One Fits NEET Preparation',
+      content: 'NEET\'s difficulty is volume and accuracy, not trick questions. 97 of 180 questions come from Biology, where scoring depends on how completely you\'ve internalised NCERT — and accuracy under time pressure is a personal error pattern, different for every student. A batch teacher cannot know that you consistently confuse plant-hormone functions or misread assertion-reason phrasing; a personal mentor finds it in your second mock and drills it out of you.',
+    },
+    {
+      heading: 'Who Should Choose 1-on-1 NEET Coaching',
+      bullets: [
+        'Students scoring 400–550 in mocks who need accuracy and coverage fixed simultaneously',
+        'Biology-strong students losing rank to Physics — the most common NEET profile',
+        'Droppers who need this attempt built from last attempt\'s error analysis',
+        'State-board students bridging to NCERT-first preparation',
+        'Students preparing alongside Class 12 boards who can\'t hold fixed batch timings',
+      ],
+    },
+    {
+      heading: 'How Mentor Matching Works for NEET',
+      content: 'After your free demo, MindPeak profiles your mock history and subject split, then matches you with a mentor whose specialisation is your weakest link — a physiology-strong Biology mentor, or a mechanics specialist for the Physics section. Mentor switches are free at any time.',
+    },
+  ],
+  faqs: [
+    { q: 'Is one-to-one coaching enough for NEET without joining a batch?', a: 'Yes — one-to-one coaching is a complete replacement for batch coaching, not a supplement. You get the full PCB syllabus taught live, plus mocks, revision cycles, and doubt support. What changes is that all of it is built around your data instead of a batch average.' },
+    { q: 'How does one-to-one NEET Biology coaching work?', a: 'Biology is taught NCERT-line-by-line — your mentor works through the textbook with you, flags the exact lines NEET converts into questions, and builds recall drills from the statements you personally keep missing in mocks. This is the highest-yield use of one-to-one time because Biology is 360 of NEET\'s 720 marks.' },
+    { q: 'How much does 1-on-1 NEET coaching cost?', a: 'Quality one-to-one NEET coaching runs ₹2,000–₹5,000 per hour at market rates. MindPeak prices by monthly program — see the pricing page for current plans, and take a free one-to-one demo class before committing.' },
+    { q: 'Does one-to-one coaching work for NEET droppers?', a: 'It is the strongest format for droppers. Your mentor starts from your actual NEET attempt: which chapters cost marks, whether errors were knowledge gaps or accuracy slips, and how your attempt order lost you time — then builds the year around exactly that, instead of re-running a generic dropper batch.' },
+    { q: 'Can one-to-one classes fit around Class 12 board preparation?', a: 'Yes — scheduling is per-student, so classes move around board practicals and school exams. Most Class 12 students run a lighter class load during board months and scale up after, without losing their mentor or plan continuity.' },
+  ],
+  relatedPages: [
+    { label: 'NEET Coaching Programs', href: '/neet-coaching' },
+    { label: '1-on-1 vs Batch Coaching Compared', href: '/batch-vs-personal-coaching' },
+    { label: 'One-to-One JEE Coaching', href: '/one-to-one-jee-coaching' },
+    { label: 'Meet the Mentors', href: '/mentors' },
+    { label: 'Pricing', href: '/pricing' },
+    { label: 'Free Demo Class', href: '/free-trial' },
+  ],
+};
+
 export const allSEOPages: SEOPageData[] = [
+  oneToOneJeePage,
+  oneToOneNeetPage,
   himachalTuitionPage,
   aboutPage,
   successStoriesPage,
