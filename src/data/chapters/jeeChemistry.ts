@@ -420,6 +420,7 @@ export const jeeChemistryChapters: ChapterData[] = [
     keyFormulas: ['Group I: HCl (PbCl₂, AgCl, Hg₂Cl₂)', 'Group II: H₂S in acid (CuS, PbS, HgS)', 'Group III: NH₄Cl + NH₄OH (Al(OH)₃, Fe(OH)₃)', 'Group IV: H₂S in base (NiS, CoS, MnS, ZnS)'],
     commonMistakes: ['Wrong group reagent for cation identification', 'Confusing flame colours with precipitate colours', 'Missing interfering radical effects', 'Wrong confirmatory test for similar ions'],
     faqs: [
+      { q: 'Is salt analysis in the JEE Main syllabus?', a: 'Qualitative salt analysis is primarily a JEE Advanced topic. In JEE Main it appears only occasionally as straightforward NCERT-level MCQs on characteristic tests, so prioritise it for Advanced and cover the NCERT tests for Main.' },
       { q: 'Is Salt Analysis asked in JEE Advanced?', a: 'Yes — typically in comprehension-based passages. You need to know which reagent gives which precipitate/colour. NCERT + MindPeak\'s visual salt analysis chart is sufficient.' },
     ],
   },
