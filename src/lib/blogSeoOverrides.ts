@@ -61,8 +61,38 @@ const OVERRIDES: Record<string, BlogSeoOverride> = {
     description: `Year-wise AIIMS Delhi cutoff marks and ranks, category-wise, with trends since 2020 and the realistic NEET score to target this cycle.`,
   },
   'ap-eamcet-vs-neet-comparison': {
-    title: `NEET vs AP EAMCET — Syllabus, Difficulty & College Differences {Y}`,
-    description: `NEET and AP EAMCET differ in syllabus depth, negative marking and the colleges they unlock. Full comparison plus a dual-prep plan for AP medical aspirants.`,
+    // GSC 2026-07: ranks 9-11 for five "difference between eamcet and neet"
+    // phrasings against Quora/Careers360 Q&A pages — lead with that phrasing.
+    title: `Difference Between EAMCET and NEET ({Y}) — Which to Choose?`,
+    description: `EAMCET is the AP/Telangana state entrance (PCB + PCM streams); NEET is the national medical entrance (PCB only). Syllabus, seats and difficulty compared.`,
+  },
+  /* ── SERP-pattern batch, 2026-07-14 — modeled on the metadata of pages
+     ranking top-3 for our striking-distance GSC queries. ── */
+  'ts-eamcet-syllabus-complete-guide': {
+    // Top rankers (Shiksha/Careers360/Testbook) all lead "TS EAMCET Syllabus
+    // 2026" + subject-wise + weightage. Our page: pos 10, 65 imps, 1 click.
+    title: `TS EAMCET Syllabus {Y}: Subject-Wise Topics & Weightage`,
+    description: `Full TS EAMCET (TG EAPCET) syllabus for Maths, Physics and Chemistry with chapter-wise weightage tables and the high-yield chapters deciding your rank.`,
+  },
+  'olympiad-vs-jee-advanced-comparison': {
+    // "is nsep harder than jee advanced" pos 13; SERP consensus: yes.
+    title: `Is NSEP Harder Than JEE Advanced? Olympiad vs JEE {Y}`,
+    description: `Yes — NSEP and other science Olympiads are generally tougher than JEE Advanced: deeper theory, multi-step problems, tighter time. Full comparison inside.`,
+  },
+  'wbjee-vs-jee-advanced-comparison': {
+    // "is wbjee tougher than jee" pos 29, 14 imps; consensus: WBJEE easier.
+    title: `Is WBJEE Tougher Than JEE? WBJEE vs JEE Advanced {Y}`,
+    description: `No — WBJEE is noticeably easier than JEE Advanced: formula-based questions vs multi-concept problems. Difficulty, syllabus overlap and colleges compared.`,
+  },
+  'comedk-vs-jee-advanced-comparison': {
+    // "is comedk easier/harder than jee" pos 19-21.
+    title: `Is COMEDK Easier Than JEE? COMEDK vs JEE Advanced {Y}`,
+    description: `Yes — COMEDK is easier than JEE Advanced with direct questions, but 180 questions in 3 hours adds time pressure. Pattern, difficulty and colleges compared.`,
+  },
+  'srmjeee-vs-jee-main-comparison': {
+    // "is srmjeee easier than jee mains" pos 25.
+    title: `Is SRMJEEE Easier Than JEE Main? Full Comparison {Y}`,
+    description: `Yes — SRMJEEE is much easier than JEE Main, with no negative marking and direct questions. See the syllabus overlap and how your JEE prep clears SRMJEEE.`,
   },
 };
 
