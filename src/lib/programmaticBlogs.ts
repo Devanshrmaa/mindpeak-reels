@@ -2801,12 +2801,20 @@ function generateExamComparisonPosts(): BlogPost[] {
 
       const i = posts.length;
       const slug = `${exam.slug}-vs-${base.slug}-comparison-${year}`;
-      const title = `${exam.name} vs ${base.name} ${year} — Complete Comparison Guide`;
+      // Question-phrased title: GSC shows these pages surface for "is X
+      // harder/tougher/easier than Y" queries, not "X vs Y guide" queries.
+      const title = `${exam.name} vs ${base.name} ${year} — Which Is Harder? Full Comparison`;
+
+      // Single difficulty verdict, reused by the quick answer, the Verdict
+      // line, and the FAQ so the page never contradicts itself.
+      const verdict = exam.overlapPercent > 75
+        ? `${exam.name} is generally ${exam.category === 'olympiad' ? 'harder' : 'slightly easier'} than ${base.name} in terms of question difficulty, but ${exam.keyDifferences[0].toLowerCase().includes('speed') || exam.keyDifferences[0].toLowerCase().includes('time') ? 'the time pressure can make it equally challenging' : 'different exam patterns require specific preparation'}.`
+        : `${exam.name} tests different skills than ${base.name}. While there's ${exam.overlapPercent}% syllabus overlap, the remaining ${100 - exam.overlapPercent}% and different question patterns make them fundamentally different exams.`;
 
       posts.push({
         slug,
         title,
-        excerpt: `Detailed comparison of ${exam.name} and ${base.name}. Covers syllabus overlap, difficulty, marking scheme, preparation strategy, and which to prioritize.`,
+        excerpt: `Is ${exam.name} harder than ${base.name}? Direct verdict, ${exam.overlapPercent}% syllabus overlap explained, marking scheme, and how to prepare for both exams.`,
         category: base.slug.includes('neet') ? 'NEET' as const : 'JEE' as const,
         tags: [exam.name, base.name, 'Comparison', 'Strategy'],
         author: 'MindPeak Team',
@@ -2814,6 +2822,8 @@ function generateExamComparisonPosts(): BlogPost[] {
         readTime: '14 min read',
         icon: examIcons[i % examIcons.length],
         content: `# ${exam.name} vs ${base.name} ${year} — Which Is Harder and How to Prepare for Both
+
+> **Quick answer — is ${exam.name} harder than ${base.name}?** ${verdict} The syllabus overlap is ${exam.overlapPercent}%, so most ${base.name} aspirants can add ${exam.name} with targeted extra preparation rather than a separate course.
 
 ## Overview: ${exam.name} and ${base.name}
 
@@ -2847,7 +2857,7 @@ ${exam.keyDifferences[0]}
 
 ${exam.keyDifferences[1]}
 
-**Verdict:** ${exam.overlapPercent > 75 ? `${exam.name} is generally ${exam.category === 'olympiad' ? 'harder' : 'slightly easier'} than ${base.name} in terms of question difficulty, but ${exam.keyDifferences[0].toLowerCase().includes('speed') || exam.keyDifferences[0].toLowerCase().includes('time') ? 'the time pressure can make it equally challenging' : 'different exam patterns require specific preparation'}.` : `${exam.name} tests different skills than ${base.name}. While there's ${exam.overlapPercent}% syllabus overlap, the remaining ${100 - exam.overlapPercent}% and different question patterns make them fundamentally different exams.`}
+**Verdict:** ${verdict}
 
 ## Syllabus Comparison
 
@@ -2915,6 +2925,9 @@ Your MindPeak mentor creates an **integrated preparation plan** that:
 - Adjusts strategy based on your relative performance in each exam
 
 ## Frequently Asked Questions
+
+**Q: Is ${exam.name} harder than ${base.name}?**
+A: ${verdict}
 
 ${exam.faqs.slice(0, 4).map(f => `**Q: ${f.q}**\nA: ${f.a}`).join('\n\n')}
 

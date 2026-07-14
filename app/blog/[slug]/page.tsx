@@ -75,5 +75,17 @@ export default async function BlogPostPage({ params }: Props) {
     color: post.color,
   };
 
-  return <BlogPostClient post={serialized} />;
+  // FAQPage JSON-LD from the post's Q/A section — indexable posts only.
+  const { isIndexableBlogSlug } = await import("@/lib/indexableBlogSlugs");
+  const { buildBlogFaqJsonLd } = await import("@/lib/blogFaqSchema");
+  const faqJsonLd = isIndexableBlogSlug(post.slug) ? buildBlogFaqJsonLd(post.content) : null;
+
+  return (
+    <>
+      {faqJsonLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqJsonLd }} />
+      )}
+      <BlogPostClient post={serialized} />
+    </>
+  );
 }
