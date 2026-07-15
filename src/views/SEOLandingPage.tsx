@@ -19,6 +19,7 @@ import { getLastUpdated, getCurrentExamYear } from '@/lib/contentFreshness';
 import { FadeInView } from '@/components/FadeInView';
 import { TableOfContents, toAnchorId, type TocItem } from '@/components/TableOfContents';
 import { getExamEntities } from '@/lib/seoEntities';
+import { getExamGuideLinks } from '@/lib/examGuideLinks';
 
 /* ── Section renderer ── */
 const ContentSection = ({ section, index }: { section: SEOPageSection; index: number }) => {
@@ -89,6 +90,12 @@ const SEOLandingPage = () => {
 
   const page = slug ? getSEOPage(slug) : undefined;
   if (!page) return <Navigate to="/" replace />;
+
+  // Exam coaching pages also link to their syllabus guide + comparison post.
+  const guideLinks = getExamGuideLinks(page.slug).filter(
+    (g) => !page.relatedPages.some((rp) => rp.href === g.href),
+  );
+  const relatedPages = [...page.relatedPages, ...guideLinks];
 
   const jsonLd: object[] = [];
 
@@ -276,11 +283,11 @@ const SEOLandingPage = () => {
         )}
 
         {/* Related Pages / Internal Links */}
-        {page.relatedPages.length > 0 && (
+        {relatedPages.length > 0 && (
           <section className="max-w-4xl mx-auto px-6 pb-16">
             <h3 className="font-display font-bold text-foreground text-xl mb-6">Explore More</h3>
             <div className="flex flex-wrap gap-3">
-              {page.relatedPages.map((rp) => (
+              {relatedPages.map((rp) => (
                 <Link
                   key={rp.href}
                   to={rp.href}

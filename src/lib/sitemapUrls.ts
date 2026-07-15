@@ -1,0 +1,147 @@
+/**
+ * Sitemap URL groups — single source of truth for every indexable URL.
+ * ─────────────────────────────────────────────────────────────────────
+ * /sitemap.xml is a SITEMAP INDEX (the structure large ed-tech sites use)
+ * pointing at four segmented children, so GSC reports coverage per content
+ * type instead of one opaque number:
+ *
+ *   /sitemap-core.xml      → commercial pages, cities, hubs, comparisons
+ *   /sitemap-chapters.xml  → chapter hub pages
+ *   /sitemap-blog.xml      → curated blog posts + exam-event posts
+ *   /sitemap-exams.xml     → exam-info + difference-between reference pages
+ *
+ * LASTMOD POLICY (spam-update recovery critical): lastmod must be TRUTHFUL
+ * or Google learns to ignore it. The previous implementation anchored the
+ * stagger to `new Date()`, silently rolling every URL's lastmod forward
+ * every day — a soft version of the fake-freshness signal the June 2026
+ * audit purged from the legacy sitemap farm. Dates are now anchored to
+ * CONTENT_ANCHOR, which only moves when we ship a real content release.
+ * Only genuinely time-sensitive URLs (breaking pages, live exam-event
+ * posts) carry today's date.
+ *
+ * Bump CONTENT_ANCHOR when a deploy meaningfully changes indexable content
+ * (new pages, rewritten sections/metadata) — not for refactors.
+ */
+
+import { getKeptBlogSlugs } from '@/lib/programmaticBlogs';
+import { CHAPTER_SLUGS } from '@/data/chapterData';
+import { competitors } from '@/data/comparisonData';
+import { examRegistry } from '@/data/examRegistry';
+import { getAllExamInfoSlugs } from '@/data/examInfoData';
+import { getAllDifferenceSlugs } from '@/data/differenceBetweenData';
+import { getAllCounsellingSlugs } from '@/data/counsellingData';
+import { getAllExamEventBlogSlugs } from '@/lib/examEventBlogs';
+import { ONE_YEAR_TARGET, TWO_YEAR_TARGET } from '@/lib/examYears';
+import { STATE_HUB_SLUGS } from '@/data/stateHubData';
+
+export const BASE = 'https://mindpeakinstitute.com';
+
+/** Last real content release. 2026-07-15: service-page cluster + metadata batch. */
+export const CONTENT_ANCHOR = '2026-07-15';
+
+/**
+ * Deterministic, STABLE lastmod: CONTENT_ANCHOR minus a slug-hashed 0–27 day
+ * offset. Spreads dates naturally but never moves until the anchor moves.
+ */
+export function stableLastmod(slug: string): string {
+  let hash = 0;
+  for (let i = 0; i < slug.length; i++) {
+    hash = ((hash << 5) - hash + slug.charCodeAt(i)) | 0;
+  }
+  const d = new Date(CONTENT_ANCHOR);
+  d.setDate(d.getDate() - (Math.abs(hash) % 28));
+  return d.toISOString().slice(0, 10);
+}
+
+export function urlEntry(path: string, priority: string, changefreq: string, lastmod: string): string {
+  return `  <url>\n    <loc>${BASE}${path}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+}
+
+export function wrapUrlset(comment: string, entries: string[]): string {
+  return [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    `<!-- ${comment} -->`,
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ...entries,
+    '</urlset>',
+  ].join('\n');
+}
+
+/* ═══ URL groups ═══ */
+
+/** Breaking / time-sensitive pages — the only core URLs stamped with today. */
+export const BREAKING_PATHS = ['/neet-ug-2026-cancelled'];
+
+export function getStaticPaths(): string[] {
+  return [
+    '/', '/jee-coaching', '/neet-coaching', '/courses', '/pricing', '/free-trial',
+    '/study-plan', '/contact', '/blog', '/about', '/methodology', '/mentors',
+    '/jee-main-coaching', '/jee-advanced-coaching', '/neet-ug-coaching',
+    '/jee-dropper-coaching', '/neet-dropper-coaching', '/foundation-coaching',
+    '/jee-crash-course', '/neet-crash-course',
+    '/jee-physics-coaching', '/jee-chemistry-coaching', '/jee-mathematics-coaching',
+    '/neet-biology-coaching', '/neet-physics-coaching', '/neet-chemistry-coaching',
+    '/batch-vs-personal-coaching',
+    '/one-to-one-jee-coaching', '/one-to-one-neet-coaching',
+    '/jee-mentorship-by-iitians', '/neet-mentorship',
+    '/jee-physics-mechanics', '/jee-physics-electrodynamics', '/jee-physics-optics',
+    '/jee-physics-thermodynamics', '/jee-physics-waves',
+    '/jee-chemistry-physical', '/jee-chemistry-organic', '/jee-chemistry-inorganic',
+    '/jee-math-algebra', '/jee-math-calculus', '/jee-math-trigonometry', '/jee-math-geometry',
+    '/jee-practice', '/jee-pyq', '/neet-practice', '/neet-pyq',
+    '/kota-coaching-alternative', '/online-vs-offline-jee-coaching',
+    '/best-jee-coaching-in-india',
+    '/online-tuition-himachal-pradesh',
+    '/jee-rank-predictor', '/neet-rank-predictor',
+    '/jee-physics-formulas', '/jee-chemistry-formulas', '/jee-maths-formulas',
+    '/neet-biology-formulas', '/neet-physics-formulas', '/neet-chemistry-formulas',
+    '/jee-physics-preparation', '/jee-chemistry-preparation', '/jee-mathematics-preparation',
+    '/neet-biology-preparation', '/neet-physics-preparation', '/neet-chemistry-preparation',
+    '/jee-mock-test-strategy', '/neet-mock-test-strategy',
+    `/course/jee-main-target-${TWO_YEAR_TARGET}`, `/course/neet-target-${TWO_YEAR_TARGET}`,
+    `/course/jee-target-${ONE_YEAR_TARGET}`, `/course/neet-target-${ONE_YEAR_TARGET}`,
+    '/course/subject-crash-course', '/course/1-on-1-crash-program',
+    '/course/6th-foundation', '/course/7th-foundation', '/course/8th-foundation',
+    '/course/9th-foundation', '/course/10th-foundation',
+    '/course/bitsat-target', '/course/isi-entrance-target', '/course/olympiad-coaching',
+    '/terms-and-conditions', '/refund-policy',
+    ...examRegistry.map((e) => `/${e.slug}-coaching`),
+  ];
+}
+
+export const getComparisonPaths = (): string[] => competitors.map((c) => `/${c.slug}`);
+export const getChapterPaths = (): string[] => CHAPTER_SLUGS.map((s) => `/${s}`);
+export const getKeptBlogPaths = (): string[] => getKeptBlogSlugs().map((s) => `/${s}`);
+export const getExamEventBlogPaths = (): string[] => getAllExamEventBlogSlugs().map((s) => `/${s}`);
+export const getExamInfoPaths = (): string[] => getAllExamInfoSlugs().map((s) => `/${s}`);
+export const getDifferencePaths = (): string[] => getAllDifferenceSlugs().map((s) => `/${s}`);
+export const getCounsellingPaths = (): string[] => getAllCounsellingSlugs().map((s) => `/${s}`);
+export const getStateHubPaths = (): string[] => STATE_HUB_SLUGS.map((s) => `/${s}`);
+
+export const IMPORTANT_Q_PATHS = [
+  '/jee-physics-important-questions',
+  '/jee-chemistry-important-questions',
+  '/jee-mathematics-important-questions',
+  '/neet-physics-important-questions',
+  '/neet-chemistry-important-questions',
+  '/neet-biology-important-questions',
+];
+
+/** T1 city coaching pages (indexed, hand-curated, genuinely unique content). */
+export const CITY_PATHS = [
+  '/jee-coaching-in-bangalore', '/neet-coaching-in-bangalore',
+  '/jee-coaching-in-mangalore', '/neet-coaching-in-mangalore',
+  '/jee-coaching-in-chennai', '/neet-coaching-in-chennai',
+  '/jee-coaching-in-coimbatore', '/neet-coaching-in-coimbatore',
+  '/jee-coaching-in-hyderabad', '/neet-coaching-in-hyderabad',
+  '/jee-coaching-in-vijayawada', '/neet-coaching-in-vijayawada',
+  '/jee-coaching-in-visakhapatnam', '/neet-coaching-in-visakhapatnam',
+  '/jee-coaching-in-kochi', '/neet-coaching-in-kochi',
+  '/jee-coaching-in-delhi', '/neet-coaching-in-delhi',
+  '/jee-coaching-in-mumbai', '/neet-coaching-in-mumbai',
+];
+
+export const SITEMAP_HEADERS = {
+  'Content-Type': 'application/xml; charset=utf-8',
+  'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=43200',
+};

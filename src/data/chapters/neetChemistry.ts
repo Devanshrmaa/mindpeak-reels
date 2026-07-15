@@ -130,14 +130,15 @@ export const neetChemistryChapters: ChapterData[] = [
   /* ──────── ORGANIC CHEMISTRY ──────── */
   {
     slug: 'neet-chemistry-organic-basics',
-    exam: 'NEET', subject: 'Chemistry', chapter: 'Basic Organic Chemistry (GOC & Hydrocarbons)',
+    exam: 'NEET', subject: 'Chemistry', chapter: 'General Organic Chemistry (GOC) & Hydrocarbons',
     icon: FlaskConical,
     weightage: '4-6%', difficulty: 'Hard', pyqCount: 35,
-    description: 'IUPAC naming, electronic effects, isomerism, and hydrocarbon reactions — the organic foundation for NEET. MindPeak builds GOC mastery before teaching any reaction mechanisms.',
+    description: 'GOC (General Organic Chemistry) — IUPAC naming, electronic effects, isomerism, and hydrocarbon reactions, the organic foundation for NEET. MindPeak builds GOC mastery before teaching any reaction mechanisms.',
     topics: ['IUPAC Nomenclature', 'Isomerism (Structural & Stereo)', 'Electronic Effects (I, M, H)', 'Stability of Intermediates', 'Alkane Reactions', 'Alkene & Alkyne Reactions', 'Aromatic Hydrocarbons (Benzene)', 'Electrophilic Aromatic Substitution'],
     keyFormulas: ['Markownikoff: H to C with more H', 'Anti-Markownikoff: HBr + peroxide only', 'Hückel: 4n+2 π electrons = aromatic', 'Ozonolysis: C=C → 2 carbonyl compounds'],
     commonMistakes: ['Wrong IUPAC naming priority', 'Confusing +I/-I and +M/-M groups', 'Wrong product in Markownikoff addition', 'Wrong directing effects in benzene substitution'],
     faqs: [
+      { q: 'What is the full form of GOC in chemistry?', a: 'GOC stands for General Organic Chemistry — the foundation chapter covering IUPAC nomenclature, electronic effects (inductive, mesomeric, hyperconjugation), isomerism, and stability of reaction intermediates. Every organic chemistry question in NEET and JEE builds on GOC concepts.' },
       { q: 'How important is GOC for NEET?', a: 'Critical! Every organic question uses GOC concepts. MindPeak spends 2 weeks on GOC fundamentals before moving to specific organic chapters. This investment pays dividends in all organic chemistry.' },
     ],
   },

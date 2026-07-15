@@ -2806,10 +2806,14 @@ function generateExamComparisonPosts(): BlogPost[] {
       const title = `${exam.name} vs ${base.name} ${year} — Which Is Harder? Full Comparison`;
 
       // Single difficulty verdict, reused by the quick answer, the Verdict
-      // line, and the FAQ so the page never contradicts itself.
-      const verdict = exam.overlapPercent > 75
-        ? `${exam.name} is generally ${exam.category === 'olympiad' ? 'harder' : 'slightly easier'} than ${base.name} in terms of question difficulty, but ${exam.keyDifferences[0].toLowerCase().includes('speed') || exam.keyDifferences[0].toLowerCase().includes('time') ? 'the time pressure can make it equally challenging' : 'different exam patterns require specific preparation'}.`
-        : `${exam.name} tests different skills than ${base.name}. While there's ${exam.overlapPercent}% syllabus overlap, the remaining ${100 - exam.overlapPercent}% and different question patterns make them fundamentally different exams.`;
+      // line, and the FAQ so the page never contradicts itself. Olympiads
+      // are called harder outright — the consistent expert consensus for
+      // NSEP/NSEC/INMO-track exams — rather than hedged as "different".
+      const verdict = exam.category === 'olympiad'
+        ? `Yes — ${exam.name} exams (NSEP, NSEC, INMO track) are generally harder than ${base.name}: problems demand deeper theory and multi-step reasoning under tighter time limits, though ${base.name} has a broader syllabus and far stiffer competition for ranks.`
+        : exam.overlapPercent > 75
+          ? `${exam.name} is generally slightly easier than ${base.name} in terms of question difficulty, but ${exam.keyDifferences[0].toLowerCase().includes('speed') || exam.keyDifferences[0].toLowerCase().includes('time') ? 'the time pressure can make it equally challenging' : 'different exam patterns require specific preparation'}.`
+          : `${exam.name} tests different skills than ${base.name}. While there's ${exam.overlapPercent}% syllabus overlap, the remaining ${100 - exam.overlapPercent}% and different question patterns make them fundamentally different exams.`;
 
       posts.push({
         slug,

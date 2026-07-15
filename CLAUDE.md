@@ -43,12 +43,9 @@ npm run lint
 
 # Tests
 npx vitest run
-
-# Update sitemap lastmod dates
-npm run update-sitemap
 ```
 
-**Sitemaps are dynamic routes, not files:** the only live sitemaps are `app/sitemap.xml/route.ts` (lean, ~507 curated URLs) and `app/removal-sitemap.xml/route.ts` (temporary, 410'd doorways). The legacy static sitemaps (`public/sitemaps/**`, `public/sitemap-topics.xml`, `public/final.xml`) were deleted during the March 2026 spam-update recovery — do NOT regenerate them (the `scripts/gen-*` generators are retained for reference only).
+**Sitemaps are dynamic routes, not files:** `app/sitemap.xml/route.ts` is a **sitemap index** pointing at four segmented children — `sitemap-core.xml`, `sitemap-chapters.xml`, `sitemap-blog.xml`, `sitemap-exams.xml` (~587 curated URLs total). All URL groups and the lastmod policy live in **`src/lib/sitemapUrls.ts`** (single source of truth). `lastmod` dates are STABLE, anchored to `CONTENT_ANCHOR` — bump that constant on real content releases; never stamp rolling "today" dates (fake freshness was part of the March 2026 penalty). `app/removal-sitemap.xml/route.ts` is temporary (410'd doorways). The legacy static sitemaps (`public/sitemaps/**`, `public/sitemap-topics.xml`, `public/final.xml`) were deleted during the spam-update recovery — do NOT regenerate them (the `scripts/gen-*` generators and `scripts/update-sitemap.mjs` are retained for reference only; the latter was removed from the build).
 
 ---
 
@@ -197,7 +194,7 @@ Tests live in `src/test/`. Run with `npx vitest run`.
 ### Adding a New Landing Page
 1. Create `app/<slug>/page.tsx` with `generateMetadata()` and a view component
 2. Add metadata entry to `src/data/seoPageData.ts` if using the programmatic SEO system
-3. Add the URL to the appropriate list in `app/sitemap.xml/route.ts`
+3. Add the URL to the appropriate group in `src/lib/sitemapUrls.ts` (feeds the sitemap index children)
 
 ### Adding Blog Posts
 - Add entry to `src/data/blogData.ts`
@@ -254,7 +251,7 @@ No `.env` file in the repo. Secrets are managed via Vercel environment settings 
 - **Don't run `npm run build` to type-check** — `ignoreBuildErrors: true` means it won't catch type errors; use `npx tsc --noEmit` instead
 - **Don't modify `src/polyfills/empty-next-polyfill-module.js`** — it's an intentional empty shim for performance
 - **Don't add `console.log`** — it's stripped in production; use `console.warn` or `console.error` for anything that should persist
-- **Don't add new pages without updating `app/sitemap.xml/route.ts`** — it's the single source of truth for indexable URLs
+- **Don't add new pages without updating `src/lib/sitemapUrls.ts`** — it's the single source of truth for indexable URLs (feeds the `/sitemap.xml` index and its four children)
 - **Don't regenerate the legacy static sitemaps** (`public/sitemaps/**`, `sitemap-topics.xml`, `final.xml`) — they advertised thousands of redirected/noindexed URLs and were removed during penalty recovery
 
 ---
