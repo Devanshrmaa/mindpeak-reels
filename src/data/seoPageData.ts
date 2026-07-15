@@ -5814,6 +5814,33 @@ const oneToOneJeePage: SEOPageData = {
       heading: 'How Mentor Matching Works',
       content: 'After your free demo class, MindPeak reviews your target (JEE Main percentile or Advanced rank), your mock history, and your weak-subject profile, then matches you with a mentor whose strength is exactly your weakness — a mechanics-specialist for a student losing marks in rotation, an organic-chemistry specialist for a student stuck on mechanisms. If the fit isn\'t right, you can switch mentors at any point at no cost.',
     },
+    {
+      heading: 'Your First 30 Days of One-to-One JEE Coaching',
+      content: 'One-to-one coaching starts working before the first full class, because the first job is diagnosis, not teaching:',
+      ordered: true,
+      bullets: [
+        'Week 1 — Preparation audit: free demo class, chapter-level assessment of all three subjects, review of any existing mock history, mentor matching',
+        'Week 2 — Baseline and plan: a full-syllabus diagnostic mock to establish your true starting point, then your first weekly plan built from its chapter-wise results',
+        'Weeks 3–4 — Teaching rhythm: live classes on your highest-impact weak chapters, first graded problem sets, and your first full mock post-mortem with the mentor',
+      ],
+    },
+    {
+      heading: 'What a Typical Week Looks Like',
+      content: 'Schedules are per-student, but most MindPeak JEE students settle into a rhythm like this:',
+      table: {
+        headers: ['Day', 'Activity'],
+        rows: [
+          ['Mon / Wed / Fri', 'Live 90-minute one-to-one class on the week\'s target chapters'],
+          ['Tue / Thu', 'Assigned problem sets; doubts sent to mentor, resolved same day'],
+          ['Saturday', 'Mock test or chapter test under exam timing'],
+          ['Sunday', 'Mentor review: test post-mortem + next week\'s plan'],
+        ],
+      },
+    },
+    {
+      heading: 'What One-to-One Coaching Is Not',
+      content: 'Setting expectations honestly matters more in a personal program than anywhere else. One-to-one coaching is not recorded lectures with a chat window, not a doubt-solving app, and not a shortcut that removes the need for practice hours — you will still solve thousands of problems yourself. What it removes is wasted effort: every hour you put in is pointed at the chapters and error patterns that are actually costing you marks, and someone checks the outcome every week.',
+    },
   ],
   faqs: [
     { q: 'Is one-to-one coaching better than batch coaching for JEE?', a: 'For students below roughly the 80th percentile, yes — documented percentile gains from one-to-one coaching run 15–25 points in 6 months versus 8–15 for batch coaching, because every teaching minute targets that student\'s weak areas. Self-driven students near the top of the cohort can do well in either format. See our full one-on-one vs batch comparison for the 7-criterion breakdown.' },
@@ -5822,6 +5849,9 @@ const oneToOneJeePage: SEOPageData = {
     { q: 'How many hours per week is one-to-one JEE coaching?', a: 'Most MindPeak students take 3 mentor-led classes of 90 minutes per week plus unlimited doubt support, with intensity scaled up before mocks and the exam window. The schedule adapts to school hours and board-exam periods rather than the other way around.' },
     { q: 'Can I switch my mentor if the fit is not right?', a: 'Yes, at any point and at no cost. Mentor fit is the single biggest factor in one-to-one outcomes, so switching is designed to be friction-free.' },
     { q: 'Is a private JEE tutor the same as one-to-one coaching?', a: 'A private tutor typically teaches one subject in isolation. MindPeak\'s one-to-one coaching is a complete JEE program from a single personal tutor-mentor: all three subjects coordinated under one plan, plus mock analysis, revision scheduling and exam strategy — the parts of preparation a subject tutor never owns.' },
+    { q: 'Which classes and exams does one-to-one JEE coaching cover?', a: 'Class 11, Class 12 and droppers, for both JEE Main and JEE Advanced — the plan targets whichever defines your goal college. Younger students (Class 6–10) start with the foundation program instead, which builds the same fundamentals at the right depth for their stage.' },
+    { q: 'How are the classes conducted?', a: 'Live online, one student and one mentor, on a shared digital whiteboard — the same format as sitting across a table, without the commute. Problem sets, mock tests and doubt-solving run between classes, so the live time is spent on teaching rather than administration.' },
+    { q: 'How do parents track progress in a one-to-one program?', a: 'Parents receive progress reports after every assessment block: chapters completed, mock-score trend, accuracy trend, and what the next block targets. Because one mentor owns the full program, parents also have a single person to talk to — not a front desk.' },
   ],
   relatedPages: [
     { label: 'JEE Coaching Programs', href: '/jee-coaching' },
@@ -5873,6 +5903,32 @@ const oneToOneNeetPage: SEOPageData = {
       heading: 'How Mentor Matching Works for NEET',
       content: 'After your free demo, MindPeak profiles your mock history and subject split, then matches you with a mentor whose specialisation is your weakest link — a physiology-strong Biology mentor, or a mechanics specialist for the Physics section. Mentor switches are free at any time.',
     },
+    {
+      heading: 'Your First 30 Days of One-to-One NEET Coaching',
+      content: 'The program opens with measurement, because NEET preparation fails on unmeasured gaps:',
+      ordered: true,
+      bullets: [
+        'Week 1 — Preparation audit: free demo, NCERT coverage check chapter-by-chapter, review of existing mock history, mentor matching',
+        'Week 2 — Baseline: a full 180-question diagnostic under real timing to measure subject-wise accuracy and attempt discipline, then your first weekly plan',
+        'Weeks 3–4 — Rhythm: live classes on the highest-yield gaps, first revision cycle scheduled, first full mock post-mortem with your mentor',
+      ],
+    },
+    {
+      heading: 'How Study Time Splits Across Biology, Physics and Chemistry',
+      content: 'The right split depends on your mock profile, not a fixed formula — but these are the patterns mentors most often build plans around:',
+      table: {
+        headers: ['Profile', 'Typical Weekly Split', 'Why'],
+        rows: [
+          ['Biology-strong, Physics-weak (most common)', 'Physics 40% · Chemistry 30% · Biology 30%', 'Biology hours shift from learning to timed recall; Physics gets taught'],
+          ['State-board background', 'Biology 40% · Chemistry 30% · Physics 30%', 'NCERT bridge for Biology and Chemistry comes first'],
+          ['Dropper with 450–550 score', 'Split from error analysis', 'The last attempt\'s mistakes decide the plan, not averages'],
+        ],
+      },
+    },
+    {
+      heading: 'What One-to-One NEET Coaching Is Not',
+      content: 'It is not a recorded-video library, not a doubt app, and not a promise that Biology can be memorised in a month. NEET rewards sustained, accurate recall over 97 Biology questions and problem discipline over 90 in PCB — one-to-one coaching makes every hour count toward that, and gives you one person accountable for whether the score is actually moving.',
+    },
   ],
   faqs: [
     { q: 'Is one-to-one coaching enough for NEET without joining a batch?', a: 'Yes — one-to-one coaching is a complete replacement for batch coaching, not a supplement. You get the full PCB syllabus taught live, plus mocks, revision cycles, and doubt support. What changes is that all of it is built around your data instead of a batch average.' },
@@ -5881,6 +5937,9 @@ const oneToOneNeetPage: SEOPageData = {
     { q: 'Does one-to-one coaching work for NEET droppers?', a: 'It is the strongest format for droppers. Your mentor starts from your actual NEET attempt: which chapters cost marks, whether errors were knowledge gaps or accuracy slips, and how your attempt order lost you time — then builds the year around exactly that, instead of re-running a generic dropper batch.' },
     { q: 'Can one-to-one classes fit around Class 12 board preparation?', a: 'Yes — scheduling is per-student, so classes move around board practicals and school exams. Most Class 12 students run a lighter class load during board months and scale up after, without losing their mentor or plan continuity.' },
     { q: 'Is online one-to-one coaching better than a home tutor for NEET?', a: 'A home tutor is limited to whoever teaches near you; online one-to-one coaching matches you with a NEET-specialist mentor from anywhere in India. You also get what local home tuition rarely includes: NEET-pattern mocks with personal analysis, NCERT-first revision cycles, and a single mentor coordinating all of PCB rather than one subject.' },
+    { q: 'Does the program cover both Class 11 and Class 12 syllabus for NEET?', a: 'Yes — NEET tests both years equally, so the plan always spans the full syllabus. For Class 12 students, Class 11 chapters are scheduled as structured revision blocks alongside new material; for droppers, the split comes from which year\'s chapters cost marks in the last attempt.' },
+    { q: 'Can I join one-to-one NEET coaching mid-year?', a: 'Yes. With no batch to sync to, the program starts from wherever your preparation actually is — the week-1 audit establishes what\'s covered and what isn\'t, and the plan is built forward from there. Mid-year joiners lose nothing except the time already gone.' },
+    { q: 'How do parents track progress?', a: 'Progress reports follow every assessment block: NCERT coverage verified, accuracy trend per subject, mock-score trajectory, and the next block\'s targets. One mentor owns the program end to end, so parents always know exactly who to talk to.' },
   ],
   relatedPages: [
     { label: 'NEET Coaching Programs', href: '/neet-coaching' },
@@ -5950,6 +6009,30 @@ const jeeMentorshipPage: SEOPageData = {
       heading: 'How MindPeak Mentorship Works',
       content: 'Every MindPeak program starts with a free demo and a preparation audit: your mock history, chapter-level strengths, and target rank. You\'re then matched with an IIT/NIT alumni mentor — the same mentor stays with you through the attempt, so context never resets. Weekly plans arrive every Sunday; check-ins are daily; full mock reviews happen after every test you write.',
     },
+    {
+      heading: 'The Weekly Mentorship Cycle',
+      content: 'Mentorship works because it runs on a fixed loop, not on motivation:',
+      ordered: true,
+      bullets: [
+        'Sunday — Planning session: the week\'s chapters, sources, problem counts and test slots, built from last week\'s outcomes',
+        'Daily — Check-in: what was planned vs what happened, and one course-correction while the week can still be saved',
+        'After every test — Post-mortem: a structured review of every lost mark (see below), folded into next Sunday\'s plan',
+        'Monthly — Milestone review: syllabus position vs target date, and an honest call on whether the strategy needs to change',
+      ],
+    },
+    {
+      heading: 'The Mock-Test Post-Mortem: What Your Mentor Actually Analyses',
+      content: 'A score tells you almost nothing; the post-mortem is where mentorship earns its keep. Every lost mark is classified into one of four buckets, because each bucket has a different fix:',
+      table: {
+        headers: ['Lost-mark type', 'What it means', 'The fix'],
+        rows: [
+          ['Concept gap', 'The chapter was never solid', 'Goes into next week\'s teaching/study queue'],
+          ['Silly error', 'Knew it, executed wrong', 'Tracked as a rate; drilled with targeted sets'],
+          ['Time pressure', 'Ran out of time on solvable questions', 'Attempt-order and skip-discipline changes'],
+          ['Wrong selection', 'Attempted the wrong questions', 'Question-triage rules for the next mock'],
+        ],
+      },
+    },
   ],
   faqs: [
     { q: 'What does a JEE mentor do exactly?', a: 'A mentor owns your preparation strategy: weekly chapter-and-source plans built from your mock data, daily accountability check-ins, detailed mock-test post-mortems, and milestone strategy calls. Teaching explains a chapter; mentorship makes sure the right chapters get studied at the right time and the plan survives contact with a school schedule.' },
@@ -5957,6 +6040,8 @@ const jeeMentorshipPage: SEOPageData = {
     { q: 'How is a mentor different from a coaching teacher?', a: 'A batch teacher optimises one lecture for a hundred students and rarely sees any individual\'s mock data. Your mentor works only from your data — what you got wrong, why, and what that means for next week\'s plan — and stays with you across the whole preparation, not one subject.' },
     { q: 'Who are MindPeak\'s JEE mentors?', a: 'IIT and NIT alumni who cleared JEE themselves and have mentored MindPeak students through multiple attempt cycles. You can read mentor profiles on the mentors page, and you meet your proposed mentor in the free demo before committing.' },
     { q: 'How often do I interact with my mentor?', a: 'Daily check-ins (chat), a weekly planning session, and a full review after every mock test. Before milestones — syllabus completion, revision start, exam week — you get dedicated strategy calls. The cadence scales up automatically in the final 60 days.' },
+    { q: 'Can I take JEE mentorship alongside my current coaching institute?', a: 'Yes — that\'s one of the most common setups. Your institute provides the teaching; your mentor provides what the institute can\'t: personal mock analysis, a plan that accounts for your batch\'s pace, and honest triage when the batch moves faster than your weak chapters allow.' },
+    { q: 'When is the right time to start JEE mentorship?', a: 'The best time is before a problem shows up — at the start of Class 11 or a dropper year, when structure compounds the longest. The most common time is after a mock-score plateau. Either works: the audit meets your preparation where it is, and the loop starts the same Sunday.' },
   ],
   relatedPages: [
     { label: 'One-to-One JEE Coaching', href: '/one-to-one-jee-coaching' },
@@ -6006,6 +6091,20 @@ const neetMentorshipPage: SEOPageData = {
       heading: 'How MindPeak NEET Mentorship Works',
       content: 'You start with a free demo and a preparation audit: mock history, chapter-level accuracy, and target score. MindPeak matches you with a mentor who has cleared the medical-entrance path, and the same mentor stays through your attempt. Weekly plans arrive every Sunday; accuracy and coverage reviews happen after every mock; parents get a monthly progress summary.',
     },
+    {
+      heading: 'The Weekly NEET Mentorship Cycle',
+      ordered: true,
+      bullets: [
+        'Sunday — Planning: the week\'s NCERT chapters, question targets and revision queue, built from last week\'s verified coverage',
+        'Daily — Check-in: planned vs done, with course-correction the same day rather than at week\'s end',
+        'After every mock — Accuracy review: subject-wise accuracy, silly-error rate, attempt order and skip discipline, each with a concrete fix',
+        'Monthly — Milestone review: coverage vs calendar, score trajectory vs target, and revision-cycle health',
+      ],
+    },
+    {
+      heading: 'Why NEET Scores Plateau — and How a Mentor Breaks It',
+      content: 'Most NEET plateaus trace to one of three causes, and all three are invisible without someone tracking the data. Coverage debt: chapters marked "done" that can\'t survive a recall test — broken by verified coverage checks instead of self-reporting. Accuracy leak: a stable 10–15% error rate on known material — broken by measuring the silly-error rate per subject and drilling the specific patterns. Revision decay: first-revision material fading before the second pass arrives — broken by scheduling revision cycles from your retention data rather than a generic calendar.',
+    },
   ],
   faqs: [
     { q: 'What does a NEET mentor do?', a: 'Your mentor owns preparation direction: weekly NCERT coverage plans with recall verification, accuracy tracking from every mock, revision-cycle scheduling, and attempt-strategy reviews. It\'s the layer between "studying hard" and "score actually moving" — most NEET plateaus are execution problems a mentor can see in the data.' },
@@ -6013,6 +6112,8 @@ const neetMentorshipPage: SEOPageData = {
     { q: 'How is NEET mentorship different from NEET coaching?', a: 'Coaching teaches the syllabus; mentorship makes sure your preparation as a whole is on track — coverage, accuracy, revision timing, and strategy. MindPeak\'s one-to-one coaching includes mentorship; standalone mentorship suits students who already have teaching from school, a batch, or self-study materials.' },
     { q: 'Does mentorship work for NEET droppers studying at home?', a: 'Droppers benefit most: the dropper year usually fails on structure and honesty, not effort. A mentor turns the year into weekly verified targets built from your last attempt\'s error analysis, with someone checking execution every day.' },
     { q: 'How often do I talk to my NEET mentor?', a: 'Daily chat check-ins, a weekly planning session every Sunday, and a full post-mortem after every mock. The cadence intensifies through the final 60 days, when revision-cycle and accuracy discipline matter most.' },
+    { q: 'Can I take NEET mentorship alongside my coaching institute?', a: 'Yes — the combination is common and effective. Your institute teaches; your mentor tracks whether your coverage, accuracy and revision are actually on target, and rebalances your self-study around the batch\'s pace. Nothing conflicts because mentorship directs your own hours, not the institute\'s.' },
+    { q: 'When should I start NEET mentorship?', a: 'Ideally at the start of the preparation year, when weekly structure has the longest time to compound. In practice many students start after a plateau or a disappointing mock series — the audit meets your preparation wherever it stands, and the weekly loop begins immediately.' },
   ],
   relatedPages: [
     { label: 'One-to-One NEET Coaching', href: '/one-to-one-neet-coaching' },
