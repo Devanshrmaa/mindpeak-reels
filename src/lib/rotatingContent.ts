@@ -1,60 +1,14 @@
 /**
- * Rotating Content Utility
- * Displays different content each month/week to keep pages fresh.
- * Google sees different content each time it crawls = dynamic / active site.
+ * Rotating Content Utility — study tips and seasonal CTAs only.
+ *
+ * The fabricated "monthly success stories" (12 invented students with
+ * specific AIRs, rotated so "Google sees different content each crawl")
+ * were removed 2026-07-15. Invented named results are a trust, compliance
+ * and spam-recovery liability. Real, verifiable stories belong in owner-
+ * maintained data with proof — not generated here.
  */
 
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
-
-/* ─── types ─── */
-
-export interface MonthlyContentBlock {
-  id: string;
-  /** 0 = Jan … 11 = Dec */
-  month: number;
-  name: string;
-  city: string;
-  rank: string;
-  quote: string;
-  exam: 'JEE' | 'NEET';
-}
-
-/* ─── monthly success stories (12 months, alternating JEE / NEET) ─── */
-
-export const monthlySuccessStories: MonthlyContentBlock[] = [
-  { id: 'jan', month: 0, name: 'Rahul Verma', city: 'Delhi', rank: 'AIR 389', exam: 'JEE', quote: 'Started with MindPeak in July 2025, achieved AIR 389 in JEE Advanced. The personalized attention made all the difference!' },
-  { id: 'feb', month: 1, name: 'Priya Sharma', city: 'Mumbai', rank: 'AIR 156', exam: 'NEET', quote: "MindPeak's adaptive curriculum helped me improve from 140/300 to 285/300 in just 6 months. Best decision I made!" },
-  { id: 'mar', month: 2, name: 'Arjun Nair', city: 'Kochi', rank: 'AIR 512', exam: 'JEE', quote: 'The 1-on-1 sessions were exactly what I needed. My Physics score jumped from 30 to 85 in JEE Mains.' },
-  { id: 'apr', month: 3, name: 'Sneha Gupta', city: 'Patna', rank: '98.5 %ile', exam: 'NEET', quote: 'Coming from a tier-3 city, quality coaching was impossible before MindPeak. My NEET score went up by 270 marks!' },
-  { id: 'may', month: 4, name: 'Karthik Menon', city: 'Bangalore', rank: 'AIR 723', exam: 'JEE', quote: "My mentor identified exactly where I was losing marks in Organic Chemistry. Targeted practice turned my weakness into a strength." },
-  { id: 'jun', month: 5, name: 'Ananya Reddy', city: 'Hyderabad', rank: '97.8 %ile', exam: 'NEET', quote: 'The Biology-first approach and NCERT mastery program were game-changers. I felt fully prepared walking into the exam hall.' },
-  { id: 'jul', month: 6, name: 'Vikram Singh', city: 'Jaipur', rank: 'AIR 198', exam: 'JEE', quote: 'I left Kota coaching and joined MindPeak. Best decision ever — went from struggling to AIR under 200 in 8 months.' },
-  { id: 'aug', month: 7, name: 'Kavya Iyer', city: 'Chennai', rank: '99.1 %ile', exam: 'NEET', quote: 'My mentor helped me build an exam-day strategy that eliminated careless mistakes. That alone boosted my score by 40+ marks.' },
-  { id: 'sep', month: 8, name: 'Aditya Kumar', city: 'Lucknow', rank: 'AIR 445', exam: 'JEE', quote: 'The weekly analytics showed me exactly which chapters needed work. Data-driven preparation gave me confidence and results.' },
-  { id: 'oct', month: 9, name: 'Isha Patel', city: 'Ahmedabad', rank: '98.2 %ile', exam: 'NEET', quote: 'Juggling boards and NEET seemed impossible until my MindPeak mentor created an integrated study plan. Scored 95%+ in boards too.' },
-  { id: 'nov', month: 10, name: 'Rohan Das', city: 'Kolkata', rank: 'AIR 672', exam: 'JEE', quote: 'The mock test analysis sessions were invaluable. My mentor broke down every paper and we worked on time management methodically.' },
-  { id: 'dec', month: 11, name: 'Meera Joshi', city: 'Pune', rank: '97.5 %ile', exam: 'NEET', quote: 'I tried self-study for a year with no progress. Within 5 months at MindPeak my scores crossed 650 in NEET mocks.' },
-];
-
-/**
- * Returns this month's rotating success story.
- */
-export function getCurrentMonthStory(exam?: 'JEE' | 'NEET'): MonthlyContentBlock {
-  const currentMonth = new Date().getMonth();
-  const story = monthlySuccessStories.find((s) => s.month === currentMonth);
-  if (story && (!exam || story.exam === exam)) return story;
-
-  // fallback: find closest month matching the exam filter
-  if (exam) {
-    const filtered = monthlySuccessStories.filter((s) => s.exam === exam);
-    return (
-      filtered.find((s) => s.month <= currentMonth) ||
-      filtered[filtered.length - 1]
-    );
-  }
-
-  return story ?? monthlySuccessStories[0];
-}
 
 /* ─── weekly rotating tips ─── */
 

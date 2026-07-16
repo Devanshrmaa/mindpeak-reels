@@ -21,6 +21,8 @@ const STATIC_SECTIONS: FooterSectionData[] = [
     title: 'JEE Preparation',
     links: [
       { label: 'JEE Coaching', to: '/jee-coaching' },
+      { label: 'One-to-One JEE Coaching', to: '/one-to-one-jee-coaching' },
+      { label: 'JEE Mentorship by IITians', to: '/jee-mentorship-by-iitians' },
       { label: 'JEE Physics Preparation', to: '/jee-physics-preparation' },
       { label: 'JEE Chemistry Preparation', to: '/jee-chemistry-preparation' },
       { label: 'JEE Mathematics Preparation', to: '/jee-mathematics-preparation' },
@@ -31,6 +33,8 @@ const STATIC_SECTIONS: FooterSectionData[] = [
     title: 'NEET Preparation',
     links: [
       { label: 'NEET Coaching', to: '/neet-coaching' },
+      { label: 'One-to-One NEET Coaching', to: '/one-to-one-neet-coaching' },
+      { label: 'NEET Mentorship Program', to: '/neet-mentorship' },
       { label: 'NEET Physics Preparation', to: '/neet-physics-preparation' },
       { label: 'NEET Chemistry Preparation', to: '/neet-chemistry-preparation' },
       { label: 'NEET Biology Preparation', to: '/neet-biology-preparation' },
