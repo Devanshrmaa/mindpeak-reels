@@ -735,22 +735,31 @@ function Voices() {
             Real students, real ranks — the people behind the results ledger.
           </span>
         </div>
-        <div className="asc-voices">
-          {voices.map((v, i) => (
-            <figure className="asc-voice asc-reveal asc-spot asc-spot-dark" style={{ "--d": `${i * 0.09}s` } as CSSVars} key={i}>
-              <span className="asc-voice-quote" aria-hidden="true">
-                &ldquo;
-              </span>
-              <blockquote>{v.q}</blockquote>
-              <figcaption>
-                <img src={v.img} alt={v.name} width={46} height={46} loading="lazy" />
-                <div>
-                  <div className="asc-voice-name">{v.name}</div>
-                  <div className="asc-voice-role asc-mono">{v.role}</div>
-                </div>
-              </figcaption>
-            </figure>
-          ))}
+        {/* real testimonials only — duplicated once (aria-hidden) so the
+            marquee track loops seamlessly, same technique as the stats
+            marquee above. Card content itself is never invented. */}
+        <div className="asc-voice-marquee asc-reveal">
+          <div className="asc-voice-track">
+            {[...voices, ...voices].map((v, i) => (
+              <figure
+                className="asc-voice asc-spot asc-spot-dark"
+                aria-hidden={i >= voices.length || undefined}
+                key={i}
+              >
+                <span className="asc-voice-quote" aria-hidden="true">
+                  &ldquo;
+                </span>
+                <blockquote>{v.q}</blockquote>
+                <figcaption>
+                  <img src={v.img} alt={v.name} width={46} height={46} loading="lazy" />
+                  <div>
+                    <div className="asc-voice-name">{v.name}</div>
+                    <div className="asc-voice-role asc-mono">{v.role}</div>
+                  </div>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -905,12 +914,12 @@ function Pricing({ onCta }: { onCta: () => void }) {
             const hi = Boolean(tier.highlight);
             return (
               <div
-                className={`asc-tier asc-reveal asc-spot asc-tilt3d${hi ? " asc-tier-hi asc-spot-dark asc-card-glow" : ""}`}
+                className={`asc-tier asc-reveal asc-spot asc-tilt3d${tier.badge ? " asc-tier-has-badge" : ""}${hi ? " asc-tier-hi asc-spot-dark asc-card-glow" : ""}`}
                 data-tilt="3"
                 style={{ "--d": `${i * 0.09}s` } as CSSVars}
                 key={tier.name}
               >
-                {tier.badge ? <span className="asc-tier-badge">{tier.badge}</span> : null}
+                {tier.badge ? <span className="asc-tier-badge asc-tier-badge-float">{tier.badge}</span> : null}
                 <h3>{tier.name}</h3>
                 <div className="asc-tier-target">{tier.target}</div>
                 <div className="asc-tier-price">
@@ -1786,8 +1795,12 @@ const ASC_CSS = `
 .asc-statement-ratio-k{font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(251,247,239,0.72);margin-top:7px}
 
 /* voices */
-.asc-voices{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
-.asc-voice{margin:0;border-radius:20px;padding:30px 28px 26px;border:1px solid rgba(251,247,239,0.14);background:rgba(251,247,239,0.05);display:flex;flex-direction:column}
+/* testimonial marquee wall — edge-fade masks, pauses on hover/focus */
+.asc-voice-marquee{margin-top:44px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.asc-voice-track{display:flex;width:max-content;gap:18px;animation:ascVoiceScroll 46s linear infinite}
+.asc-voice-marquee:hover .asc-voice-track,.asc-voice-marquee:focus-within .asc-voice-track{animation-play-state:paused}
+@keyframes ascVoiceScroll{to{transform:translateX(-50%)}}
+.asc-voice{flex:0 0 380px;margin:0;border-radius:20px;padding:30px 28px 26px;border:1px solid rgba(251,247,239,0.14);background:rgba(251,247,239,0.05);display:flex;flex-direction:column}
 .asc-voice-quote{font-family:var(--asc-disp);font-size:56px;line-height:0.7;color:var(--asc-gold-bright);opacity:0.55;margin-bottom:14px}
 .asc-voice blockquote{margin:0;font-size:16px;line-height:1.62;color:rgba(251,247,239,0.94);flex-grow:1}
 .asc-voice figcaption{display:flex;align-items:center;gap:12px;margin-top:22px;padding-top:20px;border-top:1px solid rgba(251,247,239,0.14)}
@@ -1830,9 +1843,12 @@ const ASC_CSS = `
 
 /* pricing */
 .asc-pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px;align-items:stretch}
-.asc-tier{position:relative;overflow:hidden;display:flex;flex-direction:column;border-radius:22px;padding:32px 28px 28px;border:1px solid var(--asc-line);background:var(--asc-surface)}
+.asc-tier{position:relative;display:flex;flex-direction:column;border-radius:22px;padding:32px 28px 28px;border:1px solid var(--asc-line);background:var(--asc-surface)}
 .asc-tier-hi{background:var(--asc-band);border-color:rgba(217,174,87,0.45);color:var(--asc-cream);box-shadow:0 26px 60px rgba(26,54,93,0.26)}
 .asc-tier-badge{display:inline-block;align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--asc-navy-deep);background:var(--asc-grad-gold);border-radius:999px;padding:5px 12px;margin-bottom:14px}
+/* floating badge — straddles the card's top edge (dev21 "Pricing Glass" pattern) */
+.asc-tier-badge-float{position:absolute;top:0;left:50%;transform:translate(-50%,-52%);margin:0;box-shadow:0 8px 22px rgba(201,151,31,0.4),var(--asc-glow-gold);z-index:2;white-space:nowrap}
+.asc-tier-has-badge{margin-top:12px}
 .asc-tier h3{font-size:23px;margin:0 0 6px;color:var(--asc-ink-strong)}
 .asc-tier-hi h3{color:var(--asc-cream)}
 .asc-tier-target{font-size:13.5px;color:var(--asc-muted);margin-bottom:18px}
@@ -1928,7 +1944,8 @@ const ASC_CSS = `
 @media (max-width:820px){
   .asc-nav-links{display:none}
   .asc-compare{grid-template-columns:1fr}
-  .asc-voices,.asc-faculty-grid,.asc-week-grid,.asc-pricing-grid,.asc-programs-grid{grid-template-columns:1fr}
+  .asc-faculty-grid,.asc-week-grid,.asc-pricing-grid,.asc-programs-grid{grid-template-columns:1fr}
+  .asc-voice{flex-basis:82vw}
   .asc-stat-grid{grid-template-columns:1fr}
   .asc-program{padding:0 0 24px}
   .asc-program+.asc-program{border-left:none;border-top:1px solid var(--asc-line);padding-top:24px}
@@ -1946,7 +1963,8 @@ const ASC_CSS = `
 @media (prefers-reduced-motion:reduce){
   .asc *,.asc *::before,.asc *::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
   .asc-reveal,.asc-w,.asc-child,.asc-pop,.asc-photo-in{opacity:1 !important;transform:none !important;filter:none !important;animation:none !important;clip-path:none !important}
-  .asc-mq-row,.asc-aurora,.asc-summit-sun{animation:none !important}
+  .asc-mq-row,.asc-aurora,.asc-summit-sun,.asc-voice-track{animation:none !important}
+  .asc-voice-marquee{overflow-x:auto}
   .asc-par,.asc-tilt3d,.asc-btn{transform:none !important}
 }
 `;
