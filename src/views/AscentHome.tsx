@@ -334,6 +334,7 @@ function Compare() {
   return (
     <section className="asc-band">
       <Orb style={{ top: -80, right: "-6%" }} />
+      <span className="asc-chapter" aria-hidden="true">01</span>
       <Orb teal style={{ bottom: -120, left: "-8%" }} />
       <div className="asc-wrap">
         <div className="asc-sec-head asc-reveal">
@@ -345,6 +346,11 @@ function Compare() {
           </p>
         </div>
         <div className="asc-compare">
+          {/* the glowing seam between the two worlds */}
+          <span className="asc-vs" aria-hidden="true">
+            <i className="asc-vs-line" />
+            <b className="asc-vs-badge asc-mono">VS</b>
+          </span>
           <div className="asc-col asc-col-them asc-reveal asc-spot asc-tilt3d" data-tilt="3">
             <div className="asc-col-head">
               <span className="asc-col-dot asc-col-dot-mute" aria-hidden="true" />
@@ -423,6 +429,7 @@ function Method() {
   return (
     <section className="asc-band asc-band-navy" id="method">
       <Orb teal style={{ top: 60, right: "-7%" }} />
+      <span className="asc-chapter" aria-hidden="true">02</span>
       <div className="asc-wrap">
         <div className="asc-sec-head asc-reveal">
           <Eyebrow>The method</Eyebrow>
@@ -516,6 +523,7 @@ function Stats() {
   return (
     <section className="asc-band asc-band-navy" id="stats-band">
       <Orb style={{ top: -60, left: "-6%" }} />
+      <span className="asc-chapter" aria-hidden="true">03</span>
       <Orb teal style={{ bottom: -100, right: "-5%" }} />
       <div className="asc-wrap">
         <div className="asc-sec-head asc-sec-head-center asc-reveal">
@@ -584,6 +592,7 @@ function Ledger() {
   return (
     <section className="asc-plain" id="results">
       <Orb style={{ top: 40, right: "-8%" }} />
+      <span className="asc-chapter" aria-hidden="true">04</span>
       <div className="asc-wrap">
         <div className="asc-ledger-head asc-reveal">
           <div>
@@ -802,6 +811,7 @@ function Faculty() {
   return (
     <section className="asc-plain" id="faculty">
       <Orb teal style={{ top: -40, left: "-7%" }} />
+      <span className="asc-chapter" aria-hidden="true">05</span>
       <Orb style={{ bottom: -80, right: "-6%" }} />
       <div className="asc-wrap">
         <div className="asc-sec-head asc-reveal">
@@ -816,13 +826,44 @@ function Faculty() {
           {faculty.map((f, i) => {
             const Icon = SUBJECT_ICON[f.subjects[0]] ?? Atom;
             return (
-              <div className="asc-faculty-card asc-reveal asc-spot asc-tilt3d" data-tilt="4" style={{ "--d": `${i * 0.08}s` } as CSSVars} key={f.slug}>
-                <span className="asc-faculty-ic" aria-hidden="true">
-                  <Icon size={24} strokeWidth={2.2} />
-                </span>
-                <h3>{f.name}</h3>
-                <div className="asc-faculty-cred">{f.credential}</div>
-                <p>{firstSentence(f.bio)}</p>
+              /* 3D flip card: front = intro, back = the mentor's full real bio.
+                 Flips on hover/focus (fine pointers); mobile keeps the front. */
+              <div
+                className="asc-faculty-card asc-reveal asc-spot asc-tilt3d asc-flip"
+                data-tilt="4"
+                tabIndex={0}
+                style={{ "--d": `${i * 0.08}s` } as CSSVars}
+                key={f.slug}
+              >
+                <div className="asc-flip-inner">
+                  <div className="asc-flip-front">
+                    <span className="asc-faculty-ic" aria-hidden="true">
+                      <Icon size={24} strokeWidth={2.2} />
+                    </span>
+                    <h3>{f.name}</h3>
+                    <div className="asc-faculty-cred">{f.credential}</div>
+                    <p>{firstSentence(f.bio)}</p>
+                    <span className="asc-flip-hint asc-mono" aria-hidden="true">
+                      Hover for the full approach
+                    </span>
+                  </div>
+                  <div className="asc-flip-back">
+                    <div className="asc-flip-back-name">{f.name}</div>
+                    <p>{f.bio}</p>
+                    <div className="asc-flip-subjects">
+                      {f.subjects.map((s) => (
+                        <span key={s} className="asc-flip-chip asc-mono">
+                          {s}
+                        </span>
+                      ))}
+                      {f.exams.map((e) => (
+                        <span key={e} className="asc-flip-chip asc-flip-chip-exam asc-mono">
+                          {e}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
             );
           })}
@@ -861,7 +902,7 @@ function Week() {
             Every plan is personal — this is Aarav&apos;s, Class 12, target IIT Bombay
           </span>
         </div>
-        <div className="asc-week-grid">
+        <div className="asc-week-grid asc-reveal">
           {days.map((w, i) => (
             <div className="asc-week-card asc-reveal asc-spot asc-spot-dark asc-tilt3d" data-tilt="4" style={{ "--d": `${i * 0.09}s` } as CSSVars} key={i}>
               <div className="asc-week-top">
@@ -892,6 +933,7 @@ function Programs({ onCta }: { onCta: () => void }) {
   return (
     <section className="asc-plain" id="programs">
       <Orb style={{ top: -60, left: "-5%" }} />
+      <span className="asc-chapter" aria-hidden="true">06</span>
       <div className="asc-wrap">
         <div className="asc-programs-card asc-reveal">
           <Eyebrow>Programs — choose your exam</Eyebrow>
@@ -932,6 +974,7 @@ function Pricing({ onCta }: { onCta: () => void }) {
   return (
     <section className="asc-plain" id="pricing">
       <Orb style={{ top: 20, left: "-8%" }} />
+      <span className="asc-chapter" aria-hidden="true">07</span>
       <Orb teal style={{ bottom: -60, right: "-7%" }} />
       <div className="asc-wrap">
         <div className="asc-sec-head asc-reveal">
@@ -1010,6 +1053,7 @@ function FAQ({ onCta }: { onCta: () => void }) {
   return (
     <section className="asc-plain" id="faq">
       <Orb teal style={{ top: -30, right: "-6%" }} />
+      <span className="asc-chapter" aria-hidden="true">08</span>
       <div className="asc-wrap asc-faq-grid">
         <div className="asc-faq-aside asc-reveal">
           <Eyebrow>Straight answers</Eyebrow>
@@ -2320,6 +2364,56 @@ const ASC_CSS = `
 .asc-week-card:hover .asc-week-t{transform:translateX(5px)}
 .asc-voice:hover .asc-voice-quote{transform:scale(1.2) rotate(-7deg)}
 
+/* ---------- v6 "Mythos" (storytelling layer, hero untouched) ---------- */
+/* etched chapter numerals */
+.asc-chapter{position:absolute;top:26px;right:4%;z-index:0;font-family:var(--asc-disp);font-size:clamp(120px,16vw,240px);line-height:1;color:transparent;-webkit-text-stroke:1px var(--asc-line);pointer-events:none;user-select:none;opacity:0.55}
+
+/* compare: the duel — batch side dimmed, MindPeak side alive, glowing seam */
+.asc-compare{position:relative}
+.asc-col-them{filter:saturate(0.72) brightness(0.94);transition:filter .5s ease}
+.asc-col-them:hover{filter:none}
+@keyframes ascBreatheGlow{0%,100%{box-shadow:0 26px 60px rgba(0,0,0,0.35),0 0 44px -14px rgba(228,184,96,0.35)}50%{box-shadow:0 26px 60px rgba(0,0,0,0.35),0 0 74px -10px rgba(228,184,96,0.6)}}
+.asc-col-us.asc-card-glow{animation:ascBreatheGlow 5.5s ease-in-out infinite}
+.asc-vs{position:absolute;left:50%;top:0;bottom:0;transform:translateX(-50%);z-index:3;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.asc-vs-line{position:absolute;top:6%;bottom:6%;width:1px;background:linear-gradient(180deg,transparent,rgba(245,212,142,0.55) 30%,rgba(87,196,229,0.45) 70%,transparent)}
+.asc-vs-badge{position:relative;display:grid;place-items:center;width:52px;height:52px;border-radius:50%;font-size:14px;font-weight:600;font-style:normal;color:var(--asc-navy-deep);background:var(--asc-grad-gold);box-shadow:0 0 30px rgba(228,184,96,0.55),0 10px 26px rgba(0,0,0,0.35)}
+
+/* statement: molten-metal headline — cream-to-gold gradient poured into the letters */
+.asc-statement-h{background-image:linear-gradient(115deg,#FDF9F0 0%,#F5D48E 32%,#E4B860 52%,#B98935 68%,#FDF9F0 96%);background-size:220% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;text-shadow:none;filter:drop-shadow(0 6px 34px rgba(6,10,20,0.6));animation:ascShimmer 9s linear infinite}
+
+/* faculty flip cards — full bios on the back */
+.asc-flip{perspective:1400px;min-height:284px}
+.asc-flip-inner{position:relative;width:100%;height:100%;min-height:inherit;transform-style:preserve-3d;transition:transform .7s var(--asc-ease)}
+@media (hover:hover){
+  .asc-flip:hover .asc-flip-inner,.asc-flip:focus-visible .asc-flip-inner{transform:rotateY(180deg)}
+}
+.asc-flip-front,.asc-flip-back{backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.asc-flip-back{position:absolute;inset:0;transform:rotateY(180deg);display:flex;flex-direction:column;gap:10px;overflow:hidden}
+.asc-flip-hint{display:block;margin-top:14px;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--asc-gold);opacity:0.75}
+@media (hover:none){.asc-flip-hint{display:none}}
+.asc-flip-back-name{font-family:var(--asc-disp);font-size:19px;color:var(--asc-ink-strong)}
+.asc-flip-back p{font-size:13.5px;line-height:1.6;color:var(--asc-muted);flex-grow:1}
+.asc-flip-subjects{display:flex;gap:7px;flex-wrap:wrap}
+.asc-flip-chip{font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:var(--asc-gold-deep);background:var(--asc-gold-soft);border-radius:999px;padding:4px 10px}
+.asc-flip-chip-exam{color:var(--asc-teal);background:rgba(87,196,229,0.14)}
+
+/* pricing: light rays fan out under the Most Popular card */
+.asc-tier-hi::after{content:"";position:absolute;left:50%;bottom:-38px;width:130%;height:120px;transform:translateX(-50%);pointer-events:none;background:conic-gradient(from 180deg at 50% 0%,transparent 42%,rgba(245,212,142,0.16) 47%,transparent 52%,rgba(245,212,142,0.12) 57%,transparent 62%,rgba(245,212,142,0.16) 67%,transparent 72%);filter:blur(6px);opacity:0.9;animation:ascBreatheGlow2 6s ease-in-out infinite}
+@keyframes ascBreatheGlow2{0%,100%{opacity:0.55}50%{opacity:1}}
+
+/* programs: hovered column takes the spotlight, siblings recede */
+.asc-programs-grid:hover .asc-program{opacity:0.55;filter:saturate(0.85)}
+.asc-programs-grid .asc-program{transition:opacity .4s ease,filter .4s ease}
+.asc-programs-grid .asc-program:hover{opacity:1;filter:none}
+
+/* week: a gold route line draws across the four cards */
+.asc-week-grid{position:relative;padding-top:18px}
+.asc-week-grid::before{content:"";position:absolute;top:0;left:2%;right:2%;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--asc-gold-deep),var(--asc-gold-bright) 55%,rgba(87,196,229,0.6));transform:scaleX(0);transform-origin:0 50%;transition:transform 1.4s var(--asc-ease) .2s;box-shadow:0 0 12px rgba(245,212,142,0.5)}
+.asc-week-grid.in::before{transform:scaleX(1)}
+
+/* FAQ: the open card glows like the route */
+.asc-faq-open{box-shadow:0 16px 40px rgba(6,10,20,0.28),0 0 42px -14px rgba(228,184,96,0.45)}
+
 /* luminous figures — the numbers are the jewellery of the page */
 .asc-ledger-rank,.asc-stat-fig{color:var(--asc-gold-bright);text-shadow:0 0 26px rgba(240,200,120,0.35)}
 .asc-tier-now,.asc-statement-ratio-v,.asc-ring-num{background:linear-gradient(120deg,var(--asc-gold-bright),var(--asc-gold) 55%,var(--asc-gold-deep));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
@@ -2344,6 +2438,9 @@ const ASC_CSS = `
   .asc-compare{grid-template-columns:1fr}
   .asc-faculty-grid,.asc-week-grid,.asc-pricing-grid,.asc-programs-grid{grid-template-columns:1fr}
   .asc-voice{flex-basis:82vw}
+  .asc-vs{display:none}
+  .asc-chapter{font-size:96px;top:14px}
+  .asc-tier-hi::after{display:none}
   .asc-stat-grid{grid-template-columns:1fr}
   .asc-program{padding:0 0 24px}
   .asc-program+.asc-program{border-left:none;border-top:1px solid var(--asc-line);padding-top:24px}
