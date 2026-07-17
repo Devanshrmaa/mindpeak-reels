@@ -168,6 +168,14 @@ function Hero({ onCta }: { onCta: () => void }) {
       <span className="asc-par asc-aurora-wrap asc-aurora-pos-b" data-depth="0.2" aria-hidden="true">
         <span className="asc-aurora asc-aurora-b" />
       </span>
+      {/* the moon — night theme only */}
+      <span className="asc-par asc-moon-wrap" data-depth="0.5" aria-hidden="true">
+        <span className="asc-moon" />
+      </span>
+      {/* layered mountain ranges at the hero's base — three parallax depths */}
+      <span className="asc-par asc-range asc-range-3" data-depth="0.05" aria-hidden="true" />
+      <span className="asc-par asc-range asc-range-2" data-depth="0.11" aria-hidden="true" />
+      <span className="asc-par asc-range asc-range-1" data-depth="0.18" aria-hidden="true" />
       <div className="asc-wrap asc-hero-grid">
         <div className="asc-hero-copy">
           <div className="asc-hero-chips asc-rise" style={{ "--d": "0s" } as CSSVars}>
@@ -234,6 +242,8 @@ function Hero({ onCta }: { onCta: () => void }) {
             width={560}
             height={480}
           />
+          {/* rotating gold beam tracing the photo's edge */}
+          <span className="asc-beam" aria-hidden="true" />
           <span className="asc-live-badge">
             <span className="asc-live-dot" />
             LIVE 1-ON-1 CLASS
@@ -415,7 +425,7 @@ function Method() {
           </p>
         </div>
         <div className="asc-climb">
-          <div className="asc-stage" id="ascStage">
+          <div className="asc-stage asc-tilt3d" data-tilt="3" id="ascStage">
             {/* summit glow — brightens as the route completes (JS drives --sg) */}
             <span className="asc-stage-glow" aria-hidden="true" />
             <svg viewBox="0 0 400 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -442,6 +452,9 @@ function Method() {
               <g id="ascFlag" transform="translate(380 130)" opacity="0">
                 <path d="M0 0 L0 -26" stroke="var(--asc-gold-bright)" strokeWidth="2" />
                 <path d="M0 -26 L14 -21 L0 -14 Z" fill="var(--asc-gold-bright)" />
+              </g>
+              <g id="ascBurst" transform="translate(380 130)" aria-hidden="true">
+                <circle r="12" fill="none" stroke="var(--asc-gold-bright)" strokeWidth="2" opacity="0" />
               </g>
               <circle id="ascClimber" cx="20" cy="520" r="6" fill="var(--asc-gold-bright)" stroke="#0A101C" strokeWidth="1.5" />
               <defs>
@@ -1275,6 +1288,41 @@ export default function AscentHome() {
       { base: 0.22, amp: 28, color: "220,233,251", sp: 0.55 },
     ];
 
+    /* shooting stars — occasional meteor streaks across the night sky */
+    type Meteor = { x: number; y: number; vx: number; vy: number; life: number };
+    let meteors: Meteor[] = [];
+    let nextMeteor = 160; // frames until the next spawn
+    const spawnMeteor = () => {
+      meteors.push({
+        x: W * (0.15 + Math.random() * 0.75),
+        y: H * (0.04 + Math.random() * 0.25),
+        vx: -(5.5 + Math.random() * 4),
+        vy: 2.2 + Math.random() * 1.6,
+        life: 1,
+      });
+      nextMeteor = 240 + Math.floor(Math.random() * 420); // ~4–11s at 60fps
+    };
+    const drawMeteors = () => {
+      if (--nextMeteor <= 0) spawnMeteor();
+      meteors = meteors.filter((m) => m.life > 0);
+      for (const m of meteors) {
+        const tail = 13;
+        const grad = ctx.createLinearGradient(m.x, m.y, m.x - m.vx * tail, m.y - m.vy * tail);
+        grad.addColorStop(0, `rgba(253,249,240,${0.9 * m.life})`);
+        grad.addColorStop(0.25, `rgba(245,212,142,${0.5 * m.life})`);
+        grad.addColorStop(1, "rgba(245,212,142,0)");
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 1.6;
+        ctx.beginPath();
+        ctx.moveTo(m.x, m.y);
+        ctx.lineTo(m.x - m.vx * tail, m.y - m.vy * tail);
+        ctx.stroke();
+        m.x += m.vx;
+        m.y += m.vy;
+        m.life -= 0.016;
+      }
+    };
+
     let stars: { x: number; y: number; r: number; ph: number; sp: number; gold: boolean }[] = [];
     const seedStars = () => {
       const count = Math.round(Math.min(140, W / 11));
@@ -1342,6 +1390,7 @@ export default function AscentHome() {
           ctx.fill();
         }
         ctx.globalAlpha = 1;
+        if (!reduce) drawMeteors();
         ribbons.forEach(drawRibbon);
       }
       ctx.strokeStyle = stroke;
@@ -2177,6 +2226,37 @@ const ASC_CSS = `
 .asc-embers i{position:absolute;left:var(--ex,50%);bottom:5%;width:4px;height:4px;border-radius:50%;background:#F5D48E;opacity:0;box-shadow:0 0 8px rgba(245,212,142,0.8);animation:ascEmber var(--edur,7s) linear var(--edel,0s) infinite}
 @keyframes ascEmber{0%{transform:translate(0,0);opacity:0}12%{opacity:.85}55%{opacity:.5;transform:translate(14px,-130px)}100%{transform:translate(-8px,-250px);opacity:0}}
 
+/* ---------- v4 "Apex" ---------- */
+/* the moon (night only) */
+.asc-moon-wrap{position:absolute;top:64px;right:13%;z-index:0;pointer-events:none;display:none}
+.dark .asc .asc-moon-wrap{display:block}
+.asc-moon{display:block;width:74px;height:74px;border-radius:50%;background:radial-gradient(circle at 38% 34%,#FDF9F0 0%,#EFE2C4 46%,#D9C79B 72%,rgba(217,199,155,0.3) 100%);box-shadow:0 0 40px 10px rgba(245,225,180,0.35),0 0 120px 40px rgba(245,225,180,0.12);opacity:0.9}
+
+/* layered mountain ranges at the hero base (parallax depths via data-depth) */
+.asc-range{position:absolute;left:-2%;right:-2%;bottom:-6px;pointer-events:none;z-index:0}
+.asc-range-3{height:150px;background:var(--asc-range3);clip-path:polygon(0 100%,0 62%,8% 40%,16% 58%,26% 26%,36% 52%,47% 18%,58% 48%,68% 30%,79% 56%,88% 34%,100% 52%,100% 100%)}
+.asc-range-2{height:110px;background:var(--asc-range2);clip-path:polygon(0 100%,0 70%,10% 44%,20% 62%,31% 30%,43% 58%,55% 36%,66% 60%,76% 28%,87% 54%,100% 40%,100% 100%)}
+.asc-range-1{height:74px;background:var(--asc-range1);clip-path:polygon(0 100%,0 66%,12% 42%,24% 60%,37% 30%,50% 56%,63% 34%,75% 58%,88% 38%,100% 56%,100% 100%)}
+.asc{--asc-range1:rgba(23,50,87,0.30);--asc-range2:rgba(23,50,87,0.20);--asc-range3:rgba(23,50,87,0.12)}
+.dark .asc{--asc-range1:#02040A;--asc-range2:#081226;--asc-range3:#101F3C}
+
+/* rotating beam tracing the hero photo's edge */
+@property --asc-angle{syntax:'<angle>';initial-value:0deg;inherits:false}
+.asc-beam{position:absolute;top:-3px;left:-3px;right:-3px;height:486px;border-radius:25px;padding:2.5px;pointer-events:none;background:conic-gradient(from var(--asc-angle),transparent 0 68%,rgba(245,212,142,0.85) 80%,rgba(87,196,229,0.7) 88%,transparent 96%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;animation:ascBeamSpin 7s linear infinite}
+@keyframes ascBeamSpin{to{--asc-angle:360deg}}
+
+/* star glints on the gold headline words */
+.asc-w.asc-shimmer{position:relative}
+.asc-w.asc-shimmer::before,.asc-w.asc-shimmer::after{content:"✦";position:absolute;font-style:normal;font-size:0.22em;color:var(--asc-gold-bright);-webkit-text-fill-color:var(--asc-gold-bright);animation:ascGlint 2.6s ease-in-out infinite;text-shadow:0 0 10px rgba(245,212,142,0.8)}
+.asc-w.asc-shimmer::before{top:-0.12em;right:-0.42em}
+.asc-w.asc-shimmer::after{bottom:0.08em;left:-0.5em;animation-delay:1.3s}
+@keyframes ascGlint{0%,100%{opacity:0;transform:scale(0.5) rotate(0deg)}50%{opacity:1;transform:scale(1.15) rotate(40deg)}}
+
+/* summit burst ring when the flag plants */
+#ascBurst circle{transform-box:fill-box;transform-origin:center}
+#ascFlag.asc-flag-in + #ascBurst circle{animation:ascBurstRing .9s ease-out .2s both}
+@keyframes ascBurstRing{0%{opacity:0.9;transform:scale(0.3)}100%{opacity:0;transform:scale(3.2)}}
+
 /* luminous figures — the numbers are the jewellery of the page */
 .asc-ledger-rank,.asc-stat-fig{color:var(--asc-gold-bright);text-shadow:0 0 26px rgba(240,200,120,0.35)}
 .asc-tier-now,.asc-statement-ratio-v,.asc-ring-num{background:linear-gradient(120deg,var(--asc-gold-bright),var(--asc-gold) 55%,var(--asc-gold-deep));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
@@ -2210,6 +2290,9 @@ const ASC_CSS = `
 }
 @media (max-width:560px){
   .asc-hero-photo{height:360px}
+  .asc-beam{height:366px}
+  .asc-moon-wrap{right:6%;top:40px}
+  .asc-moon{width:52px;height:52px}
   .asc-ledger-row{grid-template-columns:1fr;text-align:left}
   .asc-ledger-img{display:none}
 }
