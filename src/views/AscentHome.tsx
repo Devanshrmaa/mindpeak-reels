@@ -160,8 +160,14 @@ function Hero({ onCta }: { onCta: () => void }) {
   return (
     <section className="asc-hero" id="top">
       <canvas id="ascContour" className="asc-contour" aria-hidden="true" />
-      <span className="asc-aurora asc-aurora-a asc-par" data-depth="0.35" aria-hidden="true" />
-      <span className="asc-aurora asc-aurora-b asc-par" data-depth="0.2" aria-hidden="true" />
+      {/* parallax wrapper gets the inline transform; the inner span keeps the
+          drift animation — the two compose instead of overriding each other */}
+      <span className="asc-par asc-aurora-wrap asc-aurora-pos-a" data-depth="0.35" aria-hidden="true">
+        <span className="asc-aurora asc-aurora-a" />
+      </span>
+      <span className="asc-par asc-aurora-wrap asc-aurora-pos-b" data-depth="0.2" aria-hidden="true">
+        <span className="asc-aurora asc-aurora-b" />
+      </span>
       <div className="asc-wrap asc-hero-grid">
         <div className="asc-hero-copy">
           <div className="asc-hero-chips asc-rise" style={{ "--d": "0s" } as CSSVars}>
@@ -169,9 +175,19 @@ function Hero({ onCta }: { onCta: () => void }) {
             <span className="asc-chip">95% success rate</span>
             <span className="asc-chip">IIT · NIT · AIIMS mentors</span>
           </div>
-          <h1 className="asc-rise" style={{ "--d": ".08s" } as CSSVars}>
-            The mentor who knows your name, your weak chapters, and your{" "}
-            <em className="asc-shimmer">rank goal.</em>
+          {/* word-by-word cinematic reveal; full sentence stays intact in the DOM */}
+          <h1>
+            {"The mentor who knows your name, your weak chapters, and your"
+              .split(" ")
+              .map((w, i) => (
+                <span className="asc-w" key={i} style={{ "--d": `${0.05 + i * 0.055}s` } as CSSVars}>
+                  {w}
+                  {" "}
+                </span>
+              ))}
+            <em className="asc-shimmer asc-w" style={{ "--d": ".72s" } as CSSVars}>
+              rank goal.
+            </em>
           </h1>
           <p className="asc-lede asc-rise" style={{ "--d": ".16s" } as CSSVars}>
             Daily live 1-on-1 classes with a personal IIT/NIT/AIIMS mentor — not a seat in a
@@ -209,10 +225,10 @@ function Hero({ onCta }: { onCta: () => void }) {
         </div>
 
         {/* real mentoring photo + live badge + verbatim doubt-chat card */}
-        <div className="asc-hero-visual asc-rise asc-tilt" data-tilt="6" style={{ "--d": ".2s" } as CSSVars}>
+        <div className="asc-hero-visual asc-rise asc-tilt3d" data-tilt="6" style={{ "--d": ".2s" } as CSSVars}>
           <span className="asc-hero-frame" aria-hidden="true" />
           <img
-            className="asc-hero-photo"
+            className="asc-hero-photo asc-photo-in"
             src="/images/mentoring-session-2.jpg"
             alt="A MindPeak mentor in a live one-on-one class with a student"
             width={560}
@@ -222,7 +238,7 @@ function Hero({ onCta }: { onCta: () => void }) {
             <span className="asc-live-dot" />
             LIVE 1-ON-1 CLASS
           </span>
-          <div className="asc-doubt asc-glass">
+          <div className="asc-doubt asc-glass asc-card-glow asc-pop">
             <div className="asc-doubt-top">
               <span className="asc-doubt-title">Doubt chat · Physics</span>
               <span>11:42 PM</span>
@@ -312,14 +328,18 @@ function Compare() {
           </p>
         </div>
         <div className="asc-compare">
-          <div className="asc-col asc-col-them asc-reveal asc-spot">
+          <div className="asc-col asc-col-them asc-reveal asc-spot asc-tilt3d" data-tilt="3">
             <div className="asc-col-head">
               <span className="asc-col-dot asc-col-dot-mute" aria-hidden="true" />
               <span className="asc-col-label asc-col-label-mute">Traditional batch coaching</span>
             </div>
             <ul>
               {batch.map((t, i) => (
-                <li key={i} style={i ? { borderTop: "1px solid var(--asc-line)" } : undefined}>
+                <li
+                  key={i}
+                  className="asc-child"
+                  style={{ ...(i ? { borderTop: "1px solid var(--asc-line)" } : {}), "--cd": `${i * 0.05}s` } as CSSVars}
+                >
                   <span className="asc-x" aria-hidden="true">
                     <X size={13} />
                   </span>
@@ -328,7 +348,7 @@ function Compare() {
               ))}
             </ul>
           </div>
-          <div className="asc-col asc-col-us asc-reveal asc-spot asc-spot-dark">
+          <div className="asc-col asc-col-us asc-reveal asc-spot asc-spot-dark asc-card-glow asc-tilt3d" data-tilt="3">
             <div className="asc-col-head">
               <div className="asc-col-head-l">
                 <span className="asc-col-dot asc-dot-live asc-pulse" aria-hidden="true" />
@@ -338,7 +358,11 @@ function Compare() {
             </div>
             <ul>
               {peak.map((t, i) => (
-                <li key={i} style={i ? { borderTop: "1px solid rgba(251,247,239,0.14)" } : undefined}>
+                <li
+                  key={i}
+                  className="asc-child"
+                  style={{ ...(i ? { borderTop: "1px solid rgba(251,247,239,0.14)" } : {}), "--cd": `${i * 0.05}s` } as CSSVars}
+                >
                   <span className="asc-check" aria-hidden="true">
                     <Check size={14} strokeWidth={3} />
                   </span>
@@ -392,6 +416,8 @@ function Method() {
         </div>
         <div className="asc-climb">
           <div className="asc-stage" id="ascStage">
+            {/* summit glow — brightens as the route completes (JS drives --sg) */}
+            <span className="asc-stage-glow" aria-hidden="true" />
             <svg viewBox="0 0 400 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
               <g className="asc-stage-contours" fill="none" strokeWidth="1">
                 <path d="M-20 470 Q120 430 200 448 T420 430" />
@@ -528,9 +554,9 @@ function Stats() {
  * ------------------------------------------------------------------ */
 function Ledger() {
   const rows = [
-    { rank: "AIR 42", exam: "JEE Advanced", name: "Aarav Sharma", note: "IIT Bombay, Computer Science", img: "/images/aarav-sharma.jpg" },
-    { rank: "AIR 89", exam: "JEE Mains", name: "Rohan Gupta", note: "99.97 percentile, dropper year", img: "/images/rohan-gupta.jpg" },
-    { rank: "AIR 156", exam: "NEET UG", name: "Priya Patel", note: "AIIMS Delhi, MBBS", img: "/images/priya-patel.jpg" },
+    { n: 42, exam: "JEE Advanced", name: "Aarav Sharma", note: "IIT Bombay, Computer Science", img: "/images/aarav-sharma.jpg" },
+    { n: 89, exam: "JEE Mains", name: "Rohan Gupta", note: "99.97 percentile, dropper year", img: "/images/rohan-gupta.jpg" },
+    { n: 156, exam: "NEET UG", name: "Priya Patel", note: "AIIMS Delhi, MBBS", img: "/images/priya-patel.jpg" },
   ];
   return (
     <section className="asc-plain" id="results">
@@ -543,8 +569,10 @@ function Ledger() {
           <span className="asc-ledger-meta asc-mono">500+ students mentored · 95% success rate</span>
         </div>
         {rows.map((r, i) => (
-          <div className="asc-ledger-row asc-reveal" key={i}>
-            <div className="asc-ledger-rank asc-mono">{r.rank}</div>
+          <div className="asc-ledger-row asc-reveal" style={{ "--d": `${i * 0.08}s` } as CSSVars} key={i}>
+            <div className="asc-ledger-rank asc-mono">
+              AIR <span data-count={r.n}>0</span>
+            </div>
             <div className="asc-ledger-exam asc-mono">{r.exam}</div>
             <div className="asc-ledger-name">
               {r.name} <span>— {r.note}</span>
@@ -581,7 +609,7 @@ function ReportProof() {
     <section className="asc-plain asc-report" id="weekly-report">
       <div className="asc-wrap asc-report-grid">
         <div className="asc-reveal">
-          <div className="asc-report-card asc-glass asc-spot">
+          <div className="asc-report-card asc-glass asc-spot asc-card-glow asc-tilt3d" data-tilt="3">
             <div className="asc-report-card-top">
               <span className="asc-report-card-title">Weekly report — Priya P.</span>
               <span className="asc-report-week asc-mono">Week 31 · NEET UG</span>
@@ -751,7 +779,7 @@ function Faculty() {
           {faculty.map((f, i) => {
             const Icon = SUBJECT_ICON[f.subjects[0]] ?? Atom;
             return (
-              <div className="asc-faculty-card asc-reveal asc-spot" style={{ "--d": `${i * 0.08}s` } as CSSVars} key={f.slug}>
+              <div className="asc-faculty-card asc-reveal asc-spot asc-tilt3d" data-tilt="4" style={{ "--d": `${i * 0.08}s` } as CSSVars} key={f.slug}>
                 <span className="asc-faculty-ic" aria-hidden="true">
                   <Icon size={24} strokeWidth={2.2} />
                 </span>
@@ -877,7 +905,8 @@ function Pricing({ onCta }: { onCta: () => void }) {
             const hi = Boolean(tier.highlight);
             return (
               <div
-                className={`asc-tier asc-reveal asc-spot${hi ? " asc-tier-hi asc-spot-dark" : ""}`}
+                className={`asc-tier asc-reveal asc-spot asc-tilt3d${hi ? " asc-tier-hi asc-spot-dark asc-card-glow" : ""}`}
+                data-tilt="3"
                 style={{ "--d": `${i * 0.09}s` } as CSSVars}
                 key={tier.name}
               >
@@ -950,7 +979,7 @@ function FAQ({ onCta }: { onCta: () => void }) {
             Everything about classes, mentors, doubts and fees — answered plainly. Still unsure about
             something? A counsellor is one message away.
           </p>
-          <div className="asc-faq-cta asc-spot asc-spot-dark">
+          <div className="asc-faq-cta asc-spot asc-spot-dark asc-card-glow">
             <div className="asc-faq-cta-title">Still have a question?</div>
             <p>Book a free 1-on-1 demo or message us on WhatsApp — we usually reply within the hour.</p>
             <button type="button" className="asc-btn asc-btn-gold asc-btn-block" onClick={onCta}>
@@ -1079,7 +1108,17 @@ export default function AscentHome() {
     const reveals = Array.from(root.querySelectorAll<HTMLElement>(".asc-reveal"));
     if (reduce || !("IntersectionObserver" in window)) {
       reveals.forEach((el) => el.classList.add("in"));
+      /* no animation — jump every counter and the ring straight to final */
+      root.querySelectorAll<HTMLElement>("[data-count]").forEach((el) => {
+        const target = parseFloat(el.getAttribute("data-count") || "0");
+        el.textContent = Math.round(target).toLocaleString("en-IN") + (el.getAttribute("data-suffix") || "");
+      });
+      const ring = root.querySelector<SVGCircleElement>("#ascRing");
+      if (ring) ring.style.strokeDashoffset = String(parseFloat(ring.getAttribute("data-circ") || "0") * 0.05);
     } else {
+      /* hidden reveal states only apply under .asc-js, so no-JS visitors
+         (and crawlers) always get fully visible content */
+      root.classList.add("asc-js");
       const io = new IntersectionObserver(
         (entries) => {
           for (const e of entries) {
@@ -1146,6 +1185,19 @@ export default function AscentHome() {
     let H = 0;
     let phase = 0;
     let raf = 0;
+    /* night-sky star field (drawn only while the dark theme is active) */
+    let stars: { x: number; y: number; r: number; ph: number; sp: number; gold: boolean }[] = [];
+    const seedStars = () => {
+      const count = Math.round(Math.min(140, W / 11));
+      stars = Array.from({ length: count }, () => ({
+        x: Math.random() * W,
+        y: Math.random() * H * 0.82,
+        r: 0.5 + Math.random() * 1.1,
+        ph: Math.random() * Math.PI * 2,
+        sp: 0.6 + Math.random() * 1.6,
+        gold: Math.random() < 0.18,
+      }));
+    };
     const resize = () => {
       const host = canvas.parentElement;
       if (!host) return;
@@ -1156,10 +1208,22 @@ export default function AscentHome() {
       canvas.style.width = `${W}px`;
       canvas.style.height = `${H}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      seedStars();
     };
     const draw = () => {
       const stroke = getComputedStyle(document.documentElement).getPropertyValue("--asc-contour").trim() || "rgba(217,174,87,0.15)";
       ctx.clearRect(0, 0, W, H);
+      if (document.documentElement.classList.contains("dark")) {
+        for (const s of stars) {
+          const tw = 0.22 + 0.5 * Math.abs(Math.sin(phase * 2.2 * s.sp + s.ph));
+          ctx.globalAlpha = tw;
+          ctx.fillStyle = s.gold ? "#F0C878" : "#DCE9FB";
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+      }
       ctx.strokeStyle = stroke;
       ctx.lineWidth = 1;
       for (let l = 0; l < lines; l++) {
@@ -1208,6 +1272,7 @@ export default function AscentHome() {
     const route = document.getElementById("ascRoute") as unknown as SVGPathElement | null;
     const climber = document.getElementById("ascClimber");
     const flag = document.getElementById("ascFlag");
+    const stage = document.getElementById("ascStage");
     const stageMetres = document.getElementById("ascStageMetres");
     const methodSec = document.getElementById("method");
     const steps = Array.from(root.querySelectorAll<HTMLElement>(".asc-step"));
@@ -1248,7 +1313,11 @@ export default function AscentHome() {
         const segTotal = r.height - vh * 0.5;
         const local = segTotal > 0 ? Math.min(Math.max((vh * 0.5 - r.top) / segTotal, 0), 1) : 0;
         route.style.strokeDashoffset = String(routeLen * (1 - local));
-        if (flag) flag.setAttribute("opacity", local > 0.9 ? "1" : "0");
+        if (flag) {
+          flag.setAttribute("opacity", local > 0.9 ? "1" : "0");
+          flag.classList.toggle("asc-flag-in", local > 0.9);
+        }
+        if (stage) stage.style.setProperty("--sg", local.toFixed(3));
         if (stageMetres) stageMetres.textContent = Math.round(local * PEAK).toLocaleString("en-IN");
         if (climber && routeLen) {
           const pt = route.getPointAtLength(routeLen * local);
@@ -1269,16 +1338,51 @@ export default function AscentHome() {
     window.addEventListener("resize", onScroll);
     update();
 
-    // pointer spotlight
+    // pointer layer: spotlight glow, 3D card tilt, magnetic CTAs (fine pointers)
+    const clamp = (v: number, m: number) => Math.max(-m, Math.min(m, v));
     const onMove = (e: PointerEvent) => {
       const target = e.target as HTMLElement | null;
       const card = target?.closest?.(".asc-spot") as HTMLElement | null;
-      if (!card) return;
-      const r = card.getBoundingClientRect();
-      card.style.setProperty("--mx", `${e.clientX - r.left}px`);
-      card.style.setProperty("--my", `${e.clientY - r.top}px`);
+      if (card) {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty("--mx", `${e.clientX - r.left}px`);
+        card.style.setProperty("--my", `${e.clientY - r.top}px`);
+      }
+      if (!motionOk) return;
+      const tilt = target?.closest?.("[data-tilt]") as HTMLElement | null;
+      if (tilt) {
+        const r = tilt.getBoundingClientRect();
+        const max = parseFloat(tilt.dataset.tilt || "4");
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        tilt.style.setProperty("--ry", `${(px * max).toFixed(2)}deg`);
+        tilt.style.setProperty("--rx", `${(-py * max).toFixed(2)}deg`);
+      }
+      const btn = target?.closest?.(".asc-btn") as HTMLElement | null;
+      if (btn) {
+        const r = btn.getBoundingClientRect();
+        btn.style.setProperty("--magx", `${clamp((e.clientX - (r.left + r.width / 2)) * 0.14, 5).toFixed(1)}px`);
+        btn.style.setProperty("--magy", `${clamp((e.clientY - (r.top + r.height / 2)) * 0.2, 4).toFixed(1)}px`);
+      }
     };
-    if (finePointer) root.addEventListener("pointermove", onMove, { passive: true });
+    const onOut = (e: PointerEvent) => {
+      const from = e.target as HTMLElement | null;
+      const to = e.relatedTarget as HTMLElement | null;
+      const tilt = from?.closest?.("[data-tilt]") as HTMLElement | null;
+      if (tilt && !(to && tilt.contains(to))) {
+        tilt.style.setProperty("--rx", "0deg");
+        tilt.style.setProperty("--ry", "0deg");
+      }
+      const btn = from?.closest?.(".asc-btn") as HTMLElement | null;
+      if (btn && !(to && btn.contains(to))) {
+        btn.style.setProperty("--magx", "0px");
+        btn.style.setProperty("--magy", "0px");
+      }
+    };
+    if (finePointer) {
+      root.addEventListener("pointermove", onMove, { passive: true });
+      root.addEventListener("pointerout", onOut, { passive: true });
+    }
 
     // smooth in-page anchor scroll with sticky-nav offset
     const onClick = (e: MouseEvent) => {
@@ -1297,7 +1401,10 @@ export default function AscentHome() {
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
-      if (finePointer) root.removeEventListener("pointermove", onMove);
+      if (finePointer) {
+        root.removeEventListener("pointermove", onMove);
+        root.removeEventListener("pointerout", onOut);
+      }
       root.removeEventListener("click", onClick);
     };
   }, []);
@@ -1356,29 +1463,38 @@ const ASC_CSS = `
   --asc-grad-gold:linear-gradient(120deg,#EFC97D,#D9AE57 55%,#B98935);
   --asc-grad-gold-text:linear-gradient(100deg,#B98935 0%,#A67526 18%,#E4C179 42%,#FCEFD6 50%,#E4C179 58%,#A67526 82%,#B98935 100%);
 
-  /* light (dawn) */
+  /* light (dawn) — the secondary theme, reached via the toggle */
   --asc-ground:#F5EFE3; --asc-ground-2:#FBF7EF; --asc-card:#FFFFFF;
-  --asc-surface:rgba(18,33,56,0.035); --asc-surface-2:rgba(18,33,56,0.06);
-  --asc-line:rgba(18,33,56,0.12); --asc-line-strong:rgba(18,33,56,0.22);
-  --asc-ink:#22314C; --asc-ink-strong:#0F1C33; --asc-muted:#5C6E8C;
-  --asc-gold:#B0812A; --asc-gold-bright:#C99A34; --asc-gold-deep:#8A6320; --asc-gold-soft:rgba(176,129,42,0.13);
-  --asc-contour:rgba(140,100,30,0.16); --asc-live:#1F9E5A;
-  --asc-aurora-a:rgba(201,151,31,0.16); --asc-aurora-b:rgba(58,110,190,0.10);
-  --asc-shadow:0 24px 60px rgba(24,30,45,0.13); --asc-shadow-soft:0 14px 40px rgba(24,30,45,0.09);
+  --asc-surface:rgba(18,33,56,0.04); --asc-surface-2:rgba(18,33,56,0.07);
+  --asc-line:rgba(18,33,56,0.13); --asc-line-strong:rgba(18,33,56,0.24);
+  --asc-ink:#1F2E4A; --asc-ink-strong:#0C1830; --asc-muted:#55688A;
+  --asc-gold:#A87A24; --asc-gold-bright:#C0922F; --asc-gold-deep:#7E5A1B; --asc-gold-soft:rgba(168,122,36,0.14);
+  --asc-teal:#2E7FA8;
+  --asc-contour:rgba(140,100,30,0.17); --asc-live:#1F9E5A;
+  --asc-aurora-a:rgba(201,151,31,0.18); --asc-aurora-b:rgba(58,110,190,0.12);
+  --asc-glow-edge:linear-gradient(140deg,rgba(168,122,36,0.55),rgba(168,122,36,0.10) 40%,rgba(46,127,168,0.35));
+  --asc-shadow:0 24px 60px rgba(24,30,45,0.14); --asc-shadow-soft:0 14px 40px rgba(24,30,45,0.10);
+  --asc-glow-gold:0 0 0 rgba(0,0,0,0);
 
   background:var(--asc-ground); color:var(--asc-ink);
   font-family:var(--asc-body); overflow-x:hidden;
   --asc-ease:cubic-bezier(.16,1,.3,1);
+  --asc-spring:cubic-bezier(.34,1.56,.64,1);
 }
+/* night (default experience — the homepage opts visitors into .dark) */
 .dark .asc{
-  --asc-ground:#080D18; --asc-ground-2:#0C1424; --asc-card:#111F35;
-  --asc-surface:rgba(240,244,252,0.045); --asc-surface-2:rgba(240,244,252,0.075);
-  --asc-line:rgba(226,236,250,0.12); --asc-line-strong:rgba(226,236,250,0.22);
-  --asc-ink:#E8E0D0; --asc-ink-strong:#FBF7EF; --asc-muted:#93A6C4;
-  --asc-gold:#D9AE57; --asc-gold-bright:#EFC97D; --asc-gold-deep:#B98935; --asc-gold-soft:rgba(217,174,87,0.15);
-  --asc-contour:rgba(217,174,87,0.15); --asc-live:#5FD98F;
-  --asc-aurora-a:rgba(217,174,87,0.20); --asc-aurora-b:rgba(58,110,190,0.16);
-  --asc-shadow:0 24px 60px rgba(0,0,0,0.45); --asc-shadow-soft:0 14px 40px rgba(0,0,0,0.34);
+  --asc-ground:#05080F; --asc-ground-2:#0A1220; --asc-card:#0E1B31;
+  --asc-surface:rgba(240,244,252,0.05); --asc-surface-2:rgba(240,244,252,0.085);
+  --asc-line:rgba(226,236,250,0.13); --asc-line-strong:rgba(226,236,250,0.24);
+  --asc-ink:#EDE6D6; --asc-ink-strong:#FDF9F0; --asc-muted:#9FB1CE;
+  --asc-gold:#E4B860; --asc-gold-bright:#F5D48E; --asc-gold-deep:#B98935; --asc-gold-soft:rgba(228,184,96,0.16);
+  --asc-teal:#57C4E5;
+  --asc-contour:rgba(228,184,96,0.17); --asc-live:#5FD98F;
+  --asc-aurora-a:rgba(228,184,96,0.24); --asc-aurora-b:rgba(87,196,229,0.14);
+  --asc-glow-edge:linear-gradient(140deg,rgba(245,212,142,0.60),rgba(245,212,142,0.10) 40%,rgba(87,196,229,0.38));
+  --asc-shadow:0 26px 70px rgba(0,0,0,0.55); --asc-shadow-soft:0 16px 44px rgba(0,0,0,0.40);
+  --asc-glow-gold:0 0 60px -10px rgba(228,184,96,0.38);
+  --asc-band:linear-gradient(168deg,#152A50 0%,#0C1C38 46%,#060F1F 100%);
 }
 
 .asc *{box-sizing:border-box}
@@ -1397,20 +1513,23 @@ const ASC_CSS = `
 .asc-band-navy .asc-eyebrow,.asc-summit .asc-eyebrow{color:var(--asc-gold-bright)}
 
 /* progress + grain */
-.asc-progress-hidden{}
-#asc-progress{position:fixed;top:0;left:0;height:2px;width:100%;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,var(--asc-gold-deep),var(--asc-gold-bright));z-index:120;will-change:transform}
+#asc-progress{position:fixed;top:0;left:0;height:2.5px;width:100%;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,var(--asc-gold-deep),var(--asc-gold-bright));box-shadow:0 0 14px rgba(240,200,120,0.75);z-index:120;will-change:transform}
 #asc-grain{position:fixed;inset:0;z-index:8;pointer-events:none;opacity:0.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:140px 140px}
 
-/* buttons */
-.asc-btn{font-family:var(--asc-body);font-weight:600;font-size:15px;cursor:pointer;border-radius:999px;padding:14px 26px;display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;border:1.5px solid transparent;transition:transform .25s var(--asc-ease),box-shadow .25s ease,background-color .25s ease,color .25s ease,border-color .25s ease}
+/* buttons — magnetic (JS drives --magx/--magy on fine pointers) with shine sweep */
+.asc-btn{position:relative;overflow:hidden;font-family:var(--asc-body);font-weight:600;font-size:15px;cursor:pointer;border-radius:999px;padding:14px 26px;display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;border:1.5px solid transparent;transform:translate(var(--magx,0px),calc(var(--magy,0px) + var(--lift,0px)));transition:transform .3s var(--asc-ease),box-shadow .3s ease,background-color .25s ease,color .25s ease,border-color .25s ease}
 .asc-btn-sm{padding:11px 20px;font-size:14px}
 .asc-btn-lg{padding:16px 30px;font-size:16px}
 .asc-btn-block{width:100%}
-.asc-btn:active{transform:translateY(0) scale(.99)}
-.asc-btn-gold{background:var(--asc-grad-gold);color:#122036;font-weight:700;box-shadow:0 10px 26px rgba(201,151,31,0.30)}
-.asc-btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(201,151,31,0.42)}
+.asc-btn:hover{--lift:-2px}
+.asc-btn:active{--lift:1px}
+.asc-btn::after{content:"";position:absolute;top:0;bottom:0;left:-80%;width:46%;background:linear-gradient(105deg,transparent,rgba(255,255,255,0.55),transparent);transform:skewX(-20deg);pointer-events:none;transition:left .01s}
+.asc-btn:hover::after{left:135%;transition:left .65s ease}
+.asc-btn-gold{background:var(--asc-grad-gold);color:#122036;font-weight:700;box-shadow:0 10px 26px rgba(201,151,31,0.32),var(--asc-glow-gold)}
+.asc-btn-gold:hover{box-shadow:0 16px 44px rgba(201,151,31,0.48),var(--asc-glow-gold)}
 .asc-btn-outline{background:transparent;color:var(--asc-ink-strong);border-color:var(--asc-line-strong)}
-.asc-btn-outline:hover{transform:translateY(-2px);border-color:var(--asc-gold);color:var(--asc-gold)}
+.asc-btn-outline:hover{border-color:var(--asc-gold);color:var(--asc-gold)}
+.asc-btn-outline::after{background:linear-gradient(105deg,transparent,var(--asc-gold-soft),transparent)}
 .asc-band-navy .asc-btn-outline,.asc-summit .asc-btn-outline{color:var(--asc-cream);border-color:rgba(251,247,239,0.4)}
 .asc-btn-outlineLight{background:transparent;color:var(--asc-cream);border-color:rgba(251,247,239,0.4)}
 .asc-btn-outlineLight:hover{border-color:var(--asc-gold-bright);color:var(--asc-gold-bright)}
@@ -1427,13 +1546,19 @@ const ASC_CSS = `
 .asc-navlink:hover{color:var(--asc-ink-strong)}
 .asc-navlink:hover::after{right:0}
 .asc-nav-actions{display:flex;align-items:center;gap:12px}
+.dark .asc-nav{border-bottom-color:rgba(245,212,142,0.15)}
 
 /* hero */
 .asc-hero{position:relative;overflow:hidden;padding:clamp(52px,8vw,104px) 0 clamp(48px,7vw,96px)}
 .asc-contour{position:absolute;inset:0;width:100%;height:100%;z-index:0}
-.asc-aurora{position:absolute;border-radius:50%;filter:blur(60px);z-index:0;pointer-events:none;will-change:transform}
-.asc-aurora-a{width:520px;height:520px;background:radial-gradient(circle,var(--asc-aurora-a),transparent 62%);top:-140px;right:-80px}
-.asc-aurora-b{width:460px;height:460px;background:radial-gradient(circle,var(--asc-aurora-b),transparent 62%);bottom:-170px;left:-90px}
+.asc-aurora-wrap{position:absolute;z-index:0;pointer-events:none;will-change:transform}
+.asc-aurora-pos-a{top:-140px;right:-80px;width:560px;height:560px}
+.asc-aurora-pos-b{bottom:-170px;left:-90px;width:500px;height:500px}
+.asc-aurora{display:block;width:100%;height:100%;border-radius:50%;filter:blur(60px);will-change:transform}
+@keyframes ascAuroraA{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-46px,32px) scale(1.14)}}
+@keyframes ascAuroraB{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,-28px) scale(1.1)}}
+.asc-aurora-a{background:radial-gradient(circle,var(--asc-aurora-a),transparent 62%);animation:ascAuroraA 17s ease-in-out infinite}
+.asc-aurora-b{background:radial-gradient(circle,var(--asc-aurora-b),transparent 62%);animation:ascAuroraB 23s ease-in-out infinite}
 .asc-hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center}
 .asc-hero-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
 .asc-chip{font-size:12.5px;font-weight:600;padding:7px 14px;border-radius:999px;border:1px solid var(--asc-line);color:var(--asc-muted);background:var(--asc-surface)}
@@ -1483,6 +1608,10 @@ const ASC_CSS = `
 .asc-plain{padding:clamp(56px,8vw,96px) 0;position:relative}
 .asc-band-navy{background:var(--asc-band);color:var(--asc-cream)}
 .asc-band-navy h2,.asc-band-navy h3{color:var(--asc-cream)}
+/* glowing horizon hairlines where night bands meet the ground */
+.asc-band-navy::before,.asc-band-navy::after{content:"";position:absolute;left:0;right:0;height:1px;pointer-events:none;background:linear-gradient(90deg,transparent 4%,rgba(245,212,142,0.5) 34%,rgba(87,196,229,0.4) 66%,transparent 96%)}
+.asc-band-navy::before{top:0}
+.asc-band-navy::after{bottom:0;opacity:.55}
 .asc-sec-head{max-width:56ch}
 .asc-sec-head-center{max-width:640px;margin-inline:auto;text-align:center}
 .asc-sec-head h2{font-size:clamp(30px,4.4vw,50px);margin-top:16px}
@@ -1492,17 +1621,34 @@ const ASC_CSS = `
 .asc-sec-aside{font-size:14px;color:rgba(237,230,214,0.72);max-width:300px}
 .asc-center{text-align:center;margin-top:34px}
 
-/* reveal */
-.asc-reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--asc-ease),transform .8s var(--asc-ease);transition-delay:var(--d,0s)}
-.asc-reveal.in{opacity:1;transform:none}
+/* reveal — hidden states only exist while JS is live (.asc-js) so no-JS
+   visitors and crawlers always see full content */
+.asc-js .asc-reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--asc-ease),transform .8s var(--asc-ease);transition-delay:var(--d,0s)}
+.asc-js .asc-reveal.in{opacity:1;transform:none}
+/* per-child stagger inside a revealed block (compare rows etc.) */
+@keyframes ascChild{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.asc-js .asc-reveal .asc-child{opacity:0}
+.asc-js .asc-reveal.in .asc-child{animation:ascChild .6s var(--asc-ease) both;animation-delay:calc(var(--cd,0s) + .15s)}
 
 /* rise (hero load) */
 @keyframes ascRise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 .asc-rise{animation:ascRise .9s var(--asc-ease) both;animation-delay:var(--d,0s)}
 
+/* cinematic word-by-word headline reveal */
+@keyframes ascWord{from{opacity:0;transform:translateY(26px) rotate(1.2deg);filter:blur(8px)}to{opacity:1;transform:none;filter:blur(0)}}
+.asc-w{display:inline-block;animation:ascWord .75s var(--asc-ease) both;animation-delay:var(--d,0s)}
+
+/* hero photo mask-in + doubt-card spring pop */
+@keyframes ascPhoto{from{opacity:0;transform:scale(1.07);clip-path:inset(9% 9% 9% 9% round 22px)}to{opacity:1;transform:none;clip-path:inset(0 0 0 0 round 22px)}}
+.asc-photo-in{animation:ascPhoto 1.15s var(--asc-ease) .3s both}
+@keyframes ascPop{0%{opacity:0;transform:translateY(28px) scale(.92)}70%{opacity:1;transform:translateY(-5px) scale(1.02)}100%{opacity:1;transform:none}}
+.asc-pop{animation:ascPop .85s var(--asc-spring) .95s both}
+
 /* shimmer headline */
 @keyframes ascShimmer{to{background-position:200% center}}
 .asc-shimmer{background:var(--asc-grad-gold-text);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;font-style:italic;animation:ascShimmer 5.5s linear infinite}
+/* the shimmer em is also a reveal word — run both animations, delay only the reveal */
+.asc-w.asc-shimmer{animation:ascWord .75s var(--asc-ease) both,ascShimmer 5.5s linear infinite;animation-delay:var(--d,0s),0s}
 
 /* pulse */
 @keyframes ascPulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,0.55)}70%{box-shadow:0 0 0 9px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
@@ -1514,9 +1660,17 @@ const ASC_CSS = `
 .asc-spot-dark::before{background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(217,174,87,0.20),transparent 62%)}
 .asc-spot:hover::before{opacity:1}
 
-/* tilt (hero visual) */
-.asc-tilt{transition:transform .4s var(--asc-ease),box-shadow .4s var(--asc-ease)}
-.asc-tilt:hover{transform:translateY(-4px)}
+/* 3D tilt — pointer driver sets --rx/--ry; composes with hover lift and the
+   reveal translate so the transforms never fight each other */
+.asc-tilt3d{transform-style:preserve-3d;transform:perspective(1100px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--lift,0px));transition:transform .35s var(--asc-ease),box-shadow .35s ease,border-color .35s ease,background-color .35s ease}
+.asc-tilt3d:hover{--lift:-5px}
+.asc-js .asc-reveal.asc-tilt3d{transform:perspective(1100px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(28px)}
+.asc-js .asc-reveal.asc-tilt3d.in{transform:perspective(1100px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--lift,0px))}
+
+/* gradient-border glow cards (gold→teal edge light) */
+.asc-card-glow{border:1px solid transparent !important;background-image:linear-gradient(var(--asc-card),var(--asc-card)),var(--asc-glow-edge);background-origin:border-box;background-clip:padding-box,border-box}
+.asc-col-us.asc-card-glow,.asc-tier-hi.asc-card-glow,.asc-faq-cta.asc-card-glow{background-image:var(--asc-band),var(--asc-glow-edge)}
+.asc-tier-hi.asc-card-glow{box-shadow:0 26px 60px rgba(0,0,0,0.35),var(--asc-glow-gold)}
 
 /* compare */
 .asc-compare{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px;align-items:stretch}
@@ -1539,8 +1693,16 @@ const ASC_CSS = `
 
 /* climb / method */
 .asc-climb{display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;margin-top:48px;align-items:start}
-.asc-stage{position:sticky;top:100px;height:min(72vh,560px);border-radius:22px;overflow:hidden;border:1px solid rgba(251,247,239,0.14);background:linear-gradient(180deg,rgba(6,12,24,0.5),rgba(16,33,56,0.12));box-shadow:var(--asc-shadow-soft)}
+.asc-stage{position:sticky;top:100px;height:min(72vh,560px);border-radius:22px;overflow:hidden;border:1px solid rgba(251,247,239,0.16);background:linear-gradient(180deg,#0E2144 0%,#071120 52%,#0B1A33 100%);box-shadow:var(--asc-shadow-soft),inset 0 1px 0 rgba(245,212,142,0.14)}
 .asc-stage svg{position:absolute;inset:0;width:100%;height:100%}
+/* summit glow — driven by scroll progress (--sg set by the route driver) */
+.asc-stage-glow{position:absolute;top:-60px;right:-50px;width:300px;height:300px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(245,212,142,0.6) 0%,rgba(245,212,142,0.12) 45%,transparent 68%);filter:blur(8px);opacity:calc(var(--sg,0) * 0.95);transition:opacity .25s linear}
+#ascClimber{filter:drop-shadow(0 0 7px rgba(245,212,142,0.95))}
+/* flag: plant with a spring, then keep a gentle wave */
+@keyframes ascFlagPlant{0%{transform:translate(380px,150px) scale(.4)}60%{transform:translate(380px,124px) scale(1.12)}100%{transform:translate(380px,130px) scale(1)}}
+@keyframes ascWave{0%,100%{transform:skewY(0deg)}50%{transform:skewY(-7deg)}}
+#ascFlag.asc-flag-in{animation:ascFlagPlant .6s var(--asc-spring) both}
+#ascFlag.asc-flag-in path:nth-of-type(2){animation:ascWave 1.8s ease-in-out .6s infinite;transform-box:fill-box;transform-origin:left center}
 .asc-stage-contours{stroke:rgba(217,174,87,0.16)}
 .asc-ridge{fill:none;stroke:rgba(237,230,214,0.18);stroke-width:2;stroke-linejoin:round}
 .asc-stage-cap{position:absolute;left:20px;bottom:18px;font-family:var(--asc-mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(237,230,214,0.7)}
@@ -1597,8 +1759,8 @@ const ASC_CSS = `
 .asc-report-bar-lab span:first-child{font-weight:600}
 .asc-report-bar-lab span:last-child{color:var(--asc-muted)}
 .asc-report-track{height:8px;border-radius:999px;background:var(--asc-surface-2);overflow:hidden}
-.asc-report-fill{display:block;height:100%;width:0;border-radius:999px;transition:width 1.3s var(--asc-ease) .2s}
-.asc-report-card.in .asc-report-fill,.asc-reveal.in .asc-report-fill{width:var(--w)}
+.asc-report-fill{display:block;height:100%;width:var(--w);border-radius:999px;transition:width 1.3s var(--asc-ease) .2s}
+.asc-js .asc-reveal:not(.in) .asc-report-fill{width:0}
 .asc-report-note{font-size:13px;line-height:1.55;color:var(--asc-muted);background:var(--asc-surface-2);border-left:3px solid var(--asc-gold);border-radius:10px;padding:12px 14px;margin-top:18px}
 .asc-report-note strong{color:var(--asc-ink-strong)}
 .asc-report-h{font-size:clamp(30px,4vw,46px);line-height:1.08;margin:16px 0 18px}
@@ -1718,8 +1880,10 @@ const ASC_CSS = `
 
 /* summit */
 .asc-summit{position:relative;overflow:hidden;text-align:center;padding:clamp(80px,12vw,150px) 0;background:linear-gradient(180deg,var(--asc-ground),#f6e4bd 60%,#eccf90)}
-.dark .asc-summit{background:linear-gradient(180deg,var(--asc-ground),#1a1206 60%,#2a1c08)}
+.dark .asc-summit{background:linear-gradient(180deg,var(--asc-ground) 0%,#171003 52%,#3A2708 86%,#4E3509 100%)}
 .asc-summit-sun{position:absolute;left:50%;bottom:-260px;width:520px;height:520px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(239,201,125,0.5),transparent 60%);filter:blur(20px);z-index:0}
+@keyframes ascSunBreathe{0%,100%{opacity:.8;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.08)}}
+.dark .asc-summit-sun{width:640px;height:640px;background:radial-gradient(circle,rgba(245,205,120,0.65),rgba(245,205,120,0.15) 45%,transparent 62%);animation:ascSunBreathe 7s ease-in-out infinite}
 .asc-summit-in{position:relative;z-index:2}
 .asc-summit h2{font-size:clamp(34px,6vw,64px);margin-top:18px;color:#3a2a08}
 .dark .asc-summit h2{color:#FBF7EF}
@@ -1741,6 +1905,14 @@ const ASC_CSS = `
 .asc-alt-fill{position:absolute;left:0;bottom:0;width:100%;height:0%;background:linear-gradient(180deg,var(--asc-gold-bright),var(--asc-gold-deep));border-radius:3px}
 .asc-alt-marker{position:absolute;left:50%;bottom:0;width:11px;height:11px;border-radius:50%;background:var(--asc-gold-bright);transform:translate(-50%,50%);box-shadow:0 0 0 4px var(--asc-gold-soft),0 0 14px rgba(217,174,87,0.55)}
 @media (max-width:1360px){.asc-altimeter{display:none}}
+
+/* luminous figures — the numbers are the jewellery of the page */
+.asc-ledger-rank,.asc-stat-fig{color:var(--asc-gold-bright);text-shadow:0 0 26px rgba(240,200,120,0.35)}
+.asc-tier-now,.asc-statement-ratio-v,.asc-ring-num{background:linear-gradient(120deg,var(--asc-gold-bright),var(--asc-gold) 55%,var(--asc-gold-deep));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.asc-stage-metres{text-shadow:0 0 20px rgba(240,200,120,0.45)}
+/* marquee items glow on hover */
+.asc-mq-item{transition:color .3s ease,text-shadow .3s ease}
+.asc-mq-item:hover{color:var(--asc-gold-bright);text-shadow:0 0 18px rgba(240,200,120,0.4)}
 
 /* responsive */
 @media (max-width:960px){
@@ -1773,8 +1945,8 @@ const ASC_CSS = `
 /* reduced motion */
 @media (prefers-reduced-motion:reduce){
   .asc *,.asc *::before,.asc *::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
-  .asc-reveal{opacity:1 !important;transform:none !important}
-  .asc-mq-row{animation:none !important}
-  .asc-par{transform:none !important}
+  .asc-reveal,.asc-w,.asc-child,.asc-pop,.asc-photo-in{opacity:1 !important;transform:none !important;filter:none !important;animation:none !important;clip-path:none !important}
+  .asc-mq-row,.asc-aurora,.asc-summit-sun{animation:none !important}
+  .asc-par,.asc-tilt3d,.asc-btn{transform:none !important}
 }
 `;

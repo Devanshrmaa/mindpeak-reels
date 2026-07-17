@@ -113,6 +113,18 @@ export default function HomePage() {
         </span>
       </section>
 
+      {/*
+        Dark-first homepage: the "night ascent" design is the default experience.
+        Runs before the homepage paints; respects an explicit user toggle choice
+        (ThemeToggle stores `localStorage.theme`) — only OS-followers are opted
+        into dark. Same pre-paint pattern as the theme bootstrap in app/layout.tsx.
+      */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html:
+            "(function(){try{if(!localStorage.getItem('theme'))document.documentElement.classList.add('dark')}catch(e){}})();",
+        }}
+      />
       <AscentHome />
 
       {/*
