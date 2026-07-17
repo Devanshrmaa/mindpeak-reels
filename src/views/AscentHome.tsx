@@ -84,6 +84,11 @@ function Eyebrow({ children, center }: { children: ReactNode; center?: boolean }
   );
 }
 
+/* soft ambient light orb — gives the glass surfaces something to refract */
+function Orb({ teal, style }: { teal?: boolean; style?: CSSProperties }) {
+  return <span className={`asc-orb${teal ? " asc-orb-teal" : ""}`} style={style} aria-hidden="true" />;
+}
+
 function CtaButton({
   children,
   kind = "gold",
@@ -328,6 +333,8 @@ function Compare() {
   ];
   return (
     <section className="asc-band">
+      <Orb style={{ top: -80, right: "-6%" }} />
+      <Orb teal style={{ bottom: -120, left: "-8%" }} />
       <div className="asc-wrap">
         <div className="asc-sec-head asc-reveal">
           <Eyebrow>The difference</Eyebrow>
@@ -415,6 +422,7 @@ function Method() {
   ];
   return (
     <section className="asc-band asc-band-navy" id="method">
+      <Orb teal style={{ top: 60, right: "-7%" }} />
       <div className="asc-wrap">
         <div className="asc-sec-head asc-reveal">
           <Eyebrow>The method</Eyebrow>
@@ -476,7 +484,7 @@ function Method() {
           </div>
           <div className="asc-steps" id="ascSteps">
             {pillars.map((p, i) => (
-              <div className="asc-step" data-step={i} key={i}>
+              <div className="asc-step asc-tilt3d" data-tilt="3" data-step={i} key={i}>
                 <span className="asc-step-ic" aria-hidden="true">
                   <p.Icon size={24} strokeWidth={1.7} />
                 </span>
@@ -507,6 +515,8 @@ function Stats() {
   ];
   return (
     <section className="asc-band asc-band-navy" id="stats-band">
+      <Orb style={{ top: -60, left: "-6%" }} />
+      <Orb teal style={{ bottom: -100, right: "-5%" }} />
       <div className="asc-wrap">
         <div className="asc-sec-head asc-sec-head-center asc-reveal">
           <Eyebrow center>By the numbers</Eyebrow>
@@ -545,7 +555,7 @@ function Stats() {
           </div>
           <div className="asc-stat-grid">
             {nums.map((s, i) => (
-              <div className="asc-stat asc-reveal asc-spot asc-spot-dark" style={{ "--d": `${i * 0.08}s` } as CSSVars} key={i}>
+              <div className="asc-stat asc-reveal asc-spot asc-spot-dark asc-tilt3d" data-tilt="3" style={{ "--d": `${i * 0.08}s` } as CSSVars} key={i}>
                 <div className="asc-stat-fig asc-mono">
                   {s.prefix ? <span className="asc-stat-affix">{s.prefix}</span> : null}
                   <span data-count={s.count} data-suffix={s.suffix ?? ""}>
@@ -573,6 +583,7 @@ function Ledger() {
   ];
   return (
     <section className="asc-plain" id="results">
+      <Orb style={{ top: 40, right: "-8%" }} />
       <div className="asc-wrap">
         <div className="asc-ledger-head asc-reveal">
           <div>
@@ -739,6 +750,7 @@ function Voices() {
   ];
   return (
     <section className="asc-band asc-band-navy">
+      <Orb style={{ top: -70, left: "-6%" }} />
       <div className="asc-wrap">
         <div className="asc-sec-head asc-sec-head-split asc-reveal">
           <div>
@@ -756,7 +768,7 @@ function Voices() {
           <div className="asc-voice-track">
             {[...voices, ...voices].map((v, i) => (
               <figure
-                className="asc-voice asc-spot asc-spot-dark"
+                className="asc-voice asc-spot asc-spot-dark asc-tilt3d" data-tilt="4"
                 aria-hidden={i >= voices.length || undefined}
                 key={i}
               >
@@ -789,6 +801,8 @@ function Faculty() {
   );
   return (
     <section className="asc-plain" id="faculty">
+      <Orb teal style={{ top: -40, left: "-7%" }} />
+      <Orb style={{ bottom: -80, right: "-6%" }} />
       <div className="asc-wrap">
         <div className="asc-sec-head asc-reveal">
           <Eyebrow>Meet your mentors</Eyebrow>
@@ -835,6 +849,8 @@ function Week() {
   ];
   return (
     <section className="asc-band asc-band-navy">
+      <Orb teal style={{ bottom: -90, left: "-7%" }} />
+      <Orb style={{ top: -50, right: "-5%" }} />
       <div className="asc-wrap">
         <div className="asc-sec-head asc-sec-head-split asc-reveal">
           <div>
@@ -847,7 +863,7 @@ function Week() {
         </div>
         <div className="asc-week-grid">
           {days.map((w, i) => (
-            <div className="asc-week-card asc-reveal asc-spot asc-spot-dark" style={{ "--d": `${i * 0.09}s` } as CSSVars} key={i}>
+            <div className="asc-week-card asc-reveal asc-spot asc-spot-dark asc-tilt3d" data-tilt="4" style={{ "--d": `${i * 0.09}s` } as CSSVars} key={i}>
               <div className="asc-week-top">
                 <span className="asc-week-day asc-mono">{w.d}</span>
                 <span className="asc-week-no asc-mono" aria-hidden="true">
@@ -875,6 +891,7 @@ function Programs({ onCta }: { onCta: () => void }) {
   ];
   return (
     <section className="asc-plain" id="programs">
+      <Orb style={{ top: -60, left: "-5%" }} />
       <div className="asc-wrap">
         <div className="asc-programs-card asc-reveal">
           <Eyebrow>Programs — choose your exam</Eyebrow>
@@ -914,6 +931,8 @@ function Programs({ onCta }: { onCta: () => void }) {
 function Pricing({ onCta }: { onCta: () => void }) {
   return (
     <section className="asc-plain" id="pricing">
+      <Orb style={{ top: 20, left: "-8%" }} />
+      <Orb teal style={{ bottom: -60, right: "-7%" }} />
       <div className="asc-wrap">
         <div className="asc-sec-head asc-reveal">
           <Eyebrow>Plans</Eyebrow>
@@ -990,6 +1009,7 @@ function FAQ({ onCta }: { onCta: () => void }) {
   const [open, setOpen] = useState<number | null>(0);
   return (
     <section className="asc-plain" id="faq">
+      <Orb teal style={{ top: -30, right: "-6%" }} />
       <div className="asc-wrap asc-faq-grid">
         <div className="asc-faq-aside asc-reveal">
           <Eyebrow>Straight answers</Eyebrow>
@@ -1753,6 +1773,9 @@ const ASC_CSS = `
   --asc-shadow:0 24px 60px rgba(24,30,45,0.14); --asc-shadow-soft:0 14px 40px rgba(24,30,45,0.10);
   --asc-glow-gold:0 0 0 rgba(0,0,0,0);
   --asc-ridge-fill:#173257;
+  --asc-glass-bg:linear-gradient(160deg,rgba(255,255,255,0.74),rgba(255,255,255,0.46));
+  --asc-glass-line:rgba(18,33,56,0.16);
+  --asc-glass-inset:rgba(255,255,255,0.85);
 
   background:var(--asc-ground); color:var(--asc-ink);
   font-family:var(--asc-body); overflow-x:hidden;
@@ -1774,6 +1797,9 @@ const ASC_CSS = `
   --asc-glow-gold:0 0 60px -10px rgba(228,184,96,0.38);
   --asc-band:linear-gradient(168deg,#152A50 0%,#0C1C38 46%,#060F1F 100%);
   --asc-ridge-fill:#152A50;
+  --asc-glass-bg:linear-gradient(160deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02));
+  --asc-glass-line:rgba(226,236,250,0.15);
+  --asc-glass-inset:rgba(255,255,255,0.09);
 }
 
 .asc *{box-sizing:border-box}
@@ -2256,6 +2282,43 @@ const ASC_CSS = `
 #ascBurst circle{transform-box:fill-box;transform-origin:center}
 #ascFlag.asc-flag-in + #ascBurst circle{animation:ascBurstRing .9s ease-out .2s both}
 @keyframes ascBurstRing{0%{opacity:0.9;transform:scale(0.3)}100%{opacity:0;transform:scale(3.2)}}
+
+/* ---------- v5 "Glass Ridge" (everything below the hero) ---------- */
+/* ambient orbs — drifting light the glass surfaces refract */
+.asc-orb{position:absolute;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,var(--asc-aurora-a),transparent 62%);filter:blur(46px);animation:ascAuroraA 19s ease-in-out infinite;will-change:transform}
+.asc-orb-teal{background:radial-gradient(circle,var(--asc-aurora-b),transparent 62%);animation:ascAuroraB 24s ease-in-out infinite}
+.asc-band>.asc-wrap,.asc-plain>.asc-wrap{position:relative;z-index:2}
+
+/* true glassmorphism across the card set (hero untouched) */
+.asc-col-them,.asc-step,.asc-stat,.asc-voice,.asc-week-card,.asc-faculty-card,.asc-tier:not(.asc-tier-hi),.asc-faq-item,.asc-programs-card{background:var(--asc-glass-bg);border-color:var(--asc-glass-line);box-shadow:inset 0 1px 0 var(--asc-glass-inset),0 14px 40px rgba(6,10,20,0.18)}
+.asc-marquee{background:var(--asc-glass-bg)}
+@media (min-width:769px){
+  /* .asc-voice excluded: blurring a continuously-translating marquee card is
+     a compositor tax — the gradient glass reads the same without it */
+  .asc-col-them,.asc-step,.asc-stat,.asc-week-card,.asc-faculty-card,.asc-tier:not(.asc-tier-hi),.asc-faq-item,.asc-programs-card,.asc-marquee{backdrop-filter:blur(14px) saturate(150%);-webkit-backdrop-filter:blur(14px) saturate(150%)}
+}
+.asc-faq-item.asc-faq-open{border-color:rgba(217,174,87,0.5)}
+
+/* night bands get a faint static star sprinkle behind the glass */
+.asc-band-navy{background:
+  radial-gradient(1px 1px at 12% 18%,rgba(220,233,251,0.5),transparent),
+  radial-gradient(1px 1px at 34% 64%,rgba(220,233,251,0.32),transparent),
+  radial-gradient(1.5px 1.5px at 58% 28%,rgba(245,212,142,0.4),transparent),
+  radial-gradient(1px 1px at 76% 72%,rgba(220,233,251,0.36),transparent),
+  radial-gradient(1px 1px at 90% 14%,rgba(220,233,251,0.44),transparent),
+  radial-gradient(1.5px 1.5px at 22% 86%,rgba(245,212,142,0.3),transparent),
+  var(--asc-band)}
+
+/* 3D entrance: tilt cards rise tipped back, then straighten as they land */
+.asc-js .asc-reveal.asc-tilt3d{transform:perspective(1100px) rotateX(calc(var(--rx,0deg) + 10deg)) rotateY(var(--ry,0deg)) translateY(34px)}
+
+/* depth pops inside tilted glass */
+.asc-tier-now,.asc-stat-fig,.asc-week-t,.asc-voice-quote{transition:transform .4s var(--asc-ease);transform-origin:left center;display:inline-block}
+.asc-stat-fig{display:flex}
+.asc-tier:hover .asc-tier-now{transform:scale(1.09)}
+.asc-stat:hover .asc-stat-fig{transform:scale(1.1)}
+.asc-week-card:hover .asc-week-t{transform:translateX(5px)}
+.asc-voice:hover .asc-voice-quote{transform:scale(1.2) rotate(-7deg)}
 
 /* luminous figures — the numbers are the jewellery of the page */
 .asc-ledger-rank,.asc-stat-fig{color:var(--asc-gold-bright);text-shadow:0 0 26px rgba(240,200,120,0.35)}
