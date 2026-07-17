@@ -666,6 +666,7 @@ function Statement() {
       <img
         className="asc-statement-photo asc-par"
         data-depth="0.12"
+        data-kenburns
         src="/images/mentoring-session-1.jpg"
         alt="A MindPeak mentor working through a problem one-on-one with a student"
         loading="lazy"
@@ -1056,6 +1057,15 @@ function Summit({ onCta }: { onCta: () => void }) {
   return (
     <section className="asc-summit" id="contact">
       <span className="asc-summit-sun" aria-hidden="true" />
+      {/* embers drifting up through the dawn glow */}
+      <span className="asc-embers" aria-hidden="true">
+        {Array.from({ length: 8 }).map((_, i) => (
+          <i
+            key={i}
+            style={{ "--ex": `${8 + i * 11.5}%`, "--edel": `${(i * 1.7) % 6}s`, "--edur": `${6 + (i % 4) * 1.8}s` } as CSSVars}
+          />
+        ))}
+      </span>
       <div className="asc-wrap asc-summit-in">
         <Eyebrow center>Free demo · zero commitment</Eyebrow>
         <h2 className="asc-reveal">Try one class. Meet your mentor.</h2>
@@ -1181,20 +1191,90 @@ export default function AscentHome() {
     }
   }, []);
 
-  /* contour canvas */
+  /* hero sky canvas — aurora ribbons (simplex-noise, ported from 21st.dev
+     "Aurora voice Hero") + twinkling stars + drifting contour lines.
+     The rAF loop pauses whenever the hero scrolls out of view. */
   useEffect(() => {
     const canvas = document.getElementById("ascContour") as HTMLCanvasElement | null;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const finePointer = window.matchMedia("(pointer: fine)").matches;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const lines = 7;
     let W = 0;
     let H = 0;
     let phase = 0;
     let raf = 0;
-    /* night-sky star field (drawn only while the dark theme is active) */
+    let running = true;
+    const mouse = { x: -9999, active: false };
+
+    /* compact 2D simplex noise (self-contained, from the dev21 component) */
+    const simplex = (() => {
+      const F2 = 0.5 * (Math.sqrt(3) - 1);
+      const G2 = (3 - Math.sqrt(3)) / 6;
+      const p = new Uint8Array(256);
+      for (let i = 0; i < 256; i++) p[i] = i;
+      for (let i = 255; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [p[i], p[j]] = [p[j], p[i]];
+      }
+      const perm = new Uint8Array(512);
+      const perm12 = new Uint8Array(512);
+      const grad3 = new Float32Array([1, 1, -1, 1, 1, -1, -1, -1, 1, 0, -1, 0, 1, 0, -1, 0, 0, 1, 0, -1, 0, 1, 0, -1]);
+      for (let i = 0; i < 512; i++) {
+        perm[i] = p[i & 255];
+        perm12[i] = perm[i] % 12;
+      }
+      return (xin: number, yin: number) => {
+        let n0 = 0;
+        let n1 = 0;
+        let n2 = 0;
+        const s = (xin + yin) * F2;
+        const i = Math.floor(xin + s);
+        const j = Math.floor(yin + s);
+        const t = (i + j) * G2;
+        const x0 = xin - (i - t);
+        const y0 = yin - (j - t);
+        const i1 = x0 > y0 ? 1 : 0;
+        const j1 = x0 > y0 ? 0 : 1;
+        const x1 = x0 - i1 + G2;
+        const y1 = y0 - j1 + G2;
+        const x2 = x0 - 1 + 2 * G2;
+        const y2 = y0 - 1 + 2 * G2;
+        const ii = i & 255;
+        const jj = j & 255;
+        let t0 = 0.5 - x0 * x0 - y0 * y0;
+        if (t0 >= 0) {
+          const gi = perm12[ii + perm[jj]] % 12;
+          t0 *= t0;
+          n0 = t0 * t0 * (grad3[(gi * 2) % 24] * x0 + grad3[(gi * 2 + 1) % 24] * y0);
+        }
+        let t1 = 0.5 - x1 * x1 - y1 * y1;
+        if (t1 >= 0) {
+          const gi = perm12[ii + i1 + perm[jj + j1]] % 12;
+          t1 *= t1;
+          n1 = t1 * t1 * (grad3[(gi * 2) % 24] * x1 + grad3[(gi * 2 + 1) % 24] * y1);
+        }
+        let t2 = 0.5 - x2 * x2 - y2 * y2;
+        if (t2 >= 0) {
+          const gi = perm12[ii + 1 + perm[jj + 1]] % 12;
+          t2 *= t2;
+          n2 = t2 * t2 * (grad3[(gi * 2) % 24] * x2 + grad3[(gi * 2 + 1) % 24] * y2);
+        }
+        return 70 * (n0 + n1 + n2);
+      };
+    })();
+
+    /* aurora ribbons: baseline height fraction, amplitude, colour, drift speed */
+    const ribbons = [
+      { base: 0.16, amp: 34, color: "240,200,120", sp: 1.0 },
+      { base: 0.26, amp: 46, color: "87,196,229", sp: 0.7 },
+      { base: 0.36, amp: 40, color: "240,200,120", sp: 1.25 },
+      { base: 0.22, amp: 28, color: "220,233,251", sp: 0.55 },
+    ];
+
     let stars: { x: number; y: number; r: number; ph: number; sp: number; gold: boolean }[] = [];
     const seedStars = () => {
       const count = Math.round(Math.min(140, W / 11));
@@ -1219,6 +1299,36 @@ export default function AscentHome() {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       seedStars();
     };
+
+    const drawRibbon = (r: (typeof ribbons)[number], idx: number) => {
+      const baseY = H * r.base;
+      const grad = ctx.createLinearGradient(0, 0, W, 0);
+      grad.addColorStop(0, `rgba(${r.color},0)`);
+      grad.addColorStop(0.5, `rgba(${r.color},0.55)`);
+      grad.addColorStop(1, `rgba(${r.color},0)`);
+      /* two passes: a wide faint pass fakes glow, a thin bright pass is the core */
+      for (const [lw, alpha] of [
+        [9, 0.10],
+        [2, 0.5],
+      ] as const) {
+        ctx.beginPath();
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = lw;
+        ctx.globalAlpha = alpha;
+        for (let x = -8; x <= W + 8; x += 6) {
+          /* cursor-driven intensity (dev21 pattern): ribbons swell near the pointer */
+          const m = mouse.active ? 1 + (1 - Math.min(1, Math.abs(x - mouse.x) / 380)) * 0.55 : 1;
+          const noise = simplex(x * 0.0022 * m, idx * 917 + phase * r.sp);
+          const pulse = Math.sin(phase * 0.5 + idx * 917) * 0.1 + 0.9;
+          const y = baseY + noise * r.amp * pulse * m;
+          if (x === -8) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+    };
+
     const draw = () => {
       const stroke = getComputedStyle(document.documentElement).getPropertyValue("--asc-contour").trim() || "rgba(217,174,87,0.15)";
       ctx.clearRect(0, 0, W, H);
@@ -1232,6 +1342,7 @@ export default function AscentHome() {
           ctx.fill();
         }
         ctx.globalAlpha = 1;
+        ribbons.forEach(drawRibbon);
       }
       ctx.strokeStyle = stroke;
       ctx.lineWidth = 1;
@@ -1249,20 +1360,41 @@ export default function AscentHome() {
       }
       ctx.globalAlpha = 1;
     };
+
+    const onMove = (e: PointerEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.active = e.clientY >= rect.top && e.clientY <= rect.bottom;
+    };
+    if (finePointer && !reduce) window.addEventListener("pointermove", onMove, { passive: true });
+
+    /* pause the loop while the hero is off screen */
+    let vio: IntersectionObserver | null = null;
+    if ("IntersectionObserver" in window) {
+      vio = new IntersectionObserver((entries) => {
+        running = entries[0]?.isIntersecting ?? true;
+      });
+      vio.observe(canvas);
+    }
+
     resize();
     window.addEventListener("resize", resize);
     if (reduce) {
       draw();
     } else {
       const loop = () => {
-        phase += 0.0045;
-        draw();
+        if (running) {
+          phase += 0.0045;
+          draw();
+        }
         raf = requestAnimationFrame(loop);
       };
       loop();
     }
     return () => {
       window.removeEventListener("resize", resize);
+      if (finePointer && !reduce) window.removeEventListener("pointermove", onMove);
+      if (vio) vio.disconnect();
       if (raf) cancelAnimationFrame(raf);
     };
   }, []);
@@ -1274,10 +1406,13 @@ export default function AscentHome() {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const finePointer = window.matchMedia("(pointer: fine)").matches;
     const motionOk = finePointer && !reduce;
+    const cleanupFns: Array<() => void> = [];
 
     const bar = document.getElementById("asc-progress");
     const altFill = document.getElementById("ascAltFill");
     const altMarker = document.getElementById("ascAltMarker");
+    const heroSec = document.getElementById("top");
+    const nav = root.querySelector<HTMLElement>(".asc-nav");
     const route = document.getElementById("ascRoute") as unknown as SVGPathElement | null;
     const climber = document.getElementById("ascClimber");
     const flag = document.getElementById("ascFlag");
@@ -1303,6 +1438,17 @@ export default function AscentHome() {
       if (altFill) altFill.style.height = `${p * 100}%`;
       if (altMarker) altMarker.style.bottom = `${p * 100}%`;
 
+      /* glass nav strengthens once the page starts moving */
+      if (nav) nav.classList.toggle("asc-scrolled", doc.scrollTop > 40);
+
+      /* hero exit choreography — copy rises slower, photo sinks + shrinks,
+         everything gently fades as the "camera" pans up the mountain */
+      if (heroSec && motionOk) {
+        const hr = heroSec.getBoundingClientRect();
+        const hx = Math.min(Math.max(-hr.top / (hr.height * 0.85 || 1), 0), 1);
+        heroSec.style.setProperty("--hx", hx.toFixed(3));
+      }
+
       if (motionOk) {
         const vh = window.innerHeight;
         for (const el of parLayers) {
@@ -1312,7 +1458,9 @@ export default function AscentHome() {
           if (r.bottom < -200 || r.top > vh + 200) continue;
           const prog = (r.top + r.height / 2 - vh / 2) / vh;
           const depth = parseFloat(el.dataset.depth || "0.2");
-          el.style.transform = `translate3d(0, ${(prog * depth * -140).toFixed(1)}px, 0)`;
+          /* Ken Burns: photos flagged data-kenburns slowly zoom while parallaxing */
+          const kb = "kenburns" in el.dataset ? ` scale(${(1.05 + prog * 0.045).toFixed(3)})` : "";
+          el.style.transform = `translate3d(0, ${(prog * depth * -140).toFixed(1)}px, 0)${kb}`;
         }
       }
 
@@ -1407,6 +1555,73 @@ export default function AscentHome() {
     };
     root.addEventListener("click", onClick);
 
+    /* scrollspy — the nav underline stays lit on the section in view */
+    const spyIds = ["results", "faculty", "pricing", "faq", "contact"];
+    let spy: IntersectionObserver | null = null;
+    if ("IntersectionObserver" in window) {
+      const links = new Map(
+        spyIds
+          .map((id) => [id, root.querySelector<HTMLElement>(`.asc-navlink[href="#${id}"]`)] as const)
+          .filter(([, el]) => Boolean(el)),
+      );
+      spy = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            const link = links.get(e.target.id);
+            if (!link) continue;
+            if (e.isIntersecting) {
+              links.forEach((l) => l && l.classList.remove("asc-active"));
+              link.classList.add("asc-active");
+            }
+          }
+        },
+        { rootMargin: "-35% 0px -55% 0px" },
+      );
+      spyIds.forEach((id) => {
+        const sec = document.getElementById(id);
+        if (sec) spy!.observe(sec);
+      });
+    }
+
+    /* cursor glow — a soft gold light that lerps after the pointer and swells
+       over interactive elements. Purely additive: the native cursor stays. */
+    const glow = document.getElementById("asc-cursor");
+    let glowRaf = 0;
+    if (glow && motionOk) {
+      let tx = -100;
+      let ty = -100;
+      let cx = -100;
+      let cy = -100;
+      let big = false;
+      let cs = 1;
+      const onGlowMove = (e: PointerEvent) => {
+        tx = e.clientX;
+        ty = e.clientY;
+        const t = e.target as HTMLElement | null;
+        big = Boolean(t?.closest?.("a, button, [data-tilt]"));
+        glow.style.opacity = "1";
+      };
+      const onLeave = () => {
+        glow.style.opacity = "0";
+      };
+      window.addEventListener("pointermove", onGlowMove, { passive: true });
+      document.documentElement.addEventListener("pointerleave", onLeave);
+      const glowLoop = () => {
+        cx += (tx - cx) * 0.18;
+        cy += (ty - cy) * 0.18;
+        cs += ((big ? 2.2 : 1) - cs) * 0.2;
+        glow.style.transform = `translate(${cx.toFixed(1)}px, ${cy.toFixed(1)}px) translate(-50%,-50%) scale(${cs.toFixed(3)})`;
+        glowRaf = requestAnimationFrame(glowLoop);
+      };
+      glowLoop();
+      // fold the glow listeners into the shared cleanup below
+      cleanupFns.push(() => {
+        window.removeEventListener("pointermove", onGlowMove);
+        document.documentElement.removeEventListener("pointerleave", onLeave);
+        cancelAnimationFrame(glowRaf);
+      });
+    }
+
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
@@ -1415,6 +1630,8 @@ export default function AscentHome() {
         root.removeEventListener("pointerout", onOut);
       }
       root.removeEventListener("click", onClick);
+      if (spy) spy.disconnect();
+      cleanupFns.forEach((fn) => fn());
     };
   }, []);
 
@@ -1423,6 +1640,8 @@ export default function AscentHome() {
       <style>{ASC_CSS}</style>
       <div id="asc-progress" aria-hidden="true" />
       <div id="asc-grain" aria-hidden="true" />
+      {/* additive cursor light (fine pointers; native cursor untouched) */}
+      <span id="asc-cursor" aria-hidden="true" />
 
       {/* signature altimeter rail — slim, lives in the left gutter (wide screens).
           The thin track fills and the marker climbs as you scroll toward the
@@ -1484,6 +1703,7 @@ const ASC_CSS = `
   --asc-glow-edge:linear-gradient(140deg,rgba(168,122,36,0.55),rgba(168,122,36,0.10) 40%,rgba(46,127,168,0.35));
   --asc-shadow:0 24px 60px rgba(24,30,45,0.14); --asc-shadow-soft:0 14px 40px rgba(24,30,45,0.10);
   --asc-glow-gold:0 0 0 rgba(0,0,0,0);
+  --asc-ridge-fill:#173257;
 
   background:var(--asc-ground); color:var(--asc-ink);
   font-family:var(--asc-body); overflow-x:hidden;
@@ -1504,6 +1724,7 @@ const ASC_CSS = `
   --asc-shadow:0 26px 70px rgba(0,0,0,0.55); --asc-shadow-soft:0 16px 44px rgba(0,0,0,0.40);
   --asc-glow-gold:0 0 60px -10px rgba(228,184,96,0.38);
   --asc-band:linear-gradient(168deg,#152A50 0%,#0C1C38 46%,#060F1F 100%);
+  --asc-ridge-fill:#152A50;
 }
 
 .asc *{box-sizing:border-box}
@@ -1572,7 +1793,7 @@ const ASC_CSS = `
 .asc-hero-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
 .asc-chip{font-size:12.5px;font-weight:600;padding:7px 14px;border-radius:999px;border:1px solid var(--asc-line);color:var(--asc-muted);background:var(--asc-surface)}
 .asc-chip-gold{background:var(--asc-grad-gold);border-color:transparent;color:var(--asc-navy-deep)}
-.asc-hero h1{font-size:clamp(38px,5.4vw,68px);font-weight:400;letter-spacing:-0.02em}
+.asc-hero h1{font-size:clamp(40px,5.6vw,76px);font-weight:400;letter-spacing:-0.02em}
 .asc-hero h1 em{font-style:italic;color:var(--asc-gold)}
 .asc-lede{margin:26px 0 0;max-width:36ch;font-size:clamp(16px,1.5vw,18px);color:var(--asc-muted);line-height:1.65}
 .asc-hero-cta{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
@@ -1617,10 +1838,10 @@ const ASC_CSS = `
 .asc-plain{padding:clamp(56px,8vw,96px) 0;position:relative}
 .asc-band-navy{background:var(--asc-band);color:var(--asc-cream)}
 .asc-band-navy h2,.asc-band-navy h3{color:var(--asc-cream)}
-/* glowing horizon hairlines where night bands meet the ground */
-.asc-band-navy::before,.asc-band-navy::after{content:"";position:absolute;left:0;right:0;height:1px;pointer-events:none;background:linear-gradient(90deg,transparent 4%,rgba(245,212,142,0.5) 34%,rgba(87,196,229,0.4) 66%,transparent 96%)}
-.asc-band-navy::before{top:0}
-.asc-band-navy::after{bottom:0;opacity:.55}
+/* ridgeline silhouette rising out of the section above each night band,
+   plus a glowing horizon hairline at the base */
+.asc-band-navy::before{content:"";position:absolute;top:-34px;left:0;right:0;height:35px;pointer-events:none;background:var(--asc-ridge-fill);clip-path:polygon(0 100%,0 76%,5% 54%,10% 68%,17% 32%,23% 58%,30% 42%,37% 66%,44% 24%,51% 55%,57% 38%,63% 62%,70% 28%,77% 56%,84% 34%,91% 62%,100% 42%,100% 100%);filter:drop-shadow(0 -2px 8px rgba(245,212,142,0.18))}
+.asc-band-navy::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;pointer-events:none;opacity:.55;background:linear-gradient(90deg,transparent 4%,rgba(245,212,142,0.5) 34%,rgba(87,196,229,0.4) 66%,transparent 96%)}
 .asc-sec-head{max-width:56ch}
 .asc-sec-head-center{max-width:640px;margin-inline:auto;text-align:center}
 .asc-sec-head h2{font-size:clamp(30px,4.4vw,50px);margin-top:16px}
@@ -1922,6 +2143,40 @@ const ASC_CSS = `
 .asc-alt-marker{position:absolute;left:50%;bottom:0;width:11px;height:11px;border-radius:50%;background:var(--asc-gold-bright);transform:translate(-50%,50%);box-shadow:0 0 0 4px var(--asc-gold-soft),0 0 14px rgba(217,174,87,0.55)}
 @media (max-width:1360px){.asc-altimeter{display:none}}
 
+/* ---------- v3 "Summit Polish" ---------- */
+/* cursor light — additive, never replaces the native cursor */
+#asc-cursor{position:fixed;top:0;left:0;width:26px;height:26px;border-radius:50%;pointer-events:none;z-index:220;opacity:0;background:radial-gradient(circle,rgba(245,212,142,0.85),rgba(245,212,142,0.25) 55%,transparent 75%);box-shadow:0 0 26px 8px rgba(240,200,120,0.35);mix-blend-mode:screen;transition:opacity .3s ease;will-change:transform}
+@media (pointer:coarse){#asc-cursor{display:none}}
+
+/* nav: glass strengthens after scroll; scrollspy keeps the active link lit */
+.asc-nav{transition:box-shadow .35s ease,background-color .35s ease}
+.asc-nav.asc-scrolled{background:color-mix(in srgb,var(--asc-ground) 92%,transparent);box-shadow:0 10px 40px rgba(0,0,0,0.22)}
+.asc-navlink.asc-active{color:var(--asc-gold)}
+.asc-navlink.asc-active::after{right:0}
+
+/* hero exit choreography — driven by --hx (0→1) from the scroll driver */
+.asc-hero-copy{transform:translateY(calc(var(--hx,0) * -46px));opacity:calc(1 - var(--hx,0) * 0.55)}
+.asc-hero-visual.asc-tilt3d{transform:perspective(1100px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(calc(var(--lift,0px) + var(--hx,0) * 40px)) scale(calc(1 - var(--hx,0) * 0.05));opacity:calc(1 - var(--hx,0) * 0.45)}
+
+/* ledger rows: gold sweep + portrait ring brighten on hover */
+.asc-ledger-row{position:relative}
+.asc-ledger-row::after{content:"";position:absolute;left:18px;right:18px;bottom:-1px;height:2px;background:linear-gradient(90deg,var(--asc-gold-bright),rgba(87,196,229,0.4) 70%,transparent);transform:scaleX(0);transform-origin:0 50%;transition:transform .45s var(--asc-ease)}
+.asc-ledger-row:hover::after{transform:scaleX(1)}
+.asc-ledger-row:hover .asc-ledger-img{border-color:var(--asc-gold-bright)}
+
+/* icon flourish on card hover */
+.asc-faculty-ic,.asc-program-ic,.asc-step-ic{transition:transform .4s var(--asc-ease)}
+.asc-faculty-card:hover .asc-faculty-ic,.asc-program:hover .asc-program-ic,.asc-step:hover .asc-step-ic{transform:rotate(-8deg) scale(1.08)}
+
+/* FAQ answer content settles in after the panel opens */
+.asc-faq-body p{opacity:0;transform:translateY(6px);transition:opacity .35s ease .08s,transform .35s var(--asc-ease) .08s}
+.asc-faq-body-open p{opacity:1;transform:none}
+
+/* summit embers */
+.asc-embers{position:absolute;inset:0;pointer-events:none;z-index:1}
+.asc-embers i{position:absolute;left:var(--ex,50%);bottom:5%;width:4px;height:4px;border-radius:50%;background:#F5D48E;opacity:0;box-shadow:0 0 8px rgba(245,212,142,0.8);animation:ascEmber var(--edur,7s) linear var(--edel,0s) infinite}
+@keyframes ascEmber{0%{transform:translate(0,0);opacity:0}12%{opacity:.85}55%{opacity:.5;transform:translate(14px,-130px)}100%{transform:translate(-8px,-250px);opacity:0}}
+
 /* luminous figures — the numbers are the jewellery of the page */
 .asc-ledger-rank,.asc-stat-fig{color:var(--asc-gold-bright);text-shadow:0 0 26px rgba(240,200,120,0.35)}
 .asc-tier-now,.asc-statement-ratio-v,.asc-ring-num{background:linear-gradient(120deg,var(--asc-gold-bright),var(--asc-gold) 55%,var(--asc-gold-deep));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
@@ -1963,8 +2218,11 @@ const ASC_CSS = `
 @media (prefers-reduced-motion:reduce){
   .asc *,.asc *::before,.asc *::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
   .asc-reveal,.asc-w,.asc-child,.asc-pop,.asc-photo-in{opacity:1 !important;transform:none !important;filter:none !important;animation:none !important;clip-path:none !important}
-  .asc-mq-row,.asc-aurora,.asc-summit-sun,.asc-voice-track{animation:none !important}
+  .asc-mq-row,.asc-aurora,.asc-summit-sun,.asc-voice-track,.asc-embers i{animation:none !important}
   .asc-voice-marquee{overflow-x:auto}
+  #asc-cursor{display:none}
+  .asc-hero-copy,.asc-hero-visual.asc-tilt3d{opacity:1 !important}
+  .asc-faq-body p{opacity:1 !important;transform:none !important}
   .asc-par,.asc-tilt3d,.asc-btn{transform:none !important}
 }
 `;
