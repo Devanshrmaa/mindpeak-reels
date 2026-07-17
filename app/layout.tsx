@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Space_Grotesk, Inter, Fraunces, IBM_Plex_Mono } from "next/font/google";
 import Script from "next/script";
 import { Providers } from "./providers";
 import { ScrollToTop } from "./scroll-to-top";
@@ -18,6 +18,27 @@ const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+/*
+ * Homepage "Ascent" display type. Fraunces (high-contrast editorial serif) is
+ * the display face; IBM Plex Mono renders the instrument-style figures
+ * (altimeter, rank readouts, stats). Scoped to the homepage via CSS vars;
+ * the rest of the site keeps Space Grotesk + Inter.
+ */
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-fraunces",
+  display: "swap",
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["500", "600"],
+  variable: "--font-plex-mono",
   display: "swap",
 });
 
@@ -196,7 +217,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable}`}
+      className={`${spaceGrotesk.variable} ${inter.variable} ${fraunces.variable} ${plexMono.variable}`}
       suppressHydrationWarning
     >
       <head>

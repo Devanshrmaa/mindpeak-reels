@@ -1,4 +1,4 @@
-import HomeRedesign from "@/views/HomeRedesign";
+import AscentHome from "@/views/AscentHome";
 import { PageFooter } from "@/components/PageFooter";
 import type { Metadata } from "next";
 import { CURRENT_EXAM_YEAR } from "@/lib/examYears";
@@ -19,9 +19,12 @@ export const metadata: Metadata = {
 };
 
 /**
- * The <HomeRedesign /> component renders the v2 cream-on-navy homepage
- * (ported from the Claude Design handoff). It is a client component; SEO
- * metadata is handled by the server-side metadata export above.
+ * The <AscentHome /> component renders the "The Ascent" homepage — a
+ * topographic navy→gold editorial layout with a scroll altimeter, route-draw
+ * method section and count-up stats. It is a client component; SEO metadata is
+ * handled by the server-side metadata export above, and the crawlable content
+ * shell below plus <PageFooter /> keep the homepage's indexable copy and
+ * internal-link equity server-rendered.
  *
  * NOTE: The sr-only section below is a server-rendered content shell
  * for Googlebot. The redesigned homepage is client-rendered; this section
@@ -110,7 +113,7 @@ export default function HomePage() {
         </span>
       </section>
 
-      <HomeRedesign />
+      <AscentHome />
 
       {/*
        * Server-rendered footer link hub. The redesigned homepage closes with a
