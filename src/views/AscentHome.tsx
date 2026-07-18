@@ -243,11 +243,11 @@ function Hero({ onCta }: { onCta: () => void }) {
  * ------------------------------------------------------------------ */
 function Marquee() {
   const items = [
-    "AIR 42 · JEE Advanced",
-    "AIR 89 · JEE Mains",
-    "AIR 156 · NEET UG",
-    "50+ ranks under AIR 5,000",
-    "95% success rate",
+    "Personal IIT / NIT / AIIMS mentors",
+    "1-on-1 live classes, 6 days a week",
+    "Weekly plans rebuilt from mock data",
+    "NCERT-first NEET Biology",
+    "Diagnostic-led weak-chapter focus",
     "120+ cities across India",
     "Doubts solved in under 30 min",
     "Live 1-on-1, 6 days a week",
@@ -566,7 +566,7 @@ function ReportProof() {
     { k: "Physics — Optics", v: 61, c: "#D98A5A" },
   ];
   const stats = [
-    { v: "AIR 156", k: "Priya's final NEET rank" },
+    { v: "Weekly", k: "plan rebuilt from your data" },
     { v: "< 30 min", k: "doubt response time" },
     { v: "6 days", k: "live classes per week" },
   ];
@@ -668,24 +668,28 @@ function Statement() {
  * VOICES
  * ------------------------------------------------------------------ */
 function Voices() {
+  // Illustrative scenarios describing how the 1-on-1 model works — not
+  // testimonials from named students. Specific fabricated rank/identity
+  // claims were removed 2026-07-18; replace with real, consented student
+  // stories (with proof) if and when they exist.
   const voices = [
     {
-      q: "My mentor knew exactly which chapters I was quietly avoiding. By December, rotational mechanics had gone from my worst topic to my fastest.",
-      name: "Aarav Sharma",
-      role: "AIR 42 · JEE Advanced",
-      img: "/images/aarav-sharma.jpg",
+      q: "A mentor who works with one student can see the chapters that get quietly avoided — and rebuild the plan around them instead of the batch average.",
+      name: "Weak-subject repair",
+      role: "the most common 1-on-1 outcome",
+      img: "/images/og/coaching.jpg",
     },
     {
-      q: "Every Sunday I got a real report — accuracy, speed, what the mentor changed. For the first time I actually knew how my daughter's prep was going.",
-      name: "Priya's mother",
-      role: "Parent · NEET UG",
-      img: "/images/priya-patel.jpg",
+      q: "Every week a parent gets a real report — accuracy, speed, and exactly what the mentor changed — so preparation is visible at home, not a black box.",
+      name: "Weekly parent reports",
+      role: "how progress stays transparent",
+      img: "/images/og/coaching.jpg",
     },
     {
-      q: "After a failed first attempt, the weekly plan kept rebuilding itself around my mistakes. I finished the drop year at 99.97 percentile.",
-      name: "Rohan Gupta",
-      role: "AIR 89 · JEE Mains, dropper",
-      img: "/images/rohan-gupta.jpg",
+      q: "For a dropper, the year works when the plan is built from the actual previous attempt's mistakes and keeps rebuilding around new ones — not a repeat of last year's batch.",
+      name: "Dropper rebuilds",
+      role: "why 1-on-1 fits droppers",
+      img: "/images/og/coaching.jpg",
     },
   ];
   return (
@@ -811,9 +815,9 @@ function Week() {
  * ------------------------------------------------------------------ */
 function Programs({ onCta }: { onCta: () => void }) {
   const programs = [
-    { no: "01", Icon: Atom, t: "JEE Main + Advanced", d: "1-year and 2-year programs with personal IIT/NIT mentors, weekly CBT mocks, a roadmap built around your target rank.", best: "Best result: AIR 42" },
-    { no: "02", Icon: Stethoscope, t: "NEET UG", d: "NCERT line-by-line mastery first, Biology specialists from AIIMS, NTA-pattern computer-based mocks.", best: "Best result: AIR 156" },
-    { no: "03", Icon: GraduationCap, t: "Foundation · Class 6–10", d: "Boards + Olympiad + NTSE, building scientific habits before the competitive years.", best: "95%+ board scores" },
+    { no: "01", Icon: Atom, t: "JEE Main + Advanced", d: "1-year and 2-year programs with personal IIT/NIT mentors, weekly CBT mocks, a roadmap built around your target rank.", best: "1-on-1 · IIT/NIT mentors" },
+    { no: "02", Icon: Stethoscope, t: "NEET UG", d: "NCERT line-by-line mastery first, Biology specialists from AIIMS, NTA-pattern computer-based mocks.", best: "NCERT-first · Biology focus" },
+    { no: "03", Icon: GraduationCap, t: "Foundation · Class 6–10", d: "Boards + Olympiad + NTSE, building scientific habits before the competitive years.", best: "Boards · Olympiad · NTSE" },
   ];
   return (
     <section className="asc-plain" id="programs">
@@ -922,7 +926,7 @@ const FAQS = [
   { tag: "Joining", q: "Can I join mid-session or do I have to wait for a new batch?", a: "Since our classes are 1-on-1, you can join anytime! There’s no batch dependency. We’ll create a customized schedule that works for you and align the curriculum to your exam timeline." },
   { tag: "Mentors", q: "Who are the mentors at MindPeak?", a: "Our mentors are graduates from IIT, NIT, and AIIMS with proven teaching experience. Each mentor is carefully selected for both subject expertise and the ability to connect with students. They undergo regular training to stay updated with the latest exam patterns and NTA guidelines." },
   { tag: "Doubts", q: "How quickly are doubts resolved?", a: "Doubts raised during live sessions are cleared instantly. For doubts outside class hours, our average response time is under 30 minutes via our dedicated doubt-resolution channel. Unlike batch coaching where students wait days, at MindPeak no question goes unanswered." },
-  { tag: "Droppers", q: "Is MindPeak suitable for dropper students?", a: "Absolutely. We have dedicated dropper programs for both JEE and NEET. Your mentor will evaluate your previous attempt, identify specific gaps, and build a focused plan to maximize your score improvement. Many of our top results — including AIR 89 — came from dropper students." },
+  { tag: "Droppers", q: "Is MindPeak suitable for dropper students?", a: "Absolutely. We have dedicated dropper programs for both JEE and NEET. Your mentor evaluates your previous attempt, identifies the specific chapters that cost you marks, and builds a focused plan to maximize your score improvement — the format droppers benefit from most, because the year is built from your real gaps rather than a repeat of a generic batch." },
   { tag: "Fees", q: "What is the fee structure?", a: "Our fees vary by program and duration. Book a free demo class and our counselor will walk you through all available plans, including any ongoing scholarships or installment options." },
   { tag: "Material", q: "Do you offer any study material or do students need to buy separately?", a: "Comprehensive study material, practice problem sets, and NCERT-aligned notes are included with every program. We also provide free downloadable NCERT textbooks on our website. No need to purchase additional books — our curated resources cover the full JEE and NEET syllabus." },
 ];
