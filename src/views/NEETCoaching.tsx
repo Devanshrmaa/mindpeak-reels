@@ -28,7 +28,6 @@ import {
 const ExamCountdown = dynamic(() => import('@/components/ExamCountdown').then(m => ({ default: m.ExamCountdown })), { ssr: false });
 const SeasonalBanner = dynamic(() => import('@/components/SeasonalBanner').then(m => ({ default: m.SeasonalBanner })), { ssr: false });
 const StudyPlanSection = dynamic(() => import('@/components/StudyPlanSection').then(m => ({ default: m.StudyPlanSection })), { ssr: false });
-const MonthlySuccessStory = dynamic(() => import('@/components/MonthlySuccessStory').then(m => ({ default: m.MonthlySuccessStory })), { ssr: false });
 const WeeklyTip = dynamic(() => import('@/components/WeeklyTip').then(m => ({ default: m.WeeklyTip })), { ssr: false });
 
 /* ─── data ─── */
@@ -467,9 +466,8 @@ const NEETCoaching = () => {
           </div>
         </section>
 
-        {/* ───── MONTHLY SUCCESS STORY + WEEKLY TIP ───── */}
+        {/* ───── WEEKLY TIP ───── */}
         <section className="max-w-5xl mx-auto px-4 sm:px-6 py-10 space-y-6">
-          <MonthlySuccessStory exam="NEET" />
           <WeeklyTip exam="NEET" />
         </section>
 

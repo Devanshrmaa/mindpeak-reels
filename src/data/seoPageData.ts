@@ -3519,84 +3519,53 @@ const neetCrashPage: SEOPageData = {
 // ─────────────────────────────────────────────────
 
 const successStoriesPage: SEOPageData = {
+  // Rewritten 2026-07-15: previous version named specific students with
+  // checkable AIR/college pairs, invented parent quotes, and an FAQ claiming
+  // scorecard verification — none of which the owner can substantiate.
+  // Until real, consented, verifiable results exist, this page describes
+  // outcome patterns without fabricating people. Add real stories (with
+  // consent + proof) here as they become available.
   slug: 'success-stories',
-  title: '500+ Student Success Stories — JEE & NEET Results | MindPeak',
-  description: 'Read real success stories of MindPeak students who cracked JEE & NEET with top ranks. 500+ students mentored, 95% selection rate. See their journeys.',
+  title: 'Student Outcomes — How 1-on-1 JEE & NEET Coaching Performs | MindPeak',
+  description: 'What outcomes to expect from one-to-one JEE/NEET coaching: the score patterns we work toward, how progress is measured, and how to evaluate any institute\'s claims.',
   h1: 'Student',
-  h1Highlight: 'Success Stories',
-  heroSubtitle: 'Every rank has a story behind it — late-night doubt sessions, weekly analytics reviews, and a mentor who refused to give up. Here are some of the journeys that make us proud.',
+  h1Highlight: 'Outcomes',
+  heroSubtitle: 'Every improvement follows the same arc: an honest diagnosis, a plan built around your weak areas, and a mentor who checks the outcome every week. Here is what that journey typically looks like — and how to judge coaching results claims, including ours.',
   sections: [
     {
-      heading: 'Our Results at a Glance',
-      content: 'MindPeak Institute has consistently produced outstanding results since its inception. Our personalized 1-on-1 approach ensures that every student receives the attention they need to excel.',
-      table: {
-        headers: ['Metric', '2025-26', '2024-25', '2023-24'],
-        rows: [
-          ['Students Mentored', '200+', '180+', '120+'],
-          ['JEE Main Qualified', '95%', '93%', '90%'],
-          ['JEE Advanced Qualified', '72%', '68%', '65%'],
-          ['NEET Qualified', '97%', '95%', '92%'],
-          ['Top 1000 Ranks (JEE)', '12', '8', '5'],
-          ['Top 5000 Ranks (NEET)', '18', '14', '9'],
-        ],
-      },
-    },
-    {
-      heading: 'Arjun Sharma — JEE Advanced AIR 342',
-      content: 'Arjun joined MindPeak from Indore after struggling with Physics in a 200-student batch at a local coaching centre. His dedicated mentor identified gaps in rotational mechanics and electrostatics within the first week. Through daily 1-on-1 sessions, Arjun went from scoring 45% in Physics mock tests to 89% — and secured AIR 342 in JEE Advanced 2025, earning admission to IIT Bombay CSE.',
+      heading: 'The Outcome Patterns One-to-One Coaching Produces',
+      content: 'These are the improvement arcs our mentors build programs around. Individual results vary with starting level, hours invested, and time to exam — no honest institute can promise a rank.',
       bullets: [
-        'Joined MindPeak: Class 11 (2-year program)',
-        'Weak areas identified: Rotational Mechanics, Electrostatics, Organic Chemistry',
-        'Mock test improvement: 156/360 → 289/360 over 18 months',
-        'Final result: JEE Advanced AIR 342, JEE Main 99.7 percentile',
+        'Weak-subject repair: a student strong in two subjects with one dragging the total — the most common profile, and where 1-on-1 shows the fastest gains',
+        'Dropper rebuilds: preparation restarted from an error analysis of the actual attempt rather than a repeat of the same batch syllabus',
+        'Accuracy recovery (NEET): stable knowledge but a 10–15% silly-error rate — fixed by measuring and drilling specific error patterns',
+        'Plateau breaking: mock scores stuck for months because effort is aimed at comfortable topics instead of costly ones',
       ],
     },
     {
-      heading: 'Priya Patel — NEET AIR 1,247',
-      content: 'Priya was a dropper from Jaipur who had scored 520 in her first NEET attempt. She felt lost in her mega-batch coaching and decided to switch to MindPeak\'s 1-on-1 model. Her mentor created a customised Biology-first strategy, dedicating 60% of sessions to high-yield NCERT topics. The result — a 140-mark improvement and admission to AIIMS Delhi.',
+      heading: 'How We Measure Progress (and Report It to Parents)',
+      content: 'Every MindPeak program tracks the same numbers every week: chapter-wise accuracy, mock-score trajectory, silly-error rate, and syllabus coverage verified by recall checks — not self-reported "done". Parents receive these reports after every assessment block, so improvement is visible long before the exam.',
+    },
+    {
+      heading: 'How to Evaluate Any Coaching Institute\'s Results Claims',
+      content: 'The coaching industry is full of unverifiable rank claims — treat every institute\'s numbers, including ours, with the same scrutiny:',
       bullets: [
-        'Previous score: NEET 520/720 (first attempt)',
-        'Strategy: Biology-first, NCERT-focused approach with daily MCQ drills',
-        'Mock test improvement: 520 → 660 over 8 months',
-        'Final result: NEET AIR 1,247 — AIIMS Delhi MBBS',
+        'Ask for consented, verifiable proof behind any named result (scorecard, counselling allotment letter)',
+        'Percentage claims mean little without the base: "95% qualified" from 20 students differs from 20,000',
+        'Rank banners often reflect students who took only a test series, not the full program',
+        'The most honest signal is process transparency: can the institute show you HOW progress is measured week to week?',
       ],
     },
     {
-      heading: 'Rahul Verma — From 60 Percentile to IIT Roorkee',
-      content: 'Rahul was scoring around 60 percentile in JEE Main mock tests when he joined MindPeak in April as a dropper. His mentor identified that Rahul had strong concepts but poor time management and exam temperament. Through timed practice sessions, strategic topic prioritisation, and weekly full-length tests, Rahul transformed his performance in just 10 months.',
-      bullets: [
-        'Starting level: JEE Main ~60 percentile',
-        'Key intervention: Time management training + strategic topic selection',
-        'Mock test trajectory: 60%ile → 85%ile → 97.2%ile',
-        'Final result: JEE Main 97.2 percentile, JEE Advanced qualified — IIT Roorkee ECE',
-      ],
-    },
-    {
-      heading: 'Sneha Gupta — NEET 650+ from a Small Town',
-      content: 'Sneha hails from Gorakhpur, UP, where access to quality NEET coaching was limited. Her parents couldn\'t afford to send her to Kota. Through MindPeak\'s online 1-on-1 program, Sneha received the same quality of mentorship as any Kota student — at a fraction of the cost. Her mentor focused on building strong Biology fundamentals and systematic Chemistry revision.',
-      bullets: [
-        'Background: Small-town student, no access to premium coaching',
-        'MindPeak advantage: Online 1-on-1 with dedicated Biology expert',
-        'Preparation duration: 18 months (Class 11-12)',
-        'Final result: NEET 654/720 — Government Medical College admission',
-      ],
-    },
-    {
-      heading: 'What Parents Say',
-      content: 'Our parents are our biggest advocates. Here\'s what they have to say about the MindPeak experience:',
-      bullets: [
-        '"My son went from hating Physics to loving it. His mentor made all the difference." — Mrs. Sharma, Indore',
-        '"The weekly analytics reports gave us visibility into our daughter\'s preparation. We always knew where she stood." — Mr. Patel, Jaipur',
-        '"We saved ₹3 lakhs compared to Kota coaching, and the results were even better." — Mr. Verma, Lucknow',
-        '"MindPeak\'s flexible scheduling let my daughter balance school boards and NEET prep perfectly." — Mrs. Gupta, Gorakhpur',
-      ],
+      heading: 'Talk to Us Before You Decide',
+      content: 'The free demo class includes an honest assessment of your current level and what improvement arc is realistic for your timeline. If one-to-one coaching is not the right fit for your profile, we will say so — a mismatched enrolment helps no one.',
     },
   ],
   faqs: [
-    { q: 'Are these success stories verified?', a: 'Yes, all success stories are from real MindPeak students. We can provide scorecard verification upon request. Many of our successful students also participate in webinars and mentoring sessions for current students.' },
-    { q: 'What is MindPeak\'s overall selection rate?', a: 'Our overall selection rate across JEE and NEET is 95%. This includes students who qualified JEE Main, JEE Advanced, or NEET in their target year. The rate is higher for students who complete the full recommended program duration.' },
-    { q: 'Can I talk to a past student before enrolling?', a: 'Absolutely. We encourage prospective students to speak with our alumni. Book a free trial class, and we\'ll connect you with a student who had a similar profile and preparation level.' },
-    { q: 'Do dropper students also see results?', a: 'Yes, in fact many of our best results come from dropper students. With a focused 10-12 month program and daily 1-on-1 sessions, droppers typically see a 30-40% score improvement.' },
+    { q: 'Why doesn\'t this page show named students with ranks?', a: 'Because we only publish results we can prove with the student\'s consent. Coaching-industry rank walls are notoriously unreliable, and we would rather show you our measurement process than unverifiable claims. As consented, documented results become available, they are published here.' },
+    { q: 'What improvement can a typical student expect?', a: 'It depends on starting level and time to exam. The pattern we build programs around: measurable mock-score movement within the first 8–10 weeks, driven by fixing the highest-cost weak chapters first. In the demo assessment we will tell you what is realistic for your specific profile — before you pay anything.' },
+    { q: 'Can I talk to a current or past student before enrolling?', a: 'Ask during your free demo — where a current student or parent has consented to speak with prospective families, we arrange it. We do not script these conversations.' },
+    { q: 'Do dropper students also see results?', a: 'Droppers often benefit most from the one-to-one format, because the year is built from an error analysis of their actual attempt instead of repeating a generic batch. The honest caveat: a dropper year works when the diagnosis is honest and the weekly plan is executed — format alone guarantees nothing.' },
   ],
   relatedPages: [
     { label: 'JEE Coaching Programs', href: '/jee-coaching' },

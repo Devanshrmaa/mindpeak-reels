@@ -378,7 +378,8 @@ const RankPredictor = () => {
     applicationCategory: 'EducationalApplication',
     operatingSystem: 'Web',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
-    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.8', ratingCount: '12400' },
+    // No aggregateRating: review markup requires real, verifiable collected
+    // ratings — fabricated counts are a structured-data manual-action risk.
     description,
   };
 
