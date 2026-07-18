@@ -64,6 +64,18 @@ const STATIC_SECTIONS: FooterSectionData[] = [
     ],
   },
   {
+    // Deep links into the NEET PYQ unit hubs (previously orphaned from all
+    // internal links) — gives Google a crawl path to the promoted hubs.
+    title: 'NEET PYQ by Unit',
+    links: [
+      { label: 'Human Physiology PYQs', to: '/neet-pyq-biology-unit-human-physiology' },
+      { label: 'Genetics & Evolution PYQs', to: '/neet-pyq-biology-unit-genetics-evolution' },
+      { label: 'Plant Physiology PYQs', to: '/neet-pyq-biology-unit-plant-physiology' },
+      { label: 'Mechanics PYQs (Physics)', to: '/neet-pyq-physics-unit-mechanics' },
+      { label: 'Organic Reactions PYQs', to: '/neet-pyq-chemistry-unit-organic-reactions' },
+    ],
+  },
+  {
     title: 'Formula Sheets',
     links: [
       { label: 'JEE Physics Formulas', to: '/jee-physics-formulas' },

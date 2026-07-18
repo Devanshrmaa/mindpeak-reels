@@ -33,11 +33,13 @@ import { getAllCounsellingSlugs } from '@/data/counsellingData';
 import { getAllExamEventBlogSlugs } from '@/lib/examEventBlogs';
 import { ONE_YEAR_TARGET, TWO_YEAR_TARGET } from '@/lib/examYears';
 import { STATE_HUB_SLUGS } from '@/data/stateHubData';
+import { buildAllNEETPYQHubSlugs } from '@/data/neet-pyq/hierarchy';
+import { getPYQChapterEnrichment } from '@/data/neet-pyq/chapterEnrichments';
 
 export const BASE = 'https://mindpeakinstitute.com';
 
-/** Last real content release. 2026-07-15: service-page cluster + metadata batch. */
-export const CONTENT_ANCHOR = '2026-07-15';
+/** Last real content release. 2026-07-18: NEET PYQ hub tranche promoted to sitemap. */
+export const CONTENT_ANCHOR = '2026-07-18';
 
 /**
  * Deterministic, STABLE lastmod: CONTENT_ANCHOR minus a slug-hashed 0–27 day
@@ -104,7 +106,9 @@ export function getStaticPaths(): string[] {
     '/course/6th-foundation', '/course/7th-foundation', '/course/8th-foundation',
     '/course/9th-foundation', '/course/10th-foundation',
     '/course/bitsat-target', '/course/isi-entrance-target', '/course/olympiad-coaching',
-    '/terms-and-conditions', '/refund-policy',
+    // /terms-and-conditions and /refund-policy are intentionally NOT listed:
+    // they serve `noindex, follow`, so listing them produced "Submitted URL
+    // marked noindex" errors in GSC (found in the 2026-07-18 crawl audit).
     ...examRegistry.map((e) => `/${e.slug}-coaching`),
   ];
 }
@@ -117,6 +121,33 @@ export const getExamInfoPaths = (): string[] => getAllExamInfoSlugs().map((s) =>
 export const getDifferencePaths = (): string[] => getAllDifferenceSlugs().map((s) => `/${s}`);
 export const getCounsellingPaths = (): string[] => getAllCounsellingSlugs().map((s) => `/${s}`);
 export const getStateHubPaths = (): string[] => STATE_HUB_SLUGS.map((s) => `/${s}`);
+
+/**
+ * NEET PYQ hub tranche for the sitemap (feeds /sitemap-pyq.xml).
+ *
+ * These hubs are already indexable (resolveSlugMetadata gives NEET PYQ hub
+ * slugs real metadata, no noindex) and render real content — verified live
+ * 2026-07-18 — but were orphaned from every sitemap and internal link.
+ *
+ * TRANCHED promotion (penalty-recovery caution): we list the RICH aggregating
+ * hubs — every unit hub (spans many chapters) and class hub (spans a year) —
+ * plus only those chapter hubs that carry hand-written editorial enrichment.
+ * Bare chapter hubs stay out until enriched; enriching a chapter in
+ * chapterEnrichments.ts automatically promotes it here (the weekly loop's
+ * standing task), so the indexed set grows only as real content is added.
+ */
+export function getNeetPyqHubPaths(): string[] {
+  const hubs = buildAllNEETPYQHubSlugs();
+  return hubs
+    .filter((h) => {
+      if (h.type === 'unit' || h.type === 'class') return true;
+      if (h.type === 'chapter' && h.chapterSlug) {
+        return !!getPYQChapterEnrichment(h.subjectSlug, h.chapterSlug);
+      }
+      return false;
+    })
+    .map((h) => `/${h.slug}`);
+}
 
 export const IMPORTANT_Q_PATHS = [
   '/jee-physics-important-questions',
