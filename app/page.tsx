@@ -52,10 +52,10 @@ export default function HomePage() {
           areas and creates a customized study plan that evolves weekly based on performance data.
         </p>
         <p>
-          With a 95% success rate and 500+ students mentored, MindPeak has produced an AIR 42 in JEE
-          Advanced, AIR 89 in JEE Mains, AIR 156 in NEET UG, and 50+ students under AIR 5,000. Our
-          approach combines the depth of Kota-style coaching with the convenience of online learning —
-          students from any city in India receive world-class personalized preparation without relocating.
+          MindPeak&apos;s approach combines the depth of Kota-style coaching with the convenience of
+          online learning — students from any city in India receive personalized preparation without
+          relocating. Every program starts with a diagnostic assessment, builds a plan around the
+          student&apos;s weakest chapters, and is measured weekly against real mock-test data.
         </p>
         <p>
           Key features include real-time 1-on-1 doubt resolution (under 30 minutes response time),
@@ -90,16 +90,14 @@ export default function HomePage() {
           Tracking with weekly analytics reports for data-driven course correction.
         </p>
         <ul>
-          <li>500+ students mentored across India</li>
-          <li>95% success rate in JEE and NEET</li>
-          <li>Best rank: AIR 42 in JEE Advanced</li>
-          <li>50+ students under AIR 5,000</li>
-          <li>Daily 1-on-1 live sessions, 6 days a week</li>
-          <li>AI-driven adaptive curriculum</li>
-          <li>Doubt resolution in under 30 minutes</li>
+          <li>Dedicated 1-on-1 mentor for every student</li>
+          <li>Daily live sessions, 6 days a week</li>
+          <li>Adaptive curriculum built from diagnostic assessment</li>
+          <li>Weak-chapter-first study plans, rebuilt weekly from mock data</li>
+          <li>Same-day doubt resolution</li>
           <li>All sessions recorded for revision</li>
           <li>Weekly parent progress reports</li>
-          <li>12+ specialized programs for every need</li>
+          <li>Programs for Class 6–12 and droppers, JEE and NEET</li>
         </ul>
         <meta itemProp="telephone" content="+91-82194-57704" />
         <meta itemProp="email" content="mindpeak@mindpeakinstitute.com" />

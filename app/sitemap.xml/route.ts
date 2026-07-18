@@ -15,6 +15,7 @@ const CHILDREN = [
   'sitemap-chapters.xml',
   'sitemap-blog.xml',
   'sitemap-exams.xml',
+  'sitemap-pyq.xml',
 ];
 
 export async function GET() {
