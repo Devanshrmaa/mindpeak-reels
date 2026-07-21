@@ -5737,6 +5737,17 @@ const oneToOneJeePage: SEOPageData = {
   schemaType: 'Course',
   sections: [
     {
+      heading: 'MindPeak 1-on-1 JEE Coaching at a Glance',
+      content: 'MindPeak Institute offers live, one-to-one online JEE coaching: one dedicated mentor per student across Physics, Chemistry and Mathematics, with the curriculum built around that student\'s weak chapters instead of a fixed batch syllabus. It suits students who want genuine personal attention, droppers rebuilding from a real gap analysis, and strong students with one subject dragging their score. The essentials:',
+      bullets: [
+        'Format: live 1-on-1 online classes — a batch size of one, not recorded lectures',
+        'Covers JEE Main and JEE Advanced, from Class 11 through droppers',
+        'Included: a weekly custom study plan, unlimited doubt-solving, per-mock analysis, and weekly parent reports',
+        'A free 1-on-1 trial class with your assigned mentor before you pay anything',
+        'Transparent monthly pricing with EMI available — no hidden fees',
+      ],
+    },
+    {
       heading: 'What One-to-One JEE Coaching Includes',
       content: 'Every MindPeak JEE student works with one dedicated mentor across Physics, Chemistry and Mathematics — the same person who teaches you also tracks your mock scores and rebuilds your plan every week.',
       bullets: [
@@ -5819,6 +5830,7 @@ const oneToOneJeePage: SEOPageData = {
     { label: 'JEE Mentorship by IITians', href: '/jee-mentorship-by-iitians' },
     { label: '1-on-1 vs Batch Coaching Compared', href: '/batch-vs-personal-coaching' },
     { label: 'One-to-One NEET Coaching', href: '/one-to-one-neet-coaching' },
+    { label: 'How to Choose a 1-on-1 Mentor', href: '/how-to-choose-a-1-on-1-mentor' },
     { label: 'Meet the Mentors', href: '/mentors' },
     { label: 'Pricing', href: '/pricing' },
     { label: 'Free Demo Class', href: '/free-trial' },
@@ -5834,6 +5846,17 @@ const oneToOneNeetPage: SEOPageData = {
   heroSubtitle: 'NEET rewards precision: 720 marks, 180 questions, and an NCERT-line-level syllabus where a single misread fact costs a rank band. MindPeak\'s one-to-one NEET coaching gives you a personal PCB mentor who finds and fixes your exact error patterns — something no 100-student batch can do.',
   schemaType: 'Course',
   sections: [
+    {
+      heading: 'MindPeak 1-on-1 NEET Coaching at a Glance',
+      content: 'MindPeak Institute offers live, one-to-one online NEET coaching: one dedicated mentor per student across Physics, Chemistry and Biology, with Biology taught NCERT-line-by-line the way NEET actually tests it. It suits students who need accuracy and coverage fixed together, Biology-strong students losing rank to Physics, and droppers rebuilding from their last attempt\'s error analysis. The essentials:',
+      bullets: [
+        'Format: live 1-on-1 online classes — a batch size of one, not recorded lectures',
+        'Covers the full NEET-UG PCB syllabus, Class 11 and 12, and droppers',
+        'Included: an NCERT-first study plan, unlimited doubt-solving, per-mock accuracy analysis, and weekly parent reports',
+        'A free 1-on-1 trial class with your assigned mentor before you pay anything',
+        'Transparent monthly pricing with EMI available — no hidden fees',
+      ],
+    },
     {
       heading: 'What One-to-One NEET Coaching Includes',
       content: 'One dedicated mentor owns your Physics, Chemistry and Biology preparation end to end — teaching, doubt-solving, and mock review are one continuous loop instead of three disconnected services.',
@@ -5907,6 +5930,7 @@ const oneToOneNeetPage: SEOPageData = {
     { label: 'NEET Mentorship Program', href: '/neet-mentorship' },
     { label: '1-on-1 vs Batch Coaching Compared', href: '/batch-vs-personal-coaching' },
     { label: 'One-to-One JEE Coaching', href: '/one-to-one-jee-coaching' },
+    { label: 'How to Choose a 1-on-1 Mentor', href: '/how-to-choose-a-1-on-1-mentor' },
     { label: 'Meet the Mentors', href: '/mentors' },
     { label: 'Pricing', href: '/pricing' },
     { label: 'Free Demo Class', href: '/free-trial' },
