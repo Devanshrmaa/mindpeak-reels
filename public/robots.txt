@@ -27,6 +27,37 @@ Disallow: /manifest.json
 # Query-string duplicates
 Disallow: /*?*
 
+# ─────────────────────────────────────────────────────────────
+# AI / LLM crawlers — explicitly welcome (GEO).
+# These bots feed ChatGPT, Claude, Gemini, Perplexity and Meta AI
+# answers. The generic `*` group already allows them; the explicit
+# groups below make the invitation unambiguous and protect these
+# bots from any future tightening of the `*` group. Same technical
+# disallows as the generic group.
+#
+# Machine-readable site guide for LLMs:
+#   https://mindpeakinstitute.com/llms.txt
+# ─────────────────────────────────────────────────────────────
+
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: anthropic-ai
+User-agent: Google-Extended
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: CCBot
+User-agent: meta-externalagent
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /*?*
+
 # Sitemap (lean — ~370 high-quality URLs only)
 Sitemap: https://mindpeakinstitute.com/sitemap.xml
 

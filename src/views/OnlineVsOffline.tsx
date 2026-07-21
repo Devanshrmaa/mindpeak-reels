@@ -337,6 +337,7 @@ const OnlineVsOffline = () => {
               { label: 'JEE Coaching', to: '/jee-coaching' },
               { label: 'NEET Coaching', to: '/neet-coaching' },
               { label: 'Kota Alternative', to: '/kota-coaching-alternative' },
+              { label: 'What Reddit Says About JEE Coaching', to: '/best-jee-coaching-reddit' },
               { label: 'MindPeak vs Allen', to: '/mindpeak-vs-allen' },
               { label: 'Pricing', to: '/pricing' },
               { label: 'Free Trial', to: '/free-trial' },

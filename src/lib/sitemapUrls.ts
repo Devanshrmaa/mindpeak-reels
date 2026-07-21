@@ -38,8 +38,8 @@ import { getPYQChapterEnrichment } from '@/data/neet-pyq/chapterEnrichments';
 
 export const BASE = 'https://mindpeakinstitute.com';
 
-/** Last real content release. 2026-07-18: NEET PYQ hub tranche promoted to sitemap. */
-export const CONTENT_ANCHOR = '2026-07-18';
+/** Last real content release. 2026-07-21: Reddit coaching guides (JEE + NEET) shipped. */
+export const CONTENT_ANCHOR = '2026-07-21';
 
 /**
  * Deterministic, STABLE lastmod: CONTENT_ANCHOR minus a slug-hashed 0–27 day
@@ -93,6 +93,7 @@ export function getStaticPaths(): string[] {
     '/jee-practice', '/jee-pyq', '/neet-practice', '/neet-pyq',
     '/kota-coaching-alternative', '/online-vs-offline-jee-coaching',
     '/best-jee-coaching-in-india',
+    '/best-jee-coaching-reddit', '/best-neet-coaching-reddit',
     '/online-tuition-himachal-pradesh',
     '/jee-rank-predictor', '/neet-rank-predictor',
     '/jee-physics-formulas', '/jee-chemistry-formulas', '/jee-maths-formulas',
