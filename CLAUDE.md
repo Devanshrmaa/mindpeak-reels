@@ -237,9 +237,18 @@ react-refresh/only-export-components: warn
 | Variable | Purpose | Default |
 |---|---|---|
 | `NODE_ENV` | `development` / `production` | Set by Node/Next.js |
-| `REVALIDATION_SECRET` | ISR cache purge auth | `mindpeak-revalidate-2026` |
+| `REVALIDATION_SECRET` | ISR cache purge + IndexNow API auth | `mindpeak-revalidate-2026` |
+| `BING_SITE_VERIFICATION` | Bing Webmaster Tools ownership (`msvalidate.01` meta) — renders the tag only when set | _(unset — tag omitted)_ |
 
 No `.env` file in the repo. Secrets are managed via Vercel environment settings for production.
+
+### Bing / IndexNow
+
+Bing indexing has its own pipeline (Bing indexes normally — no Google-style suppression):
+- **Verification:** set `BING_SITE_VERIFICATION` (or import from GSC in Bing Webmaster Tools).
+- **Sitemap:** submit `https://mindpeakinstitute.com/bing-sitemap.xml` **only** in Bing Webmaster Tools — never add it to `robots.txt`/`sitemap.xml` (it exposes ~14k Bing-exclusive thin pages kept out of Google; see `src/lib/bingIndexing.ts` + `proxy.ts`).
+- **IndexNow** (instant recrawl): key hosted at `public/c1a9e4f2b7d84f3a9c5e6d8b2f4a7c31.txt`; shared logic in `src/lib/indexNow.ts`. `/api/revalidate` auto-pings the revalidated path; `POST /api/indexnow?secret=…` submits URLs on demand; `scripts/indexnow-ping.mjs` bulk-pings the sitemap. The key must stay identical across all three — see the `INDEXNOW_KEY` comment.
+- See `docs/bing-webmaster.md` for the operator checklist.
 
 ---
 

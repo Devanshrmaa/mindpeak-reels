@@ -16,6 +16,8 @@
  */
 
 const HOST = 'mindpeakinstitute.com';
+// Plain-node script can't import the TS lib — KEY must match src/lib/indexNow.ts
+// (INDEXNOW_KEY) and the hosted public/<KEY>.txt file. See docs/bing-webmaster.md.
 const KEY = 'c1a9e4f2b7d84f3a9c5e6d8b2f4a7c31';
 const ENDPOINT = 'https://api.indexnow.org/indexnow';
 const BATCH_LIMIT = 10000;
