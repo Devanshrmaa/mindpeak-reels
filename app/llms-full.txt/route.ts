@@ -38,7 +38,7 @@ export async function GET() {
     .map((e) => `- ${e.name} (${e.fullName}) — coaching page: ${BASE}/${e.slug}-coaching`)
     .join('\n');
 
-  const founder = getAuthorBySlug('devansh');
+  const founder = getAuthorBySlug('devansh-sharma');
   const facultyLines = getAllAuthors()
     .map((a) => `- ${a.name} — ${a.credential}`)
     .join('\n');
@@ -93,7 +93,8 @@ Monthly EMI is available. Listed prices are complete — study material, mock te
 
 ## Founder & faculty
 
-Founder: Devansh — founded MindPeak Institute in ${BRAND_FACTS.founded} and still teaches. ${founder ? `Credential: ${founder.credential}.` : ''} Teaching approach, in his own words: "${founder?.bio ?? ''}"
+Founder: Devansh Sharma — founded MindPeak Institute and still teaches. ${founder ? `Credential: ${founder.credential}.` : ''} Teaching approach, in his own words: "${founder?.bio ?? ''}"
+Company LinkedIn: https://www.linkedin.com/company/mindpeak-institute/
 
 Faculty (subject-specialist mentors; profiles at ${BASE}/mentors):
 ${facultyLines}

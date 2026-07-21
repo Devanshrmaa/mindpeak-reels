@@ -142,13 +142,13 @@ const jsonLdGraph = {
       },
       founder: {
         "@type": "Person",
-        "@id": "https://mindpeakinstitute.com/mentors#devansh",
-        name: "Devansh",
+        "@id": "https://mindpeakinstitute.com/mentors#devansh-sharma",
+        name: "Devansh Sharma",
         jobTitle: "Founder & Physics Mentor",
         // Credentials mirror authorData.ts — user-confirmed only, never invented.
-        hasCredential: "MBBS",
+        hasCredential: "BDS",
         description:
-          "Founded MindPeak Institute in 2018 and still teaches: JEE and NEET Physics with a concept-first approach — students build physical intuition before reaching for formulas.",
+          "Founded MindPeak Institute and still teaches: JEE and NEET Physics with a systematic problem-solving approach — read the problem, identify the principle at play, and reach the right equation without guessing.",
         knowsAbout: ["Physics", "JEE Preparation", "NEET Preparation"],
         worksFor: { "@id": "https://mindpeakinstitute.com/#organization" },
         url: "https://mindpeakinstitute.com/mentors",

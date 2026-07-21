@@ -22,7 +22,7 @@ export const BRAND_FACTS = {
   phone: '+91 82194 57704',
   email: 'mindpeak@mindpeakinstitute.com',
   hours: 'Monday–Saturday, 9:00 AM – 8:00 PM IST',
-  founder: 'Devansh — Founder & Physics Mentor',
+  founder: 'Devansh Sharma — Founder & Physics Mentor (BDS)',
 } as const;
 
 export const brandFaqs: FAQItem[] = [
@@ -99,7 +99,7 @@ export const brandFaqs: FAQItem[] = [
   {
     question: 'Who founded MindPeak Institute?',
     answer:
-      'MindPeak Institute was founded in 2018 by Devansh, who still teaches rather than only running the business: he is an MBBS graduate and serves as JEE & NEET Physics faculty. His teaching style is concept-first — students build physical intuition before reaching for formulas, with 1-on-1 work focused on turning "I understand the theory" into "I can solve a problem I have never seen before." His profile, along with the rest of the faculty, is at mindpeakinstitute.com/mentors.',
+      'MindPeak Institute was founded by Devansh Sharma, who still teaches rather than only running the business: he holds a BDS and serves as JEE & NEET Physics faculty. His teaching style makes Physics problem-solving systematic — students learn to read a problem, identify the principle at play, and reach the right equation without guessing, with every session built around solving problems together rather than lecturing. His profile, along with the rest of the faculty, is at mindpeakinstitute.com/mentors.',
   },
   {
     question: 'Who teaches at MindPeak Institute?',
