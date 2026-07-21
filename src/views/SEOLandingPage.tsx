@@ -108,11 +108,9 @@ const SEOLandingPage = () => {
       description: page.description,
       telephone: '+91-82194-57704',
       address: { '@type': 'PostalAddress', streetAddress: 'Nehran Pukhar Road', addressLocality: 'Dehra Gopipur', addressRegion: 'Himachal Pradesh', postalCode: '176110', addressCountry: 'IN' },
-      // Individual Review objects instead of risky aggregateRating
-      review: [
-        { '@type': 'Review', author: { '@type': 'Person', name: 'Aarav Sharma' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'MindPeak\'s 1-on-1 coaching helped me achieve AIR 42 in JEE Advanced.' },
-        { '@type': 'Review', author: { '@type': 'Person', name: 'Priya Patel' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'The personalized approach improved my score by 165 marks in 4 months.' },
-      ],
+      // No `review`/`aggregateRating`: fabricated testimonials in structured
+      // data are a Google penalty risk and get quoted verbatim by LLMs. Add
+      // real, consented reviews here only when we have them.
     });
   } else if (page.schemaType === 'Course') {
     jsonLd.push({
@@ -223,7 +221,7 @@ const SEOLandingPage = () => {
             Ready to <span className="text-gradient-gold">Get Started</span>?
           </h2>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join 500+ students across India who transformed their preparation with personalized 1-on-1 coaching. Book your free demo today.
+            Study 1-on-1 with a dedicated mentor from anywhere in India. Book a free trial class, meet your mentor, and decide for yourself.
           </p>
           <button
             onClick={openDemoModal}
