@@ -78,6 +78,17 @@ export const metadata: Metadata = {
    */
   metadataBase: new URL("https://mindpeakinstitute.com"),
   manifest: "/manifest.json",
+  /*
+   * Bing Webmaster Tools ownership verification. Renders
+   * <meta name="msvalidate.01" content="…"> only when BING_SITE_VERIFICATION
+   * is set (paste the code from Bing Webmaster Tools → Add site → "HTML Meta
+   * Tag" into the Vercel env). Kept out of the source so the code isn't
+   * committed, and absent entirely until configured. (Alternatively, Bing can
+   * verify by importing from Google Search Console — then this isn't needed.)
+   */
+  ...(process.env.BING_SITE_VERIFICATION
+    ? { verification: { other: { "msvalidate.01": process.env.BING_SITE_VERIFICATION } } }
+    : {}),
   openGraph: {
     type: "website",
     url: "https://mindpeakinstitute.com/",
