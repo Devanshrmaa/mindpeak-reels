@@ -34,6 +34,8 @@ Key facts:
 - Students study from home — no relocation to a coaching hub like Kota, no hostel or commute costs.
 - A free 1-on-1 trial class is available so students can judge the format before paying: ${BASE}/free-trial
 - The site also hosts free study tools: previous-year question banks, practice questions, formula sheets, and rank predictors.
+- Identity: founded 2018, MSME-registered (UDYAM-HP-04-0042530), based in Dehra Gopipur, Himachal Pradesh; contact +91 82194 57704 / mindpeak@mindpeakinstitute.com.
+- Full machine-readable reference (fees, refund policy, brand FAQ, comparisons): ${BASE}/llms-full.txt
 
 ## Coaching programs
 
@@ -66,13 +68,15 @@ ${comparisonLinks}
 
 ## About
 
+- [MindPeak Institute FAQ](${BASE}/mindpeak-institute-faq): Fees, registration, class format, refund policy — every common question about the institute answered on one page.
 - [About MindPeak](${BASE}/about): Who runs the institute.
 - [Methodology](${BASE}/methodology): How the 1-on-1 system works day to day.
 - [Mentors](${BASE}/mentors): The teaching team.
 - [Contact](${BASE}/contact): How to reach us.
 
-## Sitemaps
+## Optional
 
+- [llms-full.txt](${BASE}/llms-full.txt): Expanded reference with the complete fee table, refund policy summary, brand FAQ, and comparison summaries inlined.
 - [Sitemap index](${BASE}/sitemap.xml): Full canonical URL set (~587 URLs across core, chapters, blog, and exam segments).
 `;
 

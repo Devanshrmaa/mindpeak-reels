@@ -94,6 +94,7 @@ export function getStaticPaths(): string[] {
     '/kota-coaching-alternative', '/online-vs-offline-jee-coaching',
     '/best-jee-coaching-in-india',
     '/best-jee-coaching-reddit', '/best-neet-coaching-reddit',
+    '/mindpeak-institute-faq',
     '/online-tuition-himachal-pradesh',
     '/jee-rank-predictor', '/neet-rank-predictor',
     '/jee-physics-formulas', '/jee-chemistry-formulas', '/jee-maths-formulas',

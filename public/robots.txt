@@ -35,8 +35,9 @@ Disallow: /*?*
 # bots from any future tightening of the `*` group. Same technical
 # disallows as the generic group.
 #
-# Machine-readable site guide for LLMs:
-#   https://mindpeakinstitute.com/llms.txt
+# Machine-readable site guides for LLMs:
+#   https://mindpeakinstitute.com/llms.txt       (curated link index)
+#   https://mindpeakinstitute.com/llms-full.txt  (full fact reference)
 # ─────────────────────────────────────────────────────────────
 
 User-agent: GPTBot
