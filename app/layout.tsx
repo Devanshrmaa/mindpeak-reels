@@ -145,7 +145,12 @@ const jsonLdGraph = {
         "@id": "https://mindpeakinstitute.com/mentors#devansh",
         name: "Devansh",
         jobTitle: "Founder & Physics Mentor",
+        // Credentials mirror authorData.ts — user-confirmed only, never invented.
+        hasCredential: "MBBS",
+        description:
+          "Founded MindPeak Institute in 2018 and still teaches: JEE and NEET Physics with a concept-first approach — students build physical intuition before reaching for formulas.",
         knowsAbout: ["Physics", "JEE Preparation", "NEET Preparation"],
+        worksFor: { "@id": "https://mindpeakinstitute.com/#organization" },
         url: "https://mindpeakinstitute.com/mentors",
       },
       // Factual description — LLMs and rich results quote this verbatim, so

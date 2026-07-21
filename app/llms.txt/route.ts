@@ -44,6 +44,7 @@ Key facts:
 - [JEE Dropper Program](${BASE}/jee-dropper-coaching): One-year repeat-attempt program built around a student's specific gap list.
 - [NEET Dropper Program](${BASE}/neet-dropper-coaching): One-year NEET repeat-attempt program.
 - [Foundation Courses](${BASE}/foundation-coaching): Classes 6-10 groundwork for future JEE/NEET aspirants.
+- [1-on-1 Exam Mentorship Hub](${BASE}/one-to-one-exam-mentorship): Every exam MindPeak mentors for — JEE, NEET, BITSAT, CUET, state CETs, ISI — with syllabus-overlap notes and links to each program.
 - [Courses & Pricing](${BASE}/pricing): Current programs and fees.
 
 ## Honest comparisons & buying guides

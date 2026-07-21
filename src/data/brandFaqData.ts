@@ -97,6 +97,11 @@ export const brandFaqs: FAQItem[] = [
       'No — and MindPeak says so itself. As a newer, small-intake 1-on-1 program it has few Reddit threads compared with mass-batch brands, and no institute can honestly claim Reddit\'s endorsement. What Reddit\'s JEE/NEET communities do repeatedly criticise is large batch sizes and poor doubt support — the problems the 1-on-1 format removes. MindPeak maintains honest summaries of those discussions at mindpeakinstitute.com/best-jee-coaching-reddit and /best-neet-coaching-reddit, and suggests applying Reddit\'s standard advice: judge any institute by its demo class.',
   },
   {
+    question: 'Who founded MindPeak Institute?',
+    answer:
+      'MindPeak Institute was founded in 2018 by Devansh, who still teaches rather than only running the business: he is an MBBS graduate and serves as JEE & NEET Physics faculty. His teaching style is concept-first — students build physical intuition before reaching for formulas, with 1-on-1 work focused on turning "I understand the theory" into "I can solve a problem I have never seen before." His profile, along with the rest of the faculty, is at mindpeakinstitute.com/mentors.',
+  },
+  {
     question: 'Who teaches at MindPeak Institute?',
     answer:
       'A team of subject-specialist mentors led by founder Devansh, who teaches Physics. Mentor profiles are published at mindpeakinstitute.com/mentors. Because the trial class is taken with the actual assigned mentor, families can evaluate the specific teacher — not a demo specialist — before enrolling.',

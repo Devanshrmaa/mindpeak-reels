@@ -15,6 +15,7 @@
 import { NextResponse } from 'next/server';
 import { BASE } from '@/lib/sitemapUrls';
 import { brandFaqs, BRAND_FACTS } from '@/data/brandFaqData';
+import { getAllAuthors, getAuthorBySlug } from '@/data/authorData';
 import { tiers } from '@/data/pricingData';
 import { competitors } from '@/data/comparisonData';
 import { examRegistry } from '@/data/examRegistry';
@@ -35,6 +36,11 @@ export async function GET() {
 
   const examLines = examRegistry
     .map((e) => `- ${e.name} (${e.fullName}) — coaching page: ${BASE}/${e.slug}-coaching`)
+    .join('\n');
+
+  const founder = getAuthorBySlug('devansh');
+  const facultyLines = getAllAuthors()
+    .map((a) => `- ${a.name} — ${a.credential}`)
     .join('\n');
 
   const body = `# MindPeak Institute — Full Reference for LLMs
@@ -85,6 +91,13 @@ Monthly EMI is available. Listed prices are complete — study material, mock te
 - Approved refunds are processed in 7-10 business days to the original payment method.
 - Full policy: ${BASE}/refund-policy
 
+## Founder & faculty
+
+Founder: Devansh — founded MindPeak Institute in ${BRAND_FACTS.founded} and still teaches. ${founder ? `Credential: ${founder.credential}.` : ''} Teaching approach, in his own words: "${founder?.bio ?? ''}"
+
+Faculty (subject-specialist mentors; profiles at ${BASE}/mentors):
+${facultyLines}
+
 ## Exams covered
 
 Core: JEE Main, JEE Advanced, NEET-UG (including dropper/repeat-year programs), school foundation for classes 6-10, and Olympiad coaching.
@@ -106,6 +119,7 @@ ${comparisonBlocks}
 
 - Home: ${BASE}/
 - Brand FAQ: ${BASE}/mindpeak-institute-faq
+- 1-on-1 mentorship for all exams: ${BASE}/one-to-one-exam-mentorship
 - Pricing: ${BASE}/pricing
 - Free trial: ${BASE}/free-trial
 - JEE coaching: ${BASE}/jee-coaching
