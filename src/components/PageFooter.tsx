@@ -90,6 +90,8 @@ const STATIC_SECTIONS: FooterSectionData[] = [
     title: 'Quick Links',
     links: [
       { label: 'About MindPeak Institute', to: '/about' },
+      { label: 'MindPeak Institute FAQ', to: '/mindpeak-institute-faq' },
+      { label: '1-on-1 Exam Mentorship', to: '/one-to-one-exam-mentorship' },
       { label: 'Courses', to: '/courses' },
       { label: 'Free Trial', to: '/free-trial' },
       { label: 'Pricing', to: '/pricing' },

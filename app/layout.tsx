@@ -153,14 +153,39 @@ const jsonLdGraph = {
       },
       founder: {
         "@type": "Person",
-        "@id": "https://mindpeakinstitute.com/mentors#devansh",
-        name: "Devansh",
+        "@id": "https://mindpeakinstitute.com/mentors#devansh-sharma",
+        name: "Devansh Sharma",
         jobTitle: "Founder & Physics Mentor",
+        // Credentials mirror authorData.ts — user-confirmed only, never invented.
+        hasCredential: "BDS",
+        description:
+          "Founded MindPeak Institute and still teaches: JEE and NEET Physics with a systematic problem-solving approach — read the problem, identify the principle at play, and reach the right equation without guessing.",
         knowsAbout: ["Physics", "JEE Preparation", "NEET Preparation"],
+        worksFor: { "@id": "https://mindpeakinstitute.com/#organization" },
         url: "https://mindpeakinstitute.com/mentors",
       },
+      // Factual description — LLMs and rich results quote this verbatim, so
+      // no superlatives or results claims (see 2026-07 claims cleanup).
       description:
-        "India's #1 personalized 1-on-1 JEE and NEET online coaching. Himachal Pradesh's own coaching institute with a 95%+ success rate.",
+        "Indian online coaching institute for JEE Main, JEE Advanced, and NEET-UG. Live 1-on-1 classes with a dedicated mentor per student, adaptive curriculum, recorded sessions, and weekly parent reports. Founded 2018 in Himachal Pradesh; teaches students across India online.",
+      knowsAbout: [
+        "JEE Main preparation",
+        "JEE Advanced preparation",
+        "NEET-UG preparation",
+        "Physics",
+        "Chemistry",
+        "Mathematics",
+        "Biology",
+        "1-on-1 online tutoring",
+      ],
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "admissions",
+        telephone: "+91-82194-57704",
+        email: "mindpeak@mindpeakinstitute.com",
+        availableLanguage: ["en", "hi"],
+        areaServed: "IN",
+      },
       telephone: "+91-82194-57704",
       email: "mindpeak@mindpeakinstitute.com",
       foundingDate: "2018",
