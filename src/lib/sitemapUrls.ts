@@ -95,6 +95,7 @@ export function getStaticPaths(): string[] {
     '/best-jee-coaching-in-india',
     '/best-jee-coaching-reddit', '/best-neet-coaching-reddit',
     '/mindpeak-institute-faq', '/one-to-one-exam-mentorship',
+    '/how-to-choose-a-1-on-1-mentor',
     '/online-tuition-himachal-pradesh',
     '/jee-rank-predictor', '/neet-rank-predictor',
     '/jee-physics-formulas', '/jee-chemistry-formulas', '/jee-maths-formulas',

@@ -15,7 +15,7 @@ const BASE = 'https://mindpeakinstitute.com';
 
 /** Slugs for the six featured faculty members. */
 const FEATURED_SLUGS = [
-  'devansh',
+  'devansh-sharma',
   'sahil-singh',
   'krishnendu-brahmachari',
   'aparna-chandra',

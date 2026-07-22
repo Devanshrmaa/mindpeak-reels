@@ -11,10 +11,10 @@ const aboutSchema = {
   '@graph': [
     {
       '@type': 'Person',
-      '@id': `${BASE}/mentors#devansh`,
-      name: 'Devansh',
+      '@id': `${BASE}/mentors#devansh-sharma`,
+      name: 'Devansh Sharma',
       jobTitle: 'Founder & Physics Mentor',
-      description: 'I teach JEE and NEET Physics with a concept-first approach — students build physical intuition before reaching for formulas.',
+      description: 'Founder of MindPeak Institute and JEE & NEET Physics faculty. Teaches Physics problem-solving systematically — read the problem, identify the principle at play, and reach the right equation without guessing.',
       worksFor: {
         '@type': 'EducationalOrganization',
         '@id': `${BASE}/#organization`,
@@ -22,7 +22,7 @@ const aboutSchema = {
         url: BASE,
       },
       knowsAbout: ['Physics', 'JEE Preparation', 'NEET Preparation'],
-      hasCredential: ['MBBS'],
+      hasCredential: ['BDS'],
       url: `${BASE}/mentors`,
     },
     {
