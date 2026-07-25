@@ -4,6 +4,7 @@
  */
 
 import { CHAPTER_SLUGS, TOPIC_PATHS } from '@/data/chapterData';
+import { pickTitle } from '@/lib/titleFit';
 import { FORMULA_SLUGS } from '@/data/formulaSheetData';
 import { parseSubjectCitySlug, buildSubjectCityPage } from '@/data/subjectCityData';
 
@@ -285,8 +286,15 @@ function _resolve(slugSegments: string[]): Metadata {
     /* ─── Chapter Pages ─── */
     case 'chapter': {
       const ch = chapters.find(c => c.slug === slug);
+      // Richest-first candidates; long chapter names degrade gracefully
+      // instead of being truncated mid-word by Google (see titleFit.ts).
       const title = ch
-        ? `${ch.chapter} for ${ch.exam} ${YEAR} — Notes, Formulas & ${ch.pyqCount}+ PYQs [Free]`
+        ? pickTitle([
+            `${ch.chapter} for ${ch.exam} ${YEAR} — Notes & ${ch.pyqCount}+ PYQs`,
+            `${ch.chapter} — ${ch.exam} ${YEAR} Notes & PYQs`,
+            `${ch.chapter} — ${ch.exam} PYQs & Notes`,
+            `${ch.chapter} — ${ch.exam} ${YEAR}`,
+          ])
         : slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
       const desc = ch
         ? `Master ${ch.chapter} (${ch.exam} ${ch.subject}). Topic-wise notes, ${ch.keyFormulas.length}+ formulas, PYQs from last 10 years & 100+ free MCQs. Start now.`
@@ -318,9 +326,17 @@ function _resolve(slugSegments: string[]): Metadata {
     /* ─── Formula Sheets ─── */
     case 'formula': {
       const exam = examFromSlug(slug);
-      const subj = slug.replace(/^(jee|neet)-/, '').replace(/-formula-sheet$/, '').replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+      // Strip BOTH `-formula-sheet` and `-formulas` suffixes: the live slugs
+      // are `jee-chemistry-formulas`, so only stripping the former produced
+      // "JEE Chemistry Formulas Formula Sheet …" in the title.
+      const subj = slug.replace(/^(jee|neet)-/, '').replace(/-formula-sheet$/, '').replace(/-formulas$/, '').replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
       return {
-        title: `${exam} ${subj} Formula Sheet ${YEAR} — All Formulas PDF [Free Download]`,
+        title: pickTitle([
+          `${exam} ${subj} Formula Sheet ${YEAR} — Free PDF Download`,
+          `${exam} ${subj} Formula Sheet ${YEAR} — Free PDF`,
+          `${exam} ${subj} Formulas ${YEAR} — Free PDF`,
+          `${exam} ${subj} Formula Sheet PDF`,
+        ]),
         description: `Download ${exam} ${subj} formula sheet ${YEAR}. All important formulas in one PDF — quick revision for exam day. 100% free.`.slice(0, 160),
         alternates: { canonical },
         openGraph: { ...og, url: canonical },
@@ -385,7 +401,11 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
       const subj = bank?.subject ?? cap(hubInfo.subjectSlug);
       if (hubInfo.type === 'class') {
         return {
-          title: `NEET ${subj} Class ${hubInfo.classLevel} PYQ ${YEAR} — Chapter-wise Previous Year Questions [Free]`,
+          title: pickTitle([
+            `NEET ${subj} Class ${hubInfo.classLevel} PYQs ${YEAR} — Chapter-wise`,
+            `NEET ${subj} Class ${hubInfo.classLevel} PYQs — Chapter-wise`,
+            `NEET ${subj} Class ${hubInfo.classLevel} PYQs`,
+          ]),
           description: `All NEET ${subj} Class ${hubInfo.classLevel} PYQs (last 10 years). Unit-wise & chapter-wise with solutions. Solve free.`.slice(0, 160),
           alternates: { canonical },
           openGraph: { ...og, url: canonical },
@@ -395,7 +415,12 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
         const unit = getUnitBySlug(hubInfo.subjectSlug, hubInfo.unitSlug!);
         const unitName = unit?.unitName ?? hubInfo.unitSlug;
         return {
-          title: `NEET ${subj} PYQ: ${unitName} ${YEAR} — All Chapters [Free Solutions]`,
+          title: pickTitle([
+            `${unitName} NEET PYQs ${YEAR} — All Chapters, Solved`,
+            `${unitName} — NEET ${subj} PYQs, All Chapters`,
+            `${unitName} — NEET ${subj} PYQs`,
+            `${unitName} — NEET PYQs`,
+          ]),
           description: `Solve NEET ${subj} PYQs from ${unitName}. Chapter-wise questions with NCERT-based solutions. 100% free.`.slice(0, 160),
           alternates: { canonical },
           openGraph: { ...og, url: canonical },
@@ -405,7 +430,14 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
         const ch = bank?.chapters.find(c => c.slug === hubInfo.chapterSlug);
         const chName = ch?.name ?? hubInfo.chapterSlug ?? '';
         return {
-          title: `NEET ${subj} PYQ: ${chName} ${YEAR} — ${ch?.questions.length ?? '20'}+ Questions [Free]`,
+          // Lead with the chapter name: GSC shows these hubs ranking for
+          // "<chapter> pyq neet" phrasings (e.g. haloalkanes, cell division).
+          title: pickTitle([
+            `${chName} NEET PYQs — ${ch?.questions.length ?? '20'}+ Solved Questions`,
+            `${chName} NEET PYQs — ${ch?.questions.length ?? '20'}+ Questions`,
+            `${chName} — NEET ${subj} PYQs`,
+            `${chName} — NEET PYQs`,
+          ]),
           description: `Solve ${ch?.questions.length ?? '20'}+ NEET ${subj} PYQs on ${chName}. Year-wise questions with detailed NCERT solutions. Start now.`.slice(0, 160),
           alternates: { canonical },
           openGraph: { ...og, url: canonical },
