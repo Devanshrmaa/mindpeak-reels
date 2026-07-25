@@ -38,7 +38,7 @@ import { getPYQChapterEnrichment } from '@/data/neet-pyq/chapterEnrichments';
 
 export const BASE = 'https://mindpeakinstitute.com';
 
-/** Last real content release. 2026-07-21: Reddit coaching guides (JEE + NEET) shipped. */
+/** Last real content release. 2026-07-21: Reddit coaching guides (JEE + NEET) + olympiad NSEP/NSEC/IMO FAQs. */
 export const CONTENT_ANCHOR = '2026-07-21';
 
 /**

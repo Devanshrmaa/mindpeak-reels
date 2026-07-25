@@ -37,7 +37,7 @@ export interface SEOPageData {
 
 const aboutPage: SEOPageData = {
   slug: 'about',
-  title: 'About MindPeak Institute — Our Founder, Faculty & 1-on-1 Story | MindPeak',
+  title: 'About MindPeak — Founder, Faculty & Our 1-on-1 Story',
   description: 'MindPeak Institute is an online 1-on-1 JEE & NEET coaching institute founded by Devansh Sharma, based in Himachal Pradesh. Meet the founder, the faculty, and how one-mentor-per-student coaching works.',
   h1: 'About',
   h1Highlight: 'MindPeak Institute',
@@ -1455,7 +1455,7 @@ const neetDropperPage: SEOPageData = {
 
 const foundationPage: SEOPageData = {
   slug: 'foundation-coaching',
-  title: `Foundation Coaching (Class 6-10) — Early IIT/NEET Prep ${CURRENT_EXAM_YEAR} | MindPeak`,
+  title: `Foundation Coaching Class 6-10 — Early JEE/NEET Prep ${CURRENT_EXAM_YEAR}`,
   description: `Start IIT-JEE & NEET preparation early with MindPeak's 1-on-1 foundation coaching for Class 6-10. Olympiad prep, NTSE, analytical thinking & strong Science/Math base. Free demo.`,
   h1: 'Foundation',
   h1Highlight: 'Coaching (Class 6-10)',
@@ -4514,7 +4514,7 @@ const jeeChapterCategoryPages: SEOPageData[] = [
 const otherExamPages: SEOPageData[] = [
   {
     slug: 'bitsat-coaching',
-    title: `BITSAT Coaching Online ${CURRENT_EXAM_YEAR} — Score 300+ for BITS Pilani | MindPeak`,
+    title: `BITSAT Coaching Online ${CURRENT_EXAM_YEAR} — Score 300+ for BITS`,
     description: `Expert BITSAT ${CURRENT_EXAM_YEAR} coaching with 1-on-1 mentoring. Cover PCM + English + Logical Reasoning. Speed drills, bonus question strategy. Score 300+ for BITS Pilani CS.`,
     h1: 'BITSAT Coaching',
     h1Highlight: 'Score 300+ for BITS Pilani',
@@ -5147,7 +5147,7 @@ const otherExamPages: SEOPageData[] = [
   },
   {
     slug: 'isi-entrance-coaching',
-    title: `ISI Entrance Coaching Online ${CURRENT_EXAM_YEAR} — B.Stat & B.Math at Indian Statistical Institute | MindPeak`,
+    title: `ISI Entrance Coaching ${CURRENT_EXAM_YEAR} — B.Stat & B.Math Online`,
     description: `Expert ISI entrance coaching for B.Stat and B.Math. Subjective proof-writing, Olympiad-level combinatorics & number theory. 1-on-1 mentoring by ISI alumni.`,
     h1: 'ISI Entrance Coaching',
     h1Highlight: 'B.Stat & B.Math',
