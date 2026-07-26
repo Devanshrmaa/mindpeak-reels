@@ -38,8 +38,8 @@ import { getPYQChapterEnrichment } from '@/data/neet-pyq/chapterEnrichments';
 
 export const BASE = 'https://mindpeakinstitute.com';
 
-/** Last real content release. 2026-07-21: Reddit coaching guides (JEE + NEET) + olympiad NSEP/NSEC/IMO FAQs. */
-export const CONTENT_ANCHOR = '2026-07-21';
+/** Last real content release. 2026-07-26: NEET UG 2027 CBT transition guide (newsjacking). */
+export const CONTENT_ANCHOR = '2026-07-26';
 
 /**
  * Deterministic, STABLE lastmod: CONTENT_ANCHOR minus a slug-hashed 0–27 day
@@ -72,7 +72,7 @@ export function wrapUrlset(comment: string, entries: string[]): string {
 /* ═══ URL groups ═══ */
 
 /** Breaking / time-sensitive pages — the only core URLs stamped with today. */
-export const BREAKING_PATHS = ['/neet-ug-2026-cancelled'];
+export const BREAKING_PATHS = ['/neet-ug-2026-cancelled', '/neet-cbt-2027-guide'];
 
 export function getStaticPaths(): string[] {
   return [
