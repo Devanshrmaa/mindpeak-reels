@@ -39,6 +39,7 @@ const STATIC_SECTIONS: FooterSectionData[] = [
       { label: 'NEET Chemistry Preparation', to: '/neet-chemistry-preparation' },
       { label: 'NEET Biology Preparation', to: '/neet-biology-preparation' },
       { label: 'NEET Rank Predictor', to: '/neet-rank-predictor' },
+      { label: 'NEET UG 2027 CBT Mode Guide', to: '/neet-cbt-2027-guide' },
     ],
   },
   {
