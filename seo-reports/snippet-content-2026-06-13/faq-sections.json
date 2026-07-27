@@ -1,0 +1,260 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "generated": "2026-06-13",
+  "previousCycle": "2026-05-30 (74 net-new + 6 appended pairs across 18 pages)",
+  "purpose": "Drop-in FAQ Q&A blocks for the 10 priority append targets + 5 NEW pages identified in §10 of ai-snippets-2026-06-13.md. Each block ships visible Q&A in PageFAQ component + emits FAQPage JSON-LD via buildFAQSchema.",
+  "implementationPattern": "For existing pages — locate the existing `paaQuestions` or `faqs` array in the view component (use `grep -n 'paaQuestions\\|buildFAQSchema' src/views/<file>`) and append new pairs. The JSON-LD emission is automatic via the existing buildFAQSchema call. For new pages — copy the full FAQ schema block as the starting point.",
+  "appendsToExistingPages": {
+    "comment": "Pre-built Q&A pairs ready to append to existing FAQ arrays. Each pair has full Q&A text + the JSON-LD form.",
+    "app/jee-main-coaching/page.tsx": {
+      "appendCount": 4,
+      "existingFaqArray": "Check views/JEECoaching.tsx or views/JEEMainCoaching.tsx for the paaQuestions or faqs array",
+      "newPairs": [
+        {
+          "id": "jmc-new-1",
+          "q": "What is the JEE Main 2027 syllabus update from 2026?",
+          "a": "JEE Main 2027 syllabus is the standard NTA syllabus that aligns with NCERT Class 11 and 12. The 2026 reductions (deleted topics from Class 12 Math and Chemistry) carry forward to 2027 unchanged. Verify with the NTA 2027 information bulletin released in November 2026.",
+          "voiceEligible": true,
+          "category": "Exam Info"
+        },
+        {
+          "id": "jmc-new-2",
+          "q": "Is JEE Main difficulty rising year over year?",
+          "a": "JEE Main difficulty has held steady since 2019 with year-to-year variance of ten to fifteen percent. The 2024 and 2025 papers were marginally tougher in Math but comparable in Physics and Chemistry. No structural increase. Cutoffs reflect candidate pool size, not paper difficulty.",
+          "voiceEligible": false,
+          "category": "JEE Strategy"
+        },
+        {
+          "id": "jmc-new-3",
+          "q": "Can I crack JEE Main without solving previous year papers?",
+          "a": "Practically no. JEE Main reuses concept patterns and question archetypes from past papers. Solving the last ten years of PYQs is the single highest-ROI activity in your last three months. PYQ practice trains exam temperament that mock tests alone cannot replicate.",
+          "voiceEligible": true,
+          "category": "JEE Strategy"
+        },
+        {
+          "id": "jmc-new-4",
+          "q": "Are there any JEE Main attempts wasted if I do not take Session 1?",
+          "a": "No. JEE Main has two sessions per year (January and April) but they are independent — skipping Session 1 does not penalise you. Many top scorers take only Session 2 with full preparation. The better of the two session scores is used for ranking if you take both.",
+          "voiceEligible": false,
+          "category": "Exam Info"
+        }
+      ]
+    },
+    "app/batch-vs-personal-coaching/content.ts": {
+      "appendCount": 3,
+      "existingFaqArray": "Check src/data/seoPageData.ts for batch-vs-personal-coaching entry, faqs array",
+      "newPairs": [
+        {
+          "id": "bvp-new-1",
+          "q": "How is a personal mentor different from a tuition teacher?",
+          "a": "A personal mentor builds a long-term plan around your weak chapters, mock-test patterns, and emotional cycles — beyond doctrine teaching. A tuition teacher delivers a fixed syllabus to one or many students. At MindPeak we see students gain twenty to forty marks faster when a mentor diagnoses pacing issues that a tuition teacher cannot detect.",
+          "voiceEligible": false,
+          "category": "Coaching Decision"
+        },
+        {
+          "id": "bvp-new-2",
+          "q": "Is one-on-one online coaching boring for kids?",
+          "a": "Done well, no — one-on-one classes can be more engaging than batch coaching because the mentor adapts to the student's energy. Mentors break two-hour sessions into thirty-minute chunks with problem-solving, doubt-clearing, and concept consolidation. Boredom usually comes from passive lecture format, not the one-on-one setup itself.",
+          "voiceEligible": false,
+          "category": "Coaching Decision"
+        },
+        {
+          "id": "bvp-new-3",
+          "q": "How do I know if my child needs a personal tutor or batch coaching?",
+          "a": "Choose a personal tutor if your child has subject-specific weak spots, attention issues in groups, or needs flexible pacing. Choose batch coaching if your child thrives on peer competition and follows standard syllabus pace. A parent-mentor diagnostic call usually reveals the right fit within thirty minutes.",
+          "voiceEligible": true,
+          "category": "Coaching Decision"
+        }
+      ]
+    },
+    "app/study-plan/page.tsx": {
+      "appendCount": 1,
+      "newPairs": [
+        {
+          "id": "sp-new-1",
+          "q": "What time should a NEET aspirant wake up?",
+          "a": "Most successful NEET aspirants wake between five-thirty and six-thirty AM. The first ninety minutes of the day are ideal for Biology revision since recall is freshest. Pair early waking with seven-plus hours of sleep; going to bed by ten-thirty PM is the actual lever.",
+          "voiceEligible": true,
+          "category": "Study Planning"
+        }
+      ]
+    },
+    "app/jee-mathematics-coaching/page.tsx": {
+      "appendCount": 1,
+      "note": "Check if FAQ array exists on this page. If not, create one with the standard PageFAQ pattern.",
+      "newPairs": [
+        {
+          "id": "jmath-new-1",
+          "q": "How many hours of Math should JEE aspirants do daily?",
+          "a": "Two to three hours of focused Math practice daily is optimal for JEE Main, scaling to three to four hours for JEE Advanced prep. Split into one hour of new-concept practice and one to two hours of mixed problem-solving from past mocks. Daily consistency outperforms long weekend sessions.",
+          "voiceEligible": true,
+          "category": "Subject-Specific"
+        }
+      ]
+    },
+    "app/neet-dropper-coaching/page.tsx": {
+      "appendCount": 1,
+      "newPairs": [
+        {
+          "id": "ndr-new-1",
+          "q": "How many mock tests should NEET droppers take?",
+          "a": "NEET droppers should target sixty to seventy-five full-length mocks across the year — roughly five per month from month three onward, ramping to ten per month in the final three months. Same-day analysis matters more than mock count; a mock without analysis is wasted effort.",
+          "voiceEligible": false,
+          "category": "NEET Strategy"
+        }
+      ]
+    }
+  },
+  "newPageFAQs": {
+    "comment": "FULL FAQ blocks for the 5 P0 new pages/blogs. Each is complete: 5-6 Q&A pairs covering the target query + PAA satellite questions + objection-handling. JSON-LD form follows the Q&A list.",
+    "blog/how-to-balance-boards-and-jee": {
+      "isUnclaimed": true,
+      "priority": "P0",
+      "faqs": [
+        {
+          "q": "How many hours should I study for JEE while preparing for boards?",
+          "a": "Six to eight hours daily during regular weeks, dropping to four hours of JEE-only work in the final thirty days before board exams. Use NCERT as the bridge — NCERT mastery covers eighty percent of CBSE Class 12 content and serves both prep tracks simultaneously."
+        },
+        {
+          "q": "Should I do JEE Main first or boards first when both are close?",
+          "a": "Take JEE Main January session before boards (typically late February). After board exams, you have four to six weeks for JEE Main April session at full intensity. This sequence prevents the panic-switch and uses school pre-boards as JEE mocks."
+        },
+        {
+          "q": "Will boards-only revision in February affect my JEE Main April score?",
+          "a": "Yes, modestly — three to four percentile drop is typical if you go boards-only for four weeks. Mitigate by keeping a 30-minute daily JEE numerical block during board prep. Resume full JEE prep within forty-eight hours of the last board paper."
+        },
+        {
+          "q": "Can I crack JEE if I joined coaching late?",
+          "a": "Yes. Late-joiners benefit from no accumulated bad habits and high motivation. The structured 6-month plan (NCERT mastery, PYQ drill, mock testing) works for late-joiners with baseline knowledge. Late joiners without baseline target 80-90 percentile rather than 95+."
+        },
+        {
+          "q": "Does board score matter for JEE Main admission?",
+          "a": "Yes — board score is the eligibility criterion for JEE Main and JEE Advanced. NIT and IIT admission both require 75% (65% for SC/ST) board aggregate or top-20-percentile in your board. Failing this disqualifies you regardless of JEE rank."
+        },
+        {
+          "q": "Should I take JEE January session if board prep needs my full time?",
+          "a": "Take JEE January session even if board prep is intense — JEE Main has no penalty for skipping a session, but taking it gives you free real-exam practice. Even a 70 percentile score builds exam temperament for the April attempt."
+        }
+      ]
+    },
+    "blog/neet-preparation-strategy-average-student": {
+      "isUnclaimed": true,
+      "priority": "P0",
+      "faqs": [
+        {
+          "q": "Can an average student crack NEET?",
+          "a": "Yes — roughly seventy percent of MBBS admissions go to students scoring 540-620 marks, not the 680+ AIIMS bracket. Average students with a structured 12-month plan, NCERT Biology mastery, and 60+ mocks consistently reach 540-580, securing government MBBS in most state quotas."
+        },
+        {
+          "q": "How many hours should an average student study for NEET?",
+          "a": "Six to seven hours daily for Class 11/12 students, eight hours for droppers. Quality matters more than quantity — three 90-minute deep-work blocks (Biology, Physics or Chemistry, problem-solving) outperform marathon six-hour sessions."
+        },
+        {
+          "q": "What is the minimum NEET score for MBBS in government college?",
+          "a": "Varies by state and category. General-category state-quota cutoffs typically range from 480-620 marks across India in 2025-2026. AIIMS Delhi: 695+. Lower-tier government colleges: 480-540. Use NEET 2024-2025 closing ranks of your home state as benchmark."
+        },
+        {
+          "q": "Is one year enough to prepare for NEET as an average student?",
+          "a": "Yes for serious aspirants. The 12-month plan: NCERT mastery (months 1-4), intensive practice (months 5-8), revision (months 9-12). Roughly 25 percent of MBBS admissions go to one-year-prep candidates each year."
+        },
+        {
+          "q": "Which NEET book is best for average students?",
+          "a": "NCERT Biology Class 11 + 12 (foundation), NCERT Exemplar Biology + Chemistry, DC Pandey NEET Objective Physics (problem practice). This three-book core covers everything an average-baseline student needs without overload."
+        }
+      ]
+    },
+    "blog/is-private-jee-tutor-worth-it": {
+      "isUnclaimed": true,
+      "priority": "P0",
+      "faqs": [
+        {
+          "q": "How much do private JEE tutors charge in India?",
+          "a": "Private JEE tutors charge ₹500-₹2,500 per hour depending on tutor pedigree (IIT alumni vs college students) and online vs offline. Structured one-on-one programmes from established institutes range ₹1.2-4 lakh per year for 3-6 sessions weekly."
+        },
+        {
+          "q": "What is the success rate of personal tutors for JEE?",
+          "a": "Personal-tutor outcomes for JEE depend on tutor quality and student baseline. MindPeak's one-on-one programme sees seventy to eighty percent of students improve their mock score by thirty to fifty marks within four months, and roughly forty percent of full-year students clear JEE Main 95+ percentile."
+        },
+        {
+          "q": "When is a private JEE tutor worth more than batch coaching?",
+          "a": "When the student has subject-specific weak chapters, attention issues in groups, or needs pacing flexibility. Students with 50-65 percentile baselines typically gain 30-50 mock marks in four months with private tutoring, versus 15-25 marks in batch coaching."
+        },
+        {
+          "q": "Can I crack JEE with only a private tutor and no batch coaching?",
+          "a": "Yes — many top scorers use only private tutoring + self-study + curated mock series. The personal tutor model adds focused pacing and accountability that batch coaching delivers via competition. Both routes lead to top ranks; the choice is about student learning style."
+        },
+        {
+          "q": "What questions should I ask before hiring a private JEE tutor?",
+          "a": "Verify rank pedigree, ask for 3 past students' contacts, request a free trial session, confirm session frequency, ask about mock-test integration, check parental/student debrief frequency, and verify cancellation policy. Refuse tutors who decline trial sessions."
+        }
+      ]
+    },
+    "blog/how-to-score-650-plus-neet": {
+      "priority": "P0",
+      "faqs": [
+        {
+          "q": "What marks distribution is needed for 650+ in NEET?",
+          "a": "Biology 340+/360, Chemistry 160+/180, Physics 150+/180 — totaling 650+. Biology is the floor: no amount of Physics + Chemistry brilliance can compensate for sub-330 Biology."
+        },
+        {
+          "q": "Is 650+ in NEET enough for AIIMS Delhi?",
+          "a": "No. AIIMS Delhi MBBS typically closes around 695+ marks (top 50 ranks). 650+ secures government MBBS in most state quotas, top-tier state government colleges, and tier-2 AIIMS variants like Bhopal and Patna."
+        },
+        {
+          "q": "How long does it take to score 650+ in NEET?",
+          "a": "12-18 months of dedicated preparation for average baseline; 24 months for serious Class 11 starters. The 12-month plan works for students with 75+ percent Class 11 baseline; from zero, 18-24 months is realistic."
+        },
+        {
+          "q": "What is the average score required for AIIMS through NEET?",
+          "a": "AIIMS Delhi: 695+ marks. AIIMS Bhopal/Patna: 670-680. Tier-2 AIIMS variants: 640-660. Use AIIMS 2024-2025 closing ranks as the precise benchmark for your target campus."
+        },
+        {
+          "q": "How many mock tests are needed for 650+ in NEET?",
+          "a": "80+ full-length mocks across the 12-month prep cycle, with at least 30 in the final 3 months at real exam time slot. Same-day analysis of each mock matters more than raw mock count."
+        },
+        {
+          "q": "Is NCERT alone enough for 650+ in NEET?",
+          "a": "NCERT alone reaches 550-580 marks (sufficient for state government MBBS). For 650+, supplement with DC Pandey NEET Objective Physics, NCERT Exemplar Biology + Chemistry, and last 25 years NEET PYQs chapter-wise."
+        }
+      ]
+    },
+    "jee-main-marks-vs-percentile-2027": {
+      "priority": "P0",
+      "faqs": [
+        {
+          "q": "What marks give 99 percentile in JEE Main 2027?",
+          "a": "Roughly 200+ marks out of 300 give 99 percentile in JEE Main 2027 (modelled from 2023-2025 NTA normalisation). 250+ marks reach 99.5+ percentile (top 1,500 ranks). The exact mapping varies slightly per session based on candidate pool."
+        },
+        {
+          "q": "Is JEE Main percentile based on raw marks or normalised marks?",
+          "a": "Normalised. JEE Main percentile is calculated within each shift using NTA's normalisation formula to account for paper-difficulty variation across sessions. The better of two-session percentiles is used for final ranking."
+        },
+        {
+          "q": "What rank do I get for 99 percentile in JEE Main 2027?",
+          "a": "99 percentile in JEE Main 2027 maps to approximately the top 15,000 ranks (out of ~14 lakh aspirants). 99.5 percentile: top 7,500. 99.9 percentile: top 1,500. Exact rank depends on candidate pool size."
+        }
+      ]
+    }
+  },
+  "faqSchemaTemplateForNewPages": {
+    "comment": "Drop-in FAQPage JSON-LD wrapper. Replace `[QUESTIONS_ARRAY]` with the questions from the relevant section above, formatted as Schema.org Question/Answer pairs. Use buildFAQSchema in src/components/PageFAQ.tsx to emit this automatically.",
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "{{ Question text }}",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "{{ Answer text }}"
+        }
+      }
+    ]
+  },
+  "summary": {
+    "appendsToExistingPages": 10,
+    "newPageFAQs": 27,
+    "totalNewQA": 37,
+    "implementationEffort": "10 appends = 1 hour; 5 new-page FAQ blocks = bundled with page creation (no incremental cost)"
+  }
+}

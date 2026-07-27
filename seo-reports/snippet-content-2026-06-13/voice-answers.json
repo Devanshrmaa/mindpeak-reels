@@ -1,0 +1,217 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "generated": "2026-06-13",
+  "previousCycle": "2026-05-30 (14 voice answers)",
+  "totalVoiceAnswers": 20,
+  "newThisCycle": 6,
+  "purpose": "30-40 word voice-optimized answers for Google Assistant, Nest, Alexa, and AI Overview voice surfaces. Each answer should be rendered visibly on the target page AS THE FIRST PARAGRAPH UNDER ITS H2 with class=\"voice-answer\", and emitted via SpeakableSpecification JSON-LD so voice assistants know which sentence to read aloud.",
+  "implementationStatus": "May 16 audit shipped 8 of these as body copy. May 30 audit identified that SpeakableSpecification JSON-LD was missing. June 13 cycle finds: schema partially wired (4 view templates) but cssSelector currently selects 'h1, p.text-lg' on SEOLandingPage.tsx — does NOT match .voice-answer or .bluf classes. Action: extend selector + add to 6 priority pages.",
+  "speakableSchemaUpdate": {
+    "comment": "REPLACE the current speakable block in src/views/SEOLandingPage.tsx:142-145 with this. Then add the same block to src/views/JEECoaching.tsx, NEETCoaching.tsx, StudyPlan.tsx, Pricing.tsx, OnlineVsOffline.tsx, and RankPredictor.tsx JsonLd arrays.",
+    "schema": {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", ".bluf", ".voice-answer", "p.text-lg"]
+      }
+    },
+    "cssClassConvention": "Voice-eligible paragraphs should be wrapped in <p class=\"voice-answer\">…</p>. BLUF opening paragraphs (also voice-eligible) use class=\"bluf voice-answer\" — both selectors match. The .text-lg fallback catches existing lead paragraphs that haven't been class-tagged yet."
+  },
+  "voiceAnswers": [
+    {
+      "id": "v-01",
+      "query": "How many hours should I study for JEE?",
+      "voiceAnswer": "For JEE Main, study six to eight hours daily alongside school. For JEE Advanced or dropper year, increase to eight to ten hours. Focus on quality problem-solving rather than just hours spent reading theory.",
+      "wordCount": 33,
+      "targetPage": "app/study-plan/page.tsx",
+      "status": "Body copy shipped 2026-05-16; speakable schema STILL pending (priority-page wiring missing)",
+      "carriedOver": true
+    },
+    {
+      "id": "v-02",
+      "query": "How many hours should I study for NEET?",
+      "voiceAnswer": "For NEET Class 11 and 12, study six to eight hours daily. Droppers should target eight to ten hours, with a daily 90-minute Biology block. Biology mastery is the single biggest NEET score driver.",
+      "wordCount": 35,
+      "targetPage": "app/study-plan/page.tsx",
+      "status": "Pending — body copy + speakable schema",
+      "carriedOver": true
+    },
+    {
+      "id": "v-03",
+      "query": "Is NCERT enough for JEE Main?",
+      "voiceAnswer": "NCERT alone is sufficient for eighty to eighty-five percentile in JEE Main if mastered completely, especially Chemistry. For ninety-five plus percentile, supplement NCERT with HC Verma for Physics and standard problem books for Math.",
+      "wordCount": 36,
+      "targetPage": "app/jee-main-coaching/page.tsx",
+      "status": "Body copy shipped 2026-05-16; speakable schema pending",
+      "carriedOver": true
+    },
+    {
+      "id": "v-04",
+      "query": "Is NCERT enough for NEET?",
+      "voiceAnswer": "For NEET Biology, NCERT is essentially the entire syllabus — eighty to ninety percent of NEET Biology questions come from NCERT. For Chemistry and Physics, NCERT is the base; reference books bridge to 650+.",
+      "wordCount": 35,
+      "targetPage": "app/neet-coaching/page.tsx",
+      "status": "Pending",
+      "carriedOver": true
+    },
+    {
+      "id": "v-05",
+      "query": "Can I crack JEE in 6 months?",
+      "voiceAnswer": "Cracking JEE Main in six months is realistic if you have a seventy-five percentile baseline and can study ten hours daily. From zero baseline, six months is structurally tight — the realistic ceiling is eighty to ninety percentile.",
+      "wordCount": 39,
+      "targetPage": "app/jee-crash-course/page.tsx",
+      "status": "Pending",
+      "carriedOver": true
+    },
+    {
+      "id": "v-06",
+      "query": "Can I crack NEET in one year?",
+      "voiceAnswer": "Yes — cracking NEET in one year is achievable for serious aspirants starting from scratch with eight hours daily study. The standard twelve-month plan covers foundation, practice, and revision phases. About twenty-five percent of MBBS admissions go to one-year-prep candidates.",
+      "wordCount": 40,
+      "targetPage": "app/neet-coaching/page.tsx",
+      "status": "Pending",
+      "carriedOver": true
+    },
+    {
+      "id": "v-07",
+      "query": "Is online coaching effective for JEE?",
+      "voiceAnswer": "Yes — online JEE coaching is highly effective when it provides personalised mentorship. Since 2022, top-100 JEE Advanced ranks include online-coaching-only students every year. The deciding factor is self-discipline, not delivery format.",
+      "wordCount": 33,
+      "targetPage": "app/online-vs-offline-jee-coaching/page.tsx",
+      "status": "Body copy shipped 2026-05-16; speakable schema pending",
+      "carriedOver": true
+    },
+    {
+      "id": "v-08",
+      "query": "Is one-on-one coaching better than batch?",
+      "voiceAnswer": "One-on-one coaching wins when a student has subject-specific weak spots or pacing issues. Batch coaching works when peer competition motivates the student. At MindPeak we have seen one-on-one students gain thirty to fifty marks faster on doubt-heavy chapters.",
+      "wordCount": 40,
+      "targetPage": "app/batch-vs-personal-coaching/page.tsx",
+      "status": "Body copy shipped 2026-05-16; speakable schema partial (SEOLandingPage selector doesn't match .voice-answer yet)",
+      "carriedOver": true
+    },
+    {
+      "id": "v-09",
+      "query": "What is JEE Main exam pattern 2027?",
+      "voiceAnswer": "JEE Main 2027 is a three-hour computer-based test with seventy-five questions across Physics, Chemistry, and Mathematics — twenty-five each. Maximum three hundred marks. MCQs carry plus four for correct and minus one for incorrect; numericals have no negative marking.",
+      "wordCount": 40,
+      "targetPage": "examInfoData.ts slug jee-main-exam-pattern-2027",
+      "status": "Templated content live, needs visible 'Updated' label + NTA citation block",
+      "carriedOver": true
+    },
+    {
+      "id": "v-10",
+      "query": "When is NEET 2027 exam date?",
+      "voiceAnswer": "NEET 2027 is expected in May 2027, following the standard NTA cycle of NEET being conducted on the first Sunday of May. The exact 2027 date is confirmed via the NMC and NTA information bulletin released in December 2026.",
+      "wordCount": 40,
+      "targetPage": "app/neet-coaching/page.tsx",
+      "status": "Pending",
+      "carriedOver": true
+    },
+    {
+      "id": "v-11",
+      "query": "How many JEE Main attempts are allowed?",
+      "voiceAnswer": "JEE Main has no lifetime attempt limit since 2022. You can attempt JEE Main any number of years, with two sessions per year — January and April. The better of the two-session percentile counts for ranking.",
+      "wordCount": 36,
+      "targetPage": "app/jee-main-coaching/page.tsx",
+      "status": "Pending",
+      "carriedOver": true
+    },
+    {
+      "id": "v-12",
+      "query": "Is BITSAT easier than JEE Main?",
+      "voiceAnswer": "BITSAT is harder than JEE Main on speed — it has one hundred thirty questions in three hours and adds English and Logical Reasoning sections. JEE preparation covers most BITSAT science content, but the speed requirement needs separate practice.",
+      "wordCount": 39,
+      "targetPage": "app/bitsat-coaching/page.tsx — likely SEOLandingPage slug",
+      "status": "Pending",
+      "carriedOver": true
+    },
+    {
+      "id": "v-13",
+      "query": "What is the minimum NEET score for government MBBS?",
+      "voiceAnswer": "Minimum NEET score for government MBBS varies by state — typically six hundred plus for general category state quota in most states. AIIMS Delhi closes around six eighty plus. Lower-tier government colleges admit around five forty.",
+      "wordCount": 37,
+      "targetPage": "NEW /blog/how-to-score-650-plus-neet",
+      "status": "Pending — new blog needed",
+      "carriedOver": true
+    },
+    {
+      "id": "v-14",
+      "query": "Can I switch from NEET to JEE in Class 12?",
+      "voiceAnswer": "Switching NEET to JEE in Class 12 is structurally hard because JEE Math is a full year of new content. The switch is feasible only with strong Class 11 Math foundation. Most successful switches happen by August of Class 12.",
+      "wordCount": 40,
+      "targetPage": "NEW /neet-vs-jee-comparison",
+      "status": "Pending — diff-between content live but slug mismatch; alias slug needed",
+      "carriedOver": true
+    },
+    {
+      "id": "v-15",
+      "query": "What is the JEE Main 2027 syllabus update from 2026?",
+      "voiceAnswer": "JEE Main 2027 syllabus matches NCERT Class 11 and 12 with the 2026 deletions carrying forward. The full information bulletin from NTA releases in November 2026 and confirms any changes.",
+      "wordCount": 30,
+      "targetPage": "app/jee-main-coaching/page.tsx",
+      "status": "NEW this cycle — pending",
+      "carriedOver": false
+    },
+    {
+      "id": "v-16",
+      "query": "How many hours of Math should JEE aspirants do daily?",
+      "voiceAnswer": "Spend two to three hours daily on JEE Math, scaling to four hours for JEE Advanced. Split between new concepts and mixed problem-solving from past mocks. Daily consistency beats long weekend sessions.",
+      "wordCount": 32,
+      "targetPage": "app/jee-mathematics-coaching/page.tsx",
+      "status": "NEW this cycle — pending",
+      "carriedOver": false
+    },
+    {
+      "id": "v-17",
+      "query": "Can I crack JEE Main without solving previous year papers?",
+      "voiceAnswer": "Practically no — JEE Main reuses concept patterns from past papers. Solving the last ten years of previous year questions is the highest-impact activity in your final three months of preparation.",
+      "wordCount": 31,
+      "targetPage": "app/jee-main-coaching/page.tsx",
+      "status": "NEW this cycle — pending",
+      "carriedOver": false
+    },
+    {
+      "id": "v-18",
+      "query": "What is the average score required for AIIMS through NEET?",
+      "voiceAnswer": "AIIMS Delhi MBBS through NEET typically requires six hundred ninety-five plus marks out of seven twenty — roughly the top fifty ranks. Tier-2 AIIMS variants admit at six forty to six sixty.",
+      "wordCount": 32,
+      "targetPage": "NEW /blog/how-to-score-650-plus-neet",
+      "status": "NEW this cycle — include in blog post",
+      "carriedOver": false
+    },
+    {
+      "id": "v-19",
+      "query": "What time should a NEET aspirant wake up?",
+      "voiceAnswer": "Wake between five-thirty and six-thirty AM. The first ninety minutes after waking are ideal for Biology revision. Going to bed by ten-thirty PM is the actual lever — sleep quality drives morning performance.",
+      "wordCount": 33,
+      "targetPage": "app/study-plan/page.tsx",
+      "status": "NEW this cycle — pending",
+      "carriedOver": false
+    },
+    {
+      "id": "v-20",
+      "query": "How do I know if my child needs a personal tutor or batch coaching?",
+      "voiceAnswer": "Choose a personal tutor if your child has weak spots, attention issues in groups, or needs flexible pacing. Choose batch coaching if peer competition motivates them. A diagnostic call clarifies the fit.",
+      "wordCount": 32,
+      "targetPage": "app/batch-vs-personal-coaching/page.tsx",
+      "status": "NEW this cycle — parent-target voice answer",
+      "carriedOver": false
+    }
+  ],
+  "rolloutPriority": {
+    "immediate_2026_06_15": [
+      "EXTEND src/views/SEOLandingPage.tsx:142-145 speakable selector to include .voice-answer and .bluf classes",
+      "ADD identical speakable JsonLd block to JEECoaching.tsx, NEETCoaching.tsx, StudyPlan.tsx, Pricing.tsx, OnlineVsOffline.tsx, RankPredictor.tsx",
+      "WRAP existing body-copy voice answers in <p class=\"voice-answer\"> on the 8 already-shipped pages: study-plan (v-01), jee-main-coaching (v-03), online-vs-offline-jee-coaching (v-07), batch-vs-personal-coaching (v-08)"
+    ],
+    "thisWeek_2026_06_20": [
+      "ADD 4 new body-copy voice answers to existing pages: v-02, v-04, v-06, v-10 (NEET coaching pages + study-plan)",
+      "ADD 6 new voice answers from this cycle: v-15, v-16, v-17, v-19, v-20 to existing pages; v-18 to new blog"
+    ],
+    "nextWeek_2026_06_27": [
+      "ADD voice answers to NEW pages as part of page creation: v-09 (templated page exists, just verify), v-13 (blog), v-14 (alias slug needed)"
+    ]
+  }
+}
