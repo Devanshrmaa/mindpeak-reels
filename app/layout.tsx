@@ -45,11 +45,11 @@ const plexMono = IBM_Plex_Mono({
 /* ── Metadata (migrated from index.html) ── */
 export const metadata: Metadata = {
   title: {
-    default: `MindPeak Institute — #1 Personalized JEE & NEET Coaching ${CURRENT_EXAM_YEAR} | 95% Success`,
+    default: `MindPeak Institute — Personalized 1-on-1 JEE & NEET Coaching ${CURRENT_EXAM_YEAR}`,
     template: "%s",
   },
   description:
-    "Transform your JEE/NEET prep with personalized 1-on-1 coaching. Achieve AIR <5K with adaptive curriculum, dedicated mentors. Trusted by 500+ students.",
+    "Personalized 1-on-1 JEE/NEET coaching with a dedicated mentor. Daily live classes, an adaptive plan rebuilt from your own performance data, weekly parent reports.",
   keywords: [
     "jee coaching",
     "neet coaching",
@@ -92,9 +92,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://mindpeakinstitute.com/",
-    title: "MindPeak Institute — #1 Personalized JEE & NEET Coaching",
+    title: "MindPeak Institute — Personalized 1-on-1 JEE & NEET Coaching",
     description:
-      "Achieve AIR <5K with personalized 1-on-1 coaching, adaptive curriculum, and dedicated mentors. 95% success rate. Trusted by 500+ students.",
+      "Personalized 1-on-1 JEE & NEET coaching with a dedicated IIT/NIT/AIIMS mentor — daily live classes, an adaptive plan built from your own performance data, and weekly parent reports.",
     images: [
       {
         url: "https://mindpeakinstitute.com/hero-bg.jpg",
@@ -108,9 +108,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@mindpeakins",
-    title: "MindPeak Institute — #1 Personalized JEE & NEET Coaching",
+    title: "MindPeak Institute — Personalized 1-on-1 JEE & NEET Coaching",
     description:
-      "Achieve AIR <5K with personalized 1-on-1 coaching. 95% success rate. Trusted by 500+ students across India.",
+      "Personalized 1-on-1 JEE & NEET coaching — a dedicated mentor, daily live classes, and a study plan rebuilt every week from your own data.",
     images: ["https://mindpeakinstitute.com/hero-bg.jpg"],
   },
   other: {
@@ -283,7 +283,6 @@ export default function RootLayout({
               '.dark{color-scheme:dark;--background:225 43% 7%;--foreground:40 36% 92%;--primary:43 80% 58%;--muted-foreground:222 18% 68%}',
               'body{background:hsl(var(--background));color:hsl(var(--foreground));margin:0;font-family:var(--font-body);-webkit-font-smoothing:antialiased}',
               'h1,h2,h3{font-family:var(--font-display);letter-spacing:-0.02em}',
-              '#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background-image:url(/images/hero-bg.jpg);background-size:cover;background-position:center top}',
               '.relative{position:relative}.absolute{position:absolute}.inset-0{inset:0}',
               '.z-10{z-index:10}.z-\\[3\\]{z-index:3}',
               '.flex{display:flex}.items-center{align-items:center}.justify-center{justify-content:center}',
@@ -306,17 +305,18 @@ export default function RootLayout({
           }}
         />
         {/*
-          Hero background preload — the hero now uses CSS background-image (not
-          next/image), so we preload the raw JPEG here.  This is the only consumer
-          of this URL so there is no duplicate-download risk.
+          The /images/hero-bg.jpg preload (fetchpriority="high") and its
+          companion `#hero` critical-CSS rule were removed on 2026-07-31.
+          Their only consumer was <HeroSection>, which stopped rendering when
+          the homepage was rebuilt as <AscentHome> — that hero paints a canvas
+          contour, not this JPEG. The preload was still in the ROOT layout, so
+          every page site-wide fetched 120 KB at high priority and never used
+          it, competing with the real LCP image. Chrome flagged it as
+          "preloaded but not used". Re-add only next to a live consumer.
+
+          Note: public/hero-bg.jpg (root path) is a separate file and is still
+          the default Open Graph image — unaffected by this removal.
         */}
-        <link
-          rel="preload"
-          as="image"
-          href="/images/hero-bg.jpg"
-          // @ts-expect-error fetchpriority is valid HTML but not yet in TS types
-          fetchpriority="high"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}

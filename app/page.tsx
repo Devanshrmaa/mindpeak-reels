@@ -8,7 +8,7 @@ export const revalidate = false;
 
 export const metadata: Metadata = {
   title: `Personalized JEE & NEET Coaching Online — 1-on-1 | MindPeak`,
-  description: `Crack JEE/NEET ${CURRENT_EXAM_YEAR} with one-to-one coaching from personal IIT/NIT mentors. Adaptive study plan, 95% success rate, 500+ students. Book a free demo.`,
+  description: `Crack JEE/NEET ${CURRENT_EXAM_YEAR} with one-to-one coaching from personal IIT/NIT mentors. Daily live classes, adaptive study plan, weekly parent reports. Book a free demo.`,
   alternates: {
     canonical: "https://mindpeakinstitute.com/",
     languages: {
@@ -41,9 +41,13 @@ export default function HomePage() {
         itemScope
         itemType="https://schema.org/EducationalOrganization"
       >
-        <h1 itemProp="name">
+        {/*
+          h2, not h1: the visible hero heading in <AscentHome /> is the page's
+          single <h1>. This shell previously emitted a second one.
+        */}
+        <h2 itemProp="name">
           MindPeak Institute — Best JEE &amp; NEET Coaching {CURRENT_EXAM_YEAR}
-        </h1>
+        </h2>
         <p itemProp="description">
           MindPeak Institute is India&apos;s leading personalized 1-on-1 JEE and NEET coaching platform.
           Unlike traditional batch coaching centres with 100+ students per class, MindPeak pairs every
