@@ -65,6 +65,9 @@ export default async function Image() {
         <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
           <div
             style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "18px",
               fontSize: "60px",
               fontWeight: 900,
               lineHeight: 1.1,
@@ -72,13 +75,13 @@ export default async function Image() {
               color: "hsl(210, 40%, 98%)",
             }}
           >
-            NEET UG 2027 Goes{" "}
+            <span>NEET UG 2027 Goes</span>
             <span
               style={{
-                background:
+                backgroundImage:
                   "linear-gradient(135deg, hsl(43,80%,65%), hsl(43,72%,52%), hsl(43,65%,42%))",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                color: "transparent",
               }}
             >
               Fully CBT
