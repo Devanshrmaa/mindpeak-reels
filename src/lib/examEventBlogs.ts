@@ -39,6 +39,7 @@ import {
 } from '@/data/answerKeyEntries';
 import { CURRENT_EXAM_YEAR } from '@/lib/examYears';
 import { Target, BookOpen, BarChart3, Award, TrendingUp, Shield } from 'lucide-react';
+import { CONTENT_ANCHOR } from '@/lib/sitemapUrls';
 
 const year = CURRENT_EXAM_YEAR;
 
@@ -152,7 +153,7 @@ ${topicRows}`;
     category: event.category === 'engineering' ? 'JEE' as const : 'NEET' as const,
     tags: [event.name, 'Answer Key', `${year}`, 'Solutions', 'All Subjects', 'Question-Wise'],
     author: solvedBy,
-    publishDate: new Date().toISOString().split('T')[0],
+    publishDate: CONTENT_ANCHOR,
     readTime: `${Math.max(15, Math.round(totalQ / 10))} min read`,
     icon: Target,
     content: `# ${event.name} ${year} Answer Key — All ${totalQ} Questions Solved
@@ -283,7 +284,7 @@ Based on analysis of the last 5 years of ${event.name} papers and student feedba
     category: event.category === 'engineering' ? 'JEE' as const : 'NEET' as const,
     tags: [event.name, 'Answer Key', `${year}`, 'Official', event.conductedBy, 'Response Sheet'],
     author: 'MindPeak Academic Team',
-    publishDate: new Date().toISOString().split('T')[0],
+    publishDate: CONTENT_ANCHOR,
     readTime: '15 min read',
     icon: Target,
     content: `# ${event.name} ${year} Answer Key — Complete Guide
@@ -422,7 +423,7 @@ function generateCutoffPredictionPost(event: ExamEvent): BlogPost {
     category: event.category === 'engineering' ? 'JEE' as const : 'NEET' as const,
     tags: [event.name, 'Cutoff', `${year}`, 'Prediction', 'Category-Wise', 'College Predictor'],
     author: 'MindPeak Academic Team',
-    publishDate: new Date().toISOString().split('T')[0],
+    publishDate: CONTENT_ANCHOR,
     readTime: '12 min read',
     icon: BarChart3,
     content: `# ${event.name} ${year} Expected Cutoff — Complete Analysis
@@ -564,7 +565,7 @@ function generateResultGuidePost(event: ExamEvent): BlogPost {
     category: event.category === 'engineering' ? 'JEE' as const : 'NEET' as const,
     tags: [event.name, 'Result', `${year}`, 'Scorecard', 'Counselling', 'How to Check'],
     author: 'MindPeak Academic Team',
-    publishDate: new Date().toISOString().split('T')[0],
+    publishDate: CONTENT_ANCHOR,
     readTime: '10 min read',
     icon: Award,
     content: `# ${event.name} ${year} Result — Complete Guide

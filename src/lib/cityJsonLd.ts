@@ -4,10 +4,13 @@
  * Emits up to 6 schemas per page:
  *   1. BreadcrumbList         — breadcrumb rich snippet in SERP
  *   2. FAQPage                — FAQ rich-snippet dropdowns (extra SERP real estate)
- *   3. EducationalOrganization + LocalBusiness (+ AggregateRating) — local relevance
- *   4. Course (+ Offer + AggregateRating)                          — course rich result
- *   5. WebPage (+ speakable + datePublished/dateModified)          — freshness signal
- *   6. ItemList of Review                                          — review snippets
+ *   3. EducationalOrganization + LocalBusiness — local relevance
+ *   4. Course (+ Offer)                        — course rich result
+ *   5. WebPage (+ speakable, stable dates)     — content-anchored, not rolling
+ *
+ * NO AggregateRating and NO Review schemas: MindPeak has collected no
+ * verifiable reviews, and both were previously fabricated here (see the
+ * removal notes below).
  *
  * Only 20 hand-curated T1 cities are indexable; any other slug returns null.
  */
@@ -15,6 +18,7 @@
 import { cities } from '@/data/cityData';
 import { cityUniqueContent } from '@/data/cityUniqueContent';
 import { buildBreadcrumbJsonLd } from '@/lib/breadcrumbSchema';
+import { CONTENT_ANCHOR } from '@/lib/sitemapUrls';
 
 const BASE = 'https://mindpeakinstitute.com';
 const LOGO = `${BASE}/og-image.png`;
@@ -33,22 +37,18 @@ const INDEXABLE_CITY_SLUGS = new Set([
   'jee-coaching-in-mumbai', 'neet-coaching-in-mumbai',
 ]);
 
-/**
- * Deterministic per-slug rating so every city page emits a stable AggregateRating
- * that survives re-renders and hydration. Range: 4.7 – 4.9.
- * (Derived from testimonials + hand-curated city content; no fake reviews.)
+/*
+ * REMOVED 2026-08-04 — stableRating().
+ *
+ * It hashed the page slug into a ratingValue (4.7–4.9) and a reviewCount
+ * (180–320) and emitted them as AggregateRating on both the organisation and
+ * the course schema of all 20 indexable city pages. The numbers were invented
+ * outright: no reviews were ever collected, so "191 reviews, 4.9 stars" on
+ * /jee-coaching-in-delhi described nothing. Google treats fabricated review
+ * markup as a structured-data violation and acts on it directly.
+ *
+ * Re-add AggregateRating only from a real, auditable review source.
  */
-function stableRating(slug: string): { value: string; reviewCount: number } {
-  let hash = 0;
-  for (let i = 0; i < slug.length; i++) {
-    hash = ((hash << 5) - hash + slug.charCodeAt(i)) | 0;
-  }
-  const bucket = Math.abs(hash) % 3; // 0,1,2 → 4.7, 4.8, 4.9
-  const value = (4.7 + bucket * 0.1).toFixed(1);
-  // Between 180–320 reviews — large enough to be credible, small enough to be defensible
-  const reviewCount = 180 + (Math.abs(hash) % 141);
-  return { value, reviewCount };
-}
 
 /**
  * Returns an array of JSON-LD strings for an indexable city coaching page,
@@ -67,7 +67,6 @@ export function buildCityJsonLd(pageSlug: string): string[] | null {
 
   const unique = cityUniqueContent[citySlug];
   const pageUrl = `${BASE}/${pageSlug}`;
-  const rating = stableRating(pageSlug);
 
   /* ── 1. BreadcrumbList ───────────────────────────────────────────────── */
   const breadcrumb = buildBreadcrumbJsonLd([
@@ -91,7 +90,7 @@ export function buildCityJsonLd(pageSlug: string): string[] | null {
     })),
   };
 
-  /* ── 3. EducationalOrganization + LocalBusiness (+ AggregateRating) ──── */
+  /* ── 3. EducationalOrganization + LocalBusiness ──────────────────────── */
   const areaServed = [
     { '@type': 'City', name: cityData.city },
     ...(cityData.localAreas ?? []).slice(0, 8).map((area) => ({
@@ -132,13 +131,6 @@ export function buildCityJsonLd(pageSlug: string): string[] | null {
       opens: '07:00',
       closes: '22:00',
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: rating.value,
-      reviewCount: rating.reviewCount,
-      bestRating: '5',
-      worstRating: '1',
-    },
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: `${examLabel} Coaching Programs in ${cityData.city}`,
@@ -162,7 +154,7 @@ export function buildCityJsonLd(pageSlug: string): string[] | null {
     sameAs: [BASE],
   };
 
-  /* ── 4. Course (+ Offer + AggregateRating) ───────────────────────────── */
+  /* ── 4. Course (+ Offer) ─────────────────────────────────────────────── */
   const courseSchema = {
     '@context': 'https://schema.org',
     '@type': 'Course',
@@ -184,13 +176,6 @@ export function buildCityJsonLd(pageSlug: string): string[] | null {
       '@type': 'EducationalAudience',
       educationalRole: 'student',
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: rating.value,
-      reviewCount: rating.reviewCount,
-      bestRating: '5',
-      worstRating: '1',
-    },
     hasCourseInstance: [
       {
         '@type': 'CourseInstance',
@@ -206,20 +191,19 @@ export function buildCityJsonLd(pageSlug: string): string[] | null {
       price: '0',
       availability: 'https://schema.org/InStock',
       url: `${BASE}/free-trial`,
-      validFrom: new Date().toISOString().slice(0, 10),
+      validFrom: CONTENT_ANCHOR,
       description: `Free demo class for ${cityData.city} students. Annual and quarterly plans available — discuss with counsellor.`,
     },
   };
 
   /* ── 5. WebPage (+ speakable + datePublished/dateModified) ───────────── */
-  const today = new Date().toISOString().slice(0, 10);
   const webPageSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     '@id': pageUrl,
     url: pageUrl,
     name: `Best ${examLabel} Coaching in ${cityData.city} — MindPeak Institute`,
-    description: `Top-rated 1-on-1 online ${examLabel} coaching in ${cityData.city}. Dedicated IIT/AIIMS alumni mentors, adaptive curriculum, 95% success rate, and free demo class.`,
+    description: `1-on-1 online ${examLabel} coaching for students in ${cityData.city}. A dedicated mentor, an adaptive curriculum rebuilt from your own performance data, and a free demo class.`,
     inLanguage: 'en-IN',
     isPartOf: {
       '@type': 'WebSite',
@@ -230,7 +214,7 @@ export function buildCityJsonLd(pageSlug: string): string[] | null {
     about: { '@id': `${pageUrl}#organization` },
     mainEntity: { '@id': `${pageUrl}#course` },
     datePublished: '2025-06-01',
-    dateModified: today,
+    dateModified: CONTENT_ANCHOR,
     speakable: {
       '@type': 'SpeakableSpecification',
       cssSelector: ['h1', 'h2', '.sr-only p'],
@@ -243,37 +227,20 @@ export function buildCityJsonLd(pageSlug: string): string[] | null {
     },
   };
 
-  /* ── 6. ItemList of Review (from cityTestimonials / testimonials) ────── */
-  const reviewsRaw = [
-    ...(cityData.cityTestimonials ?? [])
-      .filter((t) => !t.isSample)
-      .map((t) => ({ name: t.name, role: t.role || t.result, quote: t.quote })),
-    ...(cityData.testimonials ?? []).map((t) => ({ name: t.name, role: t.rank, quote: t.quote })),
-  ].slice(0, 5);
-
-  const reviewSchemas = reviewsRaw.map((r, idx) => ({
-    '@context': 'https://schema.org',
-    '@type': 'Review',
-    '@id': `${pageUrl}#review-${idx + 1}`,
-    itemReviewed: { '@id': `${pageUrl}#course` },
-    author: { '@type': 'Person', name: r.name },
-    reviewBody: r.quote,
-    reviewRating: {
-      '@type': 'Rating',
-      ratingValue: '5',
-      bestRating: '5',
-      worstRating: '1',
-    },
-    publisher: { '@type': 'Organization', name: 'MindPeak Institute' },
-  }));
-
+  /*
+   * ── 6. Review schemas — REMOVED 2026-08-04 ────────────────────────────
+   * This mapped cityData testimonials into Review objects, each hardcoded to
+   * ratingValue 5. Those testimonials are named, unconsented and unverified
+   * (e.g. "Arjun S.", "Priya K." on /jee-coaching-in-delhi), so the markup
+   * asserted five-star reviews that do not exist. Restore only from real,
+   * attributable, consented reviews.
+   */
   return [
     JSON.stringify(breadcrumb),
     JSON.stringify(faqSchema),
     JSON.stringify(orgSchema),
     JSON.stringify(courseSchema),
     JSON.stringify(webPageSchema),
-    ...reviewSchemas.map((r) => JSON.stringify(r)),
   ];
 }
 

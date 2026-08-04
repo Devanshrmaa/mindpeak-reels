@@ -136,11 +136,13 @@ const NEETCoaching = () => {
     mentions: [
       { '@type': 'Thing', name: 'NCERT', sameAs: 'https://en.wikipedia.org/wiki/National_Council_of_Educational_Research_and_Training' },
     ],
-    review: [
-      { '@type': 'Review', author: { '@type': 'Person', name: 'Ananya Reddy' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'My NEET score jumped from 420 to 680 with MindPeak\'s Biology-first 1-on-1 coaching approach.' },
-      { '@type': 'Review', author: { '@type': 'Person', name: 'Sneha Gupta' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'Coming from a tier-3 city, MindPeak gave me AIIMS-level mentorship. Score improved by 270 marks.' },
-      { '@type': 'Review', author: { '@type': 'Person', name: 'Karthik Nair' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'My Physics score went from 80 to 155 in 6 months with targeted 1-on-1 sessions.' },
-    ],
+    /*
+     * `review` REMOVED 2026-08-04 — three Person reviews, each hardcoded to
+     * ratingValue 5, with invented names and outcome claims. No such reviews
+     * were ever collected; fabricated review markup is a structured-data
+     * violation Google acts on directly. Restore only from real, consented
+     * reviews.
+     */
   };
 
   const breadcrumbSchema = {

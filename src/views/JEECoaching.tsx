@@ -148,11 +148,13 @@ const JEECoaching = () => {
     mentions: [
       { '@type': 'Thing', name: 'Indian Institutes of Technology', sameAs: 'https://en.wikipedia.org/wiki/Indian_Institutes_of_Technology' },
     ],
-    review: [
-      { '@type': 'Review', author: { '@type': 'Person', name: 'Aarav Sharma' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'MindPeak completely transformed my JEE preparation. I achieved AIR 42 with personalized 1-on-1 coaching.' },
-      { '@type': 'Review', author: { '@type': 'Person', name: 'Priya Patel' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'After switching to MindPeak from a 200-student batch, my JEE Advanced score improved by 165 marks.' },
-      { '@type': 'Review', author: { '@type': 'Person', name: 'Rohan Iyer' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'The adaptive curriculum improved my mock scores by 125 marks in just 4 months. Achieved AIR 312.' },
-    ],
+    /*
+     * `review` REMOVED 2026-08-04 — three Person reviews, each hardcoded to
+     * ratingValue 5, with invented names and outcome claims. No such reviews
+     * were ever collected; fabricated review markup is a structured-data
+     * violation Google acts on directly. Restore only from real, consented
+     * reviews.
+     */
   };
 
   const breadcrumbSchema = {

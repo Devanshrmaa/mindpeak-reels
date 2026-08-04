@@ -18,6 +18,7 @@
  */
 
 import { getAuthorForSubject, type Author } from '@/data/authorData';
+import { CONTENT_ANCHOR } from '@/lib/sitemapUrls';
 
 interface ReviewedBySchemaProps {
   /** Canonical page URL path (e.g. "/jee-physics-mechanics") */
@@ -67,7 +68,7 @@ export default function ReviewedBySchema({
   schemaType = 'Article',
 }: ReviewedBySchemaProps) {
   const author = reviewer ?? getAuthorForSubject(exam, subject);
-  const date = reviewDate ?? new Date().toISOString().split('T')[0];
+  const date = reviewDate ?? CONTENT_ANCHOR;
 
   const schema = {
     '@context': 'https://schema.org',
@@ -112,7 +113,7 @@ export function buildReviewedByJsonLd({
   schemaType = 'Article',
 }: Omit<ReviewedBySchemaProps, 'reviewer'> & { reviewer?: Author }) {
   const author = reviewer ?? getAuthorForSubject(exam, subject);
-  const date = reviewDate ?? new Date().toISOString().split('T')[0];
+  const date = reviewDate ?? CONTENT_ANCHOR;
 
   return {
     '@context': 'https://schema.org',
