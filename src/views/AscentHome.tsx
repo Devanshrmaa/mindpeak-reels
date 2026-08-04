@@ -9,9 +9,12 @@
  * method section's route that draws itself to the summit. Everything else is
  * calm: soft glass cards, simple reveals, count-up figures.
  *
- * Every word, stat, rank, testimonial, price, faculty bio and FAQ is the
- * site's real content (from src/components/home-redesign/*,
- * src/data/pricingData.ts and src/data/authorData.ts) — nothing invented.
+ * Prices and faculty bios come from src/data/pricingData.ts and
+ * src/data/authorData.ts. There are deliberately NO results claims here —
+ * no ranks, success rates, student counts, city counts or review scores.
+ * The owner has confirmed none are verifiable yet, and invented proof is
+ * what the March 2026 spam penalty punished. Add outcome numbers only when
+ * they are real, attributable and published.
  * All demo CTAs call the real booking modal via useDemoModal(); all links
  * point at real routes/contacts. Themed off the site's `.dark` class; motion
  * is transform/opacity-only and fully disabled under prefers-reduced-motion.
@@ -31,7 +34,6 @@ import {
   TrendingUp,
   Check,
   X,
-  Star,
   Phone,
   Mail,
   MapPin,
@@ -114,7 +116,7 @@ function Nav({ onCta }: { onCta: () => void }) {
     { label: "JEE", href: "/jee-coaching" },
     { label: "NEET", href: "/neet-coaching" },
     { label: "Foundation", href: "/courses" },
-    { label: "Results", href: "#results" },
+    { label: "Method", href: "#method" },
     { label: "Faculty", href: "#faculty" },
     { label: "Pricing", href: "#pricing" },
     { label: "FAQ", href: "#faq" },
@@ -159,8 +161,8 @@ function Hero({ onCta }: { onCta: () => void }) {
       <div className="asc-wrap asc-hero-grid">
         <div className="asc-hero-copy">
           <div className="asc-hero-chips asc-rise" style={{ "--d": "0s" } as CSSVars}>
-            <span className="asc-chip asc-chip-gold">500+ students mentored</span>
-            <span className="asc-chip">95% success rate</span>
+            <span className="asc-chip asc-chip-gold">One-to-one, never a batch</span>
+            <span className="asc-chip">Live classes 6 days a week</span>
             <span className="asc-chip">IIT · NIT · AIIMS mentors</span>
           </div>
           <h1 className="asc-rise" style={{ "--d": ".08s" } as CSSVars}>
@@ -176,28 +178,21 @@ function Hero({ onCta }: { onCta: () => void }) {
               Meet your mentor — free demo
               <ArrowRight size={17} strokeWidth={2.2} />
             </CtaButton>
-            <CtaButton kind="outline" big href="#results">
-              See the results ledger
+            <CtaButton kind="outline" big href="#method">
+              See how it works
             </CtaButton>
           </div>
-          <div className="asc-hero-rating asc-rise" style={{ "--d": ".3s" } as CSSVars}>
-            <span className="asc-stars" aria-hidden="true">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} size={15} className="asc-star" />
-              ))}
-            </span>
+          {/*
+            The star-rating strip ("4.9/5 from 500+ parent reviews") and the
+            stock-photo student avatars ("120+ cities") were removed on
+            2026-07-31: MindPeak has no collected, verifiable reviews and no
+            audited city count, so both were invented social proof. Restore
+            only from a real, attributable review source.
+          */}
+          <div className="asc-hero-cities asc-rise" style={{ "--d": ".3s" } as CSSVars}>
             <span>
-              <strong>4.9/5</strong> from 500+ parent reviews
-            </span>
-          </div>
-          <div className="asc-hero-cities asc-rise" style={{ "--d": ".36s" } as CSSVars}>
-            <span className="asc-avatars">
-              {["student-1", "student-2", "student-3", "student-4"].map((s) => (
-                <img key={s} src={`/images/${s}.jpg`} alt="MindPeak student" width={38} height={38} />
-              ))}
-            </span>
-            <span>
-              <strong>120+ cities</strong> — students join from every corner of India
+              <strong>Learn from anywhere</strong> — classes run online, so there is no
+              relocation and no shifting to a coaching city.
             </span>
           </div>
         </div>
@@ -248,7 +243,7 @@ function Marquee() {
     "Weekly plans rebuilt from mock data",
     "NCERT-first NEET Biology",
     "Diagnostic-led weak-chapter focus",
-    "120+ cities across India",
+    "Students across India — no relocation",
     "Doubts solved in under 30 min",
     "Live 1-on-1, 6 days a week",
   ];
@@ -291,7 +286,7 @@ function Compare() {
     "Pace set by your weakest chapters first",
     "Doubts answered in under 30 minutes",
     "A plan rebuilt every week from your data",
-    "Learn from home — students in 120+ cities",
+    "Learn from home — join from anywhere in India",
     "A parent report every Sunday: accuracy, speed, topics",
   ];
   return (
@@ -452,17 +447,24 @@ function Stats() {
   const STROKE = 9;
   const SIZE = (R + STROKE) * 2;
   const CIRC = 2 * Math.PI * R;
-  const nums = [
-    { count: 500, suffix: "+", cap: "students mentored across India" },
-    { count: 42, prefix: "AIR ", cap: "best JEE Advanced rank to date" },
-    { count: 120, suffix: "+", cap: "cities reached — no relocation" },
+  /*
+   * Structural facts about how the programme is built — deliberately NOT
+   * outcome claims. The previous figures ("500+ students mentored",
+   * "AIR 42 best JEE Advanced rank to date", "120+ cities", and a 95%
+   * "overall success rate" ring) were unverifiable and were removed on
+   * 2026-07-31. Do not reintroduce results numbers without published proof.
+   */
+  const nums: { count: number; cap: string; prefix?: string; suffix?: string }[] = [
+    { count: 6, cap: "live one-to-one sessions every week" },
+    { count: 4, cap: "subjects covered — Physics, Chemistry, Maths, Biology" },
+    { count: 7, cap: "school years supported — Class 6 to 12, plus droppers" },
   ];
   return (
     <section className="asc-band asc-band-navy" id="stats-band">
       <div className="asc-wrap">
         <div className="asc-sec-head asc-sec-head-center asc-reveal">
-          <Eyebrow center>By the numbers</Eyebrow>
-          <h2>Proof you can count</h2>
+          <Eyebrow center>By design</Eyebrow>
+          <h2>How the programme is built</h2>
         </div>
         <div className="asc-stats">
           <div className="asc-ring-wrap asc-reveal">
@@ -489,11 +491,13 @@ function Stats() {
                   data-circ={CIRC}
                 />
               </svg>
-              <span className="asc-ring-num asc-mono" data-count="95" data-suffix="%" data-ring>
+              <span className="asc-ring-num asc-mono" data-count="100" data-suffix="%" data-ring>
                 0%
               </span>
             </div>
-            <div className="asc-ring-cap">overall success rate across JEE &amp; NEET</div>
+            <div className="asc-ring-cap">
+              of classes are one-to-one — never a shared batch
+            </div>
           </div>
           <div className="asc-stat-grid">
             {nums.map((s, i) => (
@@ -515,46 +519,22 @@ function Stats() {
 }
 
 /* ------------------------------------------------------------------ *
- * LEDGER
+ * LEDGER — REMOVED 2026-07-31
+ *
+ * This section rendered a "results ledger": three named students
+ * (Aarav Sharma / AIR 42, Rohan Gupta / AIR 89, Priya Patel / AIR 156)
+ * with stock photos presented as their portraits, a "500+ students
+ * mentored · 95% success rate" meta line, and "+ 50 more students under
+ * AIR 5,000". None of it was verifiable — the owner has confirmed no
+ * published results exist yet — so it was invented proof on the site's
+ * highest-traffic page, and precisely the pattern the March 2026 spam
+ * penalty punished.
+ *
+ * It is deleted rather than reworded because the section's entire premise
+ * is published outcomes. Rebuild it only from real, attributable,
+ * consented results, and keep the #results anchor retired until then
+ * (the nav and hero CTA now point at #method).
  * ------------------------------------------------------------------ */
-function Ledger() {
-  const rows = [
-    { n: 42, exam: "JEE Advanced", name: "Aarav Sharma", note: "IIT Bombay, Computer Science", img: "/images/aarav-sharma.jpg" },
-    { n: 89, exam: "JEE Mains", name: "Rohan Gupta", note: "99.97 percentile, dropper year", img: "/images/rohan-gupta.jpg" },
-    { n: 156, exam: "NEET UG", name: "Priya Patel", note: "AIIMS Delhi, MBBS", img: "/images/priya-patel.jpg" },
-  ];
-  return (
-    <section className="asc-plain" id="results">
-      <div className="asc-wrap">
-        <div className="asc-ledger-head asc-reveal">
-          <div>
-            <Eyebrow>Proof, not promises</Eyebrow>
-            <h2>The results ledger</h2>
-          </div>
-          <span className="asc-ledger-meta asc-mono">500+ students mentored · 95% success rate</span>
-        </div>
-        {rows.map((r, i) => (
-          <div className="asc-ledger-row asc-reveal" style={{ "--d": `${i * 0.08}s` } as CSSVars} key={i}>
-            <div className="asc-ledger-rank asc-mono">
-              AIR <span data-count={r.n}>0</span>
-            </div>
-            <div className="asc-ledger-exam asc-mono">{r.exam}</div>
-            <div className="asc-ledger-name">
-              {r.name} <span>— {r.note}</span>
-            </div>
-            <img className="asc-ledger-img" src={r.img} alt={r.name} width={58} height={58} loading="lazy" />
-          </div>
-        ))}
-        <div className="asc-ledger-foot asc-reveal">
-          <span>+ 50 more students under AIR 5,000 — full list published yearly</span>
-          <a href="/success-stories" className="asc-arrow-link">
-            Read all success stories <ArrowRight size={15} strokeWidth={2.2} />
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ------------------------------------------------------------------ *
  * WEEKLY REPORT PROOF
@@ -697,11 +677,12 @@ function Voices() {
       <div className="asc-wrap">
         <div className="asc-sec-head asc-sec-head-split asc-reveal">
           <div>
-            <Eyebrow>In their words</Eyebrow>
-            <h2>Voices from MindPeak families</h2>
+            <Eyebrow>How it plays out</Eyebrow>
+            <h2>What one-to-one actually changes</h2>
           </div>
           <span className="asc-sec-aside">
-            Real students, real ranks — the people behind the results ledger.
+            Illustrative scenarios describing the 1-on-1 model — not student
+            testimonials.
           </span>
         </div>
         <div className="asc-voices">
@@ -738,7 +719,7 @@ function Faculty() {
       <div className="asc-wrap">
         <div className="asc-sec-head asc-reveal">
           <Eyebrow>Meet your mentors</Eyebrow>
-          <h2>The faculty behind the results ledger</h2>
+          <h2>The mentors you actually work with</h2>
           <p>
             Real mentors from IIT, NIT and AIIMS — the people your child will actually have live
             1-on-1 classes with, not a rotating pool of substitutes.
@@ -1390,7 +1371,6 @@ export default function AscentHome() {
       <Compare />
       <Method />
       <Stats />
-      <Ledger />
       <ReportProof />
       <Statement />
       <Voices />
@@ -1508,15 +1488,8 @@ const ASC_CSS = `
 .asc-hero h1 em{font-style:italic;color:var(--asc-gold)}
 .asc-lede{margin:26px 0 0;max-width:36ch;font-size:clamp(16px,1.5vw,18px);color:var(--asc-muted);line-height:1.65}
 .asc-hero-cta{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-.asc-hero-rating{display:flex;align-items:center;gap:8px;margin-top:22px;font-size:13.5px;color:var(--asc-muted)}
-.asc-hero-rating strong{color:var(--asc-ink-strong);font-weight:700}
-.asc-stars{display:flex;gap:2px}
-.asc-star{color:var(--asc-gold);fill:var(--asc-gold)}
 .asc-hero-cities{display:flex;align-items:center;gap:14px;margin-top:20px;font-size:13.5px;color:var(--asc-muted)}
 .asc-hero-cities strong{color:var(--asc-ink-strong);font-weight:700}
-.asc-avatars{display:flex}
-.asc-avatars img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid var(--asc-ground);box-shadow:0 4px 12px rgba(26,54,93,0.18)}
-.asc-avatars img+img{margin-left:-11px}
 
 .asc-hero-visual{position:relative}
 .asc-hero-frame{position:absolute;inset:0;border-radius:22px;border:2px solid var(--asc-gold);transform:translate(16px,16px);opacity:0.4;pointer-events:none}
@@ -1620,17 +1593,6 @@ const ASC_CSS = `
 .asc-stat-cap{font-size:13.5px;line-height:1.5;color:rgba(237,230,214,0.72);margin-top:8px}
 
 /* ledger */
-.asc-ledger-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;padding-bottom:24px}
-.asc-ledger-head h2{font-size:clamp(30px,4vw,46px);margin-top:14px}
-.asc-ledger-meta{font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--asc-muted);font-weight:600}
-.asc-ledger-row{display:grid;grid-template-columns:190px 140px 1fr 64px;gap:24px;align-items:center;padding:24px 18px;margin:0 -18px;border-top:1px solid var(--asc-line);border-radius:14px;transition:background-color .3s ease}
-.asc-ledger-row:hover{background:var(--asc-surface)}
-.asc-ledger-rank{font-size:44px;font-weight:600;color:var(--asc-gold);letter-spacing:-0.02em}
-.asc-ledger-exam{font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--asc-muted);font-weight:600}
-.asc-ledger-name{font-size:19px;color:var(--asc-ink-strong);font-weight:500}
-.asc-ledger-name span{color:var(--asc-muted);font-size:16px;font-weight:400}
-.asc-ledger-img{width:58px;height:58px;border-radius:50%;object-fit:cover;border:2px solid var(--asc-gold-soft)}
-.asc-ledger-foot{border-top:1px solid var(--asc-line);padding-top:20px;display:flex;justify-content:space-between;font-size:13.5px;color:var(--asc-muted);gap:24px;flex-wrap:wrap}
 
 .asc-arrow-link{display:inline-flex;align-items:center;gap:7px;font-weight:600;color:var(--asc-ink-strong);transition:gap .25s var(--asc-ease),color .25s ease}
 .asc-arrow-link:hover{gap:12px;color:var(--asc-gold)}
@@ -1817,14 +1779,10 @@ const ASC_CSS = `
   .asc-stat-grid{grid-template-columns:1fr}
   .asc-program{padding:0 0 24px}
   .asc-program+.asc-program{border-left:none;border-top:1px solid var(--asc-line);padding-top:24px}
-  .asc-ledger-row{grid-template-columns:auto 1fr auto;gap:10px 16px}
-  .asc-ledger-exam{grid-column:2;grid-row:2}
   .asc-programs-card{padding:36px 26px}
 }
 @media (max-width:560px){
   .asc-hero-photo{height:360px}
-  .asc-ledger-row{grid-template-columns:1fr;text-align:left}
-  .asc-ledger-img{display:none}
 }
 
 /* reduced motion */
