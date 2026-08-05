@@ -34,7 +34,7 @@ Key facts:
 - Students study from home — no relocation to a coaching hub like Kota, no hostel or commute costs.
 - A free 1-on-1 trial class is available so students can judge the format before paying: ${BASE}/free-trial
 - The site also hosts free study tools: previous-year question banks, practice questions, formula sheets, and rank predictors.
-- Identity: founded 2018, MSME-registered (UDYAM-HP-04-0042530), based in Dehra Gopipur, Himachal Pradesh; contact +91 82194 57704 / mindpeak@mindpeakinstitute.com.
+- Identity: founded 2025, MSME-registered (UDYAM-HP-04-0042530), based in Dehra Gopipur, Himachal Pradesh; contact +91 82194 57704 / mindpeak@mindpeakinstitute.com.
 - Full machine-readable reference (fees, refund policy, brand FAQ, comparisons): ${BASE}/llms-full.txt
 
 ## Coaching programs

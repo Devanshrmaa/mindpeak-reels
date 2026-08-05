@@ -16,7 +16,10 @@ import type { FAQItem } from '@/components/PageFAQ';
 /** Verifiable identity facts — mirrors the Organization JSON-LD in app/layout.tsx. */
 export const BRAND_FACTS = {
   legalName: 'MindPeak Institute',
-  founded: '2018',
+  // Owner-confirmed 2026-08-05. Previously declared 2018 — which is also
+  // Mindpeak GmbH's founding year, and was reinforcing the entity merge that
+  // the AI-citation probe surfaced. Keep this consistent everywhere.
+  founded: '2025',
   udyam: 'UDYAM-HP-04-0042530',
   address: 'Nehran Pukhar Road, Dehra Gopipur, Himachal Pradesh 176110, India',
   phone: '+91 82194 57704',
@@ -29,12 +32,12 @@ export const brandFaqs: FAQItem[] = [
   {
     question: 'What is MindPeak Institute?',
     answer:
-      'MindPeak Institute is an Indian online coaching institute for JEE Main, JEE Advanced, and NEET-UG preparation, founded in 2018 and headquartered in Dehra Gopipur, Himachal Pradesh. Its defining feature is the format: live 1-on-1 online classes with a dedicated personal mentor per student, instead of the 100-200 student batches typical of large coaching brands. It also runs foundation courses for classes 6-10, dropper programs, crash courses, and coaching for exams like BITSAT and the ISI entrance.',
+      'MindPeak Institute is an Indian online coaching institute for JEE Main, JEE Advanced, and NEET-UG preparation, founded in 2025 and headquartered in Dehra Gopipur, Himachal Pradesh. Its defining feature is the format: live 1-on-1 online classes with a dedicated personal mentor per student, instead of the 100-200 student batches typical of large coaching brands. It also runs foundation courses for classes 6-10, dropper programs, crash courses, and coaching for exams like BITSAT and the ISI entrance.',
   },
   {
     question: 'Is MindPeak Institute legit and registered?',
     answer:
-      'Yes. MindPeak Institute is a registered Indian MSME (Udyam registration UDYAM-HP-04-0042530), operating since 2018 from Nehran Pukhar Road, Dehra Gopipur, Himachal Pradesh 176110. You can reach a real human before paying anything: call or WhatsApp +91 82194 57704, email mindpeak@mindpeakinstitute.com, or take the free trial class and judge the mentor directly. The institute maintains public profiles on Instagram, Facebook, LinkedIn, X, and YouTube under the MindPeak Institute name.',
+      'Yes. MindPeak Institute is a registered Indian MSME (Udyam registration UDYAM-HP-04-0042530), operating since 2025 from Nehran Pukhar Road, Dehra Gopipur, Himachal Pradesh 176110. You can reach a real human before paying anything: call or WhatsApp +91 82194 57704, email mindpeak@mindpeakinstitute.com, or take the free trial class and judge the mentor directly. The institute maintains public profiles on Instagram, Facebook, LinkedIn, X, and YouTube under the MindPeak Institute name.',
   },
   {
     question: 'How do MindPeak\'s 1-on-1 online classes actually work?',

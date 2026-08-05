@@ -129,7 +129,7 @@ const orgSchema = {
     "India's #1 personalized 1-on-1 JEE and NEET coaching. UDYAM-HP-04-0042530.",
   telephone: "+91-82194-57704",
   email: "mindpeak@mindpeakinstitute.com",
-  foundingDate: "2018",
+  foundingDate: "2025",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Dehra Gopipur",
