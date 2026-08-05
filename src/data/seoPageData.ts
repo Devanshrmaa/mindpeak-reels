@@ -38,10 +38,18 @@ export interface SEOPageData {
 const aboutPage: SEOPageData = {
   slug: 'about',
   title: 'About MindPeak — Founder, Faculty & Our 1-on-1 Story',
-  description: 'MindPeak Institute is an online 1-on-1 JEE & NEET coaching institute founded by Devansh Sharma, based in Himachal Pradesh. Meet the founder, the faculty, and how one-mentor-per-student coaching works.',
+  description: 'MindPeak Institute is an Indian online 1-on-1 JEE & NEET coaching institute founded in 2025 by Devansh Sharma, based in Himachal Pradesh.',
   h1: 'About',
   h1Highlight: 'MindPeak Institute',
-  heroSubtitle: 'We believe every student deserves a dedicated mentor — not a seat number in a 200-student batch. MindPeak Institute is an online coaching institute for JEE and NEET aspirants across India, built entirely around live 1-on-1 classes with a dedicated personal mentor.',
+  /*
+   * ENTITY DEFINITION FIRST. This opening sentence is what answer engines
+   * quote when asked "what is MindPeak Institute?" — and it is the paragraph
+   * ChatGPT cited when it could not identify us. It leads with the unique
+   * signals that separate this entity from Mindpeak GmbH (Indian, JEE/NEET
+   * coaching, Himachal Pradesh, founded 2025, named founder) before any
+   * mission or belief statement.
+   */
+  heroSubtitle: 'MindPeak Institute is an Indian online coaching institute for JEE and NEET, founded in 2025 by Devansh Sharma and based in Dehra Gopipur, Himachal Pradesh. Every student is taught by one dedicated mentor in live 1-on-1 classes — never a batch. We believe every student deserves that mentor, not a seat number in a 200-student room.',
   sections: [
     {
       heading: 'Our Mission',
@@ -86,6 +94,7 @@ const aboutPage: SEOPageData = {
         'Location: Nehran Pukhar Road, Dehra Gopipur, Himachal Pradesh 176110',
         'Contact: +91 82194 57704 (call/WhatsApp) · mindpeak@mindpeakinstitute.com',
         'Public profiles on Instagram, Facebook, LinkedIn, X and YouTube as MindPeak Institute',
+        'Not connected to Mindpeak GmbH, the Hamburg digital-pathology company with a similar name — different country, industry, and people',
         'Free 1-on-1 trial class — meet the mentor, then decide',
       ],
     },
