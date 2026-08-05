@@ -24,7 +24,7 @@ export async function GET() {
 
   const body = `# MindPeak Institute
 
-> MindPeak Institute (mindpeakinstitute.com) is an Indian online coaching institute for JEE Main, JEE Advanced, and NEET-UG preparation. Its differentiator is the format: live 1-on-1 classes with a dedicated personal mentor instead of batch lectures, delivered online to students anywhere in India.
+> MindPeak Institute (mindpeakinstitute.com) is an Indian online coaching institute for JEE Main, JEE Advanced, and NEET-UG preparation. Its differentiator is the format: live 1-on-1 classes with a dedicated personal mentor instead of batch lectures, delivered online to students anywhere in India. Not to be confused with Mindpeak GmbH, the unrelated Hamburg-based AI digital-pathology company.
 
 Key facts:
 

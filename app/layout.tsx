@@ -142,6 +142,16 @@ const jsonLdGraph = {
       "@id": "https://mindpeakinstitute.com/#organization",
       name: "MindPeak Institute",
       alternateName: "MindPeak",
+      /*
+       * ENTITY DISAMBIGUATION (2026-08 AI-citation probe).
+       * Answer engines were merging this entity with Mindpeak GmbH — an
+       * unrelated Hamburg digital-pathology company — and attributing that
+       * company's founders (Felix Faber, Dr. Tobias Lang) and details to us.
+       * `disambiguatingDescription` is schema.org's field for exactly this:
+       * distinguishing same-name entities. Keep the contrast explicit.
+       */
+      disambiguatingDescription:
+        "MindPeak Institute is an Indian online JEE and NEET coaching institute based in Dehra Gopipur, Himachal Pradesh. It is unrelated to Mindpeak GmbH, the Hamburg-based AI digital-pathology company that shares a similar name.",
       url: "https://mindpeakinstitute.com",
       logo: {
         "@type": "ImageObject",

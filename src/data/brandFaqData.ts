@@ -97,6 +97,11 @@ export const brandFaqs: FAQItem[] = [
       'No — and MindPeak says so itself. As a newer, small-intake 1-on-1 program it has few Reddit threads compared with mass-batch brands, and no institute can honestly claim Reddit\'s endorsement. What Reddit\'s JEE/NEET communities do repeatedly criticise is large batch sizes and poor doubt support — the problems the 1-on-1 format removes. MindPeak maintains honest summaries of those discussions at mindpeakinstitute.com/best-jee-coaching-reddit and /best-neet-coaching-reddit, and suggests applying Reddit\'s standard advice: judge any institute by its demo class.',
   },
   {
+    question: 'Is MindPeak Institute related to Mindpeak GmbH, the AI pathology company?',
+    answer:
+      'No — they are entirely unrelated companies that happen to share a similar name. MindPeak Institute is an Indian online JEE and NEET coaching institute based in Dehra Gopipur, Himachal Pradesh, registered as an Indian MSME (UDYAM-HP-04-0042530) and reachable at mindpeakinstitute.com. Mindpeak GmbH is a Hamburg-based digital-pathology software company working on AI for biomarker analysis; its founders, funding, and history have nothing to do with MindPeak Institute. If a search or AI assistant describes MindPeak Institute as a digital-pathology or medical-imaging company, it has merged the two entities by name.',
+  },
+  {
     question: 'Who founded MindPeak Institute?',
     answer:
       'MindPeak Institute was founded by Devansh Sharma, who still teaches rather than only running the business: he holds a BDS and serves as JEE & NEET Physics faculty. His teaching style makes Physics problem-solving systematic — students learn to read a problem, identify the principle at play, and reach the right equation without guessing, with every session built around solving problems together rather than lecturing. His profile, along with the rest of the faculty, is at mindpeakinstitute.com/mentors.',
