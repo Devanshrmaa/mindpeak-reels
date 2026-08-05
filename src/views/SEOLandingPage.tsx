@@ -103,8 +103,17 @@ const SEOLandingPage = () => {
     jsonLd.push({
       '@context': 'https://schema.org',
       '@type': 'EducationalOrganization',
+      /*
+       * Canonical @id — MUST match the Organization node in app/layout.tsx.
+       * Without it every landing page minted an anonymous org node whose
+       * `url` was the page itself, splitting one organisation into dozens of
+       * weak duplicates. Entity fragmentation is what lets answer engines
+       * merge a brand with a same-name company (see the Mindpeak GmbH
+       * collision), so all org nodes resolve to this single @id.
+       */
+      '@id': 'https://mindpeakinstitute.com/#organization',
       name: 'MindPeak Institute',
-      url: `https://mindpeakinstitute.com/${page.slug}`,
+      url: 'https://mindpeakinstitute.com',
       description: page.description,
       telephone: '+91-82194-57704',
       address: { '@type': 'PostalAddress', streetAddress: 'Nehran Pukhar Road', addressLocality: 'Dehra Gopipur', addressRegion: 'Himachal Pradesh', postalCode: '176110', addressCountry: 'IN' },

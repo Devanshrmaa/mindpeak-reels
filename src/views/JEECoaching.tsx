@@ -125,6 +125,8 @@ const JEECoaching = () => {
     description: 'Comprehensive 1-on-1 personalized JEE Main and Advanced coaching with dedicated mentors, adaptive curriculum, and 95% success rate.',
     provider: {
       '@type': 'EducationalOrganization',
+      // Canonical @id so the course provider resolves to the same entity.
+      '@id': 'https://mindpeakinstitute.com/#organization',
       name: 'MindPeak Institute',
       url: 'https://mindpeakinstitute.com',
     },

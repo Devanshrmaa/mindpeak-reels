@@ -31,12 +31,21 @@ export default function SubjectCityPage() {
   const jsonLd = [
     {
       '@context': 'https://schema.org',
-      '@type': 'EducationalOrganization',
-      name: `MindPeak Institute — ${examLabel} ${subjectLabel} Coaching ${city.city}`,
+      /*
+       * Modelled as a Service provided BY the canonical organisation, not as
+       * a new EducationalOrganization. The previous node invented a distinct
+       * org name per page ("MindPeak Institute — JEE Physics Coaching
+       * Bangalore") with a PostalAddress in that city — implying premises we
+       * do not have (teaching is online from Himachal Pradesh) and splitting
+       * the brand into hundreds of weak duplicate entities. `provider` points
+       * at the single canonical @id instead.
+       */
+      '@type': 'Service',
+      name: `${examLabel} ${subjectLabel} Coaching in ${city.city}`,
+      serviceType: `Online 1-on-1 ${examLabel} ${subjectLabel} coaching`,
       description: page.description,
       url: `https://mindpeakinstitute.com/${page.slug}`,
-      telephone: '+91-82194-57704',
-      address: { '@type': 'PostalAddress', addressLocality: city.city, addressRegion: city.state, addressCountry: 'IN' },
+      provider: { '@id': 'https://mindpeakinstitute.com/#organization' },
       areaServed: { '@type': 'City', name: city.city },
     },
     buildFAQSchemaFromQA(page.faqs.map(f => ({ q: f.q, a: f.a }))),
