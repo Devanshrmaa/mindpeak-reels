@@ -2805,12 +2805,22 @@ function generateExamComparisonPosts(): BlogPost[] {
       // harder/tougher/easier than Y" queries, not "X vs Y guide" queries.
       const title = `${exam.name} vs ${base.name} ${year} — Which Is Harder? Full Comparison`;
 
+      // Subject-verb agreement: most exam names are singular ("BITSAT"), but
+      // "Science Olympiads" is plural and produced "Is Science Olympiads
+      // harder…" in the body copy and the FAQPage schema.
+      const isPlural = /s$/.test(exam.name) && !/ss$/.test(exam.name);
+      const Is = isPlural ? 'Are' : 'Is';
+      const is = isPlural ? 'are' : 'is';
+
       // Single difficulty verdict, reused by the quick answer, the Verdict
-      // line, and the FAQ so the page never contradicts itself. Olympiads
-      // are called harder outright — the consistent expert consensus for
-      // NSEP/NSEC/INMO-track exams — rather than hedged as "different".
+      // line, and the FAQ so the page never contradicts itself. For olympiads
+      // the answer is STAGE-DEPENDENT: the Stage 1 screening papers (NSEP,
+      // NSEC, NSEB) sit near JEE Main level, while Stage 2 onward (INPhO,
+      // INChO, INMO) is harder than JEE Advanced. The blanket "olympiads are
+      // harder" line this used to carry contradicted the researched
+      // stage-by-stage breakdown in blogContentEnrichments.ts.
       const verdict = exam.category === 'olympiad'
-        ? `Yes — ${exam.name} exams (NSEP, NSEC, INMO track) are generally harder than ${base.name}: problems demand deeper theory and multi-step reasoning under tighter time limits, though ${base.name} has a broader syllabus and far stiffer competition for ranks.`
+        ? `It depends on the stage. The Stage 1 screening papers (NSEP, NSEC, NSEB) are objective tests on the same Class 11-12 syllabus and generally sit closer to JEE Main level than to ${base.name}. From Stage 2 onward (INPhO, INChO, INMO) the papers turn subjective and proof-based, and are harder than ${base.name} — but ${base.name} remains far harder to convert into a seat, because it has thousands of them and the olympiad track ends with a team of five.`
         : exam.overlapPercent > 75
           ? `${exam.name} is generally slightly easier than ${base.name} in terms of question difficulty, but ${exam.keyDifferences[0].toLowerCase().includes('speed') || exam.keyDifferences[0].toLowerCase().includes('time') ? 'the time pressure can make it equally challenging' : 'different exam patterns require specific preparation'}.`
           : `${exam.name} tests different skills than ${base.name}. While there's ${exam.overlapPercent}% syllabus overlap, the remaining ${100 - exam.overlapPercent}% and different question patterns make them fundamentally different exams.`;
@@ -2818,7 +2828,7 @@ function generateExamComparisonPosts(): BlogPost[] {
       posts.push({
         slug,
         title,
-        excerpt: `Is ${exam.name} harder than ${base.name}? Direct verdict, ${exam.overlapPercent}% syllabus overlap explained, marking scheme, and how to prepare for both exams.`,
+        excerpt: `${Is} ${exam.name} harder than ${base.name}? Direct verdict, ${exam.overlapPercent}% syllabus overlap explained, marking scheme, and how to prepare for both exams.`,
         category: base.slug.includes('neet') ? 'NEET' as const : 'JEE' as const,
         tags: [exam.name, base.name, 'Comparison', 'Strategy'],
         author: 'MindPeak Team',
@@ -2827,7 +2837,7 @@ function generateExamComparisonPosts(): BlogPost[] {
         icon: examIcons[i % examIcons.length],
         content: `# ${exam.name} vs ${base.name} ${year} — Which Is Harder and How to Prepare for Both
 
-> **Quick answer — is ${exam.name} harder than ${base.name}?** ${verdict} The syllabus overlap is ${exam.overlapPercent}%, so most ${base.name} aspirants can add ${exam.name} with targeted extra preparation rather than a separate course.
+> **Quick answer — ${is} ${exam.name} harder than ${base.name}?** ${verdict} The syllabus overlap is ${exam.overlapPercent}%, so most ${base.name} aspirants can add ${exam.name} with targeted extra preparation rather than a separate course.
 
 ## Overview: ${exam.name} and ${base.name}
 
@@ -2930,7 +2940,7 @@ Your MindPeak mentor creates an **integrated preparation plan** that:
 
 ## Frequently Asked Questions
 
-**Q: Is ${exam.name} harder than ${base.name}?**
+**Q: ${Is} ${exam.name} harder than ${base.name}?**
 A: ${verdict}
 
 ${exam.faqs.slice(0, 4).map(f => `**Q: ${f.q}**\nA: ${f.a}`).join('\n\n')}

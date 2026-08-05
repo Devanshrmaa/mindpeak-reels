@@ -1371,6 +1371,289 @@ A: ISI's entrance leads to **B.Stat (Hons)** and **B.Math (Hons)** — degrees p
 statistics, mathematics, research and data-science careers. JEE Main leads to **B.Tech/B.E.**
 at NITs, IIITs and GFTIs (and is the gateway to JEE Advanced for the IITs). Choose by the
 career path, not by exam prestige.`,
+
+  /* ─────────────────── Science Olympiads vs JEE Advanced ───────────────────
+     Highest-impression non-branded page on the site (GSC 2026-08 audit): ~33
+     impressions/28d across ~14 distinct queries at positions 11–44, 0 clicks.
+     Queries: "is nsep harder than jee advanced" (pos 12.7), "is nsec harder
+     than jee advanced", "nsep vs jee advanced", "is nsejs harder than jee",
+     "inpho/inmo/imo/ijso/ioqm vs jee advanced", "which is more tough olympiad
+     or jee advanced".
+
+     The gap every SERP leader leaves open: they answer "olympiad vs JEE" as if
+     "olympiad" were one exam. It is a five-stage ladder, and the honest answer
+     differs sharply by stage — NSEP (the entry screen) is NOT harder than JEE
+     Advanced; INPhO/INMO are. Stage structure and selection numbers verified
+     Aug 2026 against iapt.org.in (NSE dates/eligibility), HBCSE olympiad
+     programme documentation, and JEE Advanced 2025 official result figures. */
+  'olympiad-vs-jee-advanced-comparison': `## Is NSEP Harder Than JEE Advanced? It Depends Which Stage You Mean
+
+Almost every answer to this question is wrong in the same way: it treats "olympiad" as
+a single exam. It is not. The Indian science olympiad is a **five-stage ladder**, and the
+difficulty gap against JEE Advanced flips completely between the bottom rung and the top
+one. Get this distinction right and the question answers itself.
+
+### The five stages (Physics track, as an example)
+
+| Stage | Exam | Conducted by | Format | Roughly how many advance |
+|---|---|---|---|---|
+| 1 | **NSEP** (National Standard Examination in Physics) | IAPT | Objective/MCQ screening, 2 hours | Top ~300 nationally |
+| 2 | **INPhO** (Indian National Physics Olympiad) | HBCSE (TIFR) | Subjective, multi-step derivations | Top ~35 |
+| 3 | **OCSC** (Orientation-cum-Selection Camp) | HBCSE, Mumbai | 3–4 week residential camp, theory + lab | Top ~5 |
+| 4 | Pre-departure training camp | HBCSE | Intensive coaching | The team of 5 |
+| 5 | **IPhO** (International Physics Olympiad) | International | 2 papers: theory + experimental | — |
+
+Chemistry runs the identical ladder (NSEC → INChO → OCSC → IChO), as does Biology
+(NSEB → INBO → OCSC → IBO). Mathematics runs a parallel one: **IOQM → RMO → INMO → IMO**.
+
+### The honest verdict, stage by stage
+
+**Stage 1 (NSEP/NSEC/NSEB) is the one people argue about — and the argument is usually a
+misunderstanding.** NSEP is a two-hour *objective screening* paper drawn from the same
+Class 11 + 12 syllabus JEE Advanced uses. Students who have actually sat it consistently
+describe the question level as closer to JEE Main than to JEE Advanced, and many JEE
+aspirants clear it with no olympiad-specific preparation. You will also find sources calling
+NSEP "harder than JEE Advanced" — they are almost always describing the *olympiad track as a
+whole*, not the Stage 1 paper. Both claims get repeated because nobody says which stage they
+mean.
+
+Our read, and the one that matches how students actually experience it: **the NSEP paper
+itself is not harder than JEE Advanced; the road it opens onto is.**
+
+**Stage 2 onward (INPhO, INChO, INBO, INMO) *is* harder than JEE Advanced.** Here the
+format changes completely: subjective papers, multi-step derivations, and in maths, full
+written proofs with no marks for a correct final answer alone. JEE Advanced rewards
+recognising a known problem type and executing fast. INPhO and INMO reward cracking an
+unfamiliar problem from first principles with no time-pressure crutch. Those are different
+muscles, and the second one is rarer.
+
+### The number that settles "which is more tough"
+
+Compare the funnels, not the papers:
+
+| | Science Olympiad (Physics) | JEE Advanced |
+|---|---|---|
+| Entry pool | Tens of thousands sit NSEP | **180,422** appeared (2025) |
+| Cleared to next round | ~300 reach INPhO | **54,378** qualified (2025) |
+| Final "seats" | **5** on the IPhO team | **18,160** sanctioned IIT B.Tech seats (2025) |
+| Odds after qualifying | ~1 in 7 at camp make the team | Only ~1 in 3 qualifiers actually got an IIT seat |
+
+So: **JEE Advanced is far harder to convert into a life outcome**, because 18,160 seats are
+contested by nearly two lakh serious candidates. **The olympiad ladder is harder at the
+top**, because the top is five people. Both statements are true; they answer different
+questions.
+
+If someone asks "which is tougher, olympiad or JEE Advanced" and wants one sentence:
+*the olympiad has a harder ceiling, JEE Advanced has a harder gauntlet.*
+
+### Syllabus overlap — why you should attempt Stage 1 anyway
+
+The NSEP syllabus is drawn from Class 11 and 12 physics — effectively the same ground
+JEE Advanced covers. The differences are of emphasis, not content: olympiads lean harder on
+classical mechanics, experimental physics and error analysis; JEE Advanced leans harder on
+speed, numerical answer types, and breadth-under-clock.
+
+That overlap is the practical argument for attempting NSEP/NSEC/NSEB: **Stage 1 costs a
+JEE aspirant almost no extra preparation.** The exams are held in November, well before the
+JEE Main sessions, and IAPT schedules NSEP, NSEC and NSEB in three consecutive slots on the
+same day — so a Class 11 or 12 student can attempt all three in one sitting. Clearing
+Stage 1 costs you a Sunday. Whether to invest months in Stage 2 preparation is a much bigger
+decision and should depend on whether you genuinely enjoy open-ended problems.
+
+Check the current cycle's dates, eligibility window and exact paper structure on IAPT's
+official brochure at **iapt.org.in** before registering — the pattern and the marking split
+have been revised between cycles.
+
+### FAQ — science olympiads vs JEE Advanced
+
+**Q: Is INPhO or INMO harder than JEE Advanced?**
+A: Yes. Both are subjective papers where you must construct a complete solution — and in
+INMO's case, a rigorous written proof, where a correct answer with no valid proof scores
+nothing. JEE Advanced never asks you to prove anything. On raw problem difficulty, Stage 2
+olympiad papers are above JEE Advanced.
+
+**Q: Is NSEJS or IJSO harder than JEE?**
+A: These are the **junior** science track (NSEJS → INJSO → IJSO), open to younger students
+and pitched at up to roughly Class 10 science. The content is well below JEE Advanced in
+scope. The *problem style*, though, is olympiad-style reasoning rather than formula
+application, so a strong Class 9–10 student may find NSEJS unfamiliar even while its syllabus
+is far smaller than JEE's.
+
+**Q: How is IOQM different from JEE maths?**
+A: IOQM is the Stage 1 maths screen: 30 questions in 3 hours, every answer an integer from
+00 to 99, no negative marking. That format sounds friendlier than JEE, but the problems are
+contest maths — number theory, combinatorics and Euclidean geometry pitched well outside the
+JEE syllabus. Clearing IOQM takes dedicated olympiad practice; JEE preparation alone will not
+carry you through it, unlike NSEP.
+
+**Q: Should a JEE aspirant attempt olympiads at all?**
+A: Attempt **Stage 1** — NSEP/NSEC/NSEB cost one Sunday in November, the syllabus already
+overlaps your JEE Advanced preparation, and the conceptual depth they demand tends to
+strengthen JEE performance rather than distract from it. Commit to **Stage 2 and beyond**
+only if you genuinely enjoy open-ended problems and can afford the months of separate
+practice. Treating the olympiad ladder as a shortcut to an IIT seat is the wrong reason —
+it is not one.`,
+
+  /* ─────────────────────── WBJEE vs JEE Advanced ───────────────────────
+     GSC 2026-08: 7 impressions/28d at pos ~29, driven by "is wbjee tougher
+     than jee". The templated body never states WBJEE's three-category marking
+     scheme, which is the actual reason the exams feel different. Pattern
+     verified Aug 2026 against WBJEEB's published 2026 exam pattern. */
+  'wbjee-vs-jee-advanced-comparison': `## Is WBJEE Tougher Than JEE? Not on Difficulty — But the Marking Scheme Catches People Out
+
+On raw conceptual difficulty, **WBJEE is easier than JEE Advanced and broadly comparable to
+JEE Main.** But students who walk in assuming it is "JEE Main with a Bengali postcode" lose
+marks to a paper structure that has no JEE equivalent — a three-category marking scheme with
+two different negative-marking rates.
+
+### The pattern that actually differs
+
+WBJEE is conducted by the **West Bengal Joint Entrance Examinations Board (WBJEEB)** in
+**offline OMR mode** — you shade bubbles with a ball pen, unlike JEE's computer-based test.
+It runs as two papers on the same day:
+
+| | Paper 1 | Paper 2 |
+|---|---|---|
+| Subject | Mathematics | Physics + Chemistry |
+| Duration | 2 hours | 2 hours |
+| Questions | 75 | 80 (40 + 40) |
+| Marks | 100 | 100 (50 + 50) |
+
+Every question falls into one of three categories, and this is what trips up JEE-trained
+students:
+
+| Category | Answer type | Correct | Wrong |
+|---|---|---|---|
+| **Category 1** | Single correct | +1 | **−¼** |
+| **Category 2** | Single correct | +2 | **−½** |
+| **Category 3** | **One or more correct** | +2 | **No negative** |
+
+Maths splits as 50 Category-1, 15 Category-2 and 10 Category-3 questions; Physics and
+Chemistry each carry 30 Category-1, 5 Category-2 and 5 Category-3.
+
+### What this means for strategy
+
+Three consequences JEE preparation does not teach you:
+
+1. **Category 3 is free.** Multiple-correct questions carry no penalty, so you should attempt
+   every single one — the opposite of the "skip if unsure" instinct JEE's −1 trains into you.
+2. **Category 2 punishes guessing twice as hard** as Category 1. Identify the category before
+   you decide to attempt, not after.
+3. **The pace is faster than JEE Main.** 155 questions in 240 minutes is about 1.5 minutes per
+   question, against roughly 2.4 minutes in JEE Main. WBJEE questions are individually easier,
+   but there is far less time to sit and think.
+
+### So is WBJEE tougher than JEE?
+
+**Against JEE Advanced: no, clearly not.** JEE Advanced problems are multi-concept and
+deliberately unfamiliar; WBJEE stays close to standard Class 11–12 problem types.
+
+**Against JEE Main: comparable on concept, harder on pace and marking.** A student prepared
+for JEE Main is substantially prepared for WBJEE's content and needs mostly OMR practice, a
+category-aware attempt strategy, and speed drills.
+
+**But the competition is real.** WBJEE gates admission to Jadavpur University and the state's
+government engineering colleges, where seats are limited and West Bengal domicile candidates
+compete intensely for them. An easier paper with a tight seat pool does not make an easy rank.
+
+### FAQ — WBJEE vs JEE
+
+**Q: Is WBJEE tougher than JEE?**
+A: No. WBJEE is easier than JEE Advanced and roughly comparable to JEE Main in conceptual
+difficulty. What makes it feel different is the format — offline OMR, two papers, and a
+three-category marking scheme with −¼ and −½ penalties plus a no-penalty multiple-correct
+section. The pace is also faster: ~1.5 minutes per question versus ~2.4 in JEE Main.
+
+**Q: Is the WBJEE syllabus the same as JEE Main?**
+A: Very largely, yes — both draw on Class 11 and 12 Physics, Chemistry and Mathematics, so
+your JEE preparation covers most of it. Check the WBJEEB syllabus for the current cycle before
+assuming a one-to-one match, and note that WBJEE weights Mathematics more heavily (100 of 200
+marks) than JEE Main does.
+
+**Q: Can I clear WBJEE with only JEE preparation?**
+A: For the content, largely yes. What you must add is format practice: solve past WBJEE papers
+on an OMR sheet under a 2-hour clock, and rehearse the category strategy so you never leave a
+no-penalty Category 3 question blank. Most WBJEE marks lost by JEE aspirants are format losses,
+not knowledge gaps.`,
+
+  /* ─────────────────────── COMEDK vs JEE Advanced ───────────────────────
+     GSC 2026-08: 6 impressions/28d at pos ~27 across "is comedk easier than
+     jee", "is comedk harder than jee", "comedk vs jee mains" and — notably —
+     "is comedk syllabus same as jee mains" (pos 38), which the templated body
+     never answers as a direct question. Pattern verified Aug 2026 against
+     COMEDK's published 2026 exam pattern and syllabus weighting. */
+  'comedk-vs-jee-advanced-comparison': `## Is COMEDK Easier Than JEE? Yes on Difficulty — No on Pace
+
+COMEDK UGET is genuinely easier than JEE, and easier than JEE Advanced by a wide margin. But
+the single most common mistake is reading "no negative marking" as "relaxed exam". COMEDK
+gives you **exactly one minute per question**. That is the tightest clock of any major
+engineering entrance in India.
+
+### The pattern, in one table
+
+| Parameter | COMEDK UGET | JEE Main |
+|---|---|---|
+| Conducted by | Consortium of Medical, Engineering and Dental Colleges of Karnataka | NTA |
+| Mode | Computer-based test | Computer-based test |
+| Questions | **180** (60 Physics + 60 Chemistry + 60 Maths) | 75 |
+| Marks | 180 (1 mark each) | 300 |
+| Duration | 3 hours | 3 hours |
+| **Time per question** | **~1.0 minute** | **~2.4 minutes** |
+| Negative marking | **None** | −1 per wrong answer |
+| Question types | MCQ, four options, one correct | MCQ + numerical answer type |
+
+### Is the COMEDK syllabus the same as JEE Main?
+
+**Nearly — but the weighting is not.** COMEDK draws Physics, Chemistry and Mathematics from
+the Class 11 and 12 CBSE curriculum, the same ground JEE Main covers, so a JEE aspirant has
+essentially no new chapters to learn.
+
+The difference that matters for revision planning: COMEDK weights the paper roughly **67%
+Class 12 and 33% Class 11**. JEE Main distributes across both years far more evenly. If you
+are revising for COMEDK on a short runway, Class 12 chapters deserve about twice the airtime —
+and that is *not* the right allocation for JEE Main. Always confirm the current-cycle syllabus
+on COMEDK's official site, since the consortium revises it between years.
+
+### What "no negative marking" actually changes
+
+It inverts your attempt strategy completely:
+
+- **Leave nothing blank.** With no penalty, an unattempted question and a wrong one score
+  identically — zero. Every blank is a forfeited expected mark.
+- **Guess late, not early.** Reserve the last few minutes to fill every remaining question
+  rather than agonising over them mid-paper.
+- **Speed beats caution.** In JEE Main, hesitating on a shaky question is correct. In COMEDK,
+  the same hesitation costs you the two or three easy questions you never reached.
+
+The rank pressure is real despite the easier paper: COMEDK gates private engineering seats in
+Karnataka, including the sought-after Bangalore colleges, and a very large field attempts it.
+Easy questions plus no negative marking means cutoffs sit high — you are competing on
+**accuracy at speed**, not on cracking hard problems.
+
+### FAQ — COMEDK vs JEE
+
+**Q: Is COMEDK easier than JEE?**
+A: Yes on question difficulty — COMEDK is easier than JEE Main, and much easier than JEE
+Advanced. Questions are single-correct MCQs on standard Class 11–12 concepts, with no
+numerical-answer-type questions and no negative marking. The difficulty sits in the pace:
+180 questions in 180 minutes, versus JEE Main's 75 questions in the same three hours.
+
+**Q: Is the COMEDK syllabus the same as JEE Main?**
+A: Substantially the same content — both cover Class 11 and 12 Physics, Chemistry and
+Mathematics from the CBSE curriculum. The weighting differs: COMEDK leans about 67% toward
+Class 12 material against roughly 33% from Class 11, so short-runway revision should be
+Class-12-heavy in a way JEE Main revision should not be.
+
+**Q: Is COMEDK harder than JEE Mains?**
+A: Not on concepts. The one dimension where COMEDK is genuinely harder is time — one minute
+per question against JEE Main's ~2.4. Students who train only on JEE-paced mocks routinely
+run out of time in their first COMEDK attempt despite finding every individual question easy.
+
+**Q: Can I prepare for COMEDK using my JEE preparation?**
+A: Yes, and you should — the content overlap is high enough that separate COMEDK coaching is
+unnecessary. What you must add is speed training: full 180-question mocks under a strict
+3-hour clock, plus the habit of answering every question since there is no penalty for a wrong
+one.`,
 };
 
 /**
