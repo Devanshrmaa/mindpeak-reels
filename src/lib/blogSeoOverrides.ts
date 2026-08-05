@@ -75,9 +75,11 @@ const OVERRIDES: Record<string, BlogSeoOverride> = {
     description: `Full TS EAMCET (TG EAPCET) syllabus for Maths, Physics and Chemistry with chapter-wise weightage tables and the high-yield chapters deciding your rank.`,
   },
   'olympiad-vs-jee-advanced-comparison': {
-    // "is nsep harder than jee advanced" pos 13; SERP consensus: yes.
+    // "is nsep harder than jee advanced" pos 13. Answer is stage-dependent —
+    // see blogContentEnrichments.ts. Description must match that verdict, not
+    // the blanket "olympiads are harder" claim it carried before 2026-08.
     title: `Is NSEP Harder Than JEE Advanced? Olympiad vs JEE {Y}`,
-    description: `Yes — NSEP and other science Olympiads are generally tougher than JEE Advanced: deeper theory, multi-step problems, tighter time. Full comparison inside.`,
+    description: `Depends on the stage: NSEP is a screening paper near JEE Main level, but INPhO and INMO are harder than JEE Advanced. All 5 stages compared with real numbers.`,
   },
   'wbjee-vs-jee-advanced-comparison': {
     // "is wbjee tougher than jee" pos 29, 14 imps; consensus: WBJEE easier.
@@ -93,6 +95,21 @@ const OVERRIDES: Record<string, BlogSeoOverride> = {
     // "is srmjeee easier than jee mains" pos 25.
     title: `Is SRMJEEE Easier Than JEE Main? Full Comparison {Y}`,
     description: `Yes — SRMJEEE is much easier than JEE Main, with no negative marking and direct questions. See the syllabus overlap and how your JEE prep clears SRMJEEE.`,
+  },
+  /* ── 2026-08-05 GSC batch: pages earning impressions with no override. ── */
+  'isi-entrance-vs-jee-main-comparison': {
+    // 7 imps/28d at pos ~34 across "is isi tougher/harder than jee advanced"
+    // and "isi admission through jee mains". Templated title led with
+    // "ISI Entrance vs JEE Main" — no question phrasing, no answer.
+    title: `Is the ISI Entrance Harder Than JEE? ISI vs JEE {Y}`,
+    description: `ISI is maths-only with a proof-based paper and an interview — a different exam, not a harder JEE. Syllabus, pattern and who should actually target it.`,
+  },
+  'mht-cet-vs-jee-advanced-comparison': {
+    // 3 imps/28d at pos ~44, all syllabus-overlap phrasings: "is jee and mht
+    // cet syllabus same", "is mht cet syllabus same as jee", "difference
+    // between jee and mht cet". Lead with the syllabus question, not difficulty.
+    title: `Is the MHT CET Syllabus Same as JEE? {Y} Comparison`,
+    description: `Mostly, but not entirely — MHT CET follows the Maharashtra state board syllabus and has no negative marking. Overlap, pattern and difficulty compared with JEE.`,
   },
 };
 

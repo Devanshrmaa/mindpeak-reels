@@ -38,8 +38,12 @@ import { getPYQChapterEnrichment } from '@/data/neet-pyq/chapterEnrichments';
 
 export const BASE = 'https://mindpeakinstitute.com';
 
-/** Last real content release. 2026-07-26: NEET UG 2027 CBT transition guide (newsjacking). */
-export const CONTENT_ANCHOR = '2026-07-26';
+/**
+ * Last real content release. 2026-08-05: researched enrichments for the
+ * olympiad / WBJEE / COMEDK vs JEE comparison posts, plus corrected NSEP
+ * difficulty verdict across the olympiad cluster.
+ */
+export const CONTENT_ANCHOR = '2026-08-05';
 
 /**
  * Deterministic, STABLE lastmod: CONTENT_ANCHOR minus a slug-hashed 0–27 day

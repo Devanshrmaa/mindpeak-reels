@@ -26,12 +26,22 @@ function stripMd(s: string): string {
  */
 export function buildBlogFaqJsonLd(content: string): string | null {
   const faqs: { q: string; a: string }[] = [];
+  // A post's Q/A pairs come from two independent layers — the templated body
+  // (examRegistry FAQs) and the hand-written block in blogContentEnrichments —
+  // so the same question can legitimately appear twice in the markdown. Emit
+  // each question only once; duplicate Question entries are invalid FAQPage
+  // markup. First occurrence wins, matching on-page reading order.
+  const seen = new Set<string>();
   const re = /\*\*Q:\s*([\s\S]+?)\*\*\s*\n+\s*A:\s*([\s\S]+?)(?=\n\s*\n|\n\*\*Q:|$)/g;
   let m: RegExpExecArray | null;
   while ((m = re.exec(content)) !== null && faqs.length < 8) {
     const q = stripMd(m[1]);
     const a = stripMd(m[2]);
-    if (q && a) faqs.push({ q, a });
+    if (!q || !a) continue;
+    const key = q.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    faqs.push({ q, a });
   }
   if (faqs.length < 2) return null;
 
