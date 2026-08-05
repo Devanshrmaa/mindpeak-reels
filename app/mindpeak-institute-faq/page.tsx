@@ -4,8 +4,10 @@ import type { Metadata } from "next";
 export const revalidate = false;
 
 export const metadata: Metadata = {
-  title: "MindPeak Institute FAQ — Fees, Legitimacy, How 1-on-1 Classes Work",
-  description: "Straight answers about MindPeak Institute: MSME registration, complete fee list, how 1-on-1 online JEE/NEET classes work, refund policy, and how to verify us before paying.",
+  // Title ≤60 chars, description ≤155 — beyond that Google truncates and the
+  // snippet AI engines extract gets cut mid-sentence.
+  title: "MindPeak Institute FAQ — Fees, Registration & Class Format",
+  description: "Straight answers about MindPeak Institute: MSME registration, the full fee list, how 1-on-1 JEE/NEET classes work, and the refund policy.",
   alternates: { canonical: "https://mindpeakinstitute.com/mindpeak-institute-faq" },
   openGraph: {
     title: "MindPeak Institute FAQ — Straight Answers",
