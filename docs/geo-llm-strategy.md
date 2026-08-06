@@ -86,7 +86,7 @@ The four engines source answers differently. A single strategy under-serves all 
 
 ## 4. The target prompt panel
 
-This replaces keyword research. Track **~120 prompts across 6 intents**; the seed set below is Tier 1 (run monthly, all 4 engines).
+This replaces keyword research. Track **~120 prompts across 7 intents**; the seed set below is Tier 1 (run monthly, all 4 engines).
 
 **A. Category / discovery — highest value, hardest**
 1. best online 1-on-1 coaching for JEE
@@ -125,7 +125,16 @@ This replaces keyword research. Track **~120 prompts across 6 intents**; the see
 24. JEE Main 2027 syllabus changes
 25. how to prepare for NEET in 6 months as a dropper
 
+**G. Single-brand review — decision-stage, added 2026-08-06 from a ChatGPT conversation export.** These are a different intent from the C-tier "X vs Y" comparisons: the asker has already leaned toward one brand and is checking for red flags before committing. Winning here means being surfaced as "also consider" inside someone else's review, not necessarily being the named subject.
+26. Allen Digital review
+27. Physics Wallah JEE review
+28. Unacademy JEE review
+29. Vedantu JEE review
+30. Aakash Digital JEE review
+
 > **Brand-prompt rule:** intent E answers are a trust surface. If any engine returns a wrong fee, a wrong location, or "I don't have information about MindPeak Institute", that is a **P1** — it directly kills conversion. Fix via `llms-full.txt` + off-site corroboration.
+>
+> **Provenance note:** prompts 20-30 and the findmyguru.com/validcollege.com/collegesimplified.in/jeegurukul.com/motion.ac.in/wibest.in outreach targets in §5.5 were identified by pulling real ChatGPT conversation exports (full JSON, including the search results and citations behind the answer) rather than guessing — see the commit history on this doc's PR for the raw exports. That's a repeatable technique: export a ChatGPT conversation for a target prompt, and the `search_result_groups` / `content_references` fields show exactly which pages it retrieved and which ones it actually cited in the final answer.
 
 ---
 

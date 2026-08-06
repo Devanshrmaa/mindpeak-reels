@@ -70,6 +70,12 @@ const PANEL = [
   { id: 'F1', tier: 'F', prompt: 'NEET 2027 exam pattern changes / CBT transition' },
   { id: 'F2', tier: 'F', prompt: 'JEE Main 2027 syllabus changes' },
   { id: 'F3', tier: 'F', prompt: 'how to prepare for NEET in 6 months as a dropper' },
+  // G — Single-brand review (decision-stage; added from a ChatGPT export, see strategy doc §4)
+  { id: 'G1', tier: 'G', prompt: 'Allen Digital review' },
+  { id: 'G2', tier: 'G', prompt: 'Physics Wallah JEE review' },
+  { id: 'G3', tier: 'G', prompt: 'Unacademy JEE review' },
+  { id: 'G4', tier: 'G', prompt: 'Vedantu JEE review' },
+  { id: 'G5', tier: 'G', prompt: 'Aakash Digital JEE review' },
 ];
 
 const COLUMNS = [
