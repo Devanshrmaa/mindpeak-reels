@@ -100,26 +100,6 @@ const whoShouldChoose: Record<string, { mindpeak: string[]; competitor: string[]
   },
 };
 
-/* ─── real student comparisons ─── */
-const studentStories: Record<string, { name: string; from: string; story: string; result: string }[]> = {
-  Allen: [
-    { name: 'Rahul S.', from: 'Was in Allen Kota for 8 months', story: 'Struggled in a 180-student batch. Doubts went unresolved for days. Switched to MindPeak mid-year.', result: 'Improved from 120 to 245 in JEE Mains within 5 months. Got NIT Trichy CSE.' },
-    { name: 'Priya M.', from: 'Planned Allen, chose MindPeak instead', story: 'Parents decided against Kota after reading about student stress. Chose MindPeak for 1-on-1 attention.', result: '98.2 percentile NEET. Secured MBBS at Government Medical College.' },
-  ],
-  Resonance: [
-    { name: 'Arjun K.', from: 'Left Resonance after 6 months', story: 'Found the batch pace too fast for Physics, too slow for Math. Needed adaptive curriculum. Joined MindPeak.', result: 'AIR 2,800 JEE Advanced. Got IIT Madras.' },
-    { name: 'Sneha R.', from: 'Considered Resonance online', story: 'Compared Resonance online batch (50+ students) with MindPeak 1-on-1. Chose personalized attention.', result: 'NEET 670/720. Secured top Government Medical College.' },
-  ],
-  FIITJEE: [
-    { name: 'Vikram D.', from: 'FIITJEE classroom student for 1 year', story: 'Good at Physics but weak in Organic Chemistry. FIITJEE\'s fixed curriculum couldn\'t address this gap. Switched to MindPeak.', result: 'Organic Chemistry score jumped from 30% to 85%. Overall JEE Advanced rank improved by 3,000 positions.' },
-    { name: 'Ananya P.', from: 'Chose MindPeak over FIITJEE 2-Year', story: 'Wanted dedicated attention for JEE Advanced preparation. Parents compared costs and chose MindPeak.', result: 'AIR under 5,000 in JEE Advanced. IIT Delhi admission.' },
-  ],
-  "BYJU'S": [
-    { name: 'Karthik M.', from: 'Used BYJU\'s app for 1 year', story: 'Watched 200+ hours of video but couldn\'t solve actual JEE problems. No one to guide problem-solving strategy. Joined MindPeak.', result: 'From 85 percentile to 99.2 percentile in JEE Mains within 8 months.' },
-    { name: 'Divya S.', from: 'BYJU\'s JEE/NEET program subscriber', story: 'Paid ₹1.5L for BYJU\'s full program but stopped using it after 3 months — no accountability. Switched to MindPeak.', result: 'Daily live sessions kept her on track. Scored 640/720 in NEET.' },
-  ],
-};
-
 const ComparisonPage = () => {
   const pathname = usePathname();
   const slug = pathname.replace(/^\//, ''); // e.g. "mindpeak-vs-allen"
@@ -131,7 +111,6 @@ const ComparisonPage = () => {
 
   const strengths = competitorStrengths[data.competitorName] ?? [];
   const who = whoShouldChoose[data.competitorName] ?? { mindpeak: [], competitor: [] };
-  const stories = studentStories[data.competitorName] ?? [];
 
   const jsonLd = [
     {
@@ -306,37 +285,6 @@ const ComparisonPage = () => {
             </div>
           </div>
         </section>
-
-        {/* Real Student Comparisons */}
-        {stories.length > 0 && (
-          <section className="bg-secondary/30 border-y border-border py-16 px-6">
-            <div className="max-w-5xl mx-auto">
-              <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4 text-center">
-                Real Students Who <span className="text-gradient-gold">Switched</span> to MindPeak
-              </motion.h2>
-              <p className="text-muted-foreground text-center mb-12">Actual experiences from students who compared both approaches.</p>
-
-              <div className="grid md:grid-cols-2 gap-8">
-                {stories.map((s, i) => (
-                  <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                    className="bg-background border border-border rounded-lg p-6">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center text-primary font-display font-bold text-sm">{s.name[0]}</div>
-                      <div>
-                        <p className="font-display font-bold text-foreground text-sm">{s.name}</p>
-                        <p className="text-muted-foreground text-xs">{s.from}</p>
-                      </div>
-                    </div>
-                    <p className="text-muted-foreground text-sm mb-3">{s.story}</p>
-                    <p className="text-green-400 text-sm font-semibold flex items-center gap-1.5">
-                      <TrendingUp className="w-4 h-4" /> {s.result}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
 
         {/* Pricing Comparison */}
         <section className="max-w-5xl mx-auto px-6 py-20">
