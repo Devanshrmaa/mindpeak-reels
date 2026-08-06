@@ -143,12 +143,13 @@ This replaces keyword research. Track **~120 prompts across 7 intents**; the see
 **Governing rule: participate honestly, disclose affiliation, never astroturf.** Reddit and Quora detect and nuke vendor sockpuppets, and a burned brand is *negative* GEO — engines will surface the accusation thread forever. Every tactic below is disclosed-identity or earned.
 
 ### 5.1 Reddit (feeds ChatGPT + Gemini heavily)
-Target subs: `r/JEENEETards`, `r/JEE`, `r/NEET`, `r/Indian_Academia`, `r/IndianTeenagers`, `r/CBSE`.
+Target subs: `r/NEETard`, `r/JEE`, `r/NEET`, `r/Indian_Academia`, `r/IndianTeenagers`, `r/CBSE`.
 
 - Establish **one disclosed founder/faculty account** ("I run a 1-on-1 coaching setup — happy to answer format questions"). Comment value-first on threads about batch size, Kota burnout, dropper-year planning. No links unless asked.
 - Answer the recurring evergreen threads: *"is Kota worth it"*, *"batch of 300, teacher doesn't know my name"*, *"dropper year plan"*. These threads get cited by LLMs for **years**.
 - Run genuine AMAs during result/counselling season (Jun–Aug, Jan–Feb).
 - **Never** create fake student accounts. Non-negotiable.
+- **Confirmed, not theoretical:** a 2026-08-06 ChatGPT export for "best neet coaching online" directly cited a live `r/NEETard` thread ("Best online coaching for NEET 2027?") *and* an unrelated regional sub, `r/assam` ("Neet coaching") — evidence that any India-education-adjacent thread can get pulled into an answer, not just the obvious subs. Corroborates the case for broad, genuine participation over a narrow target list.
 
 ### 5.2 Quora (disproportionately weighted by Gemini for Indian education)
 - Indian education Quora is under-moderated and high-yield. Answer the top ~40 questions matching §4 intents A–D under **real faculty identities** (we already have credentialed faculty in [`src/data/authorData.ts`](../src/data/authorData.ts) — MBBS, BDS, MDS, PhD Chemistry, M.Sc.).
