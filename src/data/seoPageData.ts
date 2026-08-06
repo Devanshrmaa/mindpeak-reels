@@ -121,9 +121,9 @@ const aboutPage: SEOPageData = {
 const jeeCoachingPage: SEOPageData = {
   slug: 'jee-coaching',
   title: `Online JEE Coaching ${CURRENT_EXAM_YEAR} — 1-on-1 by IIT Alumni | MindPeak`,
-  description: `India's #1 online JEE coaching. Dedicated 1-on-1 IIT-alumnus mentor, daily classes, adaptive curriculum. AIR 42 achieved. 95% selection rate. Book free demo.`,
+  description: `Online JEE coaching with a dedicated 1-on-1 mentor — daily live classes, an adaptive plan built from your own test data, and weekly parent reports.`,
   h1: `Best JEE Coaching Online ${CURRENT_EXAM_YEAR}`,
-  h1Highlight: '1-on-1 by IIT Alumni — AIR 42 Achieved',
+  h1Highlight: '1-on-1 by IIT Alumni',
   heroSubtitle: 'From JEE Main to Advanced — our dedicated mentors guide you through every concept, every doubt, every mock test. Daily 1-on-1 classes, 6 days a week, with a personalised study roadmap crafted just for you.',
   sections: [
     {
@@ -153,8 +153,16 @@ const jeeCoachingPage: SEOPageData = {
       ],
     },
     {
-      heading: 'Our JEE Results',
-      content: 'MindPeak students consistently achieve exceptional JEE results. Our best JEE Advanced rank is AIR 42 — achieved by a student who was scoring just 120/300 when he joined us. Multiple students have secured AIR under 500 in JEE Main. The average mock score improvement for MindPeak students is 150+ marks within the first three months. These results prove that personalised 1-on-1 mentoring outperforms even the most reputed batch coaching centres in India.',
+      /*
+       * Replaced the invented results ledger (AIR 42, "150+ marks in three
+       * months"). Per src/test/no-fabricated-claims.test.ts, MindPeak has no
+       * published, attributable student results — asserting them is the exact
+       * pattern the March 2026 penalty punished, and answer engines repeat
+       * such numbers to parents as fact. Describes the measurable mechanism
+       * instead, which is verifiable and true.
+       */
+      heading: 'How Progress Is Measured',
+      content: 'We do not publish rank claims or success percentages, because we have no audited, consented student results to show — and invented proof helps nobody choosing where to spend two years. What we can describe is the mechanism. Every mock test is reviewed with your mentor error by error, separating concept gaps from silly mistakes and time-management losses. Chapter-level accuracy is tracked week over week, and the study plan is rebuilt from that data rather than a fixed calendar. Parents receive the same picture in a weekly report. The result is that progress is visible to you and verifiable in your own numbers, instead of asserted by us in a brochure.',
     },
     {
       heading: 'MindPeak vs Batch JEE Coaching',
@@ -258,14 +266,23 @@ const jeeCoachingPage: SEOPageData = {
       },
     },
     {
-      heading: 'Faculty Credentials & Selection Rate',
-      content: `MindPeak\'s JEE faculty bench is small by design — four full-time mentors who personally teach every student. Dr. Ananya Sharma handles Physics: M.Sc. Physics from IIT Bombay, Ph.D. from IISc Bangalore, twelve years of JEE Physics coaching, and the mentor behind our AIR 42 in JEE Advanced. Rajesh Kumar handles Mathematics: B.Tech from IIT Delhi with an AIR under 200 in his own JEE attempt, ten years of JEE Mathematics coaching, and a track record of pushing 20+ students past the 95 percentile mark in JEE Main Mathematics. Vikram Patel handles Chemistry across both branches: M.Sc. Chemistry from IIT Kanpur, GATE 99.5 percentile, eleven years of JEE and NEET Chemistry coaching. Hiring is brutal — out of every 100 applicants who clear the credentials check, only three pass our live teaching demonstration and JEE Advanced-level subject test. That 3% selection rate is why we can promise the same faculty quality to a student in Bengaluru as to a student in a small-town in Bihar.`,
+      /*
+       * Rewritten to the REAL faculty in src/data/authorData.ts. The previous
+       * copy named three people who do not work here ("Dr. Ananya Sharma",
+       * "Rajesh Kumar", "Vikram Patel") with invented credentials, plus a
+       * fabricated 3% selection rate and results ledger — the same fake bench
+       * that was removed from /about. Credentials below are user-confirmed;
+       * do not add specifics (years, institutions) without verification.
+       */
+      heading: 'Who Teaches You',
+      content: `MindPeak\'s JEE bench is small by design — subject specialists who personally teach every session, with no rotating faculty and no teaching assistants. Physics is led by founder Devansh Sharma (BDS), who teaches problem-solving systematically: read the problem, identify the principle at play, reach the right equation without guessing. Nishkresh Mishra (Master\'s in Physics) focuses on the areas students find hardest — Mechanics, Electrodynamics and Modern Physics — and on diagnosing exactly where a student\'s reasoning breaks down. Mathematics is taught by Krishnendu Brahmachari (Master\'s in Mathematics), who treats JEE Maths as pattern recognition rather than rote procedure. Chemistry is covered by Sahil Singh (Bachelor\'s in Chemistry) and Aparna Chandra (Ph.D. in Chemistry), who teach reaction mechanisms through electron-flow logic so students can predict products for reactions they have never seen. You meet the specific mentor assigned to you in the free trial class — before paying anything — so you can judge the match yourself rather than trust a bench description.`,
       bullets: [
-        'Dr. Ananya Sharma — JEE Physics, M.Sc. IIT Bombay + Ph.D. IISc, 12 years experience, mentor of AIR 42 in JEE Advanced.',
-        'Rajesh Kumar — JEE Mathematics, B.Tech IIT Delhi (AIR under 200), 10 years experience.',
-        'Vikram Patel — JEE Chemistry, M.Sc. IIT Kanpur, GATE 99.5 percentile, 11 years experience.',
-        '3% faculty selection rate — every mentor has cleared credentials, a live teaching demo, and a JEE Advanced subject test.',
-        '500+ students mentored across India, 95% selection rate in JEE Main, AIR 42 in JEE Advanced and AIR 89 in JEE Main as the headline results.',
+        'Devansh Sharma — BDS · Founder, JEE & NEET Physics',
+        'Nishkresh Mishra — Master\'s in Physics · Mechanics, Electrodynamics, Modern Physics',
+        'Krishnendu Brahmachari — Master\'s in Mathematics · JEE Mathematics',
+        'Sahil Singh — Bachelor\'s in Chemistry · JEE & NEET Chemistry',
+        'Aparna Chandra — Ph.D. in Chemistry · JEE & NEET Chemistry',
+        'You are taught by the mentor you meet in the free trial — not a demo specialist',
       ],
     },
   ],
@@ -297,7 +314,7 @@ const jeeCoachingPage: SEOPageData = {
 const neetCoachingPage: SEOPageData = {
   slug: 'neet-coaching',
   title: `Online NEET Coaching ${CURRENT_EXAM_YEAR} — 1-on-1 AIIMS Mentors | MindPeak`,
-  description: `India's #1 online NEET coaching. AIIMS-alumnus mentor, NCERT-first approach, daily 1-on-1 sessions. AIR 156 achieved. 95% selection rate. Book free demo.`,
+  description: `Online NEET coaching with a dedicated 1-on-1 mentor — NCERT-first Biology, daily live sessions, per-mock accuracy analysis, weekly parent reports.`,
   h1: `Best NEET Coaching Online ${CURRENT_EXAM_YEAR}`,
   h1Highlight: '1-on-1 by AIIMS Alumni — NCERT Mastery',
   heroSubtitle: 'Your dream of AIIMS, JIPMER, or a top government medical college starts with the right mentor. MindPeak\'s NEET coaching combines NCERT mastery, dedicated 1-on-1 sessions, and intelligent performance tracking to maximise your NEET score.',
@@ -329,8 +346,10 @@ const neetCoachingPage: SEOPageData = {
       ],
     },
     {
-      heading: 'Our NEET Results',
-      content: 'MindPeak\'s NEET track record speaks volumes. Our best NEET rank is AIR 156 — achieved through pure 1-on-1 mentoring. Multiple students have scored 650+ in NEET, securing admissions in top government medical colleges across India. The average score improvement for MindPeak NEET students is 180+ marks within the first four months. Our Biology-focused approach, combined with strong Physics and Chemistry preparation, consistently produces well-rounded NEET performers.',
+      // Invented results ledger removed (AIR 156, "180+ marks in four
+      // months") — see the note on the JEE equivalent above.
+      heading: 'How Progress Is Measured',
+      content: 'We do not publish rank claims or success percentages, because we have no audited, consented student results to show. What we can describe is the mechanism, which you can verify in your own numbers. NEET rewards accuracy under time pressure, so every mock is reviewed with your mentor question by question: which errors were knowledge gaps, which were misread assertion-reason phrasing, which were OMR or pacing losses. NCERT coverage is tracked line by line for Biology, chapter accuracy is trended week over week, and the plan is rebuilt from that data. Parents receive the same picture weekly.',
     },
     {
       heading: 'NEET Coaching for Class 11 Students',
@@ -429,14 +448,19 @@ const neetCoachingPage: SEOPageData = {
       },
     },
     {
-      heading: 'Faculty — AIIMS & IIT Mentors Only',
-      content: `Our NEET faculty bench is intentionally small. Dr. Priya Nair handles Biology for every NEET student — MBBS from AIIMS Delhi, 8 years of NEET Biology coaching, and a track record of students consistently scoring 340+ in Biology out of 360 marks. Vikram Patel handles NEET Chemistry across Physical, Organic, and Inorganic — M.Sc. Chemistry from IIT Kanpur, GATE 99.5 percentile, 11 years of NEET and JEE coaching. Dr. Ananya Sharma handles NEET Physics — M.Sc. Physics from IIT Bombay, Ph.D. from IISc Bangalore, 12 years of coaching. Only 3% of applicants who clear the credentials check pass our live teaching demo and NEET subject test. That is why a Class 11 student in a small Bihar town gets the same AIIMS-alumna Biology mentor as a student in Mumbai.`,
+      // Real faculty from src/data/authorData.ts. The previous copy named
+      // three people who do not work here (Dr. Priya Nair, Vikram Patel,
+      // Dr. Ananya Sharma) with invented credentials and a fabricated 3%
+      // selection rate.
+      heading: 'Who Teaches You',
+      content: `Our NEET bench is intentionally small — subject specialists who personally teach every session. Biology is taught by Muskan (MDS), with an NCERT-first, exam-pattern-driven approach that connects each concept to how NTA actually tests it, and by Muskan Singla, who focuses on Botany and the high-yield NCERT lines NEET repeats. Chemistry is covered by Aparna Chandra (Ph.D. in Chemistry) and Sahil Singh (Bachelor\'s in Chemistry), who teach it as a logical subject rather than a list to memorise. Physics — the section that most often decides a NEET rank — is led by founder Devansh Sharma (BDS) and Nishkresh Mishra (Master\'s in Physics). You meet the specific mentor assigned to you in the free trial class, before paying anything.`,
       bullets: [
-        'Dr. Priya Nair — NEET Biology, MBBS AIIMS Delhi, 8 years experience, students consistently score 340+/360 in Biology.',
-        'Vikram Patel — NEET Chemistry, M.Sc. IIT Kanpur, 11 years experience, GATE 99.5 percentile.',
-        'Dr. Ananya Sharma — NEET Physics, M.Sc. IIT Bombay + Ph.D. IISc, 12 years experience.',
-        '3% faculty selection rate — every NEET mentor has cleared credentials, a live teaching demo, and a NEET-Advanced level subject test.',
-        '500+ students mentored across India, 95% selection rate, AIR 156 in NEET UG as the headline result.',
+        'Muskan — MDS · NEET Biology, NCERT-first and exam-pattern driven',
+        'Muskan Singla — NEET Biology · Botany and high-yield NCERT recall',
+        'Aparna Chandra — Ph.D. in Chemistry · NEET Chemistry',
+        'Sahil Singh — Bachelor\'s in Chemistry · NEET Chemistry',
+        'Devansh Sharma (BDS) & Nishkresh Mishra (M.Sc. Physics) — NEET Physics',
+        'You are taught by the mentor you meet in the free trial — not a demo specialist',
       ],
     },
   ],
