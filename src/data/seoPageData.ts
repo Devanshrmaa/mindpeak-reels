@@ -1425,7 +1425,7 @@ const neetDropperPage: SEOPageData = {
         'NCERT exemplar problems covered cover-to-cover for Physics and Chemistry.',
         'Reference books (Trueman\'s Biology, DC Pandey, MS Chouhan Light Organic) layered in only after NCERT mastery is documented.',
       ],
-      authorityNote: 'In our 1-on-1 NEET dropper coaching, Dr. Priya Nair runs a weekly NCERT audit. She picks 10 random NCERT lines and asks the student to produce the MCQ they would write from each. This single drill is the highest-correlation indicator for a 650+ NEET dropper score.',
+      authorityNote: 'In our 1-on-1 NEET dropper coaching, your Biology mentor runs a weekly NCERT audit, picking 10 random NCERT lines and asks the student to produce the MCQ they would write from each. This single drill is the highest-correlation indicator for a 650+ NEET dropper score.',
     },
     {
       heading: 'NEET Dropper Doubt Resolution — Sub-2-Hour SLA',
@@ -1511,7 +1511,7 @@ const neetDropperPage: SEOPageData = {
     { q: 'Is it too late to join as a NEET dropper?', a: 'It\'s never too late for 1-on-1 coaching. Even students who join 3-4 months before NEET can see significant improvement through our intensive crash programs targeting high-yield topics.' },
     { q: 'Will I get a separate NEET dropper batch?', a: 'MindPeak doesn\'t have batches — your coaching is entirely 1-on-1, customised to your specific gaps from your previous attempt. This is far more effective than sitting in a dropper batch.' },
     { q: 'How is MindPeak\'s online NEET dropper coaching different from Aakash Medical Repeater?', a: 'Aakash Medical Repeater is a batch online NEET class with 60 to 200 students. MindPeak\'s NEET dropper coaching is true 1-on-1 — the same AIIMS-alumna mentor coaches you daily for 6 days a week, with sub-2-hour WhatsApp doubt SLA and a forensic review of your previous NEET attempt in week 1.' },
-    { q: 'Who teaches Biology at MindPeak for NEET droppers?', a: 'Dr. Priya Nair, MBBS AIIMS Delhi, with 8 years of NEET Biology coaching and 200+ students mentored — her students consistently score 340+ out of 360 in NEET Biology. Other NEET Biology mentors are AIIMS, JIPMER or top government medical college alumni selected through MindPeak\'s 3 per cent faculty acceptance rate.' },
+    { q: 'Who teaches Biology at MindPeak for NEET droppers?', a: 'NEET Biology is taught by Muskan (MDS), with an NCERT-first approach tied to how NTA actually frames its questions, and by Muskan Singla, who focuses on Botany and the high-yield NCERT lines the exam repeats. You keep the same mentor for the whole repeat cycle, and you meet them in a free trial class before paying anything.' },
     { q: 'How fast are NEET doubts resolved for dropper students at MindPeak?', a: 'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week. Compared to the 24 to 48 hour SLAs at Aakash, Allen and PW NEET dropper batches, this is the most visible day-to-day difference of our NEET dropper online coaching.' },
     { q: 'What is the daily NEET dropper online schedule at MindPeak?', a: 'Daily 1-on-1 live online NEET dropper class for 75 to 90 minutes, 6 days a week, plus 6 to 8 hours of structured self-practice with mentor-assigned NCERT DPPs and Biology MCQ drills. One NEET doubt class per week and one mock-review session — total weekly mentor contact time exceeds 12 hours.' },
     { q: 'Does the NEET dropper coaching include test series and mock tests?', a: `Yes — weekly chapter tests, monthly NEET half-mocks under NTA timing and quarterly full-length 180-question NEET mocks under exam conditions, all followed by 1-on-1 paper review with your mentor the next day. Every mock targets the latest NEET ${CURRENT_EXAM_YEAR} pattern.` },
@@ -1813,7 +1813,7 @@ const subjectPages: SEOPageData[] = [
             ['Modern Physics', 'Semiconductors and Logic Gates', '12', 'Medium yield'],
           ],
         },
-        authorityNote: 'In our one-on-one JEE Physics classes, Dr. Ananya Sharma starts every new chapter with a 15-minute prerequisite check. Skipping that step is the single biggest reason students stall in Electrodynamics and Modern Physics.',
+        authorityNote: 'In our one-on-one JEE Physics classes, your mentor starts every new chapter with a 15-minute prerequisite check. Skipping that step is the single biggest reason students stall in Electrodynamics and Modern Physics.',
       },
       {
         heading: 'How Our 1-on-1 JEE Physics Sessions Run Day to Day',
@@ -1830,7 +1830,7 @@ const subjectPages: SEOPageData[] = [
       },
       {
         heading: 'Doubt Resolution for JEE Physics — Sub-2-Hour SLA',
-        content: 'JEE Physics doubts get cold fast — an unresolved Rotational Motion gap compounds the next day. MindPeak treats doubt resolution as a service-level commitment. Every student gets a dedicated WhatsApp channel monitored by Dr. Ananya Sharma and the senior mentor team.',
+        content: 'JEE Physics doubts get cold fast — an unresolved Rotational Motion gap compounds the next day. MindPeak treats doubt resolution as a service-level commitment. Every student gets a dedicated WhatsApp channel monitored by your own Physics mentor.',
         bullets: [
           'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, six days a week.',
           'Photo, voice note or typed doubts all accepted — your mentor responds with a worked solution, not a hint.',
@@ -2027,7 +2027,7 @@ const subjectPages: SEOPageData[] = [
       },
       {
         heading: 'JEE Chemistry Doubt Resolution — Sub-2-Hour SLA',
-        content: 'JEE Chemistry doubts compound fast — an unresolved Coordination Compound doubt today blocks Metallurgy tomorrow. MindPeak treats Chemistry doubt support as a service-level commitment. Every student gets a direct WhatsApp channel monitored by Vikram Patel and the senior JEE Chemistry mentor team.',
+        content: 'JEE Chemistry doubts compound fast — an unresolved Coordination Compound doubt today blocks Metallurgy tomorrow. MindPeak treats Chemistry doubt support as a service-level commitment. Every student gets a direct WhatsApp channel monitored by your own Chemistry mentor.',
         bullets: [
           'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week.',
           'Photo, voice note or typed doubts accepted; mentor responds with a full worked solution.',
@@ -2112,7 +2112,7 @@ const subjectPages: SEOPageData[] = [
       { q: 'How does MindPeak teach Inorganic Chemistry?', a: 'Through structured comparison tables, periodic trend analysis, mnemonics, and weekly recall quizzes. We make Inorganic systematic, not random.' },
       { q: 'How is JEE Chemistry 1-on-1 coaching different from a batch online JEE Chemistry class?', a: 'In a batch online JEE Chemistry class, one Chemistry faculty teaches to the average — Physical-weak students get left behind and Organic-strong students get bored. In MindPeak\'s 1-on-1 JEE Chemistry coaching, every minute is calibrated to your branch-by-branch level. Your Chemistry mentor adjusts pace, picks problems and re-teaches mechanisms for you, 6 days a week.' },
       { q: 'Do you cover MS Chouhan, JD Lee and N. Avasthi in JEE Chemistry coaching?', a: 'Yes. NCERT and MS Chouhan are the foundation for Organic; JD Lee is the primary Inorganic reference; N. Avasthi and P. Bahadur power Physical Chemistry numerical practice. Problems are picked by the mentor based on your weekly Chemistry progress.' },
-      { q: 'How fast are JEE Chemistry doubts resolved outside class hours?', a: 'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week — directly with Vikram Patel or the senior JEE Chemistry mentor team. The weekly Saturday Chemistry doubt class covers everything that needed deeper Organic / Inorganic / Physical treatment.' },
+      { q: 'How fast are JEE Chemistry doubts resolved outside class hours?', a: 'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week — directly with your own Chemistry mentor. The weekly Saturday Chemistry doubt class covers everything that needed deeper Organic / Inorganic / Physical treatment.' },
       { q: 'Who will teach me Chemistry at MindPeak?', a: 'JEE Chemistry is taught by Sahil Singh (Bachelor\'s in Chemistry), who works through Organic mechanisms via electron-flow logic, and Aparna Chandra (Ph.D. in Chemistry), who derives Physical and Inorganic from first principles rather than tables. You meet your assigned mentor in a free trial class before paying anything.' },
       { q: 'Is online JEE Chemistry coaching as effective as offline?', a: 'For JEE Chemistry, online 1-on-1 coaching outperforms offline batch coaching in our results. The dialogue, real-time Organic mechanism dialogue and continuous mentor attention that online JEE Chemistry 1-on-1 enables simply cannot happen in a 200-student offline Chemistry classroom.' },
       { q: 'Does the JEE Chemistry coaching include a test series?', a: 'Yes. Weekly JEE Chemistry chapter tests, monthly subject-only mocks and quarterly full-syllabus mocks in JEE Main and JEE Advanced patterns are bundled into every online JEE Chemistry coaching plan, plus a post-test 1-on-1 review with your Chemistry mentor.' },
@@ -2202,7 +2202,7 @@ const subjectPages: SEOPageData[] = [
       },
       {
         heading: 'JEE Mathematics Doubt Resolution — Sub-2-Hour SLA',
-        content: 'JEE Mathematics doubts compound quickly — an unresolved Definite Integration doubt today blocks Differential Equations tomorrow. MindPeak treats JEE Maths doubt support as a service-level commitment. Every student gets a direct WhatsApp channel monitored by Rajesh Kumar and the senior JEE Mathematics mentor team.',
+        content: 'JEE Mathematics doubts compound quickly — an unresolved Definite Integration doubt today blocks Differential Equations tomorrow. MindPeak treats JEE Maths doubt support as a service-level commitment. Every student gets a direct WhatsApp channel monitored by your own Mathematics mentor.',
         bullets: [
           'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week.',
           'Photo, voice note or typed Maths doubts accepted; mentor responds with a full worked solution.',
@@ -2285,7 +2285,7 @@ const subjectPages: SEOPageData[] = [
       { q: 'What is a good Maths score in JEE Main?', a: 'For 99+ percentile, target 85+ out of 100. Our top students score 90+.' },
       { q: 'How is JEE Mathematics 1-on-1 coaching different from a batch online JEE Maths class?', a: 'In a batch online JEE Maths class, one faculty teaches to the average — Calculus-weak students get left behind and Algebra-strong students get bored. In MindPeak\'s 1-on-1 JEE Mathematics coaching, every minute is calibrated to your topic-by-topic level. Your Maths mentor adjusts pace, picks problems and re-teaches derivations for you, 6 days a week.' },
       { q: 'Do you cover RD Sharma, Cengage and IA Maron in JEE Mathematics coaching?', a: 'Yes. NCERT and RD Sharma form the foundation; Cengage (G. Tewani) layers in JEE-level problem depth; SL Loney drives Coordinate Geometry and Trigonometry; IA Maron is used for JEE Advanced-level Calculus. Problems are selected by the mentor based on your weekly progress.' },
-      { q: 'How fast are JEE Mathematics doubts resolved outside class hours?', a: 'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week — directly with Rajesh Kumar or the senior JEE Maths mentor team. The weekly Saturday Maths doubt class covers everything that needed deeper Calculus, Algebra or Coordinate Geometry treatment.' },
+      { q: 'How fast are JEE Mathematics doubts resolved outside class hours?', a: 'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week — directly with your own Mathematics mentor. The weekly Saturday Maths doubt class covers everything that needed deeper Calculus, Algebra or Coordinate Geometry treatment.' },
       { q: 'Who will teach me Mathematics at MindPeak?', a: 'JEE Mathematics is taught by Krishnendu Brahmachari (Master\'s in Mathematics), who treats the subject as pattern recognition rather than rote procedure, with Sri Bala and Vinod focusing on speed and accuracy through timed practice. You meet your assigned mentor in a free trial class before paying anything.' },
       { q: 'Is online JEE Mathematics coaching as effective as offline?', a: 'For JEE Mathematics, online 1-on-1 coaching outperforms offline batch coaching in our results. The continuous mentor dialogue, real-time Calculus derivation review and adaptive pacing that online JEE Maths 1-on-1 enables simply cannot happen in a 200-student offline classroom.' },
       { q: 'Does the JEE Mathematics coaching include a test series?', a: 'Yes. Weekly JEE Maths chapter tests, monthly JEE Main pattern Maths mocks, JEE Advanced pattern Maths mocks and quarterly full-syllabus Maths mocks are bundled into every online JEE Mathematics coaching plan, plus a post-test 1-on-1 review with your Maths mentor.' },
@@ -2380,7 +2380,7 @@ const subjectPages: SEOPageData[] = [
       },
       {
         heading: 'NEET Biology Doubt Resolution — Sub-2-Hour SLA',
-        content: 'NEET Biology doubts compound fast — an unresolved Genetics problem today blocks Molecular Basis of Inheritance tomorrow. MindPeak treats NEET Biology doubt support as a service-level commitment. Every student gets a direct WhatsApp channel monitored by Dr. Priya Nair and the senior NEET Biology mentor team.',
+        content: 'NEET Biology doubts compound fast — an unresolved Genetics problem today blocks Molecular Basis of Inheritance tomorrow. MindPeak treats NEET Biology doubt support as a service-level commitment. Every student gets a direct WhatsApp channel monitored by your own Biology mentor.',
         bullets: [
           'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week.',
           'Photo, voice note or typed Biology doubts accepted; mentor responds with a full worked solution.',
@@ -2464,7 +2464,7 @@ const subjectPages: SEOPageData[] = [
       { q: 'How long to complete NEET Biology preparation?', a: '6-8 months for thorough first pass including NCERT mastery, diagram practice, and revision. Multiple revision cycles within our 1-year program.' },
       { q: 'How is NEET Biology 1-on-1 coaching different from a batch online NEET Biology class?', a: 'In a batch online NEET Biology class, one faculty teaches diagram interpretation to 60 to 200 students at once. In MindPeak\'s 1-on-1 NEET Biology coaching, the mentor watches you re-draw the diagram on a shared screen, corrects the moment you miss a label, and assigns targeted practice the same evening — closing the gap before the next mock.' },
       { q: 'Do you cover Trueman\'s Biology, NCERT Exemplar and Pradeep\'s Biology in NEET Biology coaching?', a: 'Yes. NCERT first, then NCERT Exemplar for extended practice; Trueman\'s Biology for additional depth in Class 11 and Class 12 chapters; Pradeep\'s Biology for additional diagrams. Problems are picked by the mentor based on weekly NEET Biology progress.' },
-      { q: 'How fast are NEET Biology doubts resolved outside class hours?', a: 'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week — directly with Dr. Priya Nair or the senior AIIMS-alumna NEET Biology mentor team. The weekly Saturday Biology doubt class covers everything that needed deeper Botany or Zoology treatment.' },
+      { q: 'How fast are NEET Biology doubts resolved outside class hours?', a: 'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week — directly with your own Biology mentor. The weekly Saturday Biology doubt class covers everything that needed deeper Botany or Zoology treatment.' },
       { q: 'Who will teach me Biology at MindPeak for NEET?', a: 'NEET Biology is taught by Muskan (MDS), with an NCERT-first approach that ties each concept to how NTA actually tests it, and by Muskan Singla, who focuses on Botany and the high-yield NCERT lines the exam repeats. You meet your assigned mentor in a free trial class before paying anything.' },
       { q: 'Does the NEET Biology coaching include a test series?', a: 'Yes. Weekly NEET Biology chapter tests, monthly 90-question NEET Biology half-mocks under NTA timing and quarterly full-syllabus NEET mocks are bundled into every online NEET Biology coaching plan, plus a post-test 1-on-1 review with your Biology mentor.' },
     ],
@@ -2554,7 +2554,7 @@ const subjectPages: SEOPageData[] = [
       },
       {
         heading: 'NEET Physics Doubt Resolution — Sub-2-Hour SLA',
-        content: 'NEET Physics doubts compound quickly — an unresolved Rotational Motion doubt today blocks Electromagnetic Induction tomorrow. MindPeak treats NEET Physics doubt support as a service-level commitment. Every student gets a direct WhatsApp channel monitored by Dr. Ananya Sharma and the senior NEET Physics mentor team.',
+        content: 'NEET Physics doubts compound quickly — an unresolved Rotational Motion doubt today blocks Electromagnetic Induction tomorrow. MindPeak treats NEET Physics doubt support as a service-level commitment. Every student gets a direct WhatsApp channel monitored by your own Physics mentor.',
         bullets: [
           'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week.',
           'Photo, voice note or typed NEET Physics doubts accepted; mentor responds with a full worked solution.',
@@ -2624,7 +2624,7 @@ const subjectPages: SEOPageData[] = [
       { q: 'Do you provide NEET Physics formula sheets?', a: 'Yes — comprehensive formula sheet with 130+ formulas at /neet-physics-formulas.' },
       { q: 'How is NEET Physics 1-on-1 coaching different from a batch online NEET Physics class?', a: 'In a batch online NEET Physics class, one faculty teaches formulas to 60 to 200 students at once. In MindPeak\'s 1-on-1 NEET Physics coaching, your mentor watches you set up the numerical on a shared screen and corrects the exact step where your method breaks down — closing the gap before the next mock.' },
       { q: 'Do you cover DC Pandey, HC Verma and NCERT Exemplar in NEET Physics coaching?', a: 'Yes. NCERT first, then NCERT Exemplar for extended practice; DC Pandey Objective Physics for NEET-pattern MCQs; HC Verma for selective Mechanics depth. Problems are picked by the mentor based on weekly NEET Physics progress.' },
-      { q: 'How fast are NEET Physics doubts resolved outside class hours?', a: 'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week — directly with Dr. Ananya Sharma or the senior NEET Physics mentor team. The weekly Saturday Physics doubt class covers everything that needed deeper Mechanics or Electrodynamics treatment.' },
+      { q: 'How fast are NEET Physics doubts resolved outside class hours?', a: 'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week — directly with your own Physics mentor. The weekly Saturday Physics doubt class covers everything that needed deeper Mechanics or Electrodynamics treatment.' },
       { q: 'Who will teach me Physics at MindPeak for NEET?', a: 'NEET Physics is taught by founder Devansh Sharma (BDS), who teaches problem-solving systematically rather than by formula recall, and Nishkresh Mishra (Master\'s in Physics), who specialises in diagnosing where a student\'s reasoning breaks down. You meet your assigned mentor in a free trial class before paying anything.' },
       { q: 'Does the NEET Physics coaching include a test series?', a: 'Yes. Weekly NEET Physics chapter tests, monthly 45-question NEET Physics subject-only mocks under NTA timing, and quarterly 180-question full-syllabus NEET mocks are bundled into every online NEET Physics coaching plan, plus a post-test 1-on-1 review with your Physics mentor.' },
     ],
@@ -2711,7 +2711,7 @@ const subjectPages: SEOPageData[] = [
       },
       {
         heading: 'NEET Chemistry Doubt Resolution — Sub-2-Hour SLA',
-        content: 'NEET Chemistry doubts compound fast — an unresolved Coordination Compound doubt today blocks Metallurgy tomorrow. MindPeak treats NEET Chemistry doubt support as a service-level commitment. Every student gets a direct WhatsApp channel monitored by Vikram Patel and the senior NEET Chemistry mentor team.',
+        content: 'NEET Chemistry doubts compound fast — an unresolved Coordination Compound doubt today blocks Metallurgy tomorrow. MindPeak treats NEET Chemistry doubt support as a service-level commitment. Every student gets a direct WhatsApp channel monitored by your own Chemistry mentor.',
         bullets: [
           'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week.',
           'Photo, voice note or typed NEET Chemistry doubts accepted; mentor responds with a full worked solution.',
@@ -2782,7 +2782,7 @@ const subjectPages: SEOPageData[] = [
       { q: 'Do you provide NEET Chemistry formula sheets?', a: 'Yes — 115+ formulas across all three branches at /neet-chemistry-formulas.' },
       { q: 'How is NEET Chemistry 1-on-1 coaching different from a batch online NEET Chemistry class?', a: 'In a batch online NEET Chemistry class, one Chemistry faculty teaches to the average — Physical-weak students get left behind and Organic-strong students get bored. In MindPeak\'s 1-on-1 NEET Chemistry coaching, every minute is calibrated to your branch-by-branch level. Your Chemistry mentor adjusts pace, picks problems and re-teaches mechanisms for you, 6 days a week.' },
       { q: 'Do you cover MS Chouhan, N. Avasthi and VK Jaiswal in NEET Chemistry coaching?', a: 'Yes. NCERT first, then NCERT Exemplar; MS Chouhan Light Organic for NEET-pattern Organic mechanisms; N. Avasthi for Physical Chemistry numerical practice; VK Jaiswal for comprehensive Inorganic coverage. Problems are picked by the mentor based on weekly NEET Chemistry progress.' },
-      { q: 'How fast are NEET Chemistry doubts resolved outside class hours?', a: 'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week — directly with Vikram Patel or the senior NEET Chemistry mentor team. The weekly Saturday Chemistry doubt class covers everything that needed deeper Organic, Inorganic or Physical treatment.' },
+      { q: 'How fast are NEET Chemistry doubts resolved outside class hours?', a: 'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week — directly with your own Chemistry mentor. The weekly Saturday Chemistry doubt class covers everything that needed deeper Organic, Inorganic or Physical treatment.' },
       { q: 'Who will teach me Chemistry at MindPeak for NEET?', a: 'NEET Chemistry is taught by Aparna Chandra (Ph.D. in Chemistry) and Sahil Singh (Bachelor\'s in Chemistry), who teach it as a logical subject — reactions predicted from electron flow and periodic trends rather than memorised. You meet your assigned mentor in a free trial class before paying anything.' },
       { q: 'Does the NEET Chemistry coaching include a test series?', a: 'Yes. Weekly NEET Chemistry chapter tests, monthly 45-question NEET Chemistry subject-only mocks under NTA timing, and quarterly 180-question full-syllabus NEET mocks are bundled into every online NEET Chemistry coaching plan, plus a post-test 1-on-1 review with your Chemistry mentor.' },
     ],
