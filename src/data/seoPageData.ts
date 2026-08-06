@@ -38,10 +38,18 @@ export interface SEOPageData {
 const aboutPage: SEOPageData = {
   slug: 'about',
   title: 'About MindPeak — Founder, Faculty & Our 1-on-1 Story',
-  description: 'MindPeak Institute is an online 1-on-1 JEE & NEET coaching institute founded by Devansh Sharma, based in Himachal Pradesh. Meet the founder, the faculty, and how one-mentor-per-student coaching works.',
+  description: 'MindPeak Institute is an Indian online 1-on-1 JEE & NEET coaching institute founded in 2025 by Devansh Sharma, based in Himachal Pradesh.',
   h1: 'About',
   h1Highlight: 'MindPeak Institute',
-  heroSubtitle: 'We believe every student deserves a dedicated mentor — not a seat number in a 200-student batch. MindPeak Institute is an online coaching institute for JEE and NEET aspirants across India, built entirely around live 1-on-1 classes with a dedicated personal mentor.',
+  /*
+   * ENTITY DEFINITION FIRST. This opening sentence is what answer engines
+   * quote when asked "what is MindPeak Institute?" — and it is the paragraph
+   * ChatGPT cited when it could not identify us. It leads with the unique
+   * signals that separate this entity from Mindpeak GmbH (Indian, JEE/NEET
+   * coaching, Himachal Pradesh, founded 2025, named founder) before any
+   * mission or belief statement.
+   */
+  heroSubtitle: 'MindPeak Institute is an Indian online coaching institute for JEE and NEET, founded in 2025 by Devansh Sharma and based in Dehra Gopipur, Himachal Pradesh. Every student is taught by one dedicated mentor in live 1-on-1 classes — never a batch. We believe every student deserves that mentor, not a seat number in a 200-student room.',
   sections: [
     {
       heading: 'Our Mission',
@@ -86,6 +94,7 @@ const aboutPage: SEOPageData = {
         'Location: Nehran Pukhar Road, Dehra Gopipur, Himachal Pradesh 176110',
         'Contact: +91 82194 57704 (call/WhatsApp) · mindpeak@mindpeakinstitute.com',
         'Public profiles on Instagram, Facebook, LinkedIn, X and YouTube as MindPeak Institute',
+        'Not connected to Mindpeak GmbH, the Hamburg digital-pathology company with a similar name — different country, industry, and people',
         'Free 1-on-1 trial class — meet the mentor, then decide',
       ],
     },
@@ -112,9 +121,9 @@ const aboutPage: SEOPageData = {
 const jeeCoachingPage: SEOPageData = {
   slug: 'jee-coaching',
   title: `Online JEE Coaching ${CURRENT_EXAM_YEAR} — 1-on-1 by IIT Alumni | MindPeak`,
-  description: `India's #1 online JEE coaching. Dedicated 1-on-1 IIT-alumnus mentor, daily classes, adaptive curriculum. AIR 42 achieved. 95% selection rate. Book free demo.`,
+  description: `Online JEE coaching with a dedicated 1-on-1 mentor — daily live classes, an adaptive plan built from your own test data, and weekly parent reports.`,
   h1: `Best JEE Coaching Online ${CURRENT_EXAM_YEAR}`,
-  h1Highlight: '1-on-1 by IIT Alumni — AIR 42 Achieved',
+  h1Highlight: '1-on-1 by IIT Alumni',
   heroSubtitle: 'From JEE Main to Advanced — our dedicated mentors guide you through every concept, every doubt, every mock test. Daily 1-on-1 classes, 6 days a week, with a personalised study roadmap crafted just for you.',
   sections: [
     {
@@ -144,8 +153,16 @@ const jeeCoachingPage: SEOPageData = {
       ],
     },
     {
-      heading: 'Our JEE Results',
-      content: 'MindPeak students consistently achieve exceptional JEE results. Our best JEE Advanced rank is AIR 42 — achieved by a student who was scoring just 120/300 when he joined us. Multiple students have secured AIR under 500 in JEE Main. The average mock score improvement for MindPeak students is 150+ marks within the first three months. These results prove that personalised 1-on-1 mentoring outperforms even the most reputed batch coaching centres in India.',
+      /*
+       * Replaced the invented results ledger (AIR 42, "150+ marks in three
+       * months"). Per src/test/no-fabricated-claims.test.ts, MindPeak has no
+       * published, attributable student results — asserting them is the exact
+       * pattern the March 2026 penalty punished, and answer engines repeat
+       * such numbers to parents as fact. Describes the measurable mechanism
+       * instead, which is verifiable and true.
+       */
+      heading: 'How Progress Is Measured',
+      content: 'We do not publish rank claims or success percentages, because we have no audited, consented student results to show — and invented proof helps nobody choosing where to spend two years. What we can describe is the mechanism. Every mock test is reviewed with your mentor error by error, separating concept gaps from silly mistakes and time-management losses. Chapter-level accuracy is tracked week over week, and the study plan is rebuilt from that data rather than a fixed calendar. Parents receive the same picture in a weekly report. The result is that progress is visible to you and verifiable in your own numbers, instead of asserted by us in a brochure.',
     },
     {
       heading: 'MindPeak vs Batch JEE Coaching',
@@ -249,19 +266,28 @@ const jeeCoachingPage: SEOPageData = {
       },
     },
     {
-      heading: 'Faculty Credentials & Selection Rate',
-      content: `MindPeak\'s JEE faculty bench is small by design — four full-time mentors who personally teach every student. Dr. Ananya Sharma handles Physics: M.Sc. Physics from IIT Bombay, Ph.D. from IISc Bangalore, twelve years of JEE Physics coaching, and the mentor behind our AIR 42 in JEE Advanced. Rajesh Kumar handles Mathematics: B.Tech from IIT Delhi with an AIR under 200 in his own JEE attempt, ten years of JEE Mathematics coaching, and a track record of pushing 20+ students past the 95 percentile mark in JEE Main Mathematics. Vikram Patel handles Chemistry across both branches: M.Sc. Chemistry from IIT Kanpur, GATE 99.5 percentile, eleven years of JEE and NEET Chemistry coaching. Hiring is brutal — out of every 100 applicants who clear the credentials check, only three pass our live teaching demonstration and JEE Advanced-level subject test. That 3% selection rate is why we can promise the same faculty quality to a student in Bengaluru as to a student in a small-town in Bihar.`,
+      /*
+       * Rewritten to the REAL faculty in src/data/authorData.ts. The previous
+       * copy named three people who do not work here ("Dr. Ananya Sharma",
+       * "Rajesh Kumar", "Vikram Patel") with invented credentials, plus a
+       * fabricated 3% selection rate and results ledger — the same fake bench
+       * that was removed from /about. Credentials below are user-confirmed;
+       * do not add specifics (years, institutions) without verification.
+       */
+      heading: 'Who Teaches You',
+      content: `MindPeak\'s JEE bench is small by design — subject specialists who personally teach every session, with no rotating faculty and no teaching assistants. Physics is led by founder Devansh Sharma (BDS), who teaches problem-solving systematically: read the problem, identify the principle at play, reach the right equation without guessing. Nishkresh Mishra (Master\'s in Physics) focuses on the areas students find hardest — Mechanics, Electrodynamics and Modern Physics — and on diagnosing exactly where a student\'s reasoning breaks down. Mathematics is taught by Krishnendu Brahmachari (Master\'s in Mathematics), who treats JEE Maths as pattern recognition rather than rote procedure. Chemistry is covered by Sahil Singh (Bachelor\'s in Chemistry) and Aparna Chandra (Ph.D. in Chemistry), who teach reaction mechanisms through electron-flow logic so students can predict products for reactions they have never seen. You meet the specific mentor assigned to you in the free trial class — before paying anything — so you can judge the match yourself rather than trust a bench description.`,
       bullets: [
-        'Dr. Ananya Sharma — JEE Physics, M.Sc. IIT Bombay + Ph.D. IISc, 12 years experience, mentor of AIR 42 in JEE Advanced.',
-        'Rajesh Kumar — JEE Mathematics, B.Tech IIT Delhi (AIR under 200), 10 years experience.',
-        'Vikram Patel — JEE Chemistry, M.Sc. IIT Kanpur, GATE 99.5 percentile, 11 years experience.',
-        '3% faculty selection rate — every mentor has cleared credentials, a live teaching demo, and a JEE Advanced subject test.',
-        '500+ students mentored across India, 95% selection rate in JEE Main, AIR 42 in JEE Advanced and AIR 89 in JEE Main as the headline results.',
+        'Devansh Sharma — BDS · Founder, JEE & NEET Physics',
+        'Nishkresh Mishra — Master\'s in Physics · Mechanics, Electrodynamics, Modern Physics',
+        'Krishnendu Brahmachari — Master\'s in Mathematics · JEE Mathematics',
+        'Sahil Singh — Bachelor\'s in Chemistry · JEE & NEET Chemistry',
+        'Aparna Chandra — Ph.D. in Chemistry · JEE & NEET Chemistry',
+        'You are taught by the mentor you meet in the free trial — not a demo specialist',
       ],
     },
   ],
   faqs: [
-    { q: 'Is online JEE coaching as effective as offline coaching?', a: 'Yes — in fact, 1-on-1 online JEE coaching often outperforms offline batch coaching. Our AIR 42 result in JEE Advanced was achieved entirely through online live classes. The personalised attention, adaptive curriculum, and daily live sessions with a dedicated mentor ensure deeper understanding than passive listening in a 200-student classroom.' },
+    { q: 'Is online JEE coaching as effective as offline coaching?', a: 'For students who need personal attention, yes. The variable that matters is not online versus offline but one-to-one versus batch: daily live sessions with a dedicated mentor, an adaptive curriculum and doubts resolved as they arise produce deeper understanding than passive listening in a 200-student classroom. We publish no rank claims to prove it — take the free trial and judge the teaching yourself.' },
     { q: 'What are the fees for JEE coaching at MindPeak?', a: 'Our online JEE coaching starts at ₹1,30,000 + GST for the 1-year program (Class 12 or dropper) and ₹2,30,000 + GST for the 2-year program (Class 11 + Class 12). Subject-wise crash courses in Physics, Chemistry, or Mathematics start at ₹18,000. Scholarships are available based on diagnostic test performance.' },
     { q: 'Can I join MindPeak for JEE coaching mid-year?', a: 'Absolutely. Since all coaching is 1-on-1, there are no batch constraints. Your mentor builds a customised plan that accounts for your current preparation level and covers any syllabus gaps from where you actually are, not from where a generic batch is.' },
     { q: 'Does MindPeak cover both JEE Main and JEE Advanced ' + CURRENT_EXAM_YEAR + '?', a: `Yes. All our JEE programs cover both JEE Main ${CURRENT_EXAM_YEAR} and JEE Advanced ${CURRENT_EXAM_YEAR} comprehensively. The curriculum builds JEE Main readiness first through chapter-wise coverage and weekly mock tests, then progressively layers JEE Advanced-level multi-concept problem solving in Physics, Chemistry, and Mathematics.` },
@@ -288,7 +314,7 @@ const jeeCoachingPage: SEOPageData = {
 const neetCoachingPage: SEOPageData = {
   slug: 'neet-coaching',
   title: `Online NEET Coaching ${CURRENT_EXAM_YEAR} — 1-on-1 AIIMS Mentors | MindPeak`,
-  description: `India's #1 online NEET coaching. AIIMS-alumnus mentor, NCERT-first approach, daily 1-on-1 sessions. AIR 156 achieved. 95% selection rate. Book free demo.`,
+  description: `Online NEET coaching with a dedicated 1-on-1 mentor — NCERT-first Biology, daily live sessions, per-mock accuracy analysis, weekly parent reports.`,
   h1: `Best NEET Coaching Online ${CURRENT_EXAM_YEAR}`,
   h1Highlight: '1-on-1 by AIIMS Alumni — NCERT Mastery',
   heroSubtitle: 'Your dream of AIIMS, JIPMER, or a top government medical college starts with the right mentor. MindPeak\'s NEET coaching combines NCERT mastery, dedicated 1-on-1 sessions, and intelligent performance tracking to maximise your NEET score.',
@@ -320,8 +346,10 @@ const neetCoachingPage: SEOPageData = {
       ],
     },
     {
-      heading: 'Our NEET Results',
-      content: 'MindPeak\'s NEET track record speaks volumes. Our best NEET rank is AIR 156 — achieved through pure 1-on-1 mentoring. Multiple students have scored 650+ in NEET, securing admissions in top government medical colleges across India. The average score improvement for MindPeak NEET students is 180+ marks within the first four months. Our Biology-focused approach, combined with strong Physics and Chemistry preparation, consistently produces well-rounded NEET performers.',
+      // Invented results ledger removed (AIR 156, "180+ marks in four
+      // months") — see the note on the JEE equivalent above.
+      heading: 'How Progress Is Measured',
+      content: 'We do not publish rank claims or success percentages, because we have no audited, consented student results to show. What we can describe is the mechanism, which you can verify in your own numbers. NEET rewards accuracy under time pressure, so every mock is reviewed with your mentor question by question: which errors were knowledge gaps, which were misread assertion-reason phrasing, which were OMR or pacing losses. NCERT coverage is tracked line by line for Biology, chapter accuracy is trended week over week, and the plan is rebuilt from that data. Parents receive the same picture weekly.',
     },
     {
       heading: 'NEET Coaching for Class 11 Students',
@@ -420,14 +448,19 @@ const neetCoachingPage: SEOPageData = {
       },
     },
     {
-      heading: 'Faculty — AIIMS & IIT Mentors Only',
-      content: `Our NEET faculty bench is intentionally small. Dr. Priya Nair handles Biology for every NEET student — MBBS from AIIMS Delhi, 8 years of NEET Biology coaching, and a track record of students consistently scoring 340+ in Biology out of 360 marks. Vikram Patel handles NEET Chemistry across Physical, Organic, and Inorganic — M.Sc. Chemistry from IIT Kanpur, GATE 99.5 percentile, 11 years of NEET and JEE coaching. Dr. Ananya Sharma handles NEET Physics — M.Sc. Physics from IIT Bombay, Ph.D. from IISc Bangalore, 12 years of coaching. Only 3% of applicants who clear the credentials check pass our live teaching demo and NEET subject test. That is why a Class 11 student in a small Bihar town gets the same AIIMS-alumna Biology mentor as a student in Mumbai.`,
+      // Real faculty from src/data/authorData.ts. The previous copy named
+      // three people who do not work here (Dr. Priya Nair, Vikram Patel,
+      // Dr. Ananya Sharma) with invented credentials and a fabricated 3%
+      // selection rate.
+      heading: 'Who Teaches You',
+      content: `Our NEET bench is intentionally small — subject specialists who personally teach every session. Biology is taught by Muskan (MDS), with an NCERT-first, exam-pattern-driven approach that connects each concept to how NTA actually tests it, and by Muskan Singla, who focuses on Botany and the high-yield NCERT lines NEET repeats. Chemistry is covered by Aparna Chandra (Ph.D. in Chemistry) and Sahil Singh (Bachelor\'s in Chemistry), who teach it as a logical subject rather than a list to memorise. Physics — the section that most often decides a NEET rank — is led by founder Devansh Sharma (BDS) and Nishkresh Mishra (Master\'s in Physics). You meet the specific mentor assigned to you in the free trial class, before paying anything.`,
       bullets: [
-        'Dr. Priya Nair — NEET Biology, MBBS AIIMS Delhi, 8 years experience, students consistently score 340+/360 in Biology.',
-        'Vikram Patel — NEET Chemistry, M.Sc. IIT Kanpur, 11 years experience, GATE 99.5 percentile.',
-        'Dr. Ananya Sharma — NEET Physics, M.Sc. IIT Bombay + Ph.D. IISc, 12 years experience.',
-        '3% faculty selection rate — every NEET mentor has cleared credentials, a live teaching demo, and a NEET-Advanced level subject test.',
-        '500+ students mentored across India, 95% selection rate, AIR 156 in NEET UG as the headline result.',
+        'Muskan — MDS · NEET Biology, NCERT-first and exam-pattern driven',
+        'Muskan Singla — NEET Biology · Botany and high-yield NCERT recall',
+        'Aparna Chandra — Ph.D. in Chemistry · NEET Chemistry',
+        'Sahil Singh — Bachelor\'s in Chemistry · NEET Chemistry',
+        'Devansh Sharma (BDS) & Nishkresh Mishra (M.Sc. Physics) — NEET Physics',
+        'You are taught by the mentor you meet in the free trial — not a demo specialist',
       ],
     },
   ],
@@ -436,7 +469,7 @@ const neetCoachingPage: SEOPageData = {
     { q: 'What are NEET coaching fees at MindPeak?', a: 'Online NEET coaching starts at ₹1,30,000 + GST for the 1-year program (Class 12 or dropper) and ₹2,30,000 + GST for the 2-year program (Class 11 + Class 12). Subject-wise NEET crash courses in Biology, Physics, or Chemistry start at ₹18,000. Scholarships are available based on diagnostic NEET test performance.' },
     { q: 'Does MindPeak provide NCERT-based NEET coaching?', a: 'Yes — NCERT is the spine of every NEET chapter we teach. We go line-by-line through NCERT Class 11 and Class 12 Biology, Physics, and Chemistry, including every diagram, table, footnote, and in-text question, before any reference book is opened. Roughly 90% of NEET questions are NCERT-derived, so NCERT mastery directly translates into NEET marks.' },
     { q: 'Can NEET droppers join MindPeak?', a: 'Yes. We run a dedicated NEET dropper program with focused gap analysis from your previous attempt scorecard. Your AIIMS-alumna mentor builds a customised plan targeting the specific Biology chapters, Physics topics, and Chemistry branches that cost you marks last year.' },
-    { q: 'How does MindPeak compare to Kota coaching for NEET?', a: 'MindPeak\'s 1-on-1 NEET model provides far more personalised attention than any Kota offline batch. The AIR 156 result was achieved entirely online without any relocation. You also save ₹3-5 lakh annually on Kota hostel, food, and travel — money that adds up to one full year of MBBS fees later.' },
+    { q: 'How does MindPeak compare to Kota coaching for NEET?', a: 'MindPeak\'s 1-on-1 NEET model gives far more personal attention than a Kota batch, and it needs no relocation at all. The saving is the concrete part: ₹3-5 lakh a year on hostel, food and travel — money that adds up to a full year of MBBS fees later. We make no rank claims; the free trial is how you judge the teaching.' },
     { q: 'Is NCERT enough to crack NEET ' + CURRENT_EXAM_YEAR + '?', a: `For Biology, NCERT is enough for roughly 90% of NEET ${CURRENT_EXAM_YEAR} questions — but only if you own NCERT at the line-by-line level, including every footnote and diagram. For Chemistry, NCERT covers 85% and you should add NCERT Exemplar plus past NEET PYQs. For Physics, NCERT gives you the concept and you need DC Pandey for numerical practice. Our online NEET coaching builds exactly this stack — NCERT first, supplements only after NCERT mastery.` },
     { q: 'How does 1-on-1 NEET coaching help with Biology diagrams?', a: 'Biology diagrams are 30-40 marks in any NEET paper. In a 1-on-1 NEET class, your mentor watches you draw the diagram live — heart, nephron, alimentary canal, photosynthesis, DNA replication — corrects labels in real time, and re-tests you the next session. That feedback loop is impossible in a batch class where the teacher cannot see anyone\'s notebook.' },
     { q: 'What\'s the daily online NEET coaching schedule at MindPeak?', a: 'A typical Class 12 NEET day: morning school, a 60-75 minute live 1-on-1 NEET class with your mentor in the late afternoon, 90 minutes of MCQ practice and NCERT reading, and one mock review per week. Class 11 NEET students get a lighter 2-hour daily load. Dropper students study 8-10 focused hours daily with two live sessions on alternate days.' },
@@ -456,8 +489,14 @@ const neetCoachingPage: SEOPageData = {
 
 const pricingPage: SEOPageData = {
   slug: 'pricing',
-  title: 'JEE & NEET Coaching Fees — Affordable 1-on-1 Plans | MindPeak',
-  description: 'Transparent pricing for personalized 1-on-1 JEE & NEET coaching. Starting ₹1,30,000/year. Compare with batch coaching. Scholarships available. No hidden fees.',
+  /*
+   * Targets the budget-intent query cluster ("coaching fees", "affordable",
+   * "cheap") honestly: leads with the genuinely low entry points (₹8,000 test
+   * series, ₹25,000 single-subject) rather than only the ₹1.3L flagship, and
+   * with the free trial. Every figure matches pricingData.
+   */
+  title: 'JEE & NEET Coaching Fees — 1-on-1 Plans | MindPeak',
+  description: 'Transparent JEE & NEET coaching fees: 1-on-1 plans, subject courses from ₹25,000, test series from ₹8,000, EMI available. Free trial before you pay.',
   h1: 'Coaching',
   h1Highlight: 'Fees & Plans',
   heroSubtitle: 'Transparent, all-inclusive pricing for personalized 1-on-1 JEE and NEET coaching. No hidden charges, no surprise fees — just world-class mentoring at a fraction of the cost of relocating to Kota.',
@@ -597,8 +636,8 @@ const contactPage: SEOPageData = {
 
 const freeTrialPage: SEOPageData = {
   slug: 'free-trial',
-  title: 'Free Trial Class — Experience 1-on-1 JEE & NEET Coaching | MindPeak',
-  description: 'Book a free trial class with a dedicated JEE/NEET mentor. Experience personalized 1-on-1 coaching, get a diagnostic assessment & study plan. No obligation, 100% free.',
+  title: 'Free JEE & NEET Trial Class — 1-on-1 with a Mentor',
+  description: 'Book a free 1-on-1 trial class with the mentor you would actually be assigned. Diagnostic assessment and study plan included. No payment, no obligation.',
   h1: 'Book Your',
   h1Highlight: 'Free Trial Class',
   heroSubtitle: 'Experience the MindPeak difference firsthand. Get paired with a dedicated mentor, receive a diagnostic assessment of your preparation, and walk away with a personalised study plan — all completely free.',
@@ -656,7 +695,7 @@ const freeTrialPage: SEOPageData = {
 const jeeMainPage: SEOPageData = {
   slug: 'jee-main-coaching',
   title: 'JEE Main Coaching Online — Score 250+ with 1-on-1 Mentoring | MindPeak',
-  description: 'Targeted JEE Main coaching with personalized 1-on-1 mentoring. Focus on NTA patterns, score optimization & time management. 95% students score 200+. Start free trial.',
+  description: 'Targeted JEE Main coaching with 1-on-1 mentoring — NTA exam patterns, attempt strategy, and time management, rebuilt around your own mock data.',
   h1: 'JEE Main',
   h1Highlight: 'Coaching Online',
   heroSubtitle: 'JEE Main is the gateway to NITs, IIITs, and JEE Advanced eligibility. MindPeak\'s targeted 1-on-1 approach focuses on NTA exam patterns, question-type mastery, and time management strategies to help you score 250+ in JEE Main.',
@@ -768,23 +807,26 @@ const jeeMainPage: SEOPageData = {
         '1-on-1 live JEE Main classes daily, six days a week, with one mentor for the entire course',
         'Sub-2-hour doubt SLA versus the 24-hour SLA at Aakash, PW, Vedantu',
         'NTA-pattern test series and analytics dashboard included',
-        '500+ students mentored across India, AIR 89 in JEE Main, 95% selection rate',
+        'A study plan rebuilt each week from your own mock-test data, not a fixed batch calendar',
       ],
     },
     {
-      heading: 'Faculty Credentials — IIT, IISc Mentors Only',
-      content: `MindPeak\'s JEE Main faculty bench is intentionally small. Dr. Ananya Sharma teaches Physics — M.Sc. Physics from IIT Bombay, Ph.D. from IISc Bangalore, 12 years of JEE coaching. Rajesh Kumar teaches Mathematics — B.Tech IIT Delhi with an AIR under 200 in his own JEE attempt, 10 years of coaching, 20+ students above 95 percentile in JEE Main Mathematics. Vikram Patel teaches Chemistry — M.Sc. IIT Kanpur, GATE 99.5 percentile, 11 years. Only 3% of applicants pass the live teaching demo and JEE Advanced-level subject test. AIR 89 in JEE Main is our headline JEE Main result so far.`,
+      // Real bench from src/data/authorData.ts; invented people, "3%
+      // selection rate" and the AIR 89 claim removed.
+      heading: 'Who Teaches You',
+      content: `MindPeak\'s JEE Main bench is intentionally small — subject specialists who personally teach every session rather than rotating faculty. Physics is led by founder Devansh Sharma (BDS) and Nishkresh Mishra (Master\'s in Physics), who between them cover the Mechanics, Electrodynamics and Modern Physics ground where most JEE Main marks are won and lost. Mathematics is taught by Krishnendu Brahmachari (Master\'s in Mathematics), with Sri Bala and Vinod focusing on speed and accuracy through timed practice on the exact question types a student finds shaky. Chemistry is covered by Sahil Singh (Bachelor\'s in Chemistry), Aparna (M.Sc. Chemistry) and Aparna Chandra (Ph.D. in Chemistry). You meet your assigned mentor in the free trial class before paying anything.`,
       bullets: [
-        'Dr. Ananya Sharma — JEE Main Physics, M.Sc. IIT Bombay + Ph.D. IISc, 12 years',
-        'Rajesh Kumar — JEE Main Mathematics, B.Tech IIT Delhi, 10 years',
-        'Vikram Patel — JEE Main Chemistry, M.Sc. IIT Kanpur, 11 years',
-        '3% faculty selection rate — every IIT-alumna mentor cleared a live teaching demo and subject test',
+        'Devansh Sharma — BDS · Founder, JEE Physics',
+        'Nishkresh Mishra — Master\'s in Physics · JEE Physics',
+        'Krishnendu Brahmachari — Master\'s in Mathematics · JEE Mathematics',
+        'Sahil Singh, Aparna (M.Sc.) and Aparna Chandra (Ph.D.) — JEE Chemistry',
+        'You are taught by the mentor you meet in the free trial — not a demo specialist',
       ],
     },
   ],
   faqs: [
     { q: 'How is JEE Main coaching different from JEE Advanced coaching?', a: 'JEE Main focuses on breadth, NTA pattern speed, and pattern recognition; JEE Advanced tests depth and analytical thinking. Our online JEE Main coaching prioritises NTA exam pattern, numerical-value-question format, and full-syllabus coverage. Students targeting both JEE Main and JEE Advanced get integrated preparation with the same dedicated IIT-alumnus mentor.' },
-    { q: 'What score can I expect after MindPeak coaching?', a: 'Based on our track record, 95% of MindPeak students score above 200 in JEE Main. Students who join 6+ months before the JEE Main attempt typically see 100-150 mark improvement. Our headline JEE Main result is AIR 89 with multiple students above the 99 percentile in Physics, Chemistry, and Mathematics individually.' },
+    { q: 'What score can I expect after MindPeak coaching?', a: 'We will not give you a number, and you should be wary of any institute that does. Score outcomes depend on your starting point, how much time remains, and how consistently you do the work — no coaching can promise a rank honestly. What we commit to is the process: a diagnostic in week one to establish where you actually stand, a plan targeted at the chapters costing you the most marks, and every mock reviewed with your mentor so you can see the trend in your own numbers rather than take our word for it.' },
     { q: 'Does MindPeak cover the JEE Main January and April sessions?', a: 'Yes. Our preparation covers both JEE Main January and April attempts. Mock tests and revision schedules are calibrated for each session, and your mentor adjusts the study plan based on your January attempt analytics if you are appearing in both. The dropper version of the course gives both attempts equal weight.' },
     { q: 'What\'s the daily schedule for an online JEE Main coaching student?', a: 'A Class 12 day: school, a 60-75 minute live 1-on-1 JEE Main class in the late afternoon, 90 minutes of Daily Practice Problems, 30 minutes of NCERT or HC Verma reading, and one mock review per week. Class 11 students get a lighter 2-hour load. Droppers do 8-10 focused study hours with two live sessions on alternate days.' },
     { q: 'How does MindPeak\'s 1-on-1 JEE Main coaching compare to Aakash\'s batch model?', a: 'Aakash live online JEE Main classes typically have 100-300 students per batch. MindPeak runs every JEE Main class as 1-on-1 with one IIT-alumnus mentor for the whole course. Doubt SLA is sub-2 hours instead of Aakash\'s 24. NTA-pattern test series and a per-chapter analytics dashboard are included.' },
@@ -808,14 +850,14 @@ const jeeMainPage: SEOPageData = {
 const jeeAdvancedPage: SEOPageData = {
   slug: 'jee-advanced-coaching',
   title: 'JEE Advanced Coaching — Crack Top IIT Ranks with 1-on-1 Mentoring | MindPeak',
-  description: 'JEE Advanced coaching for IIT aspirants. Our AIR 42 result proves 1-on-1 mentoring works. Advanced problem-solving, multi-concept questions, exam strategy. Free trial.',
+  description: 'JEE Advanced coaching for IIT aspirants — 1-on-1 mentoring on multi-concept problem solving, integer and matrix-match formats, and exam strategy.',
   h1: 'JEE Advanced',
   h1Highlight: 'Coaching for IIT',
-  heroSubtitle: 'JEE Advanced is the ultimate test of problem-solving ability. Our best rank — AIR 42 — was achieved through the same 1-on-1 mentoring approach that every MindPeak student receives. Deep conceptual mastery, multi-concept problem solving, and strategic exam preparation.',
+  heroSubtitle: 'JEE Advanced is the ultimate test of problem-solving ability — it rewards connecting concepts across chapters under time pressure, not recall. Our 1-on-1 mentoring targets exactly that: deep conceptual mastery, multi-concept problem solving, and strategic exam preparation built around where your reasoning actually breaks down.',
   sections: [
     {
       heading: 'Why JEE Advanced Demands Personalised Coaching',
-      content: 'JEE Advanced is fundamentally different from JEE Main. It tests not just knowledge but the ability to connect multiple concepts, solve unconventional problems, and think creatively under pressure. Batch coaching, by its nature, cannot develop these skills — they require 1-on-1 mentoring where a dedicated teacher understands your thought process and pushes you beyond your comfort zone. MindPeak\'s AIR 42 result is proof that personalised attention outperforms even Kota\'s best batch coaching for JEE Advanced.',
+      content: 'JEE Advanced is fundamentally different from JEE Main. It tests not just knowledge but the ability to connect multiple concepts, solve unconventional problems, and think creatively under pressure. Batch coaching, by its nature, cannot develop these skills — they require 1-on-1 mentoring where a dedicated teacher understands your thought process and pushes you beyond your comfort zone. A mentor watching one student reason through a problem is what personalised attention buys you, and it is hard to reproduce in best batch coaching for JEE Advanced.',
     },
     {
       heading: 'Our JEE Advanced Preparation Approach',
@@ -830,8 +872,14 @@ const jeeAdvancedPage: SEOPageData = {
       ],
     },
     {
-      heading: 'From AIR 42 — What We Learned',
-      content: 'Our AIR 42 student in JEE Advanced taught us a powerful lesson: talent without the right guidance is wasted, and average talent with exceptional guidance can achieve extraordinary results. When he joined MindPeak, he was scoring 120/300 in mock tests. His dedicated mentor identified specific gaps in his problem-solving approach, rebuilt his conceptual foundation in Physics and Mathematics, and trained him in the analytical thinking patterns that JEE Advanced demands. Six months later, he scored AIR 42. This isn\'t an anomaly — it\'s what personalised coaching can achieve.',
+      /*
+       * The entire "From AIR 42 — What We Learned" section was an invented
+       * case study (student, scores, timeline). Replaced with the actual
+       * method it was dramatising, which stands on its own without a fake
+       * protagonist.
+       */
+      heading: 'What Actually Moves a JEE Advanced Score',
+      content: 'Most students stuck below their target in JEE Advanced do not have a knowledge problem — they have a transfer problem. They can state a principle but cannot recognise it inside an unfamiliar, multi-concept question under time pressure. Batch coaching rarely fixes this, because diagnosing it requires watching one student think. In a 1-on-1 session your mentor works through unsolved problems with you, watching where the reasoning stalls: a missed symmetry, an unconsidered limiting case, a wrong starting equation. That specific failure pattern then becomes the week\'s drilling target. It is slower to set up than a lecture and considerably more effective per hour, which is the whole argument for the format.',
     },
     {
       heading: 'JEE Advanced Coaching for Class 11 Students',
@@ -880,7 +928,7 @@ const jeeAdvancedPage: SEOPageData = {
         'Adaptive curriculum — your mentor recalibrates pace based on daily performance.',
         'Direct WhatsApp number for the mentor — no call centre, no junior tutors.',
       ],
-      authorityNote: 'Our 3 per cent faculty selection rate means the mentor running your JEE Advanced classes was filtered from 100+ IIT/IISc applicants with at least 8 years of competitive-exam coaching experience.',
+      authorityNote: 'You are not assigned a mentor sight-unseen: the free trial class is taken with the mentor who would actually teach you, so you can judge the teaching before any payment and switch, free, if the fit is wrong.',
     },
     {
       heading: 'JEE Advanced Doubt Resolution — Sub-2-Hour SLA',
@@ -931,32 +979,39 @@ const jeeAdvancedPage: SEOPageData = {
           ['Doubt SLA', 'Sub-2-hour WhatsApp', '24-48 hours', 'Forum-based', '24 hours', '24-48 hours'],
           ['Daily live class', 'Yes, 6 days a week', 'Scheduled batches', 'Recorded + live', 'Scheduled batches', 'Scheduled batches'],
           ['Weekly mock with mentor review', 'Yes, 1-on-1 review', 'Self-review', 'Self-review', 'Group review', 'Self-review'],
-          ['Faculty selection rate', '3%', 'Not disclosed', 'Not disclosed', 'Not disclosed', 'Not disclosed'],
           ['Annual fee (1-on-1)', '₹1,30,000 + GST', '₹80k-1.5L (batch)', '₹40k-80k (batch)', '₹80k-1.4L (batch)', '₹1L-2L (batch)'],
         ],
       },
       authorityNote: 'For a JEE Advanced aspirant targeting a top-100 AIR, the question is not "which is cheaper" but "which delivers daily 1-on-1 mentor attention for an 18 to 24 month preparation cycle". Only MindPeak does.',
     },
     {
-      heading: 'Verified JEE Advanced Student Outcomes',
-      content: `Every result below is verified from official NTA / JoSAA scorecards with student consent. Across the last three batches, MindPeak\'s online JEE Advanced students have improved by an average of 88 marks over their JEE Main baseline. Pricing for the 1-on-1 JEE Advanced programme starts at ₹1,30,000 + GST per year for the 1-year intensive and ₹2,30,000 + GST for the 2-year Class 11 starting programme.`,
+      /*
+       * This section previously asserted "Every result below is verified from
+       * official NTA / JoSAA scorecards with student consent" above six
+       * invented outcomes — a fabricated claim of verification, which is worse
+       * than an unsourced one. Per no-fabricated-claims.test.ts there are no
+       * published, attributable results. Replaced with the programme facts
+       * that are true and checkable (pricing from pricingData).
+       */
+      heading: 'What the JEE Advanced Programme Includes',
+      content: `We publish no student rank claims, because we have no audited, consented outcomes to publish — and unverifiable ranks are exactly what makes coaching advertising worthless to the families reading it. What we can state plainly is what you get. The 1-on-1 JEE Advanced programme runs at ₹1,30,000 + GST for the one-year intensive and ₹2,30,000 + GST for the two-year Class 11 start. Both include daily live 1-on-1 classes, Paper 1 and Paper 2 pattern mocks with a personal review of every paper, structured daily practice problems, and weekly parent reports.`,
       bullets: [
-        'AIR 42 in JEE Advanced 2025 — student improved from 120/300 to AIR 42 in 11 months under Dr. Ananya Sharma.',
-        'AIR 412 in JEE Advanced — Class 12 student from Indore, secured admission to IIT Roorkee.',
-        'AIR 89 in JEE Main + AIR 1,247 in JEE Advanced — Mathematics improved from 52 to 91 under Rajesh Kumar.',
-        'Dropper from Patna — JEE Advanced rank improved from outside 20,000 to top 5,000, admitted to IIT BHU.',
-        'Class 11 starter from Bangalore — currently scoring 95+ percentile in JEE Main, on track for AIR under 500.',
-        'Average JEE Advanced mark improvement: 88 marks across 200+ MindPeak students in 2024-25.',
+        'Daily live 1-on-1 classes with the same mentor throughout the programme',
+        'JEE Advanced pattern mocks (Paper 1 + Paper 2), each followed by a 1-on-1 review',
+        'Training on the formats unique to Advanced — integer-type, matrix-match, comprehension',
+        'Structured daily practice problems calibrated to your current level',
+        'Weekly parent reports covering coverage, accuracy trend and the next block\'s targets',
+        'A free trial class with your assigned mentor before you pay anything',
       ],
     },
   ],
   faqs: [
-    { q: 'Can I prepare for JEE Advanced through online coaching?', a: 'Absolutely. Our AIR 42 result was achieved entirely through online 1-on-1 coaching. The personalised attention, adaptive curriculum, and intensive problem-solving practice translate perfectly to the online format — often better than offline batch coaching.' },
+    { q: 'Can I prepare for JEE Advanced through online coaching?', a: 'Yes. JEE Advanced rewards multi-concept problem solving, which is exactly what a mentor watching you work a problem live can diagnose and fix. Personal attention, an adaptive plan and intensive problem practice translate fully to the online format — and a shared digital whiteboard loses nothing versus sitting across a table.' },
     { q: 'When should I start JEE Advanced preparation?', a: 'Ideally, start in Class 11 with our 2-year program. However, even 1-year and crash course students have achieved excellent JEE Advanced ranks. Your mentor will create an optimal plan based on your starting point and timeline.' },
     { q: 'Does MindPeak cover JEE Advanced-specific topics?', a: 'Yes. Our JEE Advanced curriculum includes topics and question types not covered in JEE Main — like comprehension-based questions, matrix matching, integer-type problems, and multi-concept integrations. These require specialised practice that only 1-on-1 coaching can provide effectively.' },
     { q: 'How is online JEE Advanced coaching at MindPeak different from a batch class at Aakash or Vedantu?', a: 'A batch online JEE Advanced class has one faculty for 60 to 200 students; MindPeak runs true 1-on-1 live online classes where the same IIT-alumnus mentor coaches you daily for 6 days a week throughout the entire preparation cycle. Doubt SLA is sub-2-hour on WhatsApp versus 24 to 48 hours at most batch coaching brands.' },
     { q: 'How many hours of daily JEE Advanced coaching does MindPeak provide?', a: 'Daily 1-on-1 live online classes run 75 to 90 minutes, 6 days a week. On top of that, students are assigned 5 to 7 hours of self-practice with structured DPPs (Daily Practice Problems), one doubt-class slot weekly, and one full-length mock test review session. Total weekly mentor contact time exceeds 12 hours.' },
-    { q: 'Who will teach me at MindPeak for JEE Advanced?', a: 'Your dedicated mentor team includes Dr. Ananya Sharma (M.Sc IIT Bombay + Ph.D IISc) for Physics, Rajesh Kumar (B.Tech IIT Delhi) for Mathematics, and Vikram Patel (M.Sc IIT Kanpur) for Chemistry. Every JEE Advanced faculty member is an IIT or IISc alumnus with at least 8 years of competitive-exam coaching experience, selected through our 3 per cent faculty acceptance rate.' },
+    { q: 'Who will teach me at MindPeak for JEE Advanced?', a: 'Physics is led by founder Devansh Sharma (BDS) and Nishkresh Mishra (Master\'s in Physics); Mathematics by Krishnendu Brahmachari (Master\'s in Mathematics); Chemistry by Sahil Singh (Bachelor\'s in Chemistry) and Aparna Chandra (Ph.D. in Chemistry). You meet the specific mentor assigned to you in the free trial class, before paying anything, so you can judge the teaching yourself with at least and you meet the specific mentor assigned to you in a free trial class, before paying anything.' },
     { q: 'Does the JEE Advanced coaching include test series and mock tests?', a: 'Yes. Every JEE Advanced coaching plan includes weekly chapter tests, monthly JEE Advanced pattern mocks (Paper 1 + Paper 2), and quarterly full-length mocks under exam timing — all followed by a 1-on-1 paper review with your mentor the next day.' },
     { q: 'What study material does MindPeak provide for JEE Advanced preparation?', a: 'Comprehensive study material covering NCERT, HC Verma, DC Pandey, Irodov, MS Chouhan, JD Lee, OP Tandon, RD Sharma and Cengage references — plus MindPeak\'s in-house chapter notes, 150+ formula sheets, and 20 Years JEE Main / 15 Years JEE Advanced PYQ booklets integrated chapter by chapter.' },
     { q: 'Can a JEE dropper still aim for a top IIT through MindPeak?', a: 'Yes, and we have multiple examples — including students who moved from outside AIR 20,000 to inside AIR 5,000 in a single dropper year. The key is forensic gap analysis of the previous attempt, followed by 1-on-1 daily mentoring that compresses concept relearning and pushes JEE Advanced problem-solving intensity.' },
@@ -975,10 +1030,10 @@ const jeeAdvancedPage: SEOPageData = {
 const neetUgPage: SEOPageData = {
   slug: 'neet-ug-coaching',
   title: 'NEET UG Coaching Online — NCERT-First Approach | MindPeak',
-  description: 'NEET UG preparation with NCERT-first 1-on-1 coaching. Dedicated Biology focus, daily sessions, mock tests. AIR 156 achieved. Start your free trial today.',
+  description: 'NEET UG preparation with NCERT-first 1-on-1 coaching — line-by-line Biology, daily live sessions, and per-mock accuracy review. Free trial class.',
   h1: 'NEET UG',
   h1Highlight: 'Coaching Online',
-  heroSubtitle: 'NEET UG is the only gateway to MBBS admissions in India. Our NCERT-first, Biology-focused approach with dedicated 1-on-1 mentoring has produced AIR 156 and consistently helped students score 650+ to secure government medical college seats.',
+  heroSubtitle: 'NEET UG is the only gateway to MBBS admissions in India. Our NCERT-first, Biology-focused approach pairs every student with a dedicated 1-on-1 mentor, because NEET rewards line-level NCERT mastery and accuracy under time pressure more than it rewards extra medical college seats.',
   sections: [
     {
       heading: `NEET UG ${CURRENT_EXAM_YEAR} — Exam Overview`,
@@ -1040,7 +1095,7 @@ const neetUgPage: SEOPageData = {
         'Daily NCERT-based DPP (Daily Practice Problems) issued by the mentor.',
         'Reference books introduced only after NCERT mastery — typically from month 4.',
       ],
-      authorityNote: 'In our 1-on-1 NEET UG coaching, Dr. Priya Nair (MBBS AIIMS Delhi) personally runs a weekly NCERT audit — she picks 10 random NCERT lines and asks the student to produce the MCQ they would write from each one. This single drill is the highest-correlation indicator we have for a 650+ NEET UG score.',
+      authorityNote: 'In our 1-on-1 NEET UG coaching, the Biology mentor runs a weekly NCERT audit — picking 10 random NCERT lines and asking the student to produce the MCQ they would write from each one. It is a fast way to expose lines a student can recite but has not understood well enough to be questioned on.',
     },
     {
       heading: 'How Our Online NEET UG Classes Run',
@@ -1102,21 +1157,27 @@ const neetUgPage: SEOPageData = {
           ['Doubt SLA', 'Sub-2-hour WhatsApp', '24-48 hours', '24-48 hours', 'Forum-based', '24 hours'],
           ['Live class days/week', '6 days', 'Scheduled batches', 'Scheduled batches', 'Recorded + live', 'Scheduled batches'],
           ['Weekly mock with 1-on-1 review', 'Yes', 'Self-review', 'Self-review', 'Self-review', 'Group review'],
-          ['Faculty selection rate', '3%', 'Not disclosed', 'Not disclosed', 'Not disclosed', 'Not disclosed'],
           ['NCERT-first curriculum', 'Yes — documented', 'Implicit', 'Implicit', 'Mixed', 'Implicit'],
         ],
       },
     },
     {
-      heading: 'Verified NEET UG Student Results',
-      content: `Every NEET UG result below is verified from official NTA scorecards with student consent. Across the last three batches, MindPeak\'s online NEET UG students improved by an average of 142 marks over their joining baseline. Pricing for the 1-on-1 NEET UG programme starts at ₹1,30,000 + GST per year for the 1-year intensive and ₹2,30,000 + GST for the 2-year Class 11 starter programme.`,
+      /*
+       * Removed a fabricated verification claim ("verified from official NTA
+       * scorecards with student consent") over six invented results, plus a
+       * "142 mark average improvement" figure. No audited outcomes exist —
+       * see no-fabricated-claims.test.ts. Replaced with programme facts
+       * (pricing matches pricingData).
+       */
+      heading: 'What the NEET UG Programme Includes',
+      content: `We publish no rank or score claims. There are no audited, consented student outcomes to show, and unverifiable numbers are exactly what makes coaching advertising useless to the families reading it. Here is what the programme actually is. The 1-on-1 NEET UG programme runs at ₹1,30,000 + GST for the one-year intensive and ₹2,30,000 + GST for the two-year Class 11 start. Both are built NCERT-first for Biology, with Physics treated as the section that most often decides the rank.`,
       bullets: [
-        'AIR 156 in NEET UG — student scored 340/360 in Biology under Dr. Priya Nair, admitted to AIIMS Bhopal.',
-        'NEET UG 685/720 — Class 12 student from Coimbatore, admitted to Maulana Azad Medical College, Delhi.',
-        'NEET UG 658/720 — dropper from Patna who improved from 482 in the previous year.',
-        'Class 11 starter from Indore — currently scoring 640+ in monthly NEET UG mocks.',
-        '500+ MindPeak NEET UG students placed across AIIMS, JIPMER and government medical colleges over the last three cycles.',
-        `Average NEET UG mark improvement across the MindPeak online NEET UG cohort: 142 marks in NEET UG ${CURRENT_EXAM_YEAR}.`,
+        'Daily live 1-on-1 classes across Physics, Chemistry and Biology with one dedicated mentor',
+        'Line-by-line NCERT work in Biology, plus weekly NCERT audits to expose shallow recall',
+        'Full 180-question mocks under real timing, each reviewed with your mentor question by question',
+        'Error analysis separating concept gaps, misread assertion-reason phrasing, and OMR or pacing losses',
+        'Weekly parent reports covering NCERT coverage, accuracy trend and the next block\'s targets',
+        'A free trial class with your assigned mentor before you pay anything',
       ],
     },
   ],
@@ -1129,7 +1190,7 @@ const neetUgPage: SEOPageData = {
     { q: 'Do you provide NEET UG mock tests in NTA\'s exact pattern?', a: 'Yes — every NEET UG mock is in the exact NTA pattern: 180 questions across Physics, Chemistry and Biology, 200 minutes, identical exam UI, negative marking enabled. Weekly chapter tests, monthly half-mocks and quarterly full-length mocks are all NEET UG pattern.' },
     { q: 'How fast are NEET UG doubts resolved at MindPeak?', a: 'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week. Compared to the 24 to 48 hour SLAs at Aakash, Allen and PW, this is the single biggest day-to-day difference in our NEET UG online coaching.' },
     { q: 'How does MindPeak compare to Allen and Aakash for NEET UG preparation?', a: 'Allen and Aakash sell batch online NEET UG coaching with 60 to 200 students per class. MindPeak runs true 1-on-1 sessions with the same AIIMS-alumna mentor for the entire NEET UG cycle. Daily live classes, sub-2-hour doubt SLA, weekly mocks with 1-on-1 review — none of which a batch class can structurally deliver.' },
-    { q: 'Who teaches Biology at MindPeak for NEET UG?', a: 'Dr. Priya Nair, MBBS AIIMS Delhi, with 8 years of NEET Biology coaching and 200+ students mentored — her students consistently score 340+ out of 360 in NEET UG Biology. Other NEET UG Biology mentors are AIIMS, JIPMER or top government medical college alumni, selected through MindPeak\'s 3 per cent faculty acceptance rate.' },
+    { q: 'Who teaches Biology at MindPeak for NEET UG?', a: 'NEET Biology is taught by Muskan, who holds an MDS, with an NCERT-first approach that ties each concept to how NTA actually tests it, and by Muskan Singla, who focuses on Botany and the high-yield NCERT lines the exam repeats. You meet the mentor assigned to you in a free trial class before paying anything, so you can judge the teaching directly rather than rely on a credentials list.' },
     { q: 'Can a Class 12 student crack NEET UG with MindPeak\'s 1-year programme?', a: `Yes — every year a meaningful share of our NEET UG admissions to AIIMS and government medical colleges come from 1-year Class 12 students. The key is daily 1-on-1 NEET UG coaching, NCERT-first revision, and weekly mocks with 1-on-1 paper review from December onwards through to NEET UG ${CURRENT_EXAM_YEAR}.` },
   ],
   relatedPages: [
@@ -1143,8 +1204,10 @@ const neetUgPage: SEOPageData = {
 
 const jeeDropperPage: SEOPageData = {
   slug: 'jee-dropper-coaching',
-  title: 'JEE Dropper Coaching — Personalized Retry Strategy | MindPeak',
-  description: 'Failed JEE? Don\'t give up. MindPeak\'s 1-on-1 JEE dropper program identifies YOUR specific gaps and builds a targeted comeback strategy. 90% improvement rate.',
+  // Meta within limits (60/155) and free of the unsubstantiated "90%
+  // improvement rate" claim — answer engines quote descriptions verbatim.
+  title: 'JEE Dropper Coaching — 1-on-1 Comeback Plan | MindPeak',
+  description: 'Dropped a year for JEE? A 1-on-1 dropper program that starts from your actual attempt — which chapters cost you marks — and rebuilds from there.',
   h1: 'JEE Dropper',
   h1Highlight: 'Coaching Program',
   heroSubtitle: 'A failed JEE attempt isn\'t the end — it\'s a data point. MindPeak\'s 1-on-1 dropper program analyses your previous attempt to build a surgical preparation strategy targeting exactly where you lost marks.',
@@ -1245,14 +1308,16 @@ const jeeDropperPage: SEOPageData = {
     },
     {
       heading: 'Mentor Profile — Who Will Coach You',
-      content: 'Every MindPeak JEE dropper is assigned a dedicated mentor team for the full repeater cycle. Physics is led by Dr. Ananya Sharma (M.Sc IIT Bombay + Ph.D IISc) with 12 years of JEE coaching. Mathematics by Rajesh Kumar (B.Tech IIT Delhi, AIR under 200) with 10 years of coaching. Chemistry by Vikram Patel (M.Sc IIT Kanpur, GATE 99.5 percentile) with 11 years.',
+      // Real bench from authorData.ts; invented people, per-mentor student
+      // counts, rank claims and the "3 per cent acceptance rate" removed.
+      content: 'Every MindPeak JEE dropper is assigned a dedicated mentor for the full repeater cycle — the same person start to finish, so nobody has to re-learn your gap list halfway through the year. Physics is led by founder Devansh Sharma (BDS) and Nishkresh Mishra (Master\'s in Physics), who specialises in diagnosing exactly where a student\'s reasoning breaks down. Mathematics is taught by Krishnendu Brahmachari (Master\'s in Mathematics), and Chemistry by Sahil Singh (Bachelor\'s in Chemistry) and Aparna Chandra (Ph.D. in Chemistry).',
       bullets: [
-        'Dr. Ananya Sharma — Physics — 180+ JEE students coached, mentored AIR 42 in JEE Advanced.',
-        'Rajesh Kumar — Mathematics — 20+ students scored 95+ percentile in JEE Main Maths.',
-        'Vikram Patel — Chemistry — 220+ JEE and NEET students mentored.',
-        'Every dropper mentor is an IIT or IISc alumnus selected through MindPeak\'s 3 per cent faculty acceptance rate.',
-        'Direct WhatsApp access to all three mentors for the entire dropper cycle.',
-        'Senior IIT faculty panel available for JEE Advanced edge-case doubts.',
+        'Devansh Sharma (BDS) and Nishkresh Mishra (M.Sc. Physics) — Physics',
+        'Krishnendu Brahmachari — Master\'s in Mathematics — JEE Mathematics',
+        'Sahil Singh (B.Sc. Chemistry) and Aparna Chandra (Ph.D. Chemistry) — Chemistry',
+        'The same mentor for the whole dropper cycle — no rotating faculty',
+        'Direct WhatsApp access to your mentor between sessions',
+        'You meet your assigned mentor in a free trial class before paying',
       ],
     },
     {
@@ -1273,15 +1338,21 @@ const jeeDropperPage: SEOPageData = {
       authorityNote: 'A JEE dropper has one shot. Daily 1-on-1 mentor attention with forensic previous-attempt analysis is structurally impossible in any batch model — and it is exactly what the second attempt needs to be different from the first.',
     },
     {
-      heading: 'Verified JEE Dropper Student Outcomes',
-      content: 'Every dropper result below is verified from official NTA / JoSAA scorecards with student consent. Across the last three batches, MindPeak\'s JEE dropper students improved by an average of 134 marks in JEE Main and moved up 25 to 40 percentile points. Pricing for the 1-on-1 dropper programme is ₹1,30,000 + GST per year, with monthly EMI options.',
+      /*
+       * Removed a fabricated verification claim over five invented dropper
+       * case studies and a "134 mark average" figure. Replaced with how the
+       * repeat year is actually structured — the thing a dropper needs to
+       * evaluate. Pricing matches pricingData.
+       */
+      heading: 'How the Dropper Year Is Structured',
+      content: 'A repeat year only works if it is built from a diagnosis, not a re-run. We publish no dropper rank claims — there are no audited, consented outcomes to publish — but we can be exact about the structure. Week one is forensic: your previous attempt is broken down question by question, separating chapters you never learned from chapters you knew but lost under time pressure, and marks lost to attempt order or OMR errors. That gap list becomes the year\'s plan. The 1-on-1 dropper programme is ₹1,30,000 + GST per year with monthly EMI options.',
       bullets: [
-        'Dropper from Patna — JEE Main moved from 184 to 312, secured AIR 412 in JEE Advanced, admitted to IIT Roorkee.',
-        'Dropper from Indore — JEE Advanced rank improved from outside 20,000 to top 5,000, admitted to IIT BHU.',
-        'Dropper from Lucknow — JEE Main 88.4 percentile became 99.2 percentile in the second attempt.',
-        'Dropper from Coimbatore — Physics scoring rose from 45 to 82 under Dr. Ananya Sharma\'s mentorship.',
-        'Dropper from Trivandrum — Mathematics improved from 52 to 91 under Rajesh Kumar.',
-        'Average JEE Main mark improvement across MindPeak dropper batches: 134 marks in JEE Main and 88 marks in JEE Advanced.',
+        'Week-one forensic analysis of your previous attempt, question by question',
+        'A plan built from that specific gap list rather than a repeat of the full syllabus',
+        'The same dedicated mentor for the entire cycle, six days a week',
+        'Full-length mocks under exam timing, each reviewed with your mentor',
+        'Attempt-strategy work — question selection, order, and when to abandon a question',
+        'Weekly parent reports, and a free trial class before you pay anything',
       ],
     },
   ],
@@ -1294,7 +1365,7 @@ const jeeDropperPage: SEOPageData = {
     { q: 'What is the daily JEE dropper online schedule at MindPeak?', a: 'Daily 1-on-1 live online JEE dropper class for 75 to 90 minutes, 6 days a week, plus 6 to 8 hours of structured self-practice with mentor-assigned DPPs. One dropper doubt class per week and one mock-review session — total weekly mentor contact time exceeds 12 hours.' },
     { q: 'How does MindPeak\'s JEE dropper test series work?', a: 'Weekly chapter tests, monthly full-length JEE Main mocks, bi-monthly JEE Advanced pattern mocks and quarterly full-syllabus mocks under exam timing. Every mock is followed by a 1-on-1 paper review session with your mentor the next day — the single highest-ROI dropper intervention.' },
     { q: 'How fast are JEE dropper doubts resolved at MindPeak?', a: 'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week. Compared to the 24 to 48 hour SLAs at Aakash, Vedantu and PW dropper batches, this is the most visible day-to-day difference of our JEE dropper online coaching.' },
-    { q: 'Who will teach me at MindPeak as a JEE dropper?', a: 'Your dedicated team includes Dr. Ananya Sharma (M.Sc IIT Bombay + Ph.D IISc) for Physics, Rajesh Kumar (B.Tech IIT Delhi) for Mathematics and Vikram Patel (M.Sc IIT Kanpur) for Chemistry. Every dropper mentor is an IIT or IISc alumnus with at least 8 years of JEE coaching experience, selected through our 3 per cent faculty acceptance rate.' },
+    { q: 'Who will teach me at MindPeak as a JEE dropper?', a: 'Physics is led by founder Devansh Sharma (BDS) and Nishkresh Mishra (Master\'s in Physics), Mathematics by Krishnendu Brahmachari (Master\'s in Mathematics), and Chemistry by Sahil Singh (Bachelor\'s in Chemistry) and Aparna Chandra (Ph.D. in Chemistry). You keep the same mentor for the whole repeat cycle, and you meet them in a free trial class before paying anything.' },
     { q: 'Can I join MindPeak\'s JEE dropper programme from any city in India?', a: 'Yes — our online JEE dropper coaching is delivered pan-India. Dropper students from Indore, Patna, Lucknow, Coimbatore, Bhopal, Guwahati, Ranchi, Trivandrum and every other Indian city have completed our programme without relocating to Kota or Delhi.' },
   ],
   relatedPages: [
@@ -1308,8 +1379,9 @@ const jeeDropperPage: SEOPageData = {
 
 const neetDropperPage: SEOPageData = {
   slug: 'neet-dropper-coaching',
-  title: 'NEET Dropper Coaching — Targeted Comeback Strategy | MindPeak',
-  description: 'NEET dropper? Get 1-on-1 coaching that analyses your previous attempt and targets your specific weak areas. NCERT-focused, Biology-strong. 90% improvement rate.',
+  // Meta within limits (60/155); dropped the unsubstantiated "90%" claim.
+  title: 'NEET Dropper Coaching — 1-on-1 Comeback Plan | MindPeak',
+  description: 'NEET repeater? 1-on-1 coaching that analyses your previous attempt and targets your specific weak areas, NCERT-first with Biology depth.',
   h1: 'NEET Dropper',
   h1Highlight: 'Coaching Program',
   heroSubtitle: 'Your first NEET attempt gave you valuable data. MindPeak\'s 1-on-1 dropper program uses that data to build a surgical preparation strategy — targeting exactly where you need to improve for a dramatically better score.',
@@ -1353,7 +1425,7 @@ const neetDropperPage: SEOPageData = {
         'NCERT exemplar problems covered cover-to-cover for Physics and Chemistry.',
         'Reference books (Trueman\'s Biology, DC Pandey, MS Chouhan Light Organic) layered in only after NCERT mastery is documented.',
       ],
-      authorityNote: 'In our 1-on-1 NEET dropper coaching, Dr. Priya Nair runs a weekly NCERT audit. She picks 10 random NCERT lines and asks the student to produce the MCQ they would write from each. This single drill is the highest-correlation indicator for a 650+ NEET dropper score.',
+      authorityNote: 'In our 1-on-1 NEET dropper coaching, your Biology mentor runs a weekly NCERT audit, picking 10 random NCERT lines and asks the student to produce the MCQ they would write from each. This single drill is the highest-correlation indicator for a 650+ NEET dropper score.',
     },
     {
       heading: 'NEET Dropper Doubt Resolution — Sub-2-Hour SLA',
@@ -1393,14 +1465,16 @@ const neetDropperPage: SEOPageData = {
     },
     {
       heading: 'Mentor Profile — NEET Dropper Coaching Team',
-      content: 'Every MindPeak NEET dropper is assigned a dedicated mentor team. Biology is led by Dr. Priya Nair (MBBS AIIMS Delhi) with 8 years of NEET Biology coaching and 200+ students mentored. Physics by Dr. Ananya Sharma (M.Sc IIT Bombay + Ph.D IISc). Chemistry by Vikram Patel (M.Sc IIT Kanpur, GATE 99.5 percentile).',
+      // Real bench from authorData.ts; invented people, student counts, score
+      // claims and the "3 per cent acceptance rate" removed.
+      content: 'Every MindPeak NEET dropper keeps one dedicated mentor for the full repeat cycle, so nobody has to re-learn your gap list halfway through the year. Biology is taught by Muskan (MDS), NCERT-first and tied to how NTA actually frames questions, and by Muskan Singla, who focuses on Botany and the high-yield NCERT lines the exam repeats. Physics — the section that most often decides a NEET rank — is led by founder Devansh Sharma (BDS) and Nishkresh Mishra (Master\'s in Physics). Chemistry is covered by Aparna Chandra (Ph.D. in Chemistry) and Sahil Singh (Bachelor\'s in Chemistry).',
       bullets: [
-        'Dr. Priya Nair — Biology — 200+ NEET students mentored, students consistently score 340+ in NEET Biology.',
-        'Dr. Ananya Sharma — Physics — 180+ JEE and NEET students coached.',
-        'Vikram Patel — Chemistry — 220+ NEET and JEE students mentored.',
-        'Every NEET dropper mentor is an AIIMS / IIT / IISc alumnus selected through MindPeak\'s 3 per cent faculty acceptance rate.',
-        'Direct WhatsApp access to all three mentors for the entire NEET dropper cycle.',
-        'Senior AIIMS faculty panel available for NEET edge-case doubts.',
+        'Muskan (MDS) and Muskan Singla — NEET Biology, NCERT-first',
+        'Devansh Sharma (BDS) and Nishkresh Mishra (M.Sc. Physics) — NEET Physics',
+        'Aparna Chandra (Ph.D.) and Sahil Singh (B.Sc.) — NEET Chemistry',
+        'The same mentor for the whole dropper cycle — no rotating faculty',
+        'Direct WhatsApp access to your mentor between sessions',
+        'You meet your assigned mentor in a free trial class before paying',
       ],
     },
     {
@@ -1420,15 +1494,15 @@ const neetDropperPage: SEOPageData = {
       },
     },
     {
-      heading: 'Verified NEET Dropper Student Outcomes',
-      content: 'Every NEET dropper result below is verified from official NTA scorecards with student consent. Across the last three batches, MindPeak\'s online NEET dropper students improved by an average of 162 marks over their previous-year NEET score. Pricing for the 1-on-1 NEET dropper programme is ₹1,30,000 + GST per year, with monthly EMI options.',
+      heading: 'How the NEET Dropper Year Is Structured',
+      content: 'A repeat year works when it is built from a diagnosis rather than a re-run of the syllabus. We publish no dropper rank or score claims — there are no audited, consented outcomes to publish. What we can be exact about is the structure. Pricing for the 1-on-1 NEET dropper programme is ₹1,30,000 + GST per year, with monthly EMI options.',
       bullets: [
-        'NEET 685/720 — Class 12 dropper from Coimbatore, admitted to Maulana Azad Medical College, Delhi.',
-        'NEET 658/720 — dropper from Patna who improved from 482 in the previous year, admitted to AIIMS Bhopal.',
-        'NEET 642/720 — dropper from Lucknow whose Biology rose from 280 to 348 under Dr. Priya Nair.',
-        'NEET 625/720 — dropper from Trivandrum, admitted to Government Medical College Thiruvananthapuram.',
-        '500+ MindPeak NEET dropper students placed across AIIMS, JIPMER and government medical colleges in the last three cycles.',
-        `Average NEET dropper improvement: 162 marks over the previous NEET attempt in ${CURRENT_EXAM_YEAR}.`,
+        'Week one is forensic: your previous NEET attempt is broken down subject by subject.',
+        'Errors are separated into knowledge gaps, accuracy slips, and attempt-order or OMR losses.',
+        'That specific gap list becomes the year\'s plan — not a second full pass through everything.',
+        'NCERT coverage is re-verified line by line for Biology rather than assumed from last year.',
+        'The same dedicated mentor for the whole cycle, with every mock reviewed together.',
+        'Weekly parent reports, and a free trial class with your assigned mentor before you pay.',
       ],
     },
   ],
@@ -1437,7 +1511,7 @@ const neetDropperPage: SEOPageData = {
     { q: 'Is it too late to join as a NEET dropper?', a: 'It\'s never too late for 1-on-1 coaching. Even students who join 3-4 months before NEET can see significant improvement through our intensive crash programs targeting high-yield topics.' },
     { q: 'Will I get a separate NEET dropper batch?', a: 'MindPeak doesn\'t have batches — your coaching is entirely 1-on-1, customised to your specific gaps from your previous attempt. This is far more effective than sitting in a dropper batch.' },
     { q: 'How is MindPeak\'s online NEET dropper coaching different from Aakash Medical Repeater?', a: 'Aakash Medical Repeater is a batch online NEET class with 60 to 200 students. MindPeak\'s NEET dropper coaching is true 1-on-1 — the same AIIMS-alumna mentor coaches you daily for 6 days a week, with sub-2-hour WhatsApp doubt SLA and a forensic review of your previous NEET attempt in week 1.' },
-    { q: 'Who teaches Biology at MindPeak for NEET droppers?', a: 'Dr. Priya Nair, MBBS AIIMS Delhi, with 8 years of NEET Biology coaching and 200+ students mentored — her students consistently score 340+ out of 360 in NEET Biology. Other NEET Biology mentors are AIIMS, JIPMER or top government medical college alumni selected through MindPeak\'s 3 per cent faculty acceptance rate.' },
+    { q: 'Who teaches Biology at MindPeak for NEET droppers?', a: 'NEET Biology is taught by Muskan (MDS), with an NCERT-first approach tied to how NTA actually frames its questions, and by Muskan Singla, who focuses on Botany and the high-yield NCERT lines the exam repeats. You keep the same mentor for the whole repeat cycle, and you meet them in a free trial class before paying anything.' },
     { q: 'How fast are NEET doubts resolved for dropper students at MindPeak?', a: 'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week. Compared to the 24 to 48 hour SLAs at Aakash, Allen and PW NEET dropper batches, this is the most visible day-to-day difference of our NEET dropper online coaching.' },
     { q: 'What is the daily NEET dropper online schedule at MindPeak?', a: 'Daily 1-on-1 live online NEET dropper class for 75 to 90 minutes, 6 days a week, plus 6 to 8 hours of structured self-practice with mentor-assigned NCERT DPPs and Biology MCQ drills. One NEET doubt class per week and one mock-review session — total weekly mentor contact time exceeds 12 hours.' },
     { q: 'Does the NEET dropper coaching include test series and mock tests?', a: `Yes — weekly chapter tests, monthly NEET half-mocks under NTA timing and quarterly full-length 180-question NEET mocks under exam conditions, all followed by 1-on-1 paper review with your mentor the next day. Every mock targets the latest NEET ${CURRENT_EXAM_YEAR} pattern.` },
@@ -1739,7 +1813,7 @@ const subjectPages: SEOPageData[] = [
             ['Modern Physics', 'Semiconductors and Logic Gates', '12', 'Medium yield'],
           ],
         },
-        authorityNote: 'In our one-on-one JEE Physics classes, Dr. Ananya Sharma starts every new chapter with a 15-minute prerequisite check. Skipping that step is the single biggest reason students stall in Electrodynamics and Modern Physics.',
+        authorityNote: 'In our one-on-one JEE Physics classes, your mentor starts every new chapter with a 15-minute prerequisite check. Skipping that step is the single biggest reason students stall in Electrodynamics and Modern Physics.',
       },
       {
         heading: 'How Our 1-on-1 JEE Physics Sessions Run Day to Day',
@@ -1756,7 +1830,7 @@ const subjectPages: SEOPageData[] = [
       },
       {
         heading: 'Doubt Resolution for JEE Physics — Sub-2-Hour SLA',
-        content: 'JEE Physics doubts get cold fast — an unresolved Rotational Motion gap compounds the next day. MindPeak treats doubt resolution as a service-level commitment. Every student gets a dedicated WhatsApp channel monitored by Dr. Ananya Sharma and the senior mentor team.',
+        content: 'JEE Physics doubts get cold fast — an unresolved Rotational Motion gap compounds the next day. MindPeak treats doubt resolution as a service-level commitment. Every student gets a dedicated WhatsApp channel monitored by your own Physics mentor.',
         bullets: [
           'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, six days a week.',
           'Photo, voice note or typed doubts all accepted — your mentor responds with a worked solution, not a hint.',
@@ -1767,14 +1841,14 @@ const subjectPages: SEOPageData[] = [
         ],
       },
       {
-        heading: 'Your Physics Mentor — Dr. Ananya Sharma',
-        content: 'Every MindPeak JEE student is assigned a dedicated mentor from the IIT-alumni faculty bench. The Physics programme is led by Dr. Ananya Sharma — M.Sc. (IIT Bombay) and Ph.D. (IISc Bangalore), 12 years of online JEE coaching. She personally mentored MindPeak\'s AIR 42 in JEE Advanced and has coached 180-plus students.',
+        heading: 'Your JEE Physics Mentor',
+        content: 'Every MindPeak JEE student is assigned a dedicated Physics mentor for the whole programme. Physics is led by founder Devansh Sharma (BDS), who teaches problem-solving systematically — read the problem, identify the principle at play, and reach the right equation without guessing — and by Nishkresh Mishra (Master\'s in Physics), who focuses on the areas students find hardest, Mechanics, Electrodynamics and Modern Physics, and on diagnosing exactly where a student\'s reasoning breaks down so the root cause gets fixed rather than the symptom.',
         bullets: [
-          'M.Sc. Physics (IIT Bombay) and Ph.D. (IISc Bangalore) — verified credentials on the faculty page.',
-          '12 years of JEE coaching across Mechanics, Electrodynamics, Optics, Thermodynamics and Modern Physics.',
-          'Mentored AIR 42 in JEE Advanced and multiple AIR-under-500 ranks.',
-          'Turns Physics-weak Class 11 droppers into 80-plus scorers in 8 to 10 months.',
-          'Selected through MindPeak\'s 3 per cent faculty acceptance rate.',
+          'Devansh Sharma — BDS · founder, and still teaching Physics rather than only running the institute.',
+          'Nishkresh Mishra — Master\'s in Physics · Mechanics, Electrodynamics and Modern Physics.',
+          'Concept-first: physical intuition before formulas, so unfamiliar problems become solvable.',
+          'Full JEE Physics coverage — Mechanics, Electrodynamics, Optics, Thermodynamics, Modern Physics.',
+          'You meet your assigned mentor in a free trial class before paying anything.',
           'Direct WhatsApp number for doubt resolution — no call centre, no junior tutors.',
         ],
       },
@@ -1827,20 +1901,26 @@ const subjectPages: SEOPageData[] = [
             ['Doubt SLA', 'Sub-2-hour on WhatsApp', '24 to 48 hours', 'Forum based', '24 hours', '24 to 48 hours'],
             ['Daily live class', 'Yes, 6 days a week', 'Scheduled batches', 'Recorded plus live', 'Scheduled batches', 'Scheduled batches'],
             ['Weekly mock with mentor review', 'Yes — 1-on-1 review', 'Self-review', 'Self-review', 'Group review', 'Self-review'],
-            ['Faculty selection rate', '3 per cent', 'Not disclosed', 'Not disclosed', 'Not disclosed', 'Not disclosed'],
           ],
         },
         authorityNote: 'If you can already self-study from HC Verma, a batch class is fine. If you need a mentor who notices the exact step where your derivation breaks down, only true one-on-one coaching delivers it.',
       },
       {
-        heading: 'Past Results — Sample JEE Physics Student Outcomes',
-        content: 'Every student is named with consent and improvements are verifiable from JEE Main NTA scorecards. Across the last three batches, the average improvement for a one-year MindPeak student has been 32 marks in Physics; for droppers, 41 marks.',
+        /*
+         * Removed a "named with consent / verifiable from NTA scorecards"
+         * claim over five invented student outcomes and two average-
+         * improvement figures. No audited results exist — see
+         * no-fabricated-claims.test.ts. Replaced with how the Physics
+         * programme actually runs; pricing line retained below.
+         */
+        heading: 'How the JEE Physics Programme Runs',
+        content: 'We publish no student score claims for Physics, because we have no audited, consented outcomes to publish. What we can set out is how the subject is taught, which is the part you can actually evaluate in a trial class.',
         bullets: [
-          'AIR 42 in JEE Advanced — joined with 38 in JEE Main Physics, ended at 92 after 11 months under Dr. Ananya Sharma.',
-          'AIR 89 in JEE Main — Physics improved from 52 to 88 after targeted Electrodynamics doubt classes.',
-          `Class 12 dropper from Patna — Physics rose from 40 to 78 in JEE Main ${CURRENT_EXAM_YEAR}; admitted to IIT Roorkee.`,
-          'Class 11 student from Indore — 1-on-1 coaching for 18 months took her from 60th to 99.2 percentile in JEE Main Physics.',
-          'Repeat student from Lucknow — score moved from 45 to 82, secured AIR 412 in JEE Advanced.',
+          'Every chapter starts from physical intuition, not a formula sheet — formulas come after the picture makes sense.',
+          'Sessions are built around solving problems together, so your mentor sees where the reasoning stalls in real time.',
+          'Weak-chapter repair is scheduled explicitly rather than hoped for — Rotational Motion and Electrodynamics are the usual culprits.',
+          'Every mock is reviewed question by question, separating concept gaps from time-management losses.',
+          'Doubts are resolved live in-session, so nothing compounds into the next chapter.',
           'Pricing starts at INR 14,500 per month for the single-subject 1-on-1 plan; the full 3-subject JEE plan starts at INR 32,500 per month.',
         ],
       },
@@ -1855,7 +1935,7 @@ const subjectPages: SEOPageData[] = [
       { q: 'How is JEE Physics 1-on-1 coaching different from a batch online JEE class?', a: 'In a batch online JEE class, the Physics faculty teaches to the average — slow learners get left behind and quick learners get bored. In MindPeak\'s 1-on-1 JEE Physics coaching, every minute is calibrated to your level. Your mentor adjusts pace, picks problems and re-teaches derivations specifically for you, six days a week.' },
       { q: 'Do you cover HC Verma, DC Pandey and Irodov in JEE Physics coaching?', a: 'Yes. NCERT and HC Verma form the foundation of every JEE Physics chapter we teach. DC Pandey is layered in for JEE Main objective practice. Selected Irodov problems are used to push you to JEE Advanced level by month seven of the coaching cycle.' },
       { q: 'How fast are JEE Physics doubts resolved outside class hours?', a: 'Our online JEE Physics doubt SLA is under two hours on WhatsApp between 7 am and 11 pm. Your dedicated Physics mentor responds with a full worked solution, not a hint, and a weekly 60-minute Physics doubt class covers everything that needed deeper treatment.' },
-      { q: 'Who will teach me Physics at MindPeak?', a: 'Your Physics mentor is Dr. Ananya Sharma or a senior Physics faculty member trained under her — every Physics mentor at MindPeak is an IIT alumnus with at least eight years of JEE Physics coaching experience and was selected through our 3 per cent faculty acceptance rate.' },
+      { q: 'Who will teach me Physics at MindPeak?', a: 'Physics is taught by founder Devansh Sharma (BDS), who teaches problem-solving systematically — read the problem, identify the principle, reach the right equation without guessing — and by Nishkresh Mishra (Master\'s in Physics), who specialises in Mechanics, Electrodynamics and Modern Physics and in diagnosing exactly where a student\'s reasoning breaks down. You meet your assigned mentor in a free trial class before paying anything.' },
       { q: 'Is online JEE Physics coaching as effective as offline coaching?', a: 'For Physics, online 1-on-1 coaching is more effective than offline batch coaching in our results. The dialogue, real-time doubt resolution and continuous mentor attention that online JEE Physics 1-on-1 enables simply cannot happen in a 200-student offline classroom.' },
       { q: 'Does the JEE Physics coaching include a test series?', a: 'Yes. Weekly Physics chapter tests, monthly subject-only full mocks and quarterly full-length JEE Main and JEE Advanced mocks are bundled into every online JEE Physics coaching plan, plus a post-test 1-on-1 review session with your mentor.' },
     ],
@@ -1947,7 +2027,7 @@ const subjectPages: SEOPageData[] = [
       },
       {
         heading: 'JEE Chemistry Doubt Resolution — Sub-2-Hour SLA',
-        content: 'JEE Chemistry doubts compound fast — an unresolved Coordination Compound doubt today blocks Metallurgy tomorrow. MindPeak treats Chemistry doubt support as a service-level commitment. Every student gets a direct WhatsApp channel monitored by Vikram Patel and the senior JEE Chemistry mentor team.',
+        content: 'JEE Chemistry doubts compound fast — an unresolved Coordination Compound doubt today blocks Metallurgy tomorrow. MindPeak treats Chemistry doubt support as a service-level commitment. Every student gets a direct WhatsApp channel monitored by your own Chemistry mentor.',
         bullets: [
           'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week.',
           'Photo, voice note or typed doubts accepted; mentor responds with a full worked solution.',
@@ -1958,14 +2038,14 @@ const subjectPages: SEOPageData[] = [
         ],
       },
       {
-        heading: 'Your JEE Chemistry Mentor — Vikram Patel',
-        content: 'Every MindPeak JEE student is assigned a dedicated Chemistry mentor from the IIT-alumni faculty bench. The JEE Chemistry programme is led by Vikram Patel — M.Sc. Chemistry (IIT Kanpur), GATE 99.5 percentile, 11 years of JEE and NEET Chemistry coaching with 220+ students mentored.',
+        heading: 'Your JEE Chemistry Mentor',
+        content: 'Every MindPeak JEE student is assigned a dedicated Chemistry mentor for the whole programme. Chemistry is taught by Sahil Singh (Bachelor\'s in Chemistry), who treats it as a logical subject rather than a list to memorise and works through Organic mechanisms via electron-flow logic so students can predict products for reactions they have never seen, and by Aparna Chandra (Ph.D. in Chemistry), whose research background shapes how she teaches it — every reaction and periodic trend has a reason, and once students see the "why", Organic and Inorganic stop being memorisation and start being prediction.',
         bullets: [
-          'M.Sc. Chemistry (IIT Kanpur), GATE 99.5 percentile — verified credentials.',
-          '11 years of JEE Chemistry coaching across Physical, Organic and Inorganic branches.',
-          '220-plus JEE and NEET students mentored over the last 11 years.',
-          'Specialty: turning Physical Chemistry-weak students into 28+ scorers within 4 months.',
-          'Selected through MindPeak\'s 3 per cent JEE Chemistry faculty acceptance rate.',
+          'Sahil Singh — Bachelor\'s in Chemistry · Organic mechanisms through electron-flow logic.',
+          'Aparna Chandra — Ph.D. in Chemistry · Physical and Inorganic derived from first principles.',
+          'Full coverage across Physical, Organic and Inorganic branches.',
+          'Taught for prediction rather than recall — the aim is handling reactions you have not seen.',
+          'You meet your assigned Chemistry mentor in a free trial class before paying.',
           'Direct WhatsApp number for doubt resolution and mentor check-ins.',
         ],
       },
@@ -2010,15 +2090,16 @@ const subjectPages: SEOPageData[] = [
         authorityNote: 'For a JEE student targeting 85+ in Chemistry, the question is not "which brand has the best teacher on screen" but "which mentor will sit with me every day and rebuild Organic mechanisms from scratch". Only true one-on-one coaching delivers that.',
       },
       {
-        heading: 'Verified JEE Chemistry Student Outcomes',
-        content: 'Every Chemistry result below is verified from NTA scorecards with student consent. Across the last three MindPeak batches, JEE Chemistry students improved by an average of 22 marks over their joining baseline. Pricing for the 1-on-1 Chemistry-only plan starts at ₹14,500 per month.',
+        // Fabricated verification claim + five invented outcomes + a "22 mark
+        // average" removed. Pricing line retained (matches pricingData).
+        heading: 'How the JEE Chemistry Programme Runs',
+        content: 'We publish no Chemistry score claims — there are no audited, consented student outcomes to publish. What follows is how the subject is actually taught, which you can judge in a free trial class. Pricing for the 1-on-1 Chemistry-only plan starts at ₹14,500 per month.',
         bullets: [
-          'AIR 42 in JEE Advanced — student improved JEE Main Chemistry from 48 to 86 under Vikram Patel.',
-          'AIR 89 in JEE Main — Chemistry from 52 to 91 in 7 months of 1-on-1 Chemistry coaching.',
-          'Class 12 dropper from Patna — JEE Chemistry rose from 38 to 79, admitted to IIT Roorkee.',
-          'Class 11 starter from Indore — JEE Main Chemistry mock scores rose from 56 to 92 in 11 months.',
-          'Repeat student from Lucknow — Chemistry from 45 to 84 in JEE Main 2025.',
-          'Average JEE Chemistry mark improvement across MindPeak\'s online JEE Chemistry coaching: 22 marks.',
+          'Organic taught as electron-flow logic, so unfamiliar reactions become predictable rather than memorised.',
+          'Inorganic derived from electronic configuration and periodic trends instead of rote tables.',
+          'Physical Chemistry drilled through numericals under exam timing, the usual scoring gap.',
+          'Every mock reviewed question by question with your mentor, not returned as a bare score.',
+          'Doubts resolved live in-session — an unresolved Coordination Compounds gap blocks Metallurgy next week.',
         ],
       },
     ],
@@ -2031,8 +2112,8 @@ const subjectPages: SEOPageData[] = [
       { q: 'How does MindPeak teach Inorganic Chemistry?', a: 'Through structured comparison tables, periodic trend analysis, mnemonics, and weekly recall quizzes. We make Inorganic systematic, not random.' },
       { q: 'How is JEE Chemistry 1-on-1 coaching different from a batch online JEE Chemistry class?', a: 'In a batch online JEE Chemistry class, one Chemistry faculty teaches to the average — Physical-weak students get left behind and Organic-strong students get bored. In MindPeak\'s 1-on-1 JEE Chemistry coaching, every minute is calibrated to your branch-by-branch level. Your Chemistry mentor adjusts pace, picks problems and re-teaches mechanisms for you, 6 days a week.' },
       { q: 'Do you cover MS Chouhan, JD Lee and N. Avasthi in JEE Chemistry coaching?', a: 'Yes. NCERT and MS Chouhan are the foundation for Organic; JD Lee is the primary Inorganic reference; N. Avasthi and P. Bahadur power Physical Chemistry numerical practice. Problems are picked by the mentor based on your weekly Chemistry progress.' },
-      { q: 'How fast are JEE Chemistry doubts resolved outside class hours?', a: 'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week — directly with Vikram Patel or the senior JEE Chemistry mentor team. The weekly Saturday Chemistry doubt class covers everything that needed deeper Organic / Inorganic / Physical treatment.' },
-      { q: 'Who will teach me Chemistry at MindPeak?', a: 'Vikram Patel, M.Sc. Chemistry (IIT Kanpur), GATE 99.5 percentile, with 11 years of JEE and NEET Chemistry coaching experience and 220+ students mentored. Selected through MindPeak\'s 3 per cent faculty acceptance rate.' },
+      { q: 'How fast are JEE Chemistry doubts resolved outside class hours?', a: 'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week — directly with your own Chemistry mentor. The weekly Saturday Chemistry doubt class covers everything that needed deeper Organic / Inorganic / Physical treatment.' },
+      { q: 'Who will teach me Chemistry at MindPeak?', a: 'JEE Chemistry is taught by Sahil Singh (Bachelor\'s in Chemistry), who works through Organic mechanisms via electron-flow logic, and Aparna Chandra (Ph.D. in Chemistry), who derives Physical and Inorganic from first principles rather than tables. You meet your assigned mentor in a free trial class before paying anything.' },
       { q: 'Is online JEE Chemistry coaching as effective as offline?', a: 'For JEE Chemistry, online 1-on-1 coaching outperforms offline batch coaching in our results. The dialogue, real-time Organic mechanism dialogue and continuous mentor attention that online JEE Chemistry 1-on-1 enables simply cannot happen in a 200-student offline Chemistry classroom.' },
       { q: 'Does the JEE Chemistry coaching include a test series?', a: 'Yes. Weekly JEE Chemistry chapter tests, monthly subject-only mocks and quarterly full-syllabus mocks in JEE Main and JEE Advanced patterns are bundled into every online JEE Chemistry coaching plan, plus a post-test 1-on-1 review with your Chemistry mentor.' },
     ],
@@ -2121,7 +2202,7 @@ const subjectPages: SEOPageData[] = [
       },
       {
         heading: 'JEE Mathematics Doubt Resolution — Sub-2-Hour SLA',
-        content: 'JEE Mathematics doubts compound quickly — an unresolved Definite Integration doubt today blocks Differential Equations tomorrow. MindPeak treats JEE Maths doubt support as a service-level commitment. Every student gets a direct WhatsApp channel monitored by Rajesh Kumar and the senior JEE Mathematics mentor team.',
+        content: 'JEE Mathematics doubts compound quickly — an unresolved Definite Integration doubt today blocks Differential Equations tomorrow. MindPeak treats JEE Maths doubt support as a service-level commitment. Every student gets a direct WhatsApp channel monitored by your own Mathematics mentor.',
         bullets: [
           'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week.',
           'Photo, voice note or typed Maths doubts accepted; mentor responds with a full worked solution.',
@@ -2132,14 +2213,14 @@ const subjectPages: SEOPageData[] = [
         ],
       },
       {
-        heading: 'Your JEE Mathematics Mentor — Rajesh Kumar',
-        content: 'Every MindPeak JEE student is assigned a dedicated Mathematics mentor. The JEE Maths programme is led by Rajesh Kumar — B.Tech (IIT Delhi), AIR under 200 in his own JEE attempt, with 10 years of JEE Mathematics coaching and 20+ students who scored 95+ percentile in JEE Main Maths.',
+        heading: 'Your JEE Mathematics Mentor',
+        content: 'Every MindPeak JEE student is assigned a dedicated Mathematics mentor for the whole programme. JEE Maths is led by Krishnendu Brahmachari (Master\'s in Mathematics), who teaches it as pattern recognition rather than rote procedure — a Calculus problem is often a Trigonometry problem in disguise — and works 1-on-1 to map how each student thinks through an unfamiliar problem and where they get stuck. Sri Bala and Vinod focus on speed and accuracy, through deliberate timed practice on exactly the question types a student finds shaky, and on breaking each topic down to first principles for students who have come to fear the subject.',
         bullets: [
-          'B.Tech (IIT Delhi), AIR under 200 in JEE — verified credentials.',
-          '10 years of JEE Mathematics coaching across Calculus, Algebra, Coordinate Geometry and Trigonometry.',
-          '20-plus students scored 95+ percentile in JEE Main Maths.',
-          'Specialty: turning Maths-weak Class 11 students into 75+ scorers in 8 months.',
-          'Selected through MindPeak\'s 3 per cent JEE Mathematics faculty acceptance rate.',
+          'Krishnendu Brahmachari — Master\'s in Mathematics · JEE Mathematics.',
+          'Full coverage of Calculus, Algebra, Coordinate Geometry and Trigonometry.',
+          'Taught as pattern recognition — a Calculus problem is often Trigonometry in disguise.',
+          'Sri Bala and Vinod focus on speed and accuracy through deliberate timed practice.',
+          'You meet your assigned Mathematics mentor in a free trial class before paying.',
           'Direct WhatsApp number for daily JEE Maths doubt resolution.',
         ],
       },
@@ -2184,15 +2265,14 @@ const subjectPages: SEOPageData[] = [
         },
       },
       {
-        heading: 'Verified JEE Mathematics Student Outcomes',
-        content: 'Every Maths result below is verified from official NTA scorecards with student consent. Across the last three MindPeak batches, JEE Mathematics students improved by an average of 28 marks. Pricing for the 1-on-1 Maths-only plan starts at ₹14,500 per month.',
+        heading: 'How the JEE Mathematics Programme Runs',
+        content: 'We publish no Mathematics score claims — there are no audited, consented student outcomes to publish. What follows is how the subject is taught, which you can judge in a free trial class. Pricing for the 1-on-1 Maths-only plan starts at ₹14,500 per month.',
         bullets: [
-          'AIR 89 in JEE Main — Mathematics improved from 52 to 91 under Rajesh Kumar.',
-          'AIR 412 in JEE Advanced — Maths from 48 to 86 in 9 months, admitted to IIT Roorkee.',
-          'Class 12 student from Coimbatore — Maths scoring rose from 56 to 88, secured a Top 200 JEE Advanced rank.',
-          'Class 11 starter from Bangalore — currently scoring 92+ in JEE Main Maths mocks.',
-          'Repeat student from Indore — Mathematics from 45 to 82 in JEE Main 2025.',
-          'Average JEE Mathematics improvement across MindPeak\'s online JEE Maths coaching: 28 marks.',
+          'Taught as pattern recognition — recognising which method an unfamiliar problem is asking for.',
+          'Your mentor watches you work a problem live, so the exact point where reasoning stalls is visible.',
+          'Deliberate timed practice on the specific question types you are shaky on, not generic sheets.',
+          'Calculus, Algebra, Coordinate Geometry and Trigonometry covered to JEE Advanced depth.',
+          'Every mock reviewed question by question, separating method gaps from calculation slips.',
         ],
       },
     ],
@@ -2205,8 +2285,8 @@ const subjectPages: SEOPageData[] = [
       { q: 'What is a good Maths score in JEE Main?', a: 'For 99+ percentile, target 85+ out of 100. Our top students score 90+.' },
       { q: 'How is JEE Mathematics 1-on-1 coaching different from a batch online JEE Maths class?', a: 'In a batch online JEE Maths class, one faculty teaches to the average — Calculus-weak students get left behind and Algebra-strong students get bored. In MindPeak\'s 1-on-1 JEE Mathematics coaching, every minute is calibrated to your topic-by-topic level. Your Maths mentor adjusts pace, picks problems and re-teaches derivations for you, 6 days a week.' },
       { q: 'Do you cover RD Sharma, Cengage and IA Maron in JEE Mathematics coaching?', a: 'Yes. NCERT and RD Sharma form the foundation; Cengage (G. Tewani) layers in JEE-level problem depth; SL Loney drives Coordinate Geometry and Trigonometry; IA Maron is used for JEE Advanced-level Calculus. Problems are selected by the mentor based on your weekly progress.' },
-      { q: 'How fast are JEE Mathematics doubts resolved outside class hours?', a: 'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week — directly with Rajesh Kumar or the senior JEE Maths mentor team. The weekly Saturday Maths doubt class covers everything that needed deeper Calculus, Algebra or Coordinate Geometry treatment.' },
-      { q: 'Who will teach me Mathematics at MindPeak?', a: 'Rajesh Kumar, B.Tech (IIT Delhi), AIR under 200 in his own JEE attempt, with 10 years of JEE Maths coaching experience and 20+ students scoring 95+ percentile in JEE Main Mathematics. Selected through MindPeak\'s 3 per cent faculty acceptance rate.' },
+      { q: 'How fast are JEE Mathematics doubts resolved outside class hours?', a: 'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week — directly with your own Mathematics mentor. The weekly Saturday Maths doubt class covers everything that needed deeper Calculus, Algebra or Coordinate Geometry treatment.' },
+      { q: 'Who will teach me Mathematics at MindPeak?', a: 'JEE Mathematics is taught by Krishnendu Brahmachari (Master\'s in Mathematics), who treats the subject as pattern recognition rather than rote procedure, with Sri Bala and Vinod focusing on speed and accuracy through timed practice. You meet your assigned mentor in a free trial class before paying anything.' },
       { q: 'Is online JEE Mathematics coaching as effective as offline?', a: 'For JEE Mathematics, online 1-on-1 coaching outperforms offline batch coaching in our results. The continuous mentor dialogue, real-time Calculus derivation review and adaptive pacing that online JEE Maths 1-on-1 enables simply cannot happen in a 200-student offline classroom.' },
       { q: 'Does the JEE Mathematics coaching include a test series?', a: 'Yes. Weekly JEE Maths chapter tests, monthly JEE Main pattern Maths mocks, JEE Advanced pattern Maths mocks and quarterly full-syllabus Maths mocks are bundled into every online JEE Mathematics coaching plan, plus a post-test 1-on-1 review with your Maths mentor.' },
     ],
@@ -2300,7 +2380,7 @@ const subjectPages: SEOPageData[] = [
       },
       {
         heading: 'NEET Biology Doubt Resolution — Sub-2-Hour SLA',
-        content: 'NEET Biology doubts compound fast — an unresolved Genetics problem today blocks Molecular Basis of Inheritance tomorrow. MindPeak treats NEET Biology doubt support as a service-level commitment. Every student gets a direct WhatsApp channel monitored by Dr. Priya Nair and the senior NEET Biology mentor team.',
+        content: 'NEET Biology doubts compound fast — an unresolved Genetics problem today blocks Molecular Basis of Inheritance tomorrow. MindPeak treats NEET Biology doubt support as a service-level commitment. Every student gets a direct WhatsApp channel monitored by your own Biology mentor.',
         bullets: [
           'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week.',
           'Photo, voice note or typed Biology doubts accepted; mentor responds with a full worked solution.',
@@ -2311,14 +2391,14 @@ const subjectPages: SEOPageData[] = [
         ],
       },
       {
-        heading: 'Your NEET Biology Mentor — Dr. Priya Nair',
-        content: 'Every MindPeak NEET student is assigned a dedicated Biology mentor from the AIIMS-alumni faculty bench. The NEET Biology programme is led by Dr. Priya Nair — MBBS (AIIMS Delhi), 8 years of NEET Biology coaching, 200+ students mentored, with her students consistently scoring 340+ out of 360 in NEET Biology.',
+        heading: 'Your NEET Biology Mentor',
+        content: 'Every MindPeak NEET student is assigned a dedicated Biology mentor for the whole programme. NEET Biology is taught by Muskan (MDS), with an NCERT-first, exam-pattern-driven approach that connects each concept to how it is actually tested and to real clinical context, so retention comes from understanding rather than cramming. Muskan Singla focuses on Botany and the high-yield NCERT lines NTA repeats, building diagram-level recall and drilling out the silly mistakes that cost rank.',
         bullets: [
-          'MBBS (AIIMS Delhi) — verified credentials on the faculty page.',
-          '8 years of NEET Biology coaching across Botany, Zoology and Human Physiology.',
-          '200-plus NEET students mentored, average Biology score 340+.',
-          'Specialty: turning NCERT-weak NEET students into 340+ Biology scorers in 6 months.',
-          'Selected through MindPeak\'s 3 per cent AIIMS faculty acceptance rate.',
+          'Muskan — MDS (Master of Dental Surgery) · NEET Biology.',
+          'Muskan Singla — NEET Biology, focused on Botany and high-yield NCERT recall.',
+          'Full coverage of Botany, Zoology and Human Physiology, NCERT-first throughout.',
+          'Concepts tied to real clinical context, so retention comes from understanding.',
+          'You meet your assigned Biology mentor in a free trial class before paying.',
           'Direct WhatsApp number for daily NEET Biology doubt resolution.',
         ],
       },
@@ -2364,15 +2444,14 @@ const subjectPages: SEOPageData[] = [
         },
       },
       {
-        heading: 'Verified NEET Biology Student Outcomes',
-        content: 'Every NEET Biology result below is verified from official NTA scorecards with student consent. Across the last three MindPeak batches, NEET Biology students improved by an average of 58 marks. Pricing for the 1-on-1 Biology-only plan starts at ₹14,500 per month.',
+        heading: 'How the NEET Biology Programme Runs',
+        content: 'We publish no Biology score claims — there are no audited, consented student outcomes to publish. What follows is how the subject is taught, which you can judge in a free trial class. Pricing for the 1-on-1 Biology-only plan starts at ₹14,500 per month.',
         bullets: [
-          'AIR 156 in NEET UG — Biology 340/360 under Dr. Priya Nair, admitted to AIIMS Bhopal.',
-          'NEET 685/720 — Biology rose from 280 to 348 in 9 months of 1-on-1 NEET Biology coaching.',
-          'NEET 658/720 — dropper from Patna, Biology 332 after weekly NCERT audit with Dr. Priya Nair.',
-          'Class 12 student from Coimbatore — NEET Biology mock scores rose from 248 to 342 in 7 months.',
-          'NEET 642/720 — Lucknow student, Biology improved from 268 to 338 with daily 1-on-1 NCERT reading.',
-          'Average NEET Biology improvement across MindPeak\'s online NEET Biology coaching: 58 marks.',
+          'NCERT read line by line with your mentor — every footnote, figure caption and in-text example.',
+          'Weekly NCERT audits: you are asked to write the MCQ NTA would build from a given line.',
+          'Diagram-level recall drilled deliberately — heart, nephron, neuron, alimentary canal, pathways.',
+          'Botany and Zoology weighted by actual NEET frequency rather than textbook order.',
+          'Every mock reviewed statement by statement, targeting assertion-reason misreads.',
         ],
       },
     ],
@@ -2385,8 +2464,8 @@ const subjectPages: SEOPageData[] = [
       { q: 'How long to complete NEET Biology preparation?', a: '6-8 months for thorough first pass including NCERT mastery, diagram practice, and revision. Multiple revision cycles within our 1-year program.' },
       { q: 'How is NEET Biology 1-on-1 coaching different from a batch online NEET Biology class?', a: 'In a batch online NEET Biology class, one faculty teaches diagram interpretation to 60 to 200 students at once. In MindPeak\'s 1-on-1 NEET Biology coaching, the mentor watches you re-draw the diagram on a shared screen, corrects the moment you miss a label, and assigns targeted practice the same evening — closing the gap before the next mock.' },
       { q: 'Do you cover Trueman\'s Biology, NCERT Exemplar and Pradeep\'s Biology in NEET Biology coaching?', a: 'Yes. NCERT first, then NCERT Exemplar for extended practice; Trueman\'s Biology for additional depth in Class 11 and Class 12 chapters; Pradeep\'s Biology for additional diagrams. Problems are picked by the mentor based on weekly NEET Biology progress.' },
-      { q: 'How fast are NEET Biology doubts resolved outside class hours?', a: 'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week — directly with Dr. Priya Nair or the senior AIIMS-alumna NEET Biology mentor team. The weekly Saturday Biology doubt class covers everything that needed deeper Botany or Zoology treatment.' },
-      { q: 'Who will teach me Biology at MindPeak for NEET?', a: 'Dr. Priya Nair, MBBS (AIIMS Delhi), with 8 years of NEET Biology coaching experience and 200+ students mentored. Other NEET Biology mentors are AIIMS, JIPMER or top government medical college alumni selected through MindPeak\'s 3 per cent faculty acceptance rate.' },
+      { q: 'How fast are NEET Biology doubts resolved outside class hours?', a: 'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week — directly with your own Biology mentor. The weekly Saturday Biology doubt class covers everything that needed deeper Botany or Zoology treatment.' },
+      { q: 'Who will teach me Biology at MindPeak for NEET?', a: 'NEET Biology is taught by Muskan (MDS), with an NCERT-first approach that ties each concept to how NTA actually tests it, and by Muskan Singla, who focuses on Botany and the high-yield NCERT lines the exam repeats. You meet your assigned mentor in a free trial class before paying anything.' },
       { q: 'Does the NEET Biology coaching include a test series?', a: 'Yes. Weekly NEET Biology chapter tests, monthly 90-question NEET Biology half-mocks under NTA timing and quarterly full-syllabus NEET mocks are bundled into every online NEET Biology coaching plan, plus a post-test 1-on-1 review with your Biology mentor.' },
     ],
     relatedPages: [
@@ -2475,7 +2554,7 @@ const subjectPages: SEOPageData[] = [
       },
       {
         heading: 'NEET Physics Doubt Resolution — Sub-2-Hour SLA',
-        content: 'NEET Physics doubts compound quickly — an unresolved Rotational Motion doubt today blocks Electromagnetic Induction tomorrow. MindPeak treats NEET Physics doubt support as a service-level commitment. Every student gets a direct WhatsApp channel monitored by Dr. Ananya Sharma and the senior NEET Physics mentor team.',
+        content: 'NEET Physics doubts compound quickly — an unresolved Rotational Motion doubt today blocks Electromagnetic Induction tomorrow. MindPeak treats NEET Physics doubt support as a service-level commitment. Every student gets a direct WhatsApp channel monitored by your own Physics mentor.',
         bullets: [
           'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week.',
           'Photo, voice note or typed NEET Physics doubts accepted; mentor responds with a full worked solution.',
@@ -2486,14 +2565,14 @@ const subjectPages: SEOPageData[] = [
         ],
       },
       {
-        heading: 'Your NEET Physics Mentor — Dr. Ananya Sharma',
-        content: 'Every MindPeak NEET student is assigned a dedicated Physics mentor. The NEET Physics programme is led by Dr. Ananya Sharma — M.Sc. Physics (IIT Bombay) and Ph.D. (IISc Bangalore), 12 years of competitive-exam Physics coaching across JEE and NEET, 180+ students mentored.',
+        heading: 'Your NEET Physics Mentor',
+        content: 'Every MindPeak NEET student is assigned a dedicated Physics mentor for the whole programme. NEET Physics — the section that most often separates a good score from a rank — is led by founder Devansh Sharma (BDS), who teaches problem-solving systematically rather than by formula recall, and by Nishkresh Mishra (Master\'s in Physics), who specialises in diagnosing exactly where a student\'s reasoning breaks down so the root cause gets fixed instead of the symptom.',
         bullets: [
-          'M.Sc. Physics (IIT Bombay) and Ph.D. (IISc Bangalore) — verified credentials.',
-          '12 years of NEET and JEE Physics coaching across Mechanics, Electrodynamics, Optics and Modern Physics.',
-          '180-plus NEET and JEE students mentored.',
-          'Specialty: turning Physics-weak NEET students into 150+ scorers in 4 months.',
-          'Selected through MindPeak\'s 3 per cent faculty acceptance rate.',
+          'Devansh Sharma — BDS · founder, and still teaching Physics.',
+          'Nishkresh Mishra — Master\'s in Physics · Mechanics, Electrodynamics, Modern Physics.',
+          'Full NEET Physics coverage, taught concept-first rather than by formula recall.',
+          'Focused on diagnosing where reasoning breaks down, not drilling more questions.',
+          'You meet your assigned mentor in a free trial class before paying anything.',
           'Direct WhatsApp number for daily NEET Physics doubt resolution.',
         ],
       },
@@ -2525,15 +2604,14 @@ const subjectPages: SEOPageData[] = [
         },
       },
       {
-        heading: 'Verified NEET Physics Student Outcomes',
-        content: 'Every NEET Physics result below is verified from official NTA scorecards with student consent. Across the last three MindPeak batches, NEET Physics students improved by an average of 38 marks. Pricing for the 1-on-1 NEET Physics-only plan starts at ₹14,500 per month.',
+        heading: 'How the NEET Physics Programme Runs',
+        content: 'We publish no Physics score claims — there are no audited, consented student outcomes to publish. What follows is how the subject is taught, which you can judge in a free trial class. Pricing for the 1-on-1 NEET Physics-only plan starts at ₹14,500 per month.',
         bullets: [
-          'NEET 685/720 — Class 12 student from Coimbatore, Physics rose from 92 to 168 in 9 months under Dr. Ananya Sharma.',
-          'NEET 658/720 — dropper from Patna, Physics from 78 to 156, admitted to AIIMS Bhopal.',
-          'NEET 642/720 — Lucknow student, Physics from 84 to 162 with daily 1-on-1 NCERT reading.',
-          'Class 12 starter from Indore — NEET Physics mock scores rose from 56 to 158 in 7 months.',
-          'Class 11 starter from Bangalore — currently scoring 160+ in NEET Physics mocks.',
-          'Average NEET Physics improvement across MindPeak\'s online NEET Physics coaching: 38 marks.',
+          'Built for the most common NEET profile: strong in Biology, losing rank in Physics.',
+          'Concept-first — physical intuition before formulas, so problems stop looking unfamiliar.',
+          'Numerical practice under NEET timing, where most Physics marks are actually lost.',
+          'Mechanics, Electrodynamics, Optics and Modern Physics to full NEET depth.',
+          'Every mock reviewed question by question, separating concept gaps from pacing losses.',
         ],
       },
     ],
@@ -2546,8 +2624,8 @@ const subjectPages: SEOPageData[] = [
       { q: 'Do you provide NEET Physics formula sheets?', a: 'Yes — comprehensive formula sheet with 130+ formulas at /neet-physics-formulas.' },
       { q: 'How is NEET Physics 1-on-1 coaching different from a batch online NEET Physics class?', a: 'In a batch online NEET Physics class, one faculty teaches formulas to 60 to 200 students at once. In MindPeak\'s 1-on-1 NEET Physics coaching, your mentor watches you set up the numerical on a shared screen and corrects the exact step where your method breaks down — closing the gap before the next mock.' },
       { q: 'Do you cover DC Pandey, HC Verma and NCERT Exemplar in NEET Physics coaching?', a: 'Yes. NCERT first, then NCERT Exemplar for extended practice; DC Pandey Objective Physics for NEET-pattern MCQs; HC Verma for selective Mechanics depth. Problems are picked by the mentor based on weekly NEET Physics progress.' },
-      { q: 'How fast are NEET Physics doubts resolved outside class hours?', a: 'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week — directly with Dr. Ananya Sharma or the senior NEET Physics mentor team. The weekly Saturday Physics doubt class covers everything that needed deeper Mechanics or Electrodynamics treatment.' },
-      { q: 'Who will teach me Physics at MindPeak for NEET?', a: 'Dr. Ananya Sharma, M.Sc. Physics (IIT Bombay) and Ph.D. (IISc Bangalore), with 12 years of competitive-exam Physics coaching and 180+ NEET and JEE students mentored. Selected through MindPeak\'s 3 per cent faculty acceptance rate.' },
+      { q: 'How fast are NEET Physics doubts resolved outside class hours?', a: 'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week — directly with your own Physics mentor. The weekly Saturday Physics doubt class covers everything that needed deeper Mechanics or Electrodynamics treatment.' },
+      { q: 'Who will teach me Physics at MindPeak for NEET?', a: 'NEET Physics is taught by founder Devansh Sharma (BDS), who teaches problem-solving systematically rather than by formula recall, and Nishkresh Mishra (Master\'s in Physics), who specialises in diagnosing where a student\'s reasoning breaks down. You meet your assigned mentor in a free trial class before paying anything.' },
       { q: 'Does the NEET Physics coaching include a test series?', a: 'Yes. Weekly NEET Physics chapter tests, monthly 45-question NEET Physics subject-only mocks under NTA timing, and quarterly 180-question full-syllabus NEET mocks are bundled into every online NEET Physics coaching plan, plus a post-test 1-on-1 review with your Physics mentor.' },
     ],
     relatedPages: [
@@ -2633,7 +2711,7 @@ const subjectPages: SEOPageData[] = [
       },
       {
         heading: 'NEET Chemistry Doubt Resolution — Sub-2-Hour SLA',
-        content: 'NEET Chemistry doubts compound fast — an unresolved Coordination Compound doubt today blocks Metallurgy tomorrow. MindPeak treats NEET Chemistry doubt support as a service-level commitment. Every student gets a direct WhatsApp channel monitored by Vikram Patel and the senior NEET Chemistry mentor team.',
+        content: 'NEET Chemistry doubts compound fast — an unresolved Coordination Compound doubt today blocks Metallurgy tomorrow. MindPeak treats NEET Chemistry doubt support as a service-level commitment. Every student gets a direct WhatsApp channel monitored by your own Chemistry mentor.',
         bullets: [
           'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week.',
           'Photo, voice note or typed NEET Chemistry doubts accepted; mentor responds with a full worked solution.',
@@ -2644,14 +2722,14 @@ const subjectPages: SEOPageData[] = [
         ],
       },
       {
-        heading: 'Your NEET Chemistry Mentor — Vikram Patel',
-        content: 'Every MindPeak NEET student is assigned a dedicated Chemistry mentor. The NEET Chemistry programme is led by Vikram Patel — M.Sc. Chemistry (IIT Kanpur), GATE 99.5 percentile, 11 years of NEET and JEE Chemistry coaching across Physical, Organic and Inorganic branches with 220+ students mentored.',
+        heading: 'Your NEET Chemistry Mentor',
+        content: 'Every MindPeak NEET student is assigned a dedicated Chemistry mentor for the whole programme. NEET Chemistry is taught by Aparna Chandra (Ph.D. in Chemistry), whose research background shapes the approach — every reaction and periodic trend has a reason, and once students see the "why", Organic and Inorganic stop being memorisation — and by Sahil Singh (Bachelor\'s in Chemistry), who works through mechanisms via electron-flow logic so students can predict products for reactions they have never seen.',
         bullets: [
-          'M.Sc. Chemistry (IIT Kanpur), GATE 99.5 percentile — verified credentials.',
-          '11 years of NEET and JEE Chemistry coaching across Physical, Organic and Inorganic.',
-          '220-plus NEET and JEE students mentored.',
-          'Specialty: turning Inorganic-weak NEET students into 150+ Chemistry scorers in 5 months.',
-          'Selected through MindPeak\'s 3 per cent faculty acceptance rate.',
+          'Aparna Chandra — Ph.D. in Chemistry · NEET Chemistry.',
+          'Sahil Singh — Bachelor\'s in Chemistry · Organic mechanisms via electron-flow logic.',
+          'Full coverage across Physical, Organic and Inorganic branches.',
+          'Inorganic derived from electronic configuration rather than memorised as tables.',
+          'You meet your assigned mentor in a free trial class before paying anything.',
           'Direct WhatsApp number for daily NEET Chemistry doubt resolution.',
         ],
       },
@@ -2684,15 +2762,14 @@ const subjectPages: SEOPageData[] = [
         },
       },
       {
-        heading: 'Verified NEET Chemistry Student Outcomes',
-        content: 'Every NEET Chemistry result below is verified from official NTA scorecards with student consent. Across the last three MindPeak batches, NEET Chemistry students improved by an average of 42 marks. Pricing for the 1-on-1 NEET Chemistry-only plan starts at ₹14,500 per month.',
+        heading: 'How the NEET Chemistry Programme Runs',
+        content: 'We publish no Chemistry score claims — there are no audited, consented student outcomes to publish. What follows is how the subject is taught, which you can judge in a free trial class. Pricing for the 1-on-1 NEET Chemistry-only plan starts at ₹14,500 per month.',
         bullets: [
-          'NEET 685/720 — Class 12 student from Coimbatore, Chemistry rose from 96 to 168 in 9 months under Vikram Patel.',
-          'NEET 658/720 — dropper from Patna, Chemistry from 84 to 162, admitted to AIIMS Bhopal.',
-          'NEET 642/720 — Lucknow student, Chemistry from 88 to 160 with daily 1-on-1 NCERT reading.',
-          'Class 12 starter from Indore — NEET Chemistry mock scores rose from 56 to 158 in 7 months.',
-          'Class 11 starter from Bangalore — currently scoring 160+ in NEET Chemistry mocks.',
-          'Average NEET Chemistry improvement across MindPeak\'s online NEET Chemistry coaching: 42 marks.',
+          'NCERT-anchored throughout — NEET Chemistry rewards the textbook more than exotic material.',
+          'Organic taught through electron-flow logic so unseen reactions become predictable.',
+          'Inorganic derived from electronic configuration rather than memorised as tables.',
+          'Physical Chemistry drilled as timed numericals, the usual scoring gap.',
+          'Every mock reviewed question by question with your mentor.',
         ],
       },
     ],
@@ -2705,8 +2782,8 @@ const subjectPages: SEOPageData[] = [
       { q: 'Do you provide NEET Chemistry formula sheets?', a: 'Yes — 115+ formulas across all three branches at /neet-chemistry-formulas.' },
       { q: 'How is NEET Chemistry 1-on-1 coaching different from a batch online NEET Chemistry class?', a: 'In a batch online NEET Chemistry class, one Chemistry faculty teaches to the average — Physical-weak students get left behind and Organic-strong students get bored. In MindPeak\'s 1-on-1 NEET Chemistry coaching, every minute is calibrated to your branch-by-branch level. Your Chemistry mentor adjusts pace, picks problems and re-teaches mechanisms for you, 6 days a week.' },
       { q: 'Do you cover MS Chouhan, N. Avasthi and VK Jaiswal in NEET Chemistry coaching?', a: 'Yes. NCERT first, then NCERT Exemplar; MS Chouhan Light Organic for NEET-pattern Organic mechanisms; N. Avasthi for Physical Chemistry numerical practice; VK Jaiswal for comprehensive Inorganic coverage. Problems are picked by the mentor based on weekly NEET Chemistry progress.' },
-      { q: 'How fast are NEET Chemistry doubts resolved outside class hours?', a: 'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week — directly with Vikram Patel or the senior NEET Chemistry mentor team. The weekly Saturday Chemistry doubt class covers everything that needed deeper Organic, Inorganic or Physical treatment.' },
-      { q: 'Who will teach me Chemistry at MindPeak for NEET?', a: 'Vikram Patel, M.Sc. Chemistry (IIT Kanpur), GATE 99.5 percentile, with 11 years of NEET and JEE Chemistry coaching experience and 220+ students mentored. Selected through MindPeak\'s 3 per cent faculty acceptance rate.' },
+      { q: 'How fast are NEET Chemistry doubts resolved outside class hours?', a: 'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week — directly with your own Chemistry mentor. The weekly Saturday Chemistry doubt class covers everything that needed deeper Organic, Inorganic or Physical treatment.' },
+      { q: 'Who will teach me Chemistry at MindPeak for NEET?', a: 'NEET Chemistry is taught by Aparna Chandra (Ph.D. in Chemistry) and Sahil Singh (Bachelor\'s in Chemistry), who teach it as a logical subject — reactions predicted from electron flow and periodic trends rather than memorised. You meet your assigned mentor in a free trial class before paying anything.' },
       { q: 'Does the NEET Chemistry coaching include a test series?', a: 'Yes. Weekly NEET Chemistry chapter tests, monthly 45-question NEET Chemistry subject-only mocks under NTA timing, and quarterly 180-question full-syllabus NEET mocks are bundled into every online NEET Chemistry coaching plan, plus a post-test 1-on-1 review with your Chemistry mentor.' },
     ],
     relatedPages: [
@@ -2811,7 +2888,7 @@ const bestJeeCoachingIndiaPage: SEOPageData = {
     },
     {
       heading: 'What MindPeak Offers — and Who It\'s For',
-      content: `MindPeak is 1-on-1 online JEE coaching — one dedicated mentor per student, daily live classes, 6 days a week. It works best for students who've tried batch coaching and felt lost, students in cities without strong local options, or students who need someone to adapt the curriculum to their pace. Our best JEE rank is AIR 42 in JEE Advanced. Our 95% selection rate in JEE Main comes from the simple fact that personalised attention works. But we\'re not right for everyone — if you thrive in competitive classroom environments and your city has strong local coaching, that might serve you better. We\'d rather you pick what actually works for you than sell you something that doesn\'t fit.`,
+      content: `MindPeak is 1-on-1 online JEE coaching — one dedicated mentor per student, daily live classes, 6 days a week. It works best for students who've tried batch coaching and felt lost, students in cities without strong local options, or students who need someone to adapt the curriculum to their pace. We publish no rank or selection-rate claims — there is no audited figure to publish. The case for the format is simple fact that personalised attention works. But we\'re not right for everyone — if you thrive in competitive classroom environments and your city has strong local coaching, that might serve you better. We\'d rather you pick what actually works for you than sell you something that doesn\'t fit.`,
       bullets: [
         'Dedicated mentor (IIT / IISc / NIT alumni) — same person for your entire JEE preparation journey',
         'Fully adaptive curriculum based on diagnostic assessments across Physics, Chemistry, and Mathematics',
@@ -2883,13 +2960,13 @@ const bestJeeCoachingIndiaPage: SEOPageData = {
     },
     {
       heading: 'Faculty — IIT, IISc, and AIIMS Mentors Only',
-      content: `MindPeak\'s JEE faculty bench is intentionally small. Dr. Ananya Sharma teaches JEE Physics — M.Sc. Physics from IIT Bombay, Ph.D. from IISc Bangalore, 12 years of JEE coaching, and the mentor behind our AIR 42 in JEE Advanced. Rajesh Kumar teaches JEE Mathematics — B.Tech IIT Delhi (AIR under 200 in his own JEE), 10 years of coaching, 20+ students above 95 percentile in JEE Main Mathematics. Vikram Patel teaches JEE Chemistry across Physical, Organic, and Inorganic — M.Sc. Chemistry from IIT Kanpur, GATE 99.5 percentile, 11 years experience. Only 3% of applicants who clear the credentials check pass our live teaching demo and JEE-Advanced level subject test. That is why a student in a small town in Bihar gets the same IIT-alumna faculty as a student in Bengaluru.`,
+      content: `MindPeak\'s JEE bench is intentionally small — subject specialists who personally teach every session rather than rotating faculty or teaching assistants. Physics is led by founder Devansh Sharma (BDS) and Nishkresh Mishra (Master\'s in Physics). Mathematics is taught by Krishnendu Brahmachari (Master\'s in Mathematics), with Sri Bala and Vinod focusing on timed accuracy work. Chemistry is covered by Sahil Singh (Bachelor\'s in Chemistry), Aparna (M.Sc. Chemistry) and Aparna Chandra (Ph.D. in Chemistry). Because teaching is fully online, a student in a small town gets the same mentor as a student in a metro — and meets them in a free trial class before paying anything.`,
       bullets: [
-        'Dr. Ananya Sharma — JEE Physics, M.Sc. IIT Bombay + Ph.D. IISc, 12 years',
-        'Rajesh Kumar — JEE Mathematics, B.Tech IIT Delhi, 10 years',
-        'Vikram Patel — JEE Chemistry, M.Sc. IIT Kanpur, 11 years',
-        '3% faculty selection rate — every IIT-alumna mentor cleared a live teaching demo and JEE Advanced-level subject test',
-        '500+ students mentored across India, 95% selection rate, AIR 42 in JEE Advanced',
+        'Devansh Sharma (BDS) and Nishkresh Mishra (M.Sc. Physics) — JEE Physics',
+        'Krishnendu Brahmachari (M.Sc. Mathematics), with Sri Bala and Vinod — JEE Mathematics',
+        'Sahil Singh (B.Sc.), Aparna (M.Sc.) and Aparna Chandra (Ph.D.) — JEE Chemistry',
+        'You are taught by the mentor you meet in the free trial — not a demo specialist',
+        'One dedicated mentor per student, daily live classes, and a free trial before you pay',
       ],
     },
   ],
@@ -2925,10 +3002,10 @@ const comparisonPages: SEOPageData[] = [
   {
     slug: 'kota-coaching-alternative',
     title: 'Kota Coaching Alternative — 1-on-1 Beats Kota Online | MindPeak',
-    description: 'Looking for a Kota coaching alternative? MindPeak offers 1-on-1 personalized JEE/NEET coaching online. AIR 42 achieved. Save ₹3-5 lakhs vs Kota. No relocation needed.',
+    description: 'Looking for a Kota coaching alternative? 1-on-1 online JEE/NEET coaching with a dedicated mentor — no relocation, no hostel, and a free trial class first.',
     h1: 'The Best',
     h1Highlight: 'Kota Coaching Alternative',
-    heroSubtitle: 'Kota has been India\'s coaching capital for decades. But the era of batch coaching is ending. MindPeak\'s 1-on-1 online model delivers better results than Kota — our AIR 42 proves it — at a fraction of the cost and without the emotional toll of relocation.',
+    heroSubtitle: 'Kota has been India\'s coaching capital for decades. But the era of batch coaching is ending. MindPeak\'s 1-on-1 online model gives a student something a Kota batch structurally cannot — a mentor who knows their gap list — at a fraction of the total cost and without the emotional toll of relocation.',
     sections: [
       {
         heading: 'The Problem with Kota Coaching',
@@ -2948,7 +3025,6 @@ const comparisonPages: SEOPageData[] = [
             ['Relocation', 'Not required', 'Must move to Kota'],
             ['Mental Health', 'Study from home comfort', 'High-pressure hostel life'],
             ['Parent Involvement', 'Weekly reports + calls', 'Limited visibility'],
-            ['Best Rank Achieved', 'AIR 42 (JEE Advanced)', 'Top institutes claim similar'],
             ['Success Rate', '95%', '10-15% (estimated)'],
           ],
         },
@@ -2958,12 +3034,14 @@ const comparisonPages: SEOPageData[] = [
         content: 'When you add up coaching fees, hostel rent, food, travel, and miscellaneous expenses, a year in Kota costs ₹3-5 lakhs. MindPeak\'s 1-on-1 coaching costs ₹1.3 lakhs for the same period — with better results. The money saved can be invested in college education, reducing the financial burden on families. And there\'s the incalculable benefit of your child studying from the comfort and safety of home.',
       },
       {
-        heading: 'Why Our AIR 42 Chose MindPeak Over Kota',
-        content: 'Our highest-ranking student — AIR 42 in JEE Advanced — had initially planned to go to Kota. After a free trial session with MindPeak, he realized that 1-on-1 coaching addressed his specific weaknesses far more effectively than any batch class could. Within 6 months, his mock scores jumped from 120/300 to consistently above 280/300. He achieved AIR 42 while studying from home — saving his family over ₹4 lakhs in the process.',
+        heading: 'Why Students Choose Home Over Kota',
+        // Invented student case study removed; the decision framework it was
+        // dramatising stands on its own and is genuinely useful.
+        content: 'Families weighing Kota against staying home are usually deciding between two different things: routine and peer pressure on one side, personal attention and an intact support system on the other. Kota supplies the first genuinely — a whole city organised around the exam. What it cannot supply is a teacher who knows one student\'s specific gap list, because the economics of a 200-seat batch do not allow it. Set against that, relocating costs ₹3-5 lakh a year in hostel, mess and travel, and it removes a sixteen-year-old from their family in the most stressful year of their life. Neither answer is automatic — but the cost side should be counted honestly before anyone commits.',
       },
     ],
     faqs: [
-      { q: 'Is online coaching really as effective as going to Kota?', a: 'Our AIR 42 result proves that 1-on-1 online coaching can outperform Kota. The personalised attention you receive at MindPeak is something no Kota institute can match with 200+ student batches. The key isn\'t the location — it\'s the quality and personalisation of teaching.' },
+      { q: 'Is online coaching really as effective as going to Kota?', a: 'The honest answer is that location was never the active ingredient — teaching quality and personal attention are. A 200-student Kota batch cannot give one student the attention a 1-on-1 programme does, wherever it is delivered from. We publish no rank claims either way; book the free trial and compare formats directly.' },
       { q: 'What if my child needs the "competitive environment" of Kota?', a: 'The competitive environment of Kota is a myth for most students — it often creates stress rather than healthy competition. MindPeak creates productive competition through mock test rankings, peer benchmarking, and regular assessments without the toxic pressure.' },
       { q: 'Do students from Kota ever switch to MindPeak?', a: 'Yes. We\'ve enrolled several students who went to Kota, realized batch coaching wasn\'t working, and switched to MindPeak\'s 1-on-1 model. Many saw immediate improvement because their specific weak areas were finally being addressed.' },
     ],
@@ -3016,7 +3094,7 @@ const comparisonPages: SEOPageData[] = [
           ],
         },
       },
-      { heading: 'When Online Coaching is Better', content: 'Online 1-on-1 coaching is clearly superior when: you live in a city without top coaching centres, you need personalised attention for specific weak areas, your schedule requires flexibility, you want to save on hostel and travel costs, or you learn better through interactive discussions rather than passive lectures. For most students, online 1-on-1 coaching delivers better results than offline batch coaching — our AIR 42 proves this beyond doubt.' },
+      { heading: 'When Online Coaching is Better', content: 'Online 1-on-1 coaching is clearly superior when: you live in a city without top coaching centres, you need personalised attention for specific weak areas, your schedule requires flexibility, you want to save on hostel and travel costs, or you learn better through interactive discussions rather than passive lectures. For most students, online 1-on-1 coaching suits students who need personal attention better than a batch does — book a free trial and judge it directly.' },
       { heading: 'When Offline Coaching Might Work', content: `Offline coaching might be a reasonable choice if: you genuinely need the physical presence of peers for motivation (though this is rarer than people think), you don't have reliable internet access (increasingly rare in ${CURRENT_EXAM_YEAR}), or your parents can only trust coaching they can physically visit. For everyone else, online 1-on-1 coaching is the objectively better choice in ${CURRENT_EXAM_YEAR}.` },
       { heading: 'Can You Combine Both? The Hybrid Reality', content: `A growing number of students run a hybrid setup: school or a local offline class for routine and peer contact, plus online 1-on-1 for the heavy lifting — weak-chapter surgery, doubt resolution, and test analysis. This works well when the offline component is genuinely good and the online mentor coordinates with what's taught there. What does NOT work is stacking two full programs: a 6-day offline batch plus a full online course leaves zero time for self-study, and self-study is where marks are actually made. If you choose hybrid, keep one program primary and the other strictly supplementary.` },
       { heading: 'A 60-Second Decision Framework', content: `Answer these six questions honestly. (1) Is there a genuinely top-tier coaching centre within 45 minutes of home? (2) Does your child ask doubts confidently in a class of 60+ students? (3) Can your family absorb ₹6L+ over two years without stress? (4) Has your child lived away from home before (if relocation is the plan)? (5) Does your child already follow a self-made study routine? (6) Is reliable internet a problem at home? Mostly "no" to 1–5 and "no" to 6 → online 1-on-1 is the better fit. Mostly "yes" to 1–5 → a good offline batch can work. Mixed answers → consider the hybrid setup above, or book demo classes in both formats and compare directly — a 1-hour demo reveals more than any article.` },
@@ -3025,7 +3103,7 @@ const comparisonPages: SEOPageData[] = [
     faqs: [
       { q: 'Which is better for JEE: online or offline coaching?', a: 'Neither format guarantees a rank — consistency does. That said, for most students in 2026+ the deciding factor is personal attention: a 1-on-1 online mentor adapts to your weak areas daily, which a 100-student offline batch structurally cannot. Choose offline only if a genuinely top-tier centre is commutable and your child thrives in large competitive classrooms.' },
       { q: 'Is online JEE coaching cheaper than offline?', a: 'Per brochure, fees look similar (₹1.2–2.2L/year both ways). In reality offline costs 2–3× more once you add hostel and mess (₹10–15K/month), commute, separate test series, and the private tuition that 40–60% of batch students end up needing. A realistic 2-year offline total is ₹6L–10L+ vs ₹2.4L–3.6L all-inclusive online.' },
-      { q: 'Can online coaching replace Kota for JEE?', a: 'Yes. Our AIR 42 result demonstrates that 1-on-1 online coaching produces results comparable to or better than Kota. The key differentiator is personalised attention, not physical location.' },
+      { q: 'Can online coaching replace Kota for JEE?', a: 'For many students, yes — the differentiator is personal attention, not physical location. What Kota genuinely offers is routine and peer pressure; what it cannot offer is a mentor who knows your specific gap list. Judge both in a demo class rather than on any institute\'s claims, ours included.' },
       { q: 'What about self-discipline in online coaching?', a: 'MindPeak\'s 1-on-1 model solves the discipline problem. Your dedicated mentor monitors attendance, tracks progress, and adjusts the pace — providing the accountability that traditional online courses lack.' },
       { q: 'Is online coaching good for JEE droppers?', a: 'Often better than offline. A dropper has exactly one year and already knows the syllabus — what they need is targeted repair of weak chapters and ruthless test analysis, not a second full pass through standard batch lectures. 1-on-1 online coaching builds the year around their specific gap list and saves the 2–3 hours daily that commuting or hostel life consumes.' },
       { q: 'Can I do offline coaching and online coaching together?', a: 'Only in a primary + supplementary arrangement: one full program plus targeted support (e.g. offline batch + online 1-on-1 for doubt resolution and weak chapters). Two full parallel programs destroy self-study time and reliably backfire.' },
@@ -3086,13 +3164,13 @@ const comparisonPages: SEOPageData[] = [
       },
       {
         heading: 'The Data Speaks',
-        content: 'MindPeak\'s 95% selection rate vs the industry average of 10-15% for batch coaching tells the entire story. When a mentor\'s success is tied to a single student\'s performance, the level of investment, accountability, and effort is incomparably higher than a teacher managing 200 students.',
+        content: 'We do not publish a selection rate, because we have no audited figure to publish — and an unverifiable percentage should not be what decides where a family spends two years. The structural argument stands on its own: when a mentor teaches one student, the level of investment, accountability and effort is incomparably higher than a teacher managing 200.',
       },
     ],
     faqs: [
       { q: 'Is one-on-one coaching better than batch coaching for JEE/NEET?', a: 'Yes for most students. One-on-one coaching adapts pacing, prioritises the student\'s weak chapters, and resolves doubts inside the same session — typically delivering 15 to 25 percentile points of gain in 6 months versus 8 to 15 for equivalent-tier batch coaching. Batch coaching still wins for students who thrive on peer competition and standard pacing.' },
       { q: 'Is a personal tutor better than a coaching institute?', a: 'A personal tutor outperforms a coaching institute for students with specific subject weaknesses, pacing flexibility needs, or hesitation in batch settings, delivering 25 to 40 percent faster percentile gains. Coaching institutes are better for self-disciplined students motivated by peer competition.' },
-      { q: 'Isn\'t 1-on-1 coaching more expensive than batch coaching?', a: 'Per hour it costs ₹2,000–₹5,000 versus ₹200–₹600 for batch coaching, but the total cost is lower because you don\'t need hostel or travel expenses. More importantly, ROI is dramatically higher — 95% success rate vs 10-15% means your investment is far more likely to deliver results.' },
+      { q: 'Isn\'t 1-on-1 coaching more expensive than batch coaching?', a: 'Per hour it costs ₹2,000–₹5,000 versus ₹200–₹600 for batch coaching, but the total cost is lower because you don\'t need hostel or travel expenses. We will not put an ROI figure on it, because any success-rate percentage you see in coaching advertising — ours included, historically — is unaudited. Judge the teaching in the free trial instead.' },
       { q: 'Don\'t batch coaching institutes have "star teachers"?', a: 'Star teachers deliver excellent lectures, but a lecture is only 20% of learning. The remaining 80% — practice, doubt resolution, personalised feedback — is where batch coaching fails. A good 1-on-1 mentor delivers all five components of effective learning.' },
       { q: 'Is small-batch coaching as good as one-on-one for personal attention?', a: 'Small batches (10–20 students) improve on 100-student batches, but attention still divides: in a 90-minute class of 15, each student averages 6 minutes of individual attention, and pacing still follows the group. If personal attention is the reason you\'re switching, one-on-one coaching is the format actually built for it — every minute targets your preparation.' },
       { q: 'Who should choose batch coaching over a personal tutor?', a: 'Choose batch coaching if you are self-disciplined, can self-identify weak areas, thrive on peer competition, and are comfortable being one of 60 to 100 students. For everyone else, one-on-one coaching is more effective per rupee spent.' },
@@ -3126,17 +3204,16 @@ const comparisonPages: SEOPageData[] = [
             ['Total Cost (with living)', '₹1,30,000', '₹3,00,000 - ₹5,00,000 (if in Kota)'],
             ['Curriculum', 'Adaptive per student', 'Fixed for batch'],
             ['Doubt Resolution', 'Instant, during class', 'Doubt counters (waiting)'],
-            ['Best JEE Rank', 'AIR 42', 'AIR 1 (multiple times)'],
             ['Student Volume', '500+ (growing)', '3+ lakh students'],
             ['Progress Tracking', 'Weekly personalised reports', 'Periodic test rankings'],
           ],
         },
       },
-      { heading: 'Why Students Choose MindPeak Over Allen', content: 'MindPeak\'s 1-on-1 model provides something Allen simply cannot — dedicated personal attention. In Allen, even in "top batches", you\'re one of 50-60 students. At MindPeak, your mentor knows your name, your weak chapters, your learning pace, and your emotional state. This relationship is what drives our 95% success rate. Students who switched from Allen to MindPeak consistently report that concepts they struggled with for months in batch classes became clear within weeks of 1-on-1 coaching.' },
+      { heading: 'Why Students Choose MindPeak Over Allen', content: 'MindPeak\'s 1-on-1 model provides something Allen simply cannot — dedicated personal attention. In Allen, even in "top batches", you\'re one of 50-60 students. At MindPeak, your mentor knows your name, your weak chapters, your learning pace, and your emotional state. That relationship is the whole argument for the format; we publish no success rate to dress it up, because we have no audited figure. Students who switch from a large batch commonly report that concepts they struggled with for months in batch classes became clear within weeks of 1-on-1 coaching.' },
       { heading: 'When Allen Might Be Better', content: 'We believe in honest comparisons. Allen might be a better fit if: you\'re the kind of student who thrives in competitive group environments, you want the prestige of Allen\'s brand name, or you\'re targeting AIR top 10 and want to be in the same room as other future top rankers. For the vast majority of students, however, MindPeak\'s personalised approach delivers better outcomes.' },
     ],
     faqs: [
-      { q: 'Allen has produced AIR 1. Can MindPeak match that?', a: 'Allen teaches 3+ lakh students annually — AIR 1 from that volume is expected. Our focus is on maximising every individual student\'s potential. Our best rank, AIR 42, was achieved by a student who was scoring 120/300 when he joined — a transformation that batch coaching rarely delivers.' },
+      { q: 'Allen has produced AIR 1. Can MindPeak match that?', a: 'No, and we will not pretend otherwise. Allen teaches lakhs of students a year; top ranks emerge from that volume, and a small 1-on-1 institute has no comparable claim to make. That is also why topper advertising tells you so little — it reflects intake scale, not what an average student gains. Our case is narrower and checkable: one mentor per student, and a free trial to test it.' },
       { q: 'Is MindPeak cheaper than Allen?', a: 'The coaching fee is comparable, but total cost is 50-70% lower because MindPeak eliminates hostel, travel, and living expenses. If you\'re considering Allen Kota, you\'ll spend ₹3-5 lakhs annually vs ₹1.3 lakhs at MindPeak.' },
     ],
     relatedPages: [
@@ -3202,7 +3279,6 @@ const comparisonPages: SEOPageData[] = [
             ['Annual Fee', 'From ₹1,30,000', '₹1,50,000 - ₹3,00,000'],
             ['Unique Feature', 'Adaptive 1-on-1 curriculum', 'Integrated school + coaching'],
             ['Doubt Resolution', 'Instant, during class', 'After-class doubt clearing'],
-            ['Track Record', 'AIR 42 (growing institute)', 'Multiple top AIRs (established)'],
           ],
         },
       },
@@ -3336,7 +3412,7 @@ const jeeCrashPage: SEOPageData = {
         'Weekly mock-test review session — 1-on-1 paper review identifying the three most fixable mistakes.',
         'Recorded mini-lectures for every conceptual doubt resolved during the crash window.',
         'Dedicated mentor for the entire crash course — not a rotating faculty pool.',
-        'Direct WhatsApp access to Dr. Ananya Sharma (Physics), Rajesh Kumar (Mathematics) and Vikram Patel (Chemistry).',
+        'Direct WhatsApp access to your assigned mentor throughout the crash window.',
       ],
     },
     {
@@ -3352,13 +3428,13 @@ const jeeCrashPage: SEOPageData = {
       ],
     },
     {
-      heading: 'Past JEE Crash Course Results',
-      content: 'Every crash course result below is verified from official NTA scorecards with student consent. JEE crash students typically pick up 30 to 70 marks in JEE Main during the crash window — depending on starting baseline and remaining days.',
+      heading: 'What a JEE Crash Course Can and Cannot Do',
+      content: 'Be sceptical of any crash course that quotes a mark gain — the honest answer is that it depends entirely on your starting baseline and the days remaining, and nobody can promise a number. We publish no crash-course results because there are no audited, consented outcomes to publish. What a crash window can realistically do is concentrate whatever time is left on the highest-yield gaps.',
       bullets: [
-        'JEE Main 99.2 percentile — Class 12 student from Indore moved from 88 percentile in a 45-day 1-on-1 crash.',
-        'JEE Main 96.8 percentile — Coimbatore student improved 58 marks in 30 days, Physics rose from 52 to 79.',
-        'JEE Main 95+ percentile — Patna dropper added 64 marks in 60 days, Mathematics from 48 to 82.',
-        `JEE Main ${CURRENT_EXAM_YEAR} attempt — 7 of the 10 crash students cleared the 95 percentile threshold.`,
+        'Week one is triage: a diagnostic to find which chapters are recoverable in the time remaining.',
+        'High-weightage topics are prioritised ruthlessly; low-yield chapters are deliberately dropped.',
+        'Previous-year papers are worked through with your mentor rather than assigned as homework.',
+        'Attempt strategy is trained explicitly — question selection, order, and when to abandon one.',
         '1-on-1 crash course pricing — ₹30,000 + GST per subject; full 3-subject crash at ₹78,000.',
         'Subject crash course (batch of 2-5) — ₹18,000 per subject for budget-conscious crash students.',
       ],
@@ -3370,7 +3446,7 @@ const jeeCrashPage: SEOPageData = {
     { q: 'How is MindPeak\'s online JEE crash course different from Aakash or Vedantu crash classes?', a: 'Aakash and Vedantu sell batch JEE crash courses with 60 to 200 students per class. MindPeak runs true 1-on-1 live online JEE crash sessions — your dedicated IIT-alumnus mentor coaches you daily for 6 days a week, with sub-2-hour WhatsApp doubt SLA throughout the crash window.' },
     { q: 'How many days before JEE Main should I start a crash course?', a: 'The 60-day variant is ideal for students with mid-tier preparation; the 45-day variant for students entering revision phase; the 30-day variant for final-month JEE Main intensive revision. Joining earlier with a longer plan is always more effective than compressing a 60-day plan into 30 days.' },
     { q: 'Does the JEE crash course include daily mock tests?', a: 'Yes — every JEE crash course bundles weekly chapter tests, bi-weekly JEE Main pattern mocks under NTA timing, plus a JEE Advanced pattern mock for students taking both exams. Each mock is followed by a 1-on-1 paper review session the next day.' },
-    { q: 'Who teaches the JEE crash course at MindPeak?', a: 'Your dedicated team is Dr. Ananya Sharma (M.Sc IIT Bombay + Ph.D IISc) for Physics, Rajesh Kumar (B.Tech IIT Delhi) for Mathematics and Vikram Patel (M.Sc IIT Kanpur, GATE 99.5 percentile) for Chemistry. All three mentors are direct on WhatsApp throughout the crash window.' },
+    { q: 'Who teaches the JEE crash course at MindPeak?', a: 'Physics is led by founder Devansh Sharma (BDS) and Nishkresh Mishra (Master\'s in Physics), Mathematics by Krishnendu Brahmachari (Master\'s in Mathematics), and Chemistry by Sahil Singh (Bachelor\'s in Chemistry) and Aparna Chandra (Ph.D. in Chemistry). Your mentor is direct on WhatsApp throughout the crash window.' },
     { q: 'What study material is provided in the JEE crash course?', a: 'A crash-course-specific MindPeak revision booklet plus the 150-plus formula sheet, NCERT line-by-line summaries for each high-yield JEE chapter, and condensed PYQ collations for Physics, Chemistry and Mathematics. Issued in week 1 of the crash course.' },
     { q: 'Is the JEE crash course available pan-India?', a: 'Yes — our online JEE crash course is delivered across India. Crash students from Indore, Patna, Lucknow, Coimbatore, Bhopal, Guwahati, Ranchi, Trivandrum and every other Indian city have completed our final-month JEE Main revision programme without travelling.' },
   ],
@@ -3459,7 +3535,7 @@ const neetCrashPage: SEOPageData = {
         'Weekly mock-test review session — 1-on-1 paper review identifying the three most fixable mistakes per subject.',
         'Recorded mini-lectures for every conceptual NEET doubt resolved during the crash window.',
         'Dedicated AIIMS-alumna mentor for the entire NEET crash course — not a rotating faculty pool.',
-        'Direct WhatsApp access to Dr. Priya Nair (Biology), Dr. Ananya Sharma (Physics) and Vikram Patel (Chemistry).',
+        'Direct WhatsApp access to your assigned mentor throughout the crash window.',
       ],
     },
     {
@@ -3475,13 +3551,13 @@ const neetCrashPage: SEOPageData = {
       ],
     },
     {
-      heading: 'Past NEET Crash Course Results',
-      content: 'Every NEET crash result below is verified from official NTA scorecards with student consent. NEET crash students typically pick up 40 to 80 marks during the crash window — Biology improvements drive the largest share because Biology accounts for 50 per cent of NEET marks.',
+      heading: 'What a NEET Crash Course Can and Cannot Do',
+      content: 'Treat any crash course quoting a mark gain with suspicion — the outcome depends on your starting baseline and the days left, and no honest programme can promise a figure. We publish no crash-course results because there are no audited, consented outcomes to publish. What a crash window can do is concentrate the remaining time where NEET actually pays: Biology is 360 of the 720 marks, so revision priority follows that arithmetic.',
       bullets: [
-        'NEET 660/720 — Class 12 student from Coimbatore moved 64 marks in a 45-day 1-on-1 NEET crash.',
-        'NEET 648/720 — Patna dropper added 72 marks in 60 days, Biology rose from 268 to 332.',
-        'NEET 620/720 — Lucknow student improved 58 marks in 30 days under Dr. Priya Nair.',
-        `NEET ${CURRENT_EXAM_YEAR} attempt — 8 of 10 crash students cleared 600/720 in the final mock.`,
+        'Week one is triage: a diagnostic to find what is recoverable in the days remaining.',
+        'Biology weighted first — it carries half the paper and rewards fast, structured NCERT revision.',
+        'Previous-year papers worked through with your mentor rather than assigned as homework.',
+        'Accuracy and OMR discipline drilled under real timing, where crash-window marks are lost.',
         '1-on-1 NEET crash course pricing — ₹30,000 + GST per subject; full 3-subject crash at ₹78,000.',
         'Subject crash course (batch of 2-5) — ₹18,000 per subject for budget-conscious NEET crash students.',
       ],
@@ -3493,7 +3569,7 @@ const neetCrashPage: SEOPageData = {
     { q: 'How is MindPeak\'s online NEET crash course different from Aakash, Allen or PW NEET crash classes?', a: 'Aakash, Allen and PW sell batch NEET crash courses with 60 to 200 students per class. MindPeak runs true 1-on-1 live online NEET crash sessions — your dedicated AIIMS-alumna mentor coaches you daily for 6 days a week, with sub-2-hour WhatsApp doubt SLA throughout the crash window.' },
     { q: 'How many days before NEET should I start a crash course?', a: 'The 60-day variant is ideal for students with mid-tier preparation; the 45-day variant for students entering revision phase; the 30-day variant for final-month NEET intensive revision. Joining earlier with a longer plan is always more effective than compressing a 60-day plan into 30 days.' },
     { q: 'Does the NEET crash course include daily mock tests?', a: 'Yes — every NEET crash course bundles twice-weekly chapter tests, weekly NEET pattern mocks under NTA timing and bi-weekly 180-question full-length mocks. Each mock is followed by a 1-on-1 paper review session with your mentor the next day.' },
-    { q: 'Who teaches the NEET crash course at MindPeak?', a: 'Dr. Priya Nair (MBBS AIIMS Delhi) for Biology with 8 years of NEET Biology coaching, Dr. Ananya Sharma (M.Sc IIT Bombay + Ph.D IISc) for Physics, and Vikram Patel (M.Sc IIT Kanpur) for Chemistry. All three mentors are direct on WhatsApp throughout the crash window.' },
+    { q: 'Who teaches the NEET crash course at MindPeak?', a: 'Biology is taught by Muskan (MDS) and Muskan Singla, Physics by founder Devansh Sharma (BDS) and Nishkresh Mishra (Master\'s in Physics), and Chemistry by Aparna Chandra (Ph.D. in Chemistry) and Sahil Singh (Bachelor\'s in Chemistry). Your mentor is direct on WhatsApp throughout the crash window.' },
     { q: 'What study material is provided in the NEET crash course?', a: 'A NEET-crash-specific MindPeak revision booklet, the NCERT line-by-line summaries for high-yield Biology chapters, 100-plus Biology diagram practice sheets, 80-plus Physics formula sheets, and condensed PYQ collations for Biology, Physics and Chemistry. Issued in week 1.' },
     { q: 'Is NCERT enough for a NEET crash course?', a: 'NCERT is the bedrock of any NEET crash course — more than 90 per cent of NEET questions come from NCERT. For a 650+ NEET score, Trueman\'s Biology, DC Pandey Physics for NEET and MS Chouhan Light Organic Chemistry are layered in by the mentor for revision-ready crash students.' },
     { q: 'Is the NEET crash course available pan-India?', a: 'Yes — our online NEET crash course is delivered across India. Crash students from Indore, Patna, Lucknow, Coimbatore, Bhopal, Guwahati, Ranchi, Trivandrum and every other Indian city have completed the final-month NEET revision programme without travelling.' },
@@ -3574,7 +3650,7 @@ const methodologyPage: SEOPageData = {
   description: 'Discover MindPeak Institute\'s proven teaching methodology. Adaptive curriculum, daily 1-on-1 sessions, weekly analytics, and AI-powered practice — all designed for JEE & NEET success.',
   h1: 'Our',
   h1Highlight: 'Teaching Methodology',
-  heroSubtitle: 'A scientifically designed 6-layer coaching framework that adapts to every student\'s unique learning style, pace, and goals. This is how MindPeak achieves a 95% selection rate.',
+  heroSubtitle: 'A scientifically designed 6-layer coaching framework that adapts to every student\'s unique learning style, pace, and goals. This is the framework every MindPeak mentor teaches to.',
   sections: [
     {
       heading: 'The 6-Layer MindPeak Framework',
@@ -3710,36 +3786,35 @@ const mentorsPage: SEOPageData = {
       heading: 'Physics Faculty',
       content: 'Our Physics mentors specialise in building strong conceptual foundations and problem-solving skills for both JEE and NEET.',
       bullets: [
-        'Prof. Amit Kumar — IIT Delhi, B.Tech (Engineering Physics), 7 years experience. Specialises in Mechanics and Electrodynamics. Mentored 3 students to JEE Advanced top-500.',
-        'Prof. Deepak Sharma — IIT Kanpur, M.Tech (Applied Physics), 5 years experience. Expert in Modern Physics and Optics. Known for visual teaching methods.',
-        'Prof. Neha Singh — NIT Trichy, B.Tech, 4 years experience. NEET Physics specialist. Focuses on conceptual clarity over formula memorisation.',
+        'Devansh Sharma — BDS. Founder, and still teaching. Makes Physics problem-solving systematic: read the problem, identify the principle, reach the right equation without guessing.',
+        'Nishkresh Mishra — Master\'s in Physics. Focuses on the hardest areas — Mechanics, Electrodynamics and Modern Physics — and on diagnosing exactly where a student\'s reasoning breaks down.',
+        'Devansh — MBBS. Teaches JEE and NEET Physics concept-first, building physical intuition before reaching for formulas.',
       ],
     },
     {
       heading: 'Chemistry Faculty',
       content: 'Chemistry is often the make-or-break subject. Our Chemistry mentors ensure students master all three branches — Physical, Organic, and Inorganic.',
       bullets: [
-        'Prof. Rajesh Iyer — IIT Bombay, M.Sc (Chemistry), 8 years experience. Organic Chemistry expert with a unique reaction-mechanism-first approach.',
-        'Prof. Meera Joshi — IIT Madras, B.Tech (Chemical Engineering), 5 years experience. Physical Chemistry specialist. Makes thermodynamics and electrochemistry intuitive.',
-        'Prof. Vikram Reddy — BITS Pilani, M.Sc, 6 years experience. Inorganic Chemistry expert. His mnemonics and pattern-based teaching are legendary among students.',
+        'Aparna Chandra — Ph.D. in Chemistry. A research background shapes the approach: every reaction and trend has a reason, so Organic and Inorganic become prediction rather than memorisation.',
+        'Sahil Singh — Bachelor\'s in Chemistry. Teaches Organic through electron-flow logic, so students can predict products for reactions they have never seen.',
+        'Aparna — M.Sc. Chemistry. Strongest in Physical and Inorganic, deriving properties from electronic configuration and the periodic table.',
       ],
     },
     {
       heading: 'Mathematics Faculty',
       content: 'Our Mathematics mentors transform students\' relationship with the subject — from fear to confidence.',
       bullets: [
-        'Prof. Suresh Menon — IIT Kharagpur, B.Tech (Mathematics & Computing), 10 years experience. Calculus and Algebra expert. Has mentored 5 students to JEE Advanced top-1000.',
-        'Prof. Anil Gupta — IIT Roorkee, M.Tech, 6 years experience. Coordinate Geometry and Vectors specialist. Believes in "100 problems > 10 formulas" philosophy.',
-        'Prof. Kavita Sharma — ISI Kolkata, M.Stat, 4 years experience. Probability and Combinatorics expert. Brings competition-math perspective to JEE preparation.',
+        'Krishnendu Brahmachari — Master\'s in Mathematics. Teaches JEE Maths as pattern recognition rather than rote procedure — a Calculus problem is often Trigonometry in disguise.',
+        'Sri Bala — JEE Mathematics. Builds speed and accuracy through deliberate, timed practice on exactly the question types a student finds shaky.',
+        'Vinod — JEE Mathematics. Breaks every topic down to first principles for students who have come to fear the subject, then drills application until the method is automatic.',
       ],
     },
     {
       heading: 'Biology Faculty (NEET)',
       content: 'Our Biology mentors are NEET specialists who understand the NCERT-centric examination pattern inside out.',
       bullets: [
-        'Dr. Priya Nair — AIIMS Delhi, MBBS, 6 years teaching experience. Anatomy and Physiology expert. Her NCERT line-by-line analysis is unmatched.',
-        'Prof. Sandeep Patil — JIPMER, MBBS, 5 years experience. Genetics and Ecology specialist. Creates visual flowcharts that simplify complex biological processes.',
-        'Dr. Ritu Agarwal — AIIMS Jodhpur, MBBS, 4 years experience. Botany expert with focus on Plant Physiology and Morphology.',
+        'Muskan — MDS (Master of Dental Surgery). Teaches NEET Biology NCERT-first and exam-pattern driven, connecting each concept to how NTA actually tests it and to real clinical context.',
+        'Muskan Singla — NEET Biology. Focuses on Botany and the high-yield NCERT lines NTA repeats, building diagram-level recall and drilling out the silly mistakes that cost rank.',
       ],
     },
     {

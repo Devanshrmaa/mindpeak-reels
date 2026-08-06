@@ -6,7 +6,8 @@ export const revalidate = false;
 
 export const metadata: Metadata = {
   title: `1-on-1 Mentorship for JEE, NEET, BITSAT, CUET & More (${CURRENT_EXAM_YEAR})`,
-  description: "Searching for the best 1-on-1 mentoring for an entrance exam? One dedicated mentor plans, teaches, and tracks your preparation — JEE, NEET, and 11+ other exams mapped on one page.",
+  // Description ≤155 chars — beyond that Google truncates the snippet.
+  description: "One dedicated mentor plans, teaches, and tracks your preparation — 1-on-1 coaching for JEE, NEET, BITSAT, CUET and 10+ more entrance exams.",
   alternates: { canonical: "https://mindpeakinstitute.com/one-to-one-exam-mentorship" },
   openGraph: {
     title: `1-on-1 Exam Mentorship — One Dedicated Mentor for Any Entrance Exam (${CURRENT_EXAM_YEAR})`,

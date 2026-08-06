@@ -142,6 +142,16 @@ const jsonLdGraph = {
       "@id": "https://mindpeakinstitute.com/#organization",
       name: "MindPeak Institute",
       alternateName: "MindPeak",
+      /*
+       * ENTITY DISAMBIGUATION (2026-08 AI-citation probe).
+       * Answer engines were merging this entity with Mindpeak GmbH — an
+       * unrelated Hamburg digital-pathology company — and attributing that
+       * company's founders (Felix Faber, Dr. Tobias Lang) and details to us.
+       * `disambiguatingDescription` is schema.org's field for exactly this:
+       * distinguishing same-name entities. Keep the contrast explicit.
+       */
+      disambiguatingDescription:
+        "MindPeak Institute is an Indian online JEE and NEET coaching institute based in Dehra Gopipur, Himachal Pradesh. It is unrelated to Mindpeak GmbH, the Hamburg-based AI digital-pathology company that shares a similar name.",
       url: "https://mindpeakinstitute.com",
       logo: {
         "@type": "ImageObject",
@@ -167,7 +177,7 @@ const jsonLdGraph = {
       // Factual description — LLMs and rich results quote this verbatim, so
       // no superlatives or results claims (see 2026-07 claims cleanup).
       description:
-        "Indian online coaching institute for JEE Main, JEE Advanced, and NEET-UG. Live 1-on-1 classes with a dedicated mentor per student, adaptive curriculum, recorded sessions, and weekly parent reports. Founded 2018 in Himachal Pradesh; teaches students across India online.",
+        "Indian online coaching institute for JEE Main, JEE Advanced, and NEET-UG. Live 1-on-1 classes with a dedicated mentor per student, adaptive curriculum, recorded sessions, and weekly parent reports. Founded 2025 in Himachal Pradesh; teaches students across India online.",
       knowsAbout: [
         "JEE Main preparation",
         "JEE Advanced preparation",
@@ -188,7 +198,9 @@ const jsonLdGraph = {
       },
       telephone: "+91-82194-57704",
       email: "mindpeak@mindpeakinstitute.com",
-      foundingDate: "2018",
+      // Owner-confirmed 2025. NOT 2018 — that is Mindpeak GmbH's founding
+      // year, and publishing it here was reinforcing the entity merge.
+      foundingDate: "2025",
       priceRange: "₹₹",
       areaServed: { "@type": "Country", name: "India" },
       address: {

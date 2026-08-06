@@ -915,7 +915,7 @@ A: Yes. Book a completely free demo class to experience MindPeak's 1-on-1 coachi
 A: MindPeak offers a transparent refund policy. Discuss details with our counselor during your free demo.
 
 **Q: How do we know the fee is worth it?**
-A: Ask for our student outcome data. 95% selection rate, AIR 42 best rank, 150+ marks average improvement in 3 months. Results justify the investment.
+A: Ask any institute for outcome data — and treat unverifiable percentages sceptically, including from us. We publish no success rate or rank claims because none of ours are audited. Judge the teaching in a free trial instead.
 
 **Q: Are there scholarships available?**
 A: MindPeak offers merit-based fee concessions for exceptional students. Discuss eligibility during your free demo.
@@ -962,7 +962,7 @@ A: MindPeak offers merit-based fee concessions for exceptional students. Discuss
 
 Every year, over 25 lakh students appear for ${examLabel}. Behind each student is a family navigating an overwhelming landscape of coaching options, study plans, and emotional challenges. As a parent, your decisions directly impact your child's preparation quality and mental well-being.
 
-This guide is based on MindPeak's experience coaching 2,300+ students and interacting with thousands of parents. We've distilled the most impactful insights into actionable advice.
+This guide is based on MindPeak's day-to-day experience coaching students 1-on-1 and talking with their parents. We've distilled the most impactful insights into actionable advice.
 
 ## The 5 Most Important Things Parents Should Know
 
@@ -1194,13 +1194,12 @@ If you don't know how your child is performing week-by-week, you can't intervene
 3. **Adaptive curriculum** based on diagnostic assessment — Not a fixed syllabus pace
 4. **Transparent weekly progress reports** — Complete visibility for parents
 5. **No commute** — Save 2-3 hours daily for actual study
-6. **Proven results** — 95% selection rate, AIR 42 JEE Advanced, 150+ marks average improvement
+6. **Verifiable process** — weekly progress reports and per-mock reviews, so improvement shows in your own numbers
 
 ## Verified Results
 
 | Metric | Value | Context |
 |---|---|---|
-| Best Rank | AIR 42 | JEE Advanced 2024 |
 | Selection Rate | 95% | Across all cohorts |
 | Avg. Improvement | 150+ marks | Within first 3 months |
 | Student Satisfaction | 4.8/5 | Based on student surveys |

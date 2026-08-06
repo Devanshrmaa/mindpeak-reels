@@ -153,10 +153,21 @@ const ChooseMentorGuide = () => {
             <span className="text-gradient-gold">JEE or NEET Mentor</span>
           </h1>
 
-          <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mb-6">
+          {/*
+            Direct-answer lead: ≤40 words, fact-dense, self-contained. This is
+            the chunk answer engines lift when asked the page's core question,
+            so it states the answer before any narrative setup.
+          */}
+          <p className="text-foreground text-lg sm:text-xl leading-relaxed max-w-3xl mb-5 font-medium">
+            Choose a 1-on-1 JEE or NEET mentor on six things: a genuine batch size of one, mentor&ndash;subject fit you
+            judge yourself, doubts resolved live in-session, per-mock error review, an adaptive weekly plan, and
+            transparent pricing with a free trial.
+          </p>
+
+          <p className="text-muted-foreground text-base leading-relaxed max-w-3xl mb-6">
             &ldquo;Personalized 1-on-1 mentoring&rdquo; is the most over-used phrase in coaching marketing, and most programs
-            that claim it are quietly still batches. This is a practical guide to telling the real thing apart: the six
-            things that actually matter, the red flags, and the exact questions to ask before you pay a rupee.
+            that claim it are quietly still batches. Below is how to tell the real thing apart — the six criteria in
+            detail, the red flags, and the exact questions to ask before you pay a rupee.
           </p>
 
           <div className="max-w-3xl rounded-xl border border-primary/25 bg-primary/5 p-5">

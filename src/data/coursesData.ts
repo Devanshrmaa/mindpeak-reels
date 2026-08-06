@@ -425,7 +425,6 @@ export const courses: Course[] = [
       { day: 'Sunday', activity: 'Self-study + Revision (mentor-assigned practice set)' },
     ],
     results: [
-      { label: 'Best JEE Advanced AIR', value: 'AIR 42' },
       { label: 'Students Below AIR 5,000', value: '95%' },
       { label: 'Average Percentile (JEE Main)', value: '98.2+' },
       { label: 'Mock Score Improvement', value: '10× in 6 months' },
@@ -444,7 +443,7 @@ export const courses: Course[] = [
       'Dedicated 1-on-1 mentor — not shared with 100+ students like batch coaching',
       'Adaptive curriculum that evolves with YOUR progress, not a fixed syllabus pace',
       'Every session recorded — unlimited rewatching for revision',
-      '95% success rate with AIR 42 as our best JEE Advanced result',
+      'A free trial class with your assigned mentor before you pay anything',
       '60% lower total cost compared to Kota coaching (no hostel, food, travel expenses)',
       'Study from home with family support — no relocation stress',
       'Unlimited doubt resolution within 2-4 hours via WhatsApp',

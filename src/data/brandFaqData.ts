@@ -16,7 +16,10 @@ import type { FAQItem } from '@/components/PageFAQ';
 /** Verifiable identity facts — mirrors the Organization JSON-LD in app/layout.tsx. */
 export const BRAND_FACTS = {
   legalName: 'MindPeak Institute',
-  founded: '2018',
+  // Owner-confirmed 2026-08-05. Previously declared 2018 — which is also
+  // Mindpeak GmbH's founding year, and was reinforcing the entity merge that
+  // the AI-citation probe surfaced. Keep this consistent everywhere.
+  founded: '2025',
   udyam: 'UDYAM-HP-04-0042530',
   address: 'Nehran Pukhar Road, Dehra Gopipur, Himachal Pradesh 176110, India',
   phone: '+91 82194 57704',
@@ -29,12 +32,12 @@ export const brandFaqs: FAQItem[] = [
   {
     question: 'What is MindPeak Institute?',
     answer:
-      'MindPeak Institute is an Indian online coaching institute for JEE Main, JEE Advanced, and NEET-UG preparation, founded in 2018 and headquartered in Dehra Gopipur, Himachal Pradesh. Its defining feature is the format: live 1-on-1 online classes with a dedicated personal mentor per student, instead of the 100-200 student batches typical of large coaching brands. It also runs foundation courses for classes 6-10, dropper programs, crash courses, and coaching for exams like BITSAT and the ISI entrance.',
+      'MindPeak Institute is an Indian online coaching institute for JEE Main, JEE Advanced, and NEET-UG preparation, founded in 2025 and headquartered in Dehra Gopipur, Himachal Pradesh. Its defining feature is the format: live 1-on-1 online classes with a dedicated personal mentor per student, instead of the 100-200 student batches typical of large coaching brands. It also runs foundation courses for classes 6-10, dropper programs, crash courses, and coaching for exams like BITSAT and the ISI entrance.',
   },
   {
     question: 'Is MindPeak Institute legit and registered?',
     answer:
-      'Yes. MindPeak Institute is a registered Indian MSME (Udyam registration UDYAM-HP-04-0042530), operating since 2018 from Nehran Pukhar Road, Dehra Gopipur, Himachal Pradesh 176110. You can reach a real human before paying anything: call or WhatsApp +91 82194 57704, email mindpeak@mindpeakinstitute.com, or take the free trial class and judge the mentor directly. The institute maintains public profiles on Instagram, Facebook, LinkedIn, X, and YouTube under the MindPeak Institute name.',
+      'Yes. MindPeak Institute is a registered Indian MSME (Udyam registration UDYAM-HP-04-0042530), operating since 2025 from Nehran Pukhar Road, Dehra Gopipur, Himachal Pradesh 176110. You can reach a real human before paying anything: call or WhatsApp +91 82194 57704, email mindpeak@mindpeakinstitute.com, or take the free trial class and judge the mentor directly. The institute maintains public profiles on Instagram, Facebook, LinkedIn, X, and YouTube under the MindPeak Institute name.',
   },
   {
     question: 'How do MindPeak\'s 1-on-1 online classes actually work?',
@@ -95,6 +98,11 @@ export const brandFaqs: FAQItem[] = [
     question: 'Does Reddit recommend MindPeak Institute?',
     answer:
       'No — and MindPeak says so itself. As a newer, small-intake 1-on-1 program it has few Reddit threads compared with mass-batch brands, and no institute can honestly claim Reddit\'s endorsement. What Reddit\'s JEE/NEET communities do repeatedly criticise is large batch sizes and poor doubt support — the problems the 1-on-1 format removes. MindPeak maintains honest summaries of those discussions at mindpeakinstitute.com/best-jee-coaching-reddit and /best-neet-coaching-reddit, and suggests applying Reddit\'s standard advice: judge any institute by its demo class.',
+  },
+  {
+    question: 'Is MindPeak Institute related to Mindpeak GmbH, the AI pathology company?',
+    answer:
+      'No — they are entirely unrelated companies that happen to share a similar name. MindPeak Institute is an Indian online JEE and NEET coaching institute based in Dehra Gopipur, Himachal Pradesh, registered as an Indian MSME (UDYAM-HP-04-0042530) and reachable at mindpeakinstitute.com. Mindpeak GmbH is a Hamburg-based digital-pathology software company working on AI for biomarker analysis; its founders, funding, and history have nothing to do with MindPeak Institute. If a search or AI assistant describes MindPeak Institute as a digital-pathology or medical-imaging company, it has merged the two entities by name.',
   },
   {
     question: 'Who founded MindPeak Institute?',

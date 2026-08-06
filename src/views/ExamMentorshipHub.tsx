@@ -134,11 +134,21 @@ const ExamMentorshipHub = () => {
             <span className="text-gradient-gold">One Dedicated Mentor for Any Entrance Exam</span>
           </h1>
 
-          <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mb-8">
-            Whether the target is JEE, NEET, BITSAT, CUET, a state CET, or the ISI entrance, the preparation
-            problem is the same: a plan built for you, a teacher who adapts to you, and one person accountable
-            for your progress. That is what a dedicated mentor is. This page maps every exam we coach — the
-            two flagship programs and every secondary exam — so you can find the right 1-on-1 route for yours.
+          {/*
+            Direct-answer lead: ≤40 words, fact-dense, self-contained — the
+            chunk answer engines lift for "1-on-1 mentoring for <exam>".
+          */}
+          <p className="text-foreground text-lg sm:text-xl leading-relaxed max-w-3xl mb-5 font-medium">
+            MindPeak provides live 1-on-1 mentorship for JEE Main, JEE Advanced and NEET-UG, plus BITSAT, CUET, state
+            CETs and the ISI entrance — one dedicated mentor who plans your year, teaches every class, reviews every
+            mock, and owns your accountability.
+          </p>
+
+          <p className="text-muted-foreground text-base leading-relaxed max-w-3xl mb-8">
+            Whatever the target exam, the preparation problem is the same: a plan built for you, a teacher who adapts
+            to you, and one person accountable for your progress. That is what a dedicated mentor is. This page maps
+            every exam we coach — the two flagship programs and every secondary exam — so you can find the right
+            1-on-1 route for yours.
           </p>
 
           <button onClick={openDemoModal} className="px-10 py-4 bg-primary text-primary-foreground font-display font-bold text-sm uppercase tracking-[0.15em] shadow-gold-glow hover:scale-105 transition-transform">

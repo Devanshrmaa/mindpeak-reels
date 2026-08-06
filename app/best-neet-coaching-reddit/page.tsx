@@ -5,8 +5,10 @@ import type { Metadata } from "next";
 export const revalidate = false;
 
 export const metadata: Metadata = {
-  title: `Best NEET Coaching According to Reddit — An Honest Reading (${CURRENT_EXAM_YEAR})`,
-  description: "What Reddit's NEET communities actually say about coaching: NCERT-first advice, Physics struggles, batch-size complaints, dropper-year counsel. Bias disclosed.",
+  // Title ≤60 chars, description ≤155 — beyond that Google truncates and the
+  // snippet AI engines extract gets cut mid-sentence.
+  title: `Best NEET Coaching According to Reddit — Honest Read ${CURRENT_EXAM_YEAR}`,
+  description: "What Reddit's NEET communities say about coaching: NCERT-first advice, Physics struggles, batch-size complaints, and dropper-year counsel.",
   alternates: { canonical: "https://mindpeakinstitute.com/best-neet-coaching-reddit" },
   openGraph: {
     title: `Best NEET Coaching According to Reddit — An Honest Reading (${CURRENT_EXAM_YEAR})`,

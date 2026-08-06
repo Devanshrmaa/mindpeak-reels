@@ -5,8 +5,10 @@ import type { Metadata } from "next";
 export const revalidate = false;
 
 export const metadata: Metadata = {
-  title: `How to Choose a 1-on-1 JEE or NEET Mentor (${CURRENT_EXAM_YEAR}) — An Honest Checklist`,
-  description: "Choosing a 1-on-1 JEE or NEET mentor? The six things that actually matter, the red flags to avoid, and the exact questions to ask in a demo class. Bias disclosed.",
+  // Title ≤60 chars, description ≤155 — beyond that Google truncates and the
+  // snippet AI engines extract gets cut mid-sentence.
+  title: `How to Choose a 1-on-1 JEE or NEET Mentor (${CURRENT_EXAM_YEAR})`,
+  description: "The six things that actually matter when choosing a 1-on-1 JEE or NEET mentor, the red flags to avoid, and what to ask in a demo class.",
   alternates: { canonical: "https://mindpeakinstitute.com/how-to-choose-a-1-on-1-mentor" },
   openGraph: {
     title: `How to Choose a 1-on-1 JEE or NEET Mentor (${CURRENT_EXAM_YEAR})`,
