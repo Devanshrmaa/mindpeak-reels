@@ -1841,13 +1841,13 @@ const subjectPages: SEOPageData[] = [
         ],
       },
       {
-        heading: 'Your Physics Mentor — Dr. Ananya Sharma',
-        content: 'Every MindPeak JEE student is assigned a dedicated mentor from the IIT-alumni faculty bench. The Physics programme is led by Dr. Ananya Sharma — M.Sc. (IIT Bombay) and Ph.D. (IISc Bangalore), 12 years of online JEE coaching. She personally mentored MindPeak\'s AIR 42 in JEE Advanced and has coached 180-plus students.',
+        heading: 'Your JEE Physics Mentor',
+        content: 'Every MindPeak JEE student is assigned a dedicated Physics mentor for the whole programme. Physics is led by founder Devansh Sharma (BDS), who teaches problem-solving systematically — read the problem, identify the principle at play, and reach the right equation without guessing — and by Nishkresh Mishra (Master\'s in Physics), who focuses on the areas students find hardest, Mechanics, Electrodynamics and Modern Physics, and on diagnosing exactly where a student\'s reasoning breaks down so the root cause gets fixed rather than the symptom.',
         bullets: [
-          'M.Sc. Physics (IIT Bombay) and Ph.D. (IISc Bangalore) — verified credentials on the faculty page.',
-          '12 years of JEE coaching across Mechanics, Electrodynamics, Optics, Thermodynamics and Modern Physics.',
-          'Mentored AIR 42 in JEE Advanced and multiple AIR-under-500 ranks.',
-          'Turns Physics-weak Class 11 droppers into 80-plus scorers in 8 to 10 months.',
+          'Devansh Sharma — BDS · founder, and still teaching Physics rather than only running the institute.',
+          'Nishkresh Mishra — Master\'s in Physics · Mechanics, Electrodynamics and Modern Physics.',
+          'Concept-first: physical intuition before formulas, so unfamiliar problems become solvable.',
+          'Full JEE Physics coverage — Mechanics, Electrodynamics, Optics, Thermodynamics, Modern Physics.',
           'You meet your assigned mentor in a free trial class before paying anything.',
           'Direct WhatsApp number for doubt resolution — no call centre, no junior tutors.',
         ],
@@ -1906,14 +1906,21 @@ const subjectPages: SEOPageData[] = [
         authorityNote: 'If you can already self-study from HC Verma, a batch class is fine. If you need a mentor who notices the exact step where your derivation breaks down, only true one-on-one coaching delivers it.',
       },
       {
-        heading: 'Past Results — Sample JEE Physics Student Outcomes',
-        content: 'Every student is named with consent and improvements are verifiable from JEE Main NTA scorecards. Across the last three batches, the average improvement for a one-year MindPeak student has been 32 marks in Physics; for droppers, 41 marks.',
+        /*
+         * Removed a "named with consent / verifiable from NTA scorecards"
+         * claim over five invented student outcomes and two average-
+         * improvement figures. No audited results exist — see
+         * no-fabricated-claims.test.ts. Replaced with how the Physics
+         * programme actually runs; pricing line retained below.
+         */
+        heading: 'How the JEE Physics Programme Runs',
+        content: 'We publish no student score claims for Physics, because we have no audited, consented outcomes to publish. What we can set out is how the subject is taught, which is the part you can actually evaluate in a trial class.',
         bullets: [
-          'AIR 42 in JEE Advanced — joined with 38 in JEE Main Physics, ended at 92 after 11 months under Dr. Ananya Sharma.',
-          'AIR 89 in JEE Main — Physics improved from 52 to 88 after targeted Electrodynamics doubt classes.',
-          `Class 12 dropper from Patna — Physics rose from 40 to 78 in JEE Main ${CURRENT_EXAM_YEAR}; admitted to IIT Roorkee.`,
-          'Class 11 student from Indore — 1-on-1 coaching for 18 months took her from 60th to 99.2 percentile in JEE Main Physics.',
-          'Repeat student from Lucknow — score moved from 45 to 82, secured AIR 412 in JEE Advanced.',
+          'Every chapter starts from physical intuition, not a formula sheet — formulas come after the picture makes sense.',
+          'Sessions are built around solving problems together, so your mentor sees where the reasoning stalls in real time.',
+          'Weak-chapter repair is scheduled explicitly rather than hoped for — Rotational Motion and Electrodynamics are the usual culprits.',
+          'Every mock is reviewed question by question, separating concept gaps from time-management losses.',
+          'Doubts are resolved live in-session, so nothing compounds into the next chapter.',
           'Pricing starts at INR 14,500 per month for the single-subject 1-on-1 plan; the full 3-subject JEE plan starts at INR 32,500 per month.',
         ],
       },
@@ -2031,13 +2038,13 @@ const subjectPages: SEOPageData[] = [
         ],
       },
       {
-        heading: 'Your JEE Chemistry Mentor — Vikram Patel',
-        content: 'Every MindPeak JEE student is assigned a dedicated Chemistry mentor from the IIT-alumni faculty bench. The JEE Chemistry programme is led by Vikram Patel — M.Sc. Chemistry (IIT Kanpur), GATE 99.5 percentile, 11 years of JEE and NEET Chemistry coaching with 220+ students mentored.',
+        heading: 'Your JEE Chemistry Mentor',
+        content: 'Every MindPeak JEE student is assigned a dedicated Chemistry mentor for the whole programme. Chemistry is taught by Sahil Singh (Bachelor\'s in Chemistry), who treats it as a logical subject rather than a list to memorise and works through Organic mechanisms via electron-flow logic so students can predict products for reactions they have never seen, and by Aparna Chandra (Ph.D. in Chemistry), whose research background shapes how she teaches it — every reaction and periodic trend has a reason, and once students see the "why", Organic and Inorganic stop being memorisation and start being prediction.',
         bullets: [
-          'M.Sc. Chemistry (IIT Kanpur), GATE 99.5 percentile — verified credentials.',
-          '11 years of JEE Chemistry coaching across Physical, Organic and Inorganic branches.',
-          '220-plus JEE and NEET students mentored over the last 11 years.',
-          'Specialty: turning Physical Chemistry-weak students into 28+ scorers within 4 months.',
+          'Sahil Singh — Bachelor\'s in Chemistry · Organic mechanisms through electron-flow logic.',
+          'Aparna Chandra — Ph.D. in Chemistry · Physical and Inorganic derived from first principles.',
+          'Full coverage across Physical, Organic and Inorganic branches.',
+          'Taught for prediction rather than recall — the aim is handling reactions you have not seen.',
           'You meet your assigned Chemistry mentor in a free trial class before paying.',
           'Direct WhatsApp number for doubt resolution and mentor check-ins.',
         ],
@@ -2083,15 +2090,16 @@ const subjectPages: SEOPageData[] = [
         authorityNote: 'For a JEE student targeting 85+ in Chemistry, the question is not "which brand has the best teacher on screen" but "which mentor will sit with me every day and rebuild Organic mechanisms from scratch". Only true one-on-one coaching delivers that.',
       },
       {
-        heading: 'Verified JEE Chemistry Student Outcomes',
-        content: 'Every Chemistry result below is verified from NTA scorecards with student consent. Across the last three MindPeak batches, JEE Chemistry students improved by an average of 22 marks over their joining baseline. Pricing for the 1-on-1 Chemistry-only plan starts at ₹14,500 per month.',
+        // Fabricated verification claim + five invented outcomes + a "22 mark
+        // average" removed. Pricing line retained (matches pricingData).
+        heading: 'How the JEE Chemistry Programme Runs',
+        content: 'We publish no Chemistry score claims — there are no audited, consented student outcomes to publish. What follows is how the subject is actually taught, which you can judge in a free trial class. Pricing for the 1-on-1 Chemistry-only plan starts at ₹14,500 per month.',
         bullets: [
-          'AIR 42 in JEE Advanced — student improved JEE Main Chemistry from 48 to 86 under Vikram Patel.',
-          'AIR 89 in JEE Main — Chemistry from 52 to 91 in 7 months of 1-on-1 Chemistry coaching.',
-          'Class 12 dropper from Patna — JEE Chemistry rose from 38 to 79, admitted to IIT Roorkee.',
-          'Class 11 starter from Indore — JEE Main Chemistry mock scores rose from 56 to 92 in 11 months.',
-          'Repeat student from Lucknow — Chemistry from 45 to 84 in JEE Main 2025.',
-          'Average JEE Chemistry mark improvement across MindPeak\'s online JEE Chemistry coaching: 22 marks.',
+          'Organic taught as electron-flow logic, so unfamiliar reactions become predictable rather than memorised.',
+          'Inorganic derived from electronic configuration and periodic trends instead of rote tables.',
+          'Physical Chemistry drilled through numericals under exam timing, the usual scoring gap.',
+          'Every mock reviewed question by question with your mentor, not returned as a bare score.',
+          'Doubts resolved live in-session — an unresolved Coordination Compounds gap blocks Metallurgy next week.',
         ],
       },
     ],
