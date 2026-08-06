@@ -2917,6 +2917,173 @@ const bestJeeCoachingIndiaPage: SEOPageData = {
   schemaType: 'WebPage',
 };
 
+const bestOnlinePlatformsPage: SEOPageData = {
+  slug: 'best-online-jee-neet-coaching-platforms',
+  title: `Best Online Platforms for JEE & NEET Coaching in India (${CURRENT_EXAM_YEAR}) — Compared`,
+  description: `An honest comparison of the major online JEE & NEET coaching platforms in India — MindPeak, Allen, Aakash, Physics Wallah, Unacademy, and Vedantu — by format, class size, fees, and who each one actually fits.`,
+  h1: 'Best Online Platforms for JEE & NEET Coaching',
+  h1Highlight: `in India ${CURRENT_EXAM_YEAR}`,
+  heroSubtitle: 'Every platform on this list claims to be the best. The honest answer is that "best" depends on what you need — a low-cost content library, a live batch, or a dedicated 1-on-1 mentor. This comparison lays out the actual format, class size, and fee range for each, so you can match the platform to your situation instead of the marketing.',
+  sections: [
+    {
+      heading: 'The Platforms Compared',
+      content: 'These are the online options students in India most commonly compare for JEE and NEET preparation. Fee ranges are approximate annual figures (as published by each platform) and vary by plan, city, and batch — always confirm current pricing directly before enrolling. Where a brand runs a separate lower-cost online product alongside its full offline coaching (Allen, Aakash), the online product\'s fee is listed here since this comparison is specifically about online options.',
+      table: {
+        headers: ['Platform', 'Format', 'Typical Annual Fee (online)', 'Class Size'],
+        rows: [
+          ['MindPeak', '1-on-1 live online, dedicated mentor', '₹1,00,000 – 2,30,000', '1 student'],
+          ['Physics Wallah (PW)', 'Online batch (content-led)', '₹5,000 – 15,000 (Vidyapeeth offline centres ₹60,000-90,000+)', '100-1,000+'],
+          ['Unacademy', 'Live online batch', '₹20,000 – 80,000', '100-500+'],
+          ['Vedantu', 'Live online batch', '₹25,000 – 1,20,000', '20-50+'],
+          ['Allen Digital', 'Online batch (Allen\'s online product)', '₹30,000 – 1,30,000', '100-200+'],
+          ['Aakash Digital', 'Online batch (Aakash\'s online product)', '₹40,000 – 1,20,000', '40-80+'],
+        ],
+      },
+    },
+    {
+      heading: 'A Note on "Digital" vs. Full Offline Programs',
+      content: 'Allen and Aakash both run two distinct products: a lower-cost online-only program (Allen Digital, Aakash Digital — the rows above) and their full offline batch coaching, which typically costs significantly more once relocation, hostel, and food are included — commonly ₹1,20,000-2,00,000+ in tuition alone, and ₹2,00,000+ all-in for students relocating to a coaching hub like Kota. If you\'re comparing an online-only budget, use the Digital pricing above; if you\'re weighing online against relocating for offline coaching, the offline total is the more relevant number.',
+    },
+    {
+      heading: 'What Actually Differs Between Them',
+      content: 'Strip away the marketing and three variables explain almost all of the price and experience difference:',
+      bullets: [
+        'Class size — This is the single biggest driver of both price and attention. A platform charging ₹5-15K is almost always broadcasting one live class to hundreds or thousands of students; a platform charging ₹1L+ for 1-on-1 is paying a mentor to work with exactly one student per session.',
+        'Content vs. mentoring — PW and similar low-cost platforms are primarily content libraries: recorded and live lectures, question banks, test series. That\'s genuinely valuable for self-directed students. It is a different product from mentoring, where someone tracks your specific weak chapters and adapts the plan around them.',
+        'Doubt resolution model — Batch platforms resolve doubts through chat queues, scheduled doubt sessions, or community forums, because hundreds of students can\'t all get real-time answers in one live class. 1-on-1 formats resolve doubts inside the session itself, because there\'s only one student to respond to.',
+      ],
+    },
+    {
+      heading: 'Which Platform Fits Which Student',
+      content: 'Rather than a single "best" pick, here\'s how these actually map to different situations:',
+      table: {
+        headers: ['Your situation', 'What tends to fit'],
+        rows: [
+          ['Self-motivated, wants the cheapest option, comfortable studying independently from video content', 'Physics Wallah or a similar low-cost content platform'],
+          ['Wants live interaction and structure but doesn\'t need individual attention', 'Unacademy or Vedantu'],
+          ['Wants a large, recognised brand and can relocate or afford Kota-scale fees', 'Allen or Aakash'],
+          ['Has tried batch coaching and felt lost, or needs the curriculum to adapt to specific weak chapters', 'A 1-on-1 platform like MindPeak'],
+          ['Strong in some subjects, weak in others, and batch pacing wastes time either rushing or repeating', 'A 1-on-1 platform like MindPeak'],
+        ],
+      },
+    },
+    {
+      heading: 'Where MindPeak Fits In This Comparison',
+      content: 'MindPeak is the 1-on-1 option on this list: one dedicated mentor per student, daily live classes, and a curriculum that\'s rebuilt around each student\'s own mock-test results rather than a fixed batch pace. It costs more per year than a batch seat — that\'s the honest tradeoff for a mentor\'s full attention instead of a share of one. It won\'t be the right fit for a student who\'s thriving in a batch or who specifically wants the lowest possible price; it tends to fit students who need the pace and doubt resolution a shared classroom structurally can\'t give them.',
+      bullets: [
+        'One mentor per student, not a rotating tutor pool — same mentor for the full course',
+        'Curriculum re-planned around the student\'s own mock-test weak areas, not a fixed batch schedule',
+        'Every session recorded for revision; parents receive weekly progress reports',
+        'A free 1-on-1 trial class with the actual mentor who\'d be assigned, before paying anything',
+      ],
+    },
+  ],
+  faqs: [
+    { q: 'What is the best online platform for JEE or NEET coaching in India?', a: 'There isn\'t a single best platform — it depends on what you need. Physics Wallah and similar content-led platforms are the lowest-cost option for self-directed students. Unacademy and Vedantu offer live batch classes with more structure. Allen and Aakash are large established brands with batch coaching, online and offline. MindPeak is the 1-on-1 option for students who need a dedicated mentor and an adaptive curriculum rather than a shared batch.' },
+    { q: 'Physics Wallah vs Vedantu — which is better for JEE?', a: 'Physics Wallah is primarily a content platform: recorded and live lectures at a low price, well-suited to self-motivated students who don\'t need much individual guidance. Vedantu runs smaller live batches (typically 20-50 students) with more structure and higher fees. If you can self-study effectively from video content, PW is more cost-effective; if you want more live structure and are willing to pay more for it, Vedantu is the closer fit.' },
+    { q: 'Is 1-on-1 coaching worth the extra cost compared to batch platforms?', a: 'It depends on what\'s not working in your current preparation. If you\'re keeping pace fine in a batch, the extra cost of 1-on-1 buys you little. If you\'re losing time waiting for doubts to be resolved, or the batch pace doesn\'t match your actual level in a subject, that\'s specifically what 1-on-1 coaching is built to fix — and the fee difference reflects a mentor\'s full attention versus a shared session.' },
+    { q: 'How much does online JEE/NEET coaching cost in India?', a: 'Content-led platforms like Physics Wallah start around ₹5,000-15,000/year. Live batch platforms (Unacademy, Vedantu) typically run ₹20,000-1,20,000/year. The online-only "Digital" products from large batch brands (Allen Digital, Aakash Digital) range roughly ₹30,000-1,30,000/year — their full offline coaching costs considerably more once hostel and relocation are added. 1-on-1 mentoring (MindPeak) runs roughly ₹1,00,000-2,30,000/year depending on the program length.' },
+    { q: 'What class sizes do these platforms actually use?', a: 'Physics Wallah and Unacademy live classes can run into the hundreds or low thousands of students per session. Vedantu batches are typically 20-50 students. Allen Digital and Aakash Digital batches range from 40 to 200+ depending on the program tier. MindPeak\'s 1-on-1 format is exactly one student per session.' },
+    { q: 'Can I switch platforms partway through my preparation?', a: 'Most of these platforms don\'t require long lock-in commitments beyond the billing cycle you\'ve paid for. If a batch platform isn\'t working, the most common reasons students switch are doubt resolution speed and pacing mismatch — both worth diagnosing with a few mock tests before deciding whether the problem is the platform or the study habits.' },
+  ],
+  relatedPages: [
+    { label: 'MindPeak vs Physics Wallah — Full Comparison', href: '/mindpeak-vs-physics-wallah' },
+    { label: 'MindPeak vs Vedantu — Full Comparison', href: '/mindpeak-vs-vedantu' },
+    { label: 'MindPeak vs Unacademy — Full Comparison', href: '/mindpeak-vs-unacademy' },
+    { label: 'MindPeak vs Allen — Full Comparison', href: '/mindpeak-vs-allen' },
+    { label: 'MindPeak vs Aakash — Full Comparison', href: '/mindpeak-vs-aakash' },
+    { label: 'Batch vs Personal Coaching', href: '/batch-vs-personal-coaching' },
+    { label: 'Pricing & Plans', href: '/pricing' },
+    { label: 'Free Demo Class', href: '/free-trial' },
+  ],
+  schemaType: 'WebPage',
+};
+
+const best1on1NeetPage: SEOPageData = {
+  slug: 'best-1-on-1-neet-coaching-compared',
+  title: `Best 1-on-1 NEET Coaching in India (${CURRENT_EXAM_YEAR}) — What "One-on-One" Actually Means`,
+  description: `Comparing 1-on-1 NEET coaching options in India. The critical distinction most students miss: whether the actual teaching is one-on-one, or whether it's batch classes with a personal mentor attached. How to tell, and what to ask.`,
+  h1: 'Best 1-on-1 NEET Coaching',
+  h1Highlight: `in India ${CURRENT_EXAM_YEAR}`,
+  heroSubtitle: 'Search "best 1-on-1 coaching for NEET" and you get a list of platforms that all use the phrase "one-on-one" — but they do not all mean the same thing by it. Some give you a private teacher for every class. Others give you batch classes plus a mentor who checks in on your progress. Both are legitimate products. They are not the same purchase, and the price difference between them is large.',
+  sections: [
+    {
+      heading: 'The Distinction That Decides Everything: 1-on-1 Teaching vs. 1-on-1 Mentoring',
+      content: 'This is the single most important thing to establish before paying for anything marketed as "one-on-one" NEET coaching. The phrase is used for two structurally different products:',
+      bullets: [
+        '**1-on-1 teaching** — Every class is you and one teacher. Nobody else is in the session. The teacher covers syllabus with you, at your pace, and stops when you are lost. This is what "private tuition" has always meant.',
+        '**1-on-1 mentoring layered on batch teaching** — The actual subject classes are still group classes (live or recorded, often with hundreds of students). What is one-on-one is a *mentor*: someone assigned to you who plans your week, reviews your test scores, keeps you accountable, and answers questions. Valuable — but they are generally not the person teaching you Biology.',
+      ],
+    },
+    {
+      heading: 'Why the Difference Matters for NEET Specifically',
+      content: 'NEET is 720 marks across 180 questions, and 360 of those marks are Biology — a subject where the failure mode is rarely "I did not understand the concept" and almost always "I did not retain the exact NCERT line NEET tested." That is a per-student problem: the specific statements you keep missing are not the ones the person next to you keeps missing. A mentor who reviews your mock scores can *tell you* your Biology recall is weak. A teacher in a 1-on-1 session can sit with the chapters you are actually failing and drill the specific lines out of you. If your problem is discipline and planning, mentoring solves it. If your problem is that the batch pace does not match your comprehension, only 1-on-1 teaching solves it.',
+    },
+    {
+      heading: 'How to Tell Which One You Are Being Sold',
+      content: 'Sales pages blur this deliberately, because "one-on-one" is the stronger phrase. Ask these five questions before paying — the answers are unambiguous and any honest provider will answer them directly:',
+      ordered: true,
+      bullets: [
+        '"In a regular Biology class, how many students are in the session with me?" — If the answer is any number above one, the teaching is not 1-on-1, whatever the product is called.',
+        '"Is my mentor the same person who teaches me Physics, Chemistry and Biology — or a different person?" — This separates a teaching relationship from a tracking relationship.',
+        '"How many hours per week is actual live 1-on-1 teaching time, as opposed to mentor calls, doubt sessions, or recorded lectures?" — Ask for the number. Compare it against the fee.',
+        '"Is the fee per hour, per month, or for the full course — and what happens to unused hours?" — Hourly models and program models are not comparable on headline price alone.',
+        '"Can I take a real class with the actual mentor who would be assigned to me, before paying?" — A demo with a sales counsellor or a rotating demo teacher tells you nothing about the person you would actually get.',
+      ],
+    },
+    {
+      heading: 'The Options Students Most Commonly Compare',
+      content: 'These are the platforms that surface most often for 1-on-1 NEET coaching queries. Rather than summarise each one\'s internals second-hand — product structures and fees change, and platforms describe themselves generously — this table records what is publicly stated and, critically, what you should confirm directly before paying. Verify current details with each provider.',
+      table: {
+        headers: ['Option', 'What is publicly stated', 'What to confirm before paying'],
+        rows: [
+          ['MindPeak', 'Every class is 1-on-1 live teaching — one dedicated mentor per student across Physics, Chemistry and Biology, for the whole program. Priced per month, not per hour.', 'Take the free 1-on-1 trial class with the mentor who would actually be assigned to you.'],
+          ['Vedantu One-to-One', 'A dedicated-tutor 1-on-1 product, separate from their batch courses. Publicly indicates hourly pricing (from around ₹800/hour at time of writing) with fees based on hours booked, a multi-stage tutor selection process, tutor switching, and a free demo.', 'Total hours you would need across PCB for a full year, and what that works out to versus a monthly program.'],
+          ['ALLEN Digital One2One', 'Marketed as personalised mentoring built on ALLEN\'s faculty and methodology, with progress reviews and test analysis.', 'Whether subject classes are private or batch, and how many hours are genuinely 1-on-1 teaching.'],
+          ['Unacademy ICONIC', 'Marketed as including a personal mentor, a customised study planner, and daily doubt support.', 'Whether the mentor teaches the syllabus or plans and tracks it, and what the class format is.'],
+          ['Aakash Digital Premium', 'Marketed as personal mentoring with performance analysis and structured test series.', 'The same two questions: class size in teaching sessions, and the mentor\'s actual role.'],
+          ['Physics Wallah + a private tutor', 'PW is a low-cost batch/content platform; some students pair it with a separately hired private tutor.', 'The combined cost, and whether the tutor and the content are actually coordinated with each other.'],
+        ],
+      },
+    },
+    {
+      heading: 'Where MindPeak Sits, Stated Plainly',
+      content: 'MindPeak is the 1-on-1 *teaching* model, not the mentoring-layer model. Every NEET class is one student and one mentor — that same mentor teaches Physics, Chemistry and Biology, resolves doubts inside the session, and rebuilds the study plan from the student\'s own mock data. There is no batch to fall behind. The honest tradeoff: it costs more per year than a batch seat or a content subscription, because a mentor\'s hour is spent on one student rather than divided among a hundred. If a student is keeping pace in a batch and simply needs accountability, a mentoring-layer product is cheaper and may be enough. The case for full 1-on-1 teaching is specific — when the batch pace itself is the problem.',
+      bullets: [
+        'Every class 1-on-1 — batch size of one, live, not recorded lectures',
+        'One mentor across all of PCB for the whole program, not a rotating tutor pool',
+        'Biology taught NCERT-line-by-line, drilled against the statements that student personally keeps missing',
+        'Free 1-on-1 trial class with the actual assigned mentor before any payment',
+      ],
+      authorityNote: 'In our own one-to-one NEET classes, the most common profile is a student scoring 400-550 in mocks who is strong in Biology and losing rank in Physics — a split that a batch calendar cannot address but a personal plan can.',
+    },
+    {
+      heading: 'When 1-on-1 Is Not Worth It',
+      content: 'Worth saying plainly, because the honest answer is not always "buy the premium option." A self-driven student who is comfortable learning from recorded lectures, keeps pace with a batch, and mainly needs cheap access to good content and a question bank is well served by a low-cost platform, and the extra spend on 1-on-1 buys little. A student who needs someone to notice within a week that they have quietly stopped understanding Organic Chemistry is a different case entirely. Match the format to the actual failure mode, not to the price tier.',
+    },
+  ],
+  faqs: [
+    { q: 'What is the best 1-on-1 coaching for NEET in India?', a: 'There is no single best — it depends on whether you need 1-on-1 teaching or 1-on-1 mentoring. If you need a private teacher for every class, look at genuinely 1-on-1 teaching providers such as MindPeak or Vedantu One-to-One. If you keep pace with batch classes and mainly need planning and accountability, mentoring-layer products from the large platforms are cheaper and may be sufficient. Confirm class size in actual teaching sessions before paying, whichever you choose.' },
+    { q: 'Is Unacademy ICONIC or ALLEN One2One really one-on-one?', a: 'Both are marketed around a personal mentor, but the question that decides it is whether your subject classes are private or batch. Ask each provider directly: "In a regular Biology class, how many students are in the session with me, and is my mentor the person teaching it?" That single question separates 1-on-1 teaching from batch teaching with a mentor attached, and any provider will answer it plainly.' },
+    { q: 'How much does 1-on-1 NEET coaching cost in India?', a: 'Hourly private tuition commonly runs from roughly ₹800 per hour at platform rates up to ₹2,000-₹5,000 per hour for experienced independent NEET tutors. Program-priced 1-on-1 coaching such as MindPeak runs roughly ₹1,00,000-2,30,000 per year depending on length. When comparing an hourly rate against a program fee, work out the total hours you would actually need across all three subjects for a year — hourly looks cheaper per unit and often is not cheaper in total.' },
+    { q: 'Is 1-on-1 coaching better than a batch for NEET droppers?', a: 'For droppers specifically it has a structural advantage: a dropper already has a real NEET scorecard, which is precise data about which chapters cost marks and whether errors were knowledge gaps or accuracy slips. A 1-on-1 program can be built directly from that analysis. A dropper batch re-runs a standard syllabus calendar for everyone in the room, which is why repeating the same batch format is the most common dropper failure mode.' },
+    { q: 'Can I combine a cheap batch platform with a private tutor instead?', a: 'Yes, and it is a legitimate budget strategy — use a low-cost platform for content and hire a tutor for weak subjects. The two risks to manage: the tutor and the platform are not coordinated with each other, so nobody owns your overall plan; and per-hour tutoring costs add up faster than expected once you are covering more than one subject. Price out the full year before assuming it is cheaper.' },
+    { q: 'How many hours a week of 1-on-1 NEET coaching do I need?', a: 'It depends on whether 1-on-1 is your primary coaching or a supplement. As primary coaching covering the full PCB syllabus, expect daily sessions — roughly 6 days a week. As a supplement to existing batch coaching, 2-4 focused hours a week on a specific weak subject is a common pattern. Ask any provider how many genuinely 1-on-1 teaching hours are included per week, and divide the fee by that number to compare like with like.' },
+    { q: 'Do I get the same teacher every session in 1-on-1 NEET coaching?', a: 'This varies by provider and is worth confirming explicitly, because mentor continuity is much of the value. A mentor who has worked with you for months knows your error patterns; a rotating tutor pool restarts that context every session. At MindPeak the same mentor stays with the student across the program, and mentor switches are available free if the match is not working.' },
+  ],
+  relatedPages: [
+    { label: 'One-to-One NEET Coaching Program', href: '/one-to-one-neet-coaching' },
+    { label: 'One-to-One JEE Coaching Program', href: '/one-to-one-jee-coaching' },
+    { label: 'Best Online JEE & NEET Coaching Platforms Compared', href: '/best-online-jee-neet-coaching-platforms' },
+    { label: 'Batch vs Personal Coaching', href: '/batch-vs-personal-coaching' },
+    { label: 'MindPeak vs Vedantu', href: '/mindpeak-vs-vedantu' },
+    { label: 'MindPeak vs Unacademy', href: '/mindpeak-vs-unacademy' },
+    { label: 'NEET Dropper Program', href: '/neet-dropper-coaching' },
+    { label: 'Free Demo Class', href: '/free-trial' },
+  ],
+  schemaType: 'WebPage',
+};
+
 // ─────────────────────────────────────────────────
 // COMPARISON PAGES
 // ─────────────────────────────────────────────────
@@ -5910,6 +6077,23 @@ const oneToOneNeetPage: SEOPageData = {
       },
     },
     {
+      heading: 'One-to-One Teaching vs. a Personal Mentor on Batch Classes',
+      content: 'Several platforms market "one-on-one" NEET products, but the phrase covers two different structures and the difference decides what you actually get in a Biology class. MindPeak is the first column — every teaching session is private.',
+      table: {
+        headers: ['', 'MindPeak — 1-on-1 teaching', 'Batch classes + personal mentor'],
+        rows: [
+          ['Students in a regular Biology class', '1', 'Typically 50-1,000+, live or recorded'],
+          ['Who teaches the syllabus', 'Your assigned mentor', 'A batch faculty member'],
+          ['What the mentor does', 'Teaches, resolves doubts in-session, rebuilds the plan', 'Plans, tracks scores, keeps you accountable'],
+          ['Pace of teaching', 'Set by the one student in the room', 'Set for the batch'],
+          ['When you fall behind', 'The next class adapts to it', 'The batch calendar continues'],
+          ['Typical relative cost', 'Higher per year', 'Lower per year'],
+          ['Best when', 'The batch pace itself is the problem', 'You keep pace but need accountability'],
+        ],
+      },
+      authorityNote: 'Both are legitimate products serving different needs — the linked comparison below breaks down how to tell which one a provider is actually selling before you pay.',
+    },
+    {
       heading: 'What One-to-One NEET Coaching Is Not',
       content: 'It is not a recorded-video library, not a doubt app, and not a promise that Biology can be memorised in a month. NEET rewards sustained, accurate recall over 97 Biology questions and problem discipline over 90 in PCB — one-to-one coaching makes every hour count toward that, and gives you one person accountable for whether the score is actually moving.',
     },
@@ -5928,6 +6112,7 @@ const oneToOneNeetPage: SEOPageData = {
   relatedPages: [
     { label: 'NEET Coaching Programs', href: '/neet-coaching' },
     { label: 'NEET Mentorship Program', href: '/neet-mentorship' },
+    { label: 'Best 1-on-1 NEET Coaching Compared', href: '/best-1-on-1-neet-coaching-compared' },
     { label: '1-on-1 vs Batch Coaching Compared', href: '/batch-vs-personal-coaching' },
     { label: 'One-to-One JEE Coaching', href: '/one-to-one-jee-coaching' },
     { label: 'How to Choose a 1-on-1 Mentor', href: '/how-to-choose-a-1-on-1-mentor' },
@@ -6134,6 +6319,8 @@ export const allSEOPages: SEOPageData[] = [
   jeeCrashPage,
   neetCrashPage,
   bestJeeCoachingIndiaPage,
+  bestOnlinePlatformsPage,
+  best1on1NeetPage,
   ...subjectPages,
   ...comparisonPages,
   ...jeeChapterCategoryPages,
