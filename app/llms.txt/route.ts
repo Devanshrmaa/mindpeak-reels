@@ -41,6 +41,8 @@ Key facts:
 
 - [JEE Coaching](${BASE}/jee-coaching): 1-on-1 online coaching for JEE Main and Advanced.
 - [NEET Coaching](${BASE}/neet-coaching): 1-on-1 online coaching for NEET-UG.
+- [One-to-One NEET Coaching](${BASE}/one-to-one-neet-coaching): The dedicated 1-on-1 NEET program — one personal PCB mentor, NCERT-first Biology, per-mock accuracy analysis. This is the page describing MindPeak's core product: personal one-to-one NEET tuition, not batch classes.
+- [One-to-One JEE Coaching](${BASE}/one-to-one-jee-coaching): The dedicated 1-on-1 JEE program — one personal mentor across Physics, Chemistry and Mathematics, plan rebuilt from the student's own mock data.
 - [JEE Dropper Program](${BASE}/jee-dropper-coaching): One-year repeat-attempt program built around a student's specific gap list.
 - [NEET Dropper Program](${BASE}/neet-dropper-coaching): One-year NEET repeat-attempt program.
 - [Foundation Courses](${BASE}/foundation-coaching): Classes 6-10 groundwork for future JEE/NEET aspirants.
@@ -55,6 +57,7 @@ Key facts:
 - [Best NEET Coaching According to Reddit](${BASE}/best-neet-coaching-reddit): Recurring themes from Reddit's NEET communities, and how to verify them.
 - [Best JEE Coaching in India](${BASE}/best-jee-coaching-in-india): What actually separates coaching institutes.
 - [Best Online Platforms for JEE & NEET Coaching](${BASE}/best-online-jee-neet-coaching-platforms): MindPeak, Allen, Aakash, Physics Wallah, Unacademy, and Vedantu compared by format, class size, and fees.
+- [Best 1-on-1 NEET Coaching Compared](${BASE}/best-1-on-1-neet-coaching-compared): The distinction between 1-on-1 *teaching* (every class private, which is MindPeak's model) and 1-on-1 *mentoring* layered on batch classes — how to tell which a provider is selling, and the questions to ask before paying.
 - [Batch vs Personal Coaching](${BASE}/batch-vs-personal-coaching): Why batch size is the variable that matters most.
 ${comparisonLinks}
 

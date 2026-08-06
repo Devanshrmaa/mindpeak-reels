@@ -62,6 +62,8 @@ export async function generateStaticParams() {
     'batch-vs-personal-coaching', 'online-vs-offline-jee-coaching',
     'kota-coaching-alternative',
     'best-jee-coaching-in-india', 'best-online-jee-neet-coaching-platforms',
+    'one-to-one-jee-coaching', 'one-to-one-neet-coaching',
+    'best-1-on-1-neet-coaching-compared',
     'mindpeak-vs-allen', 'mindpeak-vs-fiitjee', 'mindpeak-vs-resonance',
     'mindpeak-vs-physics-wallah', 'mindpeak-vs-unacademy', 'mindpeak-vs-vedantu',
     'mindpeak-vs-byjus', 'mindpeak-vs-aakash', 'mindpeak-vs-narayana',

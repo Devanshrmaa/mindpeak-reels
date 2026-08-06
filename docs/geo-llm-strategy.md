@@ -88,6 +88,8 @@ The four engines source answers differently. A single strategy under-serves all 
 
 This replaces keyword research. Track **~120 prompts across 7 intents**; the seed set below is Tier 1 (run monthly, all 4 engines).
 
+> **The money query, measured.** On 2026-08-06, ChatGPT was asked *"best 1 on 1 coaching for neet"* — the exact product MindPeak sells — and returned a ranked list of five named products (Vedantu One-to-One, ALLEN Digital One2One, Unacademy ICONIC, Aakash Digital Premium, PW + a private mentor). **MindPeak was absent.** It grounded that answer on Vedantu's own dedicated 1-on-1 landing page, two third-party comparisons (findmyguru, academycheck), and two Reddit threads. Three things follow, and they shaped the work in §6: the competitive set for this query is *named 1-on-1 products*, not institutes generally; a dedicated product landing page is table stakes to be in the set at all; and Reddit is load-bearing here, not optional.
+
 **A. Category / discovery — highest value, hardest**
 1. best online 1-on-1 coaching for JEE
 2. best personal tutor for NEET preparation in India
@@ -143,13 +145,14 @@ This replaces keyword research. Track **~120 prompts across 7 intents**; the see
 **Governing rule: participate honestly, disclose affiliation, never astroturf.** Reddit and Quora detect and nuke vendor sockpuppets, and a burned brand is *negative* GEO — engines will surface the accusation thread forever. Every tactic below is disclosed-identity or earned.
 
 ### 5.1 Reddit (feeds ChatGPT + Gemini heavily)
-Target subs: `r/NEETard`, `r/JEE`, `r/NEET`, `r/Indian_Academia`, `r/IndianTeenagers`, `r/CBSE`.
+Target subs: `r/NEETard`, `r/JEENEETards`, `r/JEE`, `r/NEET`, `r/Indian_Academia`, `r/IndianTeenagers`, `r/CBSE`.
 
 - Establish **one disclosed founder/faculty account** ("I run a 1-on-1 coaching setup — happy to answer format questions"). Comment value-first on threads about batch size, Kota burnout, dropper-year planning. No links unless asked.
 - Answer the recurring evergreen threads: *"is Kota worth it"*, *"batch of 300, teacher doesn't know my name"*, *"dropper year plan"*. These threads get cited by LLMs for **years**.
 - Run genuine AMAs during result/counselling season (Jun–Aug, Jan–Feb).
 - **Never** create fake student accounts. Non-negotiable.
-- **Confirmed, not theoretical:** a 2026-08-06 ChatGPT export for "best neet coaching online" directly cited a live `r/NEETard` thread ("Best online coaching for NEET 2027?") *and* an unrelated regional sub, `r/assam` ("Neet coaching") — evidence that any India-education-adjacent thread can get pulled into an answer, not just the obvious subs. Corroborates the case for broad, genuine participation over a narrow target list.
+- **Confirmed, not theoretical.** ChatGPT exports on 2026-08-06 directly cited four live Reddit threads across three subs — `r/NEETard` ("Best online coaching for NEET 2027?", "BEST ONLINE COACHING FOR NEET???"), `r/JEENEETards` ("NEET Batch comparison: Researching personalized NEET dropper batches for 2027…"), and an unrelated regional sub, `r/assam` ("Neet coaching"). Two lessons: Reddit is a first-class citation source for exactly our money queries, and *any* India-education-adjacent thread can get pulled in, not just the obvious subs. (An earlier revision of this doc dropped `r/JEENEETards` on the mistaken basis that only `r/NEETard` was real — both are, and both are cited.)
+- **Highest-value single thread found so far:** the `r/JEENEETards` "NEET Batch comparison" thread is a student explicitly researching *personalised* NEET dropper batches — comparing THE200 by Padhle, Unacademy ICONIC, ALLEN Digital and PW Yakeen — and ending with "What am I missing?". That is an open, on-topic question in exactly our category, already being cited by ChatGPT. A disclosed, genuinely useful reply there is worth more than a dozen listicle placements.
 
 ### 5.2 Quora (disproportionately weighted by Gemini for Indian education)
 - Indian education Quora is under-moderated and high-yield. Answer the top ~40 questions matching §4 intents A–D under **real faculty identities** (we already have credentialed faculty in [`src/data/authorData.ts`](../src/data/authorData.ts) — MBBS, BDS, MDS, PhD Chemistry, M.Sc.).
@@ -163,6 +166,15 @@ Target subs: `r/NEETard`, `r/JEE`, `r/NEET`, `r/Indian_Academia`, `r/IndianTeena
 ### 5.4 X / Twitter (the only thing Grok reads)
 - Cheapest gap to close. Post exam-day analysis, paper difficulty takes, NTA notification reactions — fast, on the day. Grok is recency-weighted, so **speed beats polish**.
 - Exam-day live posting during JEE/NEET sessions is the single highest-ROI Grok tactic.
+
+### 5.4b Direct 1-on-1 competitors worth watching (not outreach targets)
+Surfaced by the 2026-08-06 money-query export — these compete for the exact query, unlike the batch brands:
+
+- **`anandtutorials.com`** — ranks for "best 1 on 1 coaching for neet" with a page titled *"NEET Online Coaching 2026 — 1:1 Personalised Plan"*, arguing 1:1 beats "crowded coaching halls." Closest direct positional competitor found; worth reading their page before revising ours.
+- **`prepmed.in`** — NEET institute advertising "24×7 one-to-one doubt-solving" on hybrid batches. A good example of the teaching-vs-mentoring blur that `/best-1-on-1-neet-coaching-compared` exists to clarify.
+- **Named competitor products to track by name**, since these are what LLMs actually list: Vedantu One-to-One, ALLEN Digital One2One, Unacademy ICONIC, Aakash Digital Premium, PW Yakeen, THE200 by Padhle.
+
+Do not pitch these for inclusion — they are competitors, not publishers. Track them for positioning.
 
 ### 5.5 Third-party listicles & directories
 - Get MindPeak into "best online JEE coaching" roundups (Indian ed-tech blogs, Sulekha, UrbanPro, Justdial, Google Business Profile).

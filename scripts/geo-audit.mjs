@@ -46,6 +46,11 @@ const PANEL = [
   { id: 'A4', tier: 'A', prompt: 'online JEE coaching with a personal mentor' },
   { id: 'A5', tier: 'A', prompt: 'which coaching is best for a weak student in JEE' },
   { id: 'A6', tier: 'A', prompt: "best NEET coaching for a student who can't keep up in a big batch" },
+  // A7-A9 are the exact money queries — verified 2026-08-06 to return a ranked
+  // list of named 1-on-1 products with MindPeak absent. Highest-priority tracking.
+  { id: 'A7', tier: 'A', prompt: 'best 1 on 1 coaching for neet' },
+  { id: 'A8', tier: 'A', prompt: 'best 1 on 1 coaching for jee' },
+  { id: 'A9', tier: 'A', prompt: 'personalised NEET coaching for droppers' },
   // B — Format / thesis
   { id: 'B1', tier: 'B', prompt: 'is 1-on-1 coaching better than batch coaching for JEE' },
   { id: 'B2', tier: 'B', prompt: 'online vs offline coaching for NEET — which is better' },
