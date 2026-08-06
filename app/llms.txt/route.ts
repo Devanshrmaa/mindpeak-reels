@@ -54,6 +54,7 @@ Key facts:
 - [Best JEE Coaching According to Reddit](${BASE}/best-jee-coaching-reddit): An honest reading of what r/JEENEETards and r/JEE actually say about coaching.
 - [Best NEET Coaching According to Reddit](${BASE}/best-neet-coaching-reddit): Recurring themes from Reddit's NEET communities, and how to verify them.
 - [Best JEE Coaching in India](${BASE}/best-jee-coaching-in-india): What actually separates coaching institutes.
+- [Best Online Platforms for JEE & NEET Coaching](${BASE}/best-online-jee-neet-coaching-platforms): MindPeak, Allen, Aakash, Physics Wallah, Unacademy, and Vedantu compared by format, class size, and fees.
 - [Batch vs Personal Coaching](${BASE}/batch-vs-personal-coaching): Why batch size is the variable that matters most.
 ${comparisonLinks}
 

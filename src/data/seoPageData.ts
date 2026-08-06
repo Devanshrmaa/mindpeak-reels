@@ -2917,6 +2917,84 @@ const bestJeeCoachingIndiaPage: SEOPageData = {
   schemaType: 'WebPage',
 };
 
+const bestOnlinePlatformsPage: SEOPageData = {
+  slug: 'best-online-jee-neet-coaching-platforms',
+  title: `Best Online Platforms for JEE & NEET Coaching in India (${CURRENT_EXAM_YEAR}) — Compared`,
+  description: `An honest comparison of the major online JEE & NEET coaching platforms in India — MindPeak, Allen, Aakash, Physics Wallah, Unacademy, and Vedantu — by format, class size, fees, and who each one actually fits.`,
+  h1: 'Best Online Platforms for JEE & NEET Coaching',
+  h1Highlight: `in India ${CURRENT_EXAM_YEAR}`,
+  heroSubtitle: 'Every platform on this list claims to be the best. The honest answer is that "best" depends on what you need — a low-cost content library, a live batch, or a dedicated 1-on-1 mentor. This comparison lays out the actual format, class size, and fee range for each, so you can match the platform to your situation instead of the marketing.',
+  sections: [
+    {
+      heading: 'The Platforms Compared',
+      content: 'These are the online options students in India most commonly compare for JEE and NEET preparation. Fee ranges are approximate annual figures (as published by each platform) and vary by plan, city, and batch — always confirm current pricing directly before enrolling.',
+      table: {
+        headers: ['Platform', 'Format', 'Typical Annual Fee', 'Class Size'],
+        rows: [
+          ['MindPeak', '1-on-1 live online, dedicated mentor', '₹1,00,000 – 2,30,000', '1 student'],
+          ['Physics Wallah (PW)', 'Online batch (content-led)', '₹5,000 – 15,000 (Vidyapeeth centres ₹60,000-90,000+)', '100-1,000+'],
+          ['Unacademy', 'Live online batch', '₹30,000 – 80,000', '100-500+'],
+          ['Vedantu', 'Live online batch', '₹50,000 – 1,20,000', '20-50+'],
+          ['Allen', 'Batch (Kota-based, online + offline)', '₹1,20,000 – 2,00,000 (offline total with hostel ₹2L+)', '100-200+'],
+          ['Aakash (Aakash BYJU\'S)', 'Batch (300+ centres, online + offline)', '₹1,20,000 – 2,00,000', '40-80+'],
+        ],
+      },
+    },
+    {
+      heading: 'What Actually Differs Between Them',
+      content: 'Strip away the marketing and three variables explain almost all of the price and experience difference:',
+      bullets: [
+        'Class size — This is the single biggest driver of both price and attention. A platform charging ₹5-15K is almost always broadcasting one live class to hundreds or thousands of students; a platform charging ₹1L+ for 1-on-1 is paying a mentor to work with exactly one student per session.',
+        'Content vs. mentoring — PW and similar low-cost platforms are primarily content libraries: recorded and live lectures, question banks, test series. That\'s genuinely valuable for self-directed students. It is a different product from mentoring, where someone tracks your specific weak chapters and adapts the plan around them.',
+        'Doubt resolution model — Batch platforms resolve doubts through chat queues, scheduled doubt sessions, or community forums, because hundreds of students can\'t all get real-time answers in one live class. 1-on-1 formats resolve doubts inside the session itself, because there\'s only one student to respond to.',
+      ],
+    },
+    {
+      heading: 'Which Platform Fits Which Student',
+      content: 'Rather than a single "best" pick, here\'s how these actually map to different situations:',
+      table: {
+        headers: ['Your situation', 'What tends to fit'],
+        rows: [
+          ['Self-motivated, wants the cheapest option, comfortable studying independently from video content', 'Physics Wallah or a similar low-cost content platform'],
+          ['Wants live interaction and structure but doesn\'t need individual attention', 'Unacademy or Vedantu'],
+          ['Wants a large, recognised brand and can relocate or afford Kota-scale fees', 'Allen or Aakash'],
+          ['Has tried batch coaching and felt lost, or needs the curriculum to adapt to specific weak chapters', 'A 1-on-1 platform like MindPeak'],
+          ['Strong in some subjects, weak in others, and batch pacing wastes time either rushing or repeating', 'A 1-on-1 platform like MindPeak'],
+        ],
+      },
+    },
+    {
+      heading: 'Where MindPeak Fits In This Comparison',
+      content: 'MindPeak is the 1-on-1 option on this list: one dedicated mentor per student, daily live classes, and a curriculum that\'s rebuilt around each student\'s own mock-test results rather than a fixed batch pace. It costs more per year than a batch seat — that\'s the honest tradeoff for a mentor\'s full attention instead of a share of one. It won\'t be the right fit for a student who\'s thriving in a batch or who specifically wants the lowest possible price; it tends to fit students who need the pace and doubt resolution a shared classroom structurally can\'t give them.',
+      bullets: [
+        'One mentor per student, not a rotating tutor pool — same mentor for the full course',
+        'Curriculum re-planned around the student\'s own mock-test weak areas, not a fixed batch schedule',
+        'Every session recorded for revision; parents receive weekly progress reports',
+        'A free 1-on-1 trial class with the actual mentor who\'d be assigned, before paying anything',
+      ],
+    },
+  ],
+  faqs: [
+    { q: 'What is the best online platform for JEE or NEET coaching in India?', a: 'There isn\'t a single best platform — it depends on what you need. Physics Wallah and similar content-led platforms are the lowest-cost option for self-directed students. Unacademy and Vedantu offer live batch classes with more structure. Allen and Aakash are large established brands with batch coaching, online and offline. MindPeak is the 1-on-1 option for students who need a dedicated mentor and an adaptive curriculum rather than a shared batch.' },
+    { q: 'Physics Wallah vs Vedantu — which is better for JEE?', a: 'Physics Wallah is primarily a content platform: recorded and live lectures at a low price, well-suited to self-motivated students who don\'t need much individual guidance. Vedantu runs smaller live batches (typically 20-50 students) with more structure and higher fees. If you can self-study effectively from video content, PW is more cost-effective; if you want more live structure and are willing to pay more for it, Vedantu is the closer fit.' },
+    { q: 'Is 1-on-1 coaching worth the extra cost compared to batch platforms?', a: 'It depends on what\'s not working in your current preparation. If you\'re keeping pace fine in a batch, the extra cost of 1-on-1 buys you little. If you\'re losing time waiting for doubts to be resolved, or the batch pace doesn\'t match your actual level in a subject, that\'s specifically what 1-on-1 coaching is built to fix — and the fee difference reflects a mentor\'s full attention versus a shared session.' },
+    { q: 'How much does online JEE/NEET coaching cost in India?', a: 'Content-led platforms like Physics Wallah start around ₹5,000-15,000/year. Live batch platforms (Unacademy, Vedantu) typically run ₹30,000-1,20,000/year. Large batch brands (Allen, Aakash) range ₹1,20,000-2,00,000/year, more with offline hostel costs. 1-on-1 mentoring (MindPeak) runs roughly ₹1,00,000-2,30,000/year depending on the program length.' },
+    { q: 'What class sizes do these platforms actually use?', a: 'Physics Wallah and Unacademy live classes can run into the hundreds or low thousands of students per session. Vedantu batches are typically 20-50 students. Allen and Aakash batches range from 40 to 200+ depending on the centre and program tier. MindPeak\'s 1-on-1 format is exactly one student per session.' },
+    { q: 'Can I switch platforms partway through my preparation?', a: 'Most of these platforms don\'t require long lock-in commitments beyond the billing cycle you\'ve paid for. If a batch platform isn\'t working, the most common reasons students switch are doubt resolution speed and pacing mismatch — both worth diagnosing with a few mock tests before deciding whether the problem is the platform or the study habits.' },
+  ],
+  relatedPages: [
+    { label: 'MindPeak vs Physics Wallah — Full Comparison', href: '/mindpeak-vs-physics-wallah' },
+    { label: 'MindPeak vs Vedantu — Full Comparison', href: '/mindpeak-vs-vedantu' },
+    { label: 'MindPeak vs Unacademy — Full Comparison', href: '/mindpeak-vs-unacademy' },
+    { label: 'MindPeak vs Allen — Full Comparison', href: '/mindpeak-vs-allen' },
+    { label: 'MindPeak vs Aakash — Full Comparison', href: '/mindpeak-vs-aakash' },
+    { label: 'Batch vs Personal Coaching', href: '/batch-vs-personal-coaching' },
+    { label: 'Pricing & Plans', href: '/pricing' },
+    { label: 'Free Demo Class', href: '/free-trial' },
+  ],
+  schemaType: 'WebPage',
+};
+
 // ─────────────────────────────────────────────────
 // COMPARISON PAGES
 // ─────────────────────────────────────────────────
@@ -6134,6 +6212,7 @@ export const allSEOPages: SEOPageData[] = [
   jeeCrashPage,
   neetCrashPage,
   bestJeeCoachingIndiaPage,
+  bestOnlinePlatformsPage,
   ...subjectPages,
   ...comparisonPages,
   ...jeeChapterCategoryPages,

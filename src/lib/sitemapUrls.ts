@@ -39,11 +39,12 @@ import { getPYQChapterEnrichment } from '@/data/neet-pyq/chapterEnrichments';
 export const BASE = 'https://mindpeakinstitute.com';
 
 /**
- * Last real content release. 2026-08-05: researched enrichments for the
- * olympiad / WBJEE / COMEDK vs JEE comparison posts, plus corrected NSEP
- * difficulty verdict across the olympiad cluster.
+ * Last real content release. 2026-08-06: added the "Best Online Platforms
+ * for JEE & NEET Coaching" comparison page (best-online-jee-neet-coaching-
+ * platforms), targeting the same "best platform" prompt pattern found
+ * getting cited by ChatGPT Search for third-party listicles.
  */
-export const CONTENT_ANCHOR = '2026-08-05';
+export const CONTENT_ANCHOR = '2026-08-06';
 
 /**
  * Deterministic, STABLE lastmod: CONTENT_ANCHOR minus a slug-hashed 0–27 day
@@ -97,6 +98,7 @@ export function getStaticPaths(): string[] {
     '/jee-practice', '/jee-pyq', '/neet-practice', '/neet-pyq',
     '/kota-coaching-alternative', '/online-vs-offline-jee-coaching',
     '/best-jee-coaching-in-india',
+    '/best-online-jee-neet-coaching-platforms',
     '/best-jee-coaching-reddit', '/best-neet-coaching-reddit',
     '/mindpeak-institute-faq', '/one-to-one-exam-mentorship',
     '/how-to-choose-a-1-on-1-mentor',
