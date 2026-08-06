@@ -2927,18 +2927,22 @@ const bestOnlinePlatformsPage: SEOPageData = {
   sections: [
     {
       heading: 'The Platforms Compared',
-      content: 'These are the online options students in India most commonly compare for JEE and NEET preparation. Fee ranges are approximate annual figures (as published by each platform) and vary by plan, city, and batch — always confirm current pricing directly before enrolling.',
+      content: 'These are the online options students in India most commonly compare for JEE and NEET preparation. Fee ranges are approximate annual figures (as published by each platform) and vary by plan, city, and batch — always confirm current pricing directly before enrolling. Where a brand runs a separate lower-cost online product alongside its full offline coaching (Allen, Aakash), the online product\'s fee is listed here since this comparison is specifically about online options.',
       table: {
-        headers: ['Platform', 'Format', 'Typical Annual Fee', 'Class Size'],
+        headers: ['Platform', 'Format', 'Typical Annual Fee (online)', 'Class Size'],
         rows: [
           ['MindPeak', '1-on-1 live online, dedicated mentor', '₹1,00,000 – 2,30,000', '1 student'],
-          ['Physics Wallah (PW)', 'Online batch (content-led)', '₹5,000 – 15,000 (Vidyapeeth centres ₹60,000-90,000+)', '100-1,000+'],
-          ['Unacademy', 'Live online batch', '₹30,000 – 80,000', '100-500+'],
-          ['Vedantu', 'Live online batch', '₹50,000 – 1,20,000', '20-50+'],
-          ['Allen', 'Batch (Kota-based, online + offline)', '₹1,20,000 – 2,00,000 (offline total with hostel ₹2L+)', '100-200+'],
-          ['Aakash (Aakash BYJU\'S)', 'Batch (300+ centres, online + offline)', '₹1,20,000 – 2,00,000', '40-80+'],
+          ['Physics Wallah (PW)', 'Online batch (content-led)', '₹5,000 – 15,000 (Vidyapeeth offline centres ₹60,000-90,000+)', '100-1,000+'],
+          ['Unacademy', 'Live online batch', '₹20,000 – 80,000', '100-500+'],
+          ['Vedantu', 'Live online batch', '₹25,000 – 1,20,000', '20-50+'],
+          ['Allen Digital', 'Online batch (Allen\'s online product)', '₹30,000 – 1,30,000', '100-200+'],
+          ['Aakash Digital', 'Online batch (Aakash\'s online product)', '₹40,000 – 1,20,000', '40-80+'],
         ],
       },
+    },
+    {
+      heading: 'A Note on "Digital" vs. Full Offline Programs',
+      content: 'Allen and Aakash both run two distinct products: a lower-cost online-only program (Allen Digital, Aakash Digital — the rows above) and their full offline batch coaching, which typically costs significantly more once relocation, hostel, and food are included — commonly ₹1,20,000-2,00,000+ in tuition alone, and ₹2,00,000+ all-in for students relocating to a coaching hub like Kota. If you\'re comparing an online-only budget, use the Digital pricing above; if you\'re weighing online against relocating for offline coaching, the offline total is the more relevant number.',
     },
     {
       heading: 'What Actually Differs Between Them',
@@ -2978,8 +2982,8 @@ const bestOnlinePlatformsPage: SEOPageData = {
     { q: 'What is the best online platform for JEE or NEET coaching in India?', a: 'There isn\'t a single best platform — it depends on what you need. Physics Wallah and similar content-led platforms are the lowest-cost option for self-directed students. Unacademy and Vedantu offer live batch classes with more structure. Allen and Aakash are large established brands with batch coaching, online and offline. MindPeak is the 1-on-1 option for students who need a dedicated mentor and an adaptive curriculum rather than a shared batch.' },
     { q: 'Physics Wallah vs Vedantu — which is better for JEE?', a: 'Physics Wallah is primarily a content platform: recorded and live lectures at a low price, well-suited to self-motivated students who don\'t need much individual guidance. Vedantu runs smaller live batches (typically 20-50 students) with more structure and higher fees. If you can self-study effectively from video content, PW is more cost-effective; if you want more live structure and are willing to pay more for it, Vedantu is the closer fit.' },
     { q: 'Is 1-on-1 coaching worth the extra cost compared to batch platforms?', a: 'It depends on what\'s not working in your current preparation. If you\'re keeping pace fine in a batch, the extra cost of 1-on-1 buys you little. If you\'re losing time waiting for doubts to be resolved, or the batch pace doesn\'t match your actual level in a subject, that\'s specifically what 1-on-1 coaching is built to fix — and the fee difference reflects a mentor\'s full attention versus a shared session.' },
-    { q: 'How much does online JEE/NEET coaching cost in India?', a: 'Content-led platforms like Physics Wallah start around ₹5,000-15,000/year. Live batch platforms (Unacademy, Vedantu) typically run ₹30,000-1,20,000/year. Large batch brands (Allen, Aakash) range ₹1,20,000-2,00,000/year, more with offline hostel costs. 1-on-1 mentoring (MindPeak) runs roughly ₹1,00,000-2,30,000/year depending on the program length.' },
-    { q: 'What class sizes do these platforms actually use?', a: 'Physics Wallah and Unacademy live classes can run into the hundreds or low thousands of students per session. Vedantu batches are typically 20-50 students. Allen and Aakash batches range from 40 to 200+ depending on the centre and program tier. MindPeak\'s 1-on-1 format is exactly one student per session.' },
+    { q: 'How much does online JEE/NEET coaching cost in India?', a: 'Content-led platforms like Physics Wallah start around ₹5,000-15,000/year. Live batch platforms (Unacademy, Vedantu) typically run ₹20,000-1,20,000/year. The online-only "Digital" products from large batch brands (Allen Digital, Aakash Digital) range roughly ₹30,000-1,30,000/year — their full offline coaching costs considerably more once hostel and relocation are added. 1-on-1 mentoring (MindPeak) runs roughly ₹1,00,000-2,30,000/year depending on the program length.' },
+    { q: 'What class sizes do these platforms actually use?', a: 'Physics Wallah and Unacademy live classes can run into the hundreds or low thousands of students per session. Vedantu batches are typically 20-50 students. Allen Digital and Aakash Digital batches range from 40 to 200+ depending on the program tier. MindPeak\'s 1-on-1 format is exactly one student per session.' },
     { q: 'Can I switch platforms partway through my preparation?', a: 'Most of these platforms don\'t require long lock-in commitments beyond the billing cycle you\'ve paid for. If a batch platform isn\'t working, the most common reasons students switch are doubt resolution speed and pacing mismatch — both worth diagnosing with a few mock tests before deciding whether the problem is the platform or the study habits.' },
   ],
   relatedPages: [
