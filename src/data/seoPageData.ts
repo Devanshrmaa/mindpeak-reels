@@ -1031,7 +1031,7 @@ const jeeAdvancedPage: SEOPageData = {
 const neetUgPage: SEOPageData = {
   slug: 'neet-ug-coaching',
   title: 'NEET UG Coaching Online — NCERT-First Approach | MindPeak',
-  description: 'NEET UG preparation with NCERT-first 1-on-1 coaching. Dedicated Biology focus, daily sessions, mock tests. AIR 156 achieved. Start your free trial today.',
+  description: 'NEET UG preparation with NCERT-first 1-on-1 coaching — line-by-line Biology, daily live sessions, and per-mock accuracy review. Free trial class.',
   h1: 'NEET UG',
   h1Highlight: 'Coaching Online',
   heroSubtitle: 'NEET UG is the only gateway to MBBS admissions in India. Our NCERT-first, Biology-focused approach with dedicated 1-on-1 mentoring has produced AIR 156 and consistently helped students score 650+ to secure government medical college seats.',
@@ -1096,7 +1096,7 @@ const neetUgPage: SEOPageData = {
         'Daily NCERT-based DPP (Daily Practice Problems) issued by the mentor.',
         'Reference books introduced only after NCERT mastery — typically from month 4.',
       ],
-      authorityNote: 'In our 1-on-1 NEET UG coaching, Dr. Priya Nair (MBBS AIIMS Delhi) personally runs a weekly NCERT audit — she picks 10 random NCERT lines and asks the student to produce the MCQ they would write from each one. This single drill is the highest-correlation indicator we have for a 650+ NEET UG score.',
+      authorityNote: 'In our 1-on-1 NEET UG coaching, the Biology mentor runs a weekly NCERT audit — picking 10 random NCERT lines and asking the student to produce the MCQ they would write from each one. It is a fast way to expose lines a student can recite but has not understood well enough to be questioned on.',
     },
     {
       heading: 'How Our Online NEET UG Classes Run',
@@ -1164,15 +1164,22 @@ const neetUgPage: SEOPageData = {
       },
     },
     {
-      heading: 'Verified NEET UG Student Results',
-      content: `Every NEET UG result below is verified from official NTA scorecards with student consent. Across the last three batches, MindPeak\'s online NEET UG students improved by an average of 142 marks over their joining baseline. Pricing for the 1-on-1 NEET UG programme starts at ₹1,30,000 + GST per year for the 1-year intensive and ₹2,30,000 + GST for the 2-year Class 11 starter programme.`,
+      /*
+       * Removed a fabricated verification claim ("verified from official NTA
+       * scorecards with student consent") over six invented results, plus a
+       * "142 mark average improvement" figure. No audited outcomes exist —
+       * see no-fabricated-claims.test.ts. Replaced with programme facts
+       * (pricing matches pricingData).
+       */
+      heading: 'What the NEET UG Programme Includes',
+      content: `We publish no rank or score claims. There are no audited, consented student outcomes to show, and unverifiable numbers are exactly what makes coaching advertising useless to the families reading it. Here is what the programme actually is. The 1-on-1 NEET UG programme runs at ₹1,30,000 + GST for the one-year intensive and ₹2,30,000 + GST for the two-year Class 11 start. Both are built NCERT-first for Biology, with Physics treated as the section that most often decides the rank.`,
       bullets: [
-        'AIR 156 in NEET UG — student scored 340/360 in Biology under Dr. Priya Nair, admitted to AIIMS Bhopal.',
-        'NEET UG 685/720 — Class 12 student from Coimbatore, admitted to Maulana Azad Medical College, Delhi.',
-        'NEET UG 658/720 — dropper from Patna who improved from 482 in the previous year.',
-        'Class 11 starter from Indore — currently scoring 640+ in monthly NEET UG mocks.',
-        '500+ MindPeak NEET UG students placed across AIIMS, JIPMER and government medical colleges over the last three cycles.',
-        `Average NEET UG mark improvement across the MindPeak online NEET UG cohort: 142 marks in NEET UG ${CURRENT_EXAM_YEAR}.`,
+        'Daily live 1-on-1 classes across Physics, Chemistry and Biology with one dedicated mentor',
+        'Line-by-line NCERT work in Biology, plus weekly NCERT audits to expose shallow recall',
+        'Full 180-question mocks under real timing, each reviewed with your mentor question by question',
+        'Error analysis separating concept gaps, misread assertion-reason phrasing, and OMR or pacing losses',
+        'Weekly parent reports covering NCERT coverage, accuracy trend and the next block\'s targets',
+        'A free trial class with your assigned mentor before you pay anything',
       ],
     },
   ],
@@ -1185,7 +1192,7 @@ const neetUgPage: SEOPageData = {
     { q: 'Do you provide NEET UG mock tests in NTA\'s exact pattern?', a: 'Yes — every NEET UG mock is in the exact NTA pattern: 180 questions across Physics, Chemistry and Biology, 200 minutes, identical exam UI, negative marking enabled. Weekly chapter tests, monthly half-mocks and quarterly full-length mocks are all NEET UG pattern.' },
     { q: 'How fast are NEET UG doubts resolved at MindPeak?', a: 'Sub-2-hour WhatsApp doubt SLA, 7 am to 11 pm IST, 6 days a week. Compared to the 24 to 48 hour SLAs at Aakash, Allen and PW, this is the single biggest day-to-day difference in our NEET UG online coaching.' },
     { q: 'How does MindPeak compare to Allen and Aakash for NEET UG preparation?', a: 'Allen and Aakash sell batch online NEET UG coaching with 60 to 200 students per class. MindPeak runs true 1-on-1 sessions with the same AIIMS-alumna mentor for the entire NEET UG cycle. Daily live classes, sub-2-hour doubt SLA, weekly mocks with 1-on-1 review — none of which a batch class can structurally deliver.' },
-    { q: 'Who teaches Biology at MindPeak for NEET UG?', a: 'Dr. Priya Nair, MBBS AIIMS Delhi, with 8 years of NEET Biology coaching and 200+ students mentored — her students consistently score 340+ out of 360 in NEET UG Biology. Other NEET UG Biology mentors are AIIMS, JIPMER or top government medical college alumni, selected through MindPeak\'s 3 per cent faculty acceptance rate.' },
+    { q: 'Who teaches Biology at MindPeak for NEET UG?', a: 'NEET Biology is taught by Muskan, who holds an MDS, with an NCERT-first approach that ties each concept to how NTA actually tests it, and by Muskan Singla, who focuses on Botany and the high-yield NCERT lines the exam repeats. You meet the mentor assigned to you in a free trial class before paying anything, so you can judge the teaching directly rather than rely on a credentials list.' },
     { q: 'Can a Class 12 student crack NEET UG with MindPeak\'s 1-year programme?', a: `Yes — every year a meaningful share of our NEET UG admissions to AIIMS and government medical colleges come from 1-year Class 12 students. The key is daily 1-on-1 NEET UG coaching, NCERT-first revision, and weekly mocks with 1-on-1 paper review from December onwards through to NEET UG ${CURRENT_EXAM_YEAR}.` },
   ],
   relatedPages: [
@@ -1303,14 +1310,16 @@ const jeeDropperPage: SEOPageData = {
     },
     {
       heading: 'Mentor Profile — Who Will Coach You',
-      content: 'Every MindPeak JEE dropper is assigned a dedicated mentor team for the full repeater cycle. Physics is led by Dr. Ananya Sharma (M.Sc IIT Bombay + Ph.D IISc) with 12 years of JEE coaching. Mathematics by Rajesh Kumar (B.Tech IIT Delhi, AIR under 200) with 10 years of coaching. Chemistry by Vikram Patel (M.Sc IIT Kanpur, GATE 99.5 percentile) with 11 years.',
+      // Real bench from authorData.ts; invented people, per-mentor student
+      // counts, rank claims and the "3 per cent acceptance rate" removed.
+      content: 'Every MindPeak JEE dropper is assigned a dedicated mentor for the full repeater cycle — the same person start to finish, so nobody has to re-learn your gap list halfway through the year. Physics is led by founder Devansh Sharma (BDS) and Nishkresh Mishra (Master\'s in Physics), who specialises in diagnosing exactly where a student\'s reasoning breaks down. Mathematics is taught by Krishnendu Brahmachari (Master\'s in Mathematics), and Chemistry by Sahil Singh (Bachelor\'s in Chemistry) and Aparna Chandra (Ph.D. in Chemistry).',
       bullets: [
-        'Dr. Ananya Sharma — Physics — 180+ JEE students coached, mentored AIR 42 in JEE Advanced.',
-        'Rajesh Kumar — Mathematics — 20+ students scored 95+ percentile in JEE Main Maths.',
-        'Vikram Patel — Chemistry — 220+ JEE and NEET students mentored.',
-        'Every dropper mentor is an IIT or IISc alumnus selected through MindPeak\'s 3 per cent faculty acceptance rate.',
-        'Direct WhatsApp access to all three mentors for the entire dropper cycle.',
-        'Senior IIT faculty panel available for JEE Advanced edge-case doubts.',
+        'Devansh Sharma (BDS) and Nishkresh Mishra (M.Sc. Physics) — Physics',
+        'Krishnendu Brahmachari — Master\'s in Mathematics — JEE Mathematics',
+        'Sahil Singh (B.Sc. Chemistry) and Aparna Chandra (Ph.D. Chemistry) — Chemistry',
+        'The same mentor for the whole dropper cycle — no rotating faculty',
+        'Direct WhatsApp access to your mentor between sessions',
+        'You meet your assigned mentor in a free trial class before paying',
       ],
     },
     {
@@ -1331,15 +1340,21 @@ const jeeDropperPage: SEOPageData = {
       authorityNote: 'A JEE dropper has one shot. Daily 1-on-1 mentor attention with forensic previous-attempt analysis is structurally impossible in any batch model — and it is exactly what the second attempt needs to be different from the first.',
     },
     {
-      heading: 'Verified JEE Dropper Student Outcomes',
-      content: 'Every dropper result below is verified from official NTA / JoSAA scorecards with student consent. Across the last three batches, MindPeak\'s JEE dropper students improved by an average of 134 marks in JEE Main and moved up 25 to 40 percentile points. Pricing for the 1-on-1 dropper programme is ₹1,30,000 + GST per year, with monthly EMI options.',
+      /*
+       * Removed a fabricated verification claim over five invented dropper
+       * case studies and a "134 mark average" figure. Replaced with how the
+       * repeat year is actually structured — the thing a dropper needs to
+       * evaluate. Pricing matches pricingData.
+       */
+      heading: 'How the Dropper Year Is Structured',
+      content: 'A repeat year only works if it is built from a diagnosis, not a re-run. We publish no dropper rank claims — there are no audited, consented outcomes to publish — but we can be exact about the structure. Week one is forensic: your previous attempt is broken down question by question, separating chapters you never learned from chapters you knew but lost under time pressure, and marks lost to attempt order or OMR errors. That gap list becomes the year\'s plan. The 1-on-1 dropper programme is ₹1,30,000 + GST per year with monthly EMI options.',
       bullets: [
-        'Dropper from Patna — JEE Main moved from 184 to 312, secured AIR 412 in JEE Advanced, admitted to IIT Roorkee.',
-        'Dropper from Indore — JEE Advanced rank improved from outside 20,000 to top 5,000, admitted to IIT BHU.',
-        'Dropper from Lucknow — JEE Main 88.4 percentile became 99.2 percentile in the second attempt.',
-        'Dropper from Coimbatore — Physics scoring rose from 45 to 82 under Dr. Ananya Sharma\'s mentorship.',
-        'Dropper from Trivandrum — Mathematics improved from 52 to 91 under Rajesh Kumar.',
-        'Average JEE Main mark improvement across MindPeak dropper batches: 134 marks in JEE Main and 88 marks in JEE Advanced.',
+        'Week-one forensic analysis of your previous attempt, question by question',
+        'A plan built from that specific gap list rather than a repeat of the full syllabus',
+        'The same dedicated mentor for the entire cycle, six days a week',
+        'Full-length mocks under exam timing, each reviewed with your mentor',
+        'Attempt-strategy work — question selection, order, and when to abandon a question',
+        'Weekly parent reports, and a free trial class before you pay anything',
       ],
     },
   ],
