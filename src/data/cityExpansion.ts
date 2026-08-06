@@ -110,7 +110,7 @@ function generateHighlights(c: CityConfig): string[] {
     highlights.push(`${c.language}-medium concept explanations available for complex topics`);
   }
   highlights.push(`Zero commute from ${c.city} — save 2-3 hours daily for self-study and rest`);
-  highlights.push(`Proven results: 95% selection rate, AIR 42 best rank, 100-150+ marks improvement in 3 months`);
+  highlights.push(`One dedicated mentor per student, a plan rebuilt weekly from your own mock data, and a free trial class first`);
   return highlights;
 }
 
@@ -264,10 +264,10 @@ function generateHeroSublead(c: CityConfig): string {
 function generateSocialProofLine(c: CityConfig): string {
   const hash = c.slug.split('').reduce((a, ch) => a + ch.charCodeAt(0), 0);
   const variants = [
-    `2,300+ students coached across India including ${c.state} — 95% selection rate.`,
-    `AIR 42 in JEE Advanced • 95% selection rate • students from ${c.state} among our top performers.`,
-    `95% selection rate across 2,300+ students — ${c.city} families are seeing real results.`,
-    `From ${c.city} to IIT/AIIMS — 2,300+ students coached with 95% selection rate.`,
+    `One dedicated mentor per student, teaching live from anywhere in ${c.state}.`,
+    `Live 1-on-1 classes • adaptive weekly plans • students taught across ${c.state}.`,
+    `${c.city} families get weekly progress reports, so improvement is visible rather than asserted.`,
+    `From ${c.city}, taught online 1-on-1 — no relocation, no hostel, no commute.`,
   ];
   return variants[hash % variants.length];
 }
@@ -283,12 +283,12 @@ function generateQuickStats(c: CityConfig): QuickStat[] {
   } else if (c.tier === 2) {
     stats.push({ value: `${improvementMarks}+`, label: 'Avg. Marks Improvement', source: 'Mock test analytics, 3-month window' });
   } else {
-    stats.push({ value: '2,300+', label: 'Students Coached Pan-India', source: 'Cumulative enrolment data' });
+    stats.push({ value: '1', label: 'Students Per Class', source: 'Every session is one-to-one' });
   }
   stats.push(
     c.exams.includes('neet')
       ? { value: 'Top 500', label: 'Best NEET Rank', source: 'NEET UG 2026 result' }
-      : { value: 'AIR 42', label: 'Best JEE Rank', source: 'JEE Advanced 2025 result' }
+      : { value: 'Free', label: 'Trial Class', source: 'With your assigned mentor, before you pay' }
   );
   // Add a 4th stat that varies by city context
   const stateData = getStateEducation(c.state);
@@ -394,7 +394,7 @@ function generateExpandedFaqs(c: CityConfig): CityFAQ[] {
   const faqs: CityFAQ[] = [
     {
       q: `Is online ${examFull} coaching effective for ${c.city} students?`,
-      tldr: 'Yes — 95% selection rate with personalised 1-on-1 mentoring.',
+      tldr: 'For students who need personal attention, yes — judge it in a free trial.',
       a: `MindPeak's 1-on-1 online coaching delivers superior results compared to batch coaching centres in ${c.city}. The core advantage is structural: when a teacher works with one student, they see exactly where confusion happens in real-time — something impossible in a 60-100 student batch. Our adaptive curriculum adjusts weekly based on mock test data. Dedicated mentors (IIT/AIIMS alumni with 3-10+ years experience) conduct daily live sessions with interactive whiteboards. Students have secured AIR 42 in JEE Advanced and Top 500 in NEET through this approach. The platform works on standard 4G/broadband connections available across ${c.city}, and all sessions are recorded for later revision.`,
     },
     {
