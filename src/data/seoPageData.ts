@@ -287,7 +287,7 @@ const jeeCoachingPage: SEOPageData = {
     },
   ],
   faqs: [
-    { q: 'Is online JEE coaching as effective as offline coaching?', a: 'Yes — in fact, 1-on-1 online JEE coaching often outperforms offline batch coaching. Our AIR 42 result in JEE Advanced was achieved entirely through online live classes. The personalised attention, adaptive curriculum, and daily live sessions with a dedicated mentor ensure deeper understanding than passive listening in a 200-student classroom.' },
+    { q: 'Is online JEE coaching as effective as offline coaching?', a: 'For students who need personal attention, yes. The variable that matters is not online versus offline but one-to-one versus batch: daily live sessions with a dedicated mentor, an adaptive curriculum and doubts resolved as they arise produce deeper understanding than passive listening in a 200-student classroom. We publish no rank claims to prove it — take the free trial and judge the teaching yourself.' },
     { q: 'What are the fees for JEE coaching at MindPeak?', a: 'Our online JEE coaching starts at ₹1,30,000 + GST for the 1-year program (Class 12 or dropper) and ₹2,30,000 + GST for the 2-year program (Class 11 + Class 12). Subject-wise crash courses in Physics, Chemistry, or Mathematics start at ₹18,000. Scholarships are available based on diagnostic test performance.' },
     { q: 'Can I join MindPeak for JEE coaching mid-year?', a: 'Absolutely. Since all coaching is 1-on-1, there are no batch constraints. Your mentor builds a customised plan that accounts for your current preparation level and covers any syllabus gaps from where you actually are, not from where a generic batch is.' },
     { q: 'Does MindPeak cover both JEE Main and JEE Advanced ' + CURRENT_EXAM_YEAR + '?', a: `Yes. All our JEE programs cover both JEE Main ${CURRENT_EXAM_YEAR} and JEE Advanced ${CURRENT_EXAM_YEAR} comprehensively. The curriculum builds JEE Main readiness first through chapter-wise coverage and weekly mock tests, then progressively layers JEE Advanced-level multi-concept problem solving in Physics, Chemistry, and Mathematics.` },
@@ -469,7 +469,7 @@ const neetCoachingPage: SEOPageData = {
     { q: 'What are NEET coaching fees at MindPeak?', a: 'Online NEET coaching starts at ₹1,30,000 + GST for the 1-year program (Class 12 or dropper) and ₹2,30,000 + GST for the 2-year program (Class 11 + Class 12). Subject-wise NEET crash courses in Biology, Physics, or Chemistry start at ₹18,000. Scholarships are available based on diagnostic NEET test performance.' },
     { q: 'Does MindPeak provide NCERT-based NEET coaching?', a: 'Yes — NCERT is the spine of every NEET chapter we teach. We go line-by-line through NCERT Class 11 and Class 12 Biology, Physics, and Chemistry, including every diagram, table, footnote, and in-text question, before any reference book is opened. Roughly 90% of NEET questions are NCERT-derived, so NCERT mastery directly translates into NEET marks.' },
     { q: 'Can NEET droppers join MindPeak?', a: 'Yes. We run a dedicated NEET dropper program with focused gap analysis from your previous attempt scorecard. Your AIIMS-alumna mentor builds a customised plan targeting the specific Biology chapters, Physics topics, and Chemistry branches that cost you marks last year.' },
-    { q: 'How does MindPeak compare to Kota coaching for NEET?', a: 'MindPeak\'s 1-on-1 NEET model provides far more personalised attention than any Kota offline batch. The AIR 156 result was achieved entirely online without any relocation. You also save ₹3-5 lakh annually on Kota hostel, food, and travel — money that adds up to one full year of MBBS fees later.' },
+    { q: 'How does MindPeak compare to Kota coaching for NEET?', a: 'MindPeak\'s 1-on-1 NEET model gives far more personal attention than a Kota batch, and it needs no relocation at all. The saving is the concrete part: ₹3-5 lakh a year on hostel, food and travel — money that adds up to a full year of MBBS fees later. We make no rank claims; the free trial is how you judge the teaching.' },
     { q: 'Is NCERT enough to crack NEET ' + CURRENT_EXAM_YEAR + '?', a: `For Biology, NCERT is enough for roughly 90% of NEET ${CURRENT_EXAM_YEAR} questions — but only if you own NCERT at the line-by-line level, including every footnote and diagram. For Chemistry, NCERT covers 85% and you should add NCERT Exemplar plus past NEET PYQs. For Physics, NCERT gives you the concept and you need DC Pandey for numerical practice. Our online NEET coaching builds exactly this stack — NCERT first, supplements only after NCERT mastery.` },
     { q: 'How does 1-on-1 NEET coaching help with Biology diagrams?', a: 'Biology diagrams are 30-40 marks in any NEET paper. In a 1-on-1 NEET class, your mentor watches you draw the diagram live — heart, nephron, alimentary canal, photosynthesis, DNA replication — corrects labels in real time, and re-tests you the next session. That feedback loop is impossible in a batch class where the teacher cannot see anyone\'s notebook.' },
     { q: 'What\'s the daily online NEET coaching schedule at MindPeak?', a: 'A typical Class 12 NEET day: morning school, a 60-75 minute live 1-on-1 NEET class with your mentor in the late afternoon, 90 minutes of MCQ practice and NCERT reading, and one mock review per week. Class 11 NEET students get a lighter 2-hour daily load. Dropper students study 8-10 focused hours daily with two live sessions on alternate days.' },
@@ -857,7 +857,7 @@ const jeeAdvancedPage: SEOPageData = {
   sections: [
     {
       heading: 'Why JEE Advanced Demands Personalised Coaching',
-      content: 'JEE Advanced is fundamentally different from JEE Main. It tests not just knowledge but the ability to connect multiple concepts, solve unconventional problems, and think creatively under pressure. Batch coaching, by its nature, cannot develop these skills — they require 1-on-1 mentoring where a dedicated teacher understands your thought process and pushes you beyond your comfort zone. MindPeak\'s AIR 42 result is proof that personalised attention outperforms even Kota\'s best batch coaching for JEE Advanced.',
+      content: 'JEE Advanced is fundamentally different from JEE Main. It tests not just knowledge but the ability to connect multiple concepts, solve unconventional problems, and think creatively under pressure. Batch coaching, by its nature, cannot develop these skills — they require 1-on-1 mentoring where a dedicated teacher understands your thought process and pushes you beyond your comfort zone. A mentor watching one student reason through a problem is what personalised attention buys you, and it is hard to reproduce in best batch coaching for JEE Advanced.',
     },
     {
       heading: 'Our JEE Advanced Preparation Approach',
@@ -1006,12 +1006,12 @@ const jeeAdvancedPage: SEOPageData = {
     },
   ],
   faqs: [
-    { q: 'Can I prepare for JEE Advanced through online coaching?', a: 'Absolutely. Our AIR 42 result was achieved entirely through online 1-on-1 coaching. The personalised attention, adaptive curriculum, and intensive problem-solving practice translate perfectly to the online format — often better than offline batch coaching.' },
+    { q: 'Can I prepare for JEE Advanced through online coaching?', a: 'Yes. JEE Advanced rewards multi-concept problem solving, which is exactly what a mentor watching you work a problem live can diagnose and fix. Personal attention, an adaptive plan and intensive problem practice translate fully to the online format — and a shared digital whiteboard loses nothing versus sitting across a table.' },
     { q: 'When should I start JEE Advanced preparation?', a: 'Ideally, start in Class 11 with our 2-year program. However, even 1-year and crash course students have achieved excellent JEE Advanced ranks. Your mentor will create an optimal plan based on your starting point and timeline.' },
     { q: 'Does MindPeak cover JEE Advanced-specific topics?', a: 'Yes. Our JEE Advanced curriculum includes topics and question types not covered in JEE Main — like comprehension-based questions, matrix matching, integer-type problems, and multi-concept integrations. These require specialised practice that only 1-on-1 coaching can provide effectively.' },
     { q: 'How is online JEE Advanced coaching at MindPeak different from a batch class at Aakash or Vedantu?', a: 'A batch online JEE Advanced class has one faculty for 60 to 200 students; MindPeak runs true 1-on-1 live online classes where the same IIT-alumnus mentor coaches you daily for 6 days a week throughout the entire preparation cycle. Doubt SLA is sub-2-hour on WhatsApp versus 24 to 48 hours at most batch coaching brands.' },
     { q: 'How many hours of daily JEE Advanced coaching does MindPeak provide?', a: 'Daily 1-on-1 live online classes run 75 to 90 minutes, 6 days a week. On top of that, students are assigned 5 to 7 hours of self-practice with structured DPPs (Daily Practice Problems), one doubt-class slot weekly, and one full-length mock test review session. Total weekly mentor contact time exceeds 12 hours.' },
-    { q: 'Who will teach me at MindPeak for JEE Advanced?', a: 'Physics is led by founder Devansh Sharma (BDS) and Nishkresh Mishra (Master\'s in Physics); Mathematics by Krishnendu Brahmachari (Master\'s in Mathematics); Chemistry by Sahil Singh (Bachelor\'s in Chemistry) and Aparna Chandra (Ph.D. in Chemistry). You meet the specific mentor assigned to you in the free trial class, before paying anything, so you can judge the teaching yourself with at least 8 years of competitive-exam coaching experience, selected through our 3 per cent faculty acceptance rate.' },
+    { q: 'Who will teach me at MindPeak for JEE Advanced?', a: 'Physics is led by founder Devansh Sharma (BDS) and Nishkresh Mishra (Master\'s in Physics); Mathematics by Krishnendu Brahmachari (Master\'s in Mathematics); Chemistry by Sahil Singh (Bachelor\'s in Chemistry) and Aparna Chandra (Ph.D. in Chemistry). You meet the specific mentor assigned to you in the free trial class, before paying anything, so you can judge the teaching yourself with at least and you meet the specific mentor assigned to you in a free trial class, before paying anything.' },
     { q: 'Does the JEE Advanced coaching include test series and mock tests?', a: 'Yes. Every JEE Advanced coaching plan includes weekly chapter tests, monthly JEE Advanced pattern mocks (Paper 1 + Paper 2), and quarterly full-length mocks under exam timing — all followed by a 1-on-1 paper review with your mentor the next day.' },
     { q: 'What study material does MindPeak provide for JEE Advanced preparation?', a: 'Comprehensive study material covering NCERT, HC Verma, DC Pandey, Irodov, MS Chouhan, JD Lee, OP Tandon, RD Sharma and Cengage references — plus MindPeak\'s in-house chapter notes, 150+ formula sheets, and 20 Years JEE Main / 15 Years JEE Advanced PYQ booklets integrated chapter by chapter.' },
     { q: 'Can a JEE dropper still aim for a top IIT through MindPeak?', a: 'Yes, and we have multiple examples — including students who moved from outside AIR 20,000 to inside AIR 5,000 in a single dropper year. The key is forensic gap analysis of the previous attempt, followed by 1-on-1 daily mentoring that compresses concept relearning and pushes JEE Advanced problem-solving intensity.' },
@@ -1033,7 +1033,7 @@ const neetUgPage: SEOPageData = {
   description: 'NEET UG preparation with NCERT-first 1-on-1 coaching — line-by-line Biology, daily live sessions, and per-mock accuracy review. Free trial class.',
   h1: 'NEET UG',
   h1Highlight: 'Coaching Online',
-  heroSubtitle: 'NEET UG is the only gateway to MBBS admissions in India. Our NCERT-first, Biology-focused approach with dedicated 1-on-1 mentoring has produced AIR 156 and consistently helped students score 650+ to secure government medical college seats.',
+  heroSubtitle: 'NEET UG is the only gateway to MBBS admissions in India. Our NCERT-first, Biology-focused approach pairs every student with a dedicated 1-on-1 mentor, because NEET rewards line-level NCERT mastery and accuracy under time pressure more than it rewards extra medical college seats.',
   sections: [
     {
       heading: `NEET UG ${CURRENT_EXAM_YEAR} — Exam Overview`,
@@ -2888,7 +2888,7 @@ const bestJeeCoachingIndiaPage: SEOPageData = {
     },
     {
       heading: 'What MindPeak Offers — and Who It\'s For',
-      content: `MindPeak is 1-on-1 online JEE coaching — one dedicated mentor per student, daily live classes, 6 days a week. It works best for students who've tried batch coaching and felt lost, students in cities without strong local options, or students who need someone to adapt the curriculum to their pace. Our best JEE rank is AIR 42 in JEE Advanced. Our 95% selection rate in JEE Main comes from the simple fact that personalised attention works. But we\'re not right for everyone — if you thrive in competitive classroom environments and your city has strong local coaching, that might serve you better. We\'d rather you pick what actually works for you than sell you something that doesn\'t fit.`,
+      content: `MindPeak is 1-on-1 online JEE coaching — one dedicated mentor per student, daily live classes, 6 days a week. It works best for students who've tried batch coaching and felt lost, students in cities without strong local options, or students who need someone to adapt the curriculum to their pace. We publish no rank or selection-rate claims — there is no audited figure to publish. The case for the format is simple fact that personalised attention works. But we\'re not right for everyone — if you thrive in competitive classroom environments and your city has strong local coaching, that might serve you better. We\'d rather you pick what actually works for you than sell you something that doesn\'t fit.`,
       bullets: [
         'Dedicated mentor (IIT / IISc / NIT alumni) — same person for your entire JEE preparation journey',
         'Fully adaptive curriculum based on diagnostic assessments across Physics, Chemistry, and Mathematics',
@@ -2966,7 +2966,7 @@ const bestJeeCoachingIndiaPage: SEOPageData = {
         'Krishnendu Brahmachari (M.Sc. Mathematics), with Sri Bala and Vinod — JEE Mathematics',
         'Sahil Singh (B.Sc.), Aparna (M.Sc.) and Aparna Chandra (Ph.D.) — JEE Chemistry',
         'You are taught by the mentor you meet in the free trial — not a demo specialist',
-        '500+ students mentored across India, 95% selection rate, AIR 42 in JEE Advanced',
+        'One dedicated mentor per student, daily live classes, and a free trial before you pay',
       ],
     },
   ],
@@ -3002,10 +3002,10 @@ const comparisonPages: SEOPageData[] = [
   {
     slug: 'kota-coaching-alternative',
     title: 'Kota Coaching Alternative — 1-on-1 Beats Kota Online | MindPeak',
-    description: 'Looking for a Kota coaching alternative? MindPeak offers 1-on-1 personalized JEE/NEET coaching online. AIR 42 achieved. Save ₹3-5 lakhs vs Kota. No relocation needed.',
+    description: 'Looking for a Kota coaching alternative? 1-on-1 online JEE/NEET coaching with a dedicated mentor — no relocation, no hostel, and a free trial class first.',
     h1: 'The Best',
     h1Highlight: 'Kota Coaching Alternative',
-    heroSubtitle: 'Kota has been India\'s coaching capital for decades. But the era of batch coaching is ending. MindPeak\'s 1-on-1 online model delivers better results than Kota — our AIR 42 proves it — at a fraction of the cost and without the emotional toll of relocation.',
+    heroSubtitle: 'Kota has been India\'s coaching capital for decades. But the era of batch coaching is ending. MindPeak\'s 1-on-1 online model gives a student something a Kota batch structurally cannot — a mentor who knows their gap list — at a fraction of the total cost and without the emotional toll of relocation.',
     sections: [
       {
         heading: 'The Problem with Kota Coaching',
@@ -3025,7 +3025,6 @@ const comparisonPages: SEOPageData[] = [
             ['Relocation', 'Not required', 'Must move to Kota'],
             ['Mental Health', 'Study from home comfort', 'High-pressure hostel life'],
             ['Parent Involvement', 'Weekly reports + calls', 'Limited visibility'],
-            ['Best Rank Achieved', 'AIR 42 (JEE Advanced)', 'Top institutes claim similar'],
             ['Success Rate', '95%', '10-15% (estimated)'],
           ],
         },
@@ -3035,12 +3034,14 @@ const comparisonPages: SEOPageData[] = [
         content: 'When you add up coaching fees, hostel rent, food, travel, and miscellaneous expenses, a year in Kota costs ₹3-5 lakhs. MindPeak\'s 1-on-1 coaching costs ₹1.3 lakhs for the same period — with better results. The money saved can be invested in college education, reducing the financial burden on families. And there\'s the incalculable benefit of your child studying from the comfort and safety of home.',
       },
       {
-        heading: 'Why Our AIR 42 Chose MindPeak Over Kota',
-        content: 'Our highest-ranking student — AIR 42 in JEE Advanced — had initially planned to go to Kota. After a free trial session with MindPeak, he realized that 1-on-1 coaching addressed his specific weaknesses far more effectively than any batch class could. Within 6 months, his mock scores jumped from 120/300 to consistently above 280/300. He achieved AIR 42 while studying from home — saving his family over ₹4 lakhs in the process.',
+        heading: 'Why Students Choose Home Over Kota',
+        // Invented student case study removed; the decision framework it was
+        // dramatising stands on its own and is genuinely useful.
+        content: 'Families weighing Kota against staying home are usually deciding between two different things: routine and peer pressure on one side, personal attention and an intact support system on the other. Kota supplies the first genuinely — a whole city organised around the exam. What it cannot supply is a teacher who knows one student\'s specific gap list, because the economics of a 200-seat batch do not allow it. Set against that, relocating costs ₹3-5 lakh a year in hostel, mess and travel, and it removes a sixteen-year-old from their family in the most stressful year of their life. Neither answer is automatic — but the cost side should be counted honestly before anyone commits.',
       },
     ],
     faqs: [
-      { q: 'Is online coaching really as effective as going to Kota?', a: 'Our AIR 42 result proves that 1-on-1 online coaching can outperform Kota. The personalised attention you receive at MindPeak is something no Kota institute can match with 200+ student batches. The key isn\'t the location — it\'s the quality and personalisation of teaching.' },
+      { q: 'Is online coaching really as effective as going to Kota?', a: 'The honest answer is that location was never the active ingredient — teaching quality and personal attention are. A 200-student Kota batch cannot give one student the attention a 1-on-1 programme does, wherever it is delivered from. We publish no rank claims either way; book the free trial and compare formats directly.' },
       { q: 'What if my child needs the "competitive environment" of Kota?', a: 'The competitive environment of Kota is a myth for most students — it often creates stress rather than healthy competition. MindPeak creates productive competition through mock test rankings, peer benchmarking, and regular assessments without the toxic pressure.' },
       { q: 'Do students from Kota ever switch to MindPeak?', a: 'Yes. We\'ve enrolled several students who went to Kota, realized batch coaching wasn\'t working, and switched to MindPeak\'s 1-on-1 model. Many saw immediate improvement because their specific weak areas were finally being addressed.' },
     ],
@@ -3093,7 +3094,7 @@ const comparisonPages: SEOPageData[] = [
           ],
         },
       },
-      { heading: 'When Online Coaching is Better', content: 'Online 1-on-1 coaching is clearly superior when: you live in a city without top coaching centres, you need personalised attention for specific weak areas, your schedule requires flexibility, you want to save on hostel and travel costs, or you learn better through interactive discussions rather than passive lectures. For most students, online 1-on-1 coaching delivers better results than offline batch coaching — our AIR 42 proves this beyond doubt.' },
+      { heading: 'When Online Coaching is Better', content: 'Online 1-on-1 coaching is clearly superior when: you live in a city without top coaching centres, you need personalised attention for specific weak areas, your schedule requires flexibility, you want to save on hostel and travel costs, or you learn better through interactive discussions rather than passive lectures. For most students, online 1-on-1 coaching suits students who need personal attention better than a batch does — book a free trial and judge it directly.' },
       { heading: 'When Offline Coaching Might Work', content: `Offline coaching might be a reasonable choice if: you genuinely need the physical presence of peers for motivation (though this is rarer than people think), you don't have reliable internet access (increasingly rare in ${CURRENT_EXAM_YEAR}), or your parents can only trust coaching they can physically visit. For everyone else, online 1-on-1 coaching is the objectively better choice in ${CURRENT_EXAM_YEAR}.` },
       { heading: 'Can You Combine Both? The Hybrid Reality', content: `A growing number of students run a hybrid setup: school or a local offline class for routine and peer contact, plus online 1-on-1 for the heavy lifting — weak-chapter surgery, doubt resolution, and test analysis. This works well when the offline component is genuinely good and the online mentor coordinates with what's taught there. What does NOT work is stacking two full programs: a 6-day offline batch plus a full online course leaves zero time for self-study, and self-study is where marks are actually made. If you choose hybrid, keep one program primary and the other strictly supplementary.` },
       { heading: 'A 60-Second Decision Framework', content: `Answer these six questions honestly. (1) Is there a genuinely top-tier coaching centre within 45 minutes of home? (2) Does your child ask doubts confidently in a class of 60+ students? (3) Can your family absorb ₹6L+ over two years without stress? (4) Has your child lived away from home before (if relocation is the plan)? (5) Does your child already follow a self-made study routine? (6) Is reliable internet a problem at home? Mostly "no" to 1–5 and "no" to 6 → online 1-on-1 is the better fit. Mostly "yes" to 1–5 → a good offline batch can work. Mixed answers → consider the hybrid setup above, or book demo classes in both formats and compare directly — a 1-hour demo reveals more than any article.` },
@@ -3102,7 +3103,7 @@ const comparisonPages: SEOPageData[] = [
     faqs: [
       { q: 'Which is better for JEE: online or offline coaching?', a: 'Neither format guarantees a rank — consistency does. That said, for most students in 2026+ the deciding factor is personal attention: a 1-on-1 online mentor adapts to your weak areas daily, which a 100-student offline batch structurally cannot. Choose offline only if a genuinely top-tier centre is commutable and your child thrives in large competitive classrooms.' },
       { q: 'Is online JEE coaching cheaper than offline?', a: 'Per brochure, fees look similar (₹1.2–2.2L/year both ways). In reality offline costs 2–3× more once you add hostel and mess (₹10–15K/month), commute, separate test series, and the private tuition that 40–60% of batch students end up needing. A realistic 2-year offline total is ₹6L–10L+ vs ₹2.4L–3.6L all-inclusive online.' },
-      { q: 'Can online coaching replace Kota for JEE?', a: 'Yes. Our AIR 42 result demonstrates that 1-on-1 online coaching produces results comparable to or better than Kota. The key differentiator is personalised attention, not physical location.' },
+      { q: 'Can online coaching replace Kota for JEE?', a: 'For many students, yes — the differentiator is personal attention, not physical location. What Kota genuinely offers is routine and peer pressure; what it cannot offer is a mentor who knows your specific gap list. Judge both in a demo class rather than on any institute\'s claims, ours included.' },
       { q: 'What about self-discipline in online coaching?', a: 'MindPeak\'s 1-on-1 model solves the discipline problem. Your dedicated mentor monitors attendance, tracks progress, and adjusts the pace — providing the accountability that traditional online courses lack.' },
       { q: 'Is online coaching good for JEE droppers?', a: 'Often better than offline. A dropper has exactly one year and already knows the syllabus — what they need is targeted repair of weak chapters and ruthless test analysis, not a second full pass through standard batch lectures. 1-on-1 online coaching builds the year around their specific gap list and saves the 2–3 hours daily that commuting or hostel life consumes.' },
       { q: 'Can I do offline coaching and online coaching together?', a: 'Only in a primary + supplementary arrangement: one full program plus targeted support (e.g. offline batch + online 1-on-1 for doubt resolution and weak chapters). Two full parallel programs destroy self-study time and reliably backfire.' },
@@ -3163,13 +3164,13 @@ const comparisonPages: SEOPageData[] = [
       },
       {
         heading: 'The Data Speaks',
-        content: 'MindPeak\'s 95% selection rate vs the industry average of 10-15% for batch coaching tells the entire story. When a mentor\'s success is tied to a single student\'s performance, the level of investment, accountability, and effort is incomparably higher than a teacher managing 200 students.',
+        content: 'We do not publish a selection rate, because we have no audited figure to publish — and an unverifiable percentage should not be what decides where a family spends two years. The structural argument stands on its own: when a mentor teaches one student, the level of investment, accountability and effort is incomparably higher than a teacher managing 200.',
       },
     ],
     faqs: [
       { q: 'Is one-on-one coaching better than batch coaching for JEE/NEET?', a: 'Yes for most students. One-on-one coaching adapts pacing, prioritises the student\'s weak chapters, and resolves doubts inside the same session — typically delivering 15 to 25 percentile points of gain in 6 months versus 8 to 15 for equivalent-tier batch coaching. Batch coaching still wins for students who thrive on peer competition and standard pacing.' },
       { q: 'Is a personal tutor better than a coaching institute?', a: 'A personal tutor outperforms a coaching institute for students with specific subject weaknesses, pacing flexibility needs, or hesitation in batch settings, delivering 25 to 40 percent faster percentile gains. Coaching institutes are better for self-disciplined students motivated by peer competition.' },
-      { q: 'Isn\'t 1-on-1 coaching more expensive than batch coaching?', a: 'Per hour it costs ₹2,000–₹5,000 versus ₹200–₹600 for batch coaching, but the total cost is lower because you don\'t need hostel or travel expenses. More importantly, ROI is dramatically higher — 95% success rate vs 10-15% means your investment is far more likely to deliver results.' },
+      { q: 'Isn\'t 1-on-1 coaching more expensive than batch coaching?', a: 'Per hour it costs ₹2,000–₹5,000 versus ₹200–₹600 for batch coaching, but the total cost is lower because you don\'t need hostel or travel expenses. We will not put an ROI figure on it, because any success-rate percentage you see in coaching advertising — ours included, historically — is unaudited. Judge the teaching in the free trial instead.' },
       { q: 'Don\'t batch coaching institutes have "star teachers"?', a: 'Star teachers deliver excellent lectures, but a lecture is only 20% of learning. The remaining 80% — practice, doubt resolution, personalised feedback — is where batch coaching fails. A good 1-on-1 mentor delivers all five components of effective learning.' },
       { q: 'Is small-batch coaching as good as one-on-one for personal attention?', a: 'Small batches (10–20 students) improve on 100-student batches, but attention still divides: in a 90-minute class of 15, each student averages 6 minutes of individual attention, and pacing still follows the group. If personal attention is the reason you\'re switching, one-on-one coaching is the format actually built for it — every minute targets your preparation.' },
       { q: 'Who should choose batch coaching over a personal tutor?', a: 'Choose batch coaching if you are self-disciplined, can self-identify weak areas, thrive on peer competition, and are comfortable being one of 60 to 100 students. For everyone else, one-on-one coaching is more effective per rupee spent.' },
@@ -3203,17 +3204,16 @@ const comparisonPages: SEOPageData[] = [
             ['Total Cost (with living)', '₹1,30,000', '₹3,00,000 - ₹5,00,000 (if in Kota)'],
             ['Curriculum', 'Adaptive per student', 'Fixed for batch'],
             ['Doubt Resolution', 'Instant, during class', 'Doubt counters (waiting)'],
-            ['Best JEE Rank', 'AIR 42', 'AIR 1 (multiple times)'],
             ['Student Volume', '500+ (growing)', '3+ lakh students'],
             ['Progress Tracking', 'Weekly personalised reports', 'Periodic test rankings'],
           ],
         },
       },
-      { heading: 'Why Students Choose MindPeak Over Allen', content: 'MindPeak\'s 1-on-1 model provides something Allen simply cannot — dedicated personal attention. In Allen, even in "top batches", you\'re one of 50-60 students. At MindPeak, your mentor knows your name, your weak chapters, your learning pace, and your emotional state. This relationship is what drives our 95% success rate. Students who switched from Allen to MindPeak consistently report that concepts they struggled with for months in batch classes became clear within weeks of 1-on-1 coaching.' },
+      { heading: 'Why Students Choose MindPeak Over Allen', content: 'MindPeak\'s 1-on-1 model provides something Allen simply cannot — dedicated personal attention. In Allen, even in "top batches", you\'re one of 50-60 students. At MindPeak, your mentor knows your name, your weak chapters, your learning pace, and your emotional state. That relationship is the whole argument for the format; we publish no success rate to dress it up, because we have no audited figure. Students who switch from a large batch commonly report that concepts they struggled with for months in batch classes became clear within weeks of 1-on-1 coaching.' },
       { heading: 'When Allen Might Be Better', content: 'We believe in honest comparisons. Allen might be a better fit if: you\'re the kind of student who thrives in competitive group environments, you want the prestige of Allen\'s brand name, or you\'re targeting AIR top 10 and want to be in the same room as other future top rankers. For the vast majority of students, however, MindPeak\'s personalised approach delivers better outcomes.' },
     ],
     faqs: [
-      { q: 'Allen has produced AIR 1. Can MindPeak match that?', a: 'Allen teaches 3+ lakh students annually — AIR 1 from that volume is expected. Our focus is on maximising every individual student\'s potential. Our best rank, AIR 42, was achieved by a student who was scoring 120/300 when he joined — a transformation that batch coaching rarely delivers.' },
+      { q: 'Allen has produced AIR 1. Can MindPeak match that?', a: 'No, and we will not pretend otherwise. Allen teaches lakhs of students a year; top ranks emerge from that volume, and a small 1-on-1 institute has no comparable claim to make. That is also why topper advertising tells you so little — it reflects intake scale, not what an average student gains. Our case is narrower and checkable: one mentor per student, and a free trial to test it.' },
       { q: 'Is MindPeak cheaper than Allen?', a: 'The coaching fee is comparable, but total cost is 50-70% lower because MindPeak eliminates hostel, travel, and living expenses. If you\'re considering Allen Kota, you\'ll spend ₹3-5 lakhs annually vs ₹1.3 lakhs at MindPeak.' },
     ],
     relatedPages: [
@@ -3279,7 +3279,6 @@ const comparisonPages: SEOPageData[] = [
             ['Annual Fee', 'From ₹1,30,000', '₹1,50,000 - ₹3,00,000'],
             ['Unique Feature', 'Adaptive 1-on-1 curriculum', 'Integrated school + coaching'],
             ['Doubt Resolution', 'Instant, during class', 'After-class doubt clearing'],
-            ['Track Record', 'AIR 42 (growing institute)', 'Multiple top AIRs (established)'],
           ],
         },
       },
@@ -3651,7 +3650,7 @@ const methodologyPage: SEOPageData = {
   description: 'Discover MindPeak Institute\'s proven teaching methodology. Adaptive curriculum, daily 1-on-1 sessions, weekly analytics, and AI-powered practice — all designed for JEE & NEET success.',
   h1: 'Our',
   h1Highlight: 'Teaching Methodology',
-  heroSubtitle: 'A scientifically designed 6-layer coaching framework that adapts to every student\'s unique learning style, pace, and goals. This is how MindPeak achieves a 95% selection rate.',
+  heroSubtitle: 'A scientifically designed 6-layer coaching framework that adapts to every student\'s unique learning style, pace, and goals. This is the framework every MindPeak mentor teaches to.',
   sections: [
     {
       heading: 'The 6-Layer MindPeak Framework',
