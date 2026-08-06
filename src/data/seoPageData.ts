@@ -465,8 +465,14 @@ const neetCoachingPage: SEOPageData = {
 
 const pricingPage: SEOPageData = {
   slug: 'pricing',
-  title: 'JEE & NEET Coaching Fees — Affordable 1-on-1 Plans | MindPeak',
-  description: 'Transparent pricing for personalized 1-on-1 JEE & NEET coaching. Starting ₹1,30,000/year. Compare with batch coaching. Scholarships available. No hidden fees.',
+  /*
+   * Targets the budget-intent query cluster ("coaching fees", "affordable",
+   * "cheap") honestly: leads with the genuinely low entry points (₹8,000 test
+   * series, ₹25,000 single-subject) rather than only the ₹1.3L flagship, and
+   * with the free trial. Every figure matches pricingData.
+   */
+  title: 'JEE & NEET Coaching Fees — 1-on-1 Plans | MindPeak',
+  description: 'Transparent JEE & NEET coaching fees: 1-on-1 plans, subject courses from ₹25,000, test series from ₹8,000, EMI available. Free trial before you pay.',
   h1: 'Coaching',
   h1Highlight: 'Fees & Plans',
   heroSubtitle: 'Transparent, all-inclusive pricing for personalized 1-on-1 JEE and NEET coaching. No hidden charges, no surprise fees — just world-class mentoring at a fraction of the cost of relocating to Kota.',
@@ -606,8 +612,8 @@ const contactPage: SEOPageData = {
 
 const freeTrialPage: SEOPageData = {
   slug: 'free-trial',
-  title: 'Free Trial Class — Experience 1-on-1 JEE & NEET Coaching | MindPeak',
-  description: 'Book a free trial class with a dedicated JEE/NEET mentor. Experience personalized 1-on-1 coaching, get a diagnostic assessment & study plan. No obligation, 100% free.',
+  title: 'Free JEE & NEET Trial Class — 1-on-1 with a Mentor',
+  description: 'Book a free 1-on-1 trial class with the mentor you would actually be assigned. Diagnostic assessment and study plan included. No payment, no obligation.',
   h1: 'Book Your',
   h1Highlight: 'Free Trial Class',
   heroSubtitle: 'Experience the MindPeak difference firsthand. Get paired with a dedicated mentor, receive a diagnostic assessment of your preparation, and walk away with a personalised study plan — all completely free.',
@@ -1152,8 +1158,10 @@ const neetUgPage: SEOPageData = {
 
 const jeeDropperPage: SEOPageData = {
   slug: 'jee-dropper-coaching',
-  title: 'JEE Dropper Coaching — Personalized Retry Strategy | MindPeak',
-  description: 'Failed JEE? Don\'t give up. MindPeak\'s 1-on-1 JEE dropper program identifies YOUR specific gaps and builds a targeted comeback strategy. 90% improvement rate.',
+  // Meta within limits (60/155) and free of the unsubstantiated "90%
+  // improvement rate" claim — answer engines quote descriptions verbatim.
+  title: 'JEE Dropper Coaching — 1-on-1 Comeback Plan | MindPeak',
+  description: 'Dropped a year for JEE? A 1-on-1 dropper program that starts from your actual attempt — which chapters cost you marks — and rebuilds from there.',
   h1: 'JEE Dropper',
   h1Highlight: 'Coaching Program',
   heroSubtitle: 'A failed JEE attempt isn\'t the end — it\'s a data point. MindPeak\'s 1-on-1 dropper program analyses your previous attempt to build a surgical preparation strategy targeting exactly where you lost marks.',
@@ -1317,8 +1325,9 @@ const jeeDropperPage: SEOPageData = {
 
 const neetDropperPage: SEOPageData = {
   slug: 'neet-dropper-coaching',
-  title: 'NEET Dropper Coaching — Targeted Comeback Strategy | MindPeak',
-  description: 'NEET dropper? Get 1-on-1 coaching that analyses your previous attempt and targets your specific weak areas. NCERT-focused, Biology-strong. 90% improvement rate.',
+  // Meta within limits (60/155); dropped the unsubstantiated "90%" claim.
+  title: 'NEET Dropper Coaching — 1-on-1 Comeback Plan | MindPeak',
+  description: 'NEET repeater? 1-on-1 coaching that analyses your previous attempt and targets your specific weak areas, NCERT-first with Biology depth.',
   h1: 'NEET Dropper',
   h1Highlight: 'Coaching Program',
   heroSubtitle: 'Your first NEET attempt gave you valuable data. MindPeak\'s 1-on-1 dropper program uses that data to build a surgical preparation strategy — targeting exactly where you need to improve for a dramatically better score.',
