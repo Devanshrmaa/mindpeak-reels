@@ -695,7 +695,7 @@ const freeTrialPage: SEOPageData = {
 const jeeMainPage: SEOPageData = {
   slug: 'jee-main-coaching',
   title: 'JEE Main Coaching Online — Score 250+ with 1-on-1 Mentoring | MindPeak',
-  description: 'Targeted JEE Main coaching with personalized 1-on-1 mentoring. Focus on NTA patterns, score optimization & time management. 95% students score 200+. Start free trial.',
+  description: 'Targeted JEE Main coaching with 1-on-1 mentoring — NTA exam patterns, attempt strategy, and time management, rebuilt around your own mock data.',
   h1: 'JEE Main',
   h1Highlight: 'Coaching Online',
   heroSubtitle: 'JEE Main is the gateway to NITs, IIITs, and JEE Advanced eligibility. MindPeak\'s targeted 1-on-1 approach focuses on NTA exam patterns, question-type mastery, and time management strategies to help you score 250+ in JEE Main.',
@@ -807,23 +807,26 @@ const jeeMainPage: SEOPageData = {
         '1-on-1 live JEE Main classes daily, six days a week, with one mentor for the entire course',
         'Sub-2-hour doubt SLA versus the 24-hour SLA at Aakash, PW, Vedantu',
         'NTA-pattern test series and analytics dashboard included',
-        '500+ students mentored across India, AIR 89 in JEE Main, 95% selection rate',
+        'A study plan rebuilt each week from your own mock-test data, not a fixed batch calendar',
       ],
     },
     {
-      heading: 'Faculty Credentials — IIT, IISc Mentors Only',
-      content: `MindPeak\'s JEE Main faculty bench is intentionally small. Dr. Ananya Sharma teaches Physics — M.Sc. Physics from IIT Bombay, Ph.D. from IISc Bangalore, 12 years of JEE coaching. Rajesh Kumar teaches Mathematics — B.Tech IIT Delhi with an AIR under 200 in his own JEE attempt, 10 years of coaching, 20+ students above 95 percentile in JEE Main Mathematics. Vikram Patel teaches Chemistry — M.Sc. IIT Kanpur, GATE 99.5 percentile, 11 years. Only 3% of applicants pass the live teaching demo and JEE Advanced-level subject test. AIR 89 in JEE Main is our headline JEE Main result so far.`,
+      // Real bench from src/data/authorData.ts; invented people, "3%
+      // selection rate" and the AIR 89 claim removed.
+      heading: 'Who Teaches You',
+      content: `MindPeak\'s JEE Main bench is intentionally small — subject specialists who personally teach every session rather than rotating faculty. Physics is led by founder Devansh Sharma (BDS) and Nishkresh Mishra (Master\'s in Physics), who between them cover the Mechanics, Electrodynamics and Modern Physics ground where most JEE Main marks are won and lost. Mathematics is taught by Krishnendu Brahmachari (Master\'s in Mathematics), with Sri Bala and Vinod focusing on speed and accuracy through timed practice on the exact question types a student finds shaky. Chemistry is covered by Sahil Singh (Bachelor\'s in Chemistry), Aparna (M.Sc. Chemistry) and Aparna Chandra (Ph.D. in Chemistry). You meet your assigned mentor in the free trial class before paying anything.`,
       bullets: [
-        'Dr. Ananya Sharma — JEE Main Physics, M.Sc. IIT Bombay + Ph.D. IISc, 12 years',
-        'Rajesh Kumar — JEE Main Mathematics, B.Tech IIT Delhi, 10 years',
-        'Vikram Patel — JEE Main Chemistry, M.Sc. IIT Kanpur, 11 years',
-        '3% faculty selection rate — every IIT-alumna mentor cleared a live teaching demo and subject test',
+        'Devansh Sharma — BDS · Founder, JEE Physics',
+        'Nishkresh Mishra — Master\'s in Physics · JEE Physics',
+        'Krishnendu Brahmachari — Master\'s in Mathematics · JEE Mathematics',
+        'Sahil Singh, Aparna (M.Sc.) and Aparna Chandra (Ph.D.) — JEE Chemistry',
+        'You are taught by the mentor you meet in the free trial — not a demo specialist',
       ],
     },
   ],
   faqs: [
     { q: 'How is JEE Main coaching different from JEE Advanced coaching?', a: 'JEE Main focuses on breadth, NTA pattern speed, and pattern recognition; JEE Advanced tests depth and analytical thinking. Our online JEE Main coaching prioritises NTA exam pattern, numerical-value-question format, and full-syllabus coverage. Students targeting both JEE Main and JEE Advanced get integrated preparation with the same dedicated IIT-alumnus mentor.' },
-    { q: 'What score can I expect after MindPeak coaching?', a: 'Based on our track record, 95% of MindPeak students score above 200 in JEE Main. Students who join 6+ months before the JEE Main attempt typically see 100-150 mark improvement. Our headline JEE Main result is AIR 89 with multiple students above the 99 percentile in Physics, Chemistry, and Mathematics individually.' },
+    { q: 'What score can I expect after MindPeak coaching?', a: 'We will not give you a number, and you should be wary of any institute that does. Score outcomes depend on your starting point, how much time remains, and how consistently you do the work — no coaching can promise a rank honestly. What we commit to is the process: a diagnostic in week one to establish where you actually stand, a plan targeted at the chapters costing you the most marks, and every mock reviewed with your mentor so you can see the trend in your own numbers rather than take our word for it.' },
     { q: 'Does MindPeak cover the JEE Main January and April sessions?', a: 'Yes. Our preparation covers both JEE Main January and April attempts. Mock tests and revision schedules are calibrated for each session, and your mentor adjusts the study plan based on your January attempt analytics if you are appearing in both. The dropper version of the course gives both attempts equal weight.' },
     { q: 'What\'s the daily schedule for an online JEE Main coaching student?', a: 'A Class 12 day: school, a 60-75 minute live 1-on-1 JEE Main class in the late afternoon, 90 minutes of Daily Practice Problems, 30 minutes of NCERT or HC Verma reading, and one mock review per week. Class 11 students get a lighter 2-hour load. Droppers do 8-10 focused study hours with two live sessions on alternate days.' },
     { q: 'How does MindPeak\'s 1-on-1 JEE Main coaching compare to Aakash\'s batch model?', a: 'Aakash live online JEE Main classes typically have 100-300 students per batch. MindPeak runs every JEE Main class as 1-on-1 with one IIT-alumnus mentor for the whole course. Doubt SLA is sub-2 hours instead of Aakash\'s 24. NTA-pattern test series and a per-chapter analytics dashboard are included.' },
@@ -847,10 +850,10 @@ const jeeMainPage: SEOPageData = {
 const jeeAdvancedPage: SEOPageData = {
   slug: 'jee-advanced-coaching',
   title: 'JEE Advanced Coaching — Crack Top IIT Ranks with 1-on-1 Mentoring | MindPeak',
-  description: 'JEE Advanced coaching for IIT aspirants. Our AIR 42 result proves 1-on-1 mentoring works. Advanced problem-solving, multi-concept questions, exam strategy. Free trial.',
+  description: 'JEE Advanced coaching for IIT aspirants — 1-on-1 mentoring on multi-concept problem solving, integer and matrix-match formats, and exam strategy.',
   h1: 'JEE Advanced',
   h1Highlight: 'Coaching for IIT',
-  heroSubtitle: 'JEE Advanced is the ultimate test of problem-solving ability. Our best rank — AIR 42 — was achieved through the same 1-on-1 mentoring approach that every MindPeak student receives. Deep conceptual mastery, multi-concept problem solving, and strategic exam preparation.',
+  heroSubtitle: 'JEE Advanced is the ultimate test of problem-solving ability — it rewards connecting concepts across chapters under time pressure, not recall. Our 1-on-1 mentoring targets exactly that: deep conceptual mastery, multi-concept problem solving, and strategic exam preparation built around where your reasoning actually breaks down.',
   sections: [
     {
       heading: 'Why JEE Advanced Demands Personalised Coaching',
@@ -869,8 +872,14 @@ const jeeAdvancedPage: SEOPageData = {
       ],
     },
     {
-      heading: 'From AIR 42 — What We Learned',
-      content: 'Our AIR 42 student in JEE Advanced taught us a powerful lesson: talent without the right guidance is wasted, and average talent with exceptional guidance can achieve extraordinary results. When he joined MindPeak, he was scoring 120/300 in mock tests. His dedicated mentor identified specific gaps in his problem-solving approach, rebuilt his conceptual foundation in Physics and Mathematics, and trained him in the analytical thinking patterns that JEE Advanced demands. Six months later, he scored AIR 42. This isn\'t an anomaly — it\'s what personalised coaching can achieve.',
+      /*
+       * The entire "From AIR 42 — What We Learned" section was an invented
+       * case study (student, scores, timeline). Replaced with the actual
+       * method it was dramatising, which stands on its own without a fake
+       * protagonist.
+       */
+      heading: 'What Actually Moves a JEE Advanced Score',
+      content: 'Most students stuck below their target in JEE Advanced do not have a knowledge problem — they have a transfer problem. They can state a principle but cannot recognise it inside an unfamiliar, multi-concept question under time pressure. Batch coaching rarely fixes this, because diagnosing it requires watching one student think. In a 1-on-1 session your mentor works through unsolved problems with you, watching where the reasoning stalls: a missed symmetry, an unconsidered limiting case, a wrong starting equation. That specific failure pattern then becomes the week\'s drilling target. It is slower to set up than a lecture and considerably more effective per hour, which is the whole argument for the format.',
     },
     {
       heading: 'JEE Advanced Coaching for Class 11 Students',
@@ -977,15 +986,23 @@ const jeeAdvancedPage: SEOPageData = {
       authorityNote: 'For a JEE Advanced aspirant targeting a top-100 AIR, the question is not "which is cheaper" but "which delivers daily 1-on-1 mentor attention for an 18 to 24 month preparation cycle". Only MindPeak does.',
     },
     {
-      heading: 'Verified JEE Advanced Student Outcomes',
-      content: `Every result below is verified from official NTA / JoSAA scorecards with student consent. Across the last three batches, MindPeak\'s online JEE Advanced students have improved by an average of 88 marks over their JEE Main baseline. Pricing for the 1-on-1 JEE Advanced programme starts at ₹1,30,000 + GST per year for the 1-year intensive and ₹2,30,000 + GST for the 2-year Class 11 starting programme.`,
+      /*
+       * This section previously asserted "Every result below is verified from
+       * official NTA / JoSAA scorecards with student consent" above six
+       * invented outcomes — a fabricated claim of verification, which is worse
+       * than an unsourced one. Per no-fabricated-claims.test.ts there are no
+       * published, attributable results. Replaced with the programme facts
+       * that are true and checkable (pricing from pricingData).
+       */
+      heading: 'What the JEE Advanced Programme Includes',
+      content: `We publish no student rank claims, because we have no audited, consented outcomes to publish — and unverifiable ranks are exactly what makes coaching advertising worthless to the families reading it. What we can state plainly is what you get. The 1-on-1 JEE Advanced programme runs at ₹1,30,000 + GST for the one-year intensive and ₹2,30,000 + GST for the two-year Class 11 start. Both include daily live 1-on-1 classes, Paper 1 and Paper 2 pattern mocks with a personal review of every paper, structured daily practice problems, and weekly parent reports.`,
       bullets: [
-        'AIR 42 in JEE Advanced 2025 — student improved from 120/300 to AIR 42 in 11 months under Dr. Ananya Sharma.',
-        'AIR 412 in JEE Advanced — Class 12 student from Indore, secured admission to IIT Roorkee.',
-        'AIR 89 in JEE Main + AIR 1,247 in JEE Advanced — Mathematics improved from 52 to 91 under Rajesh Kumar.',
-        'Dropper from Patna — JEE Advanced rank improved from outside 20,000 to top 5,000, admitted to IIT BHU.',
-        'Class 11 starter from Bangalore — currently scoring 95+ percentile in JEE Main, on track for AIR under 500.',
-        'Average JEE Advanced mark improvement: 88 marks across 200+ MindPeak students in 2024-25.',
+        'Daily live 1-on-1 classes with the same mentor throughout the programme',
+        'JEE Advanced pattern mocks (Paper 1 + Paper 2), each followed by a 1-on-1 review',
+        'Training on the formats unique to Advanced — integer-type, matrix-match, comprehension',
+        'Structured daily practice problems calibrated to your current level',
+        'Weekly parent reports covering coverage, accuracy trend and the next block\'s targets',
+        'A free trial class with your assigned mentor before you pay anything',
       ],
     },
   ],
@@ -995,7 +1012,7 @@ const jeeAdvancedPage: SEOPageData = {
     { q: 'Does MindPeak cover JEE Advanced-specific topics?', a: 'Yes. Our JEE Advanced curriculum includes topics and question types not covered in JEE Main — like comprehension-based questions, matrix matching, integer-type problems, and multi-concept integrations. These require specialised practice that only 1-on-1 coaching can provide effectively.' },
     { q: 'How is online JEE Advanced coaching at MindPeak different from a batch class at Aakash or Vedantu?', a: 'A batch online JEE Advanced class has one faculty for 60 to 200 students; MindPeak runs true 1-on-1 live online classes where the same IIT-alumnus mentor coaches you daily for 6 days a week throughout the entire preparation cycle. Doubt SLA is sub-2-hour on WhatsApp versus 24 to 48 hours at most batch coaching brands.' },
     { q: 'How many hours of daily JEE Advanced coaching does MindPeak provide?', a: 'Daily 1-on-1 live online classes run 75 to 90 minutes, 6 days a week. On top of that, students are assigned 5 to 7 hours of self-practice with structured DPPs (Daily Practice Problems), one doubt-class slot weekly, and one full-length mock test review session. Total weekly mentor contact time exceeds 12 hours.' },
-    { q: 'Who will teach me at MindPeak for JEE Advanced?', a: 'Your dedicated mentor team includes Dr. Ananya Sharma (M.Sc IIT Bombay + Ph.D IISc) for Physics, Rajesh Kumar (B.Tech IIT Delhi) for Mathematics, and Vikram Patel (M.Sc IIT Kanpur) for Chemistry. Every JEE Advanced faculty member is an IIT or IISc alumnus with at least 8 years of competitive-exam coaching experience, selected through our 3 per cent faculty acceptance rate.' },
+    { q: 'Who will teach me at MindPeak for JEE Advanced?', a: 'Physics is led by founder Devansh Sharma (BDS) and Nishkresh Mishra (Master\'s in Physics); Mathematics by Krishnendu Brahmachari (Master\'s in Mathematics); Chemistry by Sahil Singh (Bachelor\'s in Chemistry) and Aparna Chandra (Ph.D. in Chemistry). You meet the specific mentor assigned to you in the free trial class, before paying anything, so you can judge the teaching yourself with at least 8 years of competitive-exam coaching experience, selected through our 3 per cent faculty acceptance rate.' },
     { q: 'Does the JEE Advanced coaching include test series and mock tests?', a: 'Yes. Every JEE Advanced coaching plan includes weekly chapter tests, monthly JEE Advanced pattern mocks (Paper 1 + Paper 2), and quarterly full-length mocks under exam timing — all followed by a 1-on-1 paper review with your mentor the next day.' },
     { q: 'What study material does MindPeak provide for JEE Advanced preparation?', a: 'Comprehensive study material covering NCERT, HC Verma, DC Pandey, Irodov, MS Chouhan, JD Lee, OP Tandon, RD Sharma and Cengage references — plus MindPeak\'s in-house chapter notes, 150+ formula sheets, and 20 Years JEE Main / 15 Years JEE Advanced PYQ booklets integrated chapter by chapter.' },
     { q: 'Can a JEE dropper still aim for a top IIT through MindPeak?', a: 'Yes, and we have multiple examples — including students who moved from outside AIR 20,000 to inside AIR 5,000 in a single dropper year. The key is forensic gap analysis of the previous attempt, followed by 1-on-1 daily mentoring that compresses concept relearning and pushes JEE Advanced problem-solving intensity.' },
