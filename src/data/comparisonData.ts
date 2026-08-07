@@ -136,7 +136,7 @@ export const competitors: CompetitorData[] = [
     ],
     whyBetter: [
       { title: 'Live Humans, Not Videos', desc: 'BYJU\'S relies heavily on recorded content. For JEE/NEET, where understanding builds through questions, discussion, and personalized problem-solving, live 1-on-1 sessions are incomparably more effective.' },
-      { title: 'Accountability = Results', desc: 'The #1 problem with app-based learning: students stop using it. BYJU\'S has notoriously high dropout rates. MindPeak\'s daily live sessions with your dedicated mentor ensure consistent engagement and accountability.' },
+      { title: 'Accountability = Results', desc: 'The recurring problem with app-based learning is that students quietly stop using it, and nobody notices. MindPeak\'s daily live sessions with your dedicated mentor ensure consistent engagement and accountability.' },
       { title: 'Mentor Who Knows Your Child', desc: 'BYJU\'S assigns different tutors/chatbots for doubt resolution. At MindPeak, your child has ONE mentor who knows their learning style, weaknesses, and goals. This continuity drives meaningful progress.' },
       { title: 'Competitive Pricing', desc: 'BYJU\'S full JEE/NEET programs cost ₹1.5L+. MindPeak offers a dedicated human mentor for ₹1.3L after discount. Better teaching, lower price.' },
     ],
@@ -165,7 +165,7 @@ export const competitors: CompetitorData[] = [
       { feature: 'Adaptive Curriculum', mindpeak: '✓ Personalized based on diagnostic assessment', competitor: '✗ Same syllabus for all students' },
       { feature: 'Recorded Sessions', mindpeak: '✓ Your own sessions recorded for review', competitor: '✓ Batch lectures available for replay' },
       { feature: 'Parent Reports', mindpeak: '✓ Weekly detailed progress reports', competitor: '✗ No parent reporting system' },
-      { feature: 'Accountability', mindpeak: '✓ Daily mentor check-ins + homework tracking', competitor: 'Self-discipline required (high dropout rate)' },
+      { feature: 'Accountability', mindpeak: '✓ Daily mentor check-ins + homework tracking', competitor: 'Self-discipline required' },
       { feature: 'Schedule', mindpeak: '✓ Flexible around your calendar', competitor: 'Fixed batch schedule' },
       { feature: 'Study Material', mindpeak: '✓ Personalized + curated by mentor', competitor: '✓ Standardized (good quality)' },
     ],

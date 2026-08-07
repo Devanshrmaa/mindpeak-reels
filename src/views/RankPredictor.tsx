@@ -485,7 +485,7 @@ const RankPredictor = () => {
                     type="text"
                     value={name}
                     onChange={(e) => { setName(e.target.value); setErrors(prev => ({ ...prev, name: '' })); }}
-                    placeholder="e.g. Aarav Sharma"
+                    placeholder="Your name"
                     className={`w-full rounded-xl border bg-background px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 mb-1 ${errors.name ? 'border-destructive' : 'border-border'}`}
                   />
                   {errors.name && <p className="text-destructive text-xs mb-3">{errors.name}</p>}

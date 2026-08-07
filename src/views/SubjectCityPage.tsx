@@ -214,7 +214,7 @@ export default function SubjectCityPage() {
               { value: '95%', label: 'Selection Rate' },
               { value: '150+', label: 'Marks Improvement' },
               { value: '2,300+', label: 'Students Coached' },
-              { value: 'AIR 42', label: 'Best Rank' },
+              { value: '1:1', label: 'Students Per Class' },
             ].map((stat, i) => (
               <motion.div key={i} initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="text-center">
                 <p className="font-display text-3xl font-bold text-primary">{stat.value}</p>

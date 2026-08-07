@@ -200,7 +200,7 @@ const Courses = () => {
             {[
               { value: '12+', label: 'Programs' },
               { value: '95%', label: 'Success Rate' },
-              { value: 'AIR 42', label: 'Best JEE Result' },
+              { value: '1:1', label: 'Students Per Class' },
               { value: '695/720', label: 'Best NEET Score' },
             ].map((s) => (
               <div key={s.label} className="text-center px-3 py-4 rounded-xl border border-foreground/[0.06] bg-foreground/[0.02]">

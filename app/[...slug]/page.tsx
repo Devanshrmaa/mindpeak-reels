@@ -237,7 +237,7 @@ export default async function CatchAllPage({ params }: Props) {
           <>
             <h1>{content.heading}</h1>
             <p>{content.description}</p>
-            <p>MindPeak Institute offers personalized 1-on-1 JEE and NEET coaching with a 95% success rate. Our adaptive curriculum and dedicated mentors help students achieve their dream ranks.</p>
+            <p>MindPeak Institute offers personalized 1-on-1 JEE and NEET coaching — one dedicated mentor per student, live daily classes, and a study plan rebuilt from each student&apos;s own mock-test results rather than a fixed batch calendar.</p>
           </>
         )}
         <nav>
@@ -288,7 +288,7 @@ function buildServerContent(slug: string[]): { heading: string; description: str
     const exam = full.startsWith('neet') ? 'NEET' : 'JEE';
     return {
       heading: `Best ${exam} Coaching in ${city}`,
-      description: `Top-rated ${exam} coaching in ${city} by MindPeak Institute. Personalized 1-on-1 online coaching with expert mentors, adaptive curriculum, and 95% success rate. Book a free demo class today.`,
+      description: `${exam} coaching in ${city} by MindPeak Institute. Personalized 1-on-1 online coaching — a dedicated mentor per student, live daily classes, and an adaptive curriculum. Book a free demo class today.`,
     };
   }
 
@@ -302,6 +302,6 @@ function buildServerContent(slug: string[]): { heading: string; description: str
 
   return {
     heading: prettyName,
-    description: `${prettyName} — Personalized JEE & NEET coaching by MindPeak Institute. Expert mentors, adaptive curriculum, 95% success rate.`,
+    description: `${prettyName} — Personalized JEE & NEET coaching by MindPeak Institute. A dedicated 1-on-1 mentor per student, live daily classes, adaptive curriculum.`,
   };
 }

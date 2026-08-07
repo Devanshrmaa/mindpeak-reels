@@ -64,11 +64,11 @@ export const revalidate = false;
 
 export const metadata: Metadata = {
   title: `JEE & NEET Coaching Courses ${CURRENT_EXAM_YEAR} — 12+ Programs | MindPeak`,
-  description: `Explore 12+ personalized 1-on-1 JEE & NEET programs — foundation to crash course. 95% success rate, AIR 42 best rank. Book a free demo class.`,
+  description: `Explore 12+ personalized 1-on-1 JEE & NEET programs — foundation to crash course. A dedicated mentor per student, transparent fees. Book a free demo class.`,
   alternates: { canonical: "https://mindpeakinstitute.com/courses" },
   openGraph: {
     title: `12+ Personalized JEE & NEET Coaching Programs ${CURRENT_EXAM_YEAR} | MindPeak`,
-    description: "Find your perfect 1-on-1 JEE or NEET program — from Class 6 foundation to 60-day crash courses. 95% success rate. Book a free demo.",
+    description: "Find your perfect 1-on-1 JEE or NEET program — from Class 6 foundation to 60-day crash courses. One dedicated mentor per student. Book a free demo.",
     url: "https://mindpeakinstitute.com/courses",
     siteName: "MindPeak Institute",
     type: "website",

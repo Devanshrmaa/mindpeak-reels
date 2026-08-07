@@ -219,7 +219,7 @@ export function buildCityJsonLd(pageSlug: string): string[] | null {
     '@id': pageUrl,
     url: pageUrl,
     name: `Best ${examLabel} Coaching in ${cityData.city} — MindPeak Institute`,
-    description: `Top-rated 1-on-1 online ${examLabel} coaching in ${cityData.city}. Dedicated IIT/AIIMS alumni mentors, adaptive curriculum, 95% success rate, and free demo class.`,
+    description: `1-on-1 online ${examLabel} coaching in ${cityData.city}. A dedicated mentor per student, adaptive curriculum, and a free demo class.`,
     inLanguage: 'en-IN',
     isPartOf: {
       '@type': 'WebSite',

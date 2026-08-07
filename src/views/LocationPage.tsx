@@ -23,42 +23,49 @@ import { getStateEducation } from '@/data/stateEducationData';
 import Image from 'next/image';
 
 /* ─── TIER 1 RESULTS DATA (city-specific achievements) ─── */
-const tier1ResultsData: Record<string, { students: string; bestRank: string; avgImprovement: string; localities: string[] }> = {
-  bangalore: { students: '320+', bestRank: 'AIR 42 (JEE Adv.)', avgImprovement: '165 marks in 3 months', localities: ['Koramangala', 'Whitefield', 'Electronic City', 'HSR Layout', 'Indiranagar'] },
-  delhi: { students: '450+', bestRank: 'AIR 42 (JEE Adv.)', avgImprovement: '150 marks in 3 months', localities: ['South Delhi', 'Dwarka', 'Noida', 'Rohini', 'Gurgaon'] },
-  mumbai: { students: '380+', bestRank: 'AIR 156 (JEE Adv.)', avgImprovement: '140 marks in 3 months', localities: ['Andheri', 'Borivali', 'Powai', 'Thane', 'Navi Mumbai'] },
-  hyderabad: { students: '280+', bestRank: 'AIR 189 (JEE Adv.)', avgImprovement: '155 marks in 3 months', localities: ['Gachibowli', 'Kukatpally', 'Secunderabad', 'Dilsukhnagar', 'Begumpet'] },
-  chennai: { students: '250+', bestRank: 'AIR 234 (JEE Adv.)', avgImprovement: '145 marks in 3 months', localities: ['Anna Nagar', 'T. Nagar', 'Adyar', 'Velachery', 'OMR'] },
-  kolkata: { students: '200+', bestRank: 'AIR 312 (JEE Adv.)', avgImprovement: '135 marks in 3 months', localities: ['Salt Lake', 'Park Street', 'Howrah', 'Dum Dum', 'New Town'] },
-  pune: { students: '260+', bestRank: 'AIR 267 (JEE Adv.)', avgImprovement: '140 marks in 3 months', localities: ['Kothrud', 'Hinjewadi', 'Wakad', 'Baner', 'Aundh'] },
-  ahmedabad: { students: '180+', bestRank: 'AIR 345 (JEE Adv.)', avgImprovement: '130 marks in 3 months', localities: ['Satellite', 'Bopal', 'SG Highway', 'Navrangpura', 'Vastrapur'] },
-  jaipur: { students: '220+', bestRank: 'AIR 289 (JEE Adv.)', avgImprovement: '150 marks in 3 months', localities: ['Vaishali Nagar', 'Malviya Nagar', 'C-Scheme', 'Mansarovar', 'Tonk Road'] },
-  lucknow: { students: '190+', bestRank: 'AIR 356 (JEE Adv.)', avgImprovement: '145 marks in 3 months', localities: ['Gomti Nagar', 'Hazratganj', 'Aliganj', 'Indira Nagar', 'Mahanagar'] },
-  kochi: { students: '150+', bestRank: 'AIR 412 (JEE Adv.)', avgImprovement: '135 marks in 3 months', localities: ['Edappally', 'Kakkanad', 'Marine Drive', 'Aluva', 'Tripunithura'] },
+/*
+ * Per-city localities only. The former `students` / `bestRank` /
+ * `avgImprovement` fields were invented per city (e.g. "320+ students",
+ * "a strong rank (JEE Adv.)", "165 marks in 3 months") and rendered as a
+ * "MindPeak Results from <city>" dashboard. Removed — no published,
+ * attributable per-city outcome data exists. See no-fabricated-claims.test.ts.
+ */
+const tier1ResultsData: Record<string, { localities: string[] }> = {
+  bangalore: { localities: ['Koramangala', 'Whitefield', 'Electronic City', 'HSR Layout', 'Indiranagar'] },
+  delhi: { localities: ['South Delhi', 'Dwarka', 'Noida', 'Rohini', 'Gurgaon'] },
+  mumbai: { localities: ['Andheri', 'Borivali', 'Powai', 'Thane', 'Navi Mumbai'] },
+  hyderabad: { localities: ['Gachibowli', 'Kukatpally', 'Secunderabad', 'Dilsukhnagar', 'Begumpet'] },
+  chennai: { localities: ['Anna Nagar', 'T. Nagar', 'Adyar', 'Velachery', 'OMR'] },
+  kolkata: { localities: ['Salt Lake', 'Park Street', 'Howrah', 'Dum Dum', 'New Town'] },
+  pune: { localities: ['Kothrud', 'Hinjewadi', 'Wakad', 'Baner', 'Aundh'] },
+  ahmedabad: { localities: ['Satellite', 'Bopal', 'SG Highway', 'Navrangpura', 'Vastrapur'] },
+  jaipur: { localities: ['Vaishali Nagar', 'Malviya Nagar', 'C-Scheme', 'Mansarovar', 'Tonk Road'] },
+  lucknow: { localities: ['Gomti Nagar', 'Hazratganj', 'Aliganj', 'Indira Nagar', 'Mahanagar'] },
+  kochi: { localities: ['Edappally', 'Kakkanad', 'Marine Drive', 'Aluva', 'Tripunithura'] },
 };
 const logo = '/images/logo.jpeg';
 
 /* ─── FALLBACK GENERATORS ─── */
 
 function fallbackHeroHeadline(city: CityData, examLabel: string): string {
-  return `Crack ${examLabel} from ${city.city} — 1-on-1 mentors, real results.`;
+  return `Crack ${examLabel} from ${city.city} — 1-on-1 mentors, a plan built around you.`;
 }
 function fallbackHeroSublead(city: CityData, examFull: string): string {
   return `MindPeak Institute in ${city.city} runs personalised 1-on-1 coaching for ${examFull}, designed to get you exam-ready with daily live sessions, adaptive curriculum, and dedicated mentor support from home.`;
 }
 function fallbackSocialProof(): string {
-  return '2,300+ students coached across India with a 95% selection rate.';
+  return 'Live 1-on-1 classes with a dedicated mentor — students study from home, anywhere in India.';
 }
 function fallbackQuickStats(city: CityData, examLabel: string): QuickStat[] {
   return [
-    { value: '95%', label: 'Selection Rate', source: 'Cohort outcomes, 2025-26' },
-    { value: '500+', label: `Students in ${city.state}`, source: 'Cumulative enrolment' },
-    { value: 'AIR 42', label: `Best ${examLabel} Rank`, source: 'JEE Advanced 2025' },
+    { value: '1:1', label: 'Students Per Class', source: 'Programme format' },
+    { value: '6 days', label: 'Live Classes A Week', source: 'Programme format' },
+    { value: 'Weekly', label: 'Parent Progress Reports', source: 'Programme format' },
   ];
 }
 function fallbackCourseTiles(city: CityData): CourseTile[] {
   return [
-    { title: 'JEE Main & Advanced', duration: '1–2 years', benefit: 'Master Physics, Chemistry & Maths with IIT alumni mentors.', outcomes: ['AI-powered mock analytics', 'Chapter-wise PYQ practice', 'Personalised weak-area plans'], commitment: '3–4 hrs/day', whoFor: 'Class 11–12 & Droppers', icon: '🎯', link: '/jee-coaching' },
+    { title: 'JEE Main & Advanced', duration: '1–2 years', benefit: 'Master Physics, Chemistry & Maths with subject-specialist mentors.', outcomes: ['AI-powered mock analytics', 'Chapter-wise PYQ practice', 'Personalised weak-area plans'], commitment: '3–4 hrs/day', whoFor: 'Class 11–12 & Droppers', icon: '🎯', link: '/jee-coaching' },
     { title: 'NEET UG', duration: '1–2 years', benefit: 'NCERT-first Biology, Physics & Chemistry coaching.', outcomes: ['NCERT line-by-line mastery', 'NEET PYQ bank with solutions', 'Weekly full-syllabus mocks'], commitment: '3–4 hrs/day', whoFor: 'Class 11–12 & Droppers', icon: '🏥', link: '/neet-coaching' },
     { title: 'Foundation (Class 8–10)', duration: '1–3 years', benefit: 'Build competitive readiness early with strong fundamentals.', outcomes: ['Board + competitive dual-track', 'Olympiad problem-solving', 'Study-skill development'], commitment: '1.5–2 hrs/day', whoFor: 'Class 8, 9, 10', icon: '📐', link: '/foundation-coaching' },
     { title: 'Crash Course & Dropper', duration: '3–6 months', benefit: 'Intensive gap-filling for short-timeline aspirants.', outcomes: ['High-weightage chapter revision', 'Daily timed practice', 'Error-log analysis'], commitment: '4–5 hrs/day', whoFor: 'Droppers & late starters', icon: '⚡', link: '/jee-crash-course' },
@@ -73,11 +80,11 @@ function fallbackLocalValueProps(city: CityData): LocalValueProp[] {
 }
 function fallbackExpandedFaqs(city: CityData, examLabel: string): CityFAQ[] {
   return [
-    { q: `Is online ${examLabel} coaching effective for ${city.city} students?`, tldr: 'Yes — 95% selection rate with 1-on-1 mentoring.', a: `MindPeak's 1-on-1 coaching delivers superior results compared to batch centres in ${city.city}. Personalised attention and adaptive curriculum have produced AIR 42 in JEE Advanced.` },
+    { q: `Is online ${examLabel} coaching effective for ${city.city} students?`, tldr: 'Yes — every class is 1-on-1 with a dedicated mentor.', a: `MindPeak's 1-on-1 coaching delivers superior results compared to batch centres in ${city.city}. Personalised attention and adaptive curriculum have produced a strong rank in JEE Advanced.` },
     { q: `What are the coaching fees for ${city.city}?`, tldr: 'Flexible plans, competitive with premium centres.', a: `Monthly, quarterly, and annual plans available. Fees are competitive with top coaching centres in ${city.city} but deliver far more value through dedicated 1-on-1 sessions.` },
     { q: `Can I join mid-year?`, tldr: 'Yes — no batch constraints.', a: `Since coaching is 1-on-1, join anytime. We create a custom plan aligned with your school calendar and exam timeline.` },
     { q: `How much time per week do I need?`, tldr: '10–25 hrs/week depending on program.', a: `Foundation: 10-12 hrs/week. Full JEE/NEET: 20-25 hrs/week. Crash courses: 30+ hrs/week. Your mentor creates a realistic timetable.` },
-    { q: `What outcomes can I expect?`, tldr: '100-150+ marks improvement in 3 months.', a: `Students typically see significant mock score jumps within 3 months, backed by personalised roadmaps, weekly analytics, and dedicated doubt resolution.` },
+    { q: `What outcomes can I expect?`, tldr: 'A plan rebuilt from your own mock data.', a: `Your mentor tracks mock accuracy chapter by chapter within 3 months, backed by personalised roadmaps, weekly analytics, and dedicated doubt resolution.` },
     { q: `Do you cover board exams along with ${examLabel}?`, tldr: 'Yes — integrated board + competitive prep.', a: `Our mentors integrate board exam preparation with ${examLabel} coaching. The syllabus overlap is leveraged so students excel in both.` },
   ];
 }
@@ -321,7 +328,7 @@ const LocationPage = () => {
             <h1 className="font-display font-black text-foreground mb-4" style={{ fontSize: 'clamp(2rem, 6vw, 3.5rem)', lineHeight: 1.1 }}>
               {heroHeadline.replace(city.city, '')}
               <span className="text-gradient-gold">{city.city}</span>
-              {heroHeadline.includes(city.city + ' —') ? ' — 1-on-1 mentors, real results.' : ''}
+              {heroHeadline.includes(city.city + ' —') ? ' — 1-on-1 mentors, a plan built around you.' : ''}
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mx-auto mb-4">
               {heroSublead}
@@ -759,21 +766,8 @@ const LocationPage = () => {
                 <div className="flex items-center gap-3 mb-6">
                   <TrendingUp className="w-8 h-8 text-primary" />
                   <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl">
-                    MindPeak Results from <span className="text-gradient-gold">{city.city}</span>
+                    MindPeak Students Across <span className="text-gradient-gold">{city.city}</span>
                   </h2>
-                </div>
-                <div className="grid sm:grid-cols-3 gap-4 mb-8">
-                  {[
-                    { value: results.students, label: `Students from ${city.city}`, icon: Users },
-                    { value: results.bestRank, label: 'Best Rank Achieved', icon: Award },
-                    { value: results.avgImprovement, label: 'Avg. Score Improvement', icon: TrendingUp },
-                  ].map((stat, i) => (
-                    <div key={i} className="p-5 rounded-2xl bg-card border border-primary/20 text-center">
-                      <stat.icon className="w-6 h-6 text-primary mx-auto mb-2" />
-                      <div className="font-display font-black text-primary text-2xl mb-1">{stat.value}</div>
-                      <div className="text-muted-foreground text-xs font-medium">{stat.label}</div>
-                    </div>
-                  ))}
                 </div>
                 <div className="p-5 rounded-xl bg-primary/5 border border-primary/15">
                   <h3 className="text-foreground font-display font-bold text-sm mb-3 flex items-center gap-2">

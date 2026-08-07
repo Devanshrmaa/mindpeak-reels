@@ -9,9 +9,9 @@ const dd = (i: number, base = 0.08) => ({ "--d": `${i * base}s` } as CSSProperti
 
 export function MpLedger() {
   const rows = [
-    { rank: "AIR 42", exam: "JEE Advanced", name: "Aarav Sharma", note: "IIT Bombay, Computer Science", img: "/images/aarav-sharma.jpg" },
-    { rank: "AIR 89", exam: "JEE Mains", name: "Rohan Gupta", note: "99.97 percentile, dropper year", img: "/images/rohan-gupta.jpg" },
-    { rank: "AIR 156", exam: "NEET UG", name: "Priya Patel", note: "AIIMS Delhi, MBBS", img: "/images/priya-patel.jpg" },
+    { rank: "a strong rank", exam: "JEE Advanced", name: "Sample Student", note: "IIT Bombay, Computer Science", img: "/images/aarav-sharma.jpg" },
+    { rank: "a strong rank", exam: "JEE Mains", name: "Sample Student", note: "99.97 percentile, dropper year", img: "/images/rohan-gupta.jpg" },
+    { rank: "a strong rank", exam: "NEET UG", name: "Sample Student", note: "AIIMS Delhi, MBBS", img: "/images/priya-patel.jpg" },
   ];
   return (
     <section id="results" className="mp-x" style={{ padding: "96px 48px 88px" }}>
@@ -20,7 +20,7 @@ export function MpLedger() {
           <MpEyebrow>Proof, not promises</MpEyebrow>
           <h2 style={{ fontFamily: S.disp, fontSize: "clamp(30px, 3.6vw, 44px)", fontWeight: S.dispWeight, letterSpacing: "-0.02em", margin: 0, color: S.navy }}>The results ledger</h2>
         </div>
-        <span style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: S.inkSoft, fontWeight: 600 }}>500+ students mentored · 95% success rate</span>
+        <span style={{ fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase", color: S.inkSoft, fontWeight: 600 }}>students across India · 1-on-1 format</span>
       </div>
       {rows.map((r, i) => (
         <div key={i} data-reveal style={{ borderTop: `1px solid ${S.line}`, ...dd(i) }}>
@@ -49,7 +49,7 @@ export function MpReportProof() {
     { k: "Physics — Optics", v: 61, c: S.terracotta },
   ];
   const stats = [
-    { v: "AIR 156", k: "Priya’s final NEET rank" },
+    { v: "a strong rank", k: "Priya’s final NEET rank" },
     { v: "< 30 min", k: "doubt response time" },
     { v: "6 days", k: "live classes per week" },
   ];
@@ -103,8 +103,8 @@ export function MpReportProof() {
 
 export function MpPrograms({ onCta }: { onCta: () => void }) {
   const programs = [
-    { no: "01", Icon: Atom, t: "JEE Main + Advanced", d: "1-year and 2-year programs with personal IIT/NIT mentors, weekly CBT mocks, a roadmap built around your target rank.", best: "Best result: AIR 42" },
-    { no: "02", Icon: Stethoscope, t: "NEET UG", d: "NCERT line-by-line mastery first, Biology specialists from AIIMS, NTA-pattern computer-based mocks.", best: "Best result: AIR 156" },
+    { no: "01", Icon: Atom, t: "JEE Main + Advanced", d: "1-year and 2-year programs with personal IIT/NIT mentors, weekly CBT mocks, a roadmap built around your target rank.", best: "Best result: a strong rank" },
+    { no: "02", Icon: Stethoscope, t: "NEET UG", d: "NCERT line-by-line mastery first, Biology specialists from AIIMS, NTA-pattern computer-based mocks.", best: "Best result: a strong rank" },
     { no: "03", Icon: GraduationCap, t: "Foundation · Class 6–10", d: "Boards + Olympiad + NTSE, building scientific habits before the competitive years.", best: "95%+ board scores" },
   ];
   return (

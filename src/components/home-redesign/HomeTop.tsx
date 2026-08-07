@@ -56,8 +56,8 @@ export function MpHero({ onCta }: { onCta: () => void }) {
 
       <div style={{ position: "relative" }}>
         <div className="mp-rise" style={{ display: "flex", gap: 8, marginBottom: 28, flexWrap: "wrap", ...d("0s") }}>
-          <span style={{ ...chip, background: S.gradGold, borderColor: "transparent", color: S.navyDeep }}>500+ students mentored</span>
-          <span style={chip}>95% success rate</span>
+          <span style={{ ...chip, background: S.gradGold, borderColor: "transparent", color: S.navyDeep }}>students across India</span>
+          <span style={chip}>1-on-1 format</span>
           <span style={chip}>IIT · NIT · AIIMS mentors</span>
         </div>
         <h1 className="mp-rise" style={{ fontFamily: S.disp, fontSize: "clamp(40px, 5.2vw, 66px)", lineHeight: 1.04, fontWeight: S.dispWeight, letterSpacing: "-0.028em", margin: 0, color: S.navy, ...d("0.08s") }}>
@@ -79,7 +79,7 @@ export function MpHero({ onCta }: { onCta: () => void }) {
             ))}
           </div>
           <span style={{ fontSize: 13.5, color: S.inkSoft }}>
-            <strong style={{ color: S.navy, fontWeight: 700 }}>4.9/5</strong> from 500+ parent reviews
+            <strong style={{ color: S.navy, fontWeight: 700 }}></strong> from 
           </span>
         </div>
         <div className="mp-rise" style={{ display: "flex", alignItems: "center", gap: 14, marginTop: 22, ...d("0.32s") }}>
@@ -89,7 +89,7 @@ export function MpHero({ onCta }: { onCta: () => void }) {
             ))}
           </div>
           <span style={{ fontSize: 13.5, color: S.inkSoft }}>
-            <strong style={{ color: S.navy, fontWeight: 700 }}>120+ cities</strong> — students join from every corner of India
+            <strong style={{ color: S.navy, fontWeight: 700 }}>cities across India</strong> — students join from every corner of India
           </span>
         </div>
       </div>
@@ -131,12 +131,12 @@ export function MpHero({ onCta }: { onCta: () => void }) {
 /** Slim auto-scrolling strip of headline achievements between hero and the week band. */
 export function MpMarquee() {
   const items = [
-    "AIR 42 · JEE Advanced",
-    "AIR 89 · JEE Mains",
-    "AIR 156 · NEET UG",
+    "a strong rank · JEE Advanced",
+    "a strong rank · JEE Mains",
+    "a strong rank · NEET UG",
     "50+ ranks under AIR 5,000",
-    "95% success rate",
-    "120+ cities across India",
+    "1-on-1 format",
+    "cities across India across India",
     "Doubts solved in under 30 min",
     "Live 1-on-1, 6 days a week",
   ];

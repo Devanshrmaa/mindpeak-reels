@@ -12,7 +12,7 @@ const beforeStats = [
 
 const afterStats = [
   { label: 'Mock Score', value: '285/300' },
-  { label: 'Expected Rank', value: 'AIR 42' },
+  { label: 'Expected Rank', value: 'a strong rank' },
   { label: 'Confidence', value: '95%' },
   { label: 'Study Hours', value: '6 hrs (focused)' },
 ];

@@ -80,7 +80,7 @@ export const HeroSection = () => {
           {[
             { value: '500+', label: 'Students Mentored' },
             { value: '95%', label: 'Success Rate' },
-            { value: 'AIR 42', label: 'Best JEE Rank' },
+            { value: 'a strong rank', label: 'Best JEE Rank' },
             { value: '50+', label: 'Under AIR 5,000' },
           ].map((stat) => (
             <div key={stat.label} className="flex items-center gap-2">

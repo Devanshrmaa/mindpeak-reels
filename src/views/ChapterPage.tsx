@@ -1519,7 +1519,7 @@ const ChapterPage = () => {
                 Daily sessions, instant doubt resolution, and adaptive practice ensure you score maximum marks.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mb-8">
-                {['Dedicated 1-on-1 mentor', 'Adaptive curriculum', 'PYQ-based practice', 'Daily live sessions', '95% success rate'].map((item) => (
+                {['Dedicated 1-on-1 mentor', 'Adaptive curriculum', 'PYQ-based practice', 'Daily live sessions', 'Every class recorded'].map((item) => (
                   <div key={item} className="flex items-center gap-2">
                     <CheckCircle className="w-4 h-4 text-primary" />
                     <span className="text-foreground text-xs sm:text-sm font-medium">{item}</span>

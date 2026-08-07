@@ -5,7 +5,7 @@ import { CURRENT_EXAM_YEAR } from "@/lib/examYears";
 export const revalidate = false;
 
 const title = `Best NEET Coaching Online ${CURRENT_EXAM_YEAR} — 1-on-1 | MindPeak`;
-const description = `Crack NEET ${CURRENT_EXAM_YEAR} with one-to-one Biology-first coaching. NCERT mastery, a dedicated personal mentor, 95% success rate. Book a free demo class now.`;
+const description = `Crack NEET ${CURRENT_EXAM_YEAR} with one-to-one Biology-first coaching. NCERT mastery, a dedicated personal mentor, every session recorded. Book a free demo class now.`;
 const ogImage = "https://mindpeakinstitute.com/images/og/coaching.jpg";
 
 export const metadata: Metadata = {

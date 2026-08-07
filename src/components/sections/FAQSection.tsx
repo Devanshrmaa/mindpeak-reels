@@ -49,7 +49,7 @@ const faqs = [
   },
   {
     q: 'Is MindPeak suitable for dropper students?',
-    a: 'Absolutely. We have dedicated dropper programs for both JEE and NEET. Your mentor will evaluate your previous attempt, identify specific gaps, and build a focused plan to maximize your score improvement. Many of our top results — including AIR 89 — came from dropper students.',
+    a: 'Absolutely. We have dedicated dropper programs for both JEE and NEET. Your mentor will evaluate your previous attempt, identify specific gaps, and build a focused plan to maximize your score improvement. Many of our top results — including a strong rank — came from dropper students.',
   },
 ];
 

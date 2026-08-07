@@ -915,7 +915,7 @@ A: Yes. Book a completely free demo class to experience MindPeak's 1-on-1 coachi
 A: MindPeak offers a transparent refund policy. Discuss details with our counselor during your free demo.
 
 **Q: How do we know the fee is worth it?**
-A: Ask for our student outcome data. 95% selection rate, AIR 42 best rank, 150+ marks average improvement in 3 months. Results justify the investment.
+A: Ask any coaching for its median outcome, not its headline one — and ask to sit a real class with the mentor who would actually teach you before paying.
 
 **Q: Are there scholarships available?**
 A: MindPeak offers merit-based fee concessions for exceptional students. Discuss eligibility during your free demo.
@@ -1166,7 +1166,6 @@ This isn't a sponsored list. We evaluated coaching options in ${city} based on 6
 | Schedule | Fixed batches | Semi-flexible | Self-paced | **Fully flexible** |
 | Commute | Required | Required | None | **None** |
 | Total Annual Cost | ₹${seededInt(seed + 6, 200, 350)}K (with hidden costs) | ₹${seededInt(seed + 7, 250, 450)}K | ₹${seededInt(seed + 8, 15, 80)}K | ₹2.4-3.6L |
-| Dropout Rate | 30-40% | 20-30% | 60-70% | **<10%** |
 
 ## 5-Point Decision Framework for ${city} Parents
 
@@ -1179,7 +1178,7 @@ This isn't a sponsored list. We evaluated coaching options in ${city} based on 6
 Don't compare just tuition fees. Add commute, extra tutoring, test series, and books. Often, MindPeak's all-inclusive 1-on-1 is cheaper than "affordable" batch coaching + hidden costs.
 
 ### 3. Check Verifiable Results
-Ask for specific student names and ranks (with permission). Generic "100+ selections" claims mean nothing without context. MindPeak shares specific results: AIR 42 in JEE Advanced, 95% selection rate.
+Ask for specific student names and ranks (with permission). Generic "100+ selections" claims mean nothing without context. MindPeak's differentiator is structural: every class is 1-on-1 with one dedicated mentor.
 
 ### 4. Test the Doubt Resolution System
 A coaching that can't resolve your child's doubts in real-time is wasting their time. Test this before committing.
@@ -1194,16 +1193,16 @@ If you don't know how your child is performing week-by-week, you can't intervene
 3. **Adaptive curriculum** based on diagnostic assessment — Not a fixed syllabus pace
 4. **Transparent weekly progress reports** — Complete visibility for parents
 5. **No commute** — Save 2-3 hours daily for actual study
-6. **Proven results** — 95% selection rate, AIR 42 JEE Advanced, 150+ marks average improvement
+6. **Format** — every class is 1-on-1 with a dedicated mentor, and every session is recorded
 
 ## Verified Results
 
 | Metric | Value | Context |
 |---|---|---|
-| Best Rank | AIR 42 | JEE Advanced 2024 |
+| Best Rank | a strong rank | JEE Advanced 2024 |
 | Selection Rate | 95% | Across all cohorts |
 | Avg. Improvement | 150+ marks | Within first 3 months |
-| Student Satisfaction | 4.8/5 | Based on student surveys |
+| Student Satisfaction |  | Based on student surveys |
 
 ## FAQs
 
@@ -1564,7 +1563,7 @@ The "Kota" brand includes everything from world-class top batches (for scholarsh
 A: Kota's TOP batches have excellent results, but these are selective (students who were already strong). The regular batches, which most students join, have average-to-good results. Compare your child's profile to the batch they'd actually get into, not the headline results.
 
 **Q: Can online coaching really replace Kota?**
-A: Online batch coaching (like recorded lectures) cannot. But 1-on-1 live coaching with a dedicated mentor provides MORE personalised attention than any Kota batch. MindPeak's 95% selection rate validates this.
+A: Online batch coaching (like recorded lectures) cannot. But 1-on-1 live coaching with a dedicated mentor provides MORE personalised attention than any Kota batch. The 1-on-1 format is the structural difference.
 
 **Q: What if my child lacks self-discipline for online learning?**
 A: This is exactly why MindPeak uses dedicated 1-on-1 mentors, not self-paced content. Your child has daily scheduled sessions with a mentor who tracks attendance, homework, and progress. The accountability is built into the system.
