@@ -736,7 +736,7 @@ const SubjectPage = () => {
               </h2>
             </div>
             <p className="text-muted-foreground text-base max-w-3xl mb-8">
-              Proven tips from our IIT/AIIMS alumni mentors who have guided 500+ students.
+              Practical tips from the subject-specialist mentors who teach these 1-on-1 sessions.
             </p>
             <div className="grid md:grid-cols-2 gap-4">
               {data.tips.map((tip, i) => (

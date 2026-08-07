@@ -68,7 +68,7 @@ export function MpCompare() {
     "Pace set by your weakest chapters first",
     "Doubts answered in under 30 minutes",
     "A plan rebuilt every week from your data",
-    "Learn from home — students in 120+ cities",
+    "Learn from home — students in cities across India",
     "A parent report every Sunday: accuracy, speed, topics",
   ];
 
@@ -184,8 +184,8 @@ export function MpVoices() {
   const voices = [
     {
       q: "My mentor knew exactly which chapters I was quietly avoiding. By December, rotational mechanics had gone from my worst topic to my fastest.",
-      name: "Aarav Sharma",
-      role: "AIR 42 · JEE Advanced",
+      name: "Sample Student",
+      role: "a strong rank · JEE Advanced",
       img: "/images/aarav-sharma.jpg",
     },
     {
@@ -196,8 +196,8 @@ export function MpVoices() {
     },
     {
       q: "After a failed first attempt, the weekly plan kept rebuilding itself around my mistakes. I finished the drop year at 99.97 percentile.",
-      name: "Rohan Gupta",
-      role: "AIR 89 · JEE Mains, dropper",
+      name: "Sample Student",
+      role: "a strong rank · JEE Mains, dropper",
       img: "/images/rohan-gupta.jpg",
     },
   ];

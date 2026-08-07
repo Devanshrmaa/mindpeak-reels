@@ -110,7 +110,7 @@ function generateHighlights(c: CityConfig): string[] {
     highlights.push(`${c.language}-medium concept explanations available for complex topics`);
   }
   highlights.push(`Zero commute from ${c.city} — save 2-3 hours daily for self-study and rest`);
-  highlights.push(`Proven results: 95% selection rate, AIR 42 best rank, 100-150+ marks improvement in 3 months`);
+  highlights.push(`Every class is 1-on-1 with a dedicated mentor`);
   return highlights;
 }
 
@@ -165,7 +165,7 @@ function generateIntroduction(c: CityConfig): string {
   // School context
   const schoolStr = u?.notableSchools ? ` Students from schools like ${u.notableSchools.slice(0, 3).join(', ')} and others across ${c.city} are already experiencing the difference.` : '';
 
-  return `MindPeak Institute is a premier online coaching platform transforming how students in ${c.city}, ${c.state} prepare for ${examList}.${factStr} ${tierAngle} Our mission: provide every student in ${c.city} with world-class 1-on-1 mentoring — the same quality of individual attention that students at top Kota and Delhi centres pay lakhs for — delivered online with zero commute and complete schedule flexibility.${competitionStr} Whether from a ${boardStr} background${langStr}, our adaptive curriculum meets students at their current level and builds a customised roadmap toward their specific target college and rank. Every session is conducted live (not pre-recorded) with a dedicated mentor who knows your child's strengths, weaknesses, and learning patterns. MindPeak's 95% success rate across 2,300+ students speaks to the effectiveness of truly personalised coaching.${schoolStr} For families in ${c.city} tired of overcrowded batch centres and generic study plans, MindPeak offers a fundamentally better way to prepare.`;
+  return `MindPeak Institute is a premier online coaching platform transforming how students in ${c.city}, ${c.state} prepare for ${examList}.${factStr} ${tierAngle} Our mission: provide every student in ${c.city} with world-class 1-on-1 mentoring — the same quality of individual attention that students at top Kota and Delhi centres pay lakhs for — delivered online with zero commute and complete schedule flexibility.${competitionStr} Whether from a ${boardStr} background${langStr}, our adaptive curriculum meets students at their current level and builds a customised roadmap toward their specific target college and rank. Every session is conducted live (not pre-recorded) with a dedicated mentor who knows your child's strengths, weaknesses, and learning patterns. MindPeak's 1-on-1 format across students across India speaks to the effectiveness of truly personalised coaching.${schoolStr} For families in ${c.city} tired of overcrowded batch centres and generic study plans, MindPeak offers a fundamentally better way to prepare.`;
 }
 
 function generateCoursesOffered(c: CityConfig): string {
@@ -242,7 +242,7 @@ function generateCallToAction(c: CityConfig): string {
   const u = cityUniqueContent[c.slug];
   const heroAngle = u?.heroVariant ? ` ${u.heroVariant.split('—')[0].trim()} students deserve better than batch coaching.` : '';
 
-  return `Your ${examList} journey starts with a single step — a free demo class that shows you exactly what personalised 1-on-1 coaching feels like.${heroAngle} Here's what happens when you book: (1) A 15-minute counsellor call to understand your current preparation level, target college, and timeline. (2) A 45-minute live demo session with an actual mentor (IIT/AIIMS alumnus) on a topic of your choice — experience real-time doubt resolution and adaptive teaching. (3) A personalised preparation assessment with specific strengths, gaps, and recommendations — yours to keep regardless of whether you enrol. There is zero pressure, zero commitment, and zero cost — we believe the experience speaks for itself. MindPeak Institute in ${c.city} has helped 2,300+ students across India transform their preparation through dedicated 1-on-1 mentoring, adaptive curriculum, and transparent performance tracking. Whether you're a Class 11 student just starting competitive exam preparation, a Class 12 student balancing ${boardStr} boards with ${examList}, or a dropper seeking a focused recovery program, our mentor will create a roadmap specific to your situation, your timeline, and your target college. ${c.stateExam ? `${c.stateExam} integration is included at no extra cost. ` : ''}Book your free demo class today or call +91-82194-57704 to speak with our ${c.city} academic counsellor.`;
+  return `Your ${examList} journey starts with a single step — a free demo class that shows you exactly what personalised 1-on-1 coaching feels like.${heroAngle} Here's what happens when you book: (1) A 15-minute counsellor call to understand your current preparation level, target college, and timeline. (2) A 45-minute live demo session with an actual mentor (IIT/AIIMS alumnus) on a topic of your choice — experience real-time doubt resolution and adaptive teaching. (3) A personalised preparation assessment with specific strengths, gaps, and recommendations — yours to keep regardless of whether you enrol. There is zero pressure, zero commitment, and zero cost — we believe the experience speaks for itself. MindPeak Institute in ${c.city} has helped students across India across India transform their preparation through dedicated 1-on-1 mentoring, adaptive curriculum, and transparent performance tracking. Whether you're a Class 11 student just starting competitive exam preparation, a Class 12 student balancing ${boardStr} boards with ${examList}, or a dropper seeking a focused recovery program, our mentor will create a roadmap specific to your situation, your timeline, and your target college. ${c.stateExam ? `${c.stateExam} integration is included at no extra cost. ` : ''}Book your free demo class today or call +91-82194-57704 to speak with our ${c.city} academic counsellor.`;
 }
 
 /* ─── INTERACTIVE SECTION GENERATORS ────────────────────────── */
@@ -264,10 +264,10 @@ function generateHeroSublead(c: CityConfig): string {
 function generateSocialProofLine(c: CityConfig): string {
   const hash = c.slug.split('').reduce((a, ch) => a + ch.charCodeAt(0), 0);
   const variants = [
-    `2,300+ students coached across India including ${c.state} — 95% selection rate.`,
-    `AIR 42 in JEE Advanced • 95% selection rate • students from ${c.state} among our top performers.`,
-    `95% selection rate across 2,300+ students — ${c.city} families are seeing real results.`,
-    `From ${c.city} to IIT/AIIMS — 2,300+ students coached with 95% selection rate.`,
+    `Students enrolled from across India including ${c.state} — fully online, no relocation required.`,
+    `One dedicated mentor per student • every class recorded • students from ${c.state} study from home.`,
+    `Every class is 1-on-1 with a dedicated mentor — ${c.city} families get weekly written progress reports.`,
+    `From ${c.city} to IIT/AIIMS — students across India coached with 1-on-1 format.`,
   ];
   return variants[hash % variants.length];
 }
@@ -288,7 +288,7 @@ function generateQuickStats(c: CityConfig): QuickStat[] {
   stats.push(
     c.exams.includes('neet')
       ? { value: 'Top 500', label: 'Best NEET Rank', source: 'NEET UG 2026 result' }
-      : { value: 'AIR 42', label: 'Best JEE Rank', source: 'JEE Advanced 2025 result' }
+      : { value: '1:1', label: 'Students Per Class', source: 'Programme format' }
   );
   // Add a 4th stat that varies by city context
   const stateData = getStateEducation(c.state);
@@ -394,8 +394,8 @@ function generateExpandedFaqs(c: CityConfig): CityFAQ[] {
   const faqs: CityFAQ[] = [
     {
       q: `Is online ${examFull} coaching effective for ${c.city} students?`,
-      tldr: 'Yes — 95% selection rate with personalised 1-on-1 mentoring.',
-      a: `MindPeak's 1-on-1 online coaching delivers superior results compared to batch coaching centres in ${c.city}. The core advantage is structural: when a teacher works with one student, they see exactly where confusion happens in real-time — something impossible in a 60-100 student batch. Our adaptive curriculum adjusts weekly based on mock test data. Dedicated mentors (IIT/AIIMS alumni with 3-10+ years experience) conduct daily live sessions with interactive whiteboards. Students have secured AIR 42 in JEE Advanced and Top 500 in NEET through this approach. The platform works on standard 4G/broadband connections available across ${c.city}, and all sessions are recorded for later revision.`,
+      tldr: 'Yes — every class is 1-on-1 with a dedicated mentor.',
+      a: `MindPeak's 1-on-1 online coaching delivers superior results compared to batch coaching centres in ${c.city}. The core advantage is structural: when a teacher works with one student, they see exactly where confusion happens in real-time — something impossible in a 60-100 student batch. Our adaptive curriculum adjusts weekly based on mock test data. Dedicated mentors (IIT/AIIMS alumni with 3-10+ years experience) conduct daily live sessions with interactive whiteboards. Students have secured a strong rank in JEE Advanced and Top 500 in NEET through this approach. The platform works on standard 4G/broadband connections available across ${c.city}, and all sessions are recorded for later revision.`,
     },
     {
       q: `What are the coaching fees at MindPeak for ${c.city}?`,
@@ -415,7 +415,7 @@ function generateExpandedFaqs(c: CityConfig): CityFAQ[] {
     {
       q: `What tangible outcomes can I expect from MindPeak in ${c.city}?`,
       tldr: '100-150+ marks improvement in 3 months, verified through mock analytics.',
-      a: `Typical outcomes for ${c.city} students: Month 1 — diagnostic gap-filling, 30-50 marks mock improvement. Month 2 — application-level problem solving kicks in, cumulative 80-120 marks improvement. Month 3 — integration and speed training, 100-150+ marks total improvement with significantly reduced error rates. These improvements are tracked through weekly mock tests with detailed analytics, so both students and parents see concrete numbers, not vague promises. Our 95% selection rate is calculated across all cohorts — not cherry-picked.`,
+      a: `Typical outcomes for ${c.city} students: Month 1 — diagnostic gap-filling, 30-50 marks mock improvement. Month 2 — application-level problem solving kicks in, cumulative 80-120 marks improvement. Month 3 — integration and speed training, 100-150+ marks total improvement with significantly reduced error rates. These improvements are tracked through weekly mock tests with detailed analytics, so both students and parents see concrete numbers, not vague promises. Our 1-on-1 format is calculated across all cohorts — not cherry-picked.`,
     },
     {
       q: `How is MindPeak different from YouTube/free online coaching?`,
@@ -425,7 +425,7 @@ function generateExpandedFaqs(c: CityConfig): CityFAQ[] {
     {
       q: `What happens if my child doesn't improve after 3 months?`,
       tldr: 'Data-driven course correction with mentor escalation and parent strategy call.',
-      a: `If a student hasn't shown expected improvement by Month 3, the following protocol activates: (1) Detailed analysis of all mock data to identify the specific bottleneck — is it conceptual gaps, question-reading errors, time management, or exam anxiety? (2) Senior mentor review of the current study plan. (3) Parent-mentor strategy call to discuss findings and revised plan. (4) If needed, mentor change to match teaching style with the student's learning pattern. We are invested in outcomes, not just enrolment — our 95% success rate depends on every student making measurable progress.`,
+      a: `If a student hasn't shown expected improvement by Month 3, the following protocol activates: (1) Detailed analysis of all mock data to identify the specific bottleneck — is it conceptual gaps, question-reading errors, time management, or exam anxiety? (2) Senior mentor review of the current study plan. (3) Parent-mentor strategy call to discuss findings and revised plan. (4) If needed, mentor change to match teaching style with the student's learning pattern. We are invested in outcomes, not just enrolment — our 1-on-1 format depends on every student making measurable progress.`,
     },
   ];
   if (c.stateExam) {

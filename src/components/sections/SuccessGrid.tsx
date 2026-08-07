@@ -19,20 +19,20 @@ interface StoryItem {
 }
 
 const stories: StoryItem[] = [
-  { id: '1', title: 'AARAV SHARMA', subtitle: 'AIR 42 — JEE Advanced', image: student1, objectPos: 'center 10%', detail: 'Went from scoring 120/300 to AIR 42 in 6 months of 1-on-1 coaching. Struggled with Organic Chemistry and Calculus — now mentoring juniors at IIT Bombay.' },
+  { id: '1', title: 'AARAV SHARMA', subtitle: 'a strong rank — JEE Advanced', image: student1, objectPos: 'center 10%', detail: 'Went from scoring 120/300 to a strong rank in 6 months of 1-on-1 coaching. Struggled with Organic Chemistry and Calculus — now mentoring juniors at IIT Bombay.' },
   { id: '2', title: 'PERSONALIZED MENTORING', subtitle: '1-on-1 Session Highlights', image: mentoring, objectPos: 'center 30%', detail: 'Every student gets daily 1-on-1 live sessions with a dedicated IIT/NIT mentor. Doubts are resolved within 30 minutes, not 30 days.' },
-  { id: '3', title: 'PRIYA PATEL', subtitle: 'AIR 156 — NEET', image: student2, objectPos: 'center 20%', detail: 'From a small town in Gujarat, Priya had limited access to quality coaching. With MindPeak\'s NCERT-first NEET program, she secured AIR 156 and admission to a top medical college.' },
+  { id: '3', title: 'PRIYA PATEL', subtitle: 'a strong rank — NEET', image: student2, objectPos: 'center 20%', detail: 'From a small town in Gujarat, Priya had limited access to quality coaching. With MindPeak\'s NCERT-first NEET program, she secured a strong rank and admission to a top medical college.' },
   { id: '4', title: 'STUDY ROUTINE', subtitle: 'Day in the Life', image: student3, objectPos: 'center 25%', detail: 'A structured daily plan: live class → practice set → mentor review → analytics check. Students study 6 focussed hours instead of 10 unfocused ones.' },
-  { id: '5', title: 'ROHAN GUPTA', subtitle: 'AIR 89 — JEE Mains', image: student4, objectPos: 'center 15%', detail: 'Rohan was a dropper who had lost confidence after a year of batch coaching. His MindPeak mentor rebuilt his fundamentals and he went from 78 percentile to AIR 89.' },
+  { id: '5', title: 'ROHAN GUPTA', subtitle: 'a strong rank — JEE Mains', image: student4, objectPos: 'center 15%', detail: 'Rohan was a dropper who had lost confidence after a year of batch coaching. His MindPeak mentor rebuilt his fundamentals and he went from 78 percentile to a strong rank.' },
   { id: '6', title: 'MENTOR SESSIONS', subtitle: 'Guided Problem Solving', image: mentoringSession, objectPos: 'center 30%', detail: 'Live problem-solving sessions where mentors trace each student\'s thought process, identify conceptual gaps, and build intuition — not just answer keys.' },
 ];
 
 const altTextMap: Record<string, string> = {
-  '1': 'Aarav Sharma, MindPeak student who achieved AIR 42 in JEE Advanced',
+  '1': 'Sample Student, MindPeak student who achieved a strong rank in JEE Advanced',
   '2': 'Personalized 1-on-1 mentoring session at MindPeak Institute',
-  '3': 'Priya Patel, MindPeak student who achieved AIR 156 in NEET',
+  '3': 'Sample Student, MindPeak student who achieved a strong rank in NEET',
   '4': 'Daily study routine of a MindPeak Institute JEE aspirant',
-  '5': 'Rohan Gupta, MindPeak student who achieved AIR 89 in JEE Mains',
+  '5': 'Sample Student, MindPeak student who achieved a strong rank in JEE Mains',
   '6': 'Guided problem solving mentor session at MindPeak Institute',
 };
 
@@ -76,7 +76,7 @@ export const SuccessGrid = () => {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ delay: index * 0.08, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="relative group cursor-pointer overflow-hidden aspect-[4/5] rounded-xl"
+              className="relative group cursor-pointer overflow-hidden aspect-[] rounded-xl"
               onClick={() => setSelected(story)}
             >
               <div className="w-full h-full overflow-hidden">
@@ -153,7 +153,7 @@ export const SuccessGrid = () => {
                 className="w-full max-h-[70vh] object-contain rounded-xl"
                 width={800}
                 height={1000}
-                style={{ aspectRatio: '4/5' }}
+                style={{ aspectRatio: '' }}
               />
               <div className="text-center mt-8">
                 <h3 className="text-foreground font-display text-2xl md:text-3xl font-semibold tracking-wide mb-1">{selected.title}</h3>

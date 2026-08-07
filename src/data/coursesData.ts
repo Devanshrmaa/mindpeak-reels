@@ -425,12 +425,12 @@ export const courses: Course[] = [
       { day: 'Sunday', activity: 'Self-study + Revision (mentor-assigned practice set)' },
     ],
     results: [
-      { label: 'Best JEE Advanced AIR', value: 'AIR 42' },
+      { label: 'Students Per Class', value: '1:1' },
       { label: 'Students Below AIR 5,000', value: '95%' },
       { label: 'Average Percentile (JEE Main)', value: '98.2+' },
       { label: 'Mock Score Improvement', value: '10× in 6 months' },
       { label: 'Doubt Resolution Time', value: '<4 hours' },
-      { label: 'Session Satisfaction Rating', value: '4.9/5' },
+      { label: 'Sessions Recorded', value: 'Every class' },
     ],
     faqs: [
       { q: 'Can I join this course mid-year?', a: 'Absolutely! Since all our classes are 1-on-1, there\'s no fixed batch start date. Your mentor will assess your current level and create a customized plan that accounts for the remaining time. Many of our top performers joined mid-session.' },
@@ -444,7 +444,7 @@ export const courses: Course[] = [
       'Dedicated 1-on-1 mentor — not shared with 100+ students like batch coaching',
       'Adaptive curriculum that evolves with YOUR progress, not a fixed syllabus pace',
       'Every session recorded — unlimited rewatching for revision',
-      '95% success rate with AIR 42 as our best JEE Advanced result',
+      'Every class is 1-on-1 — one dedicated mentor for the full programme',
       '60% lower total cost compared to Kota coaching (no hostel, food, travel expenses)',
       'Study from home with family support — no relocation stress',
       'Unlimited doubt resolution within 2-4 hours via WhatsApp',
@@ -653,18 +653,18 @@ export const courses: Course[] = [
       { label: 'Average JEE Main Percentile', value: '97.5+' },
       { label: 'Score Improvement (avg)', value: '+120 marks' },
       { label: 'Dropper Success Rate', value: '93%' },
-      { label: 'Session Rating', value: '4.9/5' },
+      { label: 'Parent Reports', value: 'Weekly' },
     ],
     faqs: [
       { q: 'Can I complete the full syllabus in 1 year?', a: 'Yes — with daily 1-on-1 sessions, we cover the complete syllabus in 4-5 months. The remaining time is dedicated to revision, advanced problem-solving, and mock tests. The key advantage of 1-on-1 is that we skip topics you already know and spend extra time where you actually need it.' },
-      { q: 'Is this suitable for droppers?', a: 'Absolutely. 40% of our students in this program are droppers, and they have a 93% success rate. Your mentor will conduct a diagnostic test on Day 1, identify your gaps, and create a targeted plan that doesn\'t waste time re-teaching things you already know.' },
+      { q: 'Is this suitable for droppers?', a: 'Absolutely. 40% of our students in this program are droppers. Your mentor will conduct a diagnostic test on Day 1, identify your gaps, and create a targeted plan that doesn\'t waste time re-teaching things you already know.' },
       { q: 'How is the 1-year program different from the 2-year?', a: 'The core methodology is identical — personalized 1-on-1 mentoring. The difference is pace: the 1-year program moves faster with longer daily sessions and more intensive mock test cycles. If you have the discipline for 6-8 hours of total daily study, the 1-year program delivers excellent results.' },
       { q: 'Will I get enough practice for JEE Advanced?', a: 'Yes. From Month 5 onwards, every session includes JEE Advanced-level problems. We solve 1,000+ Advanced-level problems across Physics, Chemistry, and Maths during the program, plus 15+ full-length Advanced mock tests.' },
     ],
     whyChoose: [
       'Proven results — AIR 312 from a 1-year program student',
       'Skip what you know, focus on what you don\'t — zero wasted time',
-      'Dropper-friendly with 93% success rate for repeat students',
+      'Dropper-friendly — the plan is built from your previous attempt\'s error analysis',
       'Daily 1-on-1 sessions — 6× more personal attention than batch coaching',
       '15 years of PYQ analysis integrated into every teaching session',
       'Exam strategy coaching that alone adds 20-30 marks',
@@ -710,7 +710,7 @@ export const courses: Course[] = [
       },
       {
         title: 'NEET Repeater Special Track',
-        content: 'If you\'re a NEET repeater, we\'ve designed a special approach: Day 1 diagnostic test identifies exactly which chapters need work, we skip topics where you scored 90%+ in your last attempt, focus 80% of time on gap-filling (the chapters where you lost marks), mental resilience coaching because repeater pressure is real, and a structured daily routine (8 AM - 8 PM) to prevent burnout. 50% of our NEET program students are repeaters, and they have a 91% success rate.',
+        content: 'If you\'re a NEET repeater, we\'ve designed a special approach: Day 1 diagnostic test identifies exactly which chapters need work, we skip topics where you scored 90%+ in your last attempt, focus 80% of time on gap-filling (the chapters where you lost marks), mental resilience coaching because repeater pressure is real, and a structured daily routine (8 AM - 8 PM) to prevent burnout. 50% of our NEET program students are repeaters.',
       },
       {
         title: 'Last 60 Days — Final Push Protocol',
@@ -737,7 +737,7 @@ export const courses: Course[] = [
     faqs: [
       { q: 'Can I cover the entire NEET syllabus in 1 year?', a: 'Yes. With daily 1-on-1 sessions (6 days/week), we complete syllabus coverage in 4-5 months. The remaining 7-8 months are for revision, practice, and mock tests. The personalized approach means we don\'t waste time on topics you already know.' },
       { q: 'How many mock tests are included?', a: '25+ full-length CBT mock tests plus 50+ topic-wise tests. Each mock test is followed by a detailed analysis session with your mentor covering wrong answers, time management, and strategy refinement.' },
-      { q: 'Is this suitable for NEET repeaters?', a: 'Yes — 50% of our 1-year NEET students are repeaters with a 91% success rate. We conduct a diagnostic test on Day 1 and create a gap-focused plan that skips your strong chapters and doubles down on weak areas.' },
+      { q: 'Is this suitable for NEET repeaters?', a: 'Yes — about half of our 1-year NEET students are repeaters. We conduct a diagnostic test on Day 1 and create a gap-focused plan that skips your strong chapters and doubles down on weak areas.' },
       { q: 'How is this different from Aakash or Allen NEET programs?', a: 'The fundamental difference is personal attention. In Aakash/Allen, you share a teacher with 200+ students. At MindPeak, every session is 1-on-1 — your mentor knows your exact strengths, weaknesses, and learning pace. This results in 3× faster improvement with zero doubt accumulation.' },
     ],
     whyChoose: [
@@ -894,7 +894,7 @@ export const courses: Course[] = [
       { label: 'Mentor Contact Hours/Week', value: '21 hours' },
       { label: 'Doubt Resolution Time', value: '<15 min' },
       { label: 'Days to Visible Improvement', value: '7 days' },
-      { label: 'Student Satisfaction', value: '4.9/5' },
+      { label: 'Students Per Class', value: '1:1' },
     ],
     faqs: [
       { q: 'Is 1-2 months really enough to improve significantly?', a: 'Yes — with 21 hours of weekly 1-on-1 contact, you cover more ground in 4 weeks than most students cover in 3 months of batch coaching. Our data shows an average improvement of 50+ marks in JEE Main and 80+ marks in NEET within 4 weeks.' },
@@ -986,7 +986,7 @@ export const courses: Course[] = [
     results: [
       { label: 'Avg School Score', value: '92%+' },
       { label: 'Olympiad Medal Winners', value: '35+' },
-      { label: 'Session Engagement Rating', value: '4.8/5' },
+      { label: 'Sessions Recorded', value: 'Every class' },
     ],
   },
   {
@@ -1288,7 +1288,7 @@ export const courses: Course[] = [
     results: [
       { label: 'Avg Board Score', value: '95%+' },
       { label: 'Stress Reduction in Class 11', value: '50%' },
-      { label: 'Transition Module Satisfaction', value: '4.9/5' },
+      { label: 'Parent Reports', value: 'Weekly' },
     ],
   },
   // ═══════════════════════════════════════════════════

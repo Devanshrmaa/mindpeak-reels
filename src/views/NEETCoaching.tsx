@@ -32,11 +32,16 @@ const WeeklyTip = dynamic(() => import('@/components/WeeklyTip').then(m => ({ de
 
 /* ─── data ─── */
 
+/*
+ * Structural facts only — no outcome claims. Previously "500+ Students
+ * Mentored / 95% Success Rate / Top 100 NEET All India / 50+ Medical College
+ * Selects", none published or attributable. See no-fabricated-claims.test.ts.
+ */
 const stats = [
-  { value: '500+', label: 'Students Mentored' },
-  { value: '95%', label: 'Success Rate' },
-  { value: 'Top 100', label: 'NEET All India' },
-  { value: '50+', label: 'Medical College Selects' },
+  { value: '1:1', label: 'Students Per Class' },
+  { value: '6 days', label: 'Live Classes A Week' },
+  { value: 'NCERT', label: 'Biology Taught Line-By-Line' },
+  { value: 'Free', label: 'Trial Class' },
 ];
 
 const batchProblems = [
@@ -54,11 +59,12 @@ const methodology = [
   { icon: ShieldCheck, title: 'NCERT Mastery Program', desc: '90% of NEET questions come from NCERT. Our NCERT mastery track ensures line-by-line coverage of Biology, Chemistry, and Physics NCERT textbooks. Mentors quiz you on every diagram, table, and footnote.' },
 ];
 
-const testimonials = [
-  { name: 'Ananya Reddy', city: 'Hyderabad', rank: 'NEET 98.5%ile', before: 420, after: 680, quote: 'I was scoring 420 in mock tests despite studying 10 hours a day. My MindPeak mentor identified that my Biology preparation was surface-level — I was memorizing without understanding. The 1-on-1 NCERT deep-dive sessions transformed my Biology score from 260 to 340. I finally got into my dream medical college.' },
-  { name: 'Sneha Gupta', city: 'Patna', rank: 'NEET 97.8%ile', before: 380, after: 650, quote: 'Coming from a tier-3 city, I didn\'t have access to quality NEET coaching. MindPeak gave me a mentor who was an AIIMS alumnus. The personalized attention I received was something no coaching centre in Patna could have provided. My score jumped by 270 marks in 8 months.' },
-  { name: 'Karthik Nair', city: 'Kochi', rank: 'NEET 96.2%ile', before: 450, after: 640, quote: 'Physics was my Achilles heel — I\'d consistently score below 100. My mentor created a Physics-focused plan with daily problem-solving sessions. In 6 months, my Physics score went from 80 to 155. The adaptive approach made all the difference.' },
-];
+/*
+ * The `testimonials` array was removed: three invented students with
+ * fabricated names, cities, percentiles and before/after scores. No real,
+ * attributable, consented testimonials exist, so the section is gone rather
+ * than refilled.
+ */
 
 const syllabus = [
   {
@@ -93,7 +99,7 @@ const pricingComparison = [
 ];
 
 const paaQuestions: PAAQuestion[] = [
-  { question: 'Is online NEET coaching effective?', answer: 'Yes — personalized online NEET coaching is highly effective. MindPeak\'s 1-on-1 model with Biology-first approach and NCERT mastery consistently produces 95%+ percentile results. Students gain 150-250 marks on average, with dedicated mentors from AIIMS and top medical colleges guiding every session.' },
+  { question: 'Is online NEET coaching effective?', answer: 'Yes — personalized online NEET coaching is highly effective. MindPeak\'s 1-on-1 model pairs a Biology-first approach with NCERT mastery — Biology is taught line-by-line the way NEET actually tests it, and every doubt is resolved inside the session rather than in a queue.' },
   { question: 'How much does NEET coaching cost?', answer: 'NEET coaching ranges from ₹50,000 to ₹3,00,000 annually. Allen and Aakash charge ₹1-1.5 lakh for batch coaching. MindPeak\'s personalized 1-on-1 NEET coaching starts at ₹1,00,000/year with Biology-focused curriculum, NCERT line-by-line coverage, and dedicated mentorship — better value per hour.' },
   { question: 'How important is NCERT for NEET?', answer: 'NCERT is critical for NEET — approximately 90% of NEET questions are directly or indirectly from NCERT textbooks. MindPeak\'s NCERT Mastery Program ensures line-by-line coverage of every diagram, table, and footnote across Biology, Chemistry, and Physics NCERT books.' },
   { question: 'Can I crack NEET in one year?', answer: 'Yes, cracking NEET in one year is possible with focused, personalized preparation. MindPeak\'s 1-year NEET program provides an intensive study plan with daily sessions, weekly mock tests, and targeted Biology preparation. Multiple MindPeak students have scored 650+ in NEET within 8-12 months.' },
@@ -104,7 +110,7 @@ const paaQuestions: PAAQuestion[] = [
 const faqs: FAQItem[] = [
   { question: 'What makes MindPeak\'s NEET coaching different?', answer: 'MindPeak provides dedicated 1-on-1 mentorship with a Biology-first approach — since Biology accounts for 50% of NEET marks. Every student gets a personal mentor (typically AIIMS/top medical college alumni), an adaptive curriculum, daily live sessions 6 days a week, and comprehensive NCERT line-by-line coverage. Unlike batch coaching, every minute of your preparation is personalized.' },
   { question: 'How does MindPeak handle Biology preparation for NEET?', answer: 'Biology receives proportionally the highest focus in our NEET curriculum — matching its 360/720 mark weightage. We cover every NCERT Biology chapter line-by-line, including diagrams, tables, and footnotes. Daily Biology sessions include diagram-based learning, assertion-reason practice, and NCERT-based MCQ drills. Both Botany and Zoology receive dedicated attention.' },
-  { question: 'What is MindPeak\'s NEET success rate?', answer: 'MindPeak has a 95% selection rate with 500+ students mentored. Our best NEET results include 98.5+ percentile scores and 50+ students securing admission in top medical colleges including government medical colleges. Our approach consistently produces results that match or exceed top coaching institutes.' },
+  { question: 'What does a MindPeak NEET program actually include?', answer: 'A dedicated PCB mentor for the full program, live 1-on-1 classes six days a week, Biology taught NCERT-line-by-line, every session recorded for revision, per-mock accuracy analysis covering silly-error rate and chapter-wise gaps, and weekly progress reports to parents. You take a free 1-on-1 trial class with your assigned mentor before paying anything.' },
   { question: 'Are NEET classes conducted online?', answer: 'Yes! All NEET classes are conducted via live 1-on-1 video sessions with your dedicated mentor. Classes happen 6 days a week with short, focused sessions for maximum retention. Every session is recorded for revision. You can attend from anywhere with a laptop/tablet and internet connection.' },
   { question: 'Does MindPeak cover CBSE boards alongside NEET?', answer: 'Absolutely. For Class 11 and 12 students, our mentors integrate board exam preparation with NEET coaching. The CBSE Biology and Chemistry syllabus overlaps significantly with NEET, and our approach ensures you excel in both without double preparation.' },
   { question: 'Can I join MindPeak NEET coaching mid-year?', answer: 'Yes! Since our coaching is 1-on-1, there are no batches. You can join anytime. Your mentor will assess your current level, create a customized catch-up plan, and align the curriculum to your NEET exam timeline.' },
@@ -124,7 +130,7 @@ const NEETCoaching = () => {
     '@context': 'https://schema.org',
     '@type': 'Course',
     name: 'NEET UG Personalized Coaching — MindPeak Institute',
-    description: 'Comprehensive 1-on-1 personalized NEET coaching with Biology-first approach, dedicated mentors, and 95% success rate.',
+    description: 'Comprehensive 1-on-1 personalized NEET coaching — Biology-first approach, a dedicated mentor per student, and live daily classes.',
     provider: { '@type': 'EducationalOrganization', name: 'MindPeak Institute', url: 'https://mindpeakinstitute.com' },
     offers: { '@type': 'Offer', price: '100000', priceCurrency: 'INR', availability: 'https://schema.org/InStock' },
     dateModified: lastUpdated,
@@ -136,11 +142,12 @@ const NEETCoaching = () => {
     mentions: [
       { '@type': 'Thing', name: 'NCERT', sameAs: 'https://en.wikipedia.org/wiki/National_Council_of_Educational_Research_and_Training' },
     ],
-    review: [
-      { '@type': 'Review', author: { '@type': 'Person', name: 'Ananya Reddy' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'My NEET score jumped from 420 to 680 with MindPeak\'s Biology-first 1-on-1 coaching approach.' },
-      { '@type': 'Review', author: { '@type': 'Person', name: 'Sneha Gupta' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'Coming from a tier-3 city, MindPeak gave me AIIMS-level mentorship. Score improved by 270 marks.' },
-      { '@type': 'Review', author: { '@type': 'Person', name: 'Karthik Nair' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'My Physics score went from 80 to 155 in 6 months with targeted 1-on-1 sessions.' },
-    ],
+    /*
+     * No `review` / `aggregateRating`. This carried three invented 5-star
+     * Review entries with fabricated names and score jumps. Review markup is
+     * read as fact by rich results and answer engines alike, so unverifiable
+     * entries are worse than none.
+     */
   };
 
   const breadcrumbSchema = {
@@ -172,7 +179,7 @@ const NEETCoaching = () => {
     <>
       <SEOHead
         title={`Best NEET Coaching Online ${CURRENT_EXAM_YEAR} — Top Medical Colleges | 95% Success [Free Trial]`}
-        description={`Crack NEET ${CURRENT_EXAM_YEAR} with 1-on-1 Biology-first coaching. NCERT mastery, dedicated mentors, 95% success rate. 500+ students. Book free demo now.`}
+        description={`Crack NEET ${CURRENT_EXAM_YEAR} with 1-on-1 Biology-first coaching. NCERT mastery, a dedicated mentor per student, every class recorded. Book a free demo now.`}
         jsonLd={[courseSchema, breadcrumbSchema, webPageSchema, buildFAQSchema([...faqs, ...paaQuestions])]}
       />
 
@@ -209,7 +216,7 @@ const NEETCoaching = () => {
             </h1>
 
             <p className="text-muted-foreground/70 text-sm sm:text-base leading-[1.8] max-w-3xl mb-8 sm:mb-10">
-              Your dream of becoming a doctor deserves more than a seat in a 200-student classroom. At MindPeak, every NEET aspirant receives a dedicated mentor from AIIMS or top medical colleges, an adaptive Biology-first curriculum, and daily 1-on-1 live sessions. 95% success rate, NCERT mastery, 500+ students mentored.
+              Your dream of becoming a doctor deserves more than a seat in a 200-student classroom. At MindPeak, every NEET aspirant receives a dedicated mentor, an adaptive Biology-first curriculum, and daily 1-on-1 live sessions. Biology is taught NCERT-line-by-line, every class is recorded, and parents get a written progress report each week.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
@@ -317,42 +324,6 @@ const NEETCoaching = () => {
               </div>
             </FadeInView>
           </div>
-        </section>
-
-        {/* ───── SUCCESS STORIES ───── */}
-        <section className="max-w-4xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
-          <FadeInView>
-            <div className="eyebrow mb-4">Stories</div>
-            <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl mb-10 tracking-[-0.02em]">
-              NEET <span className="text-gradient-gold">Success Stories</span>
-            </h2>
-            <div className="grid md:grid-cols-3 gap-4">
-              {testimonials.map((t, i) => (
-                <FadeInView key={i} delay={i * 80}
-                  className="card-lift p-7">
-                  <div className="flex items-center justify-between mb-5">
-                    <div>
-                      <h3 className="font-display font-semibold text-foreground text-sm">{t.name}</h3>
-                      <p className="text-muted-foreground text-[11px] tracking-[0.05em]">{t.city}</p>
-                    </div>
-                    <span className="text-primary/70 text-[11px] tracking-[0.1em] font-medium">{t.rank}</span>
-                  </div>
-                  <div className="flex items-center gap-3 mb-5">
-                    <div className="flex-1 text-center p-3 rounded-xl bg-secondary/50 border border-border">
-                      <div className="text-destructive/70 font-display font-bold text-lg">{t.before}</div>
-                      <div className="text-muted-foreground/80 text-[10px] uppercase tracking-[0.1em]">Before</div>
-                    </div>
-                    <ArrowRight className="w-3.5 h-3.5 text-primary/50 flex-shrink-0" />
-                    <div className="flex-1 text-center p-3 rounded-xl bg-secondary/50 border border-border">
-                      <div className="text-primary/80 font-display font-bold text-lg">{t.after}</div>
-                      <div className="text-muted-foreground/80 text-[10px] uppercase tracking-[0.1em]">After</div>
-                    </div>
-                  </div>
-                  <p className="text-muted-foreground/70 text-sm leading-[1.7] italic">&ldquo;{t.quote}&rdquo;</p>
-                </FadeInView>
-              ))}
-            </div>
-          </FadeInView>
         </section>
 
         {/* ───── SYLLABUS ───── */}
@@ -497,7 +468,7 @@ const NEETCoaching = () => {
         <CtaBanner
           heading="Your Medical Dream Starts"
           highlight="Today"
-          sub="Join 500+ students who transformed their NEET preparation with personalized 1-on-1 coaching."
+          sub="Take a free 1-on-1 trial class with the mentor who would actually teach you — before you pay anything."
           buttonLabel="Book Free Trial Class"
         />
 

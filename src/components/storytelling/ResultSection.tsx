@@ -13,9 +13,9 @@ const stats = [
 ];
 
 const moreResults = [
-  { name: 'Aarav Sharma', rank: 'AIR 42', exam: 'JEE Advanced' },
-  { name: 'Rohan Gupta', rank: 'AIR 89', exam: 'JEE Mains' },
-  { name: 'Priya Patel', rank: 'AIR 156', exam: 'NEET UG' },
+  { name: 'Sample Student', rank: 'a strong rank', exam: 'JEE Advanced' },
+  { name: 'Sample Student', rank: 'a strong rank', exam: 'JEE Mains' },
+  { name: 'Sample Student', rank: 'a strong rank', exam: 'NEET UG' },
   { name: 'Sneha Reddy', rank: 'AIR 312', exam: 'JEE Advanced' },
   { name: 'Arjun Mehta', rank: 'AIR 478', exam: 'NEET UG' },
   { name: 'Kavya Iyer', rank: 'AIR 1,240', exam: 'JEE Mains' },
@@ -70,7 +70,7 @@ export const ResultSection = () => {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="text-muted-foreground text-base md:text-lg mt-6 mb-16 max-w-lg mx-auto leading-relaxed"
         >
-          From struggling at 120/300 to achieving AIR 42 in just 6 months — with personalized 1-on-1 coaching, adaptive study plans, and a dedicated mentor who never gave up
+          From struggling at 120/300 to achieving a strong rank in just 6 months — with personalized 1-on-1 coaching, adaptive study plans, and a dedicated mentor who never gave up
         </motion.p>
 
         {/* Stats */}
@@ -140,7 +140,7 @@ export const ResultSection = () => {
           transition={{ delay: 0.5, duration: 0.4 }}
           className="text-muted-foreground/70 text-[12px] mt-6 tracking-wide"
         >
-          Join 500+ students who achieved their dream ranks
+          Join students across India who achieved their dream ranks
         </motion.p>
       </div>
 

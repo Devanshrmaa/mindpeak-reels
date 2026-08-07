@@ -322,7 +322,7 @@ const ComparisonPage = () => {
                 <li className="flex items-center gap-2"><XCircle className="w-4 h-4 text-red-400" />{data.competitorName === "BYJU'S" ? 'Mostly recorded content' : 'Classes not recorded'}</li>
                 <li className="flex items-center gap-2"><XCircle className="w-4 h-4 text-red-400" />{data.competitorName === "BYJU'S" ? 'No dedicated human mentor' : 'Limited doubt resolution windows'}</li>
                 <li className="flex items-center gap-2"><XCircle className="w-4 h-4 text-red-400" />{data.competitorName === "BYJU'S" ? 'App-based analytics only' : 'Quarterly parent meetings'}</li>
-                <li className="flex items-center gap-2"><XCircle className="w-4 h-4 text-red-400" />{data.competitorName === "BYJU'S" ? 'High dropout rate' : 'Away from home'}</li>
+                <li className="flex items-center gap-2"><XCircle className="w-4 h-4 text-red-400" />{data.competitorName === "BYJU'S" ? 'Easy to drift without accountability' : 'Away from home'}</li>
               </ul>
             </div>
           </div>

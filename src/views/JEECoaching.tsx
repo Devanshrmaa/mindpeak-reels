@@ -33,11 +33,17 @@ const WeeklyTip = dynamic(() => import('@/components/WeeklyTip').then(m => ({ de
 
 /* ─── data ───────────────────────────────────────────────── */
 
+/*
+ * Structural facts only — no outcome claims. This band previously showed
+ * "500+ Students Mentored / 95% Success Rate / AIR 42 / 50+ AIR <5K
+ * Achievers", none of which is published or attributable. See
+ * src/test/no-fabricated-claims.test.ts.
+ */
 const stats = [
-  { value: '500+', label: 'Students Mentored' },
-  { value: '95%', label: 'Success Rate' },
-  { value: 'AIR 42', label: 'Best JEE Rank' },
-  { value: '50+', label: 'AIR <5K Achievers' },
+  { value: '1:1', label: 'Students Per Class' },
+  { value: '6 days', label: 'Live Classes A Week' },
+  { value: 'Free', label: 'Trial Class' },
+  { value: 'Weekly', label: 'Parent Reports' },
 ];
 
 const batchProblems = [
@@ -55,11 +61,12 @@ const methodology = [
   { icon: ShieldCheck, title: 'Complete JEE Syllabus Coverage', desc: 'Comprehensive coverage of JEE Main and Advanced syllabus across Physics, Chemistry, and Mathematics. Regular mock tests, previous year paper analysis, and exam-pattern practice included.' },
 ];
 
-const testimonials = [
-  { name: 'Aarav Sharma', city: 'Delhi', rank: 'AIR 42', before: 120, after: 285, quote: 'MindPeak completely transformed my JEE preparation. My mentor identified my weak areas in Rotational Mechanics and Organic Chemistry within the first week. The personalized approach helped me jump from 120 marks to 285 in JEE Advanced. I couldn\'t have achieved AIR 42 without this level of personal attention.' },
-  { name: 'Priya Patel', city: 'Mumbai', rank: 'AIR 156', before: 95, after: 260, quote: 'I was struggling in a 200-student batch in Andheri. After switching to MindPeak\'s 1-on-1 coaching, my understanding of Physics Mechanics and Calculus improved dramatically. The daily sessions and weekly mock reviews gave me the confidence I needed.' },
-  { name: 'Rohan Iyer', city: 'Bangalore', rank: 'AIR 312', before: 145, after: 270, quote: 'The adaptive curriculum was a game-changer. Instead of sitting through lectures on topics I already knew, my mentor focused on my specific problem areas. My mock scores improved by 125 marks in just 4 months.' },
-];
+/*
+ * The `testimonials` array was removed: three invented students with
+ * fabricated names, cities, ranks and before/after marks. No real,
+ * attributable, consented testimonials exist to replace them with, so the
+ * section is gone rather than refilled.
+ */
 
 const syllabus = [
   {
@@ -91,17 +98,17 @@ const pricingComparison = [
 ];
 
 const paaQuestions: PAAQuestion[] = [
-  { question: 'Is online JEE coaching effective?', answer: 'Yes — online 1-on-1 JEE coaching is highly effective when it provides personalized mentorship. MindPeak\'s online model delivers dedicated mentors, adaptive curricula, and daily live sessions. Students gain 100-150 extra marks on average, with results matching or exceeding top Kota institutes — all without travel time.' },
+  { question: 'Is online JEE coaching effective?', answer: 'Yes — online 1-on-1 JEE coaching is highly effective when it provides personalized mentorship. MindPeak\'s online model delivers dedicated mentors, adaptive curricula, and daily live sessions. The structural advantages over a batch are concrete: doubts are resolved inside the session rather than in a queue, the plan adapts to your own mock data, and there is no daily commute.' },
   { question: 'How much does JEE coaching cost in India?', answer: 'JEE coaching fees range from ₹50,000 to ₹3,00,000 per year depending on the format. Batch coaching at Allen or FIITJEE costs ₹1-2 lakh. MindPeak\'s personalized 1-on-1 coaching starts at ₹1,00,000/year, offering better value per hour through dedicated personal attention.' },
-  { question: 'Can I crack JEE without Kota coaching?', answer: 'Absolutely. Many JEE toppers prepare from home with quality online coaching. MindPeak students have achieved AIR 42 without relocating to Kota. Personalized 1-on-1 mentorship, adaptive study plans, and daily live sessions deliver Kota-level preparation from any city in India.' },
+  { question: 'Can I crack JEE without Kota coaching?', answer: 'Absolutely. Many JEE toppers prepare from home with quality online coaching. Personalized 1-on-1 mentorship, adaptive study plans, and daily live sessions deliver structured preparation from any city in India — without the relocation, hostel and living costs Kota adds.' },
   { question: 'How many hours should I study for JEE daily?', answer: '6-8 hours of focused, quality study daily is recommended for JEE. More important than hours is the quality of preparation — a personalized study plan that targets your weak areas is far more effective than 12-14 hours of unfocused batch coaching lectures.' },
   { question: 'What is the difference between JEE Main and JEE Advanced?', answer: 'JEE Main is the qualifying exam for NITs, IIITs, and GFTIs, while JEE Advanced — open only to JEE Main qualifiers — is the gateway to IITs. JEE Advanced tests deeper conceptual understanding with multi-concept problems. MindPeak\'s coaching covers both exams comprehensively.' },
-  { question: 'Is personalized coaching better than batch coaching for JEE?', answer: 'Research and results consistently show personalized 1-on-1 coaching outperforms batch coaching. Personalized coaching adapts to each student\'s pace, learning style, and weak areas. MindPeak\'s 95% success rate with 1-on-1 mentorship significantly exceeds the typical 10-15% success rate of large batch centres.' },
+  { question: 'Is personalized coaching better than batch coaching for JEE?', answer: 'It depends on the student. Batch coaching works well for self-driven students who keep pace with a fixed schedule. Personalized coaching adapts to each student\'s pace, learning style, and weak areas, which matters most when the batch pace itself is the problem — the student who is bored, or the one quietly falling behind.' },
 ];
 
 const faqs: FAQItem[] = [
   { question: 'What makes MindPeak\'s JEE coaching different from batch coaching?', answer: 'MindPeak provides dedicated 1-on-1 mentorship where every student gets their own expert mentor, an adaptive curriculum tailored to their strengths and weaknesses, daily live sessions, weekly analytics, and real-time doubt resolution. Unlike batch coaching with 100+ students, our approach ensures every minute of preparation is optimized for YOUR specific needs.' },
-  { question: 'What is the success rate for JEE at MindPeak?', answer: 'MindPeak has a 95% selection rate with over 500 students mentored. Our best result is AIR 42 in JEE Advanced, and over 50 students have achieved AIR under 5,000. These results speak to the effectiveness of personalized 1-on-1 coaching versus generic batch teaching.' },
+  { question: 'What does a MindPeak JEE program actually include?', answer: 'A dedicated mentor for the full program, live 1-on-1 classes six days a week across Physics, Chemistry and Mathematics, every session recorded for revision, doubts resolved inside the session, a study plan rebuilt from your own mock results, and weekly progress reports to parents. You take a free 1-on-1 trial class with your assigned mentor before paying anything.' },
   { question: 'How are JEE classes conducted at MindPeak?', answer: 'Classes are conducted via live 1-on-1 video sessions with your dedicated mentor, 6 days a week. Sessions are short and focused for maximum retention. Every class is recorded so you can re-watch any explanation during revision. You can attend from anywhere — all you need is a laptop/tablet and internet.' },
   { question: 'Does MindPeak cover both JEE Main and JEE Advanced?', answer: 'Yes! Our JEE coaching program comprehensively covers the syllabus for both JEE Main and JEE Advanced. We offer separate 1-year and 2-year programs, each including complete Physics, Chemistry, and Mathematics coverage, weekly mock tests in CBT format, and previous year paper analysis.' },
   { question: 'Can I join mid-year? Is there a batch dependency?', answer: 'Since our coaching is entirely 1-on-1, there are no batches and no fixed start dates. You can join at any time. Your mentor will create a customized study plan aligned with your exam timeline, covering any syllabus gaps from the start.' },
@@ -122,7 +129,7 @@ const JEECoaching = () => {
     '@context': 'https://schema.org',
     '@type': 'Course',
     name: 'JEE Advanced Personalized Coaching — MindPeak Institute',
-    description: 'Comprehensive 1-on-1 personalized JEE Main and Advanced coaching with dedicated mentors, adaptive curriculum, and 95% success rate.',
+    description: 'Comprehensive 1-on-1 personalized JEE Main and Advanced coaching — a dedicated mentor per student, adaptive curriculum, and live daily classes.',
     provider: {
       '@type': 'EducationalOrganization',
       name: 'MindPeak Institute',
@@ -148,11 +155,13 @@ const JEECoaching = () => {
     mentions: [
       { '@type': 'Thing', name: 'Indian Institutes of Technology', sameAs: 'https://en.wikipedia.org/wiki/Indian_Institutes_of_Technology' },
     ],
-    review: [
-      { '@type': 'Review', author: { '@type': 'Person', name: 'Aarav Sharma' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'MindPeak completely transformed my JEE preparation. I achieved AIR 42 with personalized 1-on-1 coaching.' },
-      { '@type': 'Review', author: { '@type': 'Person', name: 'Priya Patel' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'After switching to MindPeak from a 200-student batch, my JEE Advanced score improved by 165 marks.' },
-      { '@type': 'Review', author: { '@type': 'Person', name: 'Rohan Iyer' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'The adaptive curriculum improved my mock scores by 125 marks in just 4 months. Achieved AIR 312.' },
-    ],
+    /*
+     * No `review` / `aggregateRating` here. This block previously carried three
+     * invented 5-star Review entries with fabricated student names and ranks.
+     * Review markup is consumed as fact by both rich results and answer
+     * engines, so unverifiable entries are worse than none. Re-add only from
+     * real, attributable, consented reviews.
+     */
   };
 
   const breadcrumbSchema = {
@@ -184,7 +193,7 @@ const JEECoaching = () => {
     <>
       <SEOHead
         title={`Best JEE Coaching Online ${CURRENT_EXAM_YEAR} — AIR <5K | 95% Success [Free Trial]`}
-        description={`Crack JEE ${CURRENT_EXAM_YEAR} with 1-on-1 mentors from IIT/NIT. Adaptive curriculum, daily doubt sessions, 95% success rate. 500+ students trust MindPeak.`}
+        description={`Crack JEE ${CURRENT_EXAM_YEAR} with 1-on-1 mentors from IIT/NIT. Adaptive curriculum, daily doubt sessions, every class recorded. Book a free trial class.`}
         jsonLd={[courseSchema, breadcrumbSchema, webPageSchema, buildFAQSchema([...faqs, ...paaQuestions])]}
       />
 
@@ -221,7 +230,7 @@ const JEECoaching = () => {
             </h1>
 
             <p className="text-muted-foreground/70 text-sm sm:text-base leading-[1.8] max-w-3xl mb-8 sm:mb-10">
-              Tired of being a face in a 200-student classroom? At MindPeak Institute, every JEE aspirant receives a dedicated personal mentor, an AI-driven adaptive curriculum, and daily 1-on-1 live sessions — six days a week. With a 95% success rate and 500+ students mentored, our approach has produced AIR 42 in JEE Advanced and 50+ students under AIR 5,000.
+              Tired of being a face in a 200-student classroom? At MindPeak Institute, every JEE aspirant receives a dedicated personal mentor, an AI-driven adaptive curriculum, and daily 1-on-1 live sessions — six days a week. Every class is recorded for revision, doubts are resolved inside the session rather than in a queue, and parents get a written progress report every week.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
@@ -335,42 +344,6 @@ const JEECoaching = () => {
               </div>
             </FadeInView>
           </div>
-        </section>
-
-        {/* ───── SUCCESS STORIES ───── */}
-        <section className="max-w-4xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
-          <FadeInView>
-            <div className="eyebrow mb-4">Stories</div>
-            <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl mb-10 tracking-[-0.02em]">
-              JEE <span className="text-gradient-gold">Success Stories</span>
-            </h2>
-            <div className="grid md:grid-cols-3 gap-4">
-              {testimonials.map((t, i) => (
-                <FadeInView key={i} delay={i * 80}
-                  className="card-lift p-7">
-                  <div className="flex items-center justify-between mb-5">
-                    <div>
-                      <h3 className="font-display font-semibold text-foreground text-sm">{t.name}</h3>
-                      <p className="text-muted-foreground text-[11px] tracking-[0.05em]">{t.city}</p>
-                    </div>
-                    <span className="text-primary/70 text-[11px] tracking-[0.1em] font-medium">{t.rank}</span>
-                  </div>
-                  <div className="flex items-center gap-3 mb-5">
-                    <div className="flex-1 text-center p-3 rounded-xl bg-secondary/50 border border-border">
-                      <div className="text-destructive/70 font-display font-bold text-lg">{t.before}</div>
-                      <div className="text-muted-foreground/80 text-[10px] uppercase tracking-[0.1em]">Before</div>
-                    </div>
-                    <ArrowRight className="w-3.5 h-3.5 text-primary/50 flex-shrink-0" />
-                    <div className="flex-1 text-center p-3 rounded-xl bg-secondary/50 border border-border">
-                      <div className="text-primary/80 font-display font-bold text-lg">{t.after}</div>
-                      <div className="text-muted-foreground/80 text-[10px] uppercase tracking-[0.1em]">After</div>
-                    </div>
-                  </div>
-                  <p className="text-muted-foreground/70 text-sm leading-[1.7] italic">&ldquo;{t.quote}&rdquo;</p>
-                </FadeInView>
-              ))}
-            </div>
-          </FadeInView>
         </section>
 
         {/* ───── SYLLABUS COVERAGE ───── */}
@@ -522,7 +495,7 @@ const JEECoaching = () => {
         <CtaBanner
           heading="Start Your JEE Transformation"
           highlight="Today"
-          sub="Join 500+ students who transformed their JEE preparation with personalized 1-on-1 coaching."
+          sub="Take a free 1-on-1 trial class with the mentor who would actually teach you — before you pay anything."
           buttonLabel="Book Free Trial Class"
         />
 
