@@ -116,6 +116,16 @@ const faqs = [
    ───────────────────────────────────────────── */
 const relatedLinks = [
   {
+    // The direct follow-up story: the 2026 leak and cancellation are exactly
+    // why NTA is moving NEET UG to CBT from 2027. Readers of this page are the
+    // audience for that one, and it gives the guide a crawl path from an
+    // already-indexed page instead of footer links alone.
+    href: "/neet-cbt-2027-guide",
+    label: "NEET UG 2027 Moves to CBT Mode",
+    tag: "What Changed Next",
+    desc: "The reform this cancellation triggered — what changes, what doesn't.",
+  },
+  {
     href: "/neet-coaching",
     label: "NEET UG Personalised Coaching",
     tag: "1-on-1 Coaching",
