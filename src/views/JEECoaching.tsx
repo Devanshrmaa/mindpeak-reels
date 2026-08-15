@@ -450,6 +450,8 @@ const JEECoaching = () => {
                 { label: 'MindPeak vs FIITJEE', to: '/mindpeak-vs-fiitjee' },
                 { label: 'JEE Coaching in Delhi', to: '/jee-coaching-in-delhi' },
                 { label: 'JEE Coaching in Mumbai', to: '/jee-coaching-in-mumbai' },
+                { label: 'One-to-One JEE Coaching', to: '/one-to-one-jee-coaching' },
+                { label: 'JEE Mentorship by IITians', to: '/jee-mentorship-by-iitians' },
                 { label: 'Blog — JEE Tips', to: '/blog' },
               ].map((l) => (
                 <Link
