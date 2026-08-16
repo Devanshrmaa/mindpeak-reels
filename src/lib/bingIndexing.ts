@@ -1,7 +1,7 @@
 /**
  * Bing-exclusive indexing policy — single source of truth.
  * ────────────────────────────────────────────────────────
- * Context: after the March 2026 Google Spam Update, ~14k thin pages
+ * Context: after the March 2026 Google Spam Update, the thin pages
  * (individual practice/PYQ questions + auto-generated location/expansion
  * city pages) were noindexed to recover Google rankings. Bing, however,
  * rewards index breadth and has not penalised these pages — so we want

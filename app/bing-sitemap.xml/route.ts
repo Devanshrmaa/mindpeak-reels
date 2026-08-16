@@ -4,7 +4,7 @@
  * A single sitemap URL to submit in **Bing Webmaster Tools** that covers
  * EVERYTHING we want Bing to index:
  *   1. /sitemap.xml      — the curated, high-quality pages (shared with Google)
- *   2. /bing-pages.xml   — the ~14k Bing-exclusive thin pages (questions +
+ *   2. /bing-pages.xml   — the Bing-exclusive thin pages (questions +
  *                          location/expansion cities) that are kept out of
  *                          Google but indexable by Bing.
  *

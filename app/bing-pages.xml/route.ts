@@ -1,7 +1,7 @@
 /**
  * Bing-exclusive URL set: /bing-pages.xml
  * ───────────────────────────────────────
- * The ~14k thin pages (individual practice/PYQ questions + auto-generated
+ * The Bing-exclusive thin pages (individual practice/PYQ questions + auto-generated
  * location/expansion city pages) that we expose to Bing but keep OUT of
  * Google. See src/lib/bingIndexing.ts for the policy and the per-UA
  * `X-Robots-Tag` enforcement in proxy.ts.

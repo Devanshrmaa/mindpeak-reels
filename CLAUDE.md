@@ -246,7 +246,7 @@ No `.env` file in the repo. Secrets are managed via Vercel environment settings 
 
 Bing indexing has its own pipeline (Bing indexes normally — no Google-style suppression):
 - **Verification:** set `BING_SITE_VERIFICATION` (or import from GSC in Bing Webmaster Tools).
-- **Sitemap:** submit `https://mindpeakinstitute.com/bing-sitemap.xml` **only** in Bing Webmaster Tools — never add it to `robots.txt`/`sitemap.xml` (it exposes ~14k Bing-exclusive thin pages kept out of Google; see `src/lib/bingIndexing.ts` + `proxy.ts`).
+- **Sitemap:** submit `https://mindpeakinstitute.com/bing-sitemap.xml` **only** in Bing Webmaster Tools — never add it to `robots.txt`/`sitemap.xml` (it exposes ~5,300 Bing-exclusive thin pages kept out of Google — verify with `npm run audit:thin`; see `src/lib/bingIndexing.ts` + `proxy.ts`).
 - **IndexNow** (instant recrawl): key hosted at `public/c1a9e4f2b7d84f3a9c5e6d8b2f4a7c31.txt`; shared logic in `src/lib/indexNow.ts`. `/api/revalidate` auto-pings the revalidated path; `POST /api/indexnow?secret=…` submits URLs on demand; `scripts/indexnow-ping.mjs` bulk-pings the sitemap. The key must stay identical across all three — see the `INDEXNOW_KEY` comment.
 - See `docs/bing-webmaster.md` for the operator checklist.
 

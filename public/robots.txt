@@ -1,6 +1,6 @@
 # ─────────────────────────────────────────────────────────────
 # MindPeak Institute — robots.txt
-# ~583 indexed pages in sitemap · 15,000+ thin pages suppressed
+# ~598 indexed pages in sitemap · ~5,300 thin pages suppressed for Google
 #
 # STRATEGY:
 # 1. Thin pages use <meta name="robots" content="noindex, follow">

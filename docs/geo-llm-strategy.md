@@ -2,7 +2,7 @@
 
 **Owner:** Growth / SEO
 **Status:** Plan — approved scope pending
-**Last reviewed:** 2026-08-06
+**Last reviewed:** 2026-08-07
 **Companion docs:** [`bing-webmaster.md`](./bing-webmaster.md) · single source of truth for URLs is [`src/lib/sitemapUrls.ts`](../src/lib/sitemapUrls.ts)
 
 ---
@@ -40,14 +40,28 @@ This site is further along than most. Do not rebuild these:
 
 ## 2. The five gaps
 
-### Gap 1 — ChatGPT Search grounds on Bing, and our Bing index is 24:1 thin
+### Gap 1 — ChatGPT Search grounds on Bing, and our Bing index is ~9:1 thin
 
 This is the highest-severity finding in this audit and it is specific to our architecture.
 
 - ChatGPT's browsing/search grounding is built on the **Bing index**.
-- We deliberately keep ~**14,000 thin pages** (individual practice/PYQ questions, auto-generated city pages) **indexed in Bing** while noindexing them for Google — see [`src/lib/bingIndexing.ts`](../src/lib/bingIndexing.ts) and [`proxy.ts`](../proxy.ts).
-- Net effect: in the index ChatGPT retrieves from, MindPeak is represented by **~14,000 thin pages vs ~587 substantive ones — a 24:1 noise ratio.**
+- We deliberately keep thin pages (individual practice/PYQ questions, auto-generated city pages) **indexed in Bing** while noindexing them for Google — see [`src/lib/bingIndexing.ts`](../src/lib/bingIndexing.ts) and [`proxy.ts`](../proxy.ts).
 - Consequence: when ChatGPT retrieves "mindpeakinstitute.com", the passage it grabs is disproportionately likely to be a bare question stub, not `/jee-coaching` or `/methodology`. Thin retrieval → weak or no brand summary → we lose the sentence.
+
+**Measured, not estimated** (`npm run audit:thin`, 2026-08-07):
+
+| | |
+|---|---:|
+| URLs advertised in `bing-pages.xml` | **5,312** |
+| Curated URLs (Google sitemap) | 598 |
+| **Dilution ratio** | **8.9 : 1** |
+| Median unique content per question page | **35 words** |
+| Question pages under 60 words | **97%** |
+| Question pages over 100 words | 0% |
+
+> **Correction to earlier revisions of this doc.** This section previously said "~14,000 thin pages" and "a 24:1 noise ratio". Both were wrong — inherited from a stale comment repeated across `bingIndexing.ts`, `bing-pages.xml`, `robots.txt` and the Bing operator doc. Earlier consolidation work (`cityConsolidation`, `removedSlugs`, `removedBlogDoorways`) had already retired most of the location pages: only **26 of 1,004** location routes are still Bing-eligible. Nobody re-measured, and a wrong number was then used to argue an architecture decision. `scripts/thin-page-audit.mjs` now derives these figures from the same modules that build the sitemap, so they cannot drift again.
+
+The dilution is real and worth fixing, but it is **9:1, not 24:1** — a meaningfully smaller problem than this doc previously claimed, and that should temper how aggressively it is treated.
 
 This was a rational **Google** decision (index breadth on Bing, penalty recovery on Google). It was never evaluated against **ChatGPT**, which did not factor into the original tradeoff. It must be re-decided now with that third consumer in view. See §6, Action A1 — this is a decision to make, not a bug to silently patch.
 
@@ -189,7 +203,7 @@ Do not pitch these for inclusion — they are competitors, not publishers. Track
 
 | # | Action | Why | Effort | Priority |
 |---|---|---|---|---|
-| **A1** | **Decide the Bing thin-page policy with ChatGPT in scope.** Options: (a) keep as-is, accept 24:1 dilution; (b) drop thin pages from `bing-sitemap.xml`, keep them crawlable; (c) consolidate question stubs into chapter-level pages with 20–40 questions each. **Recommended: (c), falling back to (b).** Consolidation fixes thinness for Bing, ChatGPT and Google simultaneously. | Gap 1 | L | **P0** |
+| **A1** | **Decide the Bing thin-page policy with ChatGPT in scope.** Costed design in §6.1 below. Three options; recommended (c). | Gap 1 | L | **P0** |
 | **A2** | Add `Course` + `Offer` JSON-LD to `/pricing` and each program page, with real fee ranges matching `llms-full.txt`. | Pricing prompts (§4-D) are unanswerable without machine-readable fees | S | **P0** |
 | **A3** | Add an `EducationalOrganization` node with `foundingDate`, `identifier` (UDYAM), `areaServed: IN`, `sameAs` → all social/directory profiles, once §5.5 profiles exist. | Gap 5 — entity corroboration | S | **P0** |
 | **A4** | Restructure top-20 money pages for **passage-level extraction**: every H2 asks a real question; the first sentence beneath answers it standalone, with no pronoun referring back to the heading. | LLMs retrieve *passages*, not pages. Self-contained paragraphs get quoted; context-dependent ones don't. | M | **P1** |
@@ -197,6 +211,33 @@ Do not pitch these for inclusion — they are competitors, not publishers. Track
 | **A6** | Add a `## Fees` section with an explicit table to `llms-full.txt`, plus a stable "last verified" date. | Closes the most-asked commercial prompt | S | **P1** |
 | **A7** | Add comparison-page `FAQPage` schema answering the exact §4-C phrasings verbatim. | Prompt-phrase → passage match | S | **P2** |
 | **A8** | Statistics + citations pass on the top-20 pages — cite NTA/NCERT/official sources inline with links. | Measured GEO research consistently finds cited statistics and quotations lift LLM inclusion rate | M | **P2** |
+
+
+### 6.1 Action A1 in detail — the costed options
+
+All figures from `npm run audit:thin`. **This decision is deliberately left open** — it changes indexing architecture on a site recovering from a scaled-content penalty, so it should be taken explicitly rather than inferred.
+
+**(a) Keep as-is.** Accept 8.9:1 dilution in the index ChatGPT grounds on. Zero risk, zero work. Defensible if Bing organic traffic to question pages is materially converting — check Bing Webmaster Tools before choosing this. If those pages get impressions but ~no clicks, this option is just paying the dilution for nothing.
+
+**(b) Stop advertising the leaves.** Remove the 5,292 question URLs from `bing-pages.xml`, keep them crawlable and linked. One file, trivially reversible, creates no new pages, deletes no content. Caveat worth being honest about: removing a URL from a sitemap is not a deindex request — already-indexed pages persist, so this slows *new* dilution rather than reversing existing dilution. Fastest safe improvement.
+
+**(c) Consolidate into chapter hubs — recommended.** Collapse the 5,292 leaves into **260 chapter hubs**:
+
+| Bank | Question URLs | → Chapter hubs | Questions/hub | Approx. words/hub |
+|---|---:|---:|---:|---:|
+| JEE practice | 1,842 | 67 | 27.5 | ~960 |
+| JEE PYQ | 756 | 58 | 13.0 | ~455 |
+| NEET practice | 1,138 | 40 | 28.4 | ~995 |
+| NEET PYQ | 1,556 | 95 | 16.4 | ~575 |
+| **Total** | **5,292** | **260** | **20.4** | **~712** |
+
+Why this is the right shape: a hub with ~20 questions and their worked solutions carries roughly **712 words of genuine content versus 35 today** — that is not thin by any reasonable standard, and it fixes the problem for Google, Bing and ChatGPT at once rather than trading one against another.
+
+**Precedent already in the codebase:** NEET PYQ *already works this way* — 95 chapter/unit hubs, indexable for every bot, listed in `/sitemap-pyq.xml`. Option (c) is extending a proven in-house pattern to the three banks that lack it (JEE practice, JEE PYQ, NEET practice), not inventing an architecture.
+
+**The honest risk.** (c) means creating ~165 new indexable pages on a site penalised for scaled content. The mitigation is that these are genuine aggregations of existing material, not generated filler — but the sequencing should still be cautious: ship one bank first (JEE PYQ is smallest at 58 hubs), watch Search Console for 4–6 weeks, then decide whether to continue. Do not ship all 165 at once.
+
+**What must not happen:** leaving the leaves indexed *and* adding hubs. That doubles the surface instead of consolidating it. Whichever way (c) goes, the leaf URLs come out of `bing-pages.xml` in the same change.
 
 ---
 
@@ -259,13 +300,13 @@ These exist because this site has already paid for violating them.
 
 ### Weeks 1–2 — Instrument and decide
 - [ ] Build `scripts/geo-audit.mjs`; run the full panel; **commit the baseline CSV**
-- [ ] Make the A1 decision (Bing thin-page policy) — this gates ChatGPT performance
+- [ ] Make the A1 decision (Bing thin-page policy) — costed options in §6.1; run `npm run audit:thin` for current figures
 - [ ] Audit brand prompts (§4-E) across all 4 engines; log every factual error as P1
 - [ ] Register X account; claim/complete Google Business Profile with exact NAP
 
 ### Weeks 3–6 — On-site foundations
 - [ ] A2 (`Course`/`Offer` schema), A3 (`EducationalOrganization`), A6 (fees in `llms-full.txt`) — all P0
-- [ ] Begin A1 execution (recommend: consolidate question stubs into chapter pages)
+- [ ] Begin A1 execution — if (c), ship JEE PYQ only (58 hubs), watch GSC 4-6 weeks before continuing
 - [ ] A4 passage-restructure on the top 20 money pages
 - [ ] Reddit + Quora accounts live with disclosed identities; **value-first participation only, no links yet**
 
