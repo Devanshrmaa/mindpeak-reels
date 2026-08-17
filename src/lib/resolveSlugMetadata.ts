@@ -25,8 +25,8 @@ const IMPORTANT_Q_SLUGS: string[] = [
   'jee-mathematics-important-questions', 'neet-physics-important-questions',
   'neet-chemistry-important-questions', 'neet-biology-important-questions',
 ];
-import { parsePracticeSlug, getQuestion, subjectBanks } from '@/data/practice';
-import { parsePYQSlug, getPYQuestion, pyqSubjectBanks } from '@/data/pyq';
+import { parsePracticeSlug, getQuestion, subjectBanks, getChapterQuestionCount } from '@/data/practice';
+import { parsePYQSlug, getPYQuestion, pyqSubjectBanks, getPYQChapterCount } from '@/data/pyq';
 import { parseNEETPracticeSlug, getNEETPracticeQuestion, neetSubjectBanks } from '@/data/neet-practice';
 import { parseNEETPYQSlug, getNEETPYQuestion, neetPyqSubjectBanks } from '@/data/neet-pyq';
 import { parseNEETPYQHubSlug, getUnitBySlug } from '@/data/neet-pyq/hierarchy';
@@ -367,8 +367,70 @@ function _resolve(slugSegments: string[]): Metadata {
   }
 }
 
+/**
+ * JEE practice / PYQ CHAPTER HUBS — `jee-practice-<subject>-<chapter>` and
+ * `jee-pyq-<subject>-<chapter>`.
+ *
+ * These render <JEEPracticeChapterHub> / <JEEPYQChapterHub>: every question in
+ * the chapter with its worked solution, so they are the substantive
+ * aggregation of the ~35-word leaf pages — several hundred words of real Q&A.
+ *
+ * They previously fell through to the generic noindex fallback, which meant
+ * the only thing search engines were pointed at were the thin leaves while the
+ * useful page was invisible. Matched BEFORE the leaf-question branches, since
+ * a hub slug (`jee-practice-physics-kinematics`) is a prefix of the leaf slugs.
+ * NEET PYQ already worked this way. See docs/geo-llm-strategy.md §6.1.
+ */
+function resolveQuestionHubMetadata(
+  slug: string,
+  canonical: string,
+  og: ReturnType<typeof resolveOgImageMeta>,
+): Metadata | null {
+  const practice = /^jee-practice-(physics|chemistry|mathematics)-(.+)$/.exec(slug);
+  if (practice) {
+    const bank = subjectBanks.find((b) => b.slug === practice[1]);
+    const ch = bank?.chapters.find((c) => c.slug === practice[2]);
+    if (bank && ch) {
+      const n = getChapterQuestionCount(ch);
+      return {
+        title: pickTitle([
+          `${ch.name} — ${n} JEE ${bank.subject} Practice Questions with Solutions`,
+          `${ch.name} JEE ${bank.subject} Practice Questions | MindPeak`,
+        ]),
+        description: `Practise ${n} JEE ${bank.subject} MCQs on ${ch.name}, sorted easy to hard across ${ch.topics.length} topics. Every question has a worked solution. Free.`.slice(0, 160),
+        alternates: { canonical },
+        openGraph: { ...og, url: canonical },
+      };
+    }
+  }
+
+  const pyq = /^jee-pyq-(physics|chemistry|mathematics)-(.+)$/.exec(slug);
+  if (pyq) {
+    const bank = pyqSubjectBanks.find((b) => b.slug === pyq[1]);
+    const ch = bank?.chapters.find((c) => c.slug === pyq[2]);
+    if (bank && ch) {
+      const n = getPYQChapterCount(ch);
+      return {
+        title: pickTitle([
+          `${ch.name} — ${n} JEE ${bank.subject} Previous Year Questions Solved`,
+          `${ch.name} JEE ${bank.subject} PYQs with Solutions | MindPeak`,
+        ]),
+        description: `All ${n} previous-year JEE ${bank.subject} questions on ${ch.name}, each with a step-by-step solution and the year it appeared. Free to practise.`.slice(0, 160),
+        alternates: { canonical },
+        openGraph: { ...og, url: canonical },
+      };
+    }
+  }
+
+  return null;
+}
+
 /* ── Question metadata sub-resolver ── */
 function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType<typeof resolveOgImageMeta>): Metadata {
+  // 0. Chapter hubs — must precede the leaf-question branches (prefix overlap).
+  const hub = resolveQuestionHubMetadata(slug, canonical, og);
+  if (hub) return hub;
+
   // 1. JEE PYQ
   if (slug.startsWith('jee-pyq-')) {
     const params = parsePYQSlug(slug);

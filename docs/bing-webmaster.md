@@ -15,7 +15,7 @@ actions you do once**.
 
 | Piece | File | Purpose |
 |---|---|---|
-| Bing-only sitemap | `app/bing-sitemap.xml/route.ts` → `app/bing-pages.xml/route.ts` | Exposes the curated pages **plus** ~14k thin question/city pages to Bing that are kept out of Google |
+| Bing-only sitemap | `app/bing-sitemap.xml/route.ts` → `app/bing-pages.xml/route.ts` | Exposes the curated pages **plus** the Bing-exclusive thin question/city pages kept out of Google (~5,300 — run `npm run audit:thin` for the live count) |
 | Per-crawler robots | `proxy.ts` + `src/lib/bingIndexing.ts` | Serves `X-Robots-Tag: index` to Bingbot, `noindex` to everyone else, on those thin pages |
 | Ownership meta tag | `app/layout.tsx` | Renders `<meta name="msvalidate.01">` when `BING_SITE_VERIFICATION` is set |
 | IndexNow key | `public/c1a9e4f2b7d84f3a9c5e6d8b2f4a7c31.txt` | Proves domain ownership to IndexNow |
@@ -45,7 +45,7 @@ https://mindpeakinstitute.com/bing-sitemap.xml
 ```
 
 ⚠️ Submit it **only here**. Do **not** add it to `robots.txt` or `sitemap.xml` —
-it deliberately lists the ~14k Bing-exclusive pages that must stay invisible to
+it deliberately lists the Bing-exclusive pages that must stay invisible to
 Googlebot.
 
 ### 3. (Optional) Confirm IndexNow is linked

@@ -25,6 +25,8 @@
 
 import { getKeptBlogSlugs } from '@/lib/programmaticBlogs';
 import { CHAPTER_SLUGS } from '@/data/chapterData';
+import { buildAllPracticeHubSlugs } from '@/data/practice';
+import { buildAllPYQHubSlugs } from '@/data/pyq';
 import { competitors } from '@/data/comparisonData';
 import { examRegistry } from '@/data/examRegistry';
 import { getAllExamInfoSlugs } from '@/data/examInfoData';
@@ -46,7 +48,7 @@ export const BASE = 'https://mindpeakinstitute.com';
  * targeting the "best 1 on 1 coaching for neet" money query. Also added a
  * teaching-vs-mentoring comparison table to one-to-one-neet-coaching.
  */
-export const CONTENT_ANCHOR = '2026-08-06';
+export const CONTENT_ANCHOR = '2026-08-17';
 
 /**
  * Deterministic, STABLE lastmod: CONTENT_ANCHOR minus a slug-hashed 0–27 day
@@ -127,6 +129,24 @@ export function getStaticPaths(): string[] {
 
 export const getComparisonPaths = (): string[] => competitors.map((c) => `/${c.slug}`);
 export const getChapterPaths = (): string[] => CHAPTER_SLUGS.map((s) => `/${s}`);
+
+/**
+ * JEE practice + PYQ chapter hubs (`/jee-practice-<subject>-<chapter>`,
+ * `/jee-pyq-<subject>-<chapter>`).
+ *
+ * These pages already existed and rendered — QuestionSlugRouter routes them to
+ * <JEEPracticeChapterHub> / <JEEPYQChapterHub>, each listing every question in
+ * the chapter with its worked solution — but they were advertised in NO
+ * sitemap. The ~35-word leaf question pages were the only thing pointed at,
+ * while the substantive aggregations sat orphaned. NEET PYQ already did this
+ * correctly via getNeetPyqHubPaths(); this brings the JEE banks in line.
+ *
+ * Feeds /sitemap-chapters.xml. See docs/geo-llm-strategy.md §6.1.
+ */
+export const getQuestionHubPaths = (): string[] => [
+  ...buildAllPracticeHubSlugs(),
+  ...buildAllPYQHubSlugs(),
+].map((s) => `/${s}`);
 export const getKeptBlogPaths = (): string[] => getKeptBlogSlugs().map((s) => `/${s}`);
 export const getExamEventBlogPaths = (): string[] => getAllExamEventBlogSlugs().map((s) => `/${s}`);
 export const getExamInfoPaths = (): string[] => getAllExamInfoSlugs().map((s) => `/${s}`);

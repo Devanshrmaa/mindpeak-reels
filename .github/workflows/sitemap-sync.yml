@@ -1,0 +1,156 @@
+# Sitemap freshness sync — every 5 hours.
+#
+# WHAT IT DOES
+#   Runs scripts/sitemap-sync.mjs, which bumps CONTENT_ANCHOR *only* when the
+#   indexable URL set has genuinely changed (fingerprint comparison). If
+#   nothing changed it writes nothing and this job exits without a PR.
+#
+# WHY IT AUTO-MERGES
+#   The only diff it can ever produce is a one-line CONTENT_ANCHOR date plus a
+#   fingerprint file. That is mechanical bookkeeping the sitemap depends on and
+#   humans reliably forget. It cannot author page content.
+#
+# WHY THE GATES MATTER
+#   This repo is recovering from the March 2026 Google spam update, which
+#   punished scaled thin content. An automation that could merge content to
+#   production unreviewed would be the same failure mode. So the merge is
+#   gated on: the diff touching ONLY the two expected files, being small,
+#   typechecking, and the whole vitest suite passing — including
+#   no-fabricated-claims.test.ts. Any deviation stops the merge and opens an
+#   issue for a human instead.
+name: Sitemap freshness sync
+
+on:
+  schedule:
+    - cron: "0 */5 * * *" # every 5 hours
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: sitemap-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Sync CONTENT_ANCHOR if indexable URLs changed
+        id: sync
+        run: |
+          set -o pipefail
+          node scripts/sitemap-sync.mjs 2>&1 | tee /tmp/sync.log
+          # --porcelain, not `git diff`: the fingerprint file may be untracked
+          # on a first run, and `git diff` would silently miss it.
+          if [ -z "$(git status --porcelain -uall)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No changes — nothing to merge."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # ── Gate 1: the diff must be exactly what this job is allowed to touch ──
+      - name: Verify diff scope
+        if: steps.sync.outputs.changed == 'true'
+        run: |
+          # -uall so an untracked file is listed individually rather than
+          # collapsed to its parent directory (which would fail this gate).
+          FILES=$(git status --porcelain -uall | awk '{print $2}' | sort | tr '\n' ' ')
+          echo "Changed files: $FILES"
+          EXPECTED="seo-reports/sitemap-fingerprint.json src/lib/sitemapUrls.ts "
+          if [ "$FILES" != "$EXPECTED" ]; then
+            echo "::error::Unexpected files changed. Allowed: $EXPECTED"
+            exit 1
+          fi
+          # sitemapUrls.ts must differ by the CONTENT_ANCHOR line only.
+          NON_ANCHOR=$(git diff -U0 -- src/lib/sitemapUrls.ts \
+            | grep -E '^[+-]' | grep -vE '^(\+\+\+|---)' \
+            | grep -vc 'CONTENT_ANCHOR' || true)
+          if [ "$NON_ANCHOR" != "0" ]; then
+            echo "::error::sitemapUrls.ts changed beyond CONTENT_ANCHOR ($NON_ANCHOR lines)."
+            exit 1
+          fi
+
+      # ── Gate 2: the codebase must still be green, including the claims guard ──
+      - name: Typecheck
+        if: steps.sync.outputs.changed == 'true'
+        run: npx tsc --noEmit
+
+      - name: Test suite (includes no-fabricated-claims guard)
+        if: steps.sync.outputs.changed == 'true'
+        run: npx vitest run
+
+      # ── Open a PR, then auto-merge it once checks pass ──────────────────────
+      - name: Create pull request
+        if: steps.sync.outputs.changed == 'true'
+        id: cpr
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore(sitemap): bump CONTENT_ANCHOR — indexable URLs changed"
+          branch: automation/sitemap-anchor
+          delete-branch: true
+          title: "chore(sitemap): bump CONTENT_ANCHOR"
+          body: |
+            Automated by `.github/workflows/sitemap-sync.yml`.
+
+            `scripts/sitemap-sync.mjs` detected that the indexable URL set
+            actually changed and bumped `CONTENT_ANCHOR` accordingly. The
+            anchor drives every `lastmod`, so it must move on real content
+            releases — and must **not** move otherwise (rolling dates were part
+            of the March 2026 penalty). This job only ever bumps on a real
+            fingerprint change.
+
+            Gated on: diff scope (these two files only, anchor line only),
+            `tsc --noEmit`, and the full vitest suite including
+            `no-fabricated-claims.test.ts`.
+
+            Run log is in the workflow output for this job.
+
+      - name: Enable auto-merge
+        if: steps.cpr.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ steps.cpr.outputs.pull-request-number }}
+        run: gh pr merge "$PR" --squash --auto --delete-branch
+
+      # ── If any gate tripped, get a human involved rather than merging ───────
+      - name: Open issue on gate failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const log = fs.existsSync('/tmp/sync.log')
+              ? fs.readFileSync('/tmp/sync.log', 'utf8') : '(no log)';
+            const title = 'Sitemap sync blocked — manual review needed';
+            const open = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'automation',
+            });
+            if (open.data.some(i => i.title === title)) return;
+            await github.rest.issues.create({
+              owner: context.repo.owner, repo: context.repo.repo,
+              title, labels: ['automation'],
+              body: [
+                'The 5-hourly sitemap sync failed a gate and did **not** merge.',
+                '',
+                'Gates: diff scope (only `sitemapUrls.ts` CONTENT_ANCHOR +',
+                'fingerprint file), `tsc --noEmit`, full vitest suite.',
+                '',
+                '```', log.slice(-4000), '```',
+              ].join('\n'),
+            });
