@@ -49,7 +49,7 @@ import { getBingExclusiveUrls, isBingExclusiveThinPage } from '@/lib/bingIndexin
 import {
   getStaticPaths, getChapterPaths, getComparisonPaths, getKeptBlogPaths,
   getExamEventBlogPaths, getExamInfoPaths, getDifferencePaths,
-  getCounsellingPaths, getStateHubPaths, getNeetPyqHubPaths,
+  getCounsellingPaths, getStateHubPaths, getNeetPyqHubPaths, getQuestionHubPaths,
 } from '@/lib/sitemapUrls';
 
 const chapters = (e) => new Set(e.map((x) => x.params.subject + '/' + x.params.chapter)).size;
@@ -72,8 +72,9 @@ out.totalBingExclusive = getBingExclusiveUrls().length;
 out.curated = [
   getStaticPaths(), getChapterPaths(), getComparisonPaths(), getKeptBlogPaths(),
   getExamEventBlogPaths(), getExamInfoPaths(), getDifferencePaths(),
-  getCounsellingPaths(), getStateHubPaths(), getNeetPyqHubPaths(),
+  getCounsellingPaths(), getStateHubPaths(), getNeetPyqHubPaths(), getQuestionHubPaths(),
 ].reduce((n, a) => n + a.length, 0);
+out.questionHubs = getQuestionHubPaths().length;
 console.log('___JSON___' + JSON.stringify(out));
 `;
 
@@ -155,6 +156,7 @@ console.log(`${'location pages'.padEnd(17)}${pad('—', 9)}${pad(counts.location
 console.log('─'.repeat(64));
 console.log(`TOTAL advertised in bing-pages.xml : ${counts.totalBingExclusive}`);
 console.log(`Curated URLs (Google sitemap)      : ~${counts.curated}`);
+console.log(`  of which question chapter hubs   : ${counts.questionHubs ?? 0}`);
 console.log(`Dilution ratio (thin : curated)    : ${ratio} : 1`);
 
 console.log('\nHow thin, measured (words of unique content per question page)');

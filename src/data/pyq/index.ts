@@ -189,3 +189,20 @@ export function getAllPYQYears(): number[] {
   }
   return [...years].sort((a, b) => b - a);
 }
+
+/**
+ * Chapter-hub slugs (`jee-pyq-<subject>-<chapter>`). As with the practice
+ * hubs, these already render via <JEEPYQChapterHub> but were in no sitemap.
+ * See docs/geo-llm-strategy.md §6.1.
+ */
+export function buildAllPYQHubSlugs(): string[] {
+  const slugs: string[] = [];
+  for (const bank of pyqSubjectBanks) {
+    for (const chapter of bank.chapters) {
+      if (getPYQChapterCount(chapter) > 0) {
+        slugs.push(`jee-pyq-${bank.slug}-${chapter.slug}`);
+      }
+    }
+  }
+  return slugs;
+}

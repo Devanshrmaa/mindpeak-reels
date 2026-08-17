@@ -37,3 +37,6 @@ seo-reports/outreach-sent.json
 # Python bytecode cache (generated when running the .claude/skills tools)
 __pycache__/
 *.pyc
+
+# transient probe files written by scripts/*-audit|sync
+scripts/.*-probe.mts

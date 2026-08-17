@@ -208,3 +208,26 @@ export function getChapterQuestionCount(chapter: ChapterData): number {
     0,
   );
 }
+
+/**
+ * Chapter-hub slugs (`jee-practice-<subject>-<chapter>`).
+ *
+ * These hub pages already exist and render — QuestionSlugRouter routes them to
+ * <JEEPracticeChapterHub>, which lists every topic and every question in the
+ * chapter with its solution. They were, however, advertised in no sitemap at
+ * all: not the curated Google one, not bing-pages.xml. So the substantive
+ * aggregation pages were invisible while the ~35-word leaf questions were the
+ * only thing search engines were pointed at. This builder feeds them into
+ * /sitemap-chapters.xml. See docs/geo-llm-strategy.md §6.1.
+ */
+export function buildAllPracticeHubSlugs(): string[] {
+  const slugs: string[] = [];
+  for (const bank of subjectBanks) {
+    for (const chapter of bank.chapters) {
+      if (getChapterQuestionCount(chapter) > 0) {
+        slugs.push(`jee-practice-${bank.slug}-${chapter.slug}`);
+      }
+    }
+  }
+  return slugs;
+}
