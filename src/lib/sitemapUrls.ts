@@ -41,14 +41,21 @@ import { getPYQChapterEnrichment } from '@/data/neet-pyq/chapterEnrichments';
 export const BASE = 'https://mindpeakinstitute.com';
 
 /**
- * Last real content release. 2026-08-06: added two comparison pages built
- * from verified ChatGPT-citation data — "Best Online Platforms for JEE &
- * NEET Coaching" (best-online-jee-neet-coaching-platforms) and "Best 1-on-1
- * NEET Coaching Compared" (best-1-on-1-neet-coaching-compared), the latter
- * targeting the "best 1 on 1 coaching for neet" money query. Also added a
- * teaching-vs-mentoring comparison table to one-to-one-neet-coaching.
+ * Last real content release.
+ *
+ * scripts/sitemap-sync.mjs bumps the DATE below automatically, but only when
+ * the indexable URL *set* changes — it fingerprints `[...new Set(urls)]`, so a
+ * release that rewrites existing pages without adding or removing any URL is
+ * invisible to it and still needs a manual bump. Keep this comment describing
+ * the policy rather than a specific release, so it cannot drift out of sync
+ * with the date the way it did between 2026-08-06 and 2026-08-17.
+ *
+ * 2026-08-29: merged 8 duplicate chapter entries in the JEE practice banks,
+ * which recovered 225 previously unreachable questions and turned 180 leaf
+ * pages from soft 404s into real question pages. Same URL count, materially
+ * different content — exactly the case the fingerprint cannot detect.
  */
-export const CONTENT_ANCHOR = '2026-08-17';
+export const CONTENT_ANCHOR = '2026-08-29';
 
 /**
  * Deterministic, STABLE lastmod: CONTENT_ANCHOR minus a slug-hashed 0–27 day
@@ -66,6 +73,28 @@ export function stableLastmod(slug: string): string {
 
 export function urlEntry(path: string, priority: string, changefreq: string, lastmod: string): string {
   return `  <url>\n    <loc>${BASE}${path}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+}
+
+/**
+ * De-duplicate a path list, preserving first-seen order, optionally excluding
+ * paths a higher-precedence child sitemap already emitted.
+ *
+ * A URL listed twice — within one child or across two — wastes crawl budget and
+ * reports as a duplicate submission in GSC. Two such cases existed as of the
+ * 2026-08-17 crawl audit (759 <loc> entries, 750 unique):
+ * `/jee-physics-thermodynamics` sat in both getStaticPaths() (core) and
+ * CHAPTER_SLUGS (chapters), and eight JEE practice hubs were emitted twice
+ * because their chapters were declared twice in the practice banks.
+ */
+export function uniquePaths(paths: string[], exclude: Iterable<string> = []): string[] {
+  const seen = new Set(exclude);
+  const out: string[] = [];
+  for (const p of paths) {
+    if (seen.has(p)) continue;
+    seen.add(p);
+    out.push(p);
+  }
+  return out;
 }
 
 export function wrapUrlset(comment: string, entries: string[]): string {
