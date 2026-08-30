@@ -17,6 +17,7 @@ import { SEOHead } from '@/components/SEOHead';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import { buildFAQSchemaFromQA } from '@/components/PageFAQ';
 import { cities, allCities, getLocationTitle, getLocationDescription } from '@/data/cityData';
+import { splitHeadlineOnCity } from '@/lib/heroHeadline';
 import type { CityData, QuickStat, CourseTile, LocalValueProp, CityFAQ, CityTestimonial, CityEvent, TabbedContent } from '@/data/cityData';
 import { cityUniqueContent, type CityUniqueData } from '@/data/cityUniqueContent';
 import { getStateEducation } from '@/data/stateEducationData';
@@ -325,10 +326,28 @@ const LocationPage = () => {
               </div>
             </div>
 
+            {/*
+              Gold-highlight the city name IN PLACE by splitting the headline
+              around it. The previous version stripped the city out, appended it
+              at the end, and then re-appended a hardcoded tail — which rendered
+              as "Crack JEE from  — 1-on-1 mentors, a plan built around
+              you.Coimbatore — 1-on-1 mentors, a plan built around you." on
+              every city page using the fallback headline (live on production
+              2026-08-29). Splitting keeps the sentence intact and works for any
+              headline, including hand-written heroVariant copy where the city
+              sits mid-sentence or is absent entirely.
+            */}
             <h1 className="font-display font-black text-foreground mb-4" style={{ fontSize: 'clamp(2rem, 6vw, 3.5rem)', lineHeight: 1.1 }}>
-              {heroHeadline.replace(city.city, '')}
-              <span className="text-gradient-gold">{city.city}</span>
-              {heroHeadline.includes(city.city + ' —') ? ' — 1-on-1 mentors, a plan built around you.' : ''}
+              {(() => {
+                const { before, city: name, after } = splitHeadlineOnCity(heroHeadline, city.city);
+                return (
+                  <>
+                    {before}
+                    {name && <span className="text-gradient-gold">{name}</span>}
+                    {after}
+                  </>
+                );
+              })()}
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mx-auto mb-4">
               {heroSublead}

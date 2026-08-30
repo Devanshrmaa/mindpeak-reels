@@ -16,6 +16,7 @@ import { notFound, permanentRedirect } from "next/navigation";
 import { resolveSlugMetadata, isKnownSlug } from "@/lib/resolveSlugMetadata";
 import { buildCityJsonLd, buildCityServerContent } from "@/lib/cityJsonLd";
 import { parseStateHubSlug } from "@/data/stateHubData";
+import { getChapterBySlug } from "@/data/chapterData";
 import StateHubServerShell from "./StateHubServerShell";
 import CatchAllClient from "./CatchAllClient";
 
@@ -174,7 +175,7 @@ export default async function CatchAllPage({ params }: Props) {
                 ))}
               </ol>
             </nav>
-            <h1>{cityContent.heading}</h1>
+            <h2>{cityContent.heading}</h2>
             <h2>{cityContent.subheading}</h2>
             <p>{cityContent.intro}</p>
             {cityContent.highlights.length > 0 && (
@@ -235,7 +236,7 @@ export default async function CatchAllPage({ params }: Props) {
           </>
         ) : (
           <>
-            <h1>{content.heading}</h1>
+            <h2>{content.heading}</h2>
             <p>{content.description}</p>
             <p>MindPeak Institute offers personalized 1-on-1 JEE and NEET coaching — one dedicated mentor per student, live daily classes, and a study plan rebuilt from each student&apos;s own mock-test results rather than a fixed batch calendar.</p>
           </>
@@ -264,6 +265,22 @@ export default async function CatchAllPage({ params }: Props) {
 function buildServerContent(slug: string[]): { heading: string; description: string } {
   const full = slug.join('/');
   const prettyName = full.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+
+  // Chapter hub pages MUST be matched before the question-page prefix test
+  // below, which is a bare `startsWith` on the subject prefix and therefore
+  // also swallows every chapter slug (`neet-chemistry-organic-basics`,
+  // `jee-physics-rotational-motion`, `neet-biology-genetics`…). Those pages
+  // were getting a generic "NEET Practice Question" shell heading — and since
+  // the shell renders first in the DOM, that was the page's FIRST <h1>, ahead
+  // of the real visible one. Found on /neet-chemistry-organic-basics, which
+  // earns more impressions than any other non-branded page on the site.
+  const chapter = getChapterBySlug(full);
+  if (chapter) {
+    return {
+      heading: `${chapter.chapter} for ${chapter.exam} ${chapter.subject}`,
+      description: chapter.description,
+    };
+  }
 
   // Question pages
   if (full.startsWith('jee-physics-') || full.startsWith('jee-chemistry-') ||
