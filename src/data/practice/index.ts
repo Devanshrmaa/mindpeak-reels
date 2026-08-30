@@ -1,4 +1,4 @@
-import type { SubjectBank, ChapterData, PracticeQuestion } from './types';
+import type { SubjectBank, ChapterData, TopicData, PracticeQuestion } from './types';
 import { slugifyQuestion, deduplicateSlugs } from '../../lib/slugify';
 import { mechanicsChapters1 } from './physics-mechanics-1';
 import { mechanicsChapters2 } from './physics-mechanics-2';
@@ -24,8 +24,66 @@ import { physGravPropChapters } from './physics-grav-prop';
 import { coordinateChapters } from './maths-coordinate';
 import { trigVectorsChapters } from './maths-trig-vectors';
 
+/**
+ * Merge chapter entries that share a slug, and topics that share a slug within
+ * them.
+ *
+ * WHY THIS EXISTS: several expansion files re-declare a chapter that an earlier
+ * file already defined — physics-grav-prop re-declares Gravitation and
+ * Properties of Matter, chemistry-physical-2 re-declares Chemical
+ * Thermodynamics and Electrochemistry, maths-coordinate / maths-trig-vectors
+ * re-declare Straight Lines, Circles and Trigonometry. Each duplicate carries a
+ * DIFFERENT set of questions, so the bank ended up with two entries per slug.
+ *
+ * Every lookup here resolves a chapter with `.find()`, which returns the first
+ * match, so the second entry's questions were unreachable: 225 questions across
+ * 8 chapters, and 180 leaf slugs that `buildAllPracticeSlugs()` still emitted
+ * but `getQuestion()` resolved to null — live pages returning 200 with no
+ * question on them (verified on production 2026-08-17). Those soft-404s are
+ * exactly the thin-content pattern the March 2026 penalty punished. The
+ * duplicates also emitted the same hub URL twice into /sitemap-chapters.xml.
+ *
+ * Merging (rather than de-duplicating) is what keeps the questions: dropping
+ * the later entry would silently delete 225 real questions with worked
+ * solutions. Question slugs derive from question text, not position, so
+ * appending a merged topic's questions leaves existing indexed leaf URLs
+ * unchanged.
+ */
+function mergeChaptersBySlug(chapters: ChapterData[]): ChapterData[] {
+  const order: string[] = [];
+  const bySlug = new Map<string, ChapterData>();
+
+  const cloneTopic = (t: TopicData): TopicData => ({
+    ...t,
+    easy: [...t.easy],
+    medium: [...t.medium],
+    hard: [...t.hard],
+  });
+
+  for (const chapter of chapters) {
+    const existing = bySlug.get(chapter.slug);
+    if (!existing) {
+      order.push(chapter.slug);
+      bySlug.set(chapter.slug, { ...chapter, topics: chapter.topics.map(cloneTopic) });
+      continue;
+    }
+    for (const topic of chapter.topics) {
+      const merged = existing.topics.find((t) => t.slug === topic.slug);
+      if (merged) {
+        merged.easy.push(...topic.easy);
+        merged.medium.push(...topic.medium);
+        merged.hard.push(...topic.hard);
+      } else {
+        existing.topics.push(cloneTopic(topic));
+      }
+    }
+  }
+
+  return order.map((slug) => bySlug.get(slug)!);
+}
+
 /* ─── Combine all physics chapters ─── */
-const allPhysicsChapters: ChapterData[] = [
+const allPhysicsChapters: ChapterData[] = mergeChaptersBySlug([
   ...mechanicsChapters1,   // Units & Dimensions, Kinematics
   ...mechanicsChapters2,   // Newton's Laws, Work Energy Power
   ...mechanicsChapters3,   // Centre of Mass, Rotational Motion
@@ -37,7 +95,7 @@ const allPhysicsChapters: ChapterData[] = [
   ...fluidElasticityChapters,  // Fluid Mechanics, Elasticity
   ...satelliteKeplerChapters,  // Satellite Motion, Kepler's Laws
   ...physGravPropChapters,      // Gravitation, Properties of Fluids
-];
+]);
 
 export const physicsBank: SubjectBank = {
   subject: 'Physics',
@@ -47,13 +105,13 @@ export const physicsBank: SubjectBank = {
 };
 
 /* ─── Combine all chemistry chapters ─── */
-const allChemistryChapters: ChapterData[] = [
+const allChemistryChapters: ChapterData[] = mergeChaptersBySlug([
   ...physicalChemChapters,   // Mole Concept, Atomic Structure, etc.
   ...organicChemChapters,    // GOC, Hydrocarbons, etc.
   ...inorganicChemChapters,  // Periodic Table, Chemical Bonding, etc.
   ...thermoElectrochemChapters, // Chemical Thermodynamics, Electrochemistry
   ...organicExpansionChapters,  // Aldehydes/Ketones, Amines, Polymers
-];
+]);
 
 export const chemistryBank: SubjectBank = {
   subject: 'Chemistry',
@@ -63,7 +121,7 @@ export const chemistryBank: SubjectBank = {
 };
 
 /* ─── Combine all maths chapters ─── */
-const allMathsChapters: ChapterData[] = [
+const allMathsChapters: ChapterData[] = mergeChaptersBySlug([
   ...algebraChapters,      // Sets, Complex Numbers, Quadratics, P&C, Binomial, Matrices, Sequences
   ...calculusChapters,     // Limits, Differentiation, Integration, Differential Equations
   ...coordTrigChapters,    // Straight Lines, Circles, Conics, Trigonometry, Vectors & 3D, Probability
@@ -71,7 +129,7 @@ const allMathsChapters: ChapterData[] = [
   ...calculusExpansionChapters, // Application of Derivatives, Area Under Curves
   ...coordinateChapters,        // Coordinate Geometry
   ...trigVectorsChapters,      // Trigonometry, Vectors & 3D
-];
+]);
 
 export const mathsBank: SubjectBank = {
   subject: 'Mathematics',

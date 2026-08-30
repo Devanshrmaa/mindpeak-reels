@@ -40,7 +40,7 @@ export default function StateHubServerShell({ exam, hub }: Props) {
             <li>{m.state}</li>
           </ol>
         </nav>
-        <h1>{m.h1}</h1>
+        <h2>{m.h1}</h2>
         <p>{m.intro}</p>
         <section>
           <h2>{exam} prep built for {m.state} students</h2>
