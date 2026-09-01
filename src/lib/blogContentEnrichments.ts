@@ -1292,7 +1292,39 @@ not fresh study.`,
      Query: "is isi and jee syllabus same" (was 234 impr at pos ~2.9 before the
      year-rollover 404; now restored). Gap: ISI is maths-only with a proof paper and
      points at a research track, not engineering — not "JEE but harder". */
-  'isi-entrance-vs-jee-main-comparison': `## Is the ISI Entrance Syllabus the Same as JEE? — The Short Answer Is No
+  'isi-entrance-vs-jee-main-comparison': `## The ISI Admission Test at a Glance — What It Is and Who Runs It
+
+This page ranks in the top 3 for "isi" and "indian statistical institute", where the
+searcher wants the institute and its entrance exam rather than a JEE comparison. So the
+basics first.
+
+The **Indian Statistical Institute** is a public research institute — headquartered in
+Kolkata, with centres including Bengaluru, Delhi, Chennai and Tezpur — and an Institute of
+National Importance. Its undergraduate intake runs through the **ISI Admission Test**, for
+the **B.Stat (Hons)** and **B.Math (Hons)** degrees at Kolkata and Bengaluru respectively.
+
+| | ISI Admission Test |
+|---|---|
+| Conducted by | Indian Statistical Institute |
+| UG degrees | B.Stat (Hons) — Kolkata · B.Math (Hons) — Bengaluru |
+| Mode | Offline, pen-and-paper |
+| Papers | **UGA** (objective) and **UGB** (descriptive, proof-writing) |
+| Subject | **Mathematics only** — no Physics or Chemistry |
+| Selection | Written test **plus an interview** |
+| Typical exam window | Early May (the 2026 test was held 10 May 2026) |
+| Typical application window | February to late March |
+
+**Eligibility.** Class 12 (or equivalent) with Mathematics and English as subjects.
+Students appearing in Class 12 may apply. ISI also applies a date-of-birth cut-off that
+moves each cycle — for the 2026 test, candidates had to be born on or after 1 August 2004.
+
+Because the cycle runs February–May, the application window opens well before most
+students start thinking about it. Check **isical.ac.in** for the current notification and
+the exact marking scheme; ISI has used an unusual scheme in which unattempted questions
+score differently from wrong ones, and it is worth reading the notification rather than a
+summary — including this one.
+
+## Is the ISI Entrance Syllabus the Same as JEE? — The Short Answer Is No
 
 Students often assume the Indian Statistical Institute (ISI) admission test is "JEE but
 harder". It is not. The two exams share a 10+2 *topic list* on paper, but they test almost
@@ -1386,7 +1418,39 @@ career path, not by exam prestige.`,
      Advanced; INPhO/INMO are. Stage structure and selection numbers verified
      Aug 2026 against iapt.org.in (NSE dates/eligibility), HBCSE olympiad
      programme documentation, and JEE Advanced 2025 official result figures. */
-  'olympiad-vs-jee-advanced-comparison': `## Is NSEP Harder Than JEE Advanced? It Depends Which Stage You Mean
+  'olympiad-vs-jee-advanced-comparison': `## NSEP {Y} at a Glance — Dates, Eligibility, Registration
+
+GSC shows this page ranking in the top 3 for bare head terms — "nsep", "nsep
+registration" — where the searcher wants the exam's own details, not a JEE comparison.
+Those facts belong here, before the comparison, so the page answers what was actually
+asked. Verified against IAPT's published schedule; always confirm on **iapt.org.in**
+before you pay, since the enrolment window is short and moves each cycle.
+
+| | NSEP (Physics) | NSEC (Chemistry) | NSEB (Biology) |
+|---|---|---|---|
+| Conducted by | IAPT | IAPT | IAPT |
+| Exam date | Sun 22 Nov 2026 | Sun 22 Nov 2026 | Sun 22 Nov 2026 |
+| Time slot | 8:30–10:30 am | 11:30 am–1:30 pm | 2:30–4:30 pm |
+| Duration | 2 hours | 2 hours | 2 hours |
+
+**The three papers run back-to-back on the same day in different slots**, so one Sunday
+buys you all three attempts if you want them.
+
+**Registration for the 2026–27 cycle**
+
+- Centre registration: **1 – 20 August 2026**
+- **Student enrolment: 21 August – 14 September 2026**
+- Enrol either through a school/junior college that is a registered NSE centre, or
+  individually through the IAPT portal if your school is not one.
+
+**Eligibility.** Any student in Class 10, 11 or 12 as of 30 November 2026, born between
+1 July 2007 and 30 June 2012 (both inclusive). The syllabus is broadly the CBSE Class 12
+syllabus — which is why a JEE aspirant needs almost no separate preparation for Stage 1.
+
+**What happens after NSEP** is the part most students have not thought about, and it is
+where the JEE comparison below actually starts to matter.
+
+## Is NSEP Harder Than JEE Advanced? It Depends Which Stage You Mean
 
 Almost every answer to this question is wrong in the same way: it treats "olympiad" as
 a single exam. It is not. The Indian science olympiad is a **five-stage ladder**, and the
@@ -1582,7 +1646,37 @@ not knowledge gaps.`,
      "is comedk syllabus same as jee mains" (pos 38), which the templated body
      never answers as a direct question. Pattern verified Aug 2026 against
      COMEDK's published 2026 exam pattern and syllabus weighting. */
-  'comedk-vs-jee-advanced-comparison': `## Is COMEDK Easier Than JEE? Yes on Difficulty — No on Pace
+  'comedk-vs-jee-advanced-comparison': `## COMEDK UGET at a Glance — What It Is and What It Gets You
+
+This page ranks in the top 3 for the bare term "comedk", where the searcher wants the exam
+itself rather than a JEE comparison, so here are the basics before the comparison.
+
+**COMEDK UGET** is the Under Graduate Entrance Test run by the **Consortium of Medical,
+Engineering and Dental Colleges of Karnataka**. It is the common entrance for the
+consortium's member private engineering colleges in Karnataka — including several of the
+sought-after Bengaluru institutions — and is separate from the state's own KCET.
+
+| | COMEDK UGET |
+|---|---|
+| Conducted by | Consortium of Medical, Engineering and Dental Colleges of Karnataka |
+| Mode | Computer-based test |
+| Questions | 180 — Physics 60, Chemistry 60, Mathematics 60 |
+| Marks | 180 (1 mark per question) |
+| Duration | 3 hours |
+| Negative marking | **None** |
+| Question type | Single-correct MCQ, four options |
+| Syllabus | Class 11 + 12 PCM, CBSE-aligned — weighted roughly **33% Class 11, 67% Class 12** |
+| Typical exam window | Early-to-mid May |
+
+**What it gets you:** admission to the consortium's private engineering colleges in
+Karnataka. It is not a route to NITs or IITs — those run through JEE Main and JEE
+Advanced — so COMEDK is best treated as an additional, high-overlap option alongside JEE
+rather than a replacement for it.
+
+Confirm the current cycle's dates and syllabus on **comedk.org** before you plan around
+them; the consortium revises both between years.
+
+## Is COMEDK Easier Than JEE? Yes on Difficulty — No on Pace
 
 COMEDK UGET is genuinely easier than JEE, and easier than JEE Advanced by a wide margin. But
 the single most common mistake is reading "no negative marking" as "relaxed exam". COMEDK
