@@ -252,7 +252,13 @@ export default function BlogPostClient({ post }: { post: SerializedPost }) {
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 components={{
-                  h1: ({ children }) => <h1 className="font-display font-black text-foreground mt-4 mb-5" style={{ fontSize: 'clamp(1.7rem, 4vw, 2.4rem)' }}>{children}</h1>,
+                  // Rendered as <h2>, not <h1>: the hero above already carries
+                  // the page's <h1> (post.title), and every programmatic post
+                  // body opens with a markdown "# ..." heading. Mapping that to
+                  // <h1> gave 212 of 750 sitemap pages two <h1> elements — the
+                  // hero's, then a near-duplicate of it a screen further down.
+                  // Styling is unchanged, so this is a semantics-only fix.
+                  h1: ({ children }) => <h2 className="font-display font-black text-foreground mt-4 mb-5" style={{ fontSize: 'clamp(1.7rem, 4vw, 2.4rem)' }}>{children}</h2>,
                   h2: ({ children }) => {
                     const id = slugify(mdText(children));
                     const idx = toc.findIndex((t) => t.id === id);

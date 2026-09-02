@@ -1,9 +1,20 @@
 import type { ChapterData } from './types';
 
 /* ─── Chapter: Aldehydes, Ketones & Carboxylic Acids ─── */
+/*
+ * Slug intentionally matches the entry in chemistry-organic.ts. Both files
+ * declare this same chapter, and before 2026-09 they carried DIFFERENT slugs
+ * ('aldehydes-ketones-acids' here vs 'aldehydes-ketones-carboxylic'), which put
+ * two hub URLs with an identical <title> in the sitemap — the only duplicate
+ * title left on the site after the 2026-08 merge. mergeChaptersBySlug() folds
+ * the two entries together now, so this chapter has one URL carrying both topic
+ * sets. 'aldehydes-ketones-acids' is the surviving slug because the JEE PYQ
+ * bank already uses it (/jee-pyq-chemistry-aldehydes-ketones-acids), so
+ * practice and PYQ now agree. The retired slug is 301'd in next.config.ts.
+ */
 const aldehydesKetones: ChapterData = {
   name: 'Aldehydes, Ketones & Carboxylic Acids',
-  slug: 'aldehydes-ketones-carboxylic',
+  slug: 'aldehydes-ketones-acids',
   topics: [
     {
       name: 'Nucleophilic Addition & Named Reactions',

@@ -37,6 +37,20 @@ describe('practice bank integrity', () => {
     }
   });
 
+  /**
+   * Regression: mergeChaptersBySlug() folds entries sharing a SLUG, so a
+   * chapter declared twice under two different slugs slips through and ships
+   * two hub URLs with an identical <title>. "Aldehydes, Ketones & Carboxylic
+   * Acids" was declared as both 'aldehydes-ketones-acids' and
+   * 'aldehydes-ketones-carboxylic' — the only duplicate title left on the site
+   * after the 2026-08 merge, found in the 2026-09 production crawl.
+   */
+  it('declares each chapter name exactly once per subject', () => {
+    for (const bank of subjectBanks) {
+      expect(duplicates(bank.chapters.map((c) => c.name))).toEqual([]);
+    }
+  });
+
   it('declares each topic slug exactly once per chapter', () => {
     for (const bank of subjectBanks) {
       for (const chapter of bank.chapters) {

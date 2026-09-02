@@ -10,6 +10,7 @@ import { SEOHead } from '@/components/SEOHead';
 import { PageFooter } from '@/components/PageFooter';
 import { useDemoModal } from '@/components/DemoBookingModal';
 import { buildFAQSchemaFromQA } from '@/components/PageFAQ';
+import { assembleChapterFaqs } from '@/lib/chapterFaqs';
 import {
   CheckCircle, ArrowRight, Phone, AlertTriangle, RotateCcw,
   BookOpen, ChevronDown, GraduationCap, BarChart3, Target,
@@ -215,8 +216,10 @@ const ChapterPage = () => {
     },
   ];
 
-  // Curated enrichment FAQs come first — they are the researched, page-specific answers.
-  const allFaqs = [...(enrichment?.faqs ?? []), ...chapter.faqs, ...autoFaqs];
+  // Curated enrichment FAQs come first, then the chapter's own, then the
+  // templated ones — with same-intent and exact duplicates removed. See
+  // src/lib/chapterFaqs.ts for why both rules exist.
+  const allFaqs = assembleChapterFaqs(enrichment?.faqs ?? [], chapter.faqs, autoFaqs);
 
   const faqSchema = buildFAQSchemaFromQA(allFaqs);
 

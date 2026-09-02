@@ -129,6 +129,30 @@ const nextConfig: NextConfig = {
       /* ── Hindi locale (never existed) → strip /hi/ prefix ── */
       { source: '/hi', destination: '/', permanent: true },
       { source: '/hi/', destination: '/', permanent: true },
+
+      /*
+       * Aldehydes chapter slug unification (2026-09).
+       * chemistry-organic.ts and chemistry-organic-2.ts both declared the
+       * chapter "Aldehydes, Ketones & Carboxylic Acids" under DIFFERENT slugs,
+       * so the sitemap carried two hub URLs with an identical <title>. The two
+       * entries are now merged under 'aldehydes-ketones-acids' (the slug the
+       * JEE PYQ bank already used); these 301s keep the retired slug's hub and
+       * its 17 leaf question URLs resolving instead of 404ing.
+       */
+      {
+        source: '/jee-practice-chemistry-aldehydes-ketones-carboxylic',
+        destination: '/jee-practice-chemistry-aldehydes-ketones-acids',
+        permanent: true,
+      },
+      {
+        // The leaf question URLs are a SINGLE path segment, so this needs a
+        // regex-constrained param (`:tail(.*)`) rather than `:rest*`, which
+        // only repeats whole segments and throws "Can not repeat rest without
+        // a prefix and suffix" at build time.
+        source: '/jee-chemistry-aldehydes-ketones-carboxylic-:tail(.*)',
+        destination: '/jee-chemistry-aldehydes-ketones-acids-:tail',
+        permanent: true,
+      },
       { source: '/hi/:path*', destination: '/:path*', permanent: true },
 
       /* ── Legacy booking/session pages → free trial ── */
