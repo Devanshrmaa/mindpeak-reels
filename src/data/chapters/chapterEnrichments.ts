@@ -2415,6 +2415,77 @@ const ENRICHMENTS: Record<string, ChapterEnrichment> = {
       },
     ],
   },
+
+  /* ───────────── NEET Chemistry — GOC & Hydrocarbons ─────────────
+     The single biggest non-branded page on the site: 972 impressions in the
+     28 days to 2026-08-29, of which ~778 come from "goc full form" and its
+     variants at position ~9 with ZERO clicks. The page is 5,500 words and
+     mentions "full form" exactly once, buried in an FAQ, so a searcher asking
+     what GOC stands for gets no visible answer. The overview below therefore
+     opens with the expansion in plain words before any weightage talk.
+     Weightage figures verified Sept 2026 against published 2020–2024 NEET
+     chapter analyses; the pattern correction against NTA's 2025 change. */
+  'neet-chemistry-organic-basics': {
+    overview:
+      'GOC stands for General Organic Chemistry — the foundation block of organic chemistry covering IUPAC nomenclature, electronic effects (inductive, mesomeric, hyperconjugation), isomerism, and the stability of reaction intermediates (carbocations, carbanions, free radicals). Paired here with Hydrocarbons (alkanes, alkenes, alkynes, aromatics), it is where every other organic chapter gets its vocabulary. Published chapter analyses put this pair at roughly 6–7% of the NEET Chemistry paper — about 3–4 of its 45 questions — but that figure badly understates it, because GOC is not really a topic you are tested on once. Organic chemistry supplies roughly 17–18 of the 45 Chemistry questions, and almost every one of them silently assumes GOC: you cannot decide a reaction product without knowing which intermediate is more stable, and you cannot read the question without IUPAC naming. Treat the 3–4 "GOC questions" as the visible tip and the chapter as the entry fee for a third of the paper.',
+    examSplit: [
+      { exam: 'NEET — GOC + Hydrocarbons directly', weightage: '~6–7% of Chemistry', questions: '~3–4 per year', nature: 'IUPAC naming, isomer counting, stability ordering, hydrocarbon named reactions' },
+      { exam: 'NEET — organic overall (GOC-dependent)', weightage: '~35–40% of Chemistry', questions: '~17–18 per year', nature: 'Every organic question assumes GOC fluency; Hydrocarbons alone averages ~4.9% (2020–2024)' },
+      { exam: 'Depth needed', weightage: '—', questions: '—', nature: 'NCERT-level. NEET does not ask JEE-Advanced mechanism depth — do not over-study reaction mechanisms at the cost of nomenclature and stability' },
+    ],
+    correction:
+      'Many chapter-weightage articles still describe the Chemistry section as "50 questions, attempt 45". That pattern is gone. From NEET 2025 the NTA removed the optional Section B, so all 180 questions are compulsory — Physics 45, Chemistry 45, Botany 45, Zoology 45, for 720 marks in 180 minutes at +4 / −1. The practical consequence for a GOC-heavy revision plan is that you can no longer skip your four weakest organic questions: there is nothing optional left to drop, so breadth across the chapter now matters more than it did before 2025.',
+    studyOrder: [
+      { step: 'IUPAC nomenclature first', detail: 'Not because it carries the most marks, but because you cannot read the other questions without it. Learn the parent-chain rule, the priority order of functional groups, and numbering for lowest locants. Naming appears directly in roughly a fifth to a quarter of GOC questions and indirectly in nearly all of them.' },
+      { step: 'Electronic effects (+I/−I, +M/−M, hyperconjugation)', detail: 'These are the causes; everything downstream is an effect. Fix which groups donate and which withdraw, and by which mechanism. Almost every "arrange in order of stability / acidity / basicity" question is one of these effects applied consistently.' },
+      { step: 'Stability of intermediates', detail: 'Carbocations (3° > 2° > 1°, with resonance beating hyperconjugation), carbanions (reverse of carbocations), and free radicals. This is the step that converts electronic effects into predicted products, and it is the highest-value single idea in the chapter.' },
+      { step: 'Isomerism — structural, then stereo', detail: 'Chain, position, functional, metamerism and tautomerism first; then geometrical (cis/trans, E/Z) and optical (chirality, R/S, counting stereoisomers as 2ⁿ). Isomer-counting questions are among the most common in the chapter and are pure practice.' },
+      { step: 'Hydrocarbon reactions last', detail: 'Alkanes, alkenes, alkynes and aromatics. Only now, because Markownikoff, peroxide effect and electrophilic aromatic substitution all reduce to "which intermediate is more stable" plus "which group directs where" — the two things you just learned.' },
+    ],
+    highYield: [
+      {
+        topic: 'Stability ordering of carbocations, carbanions and free radicals',
+        detail:
+          'The most reused idea in the chapter. Carbocation stability rises with alkyl substitution (hyperconjugation) and jumps sharply with resonance — allyl and benzyl beat 3° alkyl. Carbanion stability runs the opposite way (1° > 2° > 3°) and is boosted by electron-withdrawing groups. Get this ordering automatic and a large share of organic questions across the whole paper become one-step.',
+      },
+      {
+        topic: 'IUPAC nomenclature and functional-group priority',
+        detail:
+          'Pick the parent chain containing the principal functional group, number for the lowest locant set, and cite substituents alphabetically. The recurring trap is priority order — carboxylic acid > ester > amide > nitrile > aldehyde > ketone > alcohol > amine — which decides both the suffix and the numbering direction.',
+      },
+      {
+        topic: 'Isomer counting, including stereoisomers',
+        detail:
+          'Structural isomer counting for a given molecular formula, and optical isomers via 2ⁿ for n unlike chiral centres (with meso forms subtracted where a plane of symmetry exists). These are asked as direct "how many isomers" questions and reward practice rather than theory.',
+      },
+      {
+        topic: 'Markownikoff, anti-Markownikoff and directing effects',
+        detail:
+          'HBr adds Markownikoff (H to the carbon already carrying more H) because it goes through the more stable carbocation; add peroxide and the free-radical route flips it — and only for HBr, not HCl or HI. In aromatics, −OH/−NH₂/alkyl are o,p-directing activators while −NO₂/−CN/−COOH are m-directing deactivators. Both rules are stability arguments wearing different clothes.',
+      },
+    ],
+    traps: [
+      'Ranking carbanion stability the same way as carbocation stability. They run in opposite directions: alkyl groups stabilise a carbocation and destabilise a carbanion, so 3° is the most stable cation but the least stable anion.',
+      'Applying the peroxide (anti-Markownikoff) effect to HCl or HI. It works only for HBr — the H–Cl bond is too strong and the H–I bond too weak for the radical chain to propagate. Questions test this exception directly.',
+      'Getting the IUPAC numbering direction from the substituents instead of the principal functional group. The functional group with the highest priority fixes the suffix and gets the lowest locant; substituent positions are settled afterwards.',
+      'Counting optical isomers as 2ⁿ without checking for meso forms. A molecule with a plane of symmetry has fewer stereoisomers than the formula predicts — the classic tartaric-acid case.',
+      'Treating hyperconjugation and resonance as interchangeable. Resonance is the stronger stabilising effect; when a question pits an allyl or benzyl system against a 3° alkyl one, resonance wins.',
+    ],
+    faqs: [
+      {
+        q: 'How many questions come from GOC and Hydrocarbons in NEET?',
+        a: 'Directly, about 3–4 questions a year — roughly 6–7% of the 45-question Chemistry paper, with Hydrocarbons alone averaging close to 4.9% across the 2020–2024 papers. That number understates the chapter badly, though: organic chemistry supplies about 17–18 of the 45 Chemistry questions, and essentially all of them assume GOC fluency for nomenclature, electronic effects and intermediate stability.',
+      },
+      {
+        q: 'Is GOC hard for NEET?',
+        a: 'It is rated hard mainly because it is cumulative rather than because any single idea is difficult. Nomenclature, electronic effects, intermediate stability and isomerism each build on the previous one, so a gap early on breaks everything downstream and the chapter feels impossible. Studied in that order it is one of the highest marks-per-hour chapters in organic chemistry, because the same few ideas keep reappearing.',
+      },
+      {
+        q: 'How much of the NEET Chemistry paper is organic chemistry?',
+        a: 'Roughly 35–40% — about 17–18 of the 45 questions, spread across GOC, Hydrocarbons, Haloalkanes, Alcohols/Phenols/Ethers, Aldehydes/Ketones/Carboxylic Acids, Amines and Biomolecules. Since NEET 2025 removed the optional Section B, all of those questions are compulsory, so weak spots in organic can no longer be skipped.',
+      },
+    ],
+  },
 };
 
 /** Returns the curated enrichment for a chapter slug, or undefined if none exists. */
