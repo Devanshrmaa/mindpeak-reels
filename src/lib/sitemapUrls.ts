@@ -55,7 +55,7 @@ export const BASE = 'https://mindpeakinstitute.com';
  * pages from soft 404s into real question pages. Same URL count, materially
  * different content — exactly the case the fingerprint cannot detect.
  */
-export const CONTENT_ANCHOR = '2026-08-29';
+export const CONTENT_ANCHOR = '2026-09-06';
 
 /**
  * Deterministic, STABLE lastmod: CONTENT_ANCHOR minus a slug-hashed 0–27 day
