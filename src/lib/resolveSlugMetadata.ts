@@ -4,7 +4,7 @@
  */
 
 import { CHAPTER_SLUGS, TOPIC_PATHS } from '@/data/chapterData';
-import { pickTitle } from '@/lib/titleFit';
+import { pickTitle, pickDescription } from '@/lib/titleFit';
 import { FORMULA_SLUGS } from '@/data/formulaSheetData';
 import { parseSubjectCitySlug, buildSubjectCityPage } from '@/data/subjectCityData';
 
@@ -296,10 +296,40 @@ function _resolve(slugSegments: string[]): Metadata {
             `${ch.chapter} — ${ch.exam} ${YEAR}`,
           ])
         : slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+      /*
+       * Descriptions lead with the CONCRETE, COUNTED deliverables rather than
+       * the old "Master X. Topic-wise notes, N+ formulas, PYQs from last 10
+       * years & 100+ free MCQs. Start now." — which shipped near-identically
+       * on all ~149 chapter pages.
+       *
+       * This is a CTR fix, not a ranking one, and the benchmark is on-site.
+       * In the 28 days to 2026-09-05 the chapter pages earned huge impressions
+       * at near-zero CTR despite good positions — /neet-chemistry-organic-basics
+       * 3,052 impressions at 0.39% (pos 9.7), /jee-physics-rotational-motion
+       * 1,009 at 0.30% (pos 7.6), /jee-maths-complex-numbers 762 at 0.13%.
+       * Meanwhile the pages that DO convert promise something specific the
+       * snippet cannot show: /blog/ap-eamcet-syllabus-complete-guide 2.48%
+       * ("the 20 chapters that decide 70% of your rank"), /jee-chemistry-formulas
+       * 4.86% at position 10.1 ("Free PDF Download").
+       *
+       * So: name the weightage, count the formulas, count the solved PYQs, and
+       * point at the mistakes section. Every number comes from the chapter's
+       * own data, so nothing here overpromises.
+       */
+      /*
+       * Candidates trim FILLER before they trim the chapter name — the name is
+       * the keyword ("goc" is what /neet-chemistry-organic-basics ranks for),
+       * so dropping it to save characters would cut the most valuable part.
+       */
       const desc = ch
-        ? `Master ${ch.chapter} (${ch.exam} ${ch.subject}). Topic-wise notes, ${ch.keyFormulas.length}+ formulas, PYQs from last 10 years & 100+ free MCQs. Start now.`
+        ? pickDescription([
+            `${ch.chapter} is ${ch.weightage} of ${ch.exam} ${ch.subject}. Weightage breakdown, ${ch.keyFormulas.length} key formulas, ${ch.pyqCount} solved PYQs and the ${ch.commonMistakes.length} mistakes that cost marks.`,
+            `${ch.chapter}: ${ch.weightage} of ${ch.exam} ${ch.subject}. ${ch.keyFormulas.length} key formulas, ${ch.pyqCount} solved PYQs and the ${ch.commonMistakes.length} mistakes that cost marks.`,
+            `${ch.chapter}: ${ch.weightage} of ${ch.exam} ${ch.subject}. ${ch.keyFormulas.length} formulas, ${ch.pyqCount} solved PYQs, common mistakes.`,
+            `${ch.weightage} of ${ch.exam} ${ch.subject}. ${ch.keyFormulas.length} key formulas, ${ch.pyqCount} solved PYQs and the ${ch.commonMistakes.length} mistakes that cost marks.`,
+          ])
         : `Study this chapter with notes, formulas, PYQs & practice MCQs. Free resources by MindPeak.`;
-      return { title, description: desc.slice(0, 160), alternates: { canonical }, openGraph: { ...og, url: canonical } };
+      return { title, description: desc, alternates: { canonical }, openGraph: { ...og, url: canonical } };
     }
 
     /* ─── Topic Pages ─── */
