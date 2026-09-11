@@ -32,10 +32,34 @@ export function pickTitle(candidates: string[], max: number = TITLE_MAX): string
     if (c.length <= max) return c;
   }
   const last = candidates[candidates.length - 1] ?? '';
-  if (last.length <= max) return last;
-  // Trim trailing separators/partial words so we never emit "… — …".
-  const cut = last.slice(0, max - 1).replace(/[\s—–-]+$/, '');
-  return `${cut}…`;
+  return clampDescription(last, max);
+}
+
+/**
+ * Word-safe clamp for a single description string.
+ *
+ * The crawl of 2026-09-11 found 170 of 749 indexable URLs shipping a meta
+ * description cut mid-word by a bare `.slice(0, 155)` / `.slice(0, 160)` —
+ * 27% of the site's impressions, including the highest-impression page on
+ * the site, whose hand-written snippet ended "…compared with real numbe".
+ * A snippet that stops mid-word reads as a broken page in the SERP, and
+ * those pages converted at 0.56% against the site's 0.95%.
+ *
+ * So: retreat to the last word boundary, drop any separator left dangling
+ * at the cut, and mark the truncation with an ellipsis. Text already within
+ * budget is returned untouched — no ellipsis, no trailing-space surprises.
+ */
+export function clampDescription(text: string, max: number = DESCRIPTION_MAX): string {
+  const s = String(text ?? '').trim();
+  if (s.length <= max) return s;
+  // Reserve the last character for the ellipsis.
+  const room = max - 1;
+  let cut = s.slice(0, room);
+  // A non-space at the first dropped index means the cut landed inside a word.
+  if (/\S/.test(s.charAt(room))) cut = cut.replace(/\s+\S*$/, '');
+  cut = cut.replace(/[\s,;:—–-]+$/, '');
+  // Degenerate input (a single token longer than the budget) keeps the hard cut.
+  return cut ? `${cut}…` : s.slice(0, max);
 }
 
 /**

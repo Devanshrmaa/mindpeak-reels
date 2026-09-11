@@ -1,5 +1,6 @@
 import { getSEOPage } from '@/data/seoPageData';
 import { resolveOgImage } from '@/lib/ogImage';
+import { clampDescription } from '@/lib/titleFit';
 import type { Metadata } from 'next';
 
 const BASE = 'https://mindpeakinstitute.com';
@@ -15,7 +16,7 @@ export function buildSEOLandingMetadata(slug: string): Metadata {
   }
   const url = `${BASE}/${slug}`;
   const ogImage = resolveOgImage(slug);
-  const desc = page.description.slice(0, 155);
+  const desc = clampDescription(page.description);
 
   return {
     title: page.title,

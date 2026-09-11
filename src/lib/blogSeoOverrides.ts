@@ -29,7 +29,8 @@ const OVERRIDES: Record<string, BlogSeoOverride> = {
     description: `Yes — KCET is much easier than JEE Advanced. Syllabus overlap, marking scheme and difficulty compared side by side, plus a prep plan that covers both.`,
   },
   'cuet-vs-jee-main-comparison': {
-    title: `Is CUET Easier Than JEE Main? CUET vs JEE {Y} — Full Comparison`,
+    // "— Full Comparison" pushed this to 64 chars; Google cut the tail.
+    title: `Is CUET Easier Than JEE Main? CUET vs JEE {Y} Compared`,
     description: `CUET is easier than JEE Main, but they unlock different colleges. See difficulty and syllabus overlap compared, plus how to decide which exam fits you.`,
   },
   'cuet-vs-jee-advanced-comparison': {
@@ -37,7 +38,9 @@ const OVERRIDES: Record<string, BlogSeoOverride> = {
     description: `JEE Advanced is in a different league from CUET. See how big the gap really is — syllabus, question depth, time pressure — and which path fits your goal.`,
   },
   'bitsat-vs-jee-main-comparison': {
-    title: `BITSAT vs JEE Main {Y} — Overlap, Difficulty & Which Is Easier`,
+    // 63 chars before the trim. The page does not claim BITSAT is simply
+    // easier (it trades depth for speed), so this keeps the comparison framing.
+    title: `BITSAT vs JEE Main {Y} — Syllabus Overlap & Difficulty`,
     description: `BITSAT trades JEE Main's depth for speed — 130 questions in 3 hours. See syllabus overlap, difficulty and how to prepare for both with one plan.`,
   },
   'ap-eamcet-syllabus-complete-guide': {
@@ -103,6 +106,29 @@ const OVERRIDES: Record<string, BlogSeoOverride> = {
     // "ISI Entrance vs JEE Main" — no question phrasing, no answer.
     title: `Is the ISI Entrance Harder Than JEE? ISI vs JEE {Y}`,
     description: `ISI is maths-only with a proof-based paper and an interview — a different exam, not a harder JEE. Syllabus, pattern and who should actually target it.`,
+  },
+  /* ── 2026-09-11 GSC batch: two comparison posts ranking top-10 on clear
+     question clusters while the templated title was cut mid-word by the
+     " | MindPeak Institute" suffix. Both verdicts below are the page's own
+     stated conclusion — see the "Quick answer" block on each post. ── */
+  'ap-eamcet-vs-jee-main-comparison': {
+    // 1,056 imps / 4 clicks / pos 6.6 in 28d. Query cluster: "is eamcet
+    // easier than jee mains" (19), "difference between eamcet and jee mains"
+    // (16), "is jee mains and eamcet same syllabus" (16), "is eamcet harder
+    // than jee" (12). The templated title ran to 82 chars and displayed as
+    // "…Which Is Harder? Full Compariso".
+    title: `Is AP EAMCET Easier Than JEE Main? EAMCET vs JEE {Y}`,
+    description: `Slightly easier than JEE Main on question difficulty — but Maths is 50% of the paper, 80 of 160 questions. The 80% syllabus overlap and what sits outside it.`,
+  },
+  'mht-cet-vs-neet-comparison': {
+    // 689 imps / ZERO clicks / pos 7.0 in 28d. The cluster is mostly
+    // "difference" phrasings — "neet and cet difference" (9), "cet and neet
+    // difference" (8), "difference between neet and mht cet" (6), "neet vs
+    // cet" (7) — with "is mht cet easy than neet" (11) behind them, so the
+    // title leads with what differs rather than with a harder/easier verdict
+    // the page deliberately does not give.
+    title: `MHT-CET vs NEET {Y} — 75% Same Syllabus, What Differs`,
+    description: `Three quarters of the syllabus is shared. What actually differs: MHT-CET carries no negative marking, NEET penalises −1, and the papers reward different skills.`,
   },
   'mht-cet-vs-jee-advanced-comparison': {
     // 3 imps/28d at pos ~44, all syllabus-overlap phrasings: "is jee and mht
