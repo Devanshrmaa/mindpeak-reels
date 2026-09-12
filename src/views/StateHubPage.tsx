@@ -32,6 +32,7 @@ import {
   Compass,
   Link2,
 } from "lucide-react";
+import { clampDescription } from '@/lib/titleFit';
 
 export default function StateHubPage() {
   const pathname = usePathname();
@@ -48,7 +49,9 @@ export default function StateHubPage() {
   const title = exam === "JEE" && parsed.hub.stateExamName
     ? `Best JEE Coaching in ${state} ${CURRENT_EXAM_YEAR} — ${parsed.hub.stateExamName} + JEE 1-on-1 | MindPeak`
     : `Best ${exam} Coaching in ${state} ${CURRENT_EXAM_YEAR} — 1-on-1 Online | MindPeak`;
-  const description = `1-on-1 online ${exam} coaching for ${state} students. ${m.board} to ${m.examFull} bridge, ${m.examRoute} integrated. Book a free demo.`.slice(0, 160);
+  const description = clampDescription(
+    `1-on-1 online ${exam} coaching for ${state} students. ${m.board} to ${m.examFull} bridge, ${m.examRoute} integrated. Book a free demo.`,
+  );
 
   return (
     <>

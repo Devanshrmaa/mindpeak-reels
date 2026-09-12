@@ -23,8 +23,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ogImage = "https://mindpeakinstitute.com/images/og/coaching.jpg";
   const { getBlogSeoOverride } = await import("@/lib/blogSeoOverrides");
   const override = getBlogSeoOverride(post.slug);
-  const title = override ? override.title : `${post.title} | MindPeak Institute`;
-  const desc = (override?.description ?? post.excerpt).slice(0, 155);
+  const { clampDescription, TITLE_MAX } = await import("@/lib/titleFit");
+  // The brand suffix costs 20 of the ~60 characters Google shows. On a post
+  // whose own title already fills the budget it bought nothing and pushed the
+  // content out of the SERP: /blog/ap-eamcet-vs-jee-main-comparison-2027 was
+  // displaying "…Which Is Harder? Full Compariso". Keep the suffix only when
+  // the whole title still fits.
+  const branded = `${post.title} | MindPeak Institute`;
+  const title = override
+    ? override.title
+    : branded.length <= TITLE_MAX
+      ? branded
+      : post.title;
+  // Word-safe, and at Google's real 160-char limit rather than 155 — the
+  // 155 budget was clipping hand-written overrides by a word or two (the
+  // olympiad post's snippet ended "…compared with real numbe").
+  const desc = clampDescription(override?.description ?? post.excerpt);
   const { isIndexableBlogSlug } = await import("@/lib/indexableBlogSlugs");
   const indexable = isIndexableBlogSlug(post.slug);
   return {

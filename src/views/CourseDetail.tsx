@@ -12,6 +12,7 @@ import { NCERTDownloadModal } from '@/components/NCERTDownloadModal';
 import { StudyPlanSection } from '@/components/StudyPlanSection';
 import { SEOHead } from '@/components/SEOHead';
 import Image from 'next/image';
+import { clampDescription } from '@/lib/titleFit';
 const logo = '/images/logo.jpeg';
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -155,7 +156,7 @@ const CourseDetail = () => {
     <>
       <SEOHead
         title={`${course.name} — MindPeak Institute`}
-        description={course.description.slice(0, 160)}
+        description={clampDescription(course.description)}
         canonical={`https://mindpeakinstitute.com/course/${course.slug}`}
         jsonLd={jsonLd}
       />

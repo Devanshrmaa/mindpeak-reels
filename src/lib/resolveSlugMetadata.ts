@@ -4,7 +4,7 @@
  */
 
 import { CHAPTER_SLUGS, TOPIC_PATHS } from '@/data/chapterData';
-import { pickTitle, pickDescription } from '@/lib/titleFit';
+import { pickTitle, pickDescription, clampDescription } from '@/lib/titleFit';
 import { FORMULA_SLUGS } from '@/data/formulaSheetData';
 import { parseSubjectCitySlug, buildSubjectCityPage } from '@/data/subjectCityData';
 
@@ -170,8 +170,7 @@ function _resolve(slugSegments: string[]): Metadata {
     const title = isJEE && hub.stateExamName
       ? `Best JEE Coaching in ${hub.state} ${YEAR} — ${hub.stateExamName} + JEE 1-on-1 | MindPeak`
       : `Best ${exam} Coaching in ${hub.state} ${YEAR} — 1-on-1 Online | MindPeak`;
-    const clampWord = (s: string) => (s.length <= 160 ? s : s.slice(0, 160).replace(/\s+\S*$/, ''));
-    const description = clampWord(
+    const description = clampDescription(
       isJEE
         ? hub.stateExamName
           ? `1-on-1 online JEE coaching for ${hub.state} students. ${hub.stateExamName} + JEE Main in one plan, ${boardShort} to JEE bridge, targeting ${colleges}. Free demo.`
@@ -219,7 +218,7 @@ function _resolve(slugSegments: string[]): Metadata {
   if (examInfo) {
     return {
       title: examInfo.title,
-      description: examInfo.description.slice(0, 160),
+      description: clampDescription(examInfo.description),
       alternates: { canonical },
       openGraph: { ...og, url: canonical, title: examInfo.title },
     };
@@ -231,7 +230,7 @@ function _resolve(slugSegments: string[]): Metadata {
     const title = `Difference Between ${diffPair.term1} and ${diffPair.term2} — ${diffPair.subject} (${examLabel}) | MindPeak`;
     return {
       title,
-      description: diffPair.intro.slice(0, 160),
+      description: clampDescription(diffPair.intro),
       alternates: { canonical },
       openGraph: { ...og, url: canonical, title },
     };
@@ -241,7 +240,7 @@ function _resolve(slugSegments: string[]): Metadata {
   if (counselling) {
     return {
       title: counselling.title,
-      description: counselling.description.slice(0, 160),
+      description: clampDescription(counselling.description),
       alternates: { canonical },
       openGraph: { ...og, url: canonical, title: counselling.title },
     };
@@ -253,7 +252,7 @@ function _resolve(slugSegments: string[]): Metadata {
     const title = `${exam} ${subj} Important Questions ${YEAR} — Chapter-wise with Solutions | MindPeak`;
     return {
       title,
-      description: `Most important ${exam} ${subj} questions for ${YEAR}, selected chapter-wise from PYQ trends. Free practice with step-by-step solutions.`.slice(0, 160),
+      description: clampDescription(`Most important ${exam} ${subj} questions for ${YEAR}, selected chapter-wise from PYQ trends. Free practice with step-by-step solutions.`),
       alternates: { canonical },
       openGraph: { ...og, url: canonical, title },
     };
@@ -264,7 +263,7 @@ function _resolve(slugSegments: string[]): Metadata {
     const title = `${exam} Mock Test Strategy — How to Analyze & Improve Scores | MindPeak`;
     return {
       title,
-      description: `Master ${exam} mock test strategy. Learn how to analyze mistakes, manage time, and improve scores. Expert tips from MindPeak mentors.`.slice(0, 160),
+      description: clampDescription(`Master ${exam} mock test strategy. Learn how to analyze mistakes, manage time, and improve scores. Expert tips from MindPeak mentors.`),
       alternates: { canonical },
       openGraph: { ...og, url: canonical, title },
     };
@@ -339,7 +338,7 @@ function _resolve(slugSegments: string[]): Metadata {
       if (info) {
         return {
           title: `${info.topicName} (${info.chapter.exam} ${YEAR}) — Key Formulas, Mistakes & MCQs`,
-          description: `Learn ${info.topicName} for ${info.chapter.exam} ${info.chapter.subject} ${YEAR}. Key concepts, must-know formulas, common mistakes & free practice MCQs.`.slice(0, 160),
+          description: clampDescription(`Learn ${info.topicName} for ${info.chapter.exam} ${info.chapter.subject} ${YEAR}. Key concepts, must-know formulas, common mistakes & free practice MCQs.`),
           alternates: { canonical },
           openGraph: { ...og, url: canonical },
         };
@@ -367,7 +366,7 @@ function _resolve(slugSegments: string[]): Metadata {
           `${exam} ${subj} Formulas ${YEAR} — Free PDF`,
           `${exam} ${subj} Formula Sheet PDF`,
         ]),
-        description: `Download ${exam} ${subj} formula sheet ${YEAR}. All important formulas in one PDF — quick revision for exam day. 100% free.`.slice(0, 160),
+        description: clampDescription(`Download ${exam} ${subj} formula sheet ${YEAR}. All important formulas in one PDF — quick revision for exam day. 100% free.`),
         alternates: { canonical },
         openGraph: { ...og, url: canonical },
       };
@@ -384,7 +383,7 @@ function _resolve(slugSegments: string[]): Metadata {
       const title = page.title.includes(String(YEAR)) ? page.title : `${page.title} ${YEAR}`;
       return {
         title,
-        description: page.description.slice(0, 160),
+        description: clampDescription(page.description),
         alternates: { canonical },
         openGraph: { ...og, url: canonical },
       };
@@ -427,7 +426,7 @@ function resolveQuestionHubMetadata(
           `${ch.name} — ${n} JEE ${bank.subject} Practice Questions with Solutions`,
           `${ch.name} JEE ${bank.subject} Practice Questions | MindPeak`,
         ]),
-        description: `Practise ${n} JEE ${bank.subject} MCQs on ${ch.name}, sorted easy to hard across ${ch.topics.length} topics. Every question has a worked solution. Free.`.slice(0, 160),
+        description: clampDescription(`Practise ${n} JEE ${bank.subject} MCQs on ${ch.name}, sorted easy to hard across ${ch.topics.length} topics. Every question has a worked solution. Free.`),
         alternates: { canonical },
         openGraph: { ...og, url: canonical },
       };
@@ -445,7 +444,7 @@ function resolveQuestionHubMetadata(
           `${ch.name} — ${n} JEE ${bank.subject} Previous Year Questions Solved`,
           `${ch.name} JEE ${bank.subject} PYQs with Solutions | MindPeak`,
         ]),
-        description: `All ${n} previous-year JEE ${bank.subject} questions on ${ch.name}, each with a step-by-step solution and the year it appeared. Free to practise.`.slice(0, 160),
+        description: clampDescription(`All ${n} previous-year JEE ${bank.subject} questions on ${ch.name}, each with a step-by-step solution and the year it appeared. Free to practise.`),
         alternates: { canonical },
         openGraph: { ...og, url: canonical },
       };
@@ -473,7 +472,7 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
       const examType = q?.exam === 'advanced' ? 'Advanced' : 'Main';
       return {
         title: `JEE ${examType} ${q?.year ?? ''} ${subj} PYQ: ${chName} Q${params.questionIndex} — Solution & Explanation`,
-        description: `Solve JEE ${examType} ${q?.year ?? ''} ${subj} PYQ on ${chName}. Instant answer + step-by-step solution. Practice 10+ years of JEE PYQs free.`.slice(0, 160),
+        description: clampDescription(`Solve JEE ${examType} ${q?.year ?? ''} ${subj} PYQ on ${chName}. Instant answer + step-by-step solution. Practice 10+ years of JEE PYQs free.`),
         alternates: { canonical },
         openGraph: { ...og, url: canonical },
         // No `<meta robots>`: these question pages are ISR-cached and served
@@ -498,7 +497,7 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
             `NEET ${subj} Class ${hubInfo.classLevel} PYQs — Chapter-wise`,
             `NEET ${subj} Class ${hubInfo.classLevel} PYQs`,
           ]),
-          description: `All NEET ${subj} Class ${hubInfo.classLevel} PYQs (last 10 years). Unit-wise & chapter-wise with solutions. Solve free.`.slice(0, 160),
+          description: clampDescription(`All NEET ${subj} Class ${hubInfo.classLevel} PYQs (last 10 years). Unit-wise & chapter-wise with solutions. Solve free.`),
           alternates: { canonical },
           openGraph: { ...og, url: canonical },
         };
@@ -513,7 +512,7 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
             `${unitName} — NEET ${subj} PYQs`,
             `${unitName} — NEET PYQs`,
           ]),
-          description: `Solve NEET ${subj} PYQs from ${unitName}. Chapter-wise questions with NCERT-based solutions. 100% free.`.slice(0, 160),
+          description: clampDescription(`Solve NEET ${subj} PYQs from ${unitName}. Chapter-wise questions with NCERT-based solutions. 100% free.`),
           alternates: { canonical },
           openGraph: { ...og, url: canonical },
         };
@@ -530,7 +529,7 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
             `${chName} — NEET ${subj} PYQs`,
             `${chName} — NEET PYQs`,
           ]),
-          description: `Solve ${ch?.questions.length ?? '20'}+ NEET ${subj} PYQs on ${chName}. Year-wise questions with detailed NCERT solutions. Start now.`.slice(0, 160),
+          description: clampDescription(`Solve ${ch?.questions.length ?? '20'}+ NEET ${subj} PYQs on ${chName}. Year-wise questions with detailed NCERT solutions. Start now.`),
           alternates: { canonical },
           openGraph: { ...og, url: canonical },
         };
@@ -546,7 +545,7 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
       const chName = ch?.name ?? params.chapter;
       return {
         title: `NEET ${q?.year ?? ''} ${subj} PYQ: ${chName} Q${params.questionIndex} — Solution & Explanation`,
-        description: `Solve NEET ${q?.year ?? ''} ${subj} question on ${chName}. Instant answer + NCERT-based solution. Practice 10+ years of NEET PYQs free.`.slice(0, 160),
+        description: clampDescription(`Solve NEET ${q?.year ?? ''} ${subj} question on ${chName}. Instant answer + NCERT-based solution. Practice 10+ years of NEET PYQs free.`),
         alternates: { canonical },
         openGraph: { ...og, url: canonical },
         // No `<meta robots>`: these question pages are ISR-cached and served
@@ -570,7 +569,7 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
       const diff = diffLabel(params.difficulty);
       return {
         title: `JEE ${subj} MCQ: ${topicName} [${diff}] — Solve & Check Answer`,
-        description: `Solve this ${diff} JEE ${subj} MCQ on ${topicName}. Instant answer reveal + step-by-step solution. 500+ free practice questions.`.slice(0, 160),
+        description: clampDescription(`Solve this ${diff} JEE ${subj} MCQ on ${topicName}. Instant answer reveal + step-by-step solution. 500+ free practice questions.`),
         alternates: { canonical },
         openGraph: { ...og, url: canonical },
         // No `<meta robots>`: these question pages are ISR-cached and served
@@ -594,7 +593,7 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
       const diff = diffLabel(params.difficulty);
       return {
         title: `NEET ${subj} MCQ: ${topicName} [${diff}] — Solve & Check Answer`,
-        description: `Solve this ${diff} NEET ${subj} MCQ on ${topicName}. Instant answer + step-by-step solution. 500+ free practice questions.`.slice(0, 160),
+        description: clampDescription(`Solve this ${diff} NEET ${subj} MCQ on ${topicName}. Instant answer + step-by-step solution. 500+ free practice questions.`),
         alternates: { canonical },
         openGraph: { ...og, url: canonical },
         // No `<meta robots>`: these question pages are ISR-cached and served
@@ -613,7 +612,7 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
     const exam = slug.includes('neet') ? 'NEET' : 'JEE';
     return {
       title: `Best ${exam} Coaching in ${page.title.split('in ').pop()} ${YEAR} — 1-on-1 Online | Free Demo`,
-      description: `Top-rated ${exam} coaching in ${page.title.split('in ').pop()} — online 1-on-1 with expert mentors. Book free demo class today.`.slice(0, 160),
+      description: clampDescription(`Top-rated ${exam} coaching in ${page.title.split('in ').pop()} — online 1-on-1 with expert mentors. Book free demo class today.`),
       // Self-canonical: withHreflang() overrides alternates.canonical with
       // the page's own URL anyway (verified live), and noindex + cross-page
       // canonical is a conflicting signal pair Google ignores. Declare what
@@ -630,7 +629,7 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
     const guide = buildStudyGuide(studyGuideInfo);
     return {
       title: `How to Study ${guide.topicName} for ${guide.exam} ${YEAR} — Complete Guide`,
-      description: `Learn how to study ${guide.topicName} for ${guide.exam} ${guide.subject}. Step-by-step plan, resources, PYQs & common mistakes.`.slice(0, 160),
+      description: clampDescription(`Learn how to study ${guide.topicName} for ${guide.exam} ${guide.subject}. Step-by-step plan, resources, PYQs & common mistakes.`),
       alternates: { canonical },
       openGraph: { ...og, url: canonical },
       robots: { index: false, follow: true },
@@ -706,7 +705,7 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
     const exam = examFromSlug(slug);
     return {
       title: `Best ${exam} Coaching in ${city} ${YEAR} — 1-on-1 Online | Free Demo`,
-      description: `Top-rated ${exam} coaching in ${city} — personal mentors, adaptive study plans. Book free demo today.`.slice(0, 160),
+      description: clampDescription(`Top-rated ${exam} coaching in ${city} — personal mentors, adaptive study plans. Book free demo today.`),
       // Self-canonical: withHreflang() overrides alternates.canonical with the
       // page's own URL anyway (verified live).
       alternates: { canonical },
@@ -717,7 +716,7 @@ function resolveQuestionMetadata(slug: string, canonical: string, og: ReturnType
   // Fallback — noindex to prevent any unknown slug from being indexed
   return {
     title: `${prettyName} ${YEAR} | MindPeak Institute`,
-    description: `${prettyName} — Personalized JEE & NEET coaching. Expert mentors, adaptive curriculum, free demo class.`.slice(0, 160),
+    description: clampDescription(`${prettyName} — Personalized JEE & NEET coaching. Expert mentors, adaptive curriculum, free demo class.`),
     alternates: { canonical },
     openGraph: { ...og, url: canonical },
     robots: { index: false, follow: true },
