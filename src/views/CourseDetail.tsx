@@ -353,7 +353,7 @@ const CourseDetail = () => {
                   <span className="h-px w-6 bg-primary/30" />
                   <span className="text-[11px] uppercase tracking-[0.3em] text-primary/60 font-medium">Results</span>
                 </div>
-                <h2 className="font-display font-semibold text-foreground text-lg mb-8 tracking-[-0.01em]">Our Results Speak</h2>
+                <h2 className="font-display font-semibold text-foreground text-lg mb-8 tracking-[-0.01em]">Published Results</h2>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                   {course.results.map((r, i) => (
                     <motion.div

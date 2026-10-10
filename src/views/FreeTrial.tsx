@@ -34,8 +34,8 @@ const trialBenefits = [
 ];
 
 const trustBadges = [
-  { value: '500+', label: 'Students Mentored' },
-  { value: '95%', label: 'Success Rate' },
+  { value: '1-on-1', label: 'Live Demo Class' },
+  { value: 'JEE & NEET', label: 'Any Subject' },
   { value: '₹0', label: 'Trial Cost' },
   { value: '0', label: 'Commitment Required' },
 ];

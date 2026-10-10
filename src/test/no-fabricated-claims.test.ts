@@ -180,3 +180,124 @@ describe("no fabricated review markup", () => {
     expect(src.includes("testimonials: [")).toBe(false);
   });
 });
+
+/* ═══════════════════════════════════════════════════════════════════════
+ * PART 3 — claim *classes*, over everything a Next.js route can render.
+ *
+ * Why this exists (2026-10-10): PART 2 is a blocklist of the exact strings
+ * the last audit found — AIR 42/89/156, six invented names — so the same
+ * claims kept shipping in other words. A crawl of production found, on
+ * indexed pages:
+ *   • eight "Verified … Student Outcomes" sections opening "Every result
+ *     below is verified from official NTA scorecards with student consent",
+ *     followed by invented ranks (AIR 412 recurred on four pages) and
+ *     invented case studies attributed to real, named faculty;
+ *   • ~25 sentences where an earlier cleanup had find-and-replaced the rank
+ *     numbers with the words "a strong rank" — removing the number the
+ *     blocklist checked for while keeping the claim ("our a strong rank
+ *     result speaks for itself");
+ *   • a city stats panel that seeded a different "Avg. Marks Improvement" per
+ *     city from a hash of its slug, beside "95%" / "Selection Rate" as two
+ *     separate strings, which PART 2's success-rate regex could never see;
+ *   • templated fake testimonials on every chapter page and every city page.
+ *
+ * So these rules describe the claim, not the instance. They run over the
+ * import graph reachable from app/ — i.e. exactly what ships. The Vite-only
+ * tree (index.html → src/main.tsx → src/views/Index.tsx) still holds old
+ * claims but is not served by Next.js; if any of it is imported into a route
+ * it becomes reachable and these tests fail.
+ *
+ * As with the rest of this file: if real, published, consented results ever
+ * exist, relax the specific rule in the same commit that adds the proof.
+ * ═══════════════════════════════════════════════════════════════════════ */
+
+const ROOT = resolve(__dirname, "../..");
+
+function servedFiles(): string[] {
+  const all = new Set(REPO_FILES.map((f) => resolve(ROOT, f)));
+  const exts = [".ts", ".tsx", ".js", ".mjs"];
+  const resolveSpec = (from: string, spec: string): string | null => {
+    let base: string;
+    if (spec.startsWith("@/")) base = resolve(ROOT, "src", spec.slice(2));
+    else if (spec.startsWith(".")) base = resolve(from, "..", spec);
+    else return null;
+    for (const c of [base, ...exts.map((e) => base + e), ...exts.map((e) => resolve(base, "index" + e))]) {
+      if (all.has(c)) return c;
+    }
+    return null;
+  };
+  const importRe = /(?:import|export)\s[^'"]*?from\s*['"]([^'"]+)['"]|import\(\s*['"]([^'"]+)['"]\s*\)|require\(\s*['"]([^'"]+)['"]\s*\)/g;
+  const seen = new Set<string>();
+  const stack = [...all].filter((f) => f.startsWith(resolve(ROOT, "app") + "/"));
+  for (const extra of ["proxy.ts", "middleware.ts", "instrumentation.ts"]) {
+    const p = resolve(ROOT, extra);
+    try { readFileSync(p); stack.push(p); all.add(p); } catch { /* absent */ }
+  }
+  while (stack.length) {
+    const f = stack.pop()!;
+    if (seen.has(f)) continue;
+    seen.add(f);
+    const src = readFileSync(f, "utf8");
+    for (const m of src.matchAll(importRe)) {
+      const dep = resolveSpec(f, m[1] || m[2] || m[3]);
+      if (dep && !seen.has(dep)) stack.push(dep);
+    }
+  }
+  return [...seen]
+    .map((f) => f.slice(ROOT.length + 1))
+    .filter((f) => !EXCLUDED_PATHS.test(f));
+}
+
+const SERVED_BANNED: { label: string; re: RegExp; mindpeakOnly?: boolean }[] = [
+  { label: "claim that results are verified", re: /verified from (official )?(NTA|JoSAA)|with student consent|named with consent/i },
+  { label: '"a strong rank" (a rank claim with the number removed)', re: /\ba strong rank\b/i },
+  {
+    label: "MindPeak outcome claim",
+    re: /\b(deliver|provide|produce|achieve)(s|d)? (significantly |much |far |consistently )?(better|superior|higher) (results|outcomes|scores|ROI)\b|\b(in|by) our results\b|\bour (proven |headline |best )?results? (prove|proves|show|shows|say|says|speak|speaks)\b|\bresults speak for themselves\b/i,
+    mindpeakOnly: true,
+  },
+  {
+    label: "marks-improvement figure",
+    re: /\b\d{2,3}[-–]?\d*\+? ?(marks?|points|mock scores?) (improvement|gain|jump|lift)\b|\bimproved by (an average of )?\d{2,} marks\b|\baverage (improvement|score lift|mark improvement)\b[^.]{0,30}\d{2,}/i,
+    mindpeakOnly: true,
+  },
+  {
+    label: "claim about what MindPeak students did",
+    re: /\b(many|most|multiple) (of our|mindpeak(?:\\?'s)?) (students|droppers|families)\b|\b(our|mindpeak) students (have |had |consistently |typically )?(achieved|secured|scored|cracked|improved|reached|report)\b|\bstudents (who )?switch(ed|ing)? (from|to)\b[^.]{0,80}\b(report|see|saw|cite)\b/i,
+  },
+  { label: '"Data point" about MindPeak students', re: /Data point:\**\s*MindPeak/i },
+  // Stat tiles keep the number and its meaning in separate strings, which is
+  // why PART 2's prose regexes never saw "95%" + "Selection Rate".
+  { label: "split value/label rate stat", re: /value:\s*['"`]\d{2,3}%['"`],\s*label:\s*['"`](Selection|Success|Placement|Admission|Retention)\b/i },
+  { label: "split value/label student count", re: /value:\s*['"`][\d,]{2,}\+?['"`],\s*label:\s*['"`]Students (Mentored|Coached|Taught|Trained|Enrolled|in )/i },
+  { label: "split value/label marks improvement", re: /label:\s*['"`](Avg\.? |Average )?(Marks|Score) (Improvement|Lift|Gain)\b/i },
+  { label: "split value/label best result", re: /label:\s*['"`]Best (NEET |JEE |JEE Advanced )?(Score|Rank|AIR|Result)\b/i },
+  { label: "split value/label rating", re: /value:\s*['"`]\d(\.\d)?\s*\/\s*5['"`],\s*label:\s*['"`][^'"`]*(rating|satisfaction|review)/i },
+  { label: "split value/label percentage outcome", re: /value:\s*['"`]\d{2,3}%['"`],\s*label:\s*['"`][^'"`]*\b(improved|qualif\w*|cleared|cracked|selected|placed|admitted|score[ds]?|rank)\b/i },
+  { label: "faculty or applicant selection percentage", re: /\bonly \d{1,2}% of (applicants|candidates)\b|\b\d{2}% of (our )?mentors\b/i },
+];
+
+describe("no fabricated claim classes in served code (PART 3)", () => {
+  const SERVED = servedFiles();
+
+  it("the served set is the Next.js import graph, not the Vite tree", () => {
+    expect(SERVED.length).toBeGreaterThan(100);
+    expect(SERVED).toContain("src/views/ChapterPage.tsx");
+    expect(SERVED).not.toContain("src/views/Index.tsx");
+  });
+
+  for (const { label, re, mindpeakOnly } of SERVED_BANNED) {
+    it(`no ${label}`, () => {
+      const offenders: string[] = [];
+      const g = new RegExp(re.source, re.flags.includes("g") ? re.flags : re.flags + "g");
+      for (const rel of SERVED) {
+        const src = read(rel);
+        for (const m of src.matchAll(g)) {
+          if (mindpeakOnly && !nearFirstParty(src, m.index ?? 0, m[0].length)) continue;
+          offenders.push(`${rel}: "${m[0].trim()}"`);
+        }
+      }
+      expect(offenders, offenders.length ? `Found ${label} in:\n  ${offenders.join("\n  ")}` : "").toEqual([]);
+    });
+  }
+});

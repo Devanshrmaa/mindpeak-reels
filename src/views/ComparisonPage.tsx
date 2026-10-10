@@ -336,9 +336,8 @@ const ComparisonPage = () => {
             </motion.h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-4">
               {data.competitorName} is a {data.competitorName === "BYJU'S" ? 'massive edtech platform' : 'reputable coaching institute'} with genuine strengths.
-              However, for the <strong className="text-foreground">majority of JEE &amp; NEET aspirants</strong> who need personalized attention, adaptive curriculum, and accountability —
-              MindPeak&rsquo;s 1-on-1 model delivers significantly better outcomes at a{' '}
-              {data.competitorName === 'FIITJEE' ? 'lower' : 'comparable or lower'} price.
+              For aspirants who need <strong className="text-foreground">personalized attention, an adaptive curriculum, and accountability</strong>,
+              MindPeak&rsquo;s 1-on-1 model is built around exactly those needs. The fee difference is in the table above.
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">
               The best way to decide? <strong className="text-foreground">Try both.</strong> MindPeak offers a <strong className="text-primary">free trial class</strong> so you can experience the difference firsthand — no commitment, no pressure.

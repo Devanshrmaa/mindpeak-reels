@@ -211,9 +211,9 @@ export default function SubjectCityPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             {[
-              { value: '95%', label: 'Selection Rate' },
-              { value: '150+', label: 'Marks Improvement' },
-              { value: '2,300+', label: 'Students Coached' },
+              { value: 'Weekly', label: 'Parent Reports' },
+              { value: 'Every class', label: 'Recorded' },
+              { value: 'WhatsApp', label: 'Doubt Support' },
               { value: '1:1', label: 'Students Per Class' },
             ].map((stat, i) => (
               <motion.div key={i} initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="text-center">

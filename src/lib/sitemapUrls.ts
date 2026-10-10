@@ -50,12 +50,13 @@ export const BASE = 'https://mindpeakinstitute.com';
  * the policy rather than a specific release, so it cannot drift out of sync
  * with the date the way it did between 2026-08-06 and 2026-08-17.
  *
- * 2026-08-29: merged 8 duplicate chapter entries in the JEE practice banks,
- * which recovered 225 previously unreachable questions and turned 180 leaf
- * pages from soft 404s into real question pages. Same URL count, materially
- * different content — exactly the case the fingerprint cannot detect.
+ * 2026-10-10: removed fabricated results from indexed pages — "Verified …
+ * Student Outcomes" sections, templated testimonials on all 147 chapter pages,
+ * invented results blocks on the course pages, invented stat tiles. Same URL
+ * count, materially different content — exactly the case the fingerprint
+ * cannot detect, and the recrawl is the point.
  */
-export const CONTENT_ANCHOR = '2026-08-29';
+export const CONTENT_ANCHOR = '2026-10-10';
 
 /**
  * Deterministic, STABLE lastmod: CONTENT_ANCHOR minus a slug-hashed 0–27 day

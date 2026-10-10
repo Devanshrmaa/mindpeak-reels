@@ -119,7 +119,7 @@ function generateFAQs(c: CityConfig): { q: string; a: string }[] {
   const faqs: { q: string; a: string }[] = [
     {
       q: `Is online ${examFull} coaching effective for ${c.city} students?`,
-      a: `Absolutely. MindPeak's 1-on-1 online coaching delivers superior results compared to batch coaching centres in ${c.city}. Personalised attention, adaptive curriculum, and dedicated mentors have helped our students secure top ranks. Our platform is optimised for all internet conditions available in ${c.city}.`,
+      a: `Yes. Every MindPeak class is 1-on-1 with a dedicated mentor, so the teaching follows your own gaps rather than a batch timetable. Our platform is optimised for all internet conditions available in ${c.city}.`,
     },
     {
       q: `What are the ${examFull} coaching fees at MindPeak for ${c.city}?`,
@@ -227,7 +227,6 @@ function generateWhyStandsOut(c: CityConfig): string {
   // Rotate between different data points per city
   const dataPoints = [
     `Our diagnostic-first approach means no two ${c.city} students follow the same curriculum — each roadmap is generated from a 200-point skills assessment and continuously updated weekly from mock test data.`,
-    `Students switching from batch coaching in ${c.city} consistently report 100-150+ mock score improvement within 3 months — because the 1-on-1 format catches the specific conceptual gaps that batch teaching systematically misses.`,
     `${c.city} parents get weekly analytics that no local batch centre provides: chapter-wise accuracy heat maps, error pattern classification (concept vs method vs attention vs time-pressure), and specific mentor action items with deadlines.`,
     `Every ${c.city} student's mock test data feeds into adaptive recommendations — if a student's accuracy drops in Organic Chemistry but improves in Mechanics, the next week's schedule automatically rebalances to address the regression.`,
   ];
@@ -264,32 +263,25 @@ function generateHeroSublead(c: CityConfig): string {
 function generateSocialProofLine(c: CityConfig): string {
   const hash = c.slug.split('').reduce((a, ch) => a + ch.charCodeAt(0), 0);
   const variants = [
-    `Students enrolled from across India including ${c.state} — fully online, no relocation required.`,
+    `Fully online 1-on-1 coaching — no relocation from ${c.city} required.`,
     `One dedicated mentor per student • every class recorded • students from ${c.state} study from home.`,
     `Every class is 1-on-1 with a dedicated mentor — ${c.city} families get weekly written progress reports.`,
-    `From ${c.city} to IIT/AIIMS — students across India coached with 1-on-1 format.`,
+    `Live 1-on-1 sessions with a dedicated mentor, from home in ${c.city}.`,
   ];
   return variants[hash % variants.length];
 }
 
 function generateQuickStats(c: CityConfig): QuickStat[] {
-  const hash = c.slug.split('').reduce((a, ch) => a + ch.charCodeAt(0), 0);
-  const improvementMarks = 120 + (hash % 50); // 120-169, seeded per city
+  // Programme-format facts only. This used to emit a "95% Selection Rate",
+  // "500+ Students in <state>", a per-city "Avg. Marks Improvement" seeded from
+  // a hash of the slug, and a "Top 500" NEET rank — each with an invented
+  // source line. MindPeak publishes no verified results, so none of those can
+  // ship (see src/test/no-fabricated-claims.test.ts).
   const stats: QuickStat[] = [
-    { value: '95%', label: 'Selection Rate', source: 'Cohort outcomes, 2025-26' },
+    { value: '1:1', label: 'Students Per Class', source: 'Programme format' },
+    { value: 'Weekly', label: 'Parent Progress Reports', source: 'Programme format' },
+    { value: 'Every class', label: 'Recorded for Revision', source: 'Programme format' },
   ];
-  if (c.tier === 1) {
-    stats.push({ value: '500+', label: `Students in ${c.state}`, source: 'Cumulative enrolment data' });
-  } else if (c.tier === 2) {
-    stats.push({ value: `${improvementMarks}+`, label: 'Avg. Marks Improvement', source: 'Mock test analytics, 3-month window' });
-  } else {
-    stats.push({ value: '2,300+', label: 'Students Coached Pan-India', source: 'Cumulative enrolment data' });
-  }
-  stats.push(
-    c.exams.includes('neet')
-      ? { value: 'Top 500', label: 'Best NEET Rank', source: 'NEET UG 2026 result' }
-      : { value: '1:1', label: 'Students Per Class', source: 'Programme format' }
-  );
   // Add a 4th stat that varies by city context
   const stateData = getStateEducation(c.state);
   if (c.stateExam) {
@@ -395,7 +387,7 @@ function generateExpandedFaqs(c: CityConfig): CityFAQ[] {
     {
       q: `Is online ${examFull} coaching effective for ${c.city} students?`,
       tldr: 'Yes — every class is 1-on-1 with a dedicated mentor.',
-      a: `MindPeak's 1-on-1 online coaching delivers superior results compared to batch coaching centres in ${c.city}. The core advantage is structural: when a teacher works with one student, they see exactly where confusion happens in real-time — something impossible in a 60-100 student batch. Our adaptive curriculum adjusts weekly based on mock test data. Dedicated mentors (IIT/AIIMS alumni with 3-10+ years experience) conduct daily live sessions with interactive whiteboards. Students have secured a strong rank in JEE Advanced and Top 500 in NEET through this approach. The platform works on standard 4G/broadband connections available across ${c.city}, and all sessions are recorded for later revision.`,
+      a: `The core advantage of 1-on-1 coaching is structural: when a teacher works with one student, they see exactly where confusion happens in real-time — something impossible in a 60-100 student batch. Our adaptive curriculum adjusts weekly based on mock test data. Dedicated mentors (IIT/AIIMS alumni with 3-10+ years experience) conduct daily live sessions with interactive whiteboards. The platform works on standard 4G/broadband connections available across ${c.city}, and all sessions are recorded for later revision.`,
     },
     {
       q: `What are the coaching fees at MindPeak for ${c.city}?`,
@@ -414,8 +406,8 @@ function generateExpandedFaqs(c: CityConfig): CityFAQ[] {
     },
     {
       q: `What tangible outcomes can I expect from MindPeak in ${c.city}?`,
-      tldr: '100-150+ marks improvement in 3 months, verified through mock analytics.',
-      a: `Typical outcomes for ${c.city} students: Month 1 — diagnostic gap-filling, 30-50 marks mock improvement. Month 2 — application-level problem solving kicks in, cumulative 80-120 marks improvement. Month 3 — integration and speed training, 100-150+ marks total improvement with significantly reduced error rates. These improvements are tracked through weekly mock tests with detailed analytics, so both students and parents see concrete numbers, not vague promises. Our 1-on-1 format is calculated across all cohorts — not cherry-picked.`,
+      tldr: 'No promised score — but weekly mocks show you whether it is working.',
+      a: `MindPeak does not promise a score, and you should be wary of any coaching that does. What you get is measurable: a weekly mock test, a chapter-wise error breakdown after every mock, and a written report to parents each week. Those numbers are yours, so within the first month you and your parents can see for yourselves whether the plan is moving your score.`,
     },
     {
       q: `How is MindPeak different from YouTube/free online coaching?`,
@@ -464,79 +456,6 @@ function generateTabbedContent(c: CityConfig): TabbedContent {
   };
 }
 
-function generateCityTestimonials(c: CityConfig): CityTestimonial[] {
-  const examLabel = c.exams.includes('jee') ? 'JEE' : 'NEET';
-  const boardStr = c.board || 'CBSE';
-  const hash = c.slug.split('').reduce((a, ch) => a + ch.charCodeAt(0), 0);
-  const improvementMarks = 120 + (hash % 80); // 120-199 range, seeded per city
-  const mockPercentile = 85 + (hash % 14); // 85-98 range
-
-  const studentNames = ['Aryan', 'Priya', 'Rohan', 'Sneha', 'Vikram', 'Ananya', 'Karthik', 'Neha', 'Aditya', 'Ishita'];
-  const parentNames = ['Mr. Sharma', 'Mrs. Gupta', 'Mr. Reddy', 'Mrs. Iyer', 'Mr. Patel', 'Mrs. Singh', 'Mr. Das', 'Mrs. Nair'];
-  const sName1 = studentNames[hash % studentNames.length];
-  const sName2 = studentNames[(hash + 3) % studentNames.length];
-  const pName = parentNames[hash % parentNames.length];
-
-  const testimonials: CityTestimonial[] = [
-    {
-      name: `${sName1} (${c.city})`,
-      role: `${examLabel} Aspirant, Class 12 (${boardStr})`,
-      result: `Mock score improved ${improvementMarks}+ marks in 4 months`,
-      quote: `I was stuck at ${mockPercentile - 15} percentile in ${c.city} batch coaching for 8 months. After switching to MindPeak's 1-on-1 format, my mentor identified that I was making systematic errors in ${ examLabel === 'JEE' ? 'Physics numericals — sign errors and unit mismatches' : 'Biology assertion-reasoning — misreading the relationship between statements'}. Within 3 months of targeted correction, I jumped to ${mockPercentile} percentile. The difference was simple: someone was actually watching my problem-solving process step-by-step.`,
-      isSample: true,
-    },
-    {
-      name: `${sName2} (${c.city})`,
-      role: `${examLabel} + ${c.stateExam || 'Board'} Student`,
-      result: `Balanced ${c.stateExam || boardStr} boards + ${examLabel} prep successfully`,
-      quote: `Studying from home in ${c.city} saved me 2-3 hours daily that I used to spend commuting to coaching. But the real game-changer was the adaptive curriculum — when my board exams approached, my mentor seamlessly shifted focus to board-relevant topics while maintaining competitive exam momentum through weekend mock tests. I scored well in both without the stress of juggling two separate coaching schedules.`,
-      isSample: true,
-    },
-    {
-      name: `${pName} (Parent, ${c.city})`,
-      role: `Parent of ${examLabel} aspirant`,
-      result: `Complete preparation visibility and 150+ marks improvement`,
-      quote: `What convinced us about MindPeak was the weekly report — not generic percentage updates, but specific observations like "${sName1} is confusing ${ examLabel === 'JEE' ? 'angular momentum conservation with linear momentum' : 'mitosis prophase with metaphase stages'} — dedicated session planned for Thursday." No coaching centre in ${c.city} ever gave us this level of insight. The monthly parent-mentor calls helped us understand exactly where our child stood and what realistic targets to expect. As parents, feeling informed instead of anxious made all the difference.`,
-      isSample: true,
-    },
-  ];
-  return testimonials;
-}
-
-function generateEvents(c: CityConfig): CityEvent[] {
-  const examLabel = c.exams.map(e => e.toUpperCase()).join('/');
-  const boardStr = c.board || 'CBSE';
-  const events: CityEvent[] = [
-    {
-      title: `${c.city} Free Demo Day — ${examLabel}`,
-      date: '[UPCOMING]',
-      description: `Free 1-on-1 demo session with an IIT/AIIMS alumni mentor + a comprehensive preparation assessment for ${c.city} students. Choose any topic — experience personalised coaching firsthand.`,
-      ctaLabel: 'Register Free',
-    },
-    {
-      title: `${examLabel} Strategy Workshop for ${c.city}`,
-      date: '[UPCOMING]',
-      description: `2-hour interactive session covering exam strategy, time management, and study planning tailored for ${boardStr} students targeting ${examLabel}. Includes mock test analysis demo.`,
-      ctaLabel: 'Book Seat',
-    },
-    {
-      title: `Parent Info Session — ${c.city}`,
-      date: '[UPCOMING]',
-      description: `30-min virtual session for ${c.city} parents — live demo of our tracking dashboard, sample weekly report walkthrough, and Q&A with academic counsellors.`,
-      ctaLabel: 'Join Session',
-    },
-  ];
-  if (c.stateExam) {
-    events.push({
-      title: `${c.stateExam} + ${examLabel} Integration Webinar`,
-      date: '[UPCOMING]',
-      description: `Learn how MindPeak integrates ${c.stateExam} preparation with ${examLabel} coaching — syllabus mapping, overlap strategy, and timeline management for ${c.city} students.`,
-      ctaLabel: 'Register Free',
-    });
-  }
-  return events;
-}
-
 function configToCity(c: CityConfig): CityData {
   return {
     slug: c.slug,
@@ -566,8 +485,6 @@ function configToCity(c: CityConfig): CityData {
     localValueProps: generateLocalValueProps(c),
     expandedFaqs: generateExpandedFaqs(c),
     tabbedContent: generateTabbedContent(c),
-    cityTestimonials: generateCityTestimonials(c),
-    events: generateEvents(c),
   };
 }
 

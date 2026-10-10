@@ -111,7 +111,7 @@ const SUBJECTS: Record<string, SubjectData> = {
     faqs: [
       { question: 'How does MindPeak teach JEE Physics differently?', answer: 'MindPeak pairs you with a dedicated IIT alumni Physics mentor who teaches from first principles. Your study plan adapts weekly based on diagnostic performance data. Concepts are taught through problem-solving, not lectures — every session involves solving JEE-level problems with real-time guidance.' },
       { question: 'Do you cover both JEE Main and Advanced Physics?', answer: 'Yes. Our Physics curriculum covers the complete JEE Main syllabus plus the additional topics required for JEE Advanced (e.g., advanced Rotational Dynamics, complex Electrostatics). Your mentor adjusts the depth and difficulty based on whether you\'re targeting Main, Advanced, or both.' },
-      { question: 'How many months to prepare for JEE Physics?', answer: 'A complete JEE Physics preparation typically takes 8-12 months for a focused student. With MindPeak\'s personalized approach, students with some foundation can achieve significant improvement in 4-6 months. Our 1-year and 2-year programs ensure comprehensive coverage.' },
+      { question: 'How many months to prepare for JEE Physics?', answer: 'A complete JEE Physics preparation typically takes 8-12 months for a focused student. Our 1-year and 2-year programs ensure comprehensive coverage.' },
       { question: 'Can I take only Physics coaching at MindPeak?', answer: 'Yes! MindPeak offers subject-specific coaching. If you\'re strong in Chemistry and Math but need Physics help, we can provide a Physics-focused plan with a dedicated Physics mentor. Pricing is adjusted based on the number of subjects.' },
     ],
     links: [
@@ -234,7 +234,7 @@ const SUBJECTS: Record<string, SubjectData> = {
       { question: 'How does MindPeak teach JEE Mathematics?', answer: 'Your dedicated Math mentor teaches through problem-solving, not lectures. Every concept is introduced with examples, then you solve progressively harder problems with real-time guidance. The curriculum adapts weekly — spending more time on chapters where you struggle and accelerating through areas of strength.' },
       { question: 'Do you teach for both JEE Main and Advanced Math?', answer: 'Yes. The Mathematics program covers the complete JEE Main syllabus plus Advanced-level topics like complex Definite Integration, advanced Coordinate Geometry (Conics), and difficult Probability. Your mentor adjusts the difficulty based on your target.' },
       { question: 'Can MindPeak help if I\'m very weak in Mathematics?', answer: 'Absolutely. That\'s actually our strength. Many students join MindPeak after struggling with Mathematics in batch coaching. Your dedicated mentor starts from YOUR current level — building fundamentals systematically before progressing to JEE-level problem solving.' },
-      { question: 'How quickly can I improve in JEE Mathematics?', answer: 'With daily 1-on-1 sessions and targeted practice, most students see significant improvement within 2-3 months. MindPeak students typically improve their Mathematics mock scores by 30-40 marks in the first quarter. The key is consistent, personalized daily practice.' },
+      { question: 'How quickly can I improve in JEE Mathematics?', answer: 'It depends on where your marks are being lost, so no honest coaching can give you a number. With daily 1-on-1 sessions and targeted practice, your own mock scores will show within a few weeks whether the plan is working. The key is consistent, personalized daily practice.' },
     ],
     links: [
       { label: 'JEE Physics Preparation', to: '/jee-physics-preparation' },
@@ -415,7 +415,7 @@ const SUBJECTS: Record<string, SubjectData> = {
     faqs: [
       { question: 'How does MindPeak teach NEET Physics?', answer: 'Your dedicated Physics mentor focuses on NCERT mastery + numerical practice. Daily short sessions cover concepts, solve NCERT examples, then progress to PYQ-level numericals. Your study plan adapts weekly based on topic-wise accuracy data.' },
       { question: 'Can I take only NEET Physics coaching?', answer: 'Yes! If you\'re strong in Biology and Chemistry but need Physics help, MindPeak offers subject-specific coaching with a dedicated Physics mentor at adjusted pricing.' },
-      { question: 'How many months to prepare for NEET Physics?', answer: 'Complete NEET Physics preparation takes 5-7 months for a focused student. With MindPeak\'s 1-on-1 approach, students with some foundation can see significant improvement in 2-3 months.' },
+      { question: 'How many months to prepare for NEET Physics?', answer: 'Complete NEET Physics preparation takes 5-7 months for a focused student.' },
       { question: 'Do you cover both Class 11 and 12 Physics for NEET?', answer: 'Yes. Our curriculum covers the complete NEET Physics syllabus from both Class 11 (Mechanics, Thermodynamics, Waves) and Class 12 (Electrostatics, Optics, Modern Physics). Class 12 topics carry slightly higher weightage (~55%).' },
     ],
     links: [
@@ -477,7 +477,7 @@ const SUBJECTS: Record<string, SubjectData> = {
       { question: 'How does MindPeak teach NEET Chemistry?', answer: 'Your dedicated Chemistry mentor creates a balanced plan across Physical, Organic, and Inorganic. NCERT line-by-line coverage forms the foundation, followed by NCERT Exemplar practice and PYQ drilling. Daily sessions adapt based on which branch needs more attention.' },
       { question: 'Do you teach all three branches of Chemistry?', answer: 'Yes! Our NEET Chemistry curriculum covers Physical, Organic, and Inorganic Chemistry comprehensively. Your mentor tracks branch-wise accuracy and adjusts study time to prevent imbalances — a common problem in self-study.' },
       { question: 'Can I take only Chemistry coaching at MindPeak?', answer: 'Absolutely. If you need focused Chemistry help, we offer subject-specific coaching with a dedicated Chemistry mentor at adjusted pricing. Book a free trial to discuss your needs.' },
-      { question: 'How long to complete NEET Chemistry preparation?', answer: 'Complete NEET Chemistry preparation takes 5-7 months with consistent effort. Physical Chemistry requires the most practice time. With MindPeak\'s 1-on-1 sessions, students with some foundation see major improvement within 2-3 months.' },
+      { question: 'How long to complete NEET Chemistry preparation?', answer: 'Complete NEET Chemistry preparation takes 5-7 months with consistent effort. Physical Chemistry requires the most practice time.' },
     ],
     links: [
       { label: 'NEET Biology Preparation', to: '/neet-biology-preparation' },

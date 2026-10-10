@@ -115,7 +115,7 @@ export const cities: CityData[] = [
       'Personalised study plans aligned with Delhi board syllabus overlap',
     ],
     faqs: [
-      { q: 'Is online JEE coaching from Delhi as effective as Kota coaching?', a: 'Absolutely. MindPeak\'s 1-on-1 online coaching from Delhi delivers superior results compared to Kota batch coaching. Our personalised attention, adaptive curriculum, and dedicated mentors have produced a strong rank in JEE Advanced — results that match or exceed top Kota institutes. You save on hostel costs, avoid homesickness, and study in a comfortable environment.' },
+      { q: 'Is online JEE coaching from Delhi as effective as Kota coaching?', a: 'For most students it can be. MindPeak\'s 1-on-1 online coaching from Delhi gives each student a dedicated mentor, which no Kota batch can. You save on hostel costs, avoid homesickness, and study in a comfortable environment.' },
       { q: 'What are the JEE coaching fees in Delhi at MindPeak?', a: 'MindPeak offers flexible pricing for Delhi students with monthly, quarterly, and annual plans. Our fees are competitive with premium Delhi coaching centres but deliver significantly more value through 1-on-1 attention. Book a free demo class and our counselor will discuss personalised pricing based on your requirements.' },
       { q: 'Can Delhi students join MindPeak mid-year?', a: 'Yes! Since our coaching is 1-on-1, there are no batch constraints. Delhi students can join anytime — we\'ll create a customised schedule aligned with your school calendar and exam timeline, covering any syllabus gaps from the start.' },
       { q: 'Do you cover CBSE boards along with JEE/NEET preparation?', a: 'Yes. For Delhi students following the CBSE curriculum, our mentors integrate board exam preparation with JEE/NEET coaching. The syllabus overlap is significant, and our approach ensures you excel in both without spreading yourself too thin.' },
@@ -353,7 +353,7 @@ export const cities: CityData[] = [
     educationLandscape:
       'Jaipur serves as Rajasthan\'s primary education hub and an alternative to nearby Kota. While Kota dominates competitive coaching headlines, Jaipur offers students the advantage of studying in their home city. MNIT Jaipur, SMS Medical College, and other prestigious institutions drive strong JEE/NEET aspirations. Rajasthan Board students have specific bridging needs for national-level competitive exams. Many Jaipur families are reconsidering the Kota model after seeing students struggle with homesickness and mental health challenges.',
     whyMindPeak:
-      'MindPeak offers Jaipur students the quality of Kota coaching without leaving home. Our 1-on-1 mentors provide more personalised attention than any Kota institute\'s 200-student batches. Students in Vaishali Nagar, Mansarovar, Malviya Nagar, or anywhere in Jaipur receive dedicated coaching tailored to their pace. Our curriculum addresses Rajasthan Board gaps while building JEE/NEET readiness systematically. Jaipur parents no longer need to choose between quality coaching and their child\'s well-being — MindPeak delivers both. Our proven results, including a strong rank in JEE Advanced, demonstrate that personalised attention outperforms batch-factory approaches.',
+      'MindPeak offers Jaipur students the quality of Kota coaching without leaving home. Our 1-on-1 mentors provide more personalised attention than any Kota institute\'s 200-student batches. Students in Vaishali Nagar, Mansarovar, Malviya Nagar, or anywhere in Jaipur receive dedicated coaching tailored to their pace. Our curriculum addresses Rajasthan Board gaps while building JEE/NEET readiness systematically. Jaipur parents no longer need to choose between quality coaching and their child\'s well-being — MindPeak delivers both.',
     mentoringAdvantage:
       'Jaipur students receive mentors who understand Rajasthan\'s educational culture and the pressure students face from the Kota comparison. Your mentor becomes a supportive guide — pushing academic excellence while maintaining mental well-being. Daily sessions build confidence alongside competence, with a teaching pace that adapts to your learning speed rather than forcing a rigid batch timeline.',
     parentTracking:
@@ -365,7 +365,7 @@ export const cities: CityData[] = [
       'Every class is 1-on-1 — a batch size of one, not a recorded lecture',
     ],
     faqs: [
-      { q: 'Is MindPeak a good alternative to Kota coaching for Jaipur students?', a: 'Yes. MindPeak\'s 1-on-1 coaching delivers personalised attention that Kota\'s batch model cannot match. Our a strong rank result proves that dedicated mentoring outperforms large batches. Plus, Jaipur students stay at home — avoiding homesickness and mental health challenges common in Kota.' },
+      { q: 'Is MindPeak a good alternative to Kota coaching for Jaipur students?', a: 'Yes. MindPeak\'s 1-on-1 coaching delivers personalised attention that Kota\'s batch model cannot match. Plus, Jaipur students stay at home — avoiding homesickness and mental health challenges common in Kota.' },
       { q: 'Does MindPeak cover Rajasthan Board syllabus gaps?', a: 'Yes. Our mentors conduct diagnostic assessments to identify Rajasthan Board gaps and create personalised bridging plans from Day 1.' },
       { q: 'Can Jaipur students prepare for both REAP and JEE?', a: 'Absolutely. Our mentors integrate state-level exam preparation with national exam coaching, leveraging syllabus overlaps efficiently.' },
       { q: 'What are the fees compared to Kota institutes?', a: 'MindPeak offers competitive pricing with significantly more value — you get a dedicated mentor for your child rather than sharing a teacher with 200+ students. Contact us for personalised pricing.' },
@@ -489,7 +489,7 @@ export const cities: CityData[] = [
       'VNIT and AIIMS Nagpur focused preparation',
     ],
     faqs: [
-      { q: 'Can Nagpur students compete with metro-city peers?', a: 'Absolutely. MindPeak\'s 1-on-1 coaching eliminates the geographic disadvantage. Our Nagpur students receive identical quality of mentoring as Delhi or Mumbai students, and our results prove it.' },
+      { q: 'Can Nagpur students compete with metro-city peers?', a: 'Absolutely. MindPeak\'s 1-on-1 coaching eliminates the geographic disadvantage. Nagpur students get exactly the same 1-on-1 mentoring as students in Delhi or Mumbai.' },
       { q: 'Does MindPeak cover MHT-CET for Nagpur students?', a: 'Yes. MHT-CET preparation is integrated alongside JEE/NEET coaching, leveraging syllabus overlap and adding targeted CET practice.' },
       { q: 'Is Hindi or Marathi medium teaching available?', a: 'Our teaching is primarily in English, but mentors can explain concepts in Hindi. Support staff communicates in Hindi and Marathi for parent convenience.' },
       { q: 'Do I need to send my child to Kota or Pune instead?', a: 'Not anymore. MindPeak\'s online 1-on-1 coaching brings premium quality to Nagpur — with personalised attention that even Kota batch centres cannot provide. Save on hostel costs and keep your child at home.' },
@@ -696,7 +696,7 @@ export const cities: CityData[] = [
     educationLandscape:
       'Udaipur, known globally as the City of Lakes, has a growing educational scene with engineering and medical aspirants often looking to Kota or Jaipur for quality coaching. Local coaching options are limited, and Rajasthan Board students face the standard competitive exam bridging challenges. Many Udaipur families reluctantly send children to Kota, despite concerns about wellbeing and distance.',
     whyMindPeak:
-      'MindPeak eliminates Udaipur families\' dilemma of choosing between quality coaching and keeping children at home. Our 1-on-1 online mentoring delivers superior results compared to Kota batch coaching — with personalised attention that even top Kota institutes cannot provide. Rajasthan Board bridging is handled systematically. Students can prepare in Udaipur\'s pleasant environment without the pressures of Kota hostel life. Our proven a strong rank result demonstrates that personalised coaching beats factory-model approaches.',
+      'MindPeak eliminates Udaipur families\' dilemma of choosing between quality coaching and keeping children at home. Our 1-on-1 online mentoring gives personalised attention that even top Kota institutes cannot provide in a batch. Rajasthan Board bridging is handled systematically. Students can prepare in Udaipur\'s pleasant environment without the pressures of Kota hostel life.',
     mentoringAdvantage:
       'Udaipur students receive dedicated mentors who provide Kota-surpassing quality through 1-on-1 attention. Daily sessions are tailored to individual learning pace and style — something impossible in Kota\'s 200-student batches. Mentors build both academic excellence and mental well-being.',
     parentTracking:
@@ -708,10 +708,10 @@ export const cities: CityData[] = [
       'Hindi-speaking support team',
     ],
     faqs: [
-      { q: 'Is MindPeak better than sending my child to Kota from Udaipur?', a: 'Our results say yes. MindPeak\'s 1-on-1 coaching provides more personalised attention than any Kota batch centre. Our a strong rank result was achieved through dedicated mentoring, not crowded classrooms. Your child stays safe at home in Udaipur.' },
+      { q: 'Is MindPeak better than sending my child to Kota from Udaipur?', a: 'For many families, yes. MindPeak\'s 1-on-1 coaching provides more personalised attention than any Kota batch centre. Your child stays safe at home in Udaipur.' },
       { q: 'Does MindPeak handle Rajasthan Board gaps for Udaipur students?', a: 'Yes. Our mentors conduct diagnostic assessments to identify Rajasthan Board gaps and create personalised bridging plans from Day 1.' },
       { q: 'Can Udaipur students really compete nationally?', a: 'Absolutely. MindPeak levels the playing field completely. Our online 1-on-1 model means Udaipur students receive identical quality coaching as Delhi or Mumbai students.' },
-      { q: 'What are the fees compared to Kota coaching + hostel?', a: 'MindPeak\'s fees are significantly lower than Kota coaching + hostel costs combined — and you get better results through personalised 1-on-1 attention. Contact us for detailed pricing.' },
+      { q: 'What are the fees compared to Kota coaching + hostel?', a: 'MindPeak\'s fees are significantly lower than Kota coaching + hostel costs combined — and every session is 1-on-1. Contact us for detailed pricing.' },
     ],
     targetColleges: ['IIT Jodhpur (nearby)', 'CTAE Udaipur', 'Geetanjali Medical College', 'Pacific Medical College', 'MLSU Udaipur', 'IIM Udaipur', 'RNT Medical College', 'College of Technology and Engineering'],
     localAreas: ['Fatehpura', 'Udaipole', 'Surajpole', 'Bhatt Ji Ki Bari', 'Ashok Nagar', 'Chetak Circle', 'Savina', 'Hiran Magri', 'Pratap Nagar (Udaipur)', 'Bedla', 'Ambamata', 'Goverdhan Vilas'],

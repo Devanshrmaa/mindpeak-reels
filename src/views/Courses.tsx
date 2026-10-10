@@ -199,9 +199,9 @@ const Courses = () => {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
             {[
               { value: '12+', label: 'Programs' },
-              { value: '95%', label: 'Success Rate' },
+              { value: 'Weekly', label: 'Parent Reports' },
               { value: '1:1', label: 'Students Per Class' },
-              { value: '695/720', label: 'Best NEET Score' },
+              { value: 'Every class', label: 'Recorded' },
             ].map((s) => (
               <div key={s.label} className="text-center px-3 py-4 rounded-xl border border-foreground/[0.06] bg-foreground/[0.02]">
                 <div className="font-display font-bold text-foreground text-xl tracking-[-0.02em]">{s.value}</div>
