@@ -81,7 +81,7 @@ function fallbackLocalValueProps(city: CityData): LocalValueProp[] {
 }
 function fallbackExpandedFaqs(city: CityData, examLabel: string): CityFAQ[] {
   return [
-    { q: `Is online ${examLabel} coaching effective for ${city.city} students?`, tldr: 'Yes — every class is 1-on-1 with a dedicated mentor.', a: `MindPeak's 1-on-1 coaching delivers superior results compared to batch centres in ${city.city}. Personalised attention and adaptive curriculum have produced a strong rank in JEE Advanced.` },
+    { q: `Is online ${examLabel} coaching effective for ${city.city} students?`, tldr: 'Yes — every class is 1-on-1 with a dedicated mentor.', a: `Yes. Every class is live and 1-on-1, so the mentor works on your gaps in real time instead of teaching to a batch in ${city.city}.` },
     { q: `What are the coaching fees for ${city.city}?`, tldr: 'Flexible plans, competitive with premium centres.', a: `Monthly, quarterly, and annual plans available. Fees are competitive with top coaching centres in ${city.city} but deliver far more value through dedicated 1-on-1 sessions.` },
     { q: `Can I join mid-year?`, tldr: 'Yes — no batch constraints.', a: `Since coaching is 1-on-1, join anytime. We create a custom plan aligned with your school calendar and exam timeline.` },
     { q: `How much time per week do I need?`, tldr: '10–25 hrs/week depending on program.', a: `Foundation: 10-12 hrs/week. Full JEE/NEET: 20-25 hrs/week. Crash courses: 30+ hrs/week. Your mentor creates a realistic timetable.` },
@@ -98,18 +98,12 @@ function fallbackTabbedContent(city: CityData): TabbedContent {
   };
 }
 function fallbackTestimonials(city: CityData): CityTestimonial[] {
-  return [
-    { name: 'Student A.', role: 'JEE/NEET Aspirant', result: '180+ marks improvement in 4 months', quote: `MindPeak's 1-on-1 format from ${city.city} gave me personalised attention I never got in batch coaching.`, isSample: true },
-    { name: 'Student B.', role: 'Class 12 Student', result: 'Balanced boards + competitive prep', quote: `Studying from home in ${city.city} saved me 3 hours daily. That extra time made all the difference.`, isSample: true },
-    { name: 'Parent C.', role: `Parent from ${city.city}`, result: 'Complete visibility into progress', quote: `The weekly reports gave us confidence — something no coaching centre in ${city.city} ever offered.`, isSample: true },
-  ];
+  // No sample/placeholder testimonials: MindPeak publishes no verified student results.
+  return [];
 }
 function fallbackEvents(city: CityData): CityEvent[] {
-  return [
-    { title: `${city.city} Free Demo Day`, date: '[UPCOMING]', description: `Free 1-on-1 demo + preparation assessment for ${city.city} students.`, ctaLabel: 'Register Free' },
-    { title: 'Strategy Workshop', date: '[UPCOMING]', description: `Exam strategy, time management & study planning session.`, ctaLabel: 'Book Seat' },
-    { title: 'Parent Info Session', date: '[UPCOMING]', description: `30-min virtual session for ${city.city} parents on our coaching model.`, ctaLabel: 'Join Session' },
-  ];
+  // No placeholder events: the old fallback rendered a literal '[UPCOMING]' date.
+  return [];
 }
 function fallbackIntro(city: CityData, examLabel: string): string {
   return `MindPeak Institute is a premier online coaching platform transforming how students in ${city.city}, ${city.state} prepare for ${examLabel}. Our mission: provide every student in ${city.city} with world-class 1-on-1 mentoring once reserved for metro coaching hubs. MindPeak Institute in ${city.city} leverages cutting-edge technology to deliver daily live sessions with dedicated expert mentors. Whether from CBSE, ICSE, or state board backgrounds, our adaptive curriculum builds a customised roadmap toward your dream college. For families in ${city.city} tired of overcrowded batch centres, MindPeak offers a fundamentally better way to prepare.`;
@@ -124,7 +118,7 @@ function fallbackCareer(city: CityData): string {
   return `JEE qualifiers gain admission to IITs, NITs, IIITs — careers in software, data science, AI, aerospace (₹10-50+ LPA). NEET qualifiers enter top medical colleges — medicine, surgery, research (₹8-40+ LPA). MindPeak in ${city.city} doesn't just prepare for exams — it builds the intellectual foundation for lifelong career success.`;
 }
 function fallbackStandsOut(city: CityData): string {
-  return `MindPeak stands out in ${city.city} through dedicated 1-on-1 mentoring, transparent weekly reports, IIT/AIIMS alumni faculty, and adaptive AI-driven curriculum. Students switching from batch coaching report 100-150+ marks improvement within 3 months.`;
+  return `MindPeak stands out in ${city.city} through dedicated 1-on-1 mentoring, transparent weekly reports, IIT/AIIMS alumni faculty, and adaptive AI-driven curriculum.`;
 }
 function fallbackCTA(city: CityData, examLabel: string): string {
   return `Your ${examLabel} journey starts now. MindPeak Institute in ${city.city} offers a completely free demo class — no commitments. Experience personalised 1-on-1 mentoring, get a preparation assessment, and discover why students across ${city.state} trust MindPeak. Book today or call +91-82194-57704.`;
@@ -724,57 +718,6 @@ const LocationPage = () => {
           </motion.div>
         </section>
 
-        {/* ═══ TESTIMONIAL SLIDER ═══ */}
-        <section className="bg-card/30 border-y border-border py-14 px-6" aria-label="Testimonials">
-          <div className="max-w-3xl mx-auto">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <div className="flex items-center justify-center gap-3 mb-8">
-                <Star className="w-8 h-8 text-primary" />
-                <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl">
-                  Success Stories from <span className="text-gradient-gold">{city.city}</span>
-                </h2>
-              </div>
-
-              {/* Use existing testimonials if available, otherwise city testimonials */}
-              {(() => {
-                const displayTestimonials = (city.testimonials && city.testimonials.length > 0)
-                  ? city.testimonials.map(t => ({ name: t.name, role: t.rank, result: '', quote: t.quote, isSample: false }))
-                  : cityTestimonials;
-                const current = displayTestimonials[testimonialIdx % displayTestimonials.length];
-                if (!current) return null;
-                return (
-                  <div className="relative">
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={testimonialIdx}
-                        initial={{ opacity: 0, x: 30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -30 }}
-                        transition={{ duration: 0.3 }}
-                        className="p-8 rounded-2xl bg-background border border-border text-center"
-                      >
-                        <Quote className="w-10 h-10 text-primary/20 mx-auto mb-4" />
-                        <p className="text-foreground text-base leading-relaxed italic mb-6 max-w-2xl mx-auto">"{current.quote}"</p>
-                        <p className="text-foreground font-display font-bold text-sm">{current.name}</p>
-                        <p className="text-primary text-xs font-medium">{current.role}</p>
-                        {current.result && <p className="text-muted-foreground text-xs mt-1">{current.result}</p>}
-                        {current.isSample && <p className="text-muted-foreground/80 text-[10px] mt-2 uppercase tracking-wider">Sample testimonial</p>}
-                      </motion.div>
-                    </AnimatePresence>
-                    <div className="flex justify-center gap-3 mt-6">
-                      <button onClick={prevTestimonial} className="w-10 h-10 rounded-full border border-border hover:border-primary text-muted-foreground hover:text-primary transition-colors flex items-center justify-center" aria-label="Previous testimonial">←</button>
-                      {displayTestimonials.map((_, i) => (
-                        <button key={i} onClick={() => setTestimonialIdx(i)} className={`w-2.5 h-2.5 rounded-full transition-colors ${i === testimonialIdx % displayTestimonials.length ? 'bg-primary' : 'bg-border'}`} aria-label={`Go to testimonial ${i + 1}`} />
-                      ))}
-                      <button onClick={nextTestimonial} className="w-10 h-10 rounded-full border border-border hover:border-primary text-muted-foreground hover:text-primary transition-colors flex items-center justify-center" aria-label="Next testimonial">→</button>
-                    </div>
-                  </div>
-                );
-              })()}
-            </motion.div>
-          </div>
-        </section>
-
         {/* ═══ CITY RESULTS DASHBOARD (Tier 1 only) ═══ */}
         {(() => {
           const results = tier1ResultsData[city.slug];
@@ -888,32 +831,6 @@ const LocationPage = () => {
             </section>
           );
         })()}
-
-        {/* ═══ EVENTS & WORKSHOPS ═══ */}
-        <section className="bg-card/30 border-y border-border py-14 px-6" aria-label="Events">
-          <div className="max-w-5xl mx-auto">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <div className="flex items-center justify-center gap-3 mb-8">
-                <Calendar className="w-8 h-8 text-primary" />
-                <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl">
-                  Events & Workshops in <span className="text-gradient-gold">{city.city}</span>
-                </h2>
-              </div>
-              <div className="grid md:grid-cols-3 gap-6">
-                {events.map((event, i) => (
-                  <div key={i} className="p-6 rounded-2xl bg-background border border-border">
-                    <div className="text-primary text-xs font-semibold uppercase tracking-wider mb-2">{event.date}</div>
-                    <h3 className="text-foreground font-display font-bold text-lg mb-2">{event.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">{event.description}</p>
-                    <button onClick={openDemoModal} className="px-5 py-2.5 bg-primary text-primary-foreground font-display text-xs font-bold uppercase tracking-wider hover:scale-105 transition-transform rounded-lg">
-                      {event.ctaLabel}
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </section>
 
         {/* ═══ PARENT TRACKING ═══ */}
         <section className="max-w-5xl mx-auto px-6 py-14" aria-label="Performance tracking">

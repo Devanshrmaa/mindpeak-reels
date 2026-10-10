@@ -107,7 +107,7 @@ Having a guide makes all the difference:
 
 ## Conclusion
 
-JEE preparation requires dedication, smart work, and the right guidance. At MindPeak, we provide [personalized 1-on-1 JEE coaching](/jee-coaching) that adapts to your learning pace and style. Our students have consistently achieved top ranks in JEE by following these strategies. You can also sharpen your skills with our [free JEE Practice Questions](/jee-practice) and review [JEE Previous Year Papers](/jee-pyq).
+JEE preparation requires dedication, smart work, and the right guidance. At MindPeak, we provide [personalized 1-on-1 JEE coaching](/jee-coaching) that adapts to your learning pace and style. You can also sharpen your skills with our [free JEE Practice Questions](/jee-practice) and review [JEE Previous Year Papers](/jee-pyq).
 
 **Ready to start your JEE journey?** [Book a free trial class](/free-trial) today and speak with a dedicated JEE mentor!
 `

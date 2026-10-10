@@ -36,18 +36,12 @@ const comparisonTable = [
   { feature: 'Board Exam Support', mindpeak: '✓ Integrated board prep', kota: '✗ Separate or ignored' },
 ];
 
-const parentTestimonials = [
-  { name: 'Mrs. Sharma', city: 'Delhi', quote: 'We were planning to send our son to Kota but the thought of a 16-year-old living alone terrified us. MindPeak gave us the best of both worlds — expert coaching at home. He got AIR under 3K without leaving Delhi.' },
-  { name: 'Mr. Patel', city: 'Ahmedabad', quote: 'Our daughter\'s friend went to Kota and came back after 6 months due to mental health issues. We chose MindPeak instead. The weekly parent reports give us complete visibility. She\'s now scoring 680+ in NEET mocks.' },
-  { name: 'Mrs. Reddy', city: 'Hyderabad', quote: 'The total cost comparison convinced us. For less than half the Kota expense, our child gets a dedicated mentor. The results speak for themselves — our son improved by 180 marks in JEE mocks in just 5 months.' },
-];
-
 const faqs: FAQItem[] = [
-  { question: 'Is online coaching really as effective as Kota coaching?', answer: 'Yes — and often more effective. MindPeak\'s 1-on-1 format ensures 100% personal attention, adaptive curriculum, and real-time doubt resolution. Our students have achieved a strong rank in JEE Advanced and 98.5+ percentile in NEET — results that match or exceed Kota\'s top institutes. The key difference: in batch coaching, only a few students benefit while most are left behind. In 1-on-1 coaching, every student gets the attention they need.' },
+  { question: 'Is online coaching really as effective as Kota coaching?', answer: 'Yes — and often more effective. MindPeak\'s 1-on-1 format ensures 100% personal attention, adaptive curriculum, and real-time doubt resolution. The key difference: in batch coaching, only a few students benefit while most are left behind. In 1-on-1 coaching, every student gets the attention they need.' },
   { question: 'How do you ensure discipline without the Kota environment?', answer: 'Discipline comes from consistency, accountability, and motivation — not from a city. Your dedicated mentor conducts daily sessions (6 days/week), tracks progress through weekly analytics, and maintains accountability through regular assessments. Parents receive weekly reports. Students who feel supported and see measurable progress are naturally more disciplined than those stressed in a hostel.' },
-  { question: 'What if my child needs in-person teaching?', answer: 'Our live 1-on-1 video sessions with real-time whiteboard interaction are as close to in-person as it gets — with the added benefit that every session is recorded for revision. Studies show that 1-on-1 online learning produces equal or better outcomes than in-person batch teaching. Your child gets MORE teacher interaction per hour than they would in any Kota classroom.' },
+  { question: 'What if my child needs in-person teaching?', answer: 'Our live 1-on-1 video sessions with real-time whiteboard interaction are as close to in-person as it gets — with the added benefit that every session is recorded for revision. Research on tutoring has long found that 1-on-1 instruction outperforms classroom batch teaching (the classic reference is Benjamin Bloom\'s 1984 two-sigma study). Your child gets MORE teacher interaction per hour than they would in any Kota classroom.' },
   { question: 'How much can I save compared to Kota?', answer: 'Kota coaching costs ₹2L–₹2.5L per year (tuition ₹1.5L + hostel ₹50K-80K + food/transport). MindPeak\'s 1-year program starts at ₹1.3L all-inclusive after discount (no travel, hostel, or hidden costs). That\'s a saving of ₹70K–₹1.2L per year — while getting more personalized attention.' },
-  { question: 'Do you have students who chose MindPeak over Kota and succeeded?', answer: 'Absolutely. Many of our students were planning to go to Kota or had already been there. They switched to MindPeak and achieved comparable or better results. ' },
+  { question: 'Do you have students who chose MindPeak over Kota and succeeded?', answer: 'MindPeak is a newer institute and does not yet publish student results, so we will not make claims we cannot show you. What you can check for yourself is the teaching: book a free demo class and judge it directly.' },
 ];
 
 /* ─── page ─── */
@@ -120,10 +114,10 @@ const KotaAlternative = () => {
         <section className="bg-secondary/30 border-y border-border py-10 px-6">
           <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { value: '60%', label: 'Cheaper Than Kota' },
+              { value: '₹70K+', label: 'Saved vs Kota / Year' },
               { value: '1-on-1', label: 'Not 1:200 Batch' },
               { value: 'Home', label: 'Study From Home' },
-              { value: '95%', label: 'Success Rate' },
+              { value: 'Weekly', label: 'Parent Reports' },
             ].map((s) => (
               <div key={s.label}>
                 <div className="font-display font-black text-primary text-2xl md:text-3xl mb-1">{s.value}</div>
@@ -184,28 +178,6 @@ const KotaAlternative = () => {
               </div>
             </motion.div>
           </div>
-        </section>
-
-        {/* What Parents Say */}
-        <section className="max-w-5xl mx-auto px-6 py-20">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="font-display font-bold text-foreground text-2xl md:text-3xl mb-10">
-              What <span className="text-gradient-gold">Parents Say</span>
-            </h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {parentTestimonials.map((t, i) => (
-                <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                  className="rounded-xl border border-border bg-card p-6">
-                  <Heart className="w-6 h-6 text-primary mb-4" />
-                  <p className="text-muted-foreground text-sm leading-relaxed italic mb-4">&ldquo;{t.quote}&rdquo;</p>
-                  <div>
-                    <p className="font-display font-bold text-foreground text-sm">{t.name}</p>
-                    <p className="text-muted-foreground text-xs">{t.city}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
         </section>
 
         {/* Internal Links */}

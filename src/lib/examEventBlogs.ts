@@ -525,7 +525,7 @@ Use our [NEET Rank Predictor](/neet-rank-predictor) for a more precise estimate.
 3. Create preference lists for counselling rounds
 
 ### Need Help Improving Your Score?
-If your ${event.name} ${year} result isn't what you aimed for, MindPeak's [1-on-1 personalised coaching](/${event.coachingSlug}) helps you identify exact weak areas and build a targeted improvement plan. Our students have improved by 100-150+ marks in just 3 months of focused preparation.
+If your ${event.name} ${year} result isn't what you aimed for, MindPeak's [1-on-1 personalised coaching](/${event.coachingSlug}) helps you identify exact weak areas and build a targeted improvement plan.
 
 ## Frequently Asked Questions
 

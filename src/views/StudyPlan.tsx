@@ -1003,14 +1003,14 @@ const StudyPlan = () => {
               className="bg-gradient-to-br from-white/[0.04] to-white/[0.02] border border-border rounded-3xl p-8 md:p-10"
             >
               <h2 className="text-2xl font-bold text-foreground text-center mb-8">
-                Our <span className="text-amber-600">Track Record</span>
+                How the <span className="text-amber-600">Programme Works</span>
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 {[
-                  { value: '92%', label: 'Students improved scores', icon: TrendingUp },
-                  { value: '3000+', label: 'Students mentored', icon: Users },
-                  { value: '4.8/5', label: 'Average student rating', icon: Star },
-                  { value: '85%', label: 'Qualify in first attempt', icon: Award },
+                  { value: '1:1', label: 'Students per mentor', icon: Users },
+                  { value: 'Weekly', label: 'Mock test + analysis', icon: TrendingUp },
+                  { value: 'Weekly', label: 'Parent progress report', icon: Award },
+                  { value: 'Every class', label: 'Recorded for revision', icon: Star },
                 ].map((stat, i) => (
                   <motion.div
                     key={i}

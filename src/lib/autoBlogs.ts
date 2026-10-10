@@ -766,13 +766,6 @@ Unlike generic Pomodoro, this method is specifically designed for JEE/NEET prepa
 
 ---
 
-## 📖 Real Student Case Study
-
-**Aarav, JEE 2026 — AIR 847:**
-"In Class 11, I studied 8 hours daily but randomly. My rank was 15,000+ in mocks. My MindPeak mentor made me track my time for a week — I discovered I was spending 3 hours on easy Maths problems I already knew, and only 45 minutes on Organic Chemistry (my weakest area). After restructuring: hardest subject first (6 AM), weakest chapters get 40% of time, and I stopped studying after 9:30 PM. My mock rank jumped to under 1,000 in 4 months."
-
----
-
 ## 📋 ${month} Time Management Checklist
 
 - [ ] Create a weekly schedule with specific chapter names (not just "Physics")
@@ -951,13 +944,6 @@ Each revision strengthens the neural pathway. By R4, the concept moves from shor
 
 ---
 
-## 📖 Student Case Study
-
-**Rohan, JEE Advanced 2024 — AIR 312:**
-"I used to revise by re-reading my notes — it felt productive but I kept forgetting. My mentor introduced the 3-layer system. The game-changer was the 1-page revision sheets. Before my mock tests, I'd go through all 75 revision sheets (25 per subject) in 3 hours. My mock scores jumped from 180 to 260+ in JEE Advanced pattern within 2 months."
-
----
-
 ## 📋 ${month} Revision Checklist
 
 - [ ] Create 1-page revision sheets for 5 chapters this week
@@ -1121,13 +1107,6 @@ Make starting effortless. Instead of "Study Physics for 3 hours," start with "Op
 | Study at the same time and place daily | Change your routine every week |
 | Plan the night before (specific chapters) | Decide what to study in the morning |
 | Allow 1 "off" day per 2 weeks | Feel guilty about planned breaks |
-
----
-
-## 📖 Student Case Study
-
-**Rohan, JEE 2026 — AIR 312:**
-"My biggest problem wasn't intelligence — it was consistency. Some days I'd study 14 hours, then burn out and do nothing for 2 days. My MindPeak mentor made me commit to just 8 hours for the first month but at the SAME time every day. We used a visual streak tracker. By month 2, the habit was automatic and I naturally extended to 10-11 hours. That consistency, not intensity, got me my rank."
 
 ---
 
@@ -1299,13 +1278,6 @@ Motivation isn't a feeling — it's a system. Top rankers don't wake up motivate
 
 ---
 
-## 📖 Student Case Study
-
-**Aarav, JEE 2026 — AIR 847:**
-"October was my lowest point — my mock scores dropped for 3 weeks straight. I nearly quit. My MindPeak mentor showed me that my *chapter-wise accuracy* was actually improving — the mocks were just getting harder. That data-driven perspective kept me going. We set weekly targets instead of score targets, and my confidence rebuilt naturally."
-
----
-
 ## 📋 ${month} Motivation Checklist
 
 - [ ] Write your exam goal and pin it where you study
@@ -1465,13 +1437,6 @@ Board exam marks matter for college admissions beyond JEE/NEET. The good news: *
 | Use competitive exam knowledge as board exam advantage | Treat them as completely separate preparations |
 | Allocate board prep time based on the table above | Neglect boards entirely for competitive prep |
 | Practice previous year board papers for answer format | Assume MCQ practice is sufficient for boards |
-
----
-
-## 📖 Student Case Study
-
-**Aarav, Class 12 — 97% Boards + JEE Advanced AIR 847:**
-"Everyone told me I'd have to choose between boards and JEE. My MindPeak mentor showed me the overlap chart and we created a dual-track plan. From June to November, I focused purely on JEE concepts using NCERT as base. In December, I started board-style answer practice — just 1 hour/day writing long-form answers. By February, I could write board answers fluently because I deeply understood every concept. No extra study needed."
 
 ---
 

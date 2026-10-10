@@ -225,7 +225,7 @@ export const examRegistry: ExamConfig[] = [
       'Focus on NCERT + HC Verma (Physics), Morrison Boyd (Organic Chemistry), and RD Sharma/Arihant (Mathematics) for WBJEE.',
       'Previous 10 years\' WBJEE papers are essential — question patterns repeat frequently.',
     ],
-    whyMindPeak: `MindPeak mentors create a combined JEE Main + WBJEE strategy for West Bengal students. Since WBJEE gives 50% weightage to Mathematics, your mentor designs a math-heavy preparation plan while maintaining JEE Main balance. Our offline mock test practice ensures you're comfortable with OMR sheets, and our category-wise strategy maximizes marks from no-negative-marking questions. MindPeak students from Kolkata have consistently secured top 100 ranks in WBJEE.`,
+    whyMindPeak: `MindPeak mentors create a combined JEE Main + WBJEE strategy for West Bengal students. Since WBJEE gives 50% weightage to Mathematics, your mentor designs a math-heavy preparation plan while maintaining JEE Main balance. Our offline mock test practice ensures you're comfortable with OMR sheets, and our category-wise strategy maximizes marks from no-negative-marking questions.`,
     faqs: [
       { q: 'Is WBJEE easier than JEE Main?', a: 'Yes, WBJEE is generally easier than JEE Main. The questions are closer to CBSE board exam difficulty with some application-based problems. However, competition is fierce for top colleges like Jadavpur University, where you need 95+ percentile.' },
       { q: 'Can I get into Jadavpur University through WBJEE?', a: 'Yes, Jadavpur University admissions for engineering are primarily through WBJEE. For CS at JU, you typically need a rank within top 200-300 in WBJEE. JU is considered among the top 15 engineering colleges in India.' },
@@ -674,7 +674,7 @@ export const examRegistry: ExamConfig[] = [
       'For students also appearing for JEE Main: JEE prep covers AP EAMCET completely. Add 2 weeks of AP EAMCET mock practice.',
       'TS EAMCET preparation is nearly identical to AP EAMCET — prepare for both with the same study material.',
     ],
-    whyMindPeak: `MindPeak mentors design AP/TS EAMCET strategy alongside JEE Main preparation for Telugu-speaking students. With 50% Mathematics weightage, your mentor prioritizes math-intensive preparation while ensuring Physics and Chemistry fundamentals are strong. Our no-negative-marking strategy and timed mock tests help students attempt all 160 questions confidently. MindPeak students from Hyderabad and Vijayawada have secured top 100 ranks in AP EAMCET.`,
+    whyMindPeak: `MindPeak mentors design AP/TS EAMCET strategy alongside JEE Main preparation for Telugu-speaking students. With 50% Mathematics weightage, your mentor prioritizes math-intensive preparation while ensuring Physics and Chemistry fundamentals are strong. Our no-negative-marking strategy and timed mock tests help students attempt all 160 questions confidently.`,
     faqs: [
       { q: 'Is AP EAMCET easier than JEE Main?', a: 'Yes, AP EAMCET is easier than JEE Main. Questions are at Intermediate (AP board) to slightly above board level. The absence of negative marking makes it even more scoring.' },
       { q: 'What is the difference between AP EAMCET and TS EAMCET?', a: 'AP EAMCET is for Andhra Pradesh colleges and TS EAMCET is for Telangana colleges. The exam pattern, difficulty, and syllabus are nearly identical. Students from either state can appear for both exams.' },
@@ -805,7 +805,7 @@ export const examRegistry: ExamConfig[] = [
       'Practice TS EAMCET previous year papers — patterns overlap significantly with AP EAMCET papers too.',
       'For dual-state students: appear for both AP EAMCET and TS EAMCET for maximum college options.',
     ],
-    whyMindPeak: `MindPeak helps Hyderabad and Telangana students ace TS EAMCET alongside JEE Main preparation. With 50% Maths weightage, your mentor designs a math-focused strategy while ensuring Physics and Chemistry are solid. Our students from Hyderabad have secured top 200 ranks in TS EAMCET while simultaneously performing well in JEE Main.`,
+    whyMindPeak: `MindPeak helps Hyderabad and Telangana students ace TS EAMCET alongside JEE Main preparation. With 50% Maths weightage, your mentor designs a math-focused strategy while ensuring Physics and Chemistry are solid.`,
     faqs: [
       { q: 'Is TS EAMCET different from AP EAMCET?', a: 'The exam pattern and difficulty are nearly identical. The difference is in the colleges available — TS EAMCET covers Telangana colleges while AP EAMCET covers Andhra Pradesh colleges. Students eligible for both states can appear for both exams.' },
       { q: 'What TS EAMCET rank is needed for JNTU Hyderabad CS?', a: 'For JNTU Hyderabad (main campus) CS, you typically need top 300-500 rank. For Osmania University Engineering, top 1000. For top private colleges like CBIT, top 2000-3000.' },

@@ -151,14 +151,6 @@ export const courses: Course[] = [
       { day: 'Saturday', activity: 'IRON-MOCK DAY — Full JEE Main paper (8 AM) + 90-min post-mortem' },
       { day: 'Sunday', activity: 'Bottom-5 question rewrite + error-notebook compound review + rest' },
     ],
-    results: [
-      { label: 'Best Result Last Cycle', value: 'AIR 184 (JEE Advanced)' },
-      { label: 'Students Below AIR 5,000 (Sprint Cohort)', value: '79%' },
-      { label: 'Average JEE Main Score Lift', value: '+86 marks' },
-      { label: 'Dropper Sub-Cohort Below AIR 2,000', value: '47%' },
-      { label: 'Iron-Mocks Attempted', value: '22 / student' },
-      { label: 'Mentor Response Time (WhatsApp)', value: '<2 hours' },
-    ],
     faqs: [
       { q: `I am in Class 12 right now — is 8 months really enough to crack JEE ${CURRENT_EXAM_YEAR}?`, a: 'If the syllabus is at least 60% touched (most Class 12 students are), 8 months of daily 1-on-1 sprint is more than enough. The Final Ascent is engineered for exactly this window. The bottleneck is rarely time — it is the absence of a personalized day-by-day plan and consistent graded feedback. We solve both.' },
       { q: 'How is this different from your 1-year JEE Target program?', a: 'The 1-year program is built around a calmer pacing curve with deeper revision cycles. The Final Ascent is high-intensity from Day 1 — diagnostic-led, audit-driven, mock-heavy. If you have 8 months and the appetite for 6-7 hours of focused study per day, Final Ascent will outperform a stretched 1-year plan. If your exam target is 2028 instead, use the 1-year program.' },
@@ -238,7 +230,7 @@ export const courses: Course[] = [
       },
       {
         title: 'Parent Dashboard & Sleep Coaching',
-        content: `Parents receive weekly NCERT-coverage emails (no jargon, just "this week your child mastered: X, Y, Z; next focus: A, B"), monthly progress video, and direct quarterly mentor calls. We also coach sleep — students who hit 7.5+ hours of sleep average 32 marks higher than chronically under-slept peers in our data. Final Ascent includes a sleep-schedule design as part of Day-1 onboarding.`,
+        content: `Parents receive weekly NCERT-coverage emails (no jargon, just "this week your child mastered: X, Y, Z; next focus: A, B"), monthly progress video, and direct quarterly mentor calls. We also coach sleep, because chronically under-slept students lose marks to careless errors late in a paper. Final Ascent includes a sleep-schedule design as part of Day-1 onboarding.`,
       },
       {
         title: 'What You Get — At a Glance',
@@ -285,14 +277,6 @@ export const courses: Course[] = [
       { day: 'Friday', activity: 'Doubt Marathon + Heatmap re-routing review (1-on-1)' },
       { day: 'Saturday', activity: 'Topic-wise tests + error-notebook update' },
       { day: 'Sunday', activity: 'CBT-SIMULATOR MOCK (2 PM) + 90-min mentor post-mortem' },
-    ],
-    results: [
-      { label: 'Best NEET Score (Sprint Cohort)', value: '695/720' },
-      { label: 'Students Above 650', value: '64%' },
-      { label: 'Average Score Lift', value: '+148 marks' },
-      { label: 'Repeater Sub-Cohort Above 650', value: '51%' },
-      { label: 'Biology Average (Sprint Cohort)', value: '342/360' },
-      { label: 'Full-Length Mocks Attempted', value: '32+ / student' },
     ],
     faqs: [
       { q: `Is the NEET ${CURRENT_EXAM_YEAR} Final Ascent only for full-year students?`, a: 'It is designed for a 12-month window from May/June, but can be entered as late as August with an accelerated Phase 1. Beyond August, we recommend the 1-on-1 Crash Program instead.' },
@@ -354,7 +338,7 @@ export const courses: Course[] = [
       },
       {
         title: 'What Makes This Different from Batch Coaching?',
-        content: 'In batch coaching (Allen, Resonance, FIITJEE), you share a teacher with 100-500 students. Doubts pile up, weak topics get skipped, and the pace is fixed regardless of your needs. At MindPeak, every minute of every session is about YOU. Your mentor knows exactly where you stand on every topic and adjusts the teaching accordingly. This results in 3× faster concept clarity and 10× more doubt resolution compared to batch coaching. Our students consistently report that one MindPeak session is worth 3-4 batch lectures.',
+        content: 'In batch coaching (Allen, Resonance, FIITJEE), you share a teacher with 100-500 students. Doubts pile up, weak topics get skipped, and the pace is fixed regardless of your needs. At MindPeak, every minute of every session is about YOU. Your mentor knows exactly where you stand on every topic and adjusts the teaching accordingly. Nothing waits for the rest of a batch to catch up.',
       },
       {
         title: 'Study Material & Resources',
@@ -423,14 +407,6 @@ export const courses: Course[] = [
       { day: 'Friday', activity: 'Chemistry — Advanced Problems + Doubt Clearing (1-on-1)' },
       { day: 'Saturday', activity: 'Mathematics — Advanced Problems + Weekly Test' },
       { day: 'Sunday', activity: 'Self-study + Revision (mentor-assigned practice set)' },
-    ],
-    results: [
-      { label: 'Students Per Class', value: '1:1' },
-      { label: 'Students Below AIR 5,000', value: '95%' },
-      { label: 'Average Percentile (JEE Main)', value: '98.2+' },
-      { label: 'Mock Score Improvement', value: '10× in 6 months' },
-      { label: 'Doubt Resolution Time', value: '<4 hours' },
-      { label: 'Sessions Recorded', value: 'Every class' },
     ],
     faqs: [
       { q: 'Can I join this course mid-year?', a: 'Absolutely! Since all our classes are 1-on-1, there\'s no fixed batch start date. Your mentor will assess your current level and create a customized plan that accounts for the remaining time. Many of our top performers joined mid-session.' },
@@ -565,14 +541,6 @@ export const courses: Course[] = [
       { day: 'Saturday', activity: 'Weekly Test (50 MCQs) + Analysis with Mentor' },
       { day: 'Sunday', activity: 'Self-study + NCERT Re-reading (mentor-assigned)' },
     ],
-    results: [
-      { label: 'Best NEET Score', value: '695/720' },
-      { label: 'Students in Top 5,000 AIR', value: '92%' },
-      { label: 'Average NEET Score', value: '620+' },
-      { label: 'Biology Average Score', value: '340/360' },
-      { label: 'Doubt Resolution Time', value: '<4 hours' },
-      { label: 'NCERT Coverage', value: '100%' },
-    ],
     faqs: [
       { q: 'Is NCERT enough for NEET or do I need extra books?', a: 'NCERT is the foundation — 85-90% of NEET questions come directly from NCERT. Our program ensures 100% NCERT mastery first, then supplements with reference books (Trueman\'s, Pradeep\'s, DC Pandey) for the remaining 10-15% that tests application-level understanding.' },
       { q: 'How much Biology practice is included?', a: 'Extensive. You\'ll solve 15,000+ Biology MCQs across 28 chapters, including assertion-reason, diagram-based, and statement-based questions. Our Biology bank covers every line of NCERT and is updated with the latest NEET trends.' },
@@ -647,14 +615,6 @@ export const courses: Course[] = [
       { day: 'Saturday', activity: 'Full Mock Test + Detailed Analysis with Mentor' },
       { day: 'Sunday', activity: 'Self-study + Revision + Error Notebook Update' },
     ],
-    results: [
-      { label: 'Best JEE Advanced AIR (1-yr student)', value: 'AIR 312' },
-      { label: 'Students Below AIR 10,000', value: '88%' },
-      { label: 'Average JEE Main Percentile', value: '97.5+' },
-      { label: 'Score Improvement (avg)', value: '+120 marks' },
-      { label: 'Dropper Success Rate', value: '93%' },
-      { label: 'Parent Reports', value: 'Weekly' },
-    ],
     faqs: [
       { q: 'Can I complete the full syllabus in 1 year?', a: 'Yes — with daily 1-on-1 sessions, we cover the complete syllabus in 4-5 months. The remaining time is dedicated to revision, advanced problem-solving, and mock tests. The key advantage of 1-on-1 is that we skip topics you already know and spend extra time where you actually need it.' },
       { q: 'Is this suitable for droppers?', a: 'Absolutely. 40% of our students in this program are droppers. Your mentor will conduct a diagnostic test on Day 1, identify your gaps, and create a targeted plan that doesn\'t waste time re-teaching things you already know.' },
@@ -662,7 +622,6 @@ export const courses: Course[] = [
       { q: 'Will I get enough practice for JEE Advanced?', a: 'Yes. From Month 5 onwards, every session includes JEE Advanced-level problems. We solve 1,000+ Advanced-level problems across Physics, Chemistry, and Maths during the program, plus 15+ full-length Advanced mock tests.' },
     ],
     whyChoose: [
-      'Proven results — AIR 312 from a 1-year program student',
       'Skip what you know, focus on what you don\'t — zero wasted time',
       'Dropper-friendly — the plan is built from your previous attempt\'s error analysis',
       'Daily 1-on-1 sessions — 6× more personal attention than batch coaching',
@@ -725,14 +684,6 @@ export const courses: Course[] = [
       { day: 'Friday', activity: 'Mixed Subject Review + Doubt Marathon (1-on-1)' },
       { day: 'Saturday', activity: 'Full-length CBT Mock Test + Detailed Analysis' },
       { day: 'Sunday', activity: 'NCERT Re-reading + Error Notebook Review' },
-    ],
-    results: [
-      { label: 'Best NEET Score (1-yr student)', value: '680/720' },
-      { label: 'Students Above 600', value: '89%' },
-      { label: 'Average Score Improvement', value: '+140 marks' },
-      { label: 'Repeater Success Rate', value: '91%' },
-      { label: 'Biology Average', value: '330/360' },
-      { label: 'Mock Test Accuracy (final month)', value: '88%' },
     ],
     faqs: [
       { q: 'Can I cover the entire NEET syllabus in 1 year?', a: 'Yes. With daily 1-on-1 sessions (6 days/week), we complete syllabus coverage in 4-5 months. The remaining 7-8 months are for revision, practice, and mock tests. The personalized approach means we don\'t waste time on topics you already know.' },
@@ -804,14 +755,6 @@ export const courses: Course[] = [
       { day: 'Friday', activity: 'Revision + Doubt Clearing Marathon (2-hour session)' },
       { day: 'Saturday', activity: 'Full Subject Mock Test + Detailed Error Analysis' },
       { day: 'Sunday', activity: 'Self-Study Day — Formula Sheet Revision' },
-    ],
-    results: [
-      { label: 'Average Score Improvement', value: '+35%' },
-      { label: 'Students Above 80% Post-Crash', value: '78%' },
-      { label: 'Practice Questions Per Course', value: '1000+' },
-      { label: 'Batch Size', value: '2-5 only' },
-      { label: 'Session Duration', value: '2 hours' },
-      { label: 'Course Completion Rate', value: '96%' },
     ],
     faqs: [
       { q: 'Can I take a crash course in more than one subject?', a: 'Yes. You can enroll for multiple subjects simultaneously or sequentially. Many students take 2-3 subjects together. The fee is ₹18,000 per subject with a 10% discount for 2+ subjects.' },
@@ -888,16 +831,8 @@ export const courses: Course[] = [
       { day: 'Saturday', activity: 'Full Mock Test + Detailed Analysis Session (4 hrs)' },
       { day: 'Sunday', activity: 'Rest Day — Light Revision + Error Notebook Review' },
     ],
-    results: [
-      { label: 'Average Score Jump (4 weeks)', value: '+50 marks' },
-      { label: 'Students Achieving Target Score', value: '85%' },
-      { label: 'Mentor Contact Hours/Week', value: '21 hours' },
-      { label: 'Doubt Resolution Time', value: '<15 min' },
-      { label: 'Days to Visible Improvement', value: '7 days' },
-      { label: 'Students Per Class', value: '1:1' },
-    ],
     faqs: [
-      { q: 'Is 1-2 months really enough to improve significantly?', a: 'Yes — with 21 hours of weekly 1-on-1 contact, you cover more ground in 4 weeks than most students cover in 3 months of batch coaching. Our data shows an average improvement of 50+ marks in JEE Main and 80+ marks in NEET within 4 weeks.' },
+      { q: 'Is 1-2 months really enough to improve significantly?', a: 'Yes — with 21 hours of weekly 1-on-1 contact, you cover more ground in 4 weeks than most students cover in 3 months of batch coaching. How much that moves your score depends on where your marks are being lost; your mocks will show within the first two weeks whether it is working.' },
       { q: 'Can I choose which subjects/topics to focus on?', a: 'Absolutely. After the Day-1 diagnostic, your mentor recommends a plan, but you have full input. If you want to focus exclusively on Organic Chemistry and Mechanics, we will. Your goals drive the plan.' },
       { q: 'What if I need more than 2 months?', a: 'If your exam is further away, we recommend our full 1-year or 2-year programs which are more cost-effective for longer durations. The crash program is optimized for the final 1-2 month sprint.' },
       { q: 'How soon can I start?', a: 'Within 24-48 hours. We match you with a suitable mentor based on your exam (JEE/NEET), subject needs, and schedule. The Day-1 diagnostic happens in your first session and you\'re on track from Day 2.' },
@@ -945,7 +880,7 @@ export const courses: Course[] = [
       },
       {
         title: 'Olympiad & Competitive Exam Exposure',
-        content: 'We introduce students to Olympiad-level problems in a fun, non-intimidating way: IMO (International Math Olympiad) practice, NSO (National Science Olympiad) preparation, SOF & ASSET exam question patterns. These competitions build confidence and teach students that exams can be exciting challenges, not stressful events. Many of our students win school-level and state-level medals.',
+        content: 'We introduce students to Olympiad-level problems in a fun, non-intimidating way: IMO (International Math Olympiad) practice, NSO (National Science Olympiad) preparation, SOF & ASSET exam question patterns. These competitions build confidence and teach students that exams can be exciting challenges, not stressful events.',
       },
       {
         title: 'Fun, Engaging Teaching for Young Learners',
@@ -982,11 +917,6 @@ export const courses: Course[] = [
       'Fun, curiosity-driven teaching — not rote memorization',
       'Weekly parent progress reports with full transparency',
       'Builds a 6-year advantage over students who start in Class 11',
-    ],
-    results: [
-      { label: 'Avg School Score', value: '92%+' },
-      { label: 'Olympiad Medal Winners', value: '35+' },
-      { label: 'Sessions Recorded', value: 'Every class' },
     ],
   },
   {
@@ -1058,11 +988,6 @@ export const courses: Course[] = [
       'Olympiad preparation integrated into regular curriculum',
       'School exam scores consistently 90-95% for our students',
     ],
-    results: [
-      { label: 'Avg School Score', value: '93%+' },
-      { label: 'Study Habit Retention', value: '95%' },
-      { label: 'Olympiad Qualifiers', value: '40+' },
-    ],
   },
   {
     slug: '8th-foundation',
@@ -1132,11 +1057,6 @@ export const courses: Course[] = [
       'Direct preparation for Class 9-10 board excellence',
       'Science taught as separate Physics, Chemistry, Biology disciplines',
       'Problems solved at 2× school difficulty level',
-    ],
-    results: [
-      { label: 'Avg School Score', value: '94%+' },
-      { label: 'NTSE Scholars', value: '20+' },
-      { label: 'Multi-Concept Problem Accuracy', value: '85%' },
     ],
   },
   {
@@ -1209,11 +1129,6 @@ export const courses: Course[] = [
       'RD Sharma and HC Verma level problems introduced gradually',
       '3-year runway to JEE/NEET — the perfect starting point',
     ],
-    results: [
-      { label: 'Avg School Score', value: '93%+' },
-      { label: 'Board + Competitive Dual Prep', value: '100%' },
-      { label: 'Class 11 Transition Success', value: '97%' },
-    ],
   },
   {
     slug: '10th-foundation',
@@ -1285,11 +1200,6 @@ export const courses: Course[] = [
       '50% less stress reported by students entering Class 11 with our foundation',
       'Equally valuable for JEE, NEET, and State Board students',
     ],
-    results: [
-      { label: 'Avg Board Score', value: '95%+' },
-      { label: 'Stress Reduction in Class 11', value: '50%' },
-      { label: 'Parent Reports', value: 'Weekly' },
-    ],
   },
   // ═══════════════════════════════════════════════════
   // OTHER EXAM COURSES
@@ -1340,11 +1250,6 @@ export const courses: Course[] = [
       'BITSAT mock tests simulating the exact exam interface',
       'Personalized 1-on-1 mentoring — not lost in a batch of 200',
     ],
-    results: [
-      { label: 'Avg BITSAT Score', value: '290+' },
-      { label: 'Top Scorer', value: '340+' },
-      { label: 'BITS Pilani Admissions', value: '12+' },
-    ],
   },
   {
     slug: 'isi-entrance-target',
@@ -1392,11 +1297,6 @@ export const courses: Course[] = [
       'Same affordable fee as JEE Main program',
       'Dual ISI + JEE preparation — mathematics excellence guaranteed',
     ],
-    results: [
-      { label: 'ISI Admission Rate', value: '85%' },
-      { label: 'UGB Proof-Solving Avg', value: '5.5/8' },
-      { label: 'JEE Advanced Math Rank', value: 'Top 500' },
-    ],
   },
   {
     slug: 'olympiad-coaching',
@@ -1443,11 +1343,6 @@ export const courses: Course[] = [
       'Builds skills that give massive JEE Advanced advantage',
       'Same affordable pricing as JEE Main program',
       'Only 1-on-1 Olympiad coaching program in India at this price',
-    ],
-    results: [
-      { label: 'RMO Qualifiers', value: '25+' },
-      { label: 'INMO Selections', value: '8' },
-      { label: 'JEE Adv Mathematics Avg', value: '95+ percentile' },
     ],
   },
 ];

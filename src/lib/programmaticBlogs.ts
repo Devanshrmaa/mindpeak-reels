@@ -894,12 +894,6 @@ Ask these 5 questions before choosing coaching in ${city}:
 4. **How is progress communicated to parents?** (Weekly reports vs quarterly PTMs)
 5. **What happens if my child falls behind?** (Adaptive plan vs "keep up or drop out")
 
-## Parent Testimonials from ${city}
-
-> "We calculated the total cost of Kota vs MindPeak. After adding hostel, food, travel, and extra tutoring, Kota was 2× more expensive. MindPeak gave our son 1-on-1 attention from home. He scored AIR 234." — *Parent, ${city}*
-
-> "The weekly reports alone are worth the investment. No coaching centre in ${city} gave us this level of visibility into our child's progress." — *Parent, ${city}*
-
 ## FAQs
 
 **Q: Is MindPeak cheaper than batch coaching in ${city}?**
@@ -968,9 +962,7 @@ This guide is based on MindPeak's experience coaching 2,300+ students and intera
 
 ### 1. The Right Teaching Format Matters More Than Brand Name
 
-Research consistently shows that **1-on-1 coaching outperforms batch coaching** for 90% of students. The reason is simple: every student has different strengths, weaknesses, and learning speeds. A batch class optimises for the average student — leaving both struggling and advanced students underserved.
-
-**Data point:** MindPeak students who switched from batch coaching saw an average 150+ marks improvement within 3 months. The single biggest factor? Personalised attention.
+Research on tutoring has long found that **1-on-1 instruction outperforms classroom teaching** (Benjamin Bloom's 1984 "2 sigma" study is the classic reference). The reason is simple: every student has different strengths, weaknesses, and learning speeds. A batch class optimises for the average student — leaving both struggling and advanced students underserved.
 
 ### 2. Transparent Progress Tracking Is Non-Negotiable
 
@@ -1130,7 +1122,7 @@ This isn't a sponsored list. We evaluated coaching options in ${city} based on 6
 - **Fee:** ₹${seededInt(seed, 100, 180)}K-${seededInt(seed + 1, 200, 350)}K/year
 - **Pros:** Established brand, competitive environment, structured syllabus
 - **Cons:** Zero personalisation, crowded doubt sessions, fixed schedule, high dropout rates
-- **Best for:** Top 5-10% of students who thrive independently in competitive settings
+- **Best for:** Students who thrive independently in competitive settings
 
 ### Option 2: Small Batch / Boutique Centres
 **Examples:** Local coaching centres in ${city}
@@ -1195,15 +1187,6 @@ If you don't know how your child is performing week-by-week, you can't intervene
 5. **No commute** — Save 2-3 hours daily for actual study
 6. **Format** — every class is 1-on-1 with a dedicated mentor, and every session is recorded
 
-## Verified Results
-
-| Metric | Value | Context |
-|---|---|---|
-| Best Rank | a strong rank | JEE Advanced 2024 |
-| Selection Rate | 95% | Across all cohorts |
-| Avg. Improvement | 150+ marks | Within first 3 months |
-| Student Satisfaction |  | Based on student surveys |
-
 ## FAQs
 
 **Q: Which is the best coaching for ${exam} in ${city}?**
@@ -1213,7 +1196,7 @@ A: It depends on your child's needs. For personalised attention and guaranteed a
 A: Online 1-on-1 coaching (like MindPeak) is highly effective — it offers more personal attention than any physical centre. Online batch coaching effectiveness depends on student self-discipline.
 
 **Q: How do coaching results in ${city} compare with Kota?**
-A: Kota's top batches have excellent results, but those are selective (students were already strong). For the average student, personalised 1-on-1 coaching from ${city} produces better outcomes than a regular Kota batch.
+A: Kota's top batches have excellent results, but those are selective (students were already strong). For the average student, the relevant comparison is a regular Kota batch, not the toppers' batch — and that is where personalised 1-on-1 coaching from ${city} differs most.
 
 **Q: Can my child switch coaching mid-year?**
 A: Yes. MindPeak has no batch constraints. We create a customised catch-up plan from your child's current level.
@@ -1398,8 +1381,6 @@ Our approach to building 99th percentile scorers:
 5. **Mock Test Strategy** — Personalised test-taking strategy based on your strengths
 6. **Emotional Support** — Mentors recognise burnout and adjust intensity accordingly
 
-**Result:** 95% of MindPeak students achieve their target improvement. Multiple students have reached 99+ percentile from starting scores below 80th percentile.
-
 ## FAQs
 
 **Q: How long does it take to go from 90th to 99th percentile?**
@@ -1548,14 +1529,6 @@ The "Kota" brand includes everything from world-class top batches (for scholarsh
 - Mental health and family support are priorities
 - You prefer lower total cost with better ROI
 - Your child performs better with 1-on-1 guidance
-
-## What ${city} Parents Say
-
-> "We visited Kota and saw 80 students in a classroom. Our son was shy and would never ask questions there. MindPeak's 1-on-1 format was perfect — his mentor knows his every weakness." — *Parent, ${city}*
-
-> "The weekly reports were a game-changer. We knew within 2 weeks that our daughter needed extra focus on Organic Chemistry. In Kota, we wouldn't have known until the PTM 3 months later." — *Parent, ${city}*
-
-> "We saved ₹2.5 lakhs by choosing MindPeak over Kota. Our son scored AIR under 500. The quality of teaching was better because it was personalised." — *Parent, ${city}*
 
 ## FAQs
 

@@ -9,14 +9,13 @@ the weekly loop without depending on a long-lived chat session's context. Update
 ## Context in one paragraph
 
 `mindpeakinstitute.com` was hit by the March 2026 Google spam update (scaled doorway
-content) and collapsed from ~110 clicks/day to ~1. Recovery work through July 2026
-removed the scaled-content surfaces (641 thin blog posts noindexed, doorways 410'd/301'd),
-removed every fabricated trust signal (fake review markup, invented student ranks,
-auto-incrementing stats), rebuilt the sitemap as an honest segmented index, added
-FAQ/BlogPosting schema, shipped six core service pages, and unlocked previously orphaned
-NEET PYQ hubs. Impressions are recovering (≈92 → 262/week through mid-July); clicks lag
-because average position is still ~25–31. **The remaining bottleneck is domain trust and
-time, not code.**
+content and fabricated trust signals) and collapsed from ~110 clicks/day to ~1. Recovery
+work removed the scaled-content surfaces, rebuilt the sitemap as an honest segmented index
+and fixed on-page defects. **Ranking has recovered**: in the 28 days to 2026-09-08 the site
+earned 464 clicks from 48,940 impressions at an average position of 8.8 (prior 28 days:
+45 clicks, 1,387 impressions, position 35.2). The constraint is now **click-through and
+trust**: CTR is ~0.95%, and on 2026-10-10 a crawl found fabricated results still live on
+~40 indexed pages (see Last run) — the same class of signal the penalty punished.
 
 ## Non-negotiable rules (also in CLAUDE.md)
 
@@ -25,7 +24,11 @@ time, not code.**
    content releases. Fake freshness contributed to the penalty.
 3. No thin/templated pages added to the sitemap. New URLs need genuine unique content.
 4. **Never fabricate** student results, ranks, testimonials, review counts, or stats.
-   The owner has confirmed there are no publishable verified results yet.
+   The owner has confirmed there are no publishable verified results yet. That includes
+   *softer* forms the earlier cleanups missed: "a strong rank", "our results prove…",
+   "students who switch report N marks improvement", stat tiles that split "95%" from
+   "Selection Rate", and any sentence claiming results were "verified" or "consented".
+   `src/test/no-fabricated-claims.test.ts` PART 3 enforces these over everything served.
 5. Verify before pushing: `npx vitest run`, `npx tsc --noEmit`, and a live dev render of
    whatever changed.
 6. Work on branch `claude/service-account-credentials-u2rh5j`, restarted from
@@ -34,7 +37,9 @@ time, not code.**
 ## Each run
 
 1. **Data (optional).** If a GSC service-account JSON is available (env var
-   `GSC_SA_JSON`, or a path in `GSC_SA_JSON_PATH`), mint a token and pull
+   `GSC_SA_JSON`, or a path in `GSC_SA_JSON_PATH`) — it must be set in the cloud
+   environment's settings, not pasted into chat, or it is lost on every container
+   recycle — mint a token and pull
    week-over-week: daily clicks/impressions, top queries/pages, striking-distance
    movers (position 5–30). If no credentials are available, **say so plainly in the
    report and continue** with the next queued item below — the loop must not stall on
@@ -49,38 +54,68 @@ time, not code.**
 
 ## Priority queue (work top-down)
 
-1. **Enrich NEET PYQ chapter hubs.** `src/data/neet-pyq/chapterEnrichments.ts` has
-   editorial enrichment for only 5 of 69 chapters. Enriched chapters are automatically
-   promoted into `/sitemap-pyq.xml` by `getNeetPyqHubPaths()`, so enrichment *is* the
-   indexing mechanism. Prioritise chapters with GSC impressions — observed so far:
-   reproductive-health, cell-division, haloalkanes, human-physiology topics.
-2. **JEE PYQ hub indexing.** `/jee-pyq-<subject>-<chapter>` hubs render real content but
-   have no branch in `src/lib/resolveSlugMetadata.ts`, so they hit the `noindex`
-   fallback with a junk auto-generated title. Mirror the NEET hub branches, then promote
-   into the sitemap tranche once titles/content are verified.
-3. **Original-data counselling cluster.** Only 2 counselling pages exist against a rich
-   template. Build genuinely original assets from the repo's own 757 JEE + 1,578 NEET
-   PYQ banks (e.g. chapter-weightage-by-year analyses) plus public JoSAA/MCC data —
-   citable content no competitor publishes.
-4. **Dead-code cleanup.** `src/views/HomeRedesign.tsx`, `src/views/Index.tsx` and their
-   `home-redesign/`, `sections/`, `storytelling/` components still contain fabricated
-   rank claims ("AIR 42", named testimonials). They are imported by **no route** (verified
-   2026-07-18), so they are not served — but they should be deleted so the claims cannot
-   be revived by accident.
+1. **IIT/AIIMS credential claims — blocked on the owner.** ~170 mentions on ~30 live
+   pages (homepage, `app/layout.tsx` default metadata, Pricing, Contact, `/mentors`,
+   city JSON-LD) say mentors are "IIT/AIIMS alumni", and one URL is built on it
+   (`/jee-mentorship-by-iitians`). `src/data/authorData.ts` — the user-confirmed faculty
+   list — records degrees but **no institution for anyone**. Do not touch until the owner
+   answers. If none are IIT/AIIMS alumni: remove sitewide and decide the URL's fate. If
+   some are: record `institution` in `authorData.ts` and rewrite the claims to name only
+   those people.
+2. **Measure #266 and #270 (needs GSC).** #266 rewrote the 147 chapter meta descriptions
+   (live 2026-09-09). #270 fixed mid-word-truncated descriptions on 170 URLs and dropped
+   the brand suffix from overlong blog titles (live 2026-09-12). Baseline for the 170
+   pages, 28d to 2026-09-08: 13,331 impressions, 74 clicks, 0.56% CTR (site 0.95%).
+   Read them separately — they touch different pages.
+3. **Enrich NEET PYQ chapter hubs.** Still 5 of 69 chapters in
+   `src/data/neet-pyq/chapterEnrichments.ts` (unchanged since July). Enrichment *is* the
+   indexing mechanism: enriched chapters are promoted into `/sitemap-pyq.xml` by
+   `getNeetPyqHubPaths()`. Prioritise chapters with GSC impressions.
+4. **Answer the question the chapter pages actually rank for.** Query data shows the
+   high-impression chapter pages rank for questions — "is rotational motion hard" (25/wk),
+   "can i skip complex numbers for jee mains" (12/wk) — that their descriptions and copy
+   never address. Do this after #266 has data, so the two changes are not confounded.
+5. **Original-data counselling cluster.** Still only 2 counselling pages. Build citable
+   assets from the repo's own question banks (756 JEE + 1,556 NEET PYQs) plus public
+   JoSAA/MCC data.
+6. **Delete the dead Vite tree — ask first.** `src/views/Index.tsx`, `HomeRedesign.tsx`
+   and `components/{home-redesign,sections,storytelling}/` are not reachable from any
+   Next.js route and still hold old fabricated claims (named students, "a strong rank").
+   But `index.html` → `src/main.tsx` → `Index.tsx` is live Vite config, and the owner
+   uses Lovable; confirm Lovable does not depend on it before deleting.
 
 ## Owner actions (blockers the loop cannot do)
 
-- **GSC → Security & Manual Actions check.** No API exists. Still unconfirmed; this is
-  the highest-stakes unknown in the recovery.
-- **Rotate the GSC service-account key** (it was shared in plaintext) and store the new
-  key as an environment variable so the loop keeps working from fresh sessions.
-- **Backlinks.** `seo-reports/outreach-targets.json` is mostly pay-to-play (award mills,
-  paid PR wires, paid directories) and the owner has no budget — skip those. Free routes:
-  guest posts (futuretopper.in, edustoke.com, examcharcha.in), Google Business Profile,
-  Bing Places, Startup India / MSME listing, genuine Quora/Reddit answers.
+- **Rotate the GSC service-account key and store it as an environment variable.** The
+  key (`private_key_id 00952f4f…`) has been pasted into chat in plaintext more than once.
+  Rotate it in Google Cloud, then add the new JSON in this cloud environment's settings
+  as `GSC_SA_JSON` so fresh sessions — including this weekly loop — can read it.
+- **Answer the IIT/AIIMS question** (queue item 1).
+- **GSC → Security & Manual Actions check.** No API exists; still unconfirmed.
+- **Request Indexing** in GSC for `/one-to-one-jee-coaching` and `/neet-cbt-2027-guide`.
+- **Two smaller facts to confirm:** city pages show "MindPeak Students Across <city> —
+  students from these localities"; and `authorData.ts` has near-duplicate entries
+  (Devansh *MBBS* vs Devansh Sharma *BDS*; Muskan *MDS* vs Muskan Singla, no degree).
+- **Backlinks.** Free routes only (the owner has no budget): guest posts
+  (futuretopper.in, edustoke.com, examcharcha.in), Google Business Profile, Bing Places,
+  Startup India / MSME listing, genuine Quora/Reddit answers. Skip the pay-to-play
+  targets in `seo-reports/outreach-targets.json`.
 
 ## Last run
 
+- **2026-10-10** — No GSC data (no credentials in the environment), so no trend this run.
+  **Loop health:** this routine fired every Monday from 2026-07-27 to 2026-10-05 and
+  reported success, but opened no PR and never updated this file — the queue above was
+  eleven weeks stale. Shipped (manual session): a crawl of production found fabricated
+  results live on ~40 indexed pages that the existing guard could not see — eight
+  "Verified … Student Outcomes" sections claiming NTA-scorecard verification "with
+  student consent" over invented ranks attributed to real faculty; ~25 "a strong rank"
+  remnants of an earlier find-and-replace; templated fake testimonials on all 147 chapter
+  pages and the city pages; invented results blocks on all 16 course pages; per-city
+  "Avg. Marks Improvement" figures seeded from a hash of the slug; "95% Success Rate"
+  tiles on /courses, /free-trial and others; an invented faculty member on /mentors.
+  All removed or replaced with programme facts; added PART 3 to the guard test (claim
+  *classes* over the served import graph) and confirmed it fails on the old code.
 - **2026-07-21** — Trend: impressions 92 → 195 → 262/week (best yet), avg position ~31.
   Shipped: NSEP/NSEC/IMO-specific FAQs on the olympiad comparison (biggest
   striking-distance cluster, ~10 queries at position 13–30), plus SERP title fitting
