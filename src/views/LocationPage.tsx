@@ -1165,6 +1165,8 @@ const LocationPage = () => {
             © {new Date().getFullYear()} MindPeak Institute. Personalized 1-on-1 {examLabel} Coaching in {city.city}, {city.state}.
           </p>
           <div className="flex justify-center gap-4 text-xs">
+            <Link to="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</Link>
+            <span className="text-border">|</span>
             <Link to="/terms-and-conditions" className="text-muted-foreground hover:text-primary transition-colors">Terms & Conditions</Link>
             <span className="text-border">|</span>
             <Link to="/refund-policy" className="text-muted-foreground hover:text-primary transition-colors">Refund Policy</Link>

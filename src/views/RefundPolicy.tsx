@@ -3,9 +3,11 @@
 import { Navbar } from '@/components/sections/Navbar';
 import { Link } from '@/components/RouterLink';
 import { ArrowLeft } from 'lucide-react';
+import { PageFooter } from '@/components/PageFooter';
 
 const RefundPolicy = () => {
   return (
+    <>
     <main className="bg-background min-h-screen">
       <Navbar />
       <div className="max-w-3xl mx-auto px-6 pt-28 pb-16">
@@ -54,6 +56,8 @@ const RefundPolicy = () => {
         </div>
       </div>
     </main>
+    <PageFooter />
+    </>
   );
 };
 

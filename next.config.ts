@@ -162,7 +162,6 @@ const nextConfig: NextConfig = {
       { source: '/booking', destination: '/free-trial', permanent: true },
 
       /* ── Legacy legal/policy pages ── */
-      { source: '/privacy-policy', destination: '/terms-and-conditions', permanent: true },
       { source: '/disclaimer', destination: '/terms-and-conditions', permanent: true },
 
       /* ── Legacy content pages → nearest equivalent ── */
