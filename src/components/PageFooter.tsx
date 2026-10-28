@@ -1,22 +1,36 @@
 import { Link } from '@/components/RouterLink';
-import { Instagram, Facebook, Linkedin, Twitter, MessageCircle } from 'lucide-react';
+import { Instagram, Facebook, Linkedin, Twitter, Youtube, MessageCircle, Phone, Mail, MapPin, Clock, ArrowRight } from 'lucide-react';
 const logo = '/images/logo.jpeg';
-import { jeeRelatedLinks, neetRelatedLinks, RelatedPages } from './RelatedPages';
+import { jeeRelatedLinks, neetRelatedLinks } from './RelatedPages';
 import { stateHubs } from '@/data/stateHubData';
+import { BRAND_FACTS } from '@/data/brandFaqData';
 
 const socialLinks = [
   { icon: Instagram, href: 'https://instagram.com/mindpeakinstitute', label: 'Instagram' },
+  { icon: Youtube, href: 'https://www.youtube.com/@mindpeakinstitute', label: 'YouTube' },
   { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61584805776923', label: 'Facebook' },
   { icon: Linkedin, href: 'https://www.linkedin.com/company/mindpeak-institute/', label: 'LinkedIn' },
   { icon: Twitter, href: 'https://x.com/mindpeakins', label: 'X / Twitter' },
   { icon: MessageCircle, href: 'https://wa.me/918219457704?text=Hello!!%20MindPeak%20Institute', label: 'WhatsApp' },
 ];
 
+const legalLinks = [
+  { label: 'Privacy Policy', to: '/privacy-policy' },
+  { label: 'Terms & Conditions', to: '/terms-and-conditions' },
+  { label: 'Refund Policy', to: '/refund-policy' },
+];
+
 type SectionLink = { label: string; to: string };
 type FooterSectionData = { title: string; links: SectionLink[] };
 
-/* Static footer sections — no question data needed */
-const STATIC_SECTIONS: FooterSectionData[] = [
+/* Chapter guides — the same pages the old "Explore More Pages" block linked,
+ * kept so the footer's site-wide crawl paths don't shrink. */
+const chapterGuideLinks: SectionLink[] = [...jeeRelatedLinks, ...neetRelatedLinks]
+  .filter((l) => l.tag === 'Chapter')
+  .map((l) => ({ label: l.label, to: l.href }));
+
+/* Main link columns — static, no question data needed */
+const PRIMARY_SECTIONS: FooterSectionData[] = [
   {
     title: 'JEE Preparation',
     links: [
@@ -87,41 +101,30 @@ const STATIC_SECTIONS: FooterSectionData[] = [
       { label: 'NEET Chemistry Formulas', to: '/neet-chemistry-formulas' },
     ],
   },
+  { title: 'Chapter Guides', links: chapterGuideLinks },
   {
-    title: 'Quick Links',
+    title: 'Courses & Plans',
     links: [
-      { label: 'About MindPeak Institute', to: '/about' },
-      { label: 'MindPeak Institute FAQ', to: '/mindpeak-institute-faq' },
+      { label: 'All Courses', to: '/courses' },
+      { label: 'Pricing & Plans', to: '/pricing' },
+      { label: 'Free Trial Class', to: '/free-trial' },
+      { label: 'Free Study Plan', to: '/study-plan' },
       { label: '1-on-1 Exam Mentorship', to: '/one-to-one-exam-mentorship' },
       { label: 'How to Choose a 1-on-1 Mentor', to: '/how-to-choose-a-1-on-1-mentor' },
-      { label: 'Courses', to: '/courses' },
-      { label: 'Free Trial', to: '/free-trial' },
-      { label: 'Pricing', to: '/pricing' },
-      { label: 'Study Plan', to: '/study-plan' },
-      { label: 'Blog', to: '/blog' },
-      { label: 'Contact', to: '/contact' },
-      { label: 'Kota Alternative', to: '/kota-coaching-alternative' },
-      { label: 'Online vs Offline', to: '/online-vs-offline-jee-coaching' },
+      { label: 'Kota Coaching Alternative', to: '/kota-coaching-alternative' },
     ],
   },
-];
-
-const importantLinks = [
-  { label: 'Home', to: '/' },
-  { label: 'JEE Coaching', to: '/jee-coaching' },
-  { label: 'NEET Coaching', to: '/neet-coaching' },
-  { label: 'BITSAT Coaching', to: '/bitsat-coaching' },
-  { label: 'CUET Coaching', to: '/cuet-coaching' },
-  { label: 'Courses', to: '/courses' },
-  { label: 'Pricing', to: '/pricing' },
-  { label: 'Free Trial', to: '/free-trial' },
-  { label: 'Kota Alternative', to: '/kota-coaching-alternative' },
-  { label: 'JEE Rank Predictor', to: '/jee-rank-predictor' },
-  { label: 'NEET Rank Predictor', to: '/neet-rank-predictor' },
-  { label: 'Blog', to: '/blog' },
-  { label: 'Contact', to: '/contact' },
-  { label: 'Terms & Conditions', to: '/terms-and-conditions' },
-  { label: 'Refund Policy', to: '/refund-policy' },
+  {
+    title: 'About MindPeak',
+    links: [
+      { label: 'About MindPeak Institute', to: '/about' },
+      { label: 'Meet the Mentors', to: '/mentors' },
+      { label: 'Teaching Methodology', to: '/methodology' },
+      { label: 'MindPeak Institute FAQ', to: '/mindpeak-institute-faq' },
+      { label: 'Blog', to: '/blog' },
+      { label: 'Contact Us', to: '/contact' },
+    ],
+  },
 ];
 
 /* ── T1 city JEE coaching links (hand-curated, indexed pages) ── */
@@ -179,13 +182,26 @@ const comparisonLinks = [
   { label: 'Batch vs Personal Coaching', to: '/batch-vs-personal-coaching' },
 ];
 
-const FooterSection = ({ title, links }: { title: string; links: { label: string; to: string }[] }) => (
+/* Location + comparison directory — kept in full for crawl paths, but shown
+ * below the main columns at a quieter size so it doesn't swamp them. */
+const DIRECTORY_SECTIONS: FooterSectionData[] = [
+  { title: 'JEE Coaching by City', links: jeeCoachingCityLinks },
+  { title: 'NEET Coaching by City', links: neetCoachingCityLinks },
+  { title: 'JEE Coaching by State', links: jeeStateHubLinks },
+  { title: 'NEET Coaching by State', links: neetStateHubLinks },
+  { title: 'Compare Coaching', links: comparisonLinks },
+];
+
+const FooterSection = ({ title, links, compact }: FooterSectionData & { compact?: boolean }) => (
   <div>
     <h3 className="font-display font-bold text-foreground text-xs uppercase tracking-[0.15em] mb-3">{title}</h3>
-    <ul className="space-y-2">
+    <ul className={compact ? 'space-y-2' : 'space-y-2.5'}>
       {links.map((l) => (
         <li key={l.to}>
-          <Link to={l.to} className="text-muted-foreground text-xs hover:text-primary transition-colors">
+          <Link
+            to={l.to}
+            className={`text-muted-foreground hover:text-primary transition-colors leading-snug ${compact ? 'text-xs' : 'text-[13px]'}`}
+          >
             {l.label}
           </Link>
         </li>
@@ -194,85 +210,102 @@ const FooterSection = ({ title, links }: { title: string; links: { label: string
   </div>
 );
 
-export const PageFooter = ({ extra }: { extra?: string }) => {
-  /* Use static sections only — no links to noindexed individual question pages */
-  const footerSections = STATIC_SECTIONS;
+const contactRow = 'flex items-start gap-2.5 text-muted-foreground text-[13px] leading-snug';
+const contactIcon = 'w-4 h-4 mt-px shrink-0 text-primary';
 
-  return (
-  <footer className="bg-background border-t border-border py-10 px-6" role="contentinfo">
-    <div className="max-w-5xl mx-auto">
-      {/* Logo & Tagline */}
-      <div className="flex flex-col items-center gap-4 mb-8">
-        <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="MindPeak Institute" className="w-10 h-10 rounded-full" width={40} height={40} loading="lazy" />
-          <span className="font-display font-bold text-foreground text-lg tracking-wide">MINDPEAK</span>
-        </Link>
-        <p className="text-muted-foreground text-sm text-center max-w-md">
-          Personalized 1-on-1 JEE &amp; NEET Coaching — Transforming Aspirants into Achievers.
-        </p>
-      </div>
-
-      {/* Categorized Links */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 max-w-5xl mx-auto">
-        {footerSections.map((section) => (
-          <FooterSection key={section.title} title={section.title} links={section.links} />
-        ))}
-        <FooterSection title="JEE Coaching by City" links={jeeCoachingCityLinks} />
-        <FooterSection title="NEET Coaching by City" links={neetCoachingCityLinks} />
-        <FooterSection title="JEE Coaching by State" links={jeeStateHubLinks} />
-        <FooterSection title="NEET Coaching by State" links={neetStateHubLinks} />
-        <FooterSection title="Compare Coaching" links={comparisonLinks} />
-        <div>
-          <h3 className="font-display font-bold text-foreground text-xs uppercase tracking-[0.15em] mb-3">Important Links</h3>
-          <ul className="space-y-2">
-            {importantLinks.map((l) => (
-              <li key={l.to}>
-                <Link to={l.to} className="text-muted-foreground text-xs hover:text-primary transition-colors">
-                  {l.label}
-                </Link>
+export const PageFooter = ({ extra }: { extra?: string }) => (
+  <footer className="bg-background border-t border-border" role="contentinfo">
+    <div className="max-w-6xl mx-auto px-6 pt-12 pb-10">
+      <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,2.75fr)] lg:gap-12">
+        {/* Brand, CTA & contact details */}
+        <div className="space-y-5">
+          <Link to="/" className="inline-flex items-center gap-3">
+            <img src={logo} alt="MindPeak Institute" className="w-10 h-10 rounded-full" width={40} height={40} loading="lazy" />
+            <span className="font-display font-bold text-foreground text-lg tracking-wide">MINDPEAK</span>
+          </Link>
+          <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
+            Personalized 1-on-1 JEE &amp; NEET Coaching — Transforming Aspirants into Achievers.
+          </p>
+          <Link
+            to="/free-trial"
+            className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
+          >
+            Book a Free Demo Class <ArrowRight className="w-4 h-4" aria-hidden />
+          </Link>
+          <ul className="space-y-2.5">
+            <li>
+              <a href={`tel:${BRAND_FACTS.phone.replace(/\s/g, '')}`} className={`${contactRow} hover:text-primary transition-colors`}>
+                <Phone className={contactIcon} aria-hidden /> {BRAND_FACTS.phone}
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${BRAND_FACTS.email}`} className={`${contactRow} hover:text-primary transition-colors break-all`}>
+                <Mail className={contactIcon} aria-hidden /> {BRAND_FACTS.email}
+              </a>
+            </li>
+            <li className={contactRow}>
+              <MapPin className={contactIcon} aria-hidden /> <address className="not-italic">{BRAND_FACTS.address}</address>
+            </li>
+            <li className={contactRow}>
+              <Clock className={contactIcon} aria-hidden /> {BRAND_FACTS.hours}
+            </li>
+          </ul>
+          <ul className="flex flex-wrap gap-2.5" aria-label="MindPeak Institute on social media">
+            {socialLinks.map((s) => (
+              <li key={s.label}>
+                <a
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary/60 transition-colors"
+                >
+                  <s.icon className="w-4 h-4" aria-hidden />
+                </a>
               </li>
             ))}
           </ul>
         </div>
-      </div>
 
-      {/* Socials */}
-      <div className="flex justify-center gap-5 mb-8">
-        {socialLinks.map((s) => (
-          <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} className="text-muted-foreground hover:text-primary transition-colors">
-            <s.icon className="w-5 h-5" />
-          </a>
-        ))}
-      </div>
-
-      {/* Legal */}
-      <div className="flex flex-col items-center gap-3 text-xs text-muted-foreground tracking-wider">
-        <div className="flex items-center gap-4">
-          <Link to="/terms-and-conditions" className="hover:text-primary transition-colors">Terms &amp; Conditions</Link>
-          <span className="text-border">|</span>
-          <Link to="/refund-policy" className="hover:text-primary transition-colors">Refund Policy</Link>
+        {/* Main link columns */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-9">
+          {PRIMARY_SECTIONS.map((section) => (
+            <FooterSection key={section.title} title={section.title} links={section.links} />
+          ))}
         </div>
-        <p>© {new Date().getFullYear()} MindPeak Institute. All rights reserved.{extra ? ` ${extra}` : ''}</p>
       </div>
 
-      {/* Related Pages (compact) */}
-      <div className="mt-8">
-        {/* Use a mix of JEE/NEET/utility links for broad relevance */}
-        <RelatedPages
-          title="Explore More Pages"
-          links={[
-            ...jeeRelatedLinks.slice(0, 3),
-            ...neetRelatedLinks.slice(0, 3),
-            { href: '/courses', label: 'All Courses', tag: 'Explore' },
-            { href: '/pricing', label: 'Pricing Plans', tag: 'Info' },
-            { href: '/blog', label: 'Blog & Tips', tag: 'Learn' },
-            { href: '/contact', label: 'Contact Us', tag: 'Help' },
-          ]}
-          columns={2}
-          variant="compact"
-        />
+      {/* Location & comparison directory */}
+      <div className="mt-12 pt-10 border-t border-border">
+        <p className="font-display font-bold text-foreground text-sm mb-6">
+          Live 1-on-1 coaching online, across India
+        </p>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-9">
+          {DIRECTORY_SECTIONS.map((section) => (
+            <FooterSection key={section.title} title={section.title} links={section.links} compact />
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {/* Bottom bar: legal links, copyright & registration.
+        pb-24 below xl keeps the fixed WhatsApp button off the legal links. */}
+    <div className="border-t border-border">
+      <div className="max-w-6xl mx-auto px-6 pt-6 pb-24 xl:pb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-xs text-muted-foreground">
+        <div className="space-y-1">
+          <p>© {new Date().getFullYear()} MindPeak Institute. All rights reserved.{extra ? ` ${extra}` : ''}</p>
+          <p>MSME registered · {BRAND_FACTS.udyam}</p>
+        </div>
+        <nav aria-label="Legal">
+          <ul className="flex flex-wrap gap-x-5 gap-y-2">
+            {legalLinks.map((l) => (
+              <li key={l.to}>
+                <Link to={l.to} className="hover:text-primary transition-colors">{l.label}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </div>
   </footer>
-  );
-};
+);

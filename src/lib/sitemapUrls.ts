@@ -149,7 +149,7 @@ export function getStaticPaths(): string[] {
     '/course/6th-foundation', '/course/7th-foundation', '/course/8th-foundation',
     '/course/9th-foundation', '/course/10th-foundation',
     '/course/bitsat-target', '/course/isi-entrance-target', '/course/olympiad-coaching',
-    // /terms-and-conditions and /refund-policy are intentionally NOT listed:
+    // /terms-and-conditions, /refund-policy and /privacy-policy are intentionally NOT listed:
     // they serve `noindex, follow`, so listing them produced "Submitted URL
     // marked noindex" errors in GSC (found in the 2026-07-18 crawl audit).
     ...examRegistry.map((e) => `/${e.slug}-coaching`),

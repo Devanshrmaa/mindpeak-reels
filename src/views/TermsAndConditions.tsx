@@ -3,9 +3,11 @@
 import { Navbar } from '@/components/sections/Navbar';
 import { Link } from '@/components/RouterLink';
 import { ArrowLeft } from 'lucide-react';
+import { PageFooter } from '@/components/PageFooter';
 
 const TermsAndConditions = () => {
   return (
+    <>
     <main className="bg-background min-h-screen">
       <Navbar />
       <div className="max-w-3xl mx-auto px-6 pt-28 pb-16">
@@ -98,7 +100,7 @@ const TermsAndConditions = () => {
 
           <section>
             <h2 className="font-display text-xl font-bold text-foreground mb-3">15. Privacy & Data Protection</h2>
-            <p>Personal data is handled in accordance with our Privacy Policy. By using the Services you consent to data collection and use as described there.</p>
+            <p>Personal data is handled in accordance with our <Link to="/privacy-policy" className="text-primary hover:underline">Privacy Policy</Link>. By using the Services you consent to data collection and use as described there.</p>
           </section>
 
           <section>
@@ -123,6 +125,8 @@ const TermsAndConditions = () => {
         </div>
       </div>
     </main>
+    <PageFooter />
+    </>
   );
 };
 
