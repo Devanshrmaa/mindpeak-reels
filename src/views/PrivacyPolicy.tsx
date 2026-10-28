@@ -7,7 +7,7 @@ import { BRAND_FACTS } from '@/data/brandFaqData';
 import { ArrowLeft, ShieldCheck } from 'lucide-react';
 
 /** Bump whenever the policy text changes — shown to readers as "Last updated". */
-const PRIVACY_POLICY_UPDATED = '28 October 2026';
+const PRIVACY_POLICY_UPDATED = '29 October 2026';
 
 const EMAIL = BRAND_FACTS.email;
 const PHONE = BRAND_FACTS.phone;
@@ -120,9 +120,9 @@ const PrivacyPolicy = () => {
                   <strong>Calls, WhatsApp and email:</strong> the details you share when you speak or write to us.
                 </li>
                 <li>
-                  <strong>Enrolment:</strong> the student&apos;s and parent or guardian&apos;s names and contact details, the student&apos;s class,
-                  target exam, preferred class timings, and the academic background and goals you share with your mentor, plus the
-                  billing details we need to issue invoices.
+                  <strong>Enrolment:</strong> the student&apos;s and parent or guardian&apos;s names and contact details, including a
+                  WhatsApp number if you opt in to WhatsApp updates, the student&apos;s class, target exam, preferred class timings, and
+                  the academic background and goals you share with your mentor, plus the billing details we need to issue invoices.
                 </li>
               </ul>
 
@@ -173,7 +173,7 @@ const PrivacyPolicy = () => {
                 <li>To deliver your classes — matching you with a mentor, scheduling sessions, and sharing recordings and study material.</li>
                 <li>To track progress and send parents or guardians weekly progress reports.</li>
                 <li>To manage fees, invoices and refunds under our Refund Policy.</li>
-                <li>To send service messages such as class reminders and schedule changes.</li>
+                <li>To send service messages such as class reminders, schedule changes and class summaries, including on WhatsApp if you have opted in.</li>
                 <li>With your consent, to tell you about new courses, test series or offers (you can opt out at any time).</li>
                 <li>To understand how visitors use our website and improve our content, using aggregated analytics.</li>
                 <li>To measure how well our advertising works.</li>
@@ -273,8 +273,14 @@ const PrivacyPolicy = () => {
                 <li>
                   <strong>Service providers who process data on our behalf</strong>, under contract and only for our purposes: Google
                   (Analytics, Ads measurement and Google Workspace, where enquiry form submissions are stored), Vercel (website hosting),
-                  the video-conferencing platform used for live classes, WhatsApp (if you choose to message us there), and banks or
-                  payment providers for fee collection.
+                  the video-conferencing platform used for live classes, WhatsApp (see below), and banks or payment providers for fee
+                  collection.
+                </li>
+                <li>
+                  <strong>Frost&amp;co</strong>, our technology provider for the WhatsApp Business Platform, and{' '}
+                  <strong>Meta Platforms (WhatsApp)</strong>, which we use to send class summaries and schedule updates to students and
+                  parents who have agreed to receive them on WhatsApp. Frost&amp;co processes this data only to deliver these messages on
+                  our behalf.
                 </li>
                 <li>
                   <strong>Government or law-enforcement authorities</strong>, when required by law or a court order, or when necessary
@@ -340,6 +346,10 @@ const PrivacyPolicy = () => {
                 new courses or offers only if you have agreed to receive them. You can opt out at any time by replying &quot;STOP&quot; on
                 WhatsApp, asking us during a call, or emailing <a href={`mailto:${EMAIL}`} className={link}>{EMAIL}</a>. Enrolled
                 students will still receive service messages about their classes.
+              </p>
+              <p className="mt-3">
+                With your consent, we send class summaries and schedule updates to your registered WhatsApp number through the WhatsApp
+                Business Platform. Reply STOP to stop these messages and START to resume them.
               </p>
             </Section>
 
